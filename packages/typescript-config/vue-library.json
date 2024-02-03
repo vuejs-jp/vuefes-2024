@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Vue Library",
+  "compilerOptions": {
+    "lib": ["es5", "dom"],
+    "module": "esnext",
+    "target": "es6",
+    "jsx": "preserve",
+    "moduleResolution": "node"
+  }
+}

@@ -1,0 +1,3 @@
+{
+  "extends": "@vuejs-jp/typescript-config/vue-library.json"
+}

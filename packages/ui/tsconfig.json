@@ -1,0 +1,8 @@
+{
+  "extends": "@vuejs-jp/typescript-config/vue-library.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": ["components"],
+  "exclude": ["node_modules", "dist"]
+}

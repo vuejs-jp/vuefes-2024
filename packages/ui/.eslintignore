@@ -1,0 +1,15 @@
+# Storybook dev/build outputs
+storybook-static
+.cache
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea

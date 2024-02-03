@@ -1,0 +1,29 @@
+{
+  "name": "@vuejs-jp/vuefes-ui",
+  "version": "0.0.0",
+  "private": true,
+  "main": "nuxt.mjs",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "lint": "eslint . --ext js,jsx,ts,tsx,vue --ignore-path .eslintignore",
+    "lint-fix": "eslint . --ext js,jsx,ts,tsx,vue --ignore-path .eslintignore --fix"
+  },
+  "devDependencies": {
+    "@nuxt/kit": "3.10.0",
+    "@storybook/addon-a11y": "7.6.12",
+    "@storybook/addon-backgrounds": "7.6.12",
+    "@storybook/addon-essentials": "7.6.12",
+    "@storybook/addon-links": "7.6.12",
+    "@storybook/builder-vite": "7.6.12",
+    "@storybook/vue3": "7.6.12",
+    "@storybook/vue3-vite": "7.6.12",
+    "@vitejs/plugin-vue": "5.0.3",
+    "@vuejs-jp/eslint-config": "workspace:*",
+    "@vuejs-jp/typescript-config": "workspace:*",
+    "storybook": "7.6.12",
+    "vue": "3.4.15",
+    "typescript": "5.3.3"
+  },
+  "type": "module"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "vuefes-2024",
+  "version": "1.0.0",
+  "description": "Vue Fes Japan 2024",
+  "author": "jiyuujin <jiyuujinunite@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "build-storybook": "turbo build-storybook",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint-fix"
+  },
+  "devDependencies": {
+    "@vuejs-jp/eslint-config": "workspace:*",
+    "@vuejs-jp/typescript-config": "workspace:*",
+    "turbo": "1.12.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "bun@1.0.25",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

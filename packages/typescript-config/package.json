@@ -1,0 +1,8 @@
+{
+  "name": "@vuejs-jp/typescript-config",
+  "version": "1.0.0",
+  "private": true,
+  "files": [
+    "vue-library.json"
+  ]
+}
