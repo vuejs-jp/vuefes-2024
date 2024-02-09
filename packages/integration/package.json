@@ -1,5 +1,5 @@
 {
-  "name": "cypress",
+  "name": "integration",
   "module": "index.ts",
   "type": "module",
   "scripts": {
