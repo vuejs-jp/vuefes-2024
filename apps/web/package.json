@@ -9,12 +9,14 @@
     "preview": "nuxt preview",
     "lint": "eslint . --ext js,jsx,ts,tsx,vue --ignore-path .eslintignore",
     "lint-fix": "eslint . --ext js,jsx,ts,tsx,vue --ignore-path .eslintignore --fix",
+    "cypress:open": "cypress open --config-file app/tests/cypress.config.ts",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "@vuejs-jp/eslint-config": "workspace:*",
     "@vuejs-jp/typescript-config": "workspace:*",
     "@vuejs-jp/vuefes-ui": "workspace:*",
+    "cypress": "13.6.4",
     "nuxt": "3.10.0"
   }
 }
