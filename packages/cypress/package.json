@@ -1,0 +1,15 @@
+{
+  "name": "cypress",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "open": "cypress open"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "cypress": "^13.6.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
