@@ -25,6 +25,6 @@ jobs:
       - name: Lint check
         run: bun lint
 
-      - name: Type Check
+      - name: Type check
         run: bun typecheck
         working-directory: app/web
