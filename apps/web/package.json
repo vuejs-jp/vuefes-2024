@@ -14,6 +14,8 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxt/types": "^2.17.3",
+    "@types/node": "18.19.0",
     "@vuejs-jp/eslint-config": "workspace:*",
     "@vuejs-jp/typescript-config": "workspace:*",
     "@vuejs-jp/vuefes-ui": "workspace:*",
