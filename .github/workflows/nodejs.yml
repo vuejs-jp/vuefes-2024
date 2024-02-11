@@ -27,4 +27,4 @@ jobs:
 
       - name: Type check
         run: bun typecheck
-        working-directory: app/web
+        working-directory: apps/web
