@@ -24,3 +24,6 @@ jobs:
 
       - name: Lint check
         run: bun lint
+
+      - name: Unit test
+        run: bun vitest
