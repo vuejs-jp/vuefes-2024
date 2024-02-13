@@ -43,3 +43,20 @@ jobs:
 
       - name: Unit test
         run: bun vitest
+
+  typecheck:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.19.0]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install packages
+        uses: ./.github/actions/install-packages
+
+      - name: Type check
+        run: bun typecheck
+        working-directory: apps/web
