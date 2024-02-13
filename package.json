@@ -12,6 +12,7 @@
     "lint:fix": "turbo lint-fix"
   },
   "devDependencies": {
+    "@nuxtjs/i18n": "^8.1.0",
     "@vuejs-jp/eslint-config": "workspace:*",
     "@vuejs-jp/typescript-config": "workspace:*",
     "turbo": "1.12.2"
@@ -23,5 +24,8 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@nuxt/content": "^2.12.0"
+  }
 }
