@@ -2,10 +2,11 @@
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "verbatimModuleSyntax": false,
     "types": [
       "@types/node",
       "@nuxt/types"
-    ]
-  }
+    ],
+  },
+  "include": ["app"],
+  "exclude": ["node_modules", "dist"]
 }
