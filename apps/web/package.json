@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@nuxt/types": "^2.17.3",
+    "@nuxtjs/i18n": "^8.1.0",
     "@types/node": "~18.19.0",
     "@vuejs-jp/eslint-config": "workspace:*",
     "@vuejs-jp/typescript-config": "workspace:*",
