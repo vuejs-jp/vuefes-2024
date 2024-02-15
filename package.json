@@ -23,8 +23,5 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "@nuxt/content": "^2.12.0"
-  }
+  ]
 }
