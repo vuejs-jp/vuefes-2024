@@ -1,10 +1,12 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
+  "globalDotEnv": [".env"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".nuxt/**", "!.nuxt/cache/**"]
+      "outputs": [".nuxt/**", "!.nuxt/cache/**"],
+      "dotEnv": [".env"]
     },
     "build-storybook": {
       "dependsOn": ["^build-storybook"],
@@ -17,6 +19,7 @@
       "dependsOn": ["^lint-fix"]
     },
     "dev": {
+      "dotEnv": [".env"],
       "cache": false,
       "persistent": true
     }
