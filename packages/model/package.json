@@ -1,0 +1,16 @@
+{
+  "name": "@vuejs-jp/model",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "lint": "eslint . --ext js,jsx,ts,tsx --ignore-path .eslintignore",
+    "lint-fix": "eslint . --ext js,jsx,ts,tsx --ignore-path .eslintignore --fix"
+  },
+  "devDependencies": {
+    "@vuejs-jp/eslint-config": "workspace:*",
+    "@vuejs-jp/typescript-config": "workspace:*",
+    "typescript": "5.3.3"
+  },
+  "type": "module"
+}
