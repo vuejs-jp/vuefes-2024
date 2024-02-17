@@ -1,0 +1,9 @@
+{
+  "extends": "@vuejs-jp/typescript-config/vue-library.json",
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
+  },
+  "include": ["lib"],
+  "exclude": ["node_modules"]
+}
