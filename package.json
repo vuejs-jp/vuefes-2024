@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@vuejs-jp/eslint-config": "workspace:*",
+    "@vuejs-jp/markuplint-config": "workspace:*",
     "@vuejs-jp/typescript-config": "workspace:*",
     "turbo": "1.12.2"
   },

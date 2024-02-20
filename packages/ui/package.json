@@ -6,8 +6,12 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "lint": "eslint . --ext js,jsx,ts,tsx,vue --ignore-path .eslintignore",
-    "lint-fix": "eslint . --ext js,jsx,ts,tsx,vue --ignore-path .eslintignore --fix"
+    "lint": "bun run eslint && bun run htmllint",
+    "lint-fix": "bun run eslint-fix && bun run htmllint-fix",
+    "eslint": "eslint . --ext js,jsx,ts,tsx,vue --ignore-path .eslintignore",
+    "eslint-fix": "eslint . --ext js,jsx,ts,tsx,vue --ignore-path .eslintignore --fix",
+    "htmllint": "markuplint \"./app/**/*.vue\" --config .markuplintrc",
+    "htmllint-fix": "markuplint \"./app/**/*.vue\" --config .markuplintrc --format"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "1.1.7",
@@ -21,6 +25,7 @@
     "@storybook/vue3-vite": "8.0.0-beta.2",
     "@vitejs/plugin-vue": "5.0.3",
     "@vuejs-jp/eslint-config": "workspace:*",
+    "@vuejs-jp/markuplint-config": "workspace:*",
     "@vuejs-jp/typescript-config": "workspace:*",
     "chromatic": "10.9.4",
     "storybook": "8.0.0-beta.2",

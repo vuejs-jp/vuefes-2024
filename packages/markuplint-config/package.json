@@ -1,0 +1,12 @@
+{
+  "name": "@vuejs-jp/markuplint-config",
+  "version": "1.0.0",
+  "private": true,
+  "files": [
+    "base.js"
+  ],
+  "devDependencies": {
+    "markuplint": "4.1.1",
+    "typescript": "5.3.3"
+  }
+}
