@@ -9,7 +9,7 @@ export default {
   },
   argTypes: {
     default: {
-      description: 'The default Vue slot',
+      description: 'The default Vue 3 slot',
       control: {
         type: 'text',
       },
