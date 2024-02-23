@@ -19,13 +19,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
+      - id: diff
+        run: echo "::set-output name=changed::$(git diff --name-only origin/${{ github.base_ref }} HEAD --relative ./packages/ui/ | wc -l)"
+    
       - name: Install packages
         uses: ./.github/actions/install-packages
+        if: ${{ steps.diff.outputs.changed != '0' }}
 
       - name: Chromatic
         uses: chromaui/action@latest
+        if: ${{ steps.diff.outputs.changed != '0' }}
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: packages/ui
