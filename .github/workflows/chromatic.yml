@@ -19,7 +19,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
+
+      - run: git fetch origin ${{ github.base_ref }} --depth=1
 
       - id: diff
         run: echo "::set-output name=changed::$(git diff --name-only origin/${{ github.base_ref }} HEAD --relative ./packages/ui/ | wc -l)"
