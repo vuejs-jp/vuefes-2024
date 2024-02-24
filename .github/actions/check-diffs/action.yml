@@ -1,0 +1,13 @@
+runs:
+  using: 'Composite'
+  steps:
+    - run: git fetch origin ${{ github.base_ref }} --depth=1
+      shell: bash
+
+    - id: diff
+      run: echo "::set-output name=changed::$(git diff --name-only origin/${{ github.base_ref }} HEAD --relative ./bun.lockb | wc -l)"
+      shell: bash
+
+    - name: Check diffs
+      run: diff <(bun bun.lockb) yarn.lock
+      shell: bash

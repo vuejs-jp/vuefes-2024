@@ -9,6 +9,22 @@ on:
       - main
 
 jobs:
+  diff:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.19.0]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install packages
+        uses: ./.github/actions/install-packages
+
+      - name: Check diffs
+        uses: ./.github/actions/check-diffs
+
   lint:
     runs-on: ubuntu-latest
 
