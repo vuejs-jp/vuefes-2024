@@ -7,12 +7,12 @@ interface SubmitButtonProps extends /* @vue-ignore */ _SubmitButtonProps {
   disabled?: boolean
 }
 interface SubmitButtonEmit {
-  (event: 'on-click'): void
+  (event: 'click'): void
 }
 const props = defineProps<SubmitButtonProps>()
 const emit = defineEmits<SubmitButtonEmit>()
 const handleClick = () => {
-  emit('on-click')
+  emit('click')
 }
 </script>
 
