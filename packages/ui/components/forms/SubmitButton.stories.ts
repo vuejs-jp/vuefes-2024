@@ -15,6 +15,12 @@ export default {
         type: 'text',
       },
     },
+    disabled: {
+      description: 'button on-off',
+      control: {
+        type: 'boolean'
+      },
+    },
   },
 }
 

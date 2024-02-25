@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { toRefs, ButtonHTMLAttributes } from 'vue'
+import { ButtonHTMLAttributes } from 'vue'
 import CssResetButton from '../CssResetButton.vue'
 
 type _SubmitButtonProps = Omit<ButtonHTMLAttributes, 'disabled' | 'onClick'>
@@ -10,7 +10,6 @@ interface SubmitButtonEmit {
   (event: 'on-click'): void
 }
 const props = defineProps<SubmitButtonProps>()
-const { disabled = false } = toRefs(props)
 const emit = defineEmits<SubmitButtonEmit>()
 const handleClick = () => {
   emit('on-click')
