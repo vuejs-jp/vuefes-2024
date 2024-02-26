@@ -3,7 +3,30 @@ export default defineNuxtConfig({
   srcDir: 'app/',
   modules: ['@vuejs-jp/vuefes-ui', '@nuxtjs/i18n', '@nuxt/content'],
   i18n: {
-    vueI18n: './i18n.config.ts',
+    legacy: false,
+    strategy: 'prefix_except_default',
+    locales: [
+      {
+        code: 'ja',
+        name: '日本語',
+        iso: 'ja',
+        file: 'ja.json'
+      },
+      {
+        code: 'en',
+        name: 'English',
+        iso: 'en',
+        file: 'en.json'
+      },
+    ],
+    lazy: true,
+    langDir: 'lang',
+    defaultLocale: 'ja',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    }
   },
   devtools: { enabled: true },
 });
