@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 const { locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 const { t } = useI18n()
