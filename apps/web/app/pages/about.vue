@@ -2,7 +2,6 @@
 const { locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 const { t } = useI18n()
-
 </script>
 
 <template>
@@ -18,12 +17,12 @@ const { t } = useI18n()
         {{ locale.name }}
       </NuxtLink>
     </div>
-    <p>{{ t('welcome') }}</p>
+    <p>{{ t('about') }}</p>
     <NuxtLinkLocale
-      to="about"
+      to="/"
       class="link"
     >
-      {{ t('about') }}
+      {{ t('home') }}
     </NuxtLinkLocale>
   </div>
 </template>
@@ -41,13 +40,15 @@ const { t } = useI18n()
 .lang__link {
   padding: 2px 8px;
   border-radius: 4px;
+  text-decoration: none;
+  color: black;
 }
 .lang__link--active {
   background-color: #555;
   color: #fff;
 }
 .link {
-  color:blue;
+  color: blue;
   text-decoration: underline;
 }
 </style>
