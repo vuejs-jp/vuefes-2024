@@ -1,1 +1,1 @@
-export type Color = 'vue-blue' | 'vue-green'
+export type Color = 'white' | 'vue-blue' | 'vue-green'
