@@ -4,10 +4,14 @@
 @import './reset.css';
 
 :root {
-  /* margin (e.g. calc(var(--unit) * 2) = 16px) */
+  /* margin
+   * e.g. calc(var(--unit) * 2) = 16px
+   */
   --unit: 8px;
 
   /* color */
+  --color-vue-blue: #35495e;
+  --color-vue-green: #42b983;
 
   /* zindex */
 }

@@ -37,9 +37,9 @@
  * 上書き戦略
  *
  * 1. まずDesktop用のものを定義する
- * 2. タブレット以下（--md-n-below）で上書き（必要な分のみ）
+ * 2. タブレット以下（--tablet）で上書き（必要な分のみ）
  *    タブレットのみ、ではなくタブレット以下で上書きをする
- * 3. 必要であればスマホ以下（--sm-n-below）で上書き
+ * 3. 必要であればスマホ以下（--mobile）で上書き
  *
  * マージンなど
  * --unitを利用して8の倍数で設定していく calc(var(--unit) * 2) = 16px 
@@ -67,7 +67,7 @@ h1 {
 }
 
 /* タブレット以下に適用 */
-@media (--md-n-below) {
+@media (--tablet) {
   .container {
     /* ローカル変数を上書き */
     --container-padding: calc(var(--unit) * 3) calc(var(--unit) * 2);
@@ -88,6 +88,6 @@ h1 {
 -->
 <style>
 html {
-  background-color: var(--blue-1);
+  background-color: var(--green-2);
 }
 </style>
