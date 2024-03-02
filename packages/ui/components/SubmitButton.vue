@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ButtonHTMLAttributes } from 'vue'
-import CssResetButton from '../CssResetButton.vue'
+import CssResetButton from './CssResetButton.vue'
 
 type _SubmitButtonProps = Omit<ButtonHTMLAttributes, 'disabled' | 'onClick'>
 interface SubmitButtonProps extends /* @vue-ignore */ _SubmitButtonProps {
