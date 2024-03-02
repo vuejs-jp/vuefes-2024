@@ -1,3 +1,5 @@
+import svgLoader from 'vite-svg-loader'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   srcDir: 'app/',
@@ -27,6 +29,13 @@ export default defineNuxtConfig({
       cookieKey: 'i18n_redirected',
       redirectOn: 'root'
     }
+  },
+  vite: {
+    plugins: [
+      svgLoader({
+        svgo: false,
+      }),
+    ],
   },
   devtools: { enabled: true },
 });

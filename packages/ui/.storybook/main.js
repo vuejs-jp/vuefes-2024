@@ -1,5 +1,6 @@
 import { mergeConfig } from 'vite'
 import turbosnap from 'vite-plugin-turbosnap'
+import svgLoader from 'vite-svg-loader'
 
 module.exports = {
   stories: ['../components/**/*.stories.mdx', '../components/**/*.stories.@(js|ts)'],
@@ -22,8 +23,8 @@ module.exports = {
     return mergeConfig(config, {
       plugins:
         configType === 'PRODUCTION'
-          ? [turbosnap({ rootDir: config.root ?? process.cwd() })]
-          : [],
+          ? [turbosnap({ rootDir: config.root ?? process.cwd() }), svgLoader({ defaultImport: 'component' })]
+          : [svgLoader({ defaultImport: 'component' })],
     })
   },
 }
