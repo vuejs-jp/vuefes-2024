@@ -12,13 +12,13 @@ export default defineNuxtConfig({
         code: 'ja',
         name: '日本語',
         iso: 'ja',
-        file: 'ja.json'
+        file: 'ja.json',
       },
       {
         code: 'en',
         name: 'English',
         iso: 'en',
-        file: 'en.json'
+        file: 'en.json',
       },
     ],
     lazy: true,
@@ -27,8 +27,8 @@ export default defineNuxtConfig({
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      redirectOn: 'root'
-    }
+      redirectOn: 'root',
+    },
   },
   vite: {
     plugins: [
@@ -38,4 +38,10 @@ export default defineNuxtConfig({
     ],
   },
   devtools: { enabled: true },
+  css: ['~/assets/base.css'],
+  postcss: {
+    plugins: {
+      'postcss-custom-media': {},
+    },
+  },
 })

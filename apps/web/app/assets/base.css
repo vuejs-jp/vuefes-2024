@@ -1,0 +1,23 @@
+/* https://open-props.style/#getting-started */
+
+@import 'open-props/style';
+@import './reset.css';
+
+:root {
+  /* margin (e.g. calc(var(--unit) * 2) = 16px) */
+  --unit: 8px;
+
+  /* color */
+
+  /* zindex */
+}
+
+ul[role='list'],
+ol[role='list'] {
+  padding-inline-start: 0;
+}
+
+html {
+  font-family: 'din-2014', 'Yu Gothic Medium', '游ゴシック体', YuGothic,
+    '游ゴシック', 'Yu Gothic', sans-serif;
+}
