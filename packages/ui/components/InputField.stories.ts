@@ -43,8 +43,8 @@ export const Error: Story = {
   },
 }
 
-export const Model: Story = {
-  name: 'Model',
+export const ModelValue: Story = {
+  name: 'ModelValue',
   render: (args) => ({
     components: { InputField },
     setup() {
@@ -57,8 +57,8 @@ export const Model: Story = {
     `,
   }),
   args: {
-    id: 'model',
-    name: 'model',
+    id: 'modelValue',
+    name: 'modelValue',
     label: 'ラベル',
   },
 }
