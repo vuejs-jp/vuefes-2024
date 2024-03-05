@@ -1,5 +1,10 @@
 module.exports = {
-  extends: ['./base.js'],
+  extends: [
+    './base.js',
+    'plugin:vue/vue3-recommended',
+    'plugin:vuejs-accessibility/recommended',
+  ],
+  plugins: ['vuejs-accessibility'],
   parser: 'vue-eslint-parser',
   rules: {
     'vue/no-v-for-template-key-on-child': 'off',
