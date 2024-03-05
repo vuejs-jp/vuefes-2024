@@ -7,7 +7,6 @@ module.exports = {
     'prettier',
   ],
   plugins: ['only-warn', 'vuejs-accessibility', '@typescript-eslint'],
-  parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
   },
