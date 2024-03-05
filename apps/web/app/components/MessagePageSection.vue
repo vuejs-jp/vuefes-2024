@@ -1,0 +1,1 @@
+<template>Message</template>
