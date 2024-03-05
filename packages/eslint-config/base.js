@@ -2,12 +2,9 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'eslint-config-turbo',
-    'plugin:vue/vue3-recommended',
-    'plugin:vuejs-accessibility/recommended',
     'prettier',
   ],
-  plugins: ['only-warn', 'vuejs-accessibility', '@typescript-eslint'],
-  parser: 'vue-eslint-parser',
+  plugins: ['only-warn', '@typescript-eslint'],
   parserOptions: {
     parser: '@typescript-eslint/parser',
   },
