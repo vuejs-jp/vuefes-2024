@@ -1,0 +1,17 @@
+node_modules
+yarn.lock
+
+*.log
+
+.nuxt
+.turbo
+.nitro
+
+nuxt.d.ts
+
+*.log*
+
+.output
+.env
+
+dist
