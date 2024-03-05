@@ -1,5 +1,7 @@
 <template>
-  <ContentDoc path="sample" />
-  <I18nSample />
-  <NuxtWelcome />
+  <TopPageSection />
+  <MessagePageSection />
+  <SponsorPageSection />
+  <FormPageSection />
+  <FooterPageSection />
 </template>

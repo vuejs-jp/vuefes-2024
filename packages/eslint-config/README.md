@@ -1,3 +1,3 @@
-# `@turbo/eslint-config`
+# `@vuejs-jp/eslint-config`
 
 Collection of internal eslint configurations.
