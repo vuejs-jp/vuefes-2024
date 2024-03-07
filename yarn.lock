@@ -4089,6 +4089,7 @@
   devDependencies:
     "@vuejs-jp/eslint-config" "packages/eslint-config"
     "@vuejs-jp/typescript-config" "packages/typescript-config"
+    ts-pattern "5.0.8"
     typescript "5.3.3"
 
 "@vuejs-jp/eslint-config@packages/eslint-config":
@@ -4138,6 +4139,7 @@
     "@storybook/vue3" "8.0.0-beta.2"
     "@storybook/vue3-vite" "8.0.0-beta.2"
     "@vitejs/plugin-vue" "5.0.3"
+    "@vuejs-jp/composable" "packages/composable"
     "@vuejs-jp/eslint-config" "packages/eslint-config"
     "@vuejs-jp/markuplint-config" "packages/markuplint-config"
     "@vuejs-jp/model" "packages/model"
