@@ -1,0 +1,4 @@
+@import 'open-props/media';
+
+@custom-media --tablet (width <= 768px);
+@custom-media --mobile (width <= 480px);
