@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref } from 'vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 import TextAreaField from './TextAreaField.vue'
 
