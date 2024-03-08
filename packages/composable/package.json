@@ -10,6 +10,7 @@
   "devDependencies": {
     "@vuejs-jp/eslint-config": "workspace:*",
     "@vuejs-jp/typescript-config": "workspace:*",
+    "ts-pattern": "5.0.8",
     "typescript": "5.3.3"
   },
   "type": "module"

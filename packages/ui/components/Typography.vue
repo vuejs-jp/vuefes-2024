@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { match } from 'ts-pattern'
 import type { Color, Typography } from '@vuejs-jp/model'
+import { useColor } from '@vuejs-jp/composable'
 
 type TypographyProps = {
   color: Color
@@ -37,16 +38,11 @@ const fontSize =
     .with('body/300', () => '1rem')
     .exhaustive()
 
-const color =
-  match<Color>(props.color)
-    .with('white', () => '#ffffff')
-    .with('vue-blue', () => '#35495e')
-    .with('vue-green', () => '#42b883')
-    .exhaustive()
+const { color: textColor } = useColor()
 </script>
 
 <template>
-  <component :is="typographyComponent" :style="{ fontWeight, fontSize, color }">
+  <component :is="typographyComponent" :style="{ fontWeight, fontSize, color: textColor(props.color) }">
     <slot />
   </component>
 </template>
