@@ -29,7 +29,7 @@ export const Default: Story = {
   args: {
     id: 'default',
     name: 'default',
-    label: 'ラベル',
+    label: 'お名前',
   },
 }
 
@@ -38,7 +38,7 @@ export const Error: Story = {
   args: {
     id: 'error',
     name: 'error',
-    label: 'ラベル',
+    label: 'お名前',
     errorMessage: 'エラーメッセージが表示されます',
   },
 }
@@ -51,14 +51,14 @@ export const ModelValue: Story = {
       const modelValue = ref<string>('init value')
       return { args, modelValue }
     },
-    template: `
+    template: `<div style="width: 400px;">
       <p>{{ modelValue }}</p>
       <InputField :="args" v-model="modelValue" />
-    `,
+    </div>`,
   }),
   args: {
     id: 'modelValue',
     name: 'modelValue',
-    label: 'ラベル',
+    label: 'お名前',
   },
 }
