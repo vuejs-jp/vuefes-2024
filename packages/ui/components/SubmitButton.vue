@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { ButtonHTMLAttributes } from 'vue'
 import CssResetButton from './CssResetButton.vue'
+import type { Color } from '@vuejs-jp/model'
+import { useColor } from '@vuejs-jp/composable'
 
 type _SubmitButtonProps = Omit<ButtonHTMLAttributes, 'disabled' | 'onClick'>
 interface SubmitButtonProps extends /* @vue-ignore */ _SubmitButtonProps {
+  backgroundColor: Color
+  color: Color
   disabled?: boolean
 }
 interface SubmitButtonEmit {
@@ -14,11 +18,14 @@ const emit = defineEmits<SubmitButtonEmit>()
 const handleClick = () => {
   emit('click')
 }
+
+const { color } = useColor()
 </script>
 
 <template>
   <CssResetButton 
     type="submit"
+    :style="{ backgroundColor: color(props.backgroundColor), color: color(props.color) }"
     class="submit-button"
     v-bind="props"
     @click="handleClick"
@@ -28,25 +35,21 @@ const handleClick = () => {
 </template>
 
 <style scoped>
-  /* TODO デザイン適用 */
 .submit-button {
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 500px;
-  height: 80px;
+  padding: 22px 66px;
   border-radius: 40px;
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
-  background: #42B983;
-  color: #FFFFFF;
 }
 
 .submit-button:disabled {
   pointer-events: none;
-  background-color: #C9DAEA;
+  background-color: #C6CACF;
 }
 </style>
