@@ -1,5 +1,7 @@
 <script setup lang='ts'>
-import { InputHTMLAttributes, InputTypeHTMLAttribute } from 'vue';
+import { InputHTMLAttributes, InputTypeHTMLAttribute } from 'vue'
+import { useColor, useTypography } from '@vuejs-jp/composable'
+import Typography from './Typography.vue'
 
 type _InputFieldProps = Omit<InputHTMLAttributes, 'onInput' | 'onBlur'>;
 interface Props extends /* @vue-ignore */ _InputFieldProps {
@@ -27,28 +29,37 @@ withDefaults(defineProps<Props>(), {
   disabled: false,
   label: '',
   errorMessage: '',
-});
+})
 
-const emit = defineEmits<Emits>();
-const modelValue = defineModel<string>();
+const emit = defineEmits<Emits>()
+const modelValue = defineModel<string>()
 
 const handleBlur = (e: Event) => {
   if (!(e.target instanceof HTMLInputElement)) {
-    return;
+    return
   }
-  emit('blur', e.target.value);
-};
+  emit('blur', e.target.value)
+}
+
+const { fontWeight, fontSize } = useTypography()
+const { color } = useColor()
 </script>
 
 <template>
   <label
     :for="id"
+    :style="{ fontWeight: fontWeight('heading/50'), fontSize: fontSize('heading/50') }"
     class="input-root"
   >
     {{ label }}
     <input
       :id="id"
       v-model.trim="modelValue"
+      :style="{
+        fontWeight: fontWeight('other/200'),
+        fontSize: fontSize('other/200'),
+        boxShadow: errorMessage ? `0 0 2px ${color('sangosyo/200')}` : `0 0 2px ${color('vue-blue')}`,
+      }"
       class="form-input"
       :name="name"
       :type="type"
@@ -56,19 +67,23 @@ const handleBlur = (e: Event) => {
       :required="required"
       :disabled="disabled"
       @blur="handleBlur"
-    >
-    <p
+    />
+    <Typography
       v-if="errorMessage"
-      class="error-message"
-    >{{ errorMessage }}</p>
+      variant="body/200"
+      color="sangosyo/200"
+    >{{ errorMessage }}</Typography>
   </label>
 </template>
 
 <style scoped>
 .input-root {
-  font-weight: bold;
-}
-.error-message {
-  color: red;
+  display: grid;
+  gap: 10px;
+  .form-input {
+    padding: 24px;
+    border: none;
+    border-radius: 6px;
+  }
 }
 </style>
