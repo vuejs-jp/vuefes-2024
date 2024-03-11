@@ -6,6 +6,8 @@ export default {
   component: SubmitButton,
   args: {
     default: 'Submit',
+    backgroundColor: 'vue-green',
+    color: 'white',
     disabled: false,
   },
   argTypes: {
@@ -30,7 +32,9 @@ const StoryTemplate: StoryFn<unknown> = (args, { argTypes }) => ({
   setup() {
     return { args }
   },
-  template: '<SubmitButton v-bind="args">{{ args.default }}</SubmitButton>',
+  template: `<div style="width: 400px;">
+    <SubmitButton v-bind="args">{{ args.default }}</SubmitButton>
+  </div>`,
 })
 
 export const Default = StoryTemplate.bind({})
