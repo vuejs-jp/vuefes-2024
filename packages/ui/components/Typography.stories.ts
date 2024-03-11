@@ -40,6 +40,12 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
     <Typography v-bind="args" variant="heading/200">
       Vue Fes Japan 2024
     </Typography>
+    <Typography v-bind="args" variant="heading/100">
+      Vue Fes Japan 2024
+    </Typography>
+    <Typography v-bind="args" variant="heading/50">
+      Vue Fes Japan 2024
+    </Typography>
     <Typography v-bind="args" variant="subtitle">
       Vue Fes Japan 2024
     </Typography>
@@ -47,6 +53,21 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
       Vue Fes Japan 2024
     </Typography>
     <Typography v-bind="args" variant="body/300">
+      Vue Fes Japan 2024
+    </Typography>
+    <Typography v-bind="args" variant="body/200">
+      Vue Fes Japan 2024
+    </Typography>
+    <Typography v-bind="args" variant="body/100">
+      Vue Fes Japan 2024
+    </Typography>
+    <Typography v-bind="args" variant="link/200">
+      Vue Fes Japan 2024
+    </Typography>
+    <Typography v-bind="args" variant="link/100">
+      Vue Fes Japan 2024
+    </Typography>
+    <Typography v-bind="args" variant="other/200">
       Vue Fes Japan 2024
     </Typography>
   </div>`,
