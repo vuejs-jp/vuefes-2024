@@ -26,7 +26,7 @@ export const Default: Story = {
   args: {
     id: 'detail',
     name: 'detail',
-    label: 'labelを設定できます',
+    label: 'お問い合わせ内容/Content',
   },
 }
 
@@ -58,10 +58,10 @@ export const vModel: Story = {
       const detail = ref<string>()
       return { args,detail }
     },
-    template: `
-    <p>親コンポーネント側のv-model値: {{ detail }}</p>
-    <TextAreaField v-model:inputted-text="detail" :="args" />
-    `,
+    template: `<div style="width: 400px;">
+      <p>親コンポーネント側のv-model値: {{ detail }}</p>
+      <TextAreaField v-model:inputted-text="detail" :="args" />
+    >/div>`,
   })
 
 }

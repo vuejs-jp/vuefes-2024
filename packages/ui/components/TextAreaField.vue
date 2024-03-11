@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useColor, useTypography } from '@vuejs-jp/composable'
+import Typography from './Typography.vue'
+
 type Props = {
   /** HTMLAttribute id */
   id: string
@@ -35,10 +38,14 @@ function handleBlur(e: Event) {
 }
 
 const inputtedText = defineModel<string>('inputtedText')
+
+const { fontWeight, fontSize } = useTypography()
+const { color } = useColor()
 </script>
 <template>
   <label
     :for="id"
+    :style="{ fontWeight: fontWeight('heading/50'), fontSize: fontSize('heading/50') }"
     class="textarea-root"
   >
     {{ label }}
@@ -46,28 +53,37 @@ const inputtedText = defineModel<string>('inputtedText')
       :id="id"
       v-model.trim="inputtedText"
       :name="name"
+      :style="{
+        fontWeight: fontWeight('other/200'),
+        fontSize: fontSize('other/200'),
+        boxShadow: errorMessage ? `0 0 2px ${color('sangosyo/200')}` : `0 0 2px ${color('vue-blue')}`,
+      }"
       class="form-textarea"
       :rows="rows"
       :placeholder="placeholder"
       :required="required"
       @blur="handleBlur"
     />
-    <p
+    <Typography
       v-if="errorMessage"
-      class="error-message"
-    >{{ errorMessage }}</p>
+      variant="body/200"
+      color="sangosyo/200"
+    >{{ errorMessage }}</Typography>
   </label>
 </template>
 
 
 <style scoped>
 .textarea-root {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
+  display: grid;
+  gap: 10px;
   .form-textarea {
-    width: 350px;
+    padding: 24px;
+    border: none;
+    border-radius: 6px;
+  }
+  .form-textarea:focus {
+    box-shadow: 0 0 2px #35495e;
   }
 }
 </style>
