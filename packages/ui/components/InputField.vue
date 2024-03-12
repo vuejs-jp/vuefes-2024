@@ -48,7 +48,7 @@ const { color } = useColor()
 <template>
   <label
     :for="id"
-    :style="{ fontWeight: fontWeight('heading/50'), fontSize: fontSize('heading/50') }"
+    :style="{ fontWeight: fontWeight('heading/100'), fontSize: fontSize('heading/100') }"
     class="input-root"
   >
     {{ label }}
