@@ -7,8 +7,15 @@ export function useColor() {
       .with('white', () => '#ffffff')
       .with('vue-blue', () => '#35495e')
       .with('vue-green', () => '#42b883')
+      .with('asagi/100', () => '#33A6B8')
+      .with('asagi/200', () => '#1A8191')
+      .with('tohou/100', () => '#FFC408')
+      .with('tohou/200', () => '#E5AF00')
+      .with('sangosyo/100', () => '#F17C67')
       .with('sangosyo/200', () => '#CC4F39')
-      .with('gray/200', () => '#C6CACF')
+      .with('hiwamoegi/100', () => '#90B44B')
+      .with('hiwamoegi/200', () => '#6E8F2E')
+      .with('gray/100', () => '#C6CACF')
       .exhaustive()
 
   return { color }
