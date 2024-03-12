@@ -61,7 +61,7 @@ export const vModel: Story = {
     template: `<div style="width: 400px;">
       <p>親コンポーネント側のv-model値: {{ detail }}</p>
       <TextAreaField v-model:inputted-text="detail" :="args" />
-    >/div>`,
+    </div>`,
   })
 
 }
