@@ -1,5 +1,14 @@
 {
   "welcome": "welcome",
   "home": "home",
-  "about": "about"
+  "about": "about",
+  "form": {
+    "title": "Contact",
+    "form_name_label": "Name",
+    "form_name_placeholder": "Taro Yamada",
+    "form_email_label": "Email",
+    "form_text_label": "Content",
+    "submit": "Submit",
+    "submit_done": "Succeeded to send the email."
+  }
 }
