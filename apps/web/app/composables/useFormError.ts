@@ -1,3 +1,5 @@
+import { ref } from 'vue'
+
 export function useFormError() {
   const nameError = ref('')
   const emailError = ref('')

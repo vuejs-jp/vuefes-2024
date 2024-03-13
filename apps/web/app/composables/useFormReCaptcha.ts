@@ -1,3 +1,5 @@
+import { useNuxtApp } from '#app'
+import { useRuntimeConfig } from '#imports'
 import { VueReCaptcha, useReCaptcha } from 'vue-recaptcha-v3'
 
 export function useFormReCaptcha() {
