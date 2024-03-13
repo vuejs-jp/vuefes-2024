@@ -5,7 +5,7 @@ export default {
   title: 'common/Typography',
   component: Typography,
   args: {
-    variant: 'heading/400',
+    variant: 'heading/800',
     color: 'vue-blue',
   },
   argTypes: {
@@ -34,6 +34,18 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
     <Typography v-bind="args">
       Vue Fes Japan 2024
     </Typography>
+    <Typography v-bind="args" variant="heading/700">
+      Vue Fes Japan 2024
+    </Typography>
+    <Typography v-bind="args" variant="heading/600">
+      Vue Fes Japan 2024
+    </Typography>
+    <Typography v-bind="args" variant="heading/500">
+      Vue Fes Japan 2024
+    </Typography>
+    <Typography v-bind="args" variant="heading/400">
+      Vue Fes Japan 2024
+    </Typography>
     <Typography v-bind="args" variant="heading/300">
       Vue Fes Japan 2024
     </Typography>
@@ -41,9 +53,6 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
       Vue Fes Japan 2024
     </Typography>
     <Typography v-bind="args" variant="heading/100">
-      Vue Fes Japan 2024
-    </Typography>
-    <Typography v-bind="args" variant="heading/50">
       Vue Fes Japan 2024
     </Typography>
     <Typography v-bind="args" variant="subtitle">
