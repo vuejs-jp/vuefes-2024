@@ -33,8 +33,10 @@
     "nuxt": "3.10.0",
     "open-props": "^1.6.21",
     "postcss-custom-media": "^10.0.3",
+    "vee-validate": "4.12.6",
     "vite-svg-loader": "5.1.0",
     "vitest": "1.2.2",
+    "vue-recaptcha-v3": "2.0.1",
     "vue-tsc": "^1.8.27"
   }
 }
