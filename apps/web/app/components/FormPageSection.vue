@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useForm } from '~/composables/useForm'
 
 const {
@@ -15,6 +16,8 @@ const {
   validateDetail,
   onSubmit,
 } = useForm()
+const { fontWeight, fontSize } = useTypography()
+const { color } = useColor()
 
 const updateName = (e: any) => {
   name.value = e.target.value
@@ -35,7 +38,14 @@ const updateDetail = (e: any) => {
           {{ $t('form.title') }}
         </VFTypography>
       </div>
-      <div class="subtitle">
+      <div
+        class="subtitle"
+        :style="{
+          fontWeight: fontWeight('body/300'),
+          fontSize: fontSize('body/300'),
+          color: color('vue-blue'),
+        }"
+      >
         <MarkDownText path="form" />
       </div>
       <div class="form">
