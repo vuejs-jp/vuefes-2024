@@ -19,7 +19,6 @@ const { color: textColor } = useColor()
 </template>
 
 <style scoped>
-/* TODO デザイン適用 */
 .text-link {
   text-decoration: underline;
   cursor: pointer;
