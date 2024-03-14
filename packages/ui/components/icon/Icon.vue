@@ -14,16 +14,16 @@ const props = defineProps<IconProps>()
 const svgComponent =
   match<IconName>(props.name)
     .with('x', () => defineAsyncComponent(
-      () => import('../assets/icon/x_logo.svg?component'),
+      () => import('../../assets/icon/x_logo.svg?component'),
     ))
     .with('note', () => defineAsyncComponent(
-      () => import('../assets/icon/note_logo.svg?component'),
+      () => import('../../assets/icon/note_logo.svg?component'),
     ))
     .with('YouTube', () => defineAsyncComponent(
-      () => import('../assets/icon/youtube_logo.svg?component'),
+      () => import('../../assets/icon/youtube_logo.svg?component'),
     ))
     .with('GitHub', () => defineAsyncComponent(
-      () => import('../assets/icon/github_logo.svg?component'),
+      () => import('../../assets/icon/github_logo.svg?component'),
     ))
     .exhaustive()
 

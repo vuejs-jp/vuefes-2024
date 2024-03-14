@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ButtonHTMLAttributes } from 'vue'
-import CssResetButton from './CssResetButton.vue'
+import CssResetButton from '../common/CssResetButton.vue'
 import type { Color } from '@vuejs-jp/model'
 import { useColor } from '@vuejs-jp/composable'
 
