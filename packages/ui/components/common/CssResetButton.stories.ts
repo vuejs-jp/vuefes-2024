@@ -2,7 +2,7 @@ import { StoryFn } from '@storybook/vue3'
 import CssResetButton from './CssResetButton.vue'
 
 export default {
-  title: 'Example/CssResetButton',
+  title: 'common/CssResetButton',
   component: CssResetButton,
   args: {
     default: '<strong>Go!</strong>',

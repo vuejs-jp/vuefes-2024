@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { InputHTMLAttributes, InputTypeHTMLAttribute } from 'vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
-import Typography from '../Typography.vue'
+import Typography from '../common/Typography.vue'
 
 type _InputFieldProps = Omit<InputHTMLAttributes, 'onInput' | 'onBlur'>;
 interface Props extends /* @vue-ignore */ _InputFieldProps {
