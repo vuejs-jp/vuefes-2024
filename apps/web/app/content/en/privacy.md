@@ -13,17 +13,16 @@ This conference shall obtain personal information by legal and fair means, and s
 The conference handles the following personal information of users
 
 - Email address
+  - Email address entered on the application form for services involving delivery
   - Email address entered on this website
-  - Email address entered on various application form such as sponsors, CFP, etc
-  - Email address entered when purchasing tickets on PassMarket
+  - Email address entered on the application form for sponsors
+  - Email address entered on the application form for CFP
+  - Email address entered when purchasing tickets on Peatix
 - Name
-  - Name entered on various application form such as sponsors, CFP, etc
-  - Name entered when creating a name card
-  - Name entered when purchasing tickets on PassMarket
-- Avator image
-  - Avator image uploaded when creating a name card
-- Others
-  - Occupation, age, years of work experience entered when purchasing tickets on PassMarket
+  - Name entered on the application form for sponsors
+  - Name entered on the application form for CFP
+- Address and phone number
+  - Address and phone number entered on the application form for services involving delivery
 
 ## Purpose of use of personal information
 
@@ -42,7 +41,7 @@ This conference may change the purposes for which personal information is used t
 
 ## Term of Use of Personal Information
 
-The Conference will use personal information collected from users until November 30, 2024, the month in which the conference is held. After the expiration date, the personal information will be completely deleted as soon as possible.
+The Conference will use personal information collected from users until October 31, 2024, the month in which the conference is held. After the expiration date, the personal information will be completely deleted as soon as possible.
 
 ## Safe Management of Personal Information
 
@@ -79,15 +78,14 @@ In order to improve the use and usability of this website, we use a service prov
 
 - Google Analytics
 - Google Forms
-- Google Presentations
 - Fortee
 
 The data acquired through the use of third party cookies is acquired and managed in accordance with the privacy policy of the operator of each service.
 
 Please refer to the privacy policy of the operator of the respective service for a description of their cookies.
 
-- Google's Privacy Policy
-- Fortee's Privacy Policy
+- [Google's Privacy Policy](https://policies.google.com/privacy){:target="\_blank"}
+- [Fortee's Privacy Policy](https://fortee.jp/site/privacy){:target="\_blank"}
 
 ## Deleting or Disabling Cookies
 
