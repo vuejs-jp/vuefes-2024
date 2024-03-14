@@ -4,7 +4,7 @@ import { useColor } from '@vuejs-jp/composable'
 import { AnchorHTMLAttributes } from 'vue'
 
 interface TextLinkProps extends /* @vue-ignore */ AnchorHTMLAttributes {
-  /* Semantic Color */
+  /* Text Color */
   color: Color
 }
 const props = defineProps<TextLinkProps>()
