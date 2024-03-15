@@ -16,7 +16,8 @@
     "typecheck": "vue-tsc --noEmit",
     "cypress:open": "cypress open --config-file tests/cypress.config.ts",
     "postinstall": "nuxt prepare",
-    "vitest": "vitest"
+    "vitest": "vitest",
+    "netlify:local": "bun run build && ./scripts/postbuild.sh && netlify serve --dir=dist"
   },
   "devDependencies": {
     "@nuxt/content": "^2.12.0",
