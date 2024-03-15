@@ -22,6 +22,9 @@
       "dotEnv": [".env"],
       "cache": false,
       "persistent": true
+    },
+    "netlify:local": {
+      "dependsOn": ["^build"]
     }
   }
 }
