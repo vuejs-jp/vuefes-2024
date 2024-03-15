@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# 
+# change dir structure
+# ./.output/public/{html} -> ./.output/public/2024/{html}
+# 
 if [ ! -d "./.output" ]; then
     echo "can not find .output"
     exit 1;
