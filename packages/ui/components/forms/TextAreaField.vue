@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useColor, useTypography } from '@vuejs-jp/composable'
-import Typography from './Typography.vue'
+import Typography from '../common/Typography.vue'
 
 type Props = {
   /** HTMLAttribute id */
@@ -45,7 +45,7 @@ const { color } = useColor()
 <template>
   <label
     :for="id"
-    :style="{ fontWeight: fontWeight('heading/50'), fontSize: fontSize('heading/50') }"
+    :style="{ fontWeight: fontWeight('heading/100'), fontSize: fontSize('heading/100') }"
     class="textarea-root"
   >
     {{ label }}

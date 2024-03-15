@@ -10,6 +10,7 @@ export default defineNuxtModule({
       dirs.push({
         path: join(__dirname, 'components'),
         prefix: 'VF',
+        pathPrefix: false,
       })
     },
   },
