@@ -30,13 +30,19 @@ jobs:
         uses: ./.github/actions/install-packages
         if: ${{ steps.diff.outputs.changed != '0' }}
 
+      # - name: Chromatic
+      #   uses: chromaui/action@latest
+      #   if: ${{ steps.diff.outputs.changed != '0' }}
+      #   with:
+      #     projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      #     workingDir: packages/ui
+      #     exitZeroOnChanges: true
+      #     onlyChanged: true
+      #   env:
+      #     LOG_LEVEL: 'debug'
+
       - name: Chromatic
-        uses: chromaui/action@latest
         if: ${{ steps.diff.outputs.changed != '0' }}
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: packages/ui
-          exitZeroOnChanges: true
-          onlyChanged: true
-        env:
-          LOG_LEVEL: 'debug'
+        run: |
+          bun build-storybook
+          bunx chromatic -d ./packages/ui/storybook-static --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }} --exit-zero-on-changes --only-changed
