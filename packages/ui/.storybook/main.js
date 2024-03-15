@@ -24,7 +24,7 @@ module.exports = {
     return mergeConfig(config, {
       plugins:
         configType === 'PRODUCTION'
-          ? [turbosnap({ rootDir: config.root ?? `${process.cwd()}/packages/ui` }), svgLoader({ defaultImport: 'component' })]
+          ? [turbosnap({ rootDir: process.cwd() }), svgLoader({ defaultImport: 'component' })]
           : [svgLoader({ defaultImport: 'component' })],
     })
   },
