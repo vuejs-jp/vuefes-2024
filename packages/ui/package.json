@@ -34,7 +34,6 @@
     "storybook": "8.0.0",
     "ts-pattern": "5.0.8",
     "typescript": "5.3.3",
-    "vite-plugin-turbosnap": "1.0.3",
     "vite-svg-loader": "5.1.0",
     "vue": "3.4.15"
   },
