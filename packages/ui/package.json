@@ -5,7 +5,7 @@
   "main": "nuxt.mjs",
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build-storybook": "storybook build --webpack-stats-json .",
+    "build-storybook": "storybook build --stats-json .",
     "lint": "bun run eslint && bun run htmllint",
     "lint-fix": "bun run eslint-fix && bun run htmllint-fix",
     "eslint": "eslint . --ext js,jsx,ts,tsx,vue --ignore-path .eslintignore",
