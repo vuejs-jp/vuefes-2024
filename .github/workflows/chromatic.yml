@@ -45,4 +45,4 @@ jobs:
         if: ${{ steps.diff.outputs.changed != '0' }}
         run: |
           bun build-storybook
-          bunx chromatic -d ./packages/ui/storybook-static --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }} --exit-zero-on-changes --only-changed
+          bunx chromatic -d ./packages/ui/storybook-static --storybook-base-dir ./packages/ui --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }} --exit-zero-on-changes --only-changed
