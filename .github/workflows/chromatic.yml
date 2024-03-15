@@ -38,3 +38,5 @@ jobs:
           workingDir: packages/ui
           exitZeroOnChanges: true
           onlyChanged: true
+        env:
+          LOG_LEVEL: 'debug'
