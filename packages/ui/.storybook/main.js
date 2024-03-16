@@ -22,10 +22,7 @@ module.exports = {
   },
   async viteFinal(config, { configType }) {
     return mergeConfig(config, {
-      plugins:
-        configType === 'PRODUCTION'
-          ? [turbosnap({ rootDir: process.cwd() }), svgLoader({ defaultImport: 'component' })]
-          : [svgLoader({ defaultImport: 'component' })],
+      plugins: [svgLoader({ defaultImport: 'component' })],
     })
   },
 }
