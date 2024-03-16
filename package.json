@@ -10,7 +10,7 @@
     "build-storybook": "turbo build-storybook",
     "lint": "turbo lint",
     "lint:fix": "turbo lint-fix",
-    "netlify:local": "turbo build && netlify serve --dir=apps/web/dist --filter @vuejs-jp/web"
+    "netlify": "turbo build && turbo netlify"
   },
   "devDependencies": {
     "@vuejs-jp/eslint-config": "workspace:*",

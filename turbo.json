@@ -12,6 +12,11 @@
       "dependsOn": ["^build-storybook"],
       "outputs": ["storybook-static/**"]
     },
+    "netlify": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": true
+    },
     "lint": {
       "dependsOn": ["^lint"]
     },

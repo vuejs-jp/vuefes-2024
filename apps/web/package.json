@@ -16,7 +16,8 @@
     "typecheck": "vue-tsc --noEmit",
     "cypress:open": "cypress open --config-file tests/cypress.config.ts",
     "postinstall": "nuxt prepare",
-    "vitest": "vitest"
+    "vitest": "vitest",
+    "netlify": "netlify serve --dir=dist"
   },
   "devDependencies": {
     "@nuxt/content": "^2.12.0",
@@ -29,7 +30,9 @@
     "@vuejs-jp/model": "workspace:*",
     "@vuejs-jp/typescript-config": "workspace:*",
     "@vuejs-jp/vuefes-ui": "workspace:*",
+    "ajv": "8.12.0",
     "cypress": "13.6.4",
+    "netlify-cli": "12.14.0",
     "nuxt": "3.10.0",
     "open-props": "^1.6.21",
     "postcss-custom-media": "^10.0.3",
