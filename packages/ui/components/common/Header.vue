@@ -2,6 +2,14 @@
 import Logo from './Logo.vue'
 import { useColor, useNav } from '@vuejs-jp/composable'
 
+export type HeaderProps = {
+  top?: number
+}
+
+withDefaults(defineProps<HeaderProps>(), {
+  top: 0,
+})
+
 const { navRef } = useNav()
 const { color } = useColor()
 </script>
@@ -9,7 +17,7 @@ const { color } = useColor()
 <template>
   <nav
     ref="navRef"
-    :style="{ backgroundColor: color('white') }"
+    :style="{ top, backgroundColor: color('white') }"
   >
     <div class="nav-root">
       <h1>
@@ -22,7 +30,6 @@ const { color } = useColor()
 <style scoped>
 nav {
   position: fixed;
-  top: 0;
   z-index: 10;
   width: 100%;
   padding: 0;

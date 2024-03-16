@@ -12,5 +12,14 @@ useHead({
 </script>
 
 <template>
-  <slot />
+  <GlobalHeader />
+  <main>
+    <slot />
+  </main>
 </template>
+
+<style scoped>
+main {
+  margin-top: 84px;
+}
+</style>

@@ -5,6 +5,7 @@
     "types": [
       "@types/node",
       "@nuxt/types",
+      "@nuxtjs/device",
       "@nuxtjs/i18n"
     ],
   },
