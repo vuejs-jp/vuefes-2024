@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import Logo from './Logo.vue'
 import { useColor, useNav } from '@vuejs-jp/composable'
-import type { HeaderProps } from './Header.vue'
+
+type HeaderProps = {
+  top?: number
+}
 
 withDefaults(defineProps<HeaderProps>(), {
   top: 0,

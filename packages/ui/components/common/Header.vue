@@ -2,7 +2,7 @@
 import Logo from './Logo.vue'
 import { useColor, useNav } from '@vuejs-jp/composable'
 
-export type HeaderProps = {
+type HeaderProps = {
   top?: number
 }
 
