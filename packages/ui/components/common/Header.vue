@@ -20,9 +20,9 @@ const { color } = useColor()
     :style="{ top, backgroundColor: color('white') }"
   >
     <div class="nav-root">
-      <h1>
+      <a href="/">
         <Logo color="vue-blue" />
-      </h1>
+      </a>
     </div>
   </header>
 </template>
