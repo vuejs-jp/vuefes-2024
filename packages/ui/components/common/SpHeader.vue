@@ -15,7 +15,7 @@ const { color } = useColor()
 </script>
 
 <template>
-  <nav
+  <header
     ref="navRef"
     :style="{ top, backgroundColor: color('white') }"
   >
@@ -24,7 +24,7 @@ const { color } = useColor()
         <Logo color="vue-blue" />
       </h1>
     </div>
-  </nav>
+  </header>
 </template>
 
 <style scoped>
