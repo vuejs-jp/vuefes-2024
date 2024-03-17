@@ -17,7 +17,7 @@
     "cypress:open": "cypress open --config-file tests/cypress.config.ts",
     "postinstall": "nuxt prepare",
     "vitest": "vitest",
-    "netlify:local": "bun run build && netlify serve --dir=dist"
+    "netlify:local": "bun run build && netlify dev --dir=dist"
   },
   "devDependencies": {
     "@nuxt/content": "^2.12.0",
