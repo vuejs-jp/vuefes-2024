@@ -95,7 +95,7 @@ const vueFesLinkList: LinkList[] = [
         </ul>
       </div>
     </div>
-    <div class="footer-container footer-copyrights">
+    <div class="footer-container">
       <small
         :style="{
           fontSize: fontSize('body/100'),
