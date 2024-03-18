@@ -10,5 +10,8 @@
     "form_text_label": "Content",
     "submit": "Submit",
     "submit_done": "Succeeded to send the email."
+  },
+  "message": {
+    "title": "Message"
   }
 }

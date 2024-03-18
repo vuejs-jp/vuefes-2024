@@ -10,5 +10,8 @@
     "form_text_label": "お問い合わせ内容",
     "submit": "送信",
     "submit_done": "メッセージ送信に成功しました。"
+  },
+  "message": {
+    "title": "メッセージ"
   }
 }

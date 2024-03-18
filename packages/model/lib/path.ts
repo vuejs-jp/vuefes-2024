@@ -1,1 +1,1 @@
-export type Path = 'form'
+export type Path = 'form' | 'message'
