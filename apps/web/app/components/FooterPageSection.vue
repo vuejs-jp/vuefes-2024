@@ -196,12 +196,8 @@ const vueFesLinkList: LinkList[] = [
   }
   @media (--mobile) {
     margin-top: 1.25rem;
-    gap: var(--gap-link-item);
-    li + li {
-      margin-top: var(--gap-link-item);
-    }
-    a {
-      display: inline-flex;
+    li {
+      display: flex;
       height: 2.5rem;
       align-items: center;
     }
