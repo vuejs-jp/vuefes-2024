@@ -78,27 +78,18 @@ const vueFesLinkList: LinkList[] = [
           </li>
         </ul>
       </div>
-      <div
-        class="footer-link"
-        :style="{
-          fontSize: fontSize('link/100'),
-        }"
-      >
+      <div class="footer-link">
         <ul class="footer-list">
           <li v-for="(link, index) in internalLinkList" :key="index">
             <VFTextLink :href="link.href" color="white">
-              <VFTypography variant="link/100" color="white">
-                {{ link.text }}
-              </VFTypography>
+              {{ link.text }}
             </VFTextLink>
           </li>
         </ul>
         <ul class="footer-list">
           <li v-for="(link, index) in vueFesLinkList" :key="index">
             <VFTextLink :href="link.href" target="_blank" color="white">
-              <VFTypography variant="link/100" color="white">
-                {{ link.text }}
-              </VFTypography>
+              {{ link.text }}
             </VFTextLink>
           </li>
         </ul>
