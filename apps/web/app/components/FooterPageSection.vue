@@ -113,11 +113,11 @@ const vueFesLinkList: LinkList[] = [
 @import url('../assets/media.css');
 
 #footer {
-  --padding-block: 5rem;
+  --padding-block-footer: 5rem;
   --gap-link-item: 0.875rem;
   --size-icon: 1.75rem;
   @media (--mobile) {
-    --padding-block: 3.75rem;
+    --padding-block-footer: 3.75rem;
     --gap-link-item: 0.25rem;
     --size-icon: 2.5rem;
   }
@@ -130,10 +130,10 @@ const vueFesLinkList: LinkList[] = [
   max-width: 74.5rem;
   padding-inline: 1.25rem;
   &:first-of-type {
-    padding-top: var(--padding-block);
+    padding-top: var(--padding-block-footer);
   }
   &:last-of-type {
-    padding-bottom: var(--padding-block);
+    padding-bottom: var(--padding-block-footer);
   }
   & + & {
     margin-top: 1.25rem;
