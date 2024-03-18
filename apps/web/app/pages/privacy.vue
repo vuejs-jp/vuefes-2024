@@ -2,13 +2,29 @@
 import TopPageSection from '~/components/TopPageSection.vue'
 import FooterPageSection from '~/components/FooterPageSection.vue'
 import MarkDownText from '~/components/MarkDownText.vue'
+import { useColor, useTypography } from '@vuejs-jp/composable'
+
+const { fontWeight, fontSize } = useTypography()
+const { color } = useColor()
 </script>
 
 <template>
   <main>
     <TopPageSection />
-    <div class="privacy-root">
-      <h1>プライバシーポリシー</h1>
+    <div 
+      class="privacy-root"
+      :style="{
+        backgroundColor: color('white'),
+        color: color('vue-blue'),
+      }">
+      <h2 
+        class="section-title"
+        :style="{
+          fontWeight: fontWeight('heading/700'),
+          fontSize: fontSize('heading/700'),
+        }">
+        プライバシーポリシー
+      </h2>
       <div class="markdown-root">
         <MarkDownText path="privacy" class="explain" />
       </div>
@@ -17,8 +33,8 @@ import MarkDownText from '~/components/MarkDownText.vue'
         <button to="/" outline>Button</button>
       </div>
     </div>
-    <FooterPageSection />
   </main>
+  <FooterPageSection />
 </template>
 
 <style scoped>
@@ -29,16 +45,12 @@ import MarkDownText from '~/components/MarkDownText.vue'
 
 .privacy-root {
   width: 100%;
-  background-color: var(--color-white);
-  color: var(--color-vue-blue);
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  & h1 {
-    font-weight: 700;
-    font-size: var(--h1-font-size);
-    line-height: calc(var(--h1-font-size) * var(--h-line-height-ratio));
+  & .section-title {
+    line-height: 54px;
     margin-bottom: 40px;
   }
 }
@@ -54,8 +66,8 @@ import MarkDownText from '~/components/MarkDownText.vue'
   & :deep(h2) a {
     color: var(--color-vue-blue);
     font-weight: 700;
-    font-size: var(--h2-font-size);
-    line-height: calc(var(--h2-font-size) * var(--h-line-height-ratio));
+    font-size: var(--markdown-font-size-h2);
+    line-height: var(--markdown-line-height-h2);
     text-decoration: none;
   }
 
@@ -64,8 +76,8 @@ import MarkDownText from '~/components/MarkDownText.vue'
   & :deep(ol) li {
     color: var(--color-vue-blue);
     font-weight: 500;
-    font-size: var(--p-font-size);
-    line-height: calc(var(--p-font-size) * var(--p-line-height-ratio));
+    font-size: var(--markdown-font-size-body);
+    line-height: var(--markdown-line-height-body);
   }
 
   /* 箇条書きとパラグラフ内のリンク */
@@ -89,10 +101,10 @@ import MarkDownText from '~/components/MarkDownText.vue'
 
 @media (--mobile) {
   .privacy-root {
-    & h1 {
+    & .section-title {
         font-weight: 700;
-        font-size: var(--h1-font-size-mobile);
-        line-height: calc(var(--h1-font-size-mobile) * var(--p-line-height-ratio));
+        font-size: var(--markdown-font-size-heading400);
+        line-height: var(--markdown-line-height-heading400);
         margin-bottom: 30px;
     }
   }
@@ -103,15 +115,21 @@ import MarkDownText from '~/components/MarkDownText.vue'
     }
   
     & :deep(h2) a {
-      font-size: var(--ph2font-size-mobile);
-      line-height: calc(var(--h2-font-size-mobile) * var(--p-line-height-ratio));
+      --markdown-font-size-h2: var(--markdown-font-size-heading200);
+      --markdown-line-height-h2: var(--markdown-line-height-heading200);
+
+      font-size: var(--markdown-font-size-h2);
+      line-height: var(--markdown-line-height-h2);
     }
   
     & :deep(p),
     & :deep(ul) li,
     & :deep(ol) li {
-      font-size: var(--p-font-size-mobile);
-      line-height: calc(var(--p-font-size-mobile) * var(--p-line-height-ratio));
+      --markdown-font-size-body: var(--markdown-font-size-body300);
+      --markdown-line-height-body: var(--markdown-line-height-body300);
+
+      font-size: var(--markdown-font-size-body);
+      line-height: var(--markdown-line-height-body);
     }
   } 
 }
