@@ -20,11 +20,11 @@ const snsLinkList: LinkList[] = [
     text: 'x',
   },
   {
-    href: 'https://note.com/vuejs_jp/m/mb35849fee631',
+    href: 'https://note.com/vuejs_jp/',
     text: 'note',
   },
   {
-    href: 'https://www.youtube.com/@Vuejs-bn2cg',
+    href: 'https://www.youtube.com/channel/UC6KPwA1kZJtQYdlh8_2hxCA',
     text: 'YouTube',
   },
   {
