@@ -95,12 +95,8 @@ const vueFesLinkList: LinkList[] = [
         </ul>
       </div>
     </div>
-    <div class="footer-container">
-      <small
-        :style="{
-          fontSize: fontSize('body/100'),
-        }"
-      >
+    <div class="footer-container footer-copyrights">
+      <small>
         © 2018-2024 Vue.js Japan Users Group some rights reserved.<br />
         Vue.js artworks by Evan You is licensed under a Creative Commons Attribution 4.0
         International License.
@@ -192,6 +188,11 @@ const vueFesLinkList: LinkList[] = [
       height: 2.5rem;
       align-items: center;
     }
+  }
+}
+.footer-copyrights {
+  small {
+    font-size: v-bind(fontSize('body/100'));
   }
 }
 </style>
