@@ -177,7 +177,7 @@ const vueFesLinkList: LinkList[] = [
 .footer-link {
   display: grid;
   gap: 3.75rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, auto);
   li + li {
     margin-top: var(--gap-link-item);
   }
