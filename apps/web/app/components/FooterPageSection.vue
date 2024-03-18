@@ -187,10 +187,8 @@ const vueFesLinkList: LinkList[] = [
   display: grid;
   gap: 3.75rem;
   grid-template-columns: 1fr 1fr;
-  li {
-    & + & {
-      margin-top: var(--gap-link-item);
-    }
+  li + li {
+    margin-top: var(--gap-link-item);
   }
   @media (--tablet) {
     grid-template-columns: 1fr;
@@ -199,10 +197,8 @@ const vueFesLinkList: LinkList[] = [
   @media (--mobile) {
     margin-top: 1.25rem;
     gap: var(--gap-link-item);
-    li {
-      & + & {
-        margin-top: var(--gap-link-item);
-      }
+    li + li {
+      margin-top: var(--gap-link-item);
     }
     a {
       display: inline-flex;
