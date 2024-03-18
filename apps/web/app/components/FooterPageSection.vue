@@ -136,9 +136,8 @@ const vueFesLinkList: LinkList[] = [
 }
 .footer-container {
   margin-inline: auto;
-  max-width: 72rem;
-  box-sizing: content-box;
-  padding-inline: var(--font-size-4);
+  max-width: 74.5rem;
+  padding-inline: 1.25rem;
   &:first-of-type {
     padding-top: var(--padding-block);
   }
@@ -171,7 +170,7 @@ const vueFesLinkList: LinkList[] = [
 .footer-sns-list {
   margin-top: 1.25rem;
   display: grid;
-  gap: var(--font-size-1);
+  gap: 1rem;
   grid-template-columns: repeat(v-bind(snsLinkList.length), var(--size-icon));
   .icon-wrapper {
     aspect-ratio: 1;
@@ -195,7 +194,7 @@ const vueFesLinkList: LinkList[] = [
   }
   @media (--tablet) {
     grid-template-columns: 1fr;
-    gap: 1.75rem;
+    gap: var(--gap-link-item);
   }
   @media (--mobile) {
     margin-top: 1.25rem;
