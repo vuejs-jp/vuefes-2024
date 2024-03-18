@@ -115,11 +115,11 @@ const vueFesLinkList: LinkList[] = [
 #footer {
   --padding-block-footer: 5rem;
   --gap-link-item: 0.875rem;
-  --size-icon: 1.75rem;
+  --size-sns-icon: 1.75rem;
   @media (--mobile) {
     --padding-block-footer: 3.75rem;
     --gap-link-item: 0.25rem;
-    --size-icon: 2.5rem;
+    --size-sns-icon: 2.5rem;
   }
   background-color: v-bind(color('vue-blue'));
   color: v-bind(color('white'));
@@ -162,7 +162,7 @@ const vueFesLinkList: LinkList[] = [
   margin-top: 1.25rem;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(v-bind(snsLinkList.length), var(--size-icon));
+  grid-template-columns: repeat(v-bind(snsLinkList.length), var(--size-sns-icon));
   .icon-wrapper {
     aspect-ratio: 1;
     display: grid;
