@@ -1,4 +1,6 @@
 {
-  "projectId":"Project:65c74499999b5699c4fe0bfc",
+  "projectId": "Project:65c74499999b5699c4fe0bfc",
+  "storybookBaseDir": ".",
+  "exitZeroOnChanges": true,
   "onlyChanged": true
 }

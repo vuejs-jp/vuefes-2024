@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useColor, useTypography } from '@vuejs-jp/composable'
-import Typography from './Typography.vue'
+import Typography from '../common/Typography.vue'
 
 type Props = {
   /** HTMLAttribute id */
