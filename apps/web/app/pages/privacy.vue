@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import TopPageSection from '~/components/TopPageSection.vue'
 import FooterPageSection from '~/components/FooterPageSection.vue'
+import LinkButton from '@vuejs-jp/vuefes-ui/components/LinkButton.vue'
 import MarkDownText from '~/components/MarkDownText.vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 
@@ -29,9 +30,10 @@ const { color } = useColor()
       <div class="markdown-root">
         <MarkDownText path="privacy" class="explain" />
       </div>
-
       <div class="back">
-        <button to="/" outline>Button</button>
+        <LinkButton :url="'/'">
+          {{ t("privacy.button") }}
+        </LinkButton>
       </div>
     </div>
   </main>
@@ -92,6 +94,11 @@ const { color } = useColor()
     margin-bottom: 20px;
   }
 } 
+.back {
+  width: 240px;
+  margin-top: 40px;
+  margin-bottom: 120px;
+}
 
 @media (--tablet) {
   .markdown-root {
@@ -133,5 +140,11 @@ const { color } = useColor()
       line-height: var(--markdown-line-height-body);
     }
   } 
+  .back {
+    width: 100%;
+    padding: 0 23.5px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+  }
 }
 </style>

@@ -13,6 +13,7 @@
   --color-vue-blue: #35495e;
   --color-vue-green: #42b983;
   --color-white: #FFFFFF;
+  --color-vue-blue-hover: #35495e33; /* 去年のトップに戻るボタンの値を参考に設定 */
 
 
   /* font */

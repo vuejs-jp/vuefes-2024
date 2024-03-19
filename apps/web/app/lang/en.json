@@ -12,6 +12,7 @@
     "submit_done": "Succeeded to send the email."
   },
   "privacy": {
-    "title": "Privacy policy"
+    "title": "Privacy policy",
+    "button": "Back to Top"
   }
 }
