@@ -4,6 +4,7 @@ import FooterPageSection from '~/components/FooterPageSection.vue'
 import MarkDownText from '~/components/MarkDownText.vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 
+const { t } = useI18n()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 </script>
@@ -23,7 +24,7 @@ const { color } = useColor()
           fontWeight: fontWeight('heading/700'),
           fontSize: fontSize('heading/700'),
         }">
-        プライバシーポリシー
+        {{ t("privacy.title") }}
       </h2>
       <div class="markdown-root">
         <MarkDownText path="privacy" class="explain" />
