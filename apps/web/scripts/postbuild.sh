@@ -2,13 +2,15 @@
 
 # 
 # change dir structure
-# ./.output/public/{html} -> ./.output/public/2024/{html}
+# ./dist/{html} -> ./dist/2024/{html}
 # 
-if [ ! -d "./.output" ]; then
-    echo "can not find .output"
+if [ ! -d "./dist" ]; then
+    echo "can not find dist"
     exit 1;
 fi
 
-mv ./.output/public ./.output/2024
-mkdir ./.output/public
-mv ./.output/2024 ./.output/public/
+mkdir ./tmp
+mv ./dist/* ./tmp
+mkdir ./dist/2024
+mv ./tmp/* ./dist/2024
+rm -rf ./tmp
