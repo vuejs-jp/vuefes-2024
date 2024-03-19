@@ -34,9 +34,9 @@ const updateDetail = (e: any) => {
   <section>
     <div class="form-root">
       <div class="title">
-        <VFTypography variant="heading/700" color="vue-blue">
+        <VFTitle id="form">
           {{ $t('form.title') }}
-        </VFTypography>
+        </VFTitle>
       </div>
       <div
         class="subtitle"
