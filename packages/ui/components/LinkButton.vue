@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { ButtonHTMLAttributes, ref, computed } from 'vue'
-import CssResetButton from './CssResetButton.vue'
-import Icon from './Icon.vue'
 import type { Color as ColorType, IconName } from '@vuejs-jp/model'
 import { useColor } from '@vuejs-jp/composable'
+import Icon from './icon/Icon.vue'
 
 type _LinkButtonProps = Omit<ButtonHTMLAttributes, 'onClick'>
 interface LinkButtonProps extends /* @vue-ignore */ _LinkButtonProps {
@@ -47,25 +46,23 @@ const iconColor = computed(() =>{
 </script>
 
 <template>
-  <a :href="props.href" :target="target" @mouseover="hoverIn" @mouseleave="hoverOut" @focus="{}" @blur="{}">
-    <CssResetButton 
-      type="button"
-      :style="style"
-      class="link-button"
-      :="props"
-    >
-      <Icon
-        :color="iconColor"
-        :name="props.iconName"
-        class="icon"
-      />
-      <slot />
-    </CssResetButton>
+  <a
+    :href
+    :target
+    :style
+    class="button-link"
+    @mouseover="hoverIn"
+    @mouseleave="hoverOut"
+    @focus="{}"
+    @blur="{}"
+  >
+    <Icon v-if="props.iconName" :color="iconColor" :name="props.iconName" class="icon" />
+    <slot />
   </a>
 </template>
 
 <style scoped>
-.link-button {
+.button-link {
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
@@ -74,11 +71,12 @@ const iconColor = computed(() =>{
   padding: 22px 66px;
   border-radius: 40px;
   font-weight: bold;
-  font-size: 20px;  
+  font-size: 20px;
+  text-decoration: none;
   cursor: pointer;
   border-style: solid;
 }
-.link-button:hover {
+.button-link:hover {
   transition: .2s;
 }
 .icon {

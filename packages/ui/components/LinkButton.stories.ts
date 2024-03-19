@@ -2,14 +2,12 @@ import { StoryFn } from '@storybook/vue3'
 import LinkButton from './LinkButton.vue'
 
 export default {
-  title: 'common/LinkButton',
+  title: 'Link/LinkButton',
   component: LinkButton,
   args: {
-    title: 'button',
     backgroundColor: 'vue-green',
     color: 'white',
-    href: 'https://example.com',
-    iconName: 'x',
+    href: 'https://vuefes.jp/',
   },
 }
 
@@ -20,15 +18,13 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
     return { args }
   },
   template: `<div style="width: 400px;">
-    <LinkButton :="args">{{ args.title }}</LinkButton>
+    <LinkButton :="args">Check</LinkButton>
   </div>`,
 })
 
 export const Default = Template.bind({})
-
-export const TargetBlank = Template.bind({})
-TargetBlank.args = {
-  target:'_blank'
+Default.args = {
+  target:'_blank',
 }
 
 export const SubLinkButton = Template.bind({})
