@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ButtonHTMLAttributes } from 'vue'
 import CssResetButton from './CssResetButton.vue'
-import type { Color } from '@vuejs-jp/model'
-import { useColor } from '@vuejs-jp/composable'
 
 type _LinkButtonProps = Omit<ButtonHTMLAttributes, 'disabled' | 'onClick'>
 interface LinkButtonProps extends /* @vue-ignore */ _LinkButtonProps {
@@ -11,7 +9,6 @@ interface LinkButtonProps extends /* @vue-ignore */ _LinkButtonProps {
 
 const props = defineProps<LinkButtonProps>()
 
-const { color } = useColor()
 const isExternal = computed(() => props.url.match(/^https?:\/\//))
 
 </script>
