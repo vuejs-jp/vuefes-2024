@@ -78,14 +78,14 @@ In order to improve the use and usability of this website, we use a service prov
 
 - Google Analytics
 - Google Forms
-- Fortee
+- fortee
 
 The data acquired through the use of third party cookies is acquired and managed in accordance with the privacy policy of the operator of each service.
 
 Please refer to the privacy policy of the operator of the respective service for a description of their cookies.
 
 - [Google's Privacy Policy](https://policies.google.com/privacy){:target="\_blank"}
-- [Fortee's Privacy Policy](https://fortee.jp/site/privacy){:target="\_blank"}
+- [fortee's Privacy Policy](https://fortee.jp/site/privacy){:target="\_blank"}
 
 ## Deleting or Disabling Cookies
 

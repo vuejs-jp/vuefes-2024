@@ -78,14 +78,14 @@ Vue Fes Japan 2024（以下、 カンファレンス）では、カンファレ�
 
 - Google Analytics
 - Google フォーム
-- Fortee
+- fortee
 
 Third Party それぞれの Cookie の利用により取得されたデータは、各サービスの運営会社が定めるプライバシーポリシーに従って取得、管理されます。
 
 当該運営会社のプライバシーポリシーや Cookie に関する説明は、以下をご参照ください。
 
 - Google 社の [プライバシーポリシー](https://policies.google.com/privacy?hl=ja){:target="\_blank"}
-- Fortee 社の [プライバシーポリシー](https://fortee.jp/site/privacy){:target="\_blank"}
+- fortee 社の [プライバシーポリシー](https://fortee.jp/site/privacy){:target="\_blank"}
 
 ## Cookie の削除又は無効化
 
