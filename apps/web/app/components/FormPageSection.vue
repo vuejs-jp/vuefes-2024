@@ -84,7 +84,7 @@ const updateDetail = (e: any) => {
             @blur="validateDetail"
           />
           <div class="form-button">
-            <VFSubmitButton background-color="vue-green" color="white" :disabled="!isSubmitting">
+            <VFSubmitButton :disabled="!isSubmitting">
               {{ $t('form.submit') }}
             </VFSubmitButton>
           </div>
