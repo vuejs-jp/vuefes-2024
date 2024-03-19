@@ -5,7 +5,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".nuxt/**", "!.nuxt/cache/**"],
+      "outputs": [".nuxt/**", "!.nuxt/cache/**", ".output"],
       "dotEnv": [".env"]
     },
     "build-storybook": {
