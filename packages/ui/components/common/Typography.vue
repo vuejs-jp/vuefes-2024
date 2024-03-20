@@ -5,6 +5,7 @@ import { useColor, useTypography } from '@vuejs-jp/composable'
 type TypographyProps = {
   color: Color
   variant: Typography
+  id?: string
 }
 
 const props = defineProps<TypographyProps>()
@@ -16,6 +17,7 @@ const { color: textColor } = useColor()
 <template>
   <component
     :is="component(props.variant)"
+    :id
     :style="{
       fontWeight: fontWeight(props.variant),
       fontSize: fontSize(props.variant),

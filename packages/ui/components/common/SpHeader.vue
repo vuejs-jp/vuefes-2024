@@ -2,27 +2,34 @@
 import Logo from './Logo.vue'
 import { useColor, useNav } from '@vuejs-jp/composable'
 
+type HeaderProps = {
+  top?: number
+}
+
+withDefaults(defineProps<HeaderProps>(), {
+  top: 0,
+})
+
 const { navRef } = useNav()
 const { color } = useColor()
 </script>
 
 <template>
-  <nav
+  <header
     ref="navRef"
-    :style="{ backgroundColor: color('white') }"
+    :style="{ top, backgroundColor: color('white') }"
   >
     <div class="nav-root">
-      <h1>
+      <a href="/">
         <Logo color="vue-blue" />
-      </h1>
+      </a>
     </div>
-  </nav>
+  </header>
 </template>
 
 <style scoped>
 nav {
   position: fixed;
-  top: 0;
   z-index: 10;
   width: 100%;
   padding: 0;
