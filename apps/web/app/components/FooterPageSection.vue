@@ -156,7 +156,7 @@ const vueFesLinkList: LinkList[] = [
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(v-bind(snsLinkList.length), var(--size-sns-icon));
-  .icon-wrapper {
+  a {
     aspect-ratio: 1;
     display: grid;
     place-items: center;
