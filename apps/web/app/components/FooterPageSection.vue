@@ -143,9 +143,6 @@ const vueFesLinkList: LinkList[] = [
 .footer-list {
   margin: 0;
   padding: 0;
-  li {
-    list-style-type: none;
-  }
 }
 .footer-main {
   display: grid;
