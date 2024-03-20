@@ -6,8 +6,6 @@ export default {
   component: SubmitButton,
   args: {
     default: 'Submit',
-    backgroundColor: 'vue-green',
-    color: 'white',
     disabled: false,
   },
   argTypes: {
