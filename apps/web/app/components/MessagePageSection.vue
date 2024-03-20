@@ -1,26 +1,12 @@
-<script setup lang="ts">
-import { useColor, useTypography } from '@vuejs-jp/composable'
-
-const { fontWeight, fontSize } = useTypography()
-const { color } = useColor()
-</script>
-
 <template>
-  <section>
-    <div class="message-root">
+  <section class="container">
+    <div class="content">
       <div class="title">
         <VFTypography variant="heading/700" color="vue-blue">
           {{ $t('message.title') }}
         </VFTypography>
       </div>
-      <div
-        class="body"
-        :style="{
-          fontWeight: fontWeight('body/400'),
-          fontSize: fontSize('body/400'),
-          color: color('vue-blue'),
-        }"
-      >
+      <div class="body">
         <MarkDownText path="message" />
       </div>
     </div>
@@ -28,28 +14,71 @@ const { color } = useColor()
 </template>
 
 <style scoped>
-section {
-  padding: 120px 20px 120px;
+@import url("~/assets/media.css");
+
+.container {
+  --container-padding: calc(var(--unit) * 15) 6%;
+
+  padding: var(--container-padding);
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(2px);
 }
-.message-root {
+
+.content {
+  --content-gap: calc(var(--unit) * 5);
+  --content-max-width: calc(var(--unit) * 96);
+
   display: grid;
-  gap: 40px;
-  max-width: 768px;
+  gap: var(--content-gap);
+  max-width: var(--content-max-width);
   margin: 0 auto;
   width: 100%;
-  grid-template-columns: minmax(0, 1fr);
 }
+
 .title {
   text-align: center;
+  line-height: 1.2;
 }
+
 .body {
-  display: grid;
-  place-items: center;
-  gap: 40px;
+  --body-font-size: 1.125rem;
+  --body-font-weight: 500;
+
+  color: var(--color-vue-blue);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+
+  & :deep(p) {
+    --body-p-margin-bottom: calc(var(--unit) * 4);
+
+    margin-bottom: var(--body-p-margin-bottom);
+    line-height: 1.8;
+  }
+
+  & :deep(p:last-child) {
+    text-align: right;
+    margin-bottom: 0px;
+  }
+
+  & :deep(a) {
+    color: inherit;
+  }
 }
-.body :deep(p + p) {
-  margin-bottom: 32px;
-}
-</style>
+
+@media (--tablet) {
+  .container {
+      --container-padding: 60px 6%;
+  }
+
+  .content {
+    --content-gap: 30px
+  }
+
+  .body {
+    --body-font-size: 1rem;
+
+    & :deep(p) {
+      --body-p-margin-bottom: 29px
+    }
+  }
+}</style>
