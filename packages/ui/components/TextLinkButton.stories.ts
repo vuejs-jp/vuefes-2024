@@ -7,8 +7,9 @@ export default {
   args: {    
     default: 'Back to Top',
     href: 'http://vuefes',
-    color: 'vue-green',
-    backgroudColor: 'white',
+    color: 'vue-blue',
+    backgroundColor: 'white',
+    hoveredBackgroundColor: 'vue-blue-hover'
   },
   argTypes: {
     default: {
@@ -16,7 +17,31 @@ export default {
       control: {
         type: 'text',
       },
-    }  
+    },
+    href: {
+      description: 'link',
+      control: {
+        type: 'text',
+      },
+    },
+    color: {
+      description: 'color',
+      control: {
+        type: 'text',
+      },
+    },
+    backgroundColor: {
+      description: 'background color',
+      control: {
+        type: 'text',
+      },
+    },
+    hoveredBackgroundColor: {
+      description: 'background color when hovered',
+      control: {
+        type: 'text',
+      },
+    },
   },
 }
 

@@ -2,6 +2,7 @@ export type Color =
   | 'white'
   | 'vue-blue'
   | 'vue-green'
+  | 'vue-blue-hover'
   | 'asagi/100'
   | 'asagi/200'
   | 'tohou/100'

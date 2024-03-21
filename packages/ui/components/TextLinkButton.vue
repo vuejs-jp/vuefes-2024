@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AnchorHTMLAttributes } from 'vue'
+import { AnchorHTMLAttributes, ref, computed } from 'vue'
 import CssResetButton from './common/CssResetButton.vue'
 import type { Color } from '@vuejs-jp/model'       
 import { useColor } from '@vuejs-jp/composable'
@@ -9,23 +9,49 @@ interface TextLinkButtonProps extends /* @vue-ignore */ AnchorHTMLAttributes {
   /* Text Color */
   color: Color,
   backgroundColor: Color,
+  hoveredBackgroundColor: Color,
 }
 const props = defineProps<TextLinkButtonProps>()
 const { color } = useColor()
-             
+   
+
+const hover = ref(false)
+const hoverIn = () => {
+  hover.value = true
+}
+const hoverOut = () => {
+  hover.value = false
+}
+const style = computed(() =>{
+  if (hover.value){
+    return { 
+      color: color(props.color),
+      backgroundColor: color(props.hoveredBackgroundColor),
+      borderColor: color(props.color),
+    }
+  }
+  return { 
+    color: color(props.color),
+    backgroundColor: color(props.backgroundColor),
+    borderColor: color(props.color)
+  }
+})
+
+
 </script>
 <template>
     <a 
       :href
-      :target>
+      :target
+      @mouseover="hoverIn"
+      @mouseleave="hoverOut"
+      @focus="{}"
+      @blur="{}"
+      >
       <CssResetButton 
         class="link-button"
         v-bind="props"
-        :style="{
-          color: color(props.color),
-          backgroundColor: color(props.backgroundColor),
-          borderColor: color(props.color)
-        }">
+        :style>
         <slot />
       </CssResetButton>
     </a>
