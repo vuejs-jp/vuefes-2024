@@ -38,51 +38,22 @@ const updateDetail = (e: any) => {
           {{ $t('form.title') }}
         </VFTitle>
       </div>
-      <div
-        class="subtitle"
-        :style="{
-          fontWeight: fontWeight('body/300'),
-          fontSize: fontSize('body/300'),
-          color: color('vue-blue'),
-        }"
-      >
+      <div class="subtitle" :style="{
+            fontWeight: fontWeight('body/300'),
+            fontSize: fontSize('body/300'),
+            color: color('vue-blue'),
+          }">
         <MarkDownText path="form" />
       </div>
       <div class="form">
         <form @submit="onSubmit">
-          <VFInputField
-            id="name"
-            v-model="name"
-            name="name"
-            :label="$t('form.form_name_label')"
-            :placeholder="$t('form.form_name_placeholder')"
-            required
-            :error="nameError"
-            @input="updateName"
-            @blur="validateName"
-          />
-          <VFInputField
-            id="email"
-            v-model="email"
-            name="email"
-            :label="$t('form.form_email_label')"
-            placeholder="hello@vuefes.jp"
-            required
-            :error="emailError"
-            @input="updateEmail"
-            @blur="validateEmail"
-          />
-          <VFTextAreaField
-            id="detail"
-            v-model="detail"
-            name="detail"
-            :label="$t('form.form_text_label')"
-            :rows="3"
-            required
-            :error="detailError"
-            @input="updateDetail"
-            @blur="validateDetail"
-          />
+          <VFInputField id="name" v-model="name" name="name" :label="$t('form.form_name_label')"
+            :placeholder="$t('form.form_name_placeholder')" required :error="nameError" @input="updateName"
+            @blur="validateName" />
+          <VFInputField id="email" v-model="email" name="email" :label="$t('form.form_email_label')"
+            placeholder="hello@vuefes.jp" required :error="emailError" @input="updateEmail" @blur="validateEmail" />
+          <VFTextAreaField id="detail" v-model="detail" name="detail" :label="$t('form.form_text_label')" :rows="3"
+            required :error="detailError" @input="updateDetail" @blur="validateDetail" />
           <div class="form-button">
             <VFSubmitButton :disabled="!isSubmitting">
               {{ $t('form.submit') }}
@@ -103,6 +74,7 @@ section {
   background: url(/form-bg.png), linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 240, 245, 0.8));
   background-blend-mode: soft-light;
 }
+
 .form-root {
   display: grid;
   gap: 40px;
@@ -111,18 +83,22 @@ section {
   width: 100%;
   grid-template-columns: minmax(0, 1fr);
 }
+
 .title {
   text-align: center;
 }
+
 .subtitle {
   display: grid;
   place-items: center;
   gap: 40px;
 }
+
 form {
   display: grid;
   gap: 40px;
 }
+
 .form-button {
   margin: 0 auto;
   width: 260px;
