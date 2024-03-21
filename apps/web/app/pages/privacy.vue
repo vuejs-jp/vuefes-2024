@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import TopPageSection from '~/components/TopPageSection.vue'
 import FooterPageSection from '~/components/FooterPageSection.vue'
-import LinkButton from '@vuejs-jp/vuefes-ui/components/LinkButton.vue'
+import TextLinkButton from '@vuejs-jp/vuefes-ui/components/TextLinkButton.vue'
 import MarkDownText from '~/components/MarkDownText.vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 
@@ -31,9 +31,12 @@ const { color } = useColor()
         <MarkDownText path="privacy" class="explain" />
       </div>
       <div class="back">
-        <LinkButton :url="'/'">
+        <TextLinkButton
+          :href="'/'"
+          :color="'vue-green'"
+          :background-color="'white'">
           {{ t("privacy.button") }}
-        </LinkButton>
+        </TextLinkButton>
       </div>
     </div>
   </main>
