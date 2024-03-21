@@ -1,11 +1,24 @@
+<script setup lang="ts">
+import { useColor, useTypography } from '@vuejs-jp/composable'
+const { fontWeight, fontSize } = useTypography()
+const { color } = useColor()
+</script>
+
 <template>
   <div class="sponsor">
     <article class="sponsor-body">
       <VFTitle id="sponsor">
         {{ $t('sponsor.title') }}
       </VFTitle>
-      <p class="sponsor-text">Vue.js に関わる人々が集まる Vue Fes Japan
-        2024をより良いカンファレンスにするため、スポンサー募集をします。スポンサープランなどの詳しい内容は資料をご参照ください。</p>
+
+      <div class="sponsor-text" :style="{
+          fontWeight: fontWeight('body/300'),
+          fontSize: fontSize('body/300'),
+          color: color('vue-blue'),
+        }">
+        <MarkDownText path="sponsor" />
+      </div>
+
       <img class="sponsor-term" src="/sponsor/sponsor-term.svg" width="344" height="82" />
       <div class="sponsor-buttons">
         <VFSubmitButton class="sponsor-button">
