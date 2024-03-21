@@ -19,7 +19,8 @@ const { color } = useColor()
         <MarkDownText path="sponsor" />
       </div>
 
-      <img class="sponsor-term" src="/sponsor/sponsor-term.svg" width="344" height="82" />
+      <img class="sponsor-term" src="/sponsor/sponsor-term.svg" alt="スポンサー申込期間 2024.4.1(月)-2024.4.30(火)" width="344"
+        height="82" />
       <div class="sponsor-buttons">
         <VFSubmitButton class="sponsor-button">
           {{ $t('sponsor.apply') }}
