@@ -1,5 +1,4 @@
 import { mergeConfig } from 'vite'
-import turbosnap from 'vite-plugin-turbosnap'
 import svgLoader from 'vite-svg-loader'
 
 module.exports = {
@@ -10,6 +9,7 @@ module.exports = {
     '@storybook/addon-backgrounds',
     '@storybook/addon-essentials',
     '@storybook/addon-links',
+    '@storybook/addon-viewport',
   ],
   framework: {
     name: '@storybook/vue3-vite',
@@ -21,10 +21,7 @@ module.exports = {
   },
   async viteFinal(config, { configType }) {
     return mergeConfig(config, {
-      plugins:
-        configType === 'PRODUCTION'
-          ? [turbosnap({ rootDir: config.root ?? `${process.cwd()}/packages/ui` }), svgLoader({ defaultImport: 'component' })]
-          : [svgLoader({ defaultImport: 'component' })],
+      plugins: [svgLoader({ defaultImport: 'component' })],
     })
   },
 }

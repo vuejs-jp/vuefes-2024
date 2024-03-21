@@ -2,31 +2,34 @@ import { StoryFn } from '@storybook/vue3'
 import LinkButton from './LinkButton.vue'
 
 export default {
-  title: 'Buttons/LinkButton',
+  title: 'Link/LinkButton',
   component: LinkButton,
-  args: {    
-    default: 'Back to Top',
-    url: 'http://vuefes'
-  },
-  argTypes: {
-    default: {
-      description: 'Slot for submit button',
-      control: {
-        type: 'text',
-      },
-    }  
+  args: {
+    backgroundColor: 'vue-green',
+    color: 'white',
+    href: 'https://vuefes.jp/',
   },
 }
 
-const StoryTemplate: StoryFn<unknown> = (args, { argTypes }) => ({
+const Template: StoryFn<unknown> = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { LinkButton },
   setup() {
     return { args }
   },
   template: `<div style="width: 400px;">
-    <LinkButton v-bind="args">{{ args.default }}</LinkButton>
+    <LinkButton :="args">Check</LinkButton>
   </div>`,
 })
 
-export const Default = StoryTemplate.bind({})
+export const Default = Template.bind({})
+Default.args = {
+  target:'_blank',
+}
+
+export const SubLinkButton = Template.bind({})
+SubLinkButton.args = {
+  backgroundColor: 'white',
+  color: 'vue-blue',
+  iconName: 'note',
+}

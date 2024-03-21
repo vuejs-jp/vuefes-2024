@@ -1,15 +1,12 @@
 import { match } from 'ts-pattern'
 import type { Typography } from '@vuejs-jp/model'
 
+// WIP
 export function useTypography() {
   const component = (variant: Typography) =>
     match<Typography>(variant)
-      .with('heading/800', 'heading/700', () => 'h2')
-      .with('heading/600', 'heading/500', () => 'h3')
-      .with('heading/400', 'heading/300', () => 'h4')
-      .with('heading/200', () => 'h5')
-      .with('heading/100', () => 'h6')
-      .with('subtitle', () => 'h5')
+      .with('heading/800', 'heading/700', 'heading/600', 'heading/500', 'heading/400', 'heading/300', 'heading/200', 'heading/100', () => 'h2')
+      .with('subtitle', () => 'h3')
       .with('body/400', 'body/300', 'body/200', 'body/100', () => 'p')
       .with('link/200', 'link/100', 'other/200', () => 'span')
       .exhaustive()

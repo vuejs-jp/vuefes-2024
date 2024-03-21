@@ -3,7 +3,19 @@ import svgLoader from 'vite-svg-loader'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   srcDir: 'app/',
-  modules: ['@vuejs-jp/vuefes-ui', '@nuxtjs/i18n', '@nuxt/content'],
+  modules: [
+    '@vuejs-jp/vuefes-ui',
+    [
+      '@nuxtjs/device',
+      {
+        device: {
+          refreshOnResize: true,
+        },
+      },
+    ],
+    '@nuxtjs/i18n',
+    '@nuxt/content',
+  ],
   i18n: {
     legacy: false,
     strategy: 'prefix_except_default',
