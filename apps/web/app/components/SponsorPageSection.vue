@@ -2,6 +2,12 @@
 import { useColor, useTypography } from '@vuejs-jp/composable'
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
+const onClickApply = () => {
+  console.log('onClickApply')
+}
+const onClickCheckDoc = () => {
+  console.log('onClickCheckDoc')
+}
 </script>
 
 <template>
@@ -22,10 +28,12 @@ const { color } = useColor()
       <img class="sponsor-term" src="/sponsor/sponsor-term.svg" alt="スポンサー申込期間 2024.4.1(月)-2024.4.30(火)" width="344"
         height="82" />
       <div class="sponsor-buttons">
-        <VFSubmitButton class="sponsor-button">
+        <!-- 申し込む -->
+        <VFSubmitButton class="sponsor-button" @click="onClickApply">
           {{ $t('sponsor.apply') }}
         </VFSubmitButton>
-        <VFSubmitButton class="sponsor-button -border">
+        <!-- 資料を見る -->
+        <VFSubmitButton class="sponsor-button -border" @click="onClickCheckDoc">
           {{ $t('sponsor.check-doc') }}
         </VFSubmitButton>
 
@@ -84,10 +92,13 @@ const { color } = useColor()
 
 /* この幅ルールはコンポーネント側に持たせるべき */
 .sponsor-button {
-  width: 260px;
-  padding: calc(var(--unit) * 2) 0;
+  flex: 0;
+  min-width: 198px;
+  padding: calc(var(--unit) * 2) 66px;
   background: var(--color-vue-green-gradation);
   font-size: 18px;
+  width: auto;
+  white-space: nowrap;
 }
 
 .sponsor-button.-border {
