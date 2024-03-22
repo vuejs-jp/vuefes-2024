@@ -127,4 +127,10 @@ form {
   margin: 0 auto;
   width: 260px;
 }
+@supports (-webkit-touch-callout: none) {
+  section {
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 240, 245, 0.8)), url(/form-bg.png); /* for iOS */
+    background-size: 200%; /* for iOS */
+  }
+}
 </style>
