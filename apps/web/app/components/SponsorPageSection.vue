@@ -2,12 +2,7 @@
 import { useColor, useTypography } from '@vuejs-jp/composable'
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
-const onClickApply = () => {
-  console.log('onClickApply')
-}
-const onClickCheckDoc = () => {
-  console.log('onClickCheckDoc')
-}
+
 </script>
 
 <template>
@@ -29,13 +24,13 @@ const onClickCheckDoc = () => {
         height="82" />
       <div class="sponsor-buttons">
         <!-- 申し込む -->
-        <VFSubmitButton class="sponsor-button" @click="onClickApply">
+        <VFButton class="sponsor-button" fixed-width href="/">
           {{ $t('sponsor.apply') }}
-        </VFSubmitButton>
+        </VFButton>
         <!-- 資料を見る -->
-        <VFSubmitButton class="sponsor-button -border" @click="onClickCheckDoc">
+        <VFButton class="sponsor-button" fixed-width href="/" secondary>
           {{ $t('sponsor.check-doc') }}
-        </VFSubmitButton>
+        </VFButton>
 
       </div>
     </article>
@@ -86,12 +81,12 @@ const onClickCheckDoc = () => {
   margin-top: calc(var(--unit) * 4);
 }
 
-.sponsor-button+.sponsor-button {
-  margin: 0 calc(var(--unit) * 2);
+.sponsor-button {
+  margin: 0 calc(var(--unit) * 1.5);
 }
 
 /* この幅ルールはコンポーネント側に持たせるべき */
-.sponsor-button {
+/* .sponsor-button {
   min-width: 198px;
   max-width: 260px;
   width: 100%;
@@ -99,14 +94,14 @@ const onClickCheckDoc = () => {
   background: var(--color-vue-green-gradation);
   font-size: 18px;
   white-space: nowrap;
-}
+} */
 
-.sponsor-button.-border {
+/* .sponsor-button.-border {
   padding: calc(var(--unit) * 2) 0;
   background: white;
   border: solid 2px var(--color-vue-blue);
   color: var(--color-vue-blue);
-}
+} */
 
 
 @media (--tablet) {
@@ -121,11 +116,6 @@ const onClickCheckDoc = () => {
   }
 
   .sponsor-button {
-    width: 100%;
-    max-width: none;
-  }
-
-  .sponsor-button+.sponsor-button {
     margin: calc(var(--unit) * 2) 0 0;
   }
 }
