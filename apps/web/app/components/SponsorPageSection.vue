@@ -87,17 +87,17 @@ const onClickCheckDoc = () => {
 }
 
 .sponsor-button+.sponsor-button {
-  margin-left: calc(var(--unit) * 3);
+  margin: 0 calc(var(--unit) * 2);
 }
 
 /* この幅ルールはコンポーネント側に持たせるべき */
 .sponsor-button {
-  flex: 0;
   min-width: 198px;
+  max-width: 260px;
+  width: 100%;
   padding: calc(var(--unit) * 2) 66px;
   background: var(--color-vue-green-gradation);
   font-size: 18px;
-  width: auto;
   white-space: nowrap;
 }
 
@@ -122,11 +122,11 @@ const onClickCheckDoc = () => {
 
   .sponsor-button {
     width: 100%;
+    max-width: none;
   }
 
   .sponsor-button+.sponsor-button {
-    margin-left: 0;
-    margin-top: calc(var(--unit) * 2);
+    margin: calc(var(--unit) * 2) 0 0;
   }
 }
 </style>
