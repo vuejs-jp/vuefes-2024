@@ -14,9 +14,9 @@ The conference handles the following personal information of users
 
 - Email address
   - Email address entered on this website
-  - Email address entered on the application form for sponsors, CFP and ticket purchases
+  - Email address entered on the application form such as sponsors, CFP and ticket purchases
 - Name
-  - Name entered on the application form for sponsors, CFP and ticket purchases
+  - Name entered on the application form such as sponsors, CFP and ticket purchases
   - Name entered when creating a name card
 - Avatar image
   - Avatar image uploaded when creating a name card
