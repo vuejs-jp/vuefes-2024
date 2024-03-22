@@ -30,10 +30,11 @@ const { color } = useColor()
       <div class="markdown-root">
         <MarkDownText path="privacy" class="explain" />
       </div>
+      <!-- TODO toshickさんの対応を参考に修正する -->
       <div class="back">
         <TextLinkButton
           :href="'/'"
-          :color="'vue-green'"
+          :color="'vue-blue'"
           :background-color="'white'">
           {{ t("privacy.button") }}
         </TextLinkButton>

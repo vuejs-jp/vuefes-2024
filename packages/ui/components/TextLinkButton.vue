@@ -4,54 +4,28 @@ import CssResetButton from './common/CssResetButton.vue'
 import type { Color } from '@vuejs-jp/model'       
 import { useColor } from '@vuejs-jp/composable'
 
-
 interface TextLinkButtonProps extends /* @vue-ignore */ AnchorHTMLAttributes {
   /* Text Color */
   color: Color,
   backgroundColor: Color,
-  hoveredBackgroundColor: Color,
 }
 const props = defineProps<TextLinkButtonProps>()
 const { color } = useColor()
    
-
-const hover = ref(false)
-const hoverIn = () => {
-  hover.value = true
-}
-const hoverOut = () => {
-  hover.value = false
-}
-const style = computed(() =>{
-  if (hover.value){
-    return { 
-      color: color(props.color),
-      backgroundColor: color(props.hoveredBackgroundColor),
-      borderColor: color(props.color),
-    }
-  }
-  return { 
-    color: color(props.color),
-    backgroundColor: color(props.backgroundColor),
-    borderColor: color(props.color)
-  }
-})
-
-
 </script>
 <template>
     <a 
-      :href
-      :target
-      @mouseover="hoverIn"
-      @mouseleave="hoverOut"
-      @focus="{}"
-      @blur="{}"
+      :href="props.href"
+      :target="props.target"
       >
       <CssResetButton 
         class="link-button"
         v-bind="props"
-        :style>
+        :style="{
+          color: color('vue-blue'),
+          backgroundColor: color('white'),
+          borderColor: color('vue-blue')
+        }">
         <slot />
       </CssResetButton>
     </a>
@@ -71,9 +45,5 @@ const style = computed(() =>{
   cursor: pointer;
   border: 2px solid;
   box-shadow: none;
-  &:hover {
-    transition: 0.2s;
-    opacity: 0.4;
-  }
 }
 </style>

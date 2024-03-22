@@ -13,16 +13,15 @@ This conference shall obtain personal information by legal and fair means, and s
 The conference handles the following personal information of users
 
 - Email address
-  - Email address entered on the application form for services involving delivery
   - Email address entered on this website
-  - Email address entered on the application form for sponsors
-  - Email address entered on the application form for CFP
-  - Email address entered when purchasing tickets on Peatix
+  - Email address entered on the application form for sponsors, CFP and ticket purchases
 - Name
-  - Name entered on the application form for sponsors
-  - Name entered on the application form for CFP
-- Address and phone number
-  - Address and phone number entered on the application form for services involving delivery
+  - Name entered on the application form for sponsors, CFP and ticket purchases
+  - Name entered when creating a name card
+- Avatar image
+  - Avatar image uploaded when creating a name card
+- Others
+  - Occupation, age and years of work experience entered when purchaing tickets
 
 ## Purpose of use of personal information
 
@@ -78,14 +77,13 @@ In order to improve the use and usability of this website, we use a service prov
 
 - Google Analytics
 - Google Forms
-- fortee
+- Google Presentation
 
 The data acquired through the use of third party cookies is acquired and managed in accordance with the privacy policy of the operator of each service.
 
 Please refer to the privacy policy of the operator of the respective service for a description of their cookies.
 
 - [Google's Privacy Policy](https://policies.google.com/privacy){:target="\_blank"}
-- [fortee's Privacy Policy](https://fortee.jp/site/privacy){:target="\_blank"}
 
 ## Deleting or Disabling Cookies
 
