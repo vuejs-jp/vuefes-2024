@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ButtonHTMLAttributes, ref, computed } from 'vue'
-import { NuxtLink } from '#components';
+import { computed } from 'vue'
+import { NuxtLink } from '#components'
 
 const emit = defineEmits(['click'])
 const props = defineProps({
@@ -54,22 +54,9 @@ const onClick = (e: Event) => {
   emit('click', e)
 }
 
-const routerLinkProps = {
-  to: props.to,
-}
-const linkProps = {
-  href: props.href,
-  rel: props.rel,
-  target: props.target,
-}
-const buttonProps = {
-  type: props.type,
-  onClick,
-}
-
 const tag = computed(() => {
   if (isRouterLink) {
-    return NuxtLink;
+    return NuxtLink
   }
   if (isLink) {
     return 'a'
@@ -95,7 +82,7 @@ const bindProps = computed(() => {
 
 
 <template>
-  <component :is="tag" :class="myclass" :disabled="props.disabled || null" :aria-disabled="props.disabled"
+  <component :is="tag" :class="myclass" :disabled="props.disabled || null" :aria-disabled="props.disabled || null"
     v-bind="{ ...bindProps }">
     <span class="button-label">
       <slot />
