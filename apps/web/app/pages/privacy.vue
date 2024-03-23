@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import TopPageSection from '~/components/TopPageSection.vue'
 import FooterPageSection from '~/components/FooterPageSection.vue'
-import TextLinkButton from '@vuejs-jp/vuefes-ui/components/TextLinkButton.vue'
 import MarkDownText from '~/components/MarkDownText.vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 
@@ -25,15 +23,9 @@ const { color } = useColor()
       <div class="markdown-root">
         <MarkDownText path="privacy" class="explain" />
       </div>
-      <!-- TODO toshickさんの対応を参考に修正する -->
-      <div class="back">
-        <TextLinkButton
-          :href="'/'"
-          :color="'vue-blue'"
-          :background-color="'white'">
-          {{ t("privacy.button") }}
-        </TextLinkButton>
-      </div>
+      <VFButton class="back-button" fixed-width href="/" secondary>
+        {{ t("privacy.button") }}
+      </VFButton>
     </div>
   </main>
   <FooterPageSection />
@@ -97,13 +89,11 @@ const { color } = useColor()
     color: var(--color-vue-blue);
     margin-bottom: 20px;
   }
-} 
-.back {
-  width: 240px;
+}
+.back-button {
   margin-top: 40px;
   margin-bottom: 120px;
 }
-
 @media (--tablet) {
   .markdown-root {
     width: 100%;
@@ -137,11 +127,8 @@ const { color } = useColor()
       --markdown-line-height-body: var(--markdown-line-height-body300);
     }
   } 
-  .back {
-    width: 100%;
-    padding: 0 23.5px;
-    margin-top: 30px;
-    margin-bottom: 60px;
+  .back-button {
+    margin: 30px 23.5px 60px;
   }
 }
 </style>
