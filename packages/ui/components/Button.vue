@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ButtonHTMLAttributes, ref, computed } from 'vue'
+import { NuxtLink } from '#components';
 
 const emit = defineEmits(['click'])
 const props = defineProps({
@@ -68,7 +69,7 @@ const buttonProps = {
 
 const tag = computed(() => {
   if (isRouterLink) {
-    return 'NuxtLink';
+    return NuxtLink;
   }
   if (isLink) {
     return 'a'
