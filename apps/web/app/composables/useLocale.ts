@@ -9,6 +9,7 @@ export function useLocale(path: Path) {
   const docPath = computed(() =>
     match<Path>(path)
       .with('form', () => `/${locale.value}/contact`)
+      .with('sponsor', () => `/${locale.value}/sponsor`)
       .exhaustive(),
   )
 
