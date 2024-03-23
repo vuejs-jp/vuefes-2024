@@ -96,7 +96,12 @@ const vueFesLinkList: LinkList[] = [
       </div>
     </div>
     <div class="footer-container footer-copyrights">
-      <small>
+      <small
+        :style="{
+          fontSize: fontSize('body/100'),
+          color: color('white'),
+        }"
+      >
         © 2018-2024 Vue.js Japan Users Group some rights reserved.<br />
         Vue.js artworks by Evan You is licensed under a Creative Commons Attribution 4.0
         International License.
@@ -117,8 +122,8 @@ const vueFesLinkList: LinkList[] = [
     --gap-link-item: 0.25rem;
     --size-sns-icon: 2.5rem;
   }
-  background-color: v-bind(color('vue-blue'));
-  color: v-bind(color('white'));
+  background-color: var(--color-vue-blue);
+  color: var(--color-white);
   line-height: 1.2;
 }
 .footer-container {
@@ -155,7 +160,7 @@ const vueFesLinkList: LinkList[] = [
   margin-top: 1.25rem;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(v-bind(snsLinkList.length), var(--size-sns-icon));
+  grid-template-columns: repeat(4, var(--size-sns-icon));
   a {
     aspect-ratio: 1;
     display: grid;
@@ -185,11 +190,6 @@ const vueFesLinkList: LinkList[] = [
       height: 2.5rem;
       align-items: center;
     }
-  }
-}
-.footer-copyrights {
-  small {
-    font-size: v-bind(fontSize('body/100'));
   }
 }
 </style>
