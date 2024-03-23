@@ -3,6 +3,7 @@ import FooterPageSection from '~/components/FooterPageSection.vue'
 import MarkDownText from '~/components/MarkDownText.vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 
+// @ts-expect-error
 const { t } = useI18n()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
