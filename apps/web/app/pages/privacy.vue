@@ -12,7 +12,6 @@ const { color } = useColor()
 
 <template>
   <main>
-    <TopPageSection />
     <div 
       class="privacy-root"
       :style="{
@@ -20,11 +19,7 @@ const { color } = useColor()
         color: color('vue-blue'),
       }">
       <h2 
-        class="section-title"
-        :style="{
-          fontWeight: fontWeight('heading/700'),
-          fontSize: fontSize('heading/700'),
-        }">
+        class="section-title">
         {{ t("privacy.title") }}
       </h2>
       <div class="markdown-root">
@@ -57,7 +52,12 @@ const { color } = useColor()
   align-items: center;
 
   & .section-title {
-    line-height: 54px;
+    /* モバイル表示時に上書きしたいので、:styleではなくCSS内で指定 */
+    --section-title-font-size: var(--font-size-heading700);
+    --section-title-line-height: var(--line-height-heading700);
+    font-size: var(--section-title-font-size);
+    line-height: var(--section-title-line-height);
+    font-weight: 700;
     margin-bottom: 40px;
   }
 }
@@ -114,10 +114,9 @@ const { color } = useColor()
 @media (--mobile) {
   .privacy-root {
     & .section-title {
-        font-weight: 700;
-        font-size: var(--markdown-font-size-heading400);
-        line-height: var(--markdown-line-height-heading400);
-        margin-bottom: 30px;
+      --section-title-font-size: var(--font-size-heading400);
+      --section-title-line-height: var(--line-height-heading400);
+      margin-bottom: 30px;
     }
   }
   .markdown-root {
@@ -129,9 +128,6 @@ const { color } = useColor()
     & :deep(h2) a {
       --markdown-font-size-h2: var(--markdown-font-size-heading200);
       --markdown-line-height-h2: var(--markdown-line-height-heading200);
-
-      font-size: var(--markdown-font-size-h2);
-      line-height: var(--markdown-line-height-h2);
     }
   
     & :deep(p),
@@ -139,9 +135,6 @@ const { color } = useColor()
     & :deep(ol) li {
       --markdown-font-size-body: var(--markdown-font-size-body300);
       --markdown-line-height-body: var(--markdown-line-height-body300);
-
-      font-size: var(--markdown-font-size-body);
-      line-height: var(--markdown-line-height-body);
     }
   } 
   .back {
