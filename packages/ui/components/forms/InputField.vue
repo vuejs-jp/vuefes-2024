@@ -56,8 +56,8 @@ const { color } = useColor()
       :id="id"
       v-model.trim="modelValue"
       :style="{
-        fontWeight: fontWeight('other/200'),
-        fontSize: fontSize('other/200'),
+        fontWeight: fontWeight('heading/100'),
+        fontSize: fontSize('heading/100'),
         boxShadow: errorMessage ? `0 0 2px ${color('sangosyo/200')}` : `0 0 2px ${color('vue-blue')}`,
       }"
       class="form-input"

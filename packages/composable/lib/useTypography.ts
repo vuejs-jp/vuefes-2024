@@ -30,8 +30,8 @@ export function useTypography() {
       .with('heading/300', () => '1.5rem')
       .with('heading/200', 'subtitle', () => '1.25rem')
       .with('body/400', 'link/200', () => '1.125rem')
-      .with('heading/100', 'body/300', 'other/200', () => '1rem')
-      .with('body/200', 'link/100', () => '0.875rem')
+      .with('heading/100', 'body/300', () => '1rem')
+      .with('body/200', 'link/100', 'other/200', () => '0.875rem')
       .with('body/100', () => '0.75rem')
       .exhaustive()
 

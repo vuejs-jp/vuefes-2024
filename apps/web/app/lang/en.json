@@ -3,10 +3,15 @@
   "home": "home",
   "about": "about",
   "back_to_top": "Back o Top",
+  "day_of_week": {
+    "monday": "Mon",
+    "tuesday": "Tue"
+  },
   "sponsor": {
     "title": "Sponsor",
     "apply": "Apply",
-    "check-doc": "Check the doc"
+    "apply_period": "Sponsor Application Period",
+    "check_doc": "Check the doc"
   },
   "form": {
     "title": "Contact",

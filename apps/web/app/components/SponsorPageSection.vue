@@ -12,24 +12,44 @@ const { color } = useColor()
         {{ $t('sponsor.title') }}
       </VFTitle>
 
-      <div class="sponsor-text" :style="{
+      <div
+        class="sponsor-text"
+        :style="{
           fontWeight: fontWeight('body/300'),
           fontSize: fontSize('body/300'),
           color: color('vue-blue'),
-        }">
+        }"
+      >
         <MarkDownText path="sponsor" />
       </div>
 
-      <img class="sponsor-term" src="/sponsor/sponsor-term.svg" alt="スポンサー申込期間 2024.4.1(月)-2024.4.30(火)" width="344"
-        height="82" />
+      <h3
+        :style="{
+          fontWeight: fontWeight('heading/400'),
+          fontSize: fontSize('heading/300'),
+        }"
+        class="sponsor-subtitle"
+      >
+        {{ $t('sponsor.apply_period') }}
+      </h3>
+      <VFDatePeriod
+        :start="{ year: 2024, date: '4.1', dayOfWeek: $t('day_of_week.monday') }"
+        :end="{ date: '4.30', dayOfWeek: $t('day_of_week.tuesday') }"
+      />
+
       <div class="sponsor-buttons">
         <!-- 申し込む -->
         <VFButton class="sponsor-button" fixed-width href="/">
           {{ $t('sponsor.apply') }}
         </VFButton>
         <!-- 資料を見る -->
-        <VFButton class="sponsor-button" fixed-width href="/" secondary>
-          {{ $t('sponsor.check-doc') }}
+        <VFButton
+          class="sponsor-button"
+          fixed-width
+          href="https://docs.google.com/presentation/d/1YXWqW55CKdt4czr8paarpdxqYz8NjSFRzrOQ-NnClKQ/edit?usp=sharing"
+          secondary
+        >
+          {{ $t('sponsor.check_doc') }}
         </VFButton>
 
       </div>
@@ -68,6 +88,13 @@ const { color } = useColor()
   text-align: left;
   margin-top: calc(var(--unit) * 4);
   line-height: 1.8;
+}
+
+.sponsor-subtitle {
+  margin-top: calc(var(--unit) * 5);
+  background: var(--color-vue-green-gradation); 
+  -webkit-text-fill-color: transparent; 
+  -webkit-background-clip: text;
 }
 
 .sponsor-term {
