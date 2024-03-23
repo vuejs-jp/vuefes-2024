@@ -118,6 +118,14 @@ section {
   display: grid;
   place-items: center;
   gap: 40px;
+  &::v-deep a {
+    color: var(--color-vue-green);
+    text-decoration: underline;
+  }
+  &::v-deep a:hover {
+    opacity: 0.4;
+    transition: .2s;
+  }
 }
 form {
   display: grid;
