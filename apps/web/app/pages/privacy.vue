@@ -87,6 +87,18 @@ const { color } = useColor()
   & :deep(p) a {
     color: var(--color-vue-green);
   }
+  /* 箇条書き1段目 reset.cssでnoneになったため追加 */
+  & :deep(ul) {
+    list-style-type: disc;
+  }
+  /* 箇条書き2段目 */
+  & :deep(ul) li ul{
+    list-style-type: "- ";
+    padding-inline-start: 15px;
+  }
+  & :deep(ol) li {
+    list-style-type: decimal;
+  }
 
   & :deep(p) {
     color: var(--color-vue-blue);
