@@ -17,9 +17,3 @@ useHead({
     <slot />
   </main>
 </template>
-
-<style scoped>
-main {
-  margin-top: 84px;
-}
-</style>
