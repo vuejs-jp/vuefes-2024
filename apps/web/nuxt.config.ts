@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     ],
     '@nuxtjs/i18n',
     '@nuxt/content',
+    'nuxt-gtag',
   ],
   i18n: {
     legacy: false,
@@ -41,6 +42,9 @@ export default defineNuxtConfig({
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',
     },
+  },
+  gtag: {
+    id: process.env.NUXT_GTAG_ID,
   },
   vite: {
     plugins: [
