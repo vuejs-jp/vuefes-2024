@@ -2,6 +2,7 @@
   "welcome": "ようこそ",
   "home": "ホーム",
   "about": "このサイトについて",
+  "back_to_top": "トップに戻る",
   "sponsor": {
     "title": "スポンサー",
     "apply": "申し込む",
@@ -15,5 +16,8 @@
     "form_text_label": "お問い合わせ内容",
     "submit": "送信",
     "submit_done": "メッセージ送信に成功しました。"
+  },
+  "code_of_conduct": {
+    "title": "行動規範"
   }
 }
