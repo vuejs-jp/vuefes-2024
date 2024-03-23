@@ -43,6 +43,11 @@ export default defineNuxtConfig({
       redirectOn: 'root',
     },
   },
+  content: {
+    markdown: {
+      anchorLinks: false,
+    },
+  },
   gtag: {
     id: process.env.NUXT_GTAG_ID,
   },

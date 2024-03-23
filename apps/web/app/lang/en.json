@@ -2,6 +2,7 @@
   "welcome": "welcome",
   "home": "home",
   "about": "about",
+  "back_to_top": "Back o Top",
   "sponsor": {
     "title": "Sponsor",
     "apply": "Apply",
@@ -15,6 +16,9 @@
     "form_text_label": "Content",
     "submit": "Submit",
     "submit_done": "Succeeded to send the email."
+  },
+  "code_of_conduct": {
+    "title": "Code of Conduct"
   },
   "privacy": {
     "title": "Privacy policy",
