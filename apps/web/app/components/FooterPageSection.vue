@@ -38,7 +38,7 @@ const internalLinkList: LinkList[] = [
     text: 'プライバシーポリシー',
   },
   {
-    href: '/conduct',
+    href: '/code-of-conduct',
     text: '行動規範',
   },
 ]
