@@ -12,6 +12,7 @@
   /* color */
   --color-vue-blue: #35495e;
   --color-vue-green: #42b983;
+  --color-vue-green-gradation: linear-gradient(to right, #42b883, #41b8aa);
 
   /* font */
   --font-size-heading700: 2.813rem;
@@ -43,6 +44,6 @@ ol[role='list'] {
 }
 
 html {
-  font-family: 'din-2014', 'Yu Gothic Medium', '游ゴシック体', YuGothic,
-    '游ゴシック', 'Yu Gothic', sans-serif;
+  font-family: 'din-2014', 'Yu Gothic Medium', '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic',
+    sans-serif;
 }

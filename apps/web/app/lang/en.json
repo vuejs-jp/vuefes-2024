@@ -2,6 +2,11 @@
   "welcome": "welcome",
   "home": "home",
   "about": "about",
+  "sponsor": {
+    "title": "Sponsor",
+    "apply": "Apply",
+    "check-doc": "Check the doc"
+  },
   "form": {
     "title": "Contact",
     "form_name_label": "Name",

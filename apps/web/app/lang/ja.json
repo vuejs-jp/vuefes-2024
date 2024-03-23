@@ -2,6 +2,11 @@
   "welcome": "ようこそ",
   "home": "ホーム",
   "about": "このサイトについて",
+  "sponsor": {
+    "title": "スポンサー",
+    "apply": "申し込む",
+    "check-doc": "資料を見る"
+  },
   "form": {
     "title": "お問い合わせ",
     "form_name_label": "お名前",

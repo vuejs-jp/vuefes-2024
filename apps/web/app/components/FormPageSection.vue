@@ -118,6 +118,14 @@ section {
   display: grid;
   place-items: center;
   gap: 40px;
+  &::v-deep a {
+    color: var(--color-vue-green);
+    text-decoration: underline;
+  }
+  &::v-deep a:hover {
+    opacity: 0.4;
+    transition: .2s;
+  }
 }
 form {
   display: grid;
@@ -126,5 +134,11 @@ form {
 .form-button {
   margin: 0 auto;
   width: 260px;
+}
+@supports (-webkit-touch-callout: none) {
+  section {
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 240, 245, 0.8)), url(/form-bg.png); /* for iOS */
+    background-size: 200%; /* for iOS */
+  }
 }
 </style>
