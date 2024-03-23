@@ -12,12 +12,10 @@ useHead({
 </script>
 
 <template>
-  <ClientOnly>
-    <GlobalHeader />
-    <main>
-      <slot />
-    </main>
-  </ClientOnly>
+  <GlobalHeader />
+  <main>
+    <slot />
+  </main>
 </template>
 
 <style scoped>
