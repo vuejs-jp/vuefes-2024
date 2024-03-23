@@ -10,6 +10,7 @@
   --unit: 8px;
 
   /* color */
+  --color-white: #fff;
   --color-vue-blue: #35495e;
   --color-vue-green: #42b983;
   --color-vue-green-gradation: linear-gradient(to right, #42b883, #41b8aa);
