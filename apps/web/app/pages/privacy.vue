@@ -23,9 +23,11 @@ const { color } = useColor()
       <div class="markdown-root">
         <MarkDownText path="privacy" class="explain" />
       </div>
-      <VFButton class="back-button" fixed-width href="/" secondary>
-        {{ t("privacy.button") }}
-      </VFButton>
+      <div class="back">
+        <VFButton class="back-button" fixed-width href="/" secondary>
+          {{ t("privacy.button") }}
+        </VFButton>
+      </div>
     </div>
   </main>
   <FooterPageSection />
@@ -50,6 +52,7 @@ const { color } = useColor()
     font-size: var(--section-title-font-size);
     line-height: var(--section-title-line-height);
     font-weight: 700;
+    margin-top: 120px;
     margin-bottom: 40px;
   }
 }
@@ -90,7 +93,7 @@ const { color } = useColor()
     margin-bottom: 20px;
   }
 }
-.back-button {
+.back {
   margin-top: 40px;
   margin-bottom: 120px;
 }
@@ -106,6 +109,7 @@ const { color } = useColor()
     & .section-title {
       --section-title-font-size: var(--font-size-heading400);
       --section-title-line-height: var(--line-height-heading400);
+      margin-top: 60px;
       margin-bottom: 30px;
     }
   }
@@ -127,8 +131,11 @@ const { color } = useColor()
       --markdown-line-height-body: var(--markdown-line-height-body300);
     }
   } 
-  .back-button {
-    margin: 30px 23.5px 60px;
+  .back {
+    width: 100%;
+    padding: 0 23.5px;
+    margin-top: 30px;
+    margin-bottom: 60px;
   }
 }
 </style>
