@@ -5,7 +5,7 @@ export default {
   title: 'common/CssResetButton',
   component: CssResetButton,
   args: {
-    default: '<strong>Go!</strong>',
+    default: '<strong>Go!Go!</strong>',
   },
   argTypes: {
     default: {
