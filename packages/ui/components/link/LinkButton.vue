@@ -31,7 +31,8 @@ const style = computed(() =>{
     return { 
       color: updateColor(props.backgroundColor),
       backgroundColor: updateColor(props.color),
-      boxShadow: `0 2px 10px rgb(53, 73, 95, 0.14), inset 0px 0px 0px 2px ${updateColor(props.color)}`,
+      borderSize:'1px',
+      borderColor:props.backgroundColor,
     }
   }
   return { 

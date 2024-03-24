@@ -74,7 +74,7 @@ const vueFesLinkList: LinkList[] = [
         <VFLogo color="white" />
         <ul class="footer-list footer-sns-list">
           <li v-for="(link, index) in snsLinkList" :key="index">
-            <VFIconButton :href="link.href" color="white" :name="link.text" />
+            <VFIconButton :href="link.href" color="white" :name="link.text" can-hover />
           </li>
         </ul>
       </div>
