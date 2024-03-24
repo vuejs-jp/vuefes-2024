@@ -1,20 +1,23 @@
 <script setup lang="ts">
-import { ButtonHTMLAttributes, ref, computed } from 'vue'
+import { AnchorHTMLAttributes, ref, computed } from 'vue'
 import type { Color as ColorType, IconName } from '@vuejs-jp/model'
 import { useColor } from '@vuejs-jp/composable'
-import Icon from './icon/Icon.vue'
+import Icon from '../icon/Icon.vue'
 
-type _LinkButtonProps = Omit<ButtonHTMLAttributes, 'onClick'>
+type _LinkButtonProps = Omit<AnchorHTMLAttributes, 'iconName'>
 interface LinkButtonProps extends /* @vue-ignore */ _LinkButtonProps {
   backgroundColor: ColorType
   color: ColorType
   href: string
-  target: string
-  iconName: IconName
+  target?: string
+  iconName?: IconName
 }
-const props = defineProps<LinkButtonProps>()
+const props = withDefaults(defineProps<LinkButtonProps>(), {
+  target: '_blank',
+  iconName: undefined,
+})
 
-const { color } = useColor()
+const { color: updateColor } = useColor()
 
 const hover = ref(false)
 const hoverIn = () => {
@@ -24,21 +27,22 @@ const hoverOut = () => {
   hover.value = false
 }
 const style = computed(() =>{
-  if (hover.value){
+  if (hover.value) {
     return { 
-      color: color(props.backgroundColor),
-      backgroundColor: color(props.color),
+      color: updateColor(props.backgroundColor),
+      backgroundColor: updateColor(props.color),
       borderSize:'1px',
-      borderColor:props.backgroundColor
+      borderColor:props.backgroundColor,
     }
   }
   return { 
-    backgroundColor: color(props.backgroundColor),
-    color: color(props.color)
+    backgroundColor: updateColor(props.backgroundColor),
+    color: updateColor(props.color),
+    boxShadow: `0 2px 10px rgb(53, 73, 95, 0.14), inset 0px 0px 0px 2px ${updateColor(props.color)}`,
   }
 })
 const iconColor = computed(() =>{
-  if (hover.value){
+  if (hover.value) {
     return props.backgroundColor
   }
   return props.color
@@ -50,19 +54,25 @@ const iconColor = computed(() =>{
     :href
     :target
     :style
-    class="button-link"
+    class="link-button"
     @mouseover="hoverIn"
     @mouseleave="hoverOut"
-    @focus="{}"
-    @blur="{}"
+    @focus="() => {}"
+    @blur="() => {}"
   >
-    <Icon v-if="props.iconName" :color="iconColor" :name="props.iconName" class="icon" />
+    <Icon
+      v-if="props.iconName"
+      :color="iconColor"
+      :name="props.iconName"
+      :can-hover="false"
+      class="icon"
+    />
     <slot />
   </a>
 </template>
 
 <style scoped>
-.button-link {
+.link-button {
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
@@ -70,13 +80,12 @@ const iconColor = computed(() =>{
   width: 100%;
   padding: 22px 66px;
   border-radius: 40px;
-  font-weight: bold;
   font-size: 20px;
   text-decoration: none;
   cursor: pointer;
-  border-style: solid;
+  box-shadow: 0 2px 10px rgb(53, 73, 95, 0.14);
 }
-.button-link:hover {
+.link-button:hover {
   transition: .2s;
 }
 .icon {

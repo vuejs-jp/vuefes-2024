@@ -1,8 +1,24 @@
 import svgLoader from 'vite-svg-loader'
+import { conferenceTitle } from './app/utils/constants'
+import { generalOg, twitterOg } from './app/utils/og.constants'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   srcDir: 'app/',
+  app: {
+    head: {
+      title: conferenceTitle,
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no' },
+        ...generalOg(),
+        ...twitterOg(),
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      htmlAttrs: {
+        lang: 'ja',
+      },
+    },
+  },
   modules: [
     '@vuejs-jp/vuefes-ui',
     [
@@ -15,6 +31,7 @@ export default defineNuxtConfig({
     ],
     '@nuxtjs/i18n',
     '@nuxt/content',
+    'nuxt-gtag',
   ],
   i18n: {
     legacy: false,
@@ -41,6 +58,14 @@ export default defineNuxtConfig({
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',
     },
+  },
+  content: {
+    markdown: {
+      anchorLinks: false,
+    },
+  },
+  gtag: {
+    id: process.env.NUXT_GTAG_ID,
   },
   vite: {
     plugins: [

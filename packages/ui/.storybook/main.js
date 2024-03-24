@@ -1,5 +1,6 @@
 import { mergeConfig } from 'vite'
 import svgLoader from 'vite-svg-loader'
+import { fileURLToPath, URL } from 'url'
 
 module.exports = {
   stories: ['../components/**/*.stories.mdx', '../components/**/*.stories.@(js|ts)'],
@@ -22,6 +23,11 @@ module.exports = {
   async viteFinal(config, { configType }) {
     return mergeConfig(config, {
       plugins: [svgLoader({ defaultImport: 'component' })],
+      resolve: {
+        alias: {
+          '#components': fileURLToPath(new URL('../mock', import.meta.url)),
+        },
+      },
     })
   },
 }

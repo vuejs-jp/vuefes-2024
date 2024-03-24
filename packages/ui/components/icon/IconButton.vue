@@ -6,7 +6,9 @@ type IconButtonProps = IconProps & {
   href: string
 }
 
-const props = defineProps<IconButtonProps>()
+const props = withDefaults(defineProps<IconButtonProps>(),{
+  canHover: true
+})
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Logo from './Logo.vue'
-import { useColor, useNav } from '@vuejs-jp/composable'
+import { useColor, useHeader } from '@vuejs-jp/composable'
 
 type HeaderProps = {
   top?: number
@@ -10,17 +10,17 @@ withDefaults(defineProps<HeaderProps>(), {
   top: 0,
 })
 
-const { navRef } = useNav()
+const { headerRef } = useHeader()
 const { color } = useColor()
 </script>
 
 <template>
   <header
-    ref="navRef"
+    ref="headerRef"
     :style="{ top, backgroundColor: color('white') }"
   >
-    <div class="nav-root">
-      <a href="/">
+    <div class="header-root">
+      <a href="/" aria-label="Vue Fes Japan 2024">
         <Logo color="vue-blue" />
       </a>
     </div>
@@ -28,14 +28,15 @@ const { color } = useColor()
 </template>
 
 <style scoped>
-nav {
+header {
   position: fixed;
   z-index: 10;
   width: 100%;
   padding: 0;
   margin: 0;
+  box-shadow: 0 0 8px rgba(198, 202, 207, 0.8);
 }
-.nav-root {
+.header-root {
   padding: 16px 0;
   display: flex;
   align-items: center;

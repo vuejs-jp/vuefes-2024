@@ -2,6 +2,18 @@
   "welcome": "ようこそ",
   "home": "ホーム",
   "about": "このサイトについて",
+  "back_to_top": "トップに戻る",
+  "not_found": "お探しのページが見つかりません。",
+  "day_of_week": {
+    "monday": "月",
+    "tuesday": "火"
+  },
+  "sponsor": {
+    "title": "スポンサー",
+    "apply": "申し込む",
+    "apply_period": "スポンサー申込期間",
+    "check_doc": "資料を見る"
+  },
   "form": {
     "title": "お問い合わせ",
     "form_name_label": "お名前",
@@ -13,5 +25,12 @@
   },
   "message": {
     "title": "メッセージ"
+  },
+  "code_of_conduct": {
+    "title": "行動規範"
+  },
+  "privacy": {
+    "title": "プライバシーポリシー",
+    "button": "トップに戻る"
   }
 }

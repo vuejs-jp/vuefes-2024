@@ -2,6 +2,18 @@
   "welcome": "welcome",
   "home": "home",
   "about": "about",
+  "back_to_top": "Back o Top",
+  "not_found": "The page you are looking for cannot be found.",
+  "day_of_week": {
+    "monday": "Mon",
+    "tuesday": "Tue"
+  },
+  "sponsor": {
+    "title": "Sponsor",
+    "apply": "Apply",
+    "apply_period": "Sponsor Application Period",
+    "check_doc": "Check the doc"
+  },
   "form": {
     "title": "Contact",
     "form_name_label": "Name",
@@ -13,5 +25,12 @@
   },
   "message": {
     "title": "Message"
+  },
+  "code_of_conduct": {
+    "title": "Code of Conduct"
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "button": "Back to Top"
   }
 }
