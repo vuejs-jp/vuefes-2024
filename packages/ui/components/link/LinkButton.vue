@@ -63,6 +63,7 @@ const iconColor = computed(() =>{
       v-if="props.iconName"
       :color="iconColor"
       :name="props.iconName"
+      :can-hover="false"
       class="icon"
     />
     <slot />

@@ -7,9 +7,12 @@ import { useColor } from '@vuejs-jp/composable'
 export type IconProps = {
   color: Color
   name: IconName
+  canHover: boolean
 }
 
-const props = defineProps<IconProps>()
+const props = withDefaults(defineProps<IconProps>(),{
+  canHover: true
+})
 
 const svgComponent =
   match<IconName>(props.name)
@@ -34,11 +37,12 @@ const { color: fillColor } = useColor()
   <component
     :is="svgComponent"
     :fill="fillColor(props.color)"
+    :class="{'icon_svg' : props.canHover}"
   />
 </template>
 
 <style scoped>
-svg:hover {
+.icon_svg:hover {
   fill: #42b883;
   transition: .2s;
 }
