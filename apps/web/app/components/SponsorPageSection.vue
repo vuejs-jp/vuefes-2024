@@ -47,6 +47,7 @@ const { color } = useColor()
           class="sponsor-button"
           fixed-width
           href="https://docs.google.com/presentation/d/1YXWqW55CKdt4czr8paarpdxqYz8NjSFRzrOQ-NnClKQ/edit?usp=sharing"
+          target="_blank"
           secondary
         >
           {{ $t('sponsor.check_doc') }}
