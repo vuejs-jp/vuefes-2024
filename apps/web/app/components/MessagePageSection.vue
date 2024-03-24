@@ -2,9 +2,9 @@
   <section class="container">
     <div class="content">
       <div class="title">
-        <VFTypography variant="heading/700" color="vue-blue">
+        <VFTitle id="message">
           {{ $t('message.title') }}
-        </VFTypography>
+        </VFTitle>
       </div>
       <div class="body">
         <MarkDownText path="message" />
@@ -14,7 +14,7 @@
 </template>
 
 <style scoped>
-@import url("~/assets/media.css");
+@import url('~/assets/media.css');
 
 .container {
   --container-padding: calc(var(--unit) * 15) 6%;
@@ -37,7 +37,6 @@
 
 .title {
   text-align: center;
-  line-height: 1.2;
 }
 
 .body {
@@ -67,18 +66,19 @@
 
 @media (--tablet) {
   .container {
-      --container-padding: 60px 6%;
+    --container-padding: 60px 6%;
   }
 
   .content {
-    --content-gap: 30px
+    --content-gap: 30px;
   }
 
   .body {
     --body-font-size: 1rem;
 
     & :deep(p) {
-      --body-p-margin-bottom: 29px
+      --body-p-margin-bottom: 29px;
     }
   }
-}</style>
+}
+</style>
