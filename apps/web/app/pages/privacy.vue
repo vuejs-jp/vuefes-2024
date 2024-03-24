@@ -1,12 +1,32 @@
 <script setup lang="ts">
+import { useHead } from '#imports'
 import FooterPageSection from '~/components/FooterPageSection.vue'
 import MarkDownText from '~/components/MarkDownText.vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { conferenceTitle, linkUrl, ogPrivacyDescription } from '~/utils/constants'
+import { generalOg, twitterOg } from '~/utils/og.constants'
 
 // @ts-expect-error
 const { t } = useI18n()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
+
+useHead({
+  // eslint-disable-next-line no-unused-vars
+  titleTemplate: (titleChunk) => `プライバシーポリシー | ${conferenceTitle}`,
+  meta: [
+    ...generalOg({
+      title: `プライバシーポリシー | ${conferenceTitle}`,
+      description: ogPrivacyDescription,
+      url: `${linkUrl}privacy`,
+    }),
+    ...twitterOg({
+      title: `プライバシーポリシー | ${conferenceTitle}`,
+      description: ogPrivacyDescription,
+      url: `${linkUrl}privacy`,
+    }),
+  ],
+})
 </script>
 
 <template>
