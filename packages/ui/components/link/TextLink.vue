@@ -58,11 +58,6 @@ const getCustomPropertyColorGreen = () => {
 </template>
 
 <style scoped>
-/*
- * Note:CSSカスタムプロパティを使用して、template⇔style間の値をやりとりしている。
- * 1. style属性へはhoverのスタイルは直接定義できないため。
- * 2. scopedとv-bindを組み合わせるとハッシュ化されたCSSカスタムプロパティが一致しないため。
-*/
 .text-link {
   text-decoration: underline;
   cursor: pointer;
