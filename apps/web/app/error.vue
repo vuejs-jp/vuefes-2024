@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useHead } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { conferenceTitle } from '~/utils/constants'
+import { generalOg, twitterOg } from '~/utils/og.constants'
 
 type ErrorProps = {
   error: { statusCode: string }
@@ -10,6 +13,23 @@ const props = defineProps<ErrorProps>()
 
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
+
+useHead({
+  // eslint-disable-next-line no-unused-vars
+  titleTemplate: (titleChunk) => `エラーページ | ${conferenceTitle}`,
+  meta: [
+    ...generalOg({
+      title: `エラーページ | ${conferenceTitle}`,
+      description: '',
+      url: '',
+    }),
+    ...twitterOg({
+      title: `エラーページ | ${conferenceTitle}`,
+      description: '',
+      url: '',
+    }),
+  ],
+})
 </script>
 
 <template>
