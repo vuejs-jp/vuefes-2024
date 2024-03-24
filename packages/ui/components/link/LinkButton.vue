@@ -81,7 +81,7 @@ const iconColor = computed(() =>{
   font-size: 20px;
   text-decoration: none;
   cursor: pointer;
-  border-style: solid;
+  box-shadow: 0 2px 10px rgb(53, 73, 95, 0.14);
 }
 .link-button:hover {
   transition: .2s;
