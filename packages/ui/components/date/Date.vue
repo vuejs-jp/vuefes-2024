@@ -54,11 +54,14 @@ const { color } = useColor()
   .year {
     margin-right: 6px;
     font-size: 24px;
+    font-family: din-2014, sans-serif;
   }
   .date {
     font-size: 45px;
+    font-family: din-2014, sans-serif;
   }
   .day-of-week {
+    font-family: din-2014, sans-serif;
     padding: 4px;
     width: 20px;
     height: 20px;
