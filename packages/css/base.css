@@ -1,6 +1,13 @@
 @font-face {
-  font-family: 'DIN Next LT Pro';
-  src: url('./fonts/dinnextltpro-regular.ttf') format('truetype');
+  font-family: 'DIN 2014';
+  src:
+    url('https://db.onlinewebfonts.com/t/2a2b767302dad0d292294c13d63a0c5f.eot');
+  src:
+    url('https://db.onlinewebfonts.com/t/2a2b767302dad0d292294c13d63a0c5f.eot?#iefix') format('embedded-opentype'),
+    url('https://db.onlinewebfonts.com/t/2a2b767302dad0d292294c13d63a0c5f.woff2') format('woff2'),
+    url('https://db.onlinewebfonts.com/t/2a2b767302dad0d292294c13d63a0c5f.woff') format('woff'),
+    url('https://db.onlinewebfonts.com/t/2a2b767302dad0d292294c13d63a0c5f.ttf') format('truetype'),
+    url('https://db.onlinewebfonts.com/t/2a2b767302dad0d292294c13d63a0c5f.svg#DIN 2014') format('svg');
 }
 
 :root {
