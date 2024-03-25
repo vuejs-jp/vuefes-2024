@@ -1,50 +1,10 @@
 /* https://open-props.style/#getting-started */
 
+@import '@vuejs-jp/css/base.css';
 @import 'open-props/style';
 @import './reset.css';
-
-:root {
-  /* margin
-   * e.g. calc(var(--unit) * 2) = 16px
-   */
-  --unit: 8px;
-
-  /* color */
-  --color-white: #fff;
-  --color-vue-blue: #35495e;
-  --color-vue-green: #42b983;
-  --color-vue-green-gradation: linear-gradient(to right, #42b883, #41b8aa);
-
-  /* font */
-  --font-size-heading700: 2.813rem;
-  --font-size-heading400: 1.75rem;
-  --font-size-heading300: 1.5rem;
-  --font-size-heading200: 1.25rem;
-  --font-size-body400: 1.125rem;
-  --font-size-body300: 1rem;
-  --line-height-heading700: 3.376rem; /* 2.813 * 1.2 */
-  --line-height-heading400: 3.15rem; /* 1.75 * 1.8 */
-  --line-height-heading300: 2.7rem; /* 1.5 * 1.8 */
-  --line-height-heading200: 2.25rem; /* 1.25 * 1.8 */
-  --line-height-body400: 2.025rem; /* 1.125 * 1.8 */
-  --line-height-body300: 1.8rem; /* 1 * 1.8 */
-  
-  /* markdown font */
-  --markdown-font-size-h2: var(--font-size-heading300);
-  --markdown-font-size-body: var(--font-size-body400);
-
-  --markdown-line-height-h2: var(--line-height-heading300);
-  --markdown-line-height-body: var(--line-height-body400);
-
-  /* zindex */
-}
 
 ul[role='list'],
 ol[role='list'] {
   padding-inline-start: 0;
-}
-
-html {
-  font-family: 'din-2014', 'Yu Gothic Medium', '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic',
-    sans-serif;
 }

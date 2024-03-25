@@ -25,6 +25,7 @@
     "@nuxtjs/i18n": "8.2.0",
     "@types/node": "~18.19.0",
     "@vuejs-jp/composable": "workspace:*",
+    "@vuejs-jp/css": "workspace:*",
     "@vuejs-jp/eslint-config": "workspace:*",
     "@vuejs-jp/markuplint-config": "workspace:*",
     "@vuejs-jp/model": "workspace:*",
