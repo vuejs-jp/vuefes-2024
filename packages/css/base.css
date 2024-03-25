@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'DIN Next LT Pro';
+  src: url('./fonts/dinnextltpro-regular.ttf') format('truetype');
+}
+
 :root {
   /* margin  e.g. calc(var(--unit) * 2) = 16px */
   --unit: 8px;
