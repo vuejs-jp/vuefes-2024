@@ -34,6 +34,11 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
       <Button :="args" disabled>あ</Button>
       &emsp;disabled
     </p>
+    <p style="display:flex;">
+      <Button :="args" couple>あ</Button>
+      <Button :="args" couple>あ</Button>
+      &emsp;横並び
+    </p>
   </div>
   <h2>RouterLinks</h2>
   <div>
