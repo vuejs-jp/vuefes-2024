@@ -11,3 +11,4 @@ export type Color =
   | 'hiwamoegi/100'
   | 'hiwamoegi/200'
   | 'gray/100'
+  | 'svg-icon'
