@@ -82,7 +82,11 @@ const bindProps = computed(() => {
 
 
 <template>
-  <component :is="tag" :class="myclass" :disabled="props.disabled || null" :aria-disabled="props.disabled || null"
+  <component
+    :is="tag"
+    :class="myclass"
+    :disabled="props.disabled || null"
+    :aria-disabled="props.disabled || null"
     v-bind="{ ...bindProps }">
     <span class="button-label">
       <slot />
@@ -92,12 +96,6 @@ const bindProps = computed(() => {
 
 <style scoped>
 .button {
-  --color-vue-green-gradation: linear-gradient(to right, #42b883, #41b8aa);
-  --color-vue-green: #42b983;
-  --color-vue-blue: #35495e;
-  --color-disabled: #C6CACF;
-  --box-shadow: 0 2px 10px rgb(53, 73, 95, 0.14);
-
   display: inline-flex;
   justify-content: center;
   min-width: 198px;

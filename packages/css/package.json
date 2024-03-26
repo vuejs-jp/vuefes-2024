@@ -1,0 +1,11 @@
+{
+  "name": "@vuejs-jp/css",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./base.css": "./base.css"
+  },
+  "sideEffects": [
+    "*.css"
+  ]  
+}
