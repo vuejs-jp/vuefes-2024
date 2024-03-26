@@ -1,15 +1,19 @@
-Vue Fes Japan is Japan's largest Vue.js conference, established in 2018.
+Vue Fes Japan, the largest Vue.js conference in Japan, will be held again in 2024!
 
-Literally, Vue Fes was born to liven up Vue.js together like a festival, to learn together, and above all, to enjoy together.
+This conference, born in 2018, was created to celebrate Vue.js together like a festival, to learn together, and above all, to enjoy together.
 
-Last year, in 2022, it was held online due to the prolonged corona disaster, and it was a lot of fun with over 650 pre-registrations and over 10,000 views. In particular, it was impressive that there were many contents related to migration from Vue 2 to Vue 3.
+The last Vue Fes Japan 2023 was the first offline event in 5 years and was attended by nearly 600 people. After a long period of cancellations and online events, the enthusiasm of the Vue.js community was palpable at this conference.
 
-In January 2022, Vue.js defaulted to its latest version, Vue 3. As a result, the number of downloads on npm has increased by over 200%, accelerating the adoption of Vue 3. In the ecosystem, Nuxt 3 and Vuetify 3, which support Vue 3, were released in November 2022.
+Vue.js has been steadily evolving since Vue 3 became the default in January 2022. The latest 3.4 series has seen 4.8 million downloads per week, major framework libraries such as Nuxt, Vuetify, and Quasar have completed their support for Vue 3, and the entire ecosystem has entered a period of stability.
 
-While the use of Vue 3 is gaining momentum, Evan You, the creator of Vue.js, is also working on the next Vue.js. Just as Vite, which he developed, was released not only to the Vue.js community but also to other JavaScript communities, he is also trying to show new developments in the ecosystem such as Nuxt and Volar.
+Meanwhile, a new trend is emerging in the ecosystem around Vue.js.
 
-As Vue.js and the ecosystem continue to develop, we have decided to reboot Vue Fes Japan as an offline conference in 2023.
+Nitro, Nuxt's core server engine, is starting to be used by other metaframeworks such as SolidStart and Analog. UnJS, a collection of high-quality JavaScript utilities, has gained traction in the non-Vue.js community, and Vite, created by Vue.js author Evan You, has evolved into a next-generation tool that supports a wide variety of front ends beyond Vue.js, Vite, created by Evan You, the author of Vue.js, has evolved into a next-generation tool that supports not only Vue.js, but a wide variety of front-ends, with over 11 million weekly downloads.
 
-By all means, let's participate in the conference together and enjoy an experience that can only be experienced in real life!
+In addition, we are working with the Rspack team and the OXC project to develop Rolldown, a Rust implementation of the Vite core rollup, releasing an initial version in March 2024, and other open source software around Vue.js is far reaching.
 
-Japan User Group representative Kawaguchi Kazuya (@kazu_pon)
+This year's Vue Fes Japan 2024 is the place to experience the latest trends. Please join us at the conference and enjoy the experience that only the real thing can offer!
+
+Be More Collaboration! Be More Expansion!
+
+Vue.js Japan User Group Representative Kazuya Kawaguchi ([@kazu_pon](https://twitter.com/kazu_pon){:target="\_blank"})
