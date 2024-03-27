@@ -8,7 +8,7 @@
       </div>
 
       <div class="text-container">
-        <h2 class="section-title">Vue Fes Japan 2024</h2>
+        <h1 class="section-title">Vue Fes Japan 2024</h1>
         <p class="place">
           Otemachi PLACE HALL &amp; CONFERENCET
           <br /><time datetime="2024-10-19T00:00+09:00"
@@ -17,9 +17,9 @@
         </p>
       </div>
       <div class="sns-link-wrapper">
-        <h3 class="official-announcement">
+        <h2 class="official-announcement">
           {{ $t('top_page.latest_information') }}
-        </h3>
+        </h2>
         <div class="link-buttons">
           <VFButton class="link-button" href="https://twitter.com/vuefes" target="_blank" couple
             ><VFIcon
