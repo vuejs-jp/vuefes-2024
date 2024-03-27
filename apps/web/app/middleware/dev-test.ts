@@ -1,11 +1,7 @@
-import { defineNuxtRouteMiddleware, showError } from '#app'
+import { defineNuxtRouteMiddleware, navigateTo } from '#app'
 
-export default defineNuxtRouteMiddleware((to, from) => {
+export default defineNuxtRouteMiddleware(async (to, from) => {
   if (process.env.NODE_ENV !== 'development') {
-    throw showError({
-      statusCode: 404,
-      fatal: true,
-      message: 'This is a page for only the development',
-    })
+    await navigateTo({ path: '/' })
   }
 })
