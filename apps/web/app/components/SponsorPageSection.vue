@@ -39,7 +39,7 @@ const { color } = useColor()
 
       <div class="sponsor-buttons">
         <!-- 申し込む -->
-        <VFButton class="sponsor-button" fixed-width href="/">
+        <VFButton class="sponsor-button" fixed-width href="https://forms.gle/paxZqz55oXLE4Njn9" target="_blank">
           {{ $t('sponsor.apply') }}
         </VFButton>
         <!-- 資料を見る -->

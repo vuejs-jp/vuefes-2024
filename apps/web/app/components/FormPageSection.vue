@@ -118,6 +118,7 @@ section {
   display: grid;
   place-items: center;
   gap: 40px;
+  line-height: 1.8;
   &::v-deep a {
     color: var(--color-vue-green);
     text-decoration: underline;

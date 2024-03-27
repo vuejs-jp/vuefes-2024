@@ -26,6 +26,9 @@
     "submit": "送信",
     "submit_done": "メッセージ送信に成功しました。"
   },
+  "message": {
+    "title": "メッセージ"
+  },
   "code_of_conduct": {
     "title": "行動規範"
   },
