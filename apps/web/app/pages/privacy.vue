@@ -30,7 +30,7 @@ useHead({
 </script>
 
 <template>
-  <main>
+  <section>
     <div 
       class="privacy-root"
       :style="{
@@ -50,8 +50,7 @@ useHead({
         </VFButton>
       </div>
     </div>
-  </main>
-  <FooterPageSection />
+  </section>
 </template>
 
 <style scoped>

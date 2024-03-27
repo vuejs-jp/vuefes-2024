@@ -1,19 +1,27 @@
+<script setup lang="ts">
+import { definePageMeta } from '#imports'
+
+definePageMeta({
+  middleware: 'dev-test',
+})
+</script>
+
 <template>
-  <main class="container">
+  <section class="container">
     <h1>サンプルネームカード</h1>
-    <ul class="cardlist" role='list'>
-      <li v-for="n in 4">
+    <ul class="cardlist">
+      <li v-for="n in 4" :key="n">
         <!-- card 通常はcomponent化する -->
         <div class="card">
           <header class="card-header">
-            <div class="card-icon"></div>
+            <div class="card-icon" />
             <p>ネームカード</p>
           </header>
           <p>
             いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
           </p>
           <footer class="card-footer">
-            <ul role="list">
+            <ul>
               <li>
                 <a href="" class="textlink">twitter</a>
               </li>
@@ -26,7 +34,7 @@
         <!-- /card -->
       </li>
     </ul>
-  </main>
+  </section>
 </template>
 
 <style scoped>
@@ -52,11 +60,12 @@
   max-width: 90%;
   margin: 0 auto;
   padding: var(--container-padding);
+  background: var(--color-white);
 }
 
 h1 {
   text-align: center;
-  color: var(--stone-0);
+  color: var(--color-vue-blue);
 }
 
 .cardlist {
@@ -87,7 +96,7 @@ h1 {
   基本はscoped付き以外は使わない
 -->
 <style>
-html {
+/* html {
   background-color: var(--green-2);
-}
+} */
 </style>

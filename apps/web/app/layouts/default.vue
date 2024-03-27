@@ -16,6 +16,7 @@ useHead({
   <main>
     <slot />
   </main>
+  <FooterPageSection />
 </template>
 
 <style scoped>

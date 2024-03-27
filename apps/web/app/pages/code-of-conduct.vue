@@ -56,7 +56,6 @@ const { color } = useColor()
       </VFLinkButton>
     </div>
   </section>
-  <FooterPageSection />
 </template>
 
 <style scoped>
