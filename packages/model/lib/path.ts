@@ -1,1 +1,1 @@
-export type Path = 'form' | 'sponsor' | 'code-of-conduct' | 'privacy'
+export type Path = 'form' | 'message' | 'sponsor' | 'code-of-conduct' | 'privacy'

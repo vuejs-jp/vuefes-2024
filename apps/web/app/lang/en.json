@@ -23,6 +23,9 @@
     "submit": "Submit",
     "submit_done": "Succeeded to send the email."
   },
+  "message": {
+    "title": "Message"
+  },
   "code_of_conduct": {
     "title": "Code of Conduct"
   },
