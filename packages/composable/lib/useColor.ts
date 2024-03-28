@@ -16,6 +16,7 @@ export function useColor() {
       .with('hiwamoegi/100', () => '#90B44B')
       .with('hiwamoegi/200', () => '#6E8F2E')
       .with('gray/100', () => '#C6CACF')
+      .with('svg-icon', () => 'currentColor')
       .exhaustive()
 
   return { color }
