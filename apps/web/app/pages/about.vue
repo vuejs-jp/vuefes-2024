@@ -18,10 +18,7 @@ const { t } = useI18n()
       </NuxtLink>
     </div>
     <p>{{ t('about') }}</p>
-    <NuxtLinkLocale
-      to="/"
-      class="link"
-    >
+    <NuxtLinkLocale to="/" class="link">
       {{ t('home') }}
     </NuxtLinkLocale>
   </div>
@@ -30,6 +27,8 @@ const { t } = useI18n()
 <style scoped>
 .wrapper {
   margin: 16px;
+  --header-height: calc(var(--unit) * 10);
+  padding-top: var(--header-height);
 }
 .lang {
   display: flex;
@@ -50,5 +49,11 @@ const { t } = useI18n()
 .link {
   color: blue;
   text-decoration: underline;
+}
+
+@media (--mobile) {
+  .wrapper {
+    --header-height: calc(var(--unit) * 8);
+  }
 }
 </style>
