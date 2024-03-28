@@ -61,7 +61,8 @@ const { color } = useColor()
 
 <style scoped>
 section {
-  padding: 120px 20px 120px;
+  --header-height: calc(var(--unit) * 10);
+  padding: calc(var(--header-height) + 120px) 20px 120px;
   background: color(--color-white);
 }
 .coc-root {
@@ -92,7 +93,7 @@ section {
   }
   &::v-deep a:hover {
     opacity: 0.4;
-    transition: .2s;
+    transition: 0.2s;
   }
 }
 .actions {
@@ -102,6 +103,9 @@ section {
   width: 320px;
 }
 @media (--mobile) {
+  section {
+    --header-height: calc(var(--unit) * 8);
+  }
   .title {
     font-size: 28px;
   }
