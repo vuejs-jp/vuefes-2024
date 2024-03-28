@@ -68,7 +68,7 @@
   position: relative;
   width: 100%;
   height: var(--background-image-height);
-  background-image: url('../assets/images/topPage/main-visual.png');
+  background-image: url('/main-visual.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
