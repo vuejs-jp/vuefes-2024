@@ -22,7 +22,10 @@ module.exports = {
   },
   async viteFinal(config, { configType }) {
     return mergeConfig(config, {
-      plugins: [svgLoader({ defaultImport: 'component' })],
+      plugins:
+        configType === 'PRODUCTION'
+          ? [turbosnap({ rootDir: config.root }), svgLoader({ defaultImport: 'component' })]
+          : [svgLoader({ defaultImport: 'component' })],
       resolve: {
         alias: {
           '#components': fileURLToPath(new URL('../mock', import.meta.url)),
