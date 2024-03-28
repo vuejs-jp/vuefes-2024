@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Logo from './Logo.vue'
-import { useColor, useHeader } from '@vuejs-jp/composable'
+import { useHeader } from '@vuejs-jp/composable'
 
 type HeaderProps = {
   top?: number
@@ -11,17 +11,13 @@ withDefaults(defineProps<HeaderProps>(), {
 })
 
 const { headerRef } = useHeader()
-const { color } = useColor()
 </script>
 
 <template>
-  <header
-    ref="headerRef"
-    :style="{ top, backgroundColor: color('white') }"
-  >
+  <header ref="headerRef" :style="{ top }">
     <div class="header-root">
-      <a href="/" aria-label="Vue Fes Japan 2024">
-        <Logo color="vue-blue" />
+      <a class="link" href="/" aria-label="Vue Fes Japan 2024">
+        <Logo class="logo" color="vue-blue" />
       </a>
     </div>
   </header>
@@ -34,12 +30,18 @@ header {
   width: 100%;
   padding: 0;
   margin: 0;
+  background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 0 8px rgba(198, 202, 207, 0.8);
 }
+
 .header-root {
   padding: 20px 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.link {
+  line-height: 0;
 }
 </style>
