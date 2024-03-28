@@ -1,5 +1,6 @@
 import { mergeConfig } from 'vite'
 import svgLoader from 'vite-svg-loader'
+import { turbosnap } from 'vite-plugin-turbosnap'
 import { fileURLToPath, URL } from 'url'
 
 module.exports = {
