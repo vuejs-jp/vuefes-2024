@@ -31,38 +31,44 @@ const { color } = useColor()
         fontSize: fontSize('heading/700'),
         color: color('vue-blue'),
       }"
-      class="date"
+      class="day"
     >
       {{ date }}
-    </span>
-    <span
-      :style="{
-        fontSize: fontSize('other/200'),
-        fontWeight: fontWeight('other/200'),
-        background: color('vue-blue'),
-        color: color('white'),
-      }"
-      class="day-of-week"
-    >
-      {{ dayOfWeek }}
+      <span
+        :style="{
+          fontSize: fontSize('other/200'),
+          fontWeight: fontWeight('other/200'),
+          background: color('vue-blue'),
+          color: color('white'),
+        }"
+        class="day-of-week"
+      >
+        {{ dayOfWeek }}
+      </span>
     </span>
   </div>
 </template>
 
 <style scoped>
 .date {
+  height: 45px;
   .year {
     margin-right: 6px;
     font-size: 24px;
   }
-  .date {
+  .day {
+    margin-right: 18px;
     font-size: 45px;
-  }
-  .day-of-week {
-    padding: 4px;
-    width: 20px;
-    height: 20px;
-    border-radius: 2px;
+    position: relative;
+    .day-of-week {
+      position: absolute;
+      top: 50%;
+      right: -24px;
+      text-align: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 2px;
+    }
   }
 }
 </style>

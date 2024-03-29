@@ -38,6 +38,7 @@ const { color } = useColor()
   justify-content: center;
   gap: 16px;
   .separator {
+    height: 45px;
     font-weight: 700;
     font-size: 38px;
   }
