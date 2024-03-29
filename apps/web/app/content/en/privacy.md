@@ -8,7 +8,7 @@ In this Privacy Policy, "personal information" means information about a living 
 
 ## Collection of Personal Information
 
-This conference shall obtain personal information by legal and fair means, and shall not obtain personal information illegally against the user's will.
+This conference shall obtain personal information by legal and fair means, and shall not obtain personal information illegally against the User's will.
 
 The conference handles the following personal information of Users:
 
@@ -29,9 +29,9 @@ The Conference will use the personal information collected from Users for the fo
 
 1. To provide updated and related information on this conference
 2. To respond to inquiries and information regarding our conference
-3. To request users to provide their opinions and impressions of our conference
-4. To issue a warning or caution to a user who has committed or may commit an act that violates any of the terms and conditions of this conference
-5. When requesting a user who owes a debt to this conference to fulfill that debt
+3. To request Users to provide their opinions and impressions of our conference
+4. To issue a warning or caution to a User who has committed or may commit an act that violates any of the terms and conditions of this conference
+5. When requesting a User who owes a debt to this conference to fulfill that debt
 6. When notifying a User of changes to the terms and conditions of this Conference
 
 ## Changes to the Purpose of Use of Personal Information
@@ -40,7 +40,7 @@ This conference may change the purposes for which personal information is used t
 
 ## Term of Use of Personal Information
 
-The Conference will use personal information collected from users until October 31, 2024, the month in which the conference is held. After the expiration date, the personal information will be completely deleted as soon as possible.
+The Conference will use personal information collected from Users until October 31, 2024, the month in which the conference is held. After the expiration date, the personal information will be completely deleted as soon as possible.
 
 ## Safe Management of Personal Information
 
@@ -65,7 +65,7 @@ The Conference will endeavor to maintain accurate and up-to-date personal inform
 
 ## Reference, Correction, Deletion, etc. of Personal Information
 
-When a user requests that the conference reference, correct, add, delete, stop using, or erase the user's personal information, the conference will confirm the identity of the user. If we determine that the inquiry is made by the user himself/herself, we will respond to the inquiry within a reasonable period of time.
+When a User requests that the conference reference, correct, add, delete, stop using, or erase the User's personal information, the conference will confirm the identity of the User. If we determine that the inquiry is made by the User themself, we will respond to the inquiry within a reasonable period of time.
 
 ## Use and Purpose of Cookies and Similar Technologies
 
@@ -91,7 +91,7 @@ Most web browsers are initially set up to automatically receive cookies, but you
 
 For more information on adjusting or changing your web browser settings, please refer to your web browser's help screen. Please note that if you disable cookies used on the Conference website, it may affect your use of the website, for example, you may not be able to access certain parts of the website or you may not be able to use all or part of the website. Please be aware of this beforehand.
 
-Cookies on this website are stored for a maximum of two years from the date of the user's last visit to this website.
+Cookies on this website are stored for a maximum of two years from the date of the User's last visit to this website.
 
 ## Continuous Improvement
 
