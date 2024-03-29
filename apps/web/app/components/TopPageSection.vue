@@ -196,5 +196,8 @@
   .official-announcement {
     font-size: var(--font-size-body200);
   }
+  .link-buttons {
+    gap: calc(var(--unit) * 2);
+  }
 }
 </style>
