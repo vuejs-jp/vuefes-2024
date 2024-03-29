@@ -33,15 +33,17 @@ const { color } = useColor()
         {{ $t('sponsor.apply_period') }}
       </h3>
       <VFDatePeriod
-        :start="{ year: 2024, date: '4.1', dayOfWeek: $t('day_of_week.monday') }"
-        :end="{ date: '4.30', dayOfWeek: $t('day_of_week.tuesday') }"
+        :start="{ year: 2024, date: '4.8', dayOfWeek: $t('day_of_week.monday') }"
+        :end="{ date: '4.25', dayOfWeek: $t('day_of_week.thursday') }"
       />
 
       <div class="sponsor-buttons">
         <!-- 申し込む -->
+        <!--
         <VFButton class="sponsor-button" fixed-width href="https://forms.gle/paxZqz55oXLE4Njn9" target="_blank">
           {{ $t('sponsor.apply') }}
         </VFButton>
+        -->
         <!-- 資料を見る -->
         <VFButton
           class="sponsor-button"
