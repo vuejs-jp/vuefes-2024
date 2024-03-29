@@ -84,10 +84,11 @@ section {
   &::v-deep h2 {
     margin-top: 60px;
     font-weight: 700;
-    font-size: 32px;
+    font-size: 24px;
   }
   &::v-deep p {
     margin-top: 20px;
+    line-height: 1.8;
   }
   &::v-deep a {
     color: var(--color-vue-green);
