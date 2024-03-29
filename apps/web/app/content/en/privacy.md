@@ -103,6 +103,4 @@ For requests regarding disclosure, opinions, questions, complaints, and other in
 
 ## Supplementary Provisions
 
-The Conference shall not disclose or provide collected personal information to third parties other than subcontractors in accordance with the Personal Information Protection Law. However, this does not apply in the following cases.
-
 - Effective 2024-04-01
