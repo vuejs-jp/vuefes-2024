@@ -98,9 +98,11 @@ const updateDetail = (e: any) => {
 </template>
 
 <style scoped>
+@import url("~/assets/media.css");
+
 section {
   padding: 120px 20px 120px;
-  background: url(/form-bg.png), linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 240, 245, 0.8));
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 240, 245, 0.8));
   background-blend-mode: soft-light;
 }
 .form-root {
@@ -136,10 +138,10 @@ form {
   margin: 0 auto;
   width: 260px;
 }
-@supports (-webkit-touch-callout: none) {
-  section {
-    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 240, 245, 0.8)), url(/form-bg.png); /* for iOS */
-    background-size: 200%; /* for iOS */
+
+@media (--mobile) {
+  .form-button {
+    width: 100%;
   }
 }
 </style>
