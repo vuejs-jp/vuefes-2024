@@ -9,7 +9,7 @@ const props = defineProps<TitleProps>()
 </script>
 
 <template>
-  <Typography :id variant="heading/500" color="vue-blue">
+  <Typography :id variant="heading/700" color="vue-blue">
     <slot />
   </Typography>
 </template>

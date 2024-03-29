@@ -34,7 +34,6 @@ const { color } = useColor()
         <h1
           :style="{
             fontWeight: fontWeight('heading/700'),
-            fontSize: fontSize('heading/700'),
             color: color('vue-blue'),
           }"
         >
@@ -62,6 +61,8 @@ const { color } = useColor()
 </template>
 
 <style scoped>
+@import url("~/assets/media.css");
+
 section {
   --header-height: calc(var(--unit) * 10);
   padding: calc(var(--header-height) + 120px) 20px 120px;
@@ -77,6 +78,7 @@ section {
 }
 .title {
   text-align: center;
+  font-size: 45px;
 }
 .subtitle {
   display: grid;
@@ -84,10 +86,11 @@ section {
   &::v-deep h2 {
     margin-top: 60px;
     font-weight: 700;
-    font-size: 32px;
+    font-size: 24px;
   }
   &::v-deep p {
     margin-top: 20px;
+    line-height: 1.8;
   }
   &::v-deep a {
     color: var(--color-vue-green);
@@ -104,12 +107,21 @@ section {
   margin: 0 auto;
   width: 320px;
 }
+
 @media (--mobile) {
   section {
     --header-height: calc(var(--unit) * 8);
+    padding: calc(var(--header-height) + 60px) 20px 60px;
+  }
+  .coc-root {
+    gap: 30px;
   }
   .title {
     font-size: 28px;
+  }
+  .actions {
+    padding-top: 30px;
+    width: 100%;
   }
 }
 </style>
