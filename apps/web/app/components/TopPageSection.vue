@@ -10,7 +10,7 @@
       <div class="text-container">
         <h1 class="section-title">Vue Fes Japan 2024</h1>
         <p class="place">
-          Otemachi PLACE HALL &amp; CONFERENCET
+          Otemachi PLACE HALL &amp; CONFERENCE
           <br /><time datetime="2024-10-19T00:00+09:00"
             >2024.10.19<span class="day-of-week">SAT</span></time
           >

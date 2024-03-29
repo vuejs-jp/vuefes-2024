@@ -10,13 +10,13 @@
     "thursday": "Thu"
   },
   "top_page": {
-    "latest_information": "We are introducing the latest information on our official social media"
+    "latest_information": "Get the latest information on our official social media"
   },
   "sponsor": {
-    "title": "Sponsor",
+    "title": "Sponsors",
     "apply": "Apply",
     "apply_period": "Sponsor Application Period",
-    "check_doc": "Check the doc"
+    "check_doc": "View Sponsorship materials"
   },
   "form": {
     "title": "Contact",
@@ -25,7 +25,7 @@
     "form_email_label": "Email",
     "form_text_label": "Content",
     "submit": "Submit",
-    "submit_done": "Succeeded to send the email."
+    "submit_done": "Successfully sent your message."
   },
   "message": {
     "title": "Message"
