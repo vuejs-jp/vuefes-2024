@@ -1,12 +1,12 @@
 <template>
   <main class="container">
     <h1>サンプルネームカード</h1>
-    <ul class="cardlist" role='list'>
+    <ul class="cardlist" role="list">
       <li v-for="n in 4">
         <!-- card 通常はcomponent化する -->
         <div class="card">
           <header class="card-header">
-            <div class="card-icon"></div>
+            <div class="card-icon" />
             <p>ネームカード</p>
           </header>
           <p>
@@ -87,7 +87,7 @@ h1 {
   基本はscoped付き以外は使わない
 -->
 <style>
-html {
+/* html {
   background-color: var(--green-2);
-}
+} */
 </style>
