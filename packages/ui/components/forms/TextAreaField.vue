@@ -45,7 +45,11 @@ const { color } = useColor()
 <template>
   <label
     :for="id"
-    :style="{ fontWeight: fontWeight('heading/100'), fontSize: fontSize('heading/100') }"
+    :style="{
+      fontWeight: fontWeight('heading/100'),
+      fontSize: fontSize('heading/100'),
+      color: color('vue-blue'),
+    }"
     class="textarea-root"
   >
     {{ label }}
@@ -56,6 +60,7 @@ const { color } = useColor()
       :style="{
         fontWeight: fontWeight('heading/100'),
         fontSize: fontSize('heading/100'),
+        color: color('vue-blue'),
         boxShadow: errorMessage ? `0 0 2px ${color('sangosyo/200')}` : `0 0 2px ${color('vue-blue')}`,
       }"
       class="form-textarea"
