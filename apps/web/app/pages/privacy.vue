@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { useHead } from '#imports'
+import { useHead, useI18n } from '#imports'
 import FooterPageSection from '~/components/FooterPageSection.vue'
 import MarkDownText from '~/components/MarkDownText.vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { conferenceTitle, linkUrl, ogPrivacyDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
-// @ts-expect-error
 const { t } = useI18n()
+const { path: localePath } = useLocaleCurrent()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 
@@ -45,8 +46,8 @@ useHead({
         <MarkDownText path="privacy" class="explain" />
       </div>
       <div class="back">
-        <VFButton class="back-button" fixed-width href="/" secondary>
-          {{ t('privacy.button') }}
+        <VFButton class="back-button" fixed-width :href="`${localePath}/`" secondary>
+          {{ t('back_to_top') }}
         </VFButton>
       </div>
     </div>

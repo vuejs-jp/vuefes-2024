@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { conferenceTitle, linkUrl, ogCoCDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
@@ -21,6 +22,7 @@ useHead({
   ],
 })
 
+const { path: localePath } = useLocaleCurrent()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 </script>
@@ -51,7 +53,7 @@ const { color } = useColor()
       </div>
     </div>
     <div class="actions">
-      <VFLinkButton background-color="white" color="vue-blue" target="" href="/">
+      <VFLinkButton background-color="white" color="vue-blue" target="" :href="`${localePath}/`">
         {{ $t('back_to_top') }}
       </VFLinkButton>
     </div>
