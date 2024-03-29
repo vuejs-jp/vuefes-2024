@@ -66,7 +66,7 @@ const { color } = useColor()
 @import url("~/assets/sample.css");
 
 .sponsor {
-  --sponsor-padding: calc(var(--unit) * 7) 0;
+  --sponsor-padding: calc(var(--unit) * 5.25) 0;
   --sponsor-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 8);
   --sponsor-term-margin: calc(var(--unit) * 5) auto 0;
 
@@ -108,7 +108,7 @@ const { color } = useColor()
 .sponsor-buttons {
   display: flex;
   justify-content: center;
-  margin-top: calc(var(--unit) * 4);
+  margin-top: calc(var(--unit) * 5);
 }
 
 .sponsor-button {
@@ -141,7 +141,12 @@ const { color } = useColor()
     --sponsor-term-margin: calc(var(--unit) * 5) auto 0;
   }
 
+  .sponsor-subtitle {
+    margin-top: calc(var(--unit) * 3.75);
+  }
+
   .sponsor-buttons {
+    margin-top: calc(var(--unit) * 3.75);
     display: block;
   }
 
