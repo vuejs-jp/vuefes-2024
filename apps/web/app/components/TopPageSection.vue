@@ -190,6 +190,9 @@
 }
 
 @media (--mobile) {
+  .day-of-week {
+    font-size: var(--font-size-body100);
+  }
   .sns-link-wrapper {
     width: calc(100vw - var(--container-margin) * 2);
   }
