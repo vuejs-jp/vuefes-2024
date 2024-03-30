@@ -72,8 +72,6 @@ const iconColor = computed(() => {
 </template>
 
 <style scoped>
-@import url('~/assets/media.css');
-
 .link-button {
   --icon-size: 22px;
   --height-button: 66px;
@@ -102,7 +100,7 @@ const iconColor = computed(() => {
   line-height: var(--icon-size);
 }
 
-@media (--tablet) {
+@media screen and (max-width: 768px) {
   .link-button {
     --icon-size: 17px;
     --height-button: 49px;
