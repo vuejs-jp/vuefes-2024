@@ -56,8 +56,8 @@ const iconColor = computed(() => {
     class="link-button"
     @mouseover="hoverIn"
     @mouseleave="hoverOut"
-    @focus="() => {}"
-    @blur="() => {}"
+    @focus="hoverIn"
+    @blur="hoverOut"
   >
     <div class="icon-wrapper">
       <Icon
