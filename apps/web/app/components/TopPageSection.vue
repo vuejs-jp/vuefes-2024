@@ -21,24 +21,24 @@
           {{ $t('top_page.latest_information') }}
         </h2>
         <div class="link-buttons">
-          <VFButton class="link-button" href="https://twitter.com/vuefes" target="_blank" couple
-            ><VFIcon
-              class="sns-icon x"
-              name="x"
-              color="svg-icon"
-              :can-hover="false"
-            />@vuefes</VFButton
-          >
-          <VFButton
+          <VFLinkButton
             class="link-button"
-            secondary
+            background-color="vue-green"
+            color="white"
+            icon-name="x"
+            href="https://twitter.com/vuefes"
+          >
+            @vuefes
+          </VFLinkButton>
+          <VFLinkButton
+            class="link-button"
+            background-color="white"
+            color="vue-blue"
+            icon-name="note"
             href="https://note.com/vuejs_jp/m/mb35849fee631"
-            target="_blank"
-            couple
           >
-            <VFIcon class="sns-icon note" name="note" color="svg-icon" :can-hover="false" />公式
-            note</VFButton
-          >
+            note
+          </VFLinkButton>
         </div>
       </div>
     </div>
@@ -120,27 +120,6 @@
 .link-button {
   width: 260px;
 }
-.sns-icon {
-  height: 100%;
-  &.x {
-    position: relative;
-    top: 2px;
-    width: 14.5px;
-    margin-right: 11.5px;
-    &:hover {
-      color: var(--color-vue-green);
-    }
-  }
-  &.note {
-    position: relative;
-    top: 3px;
-    width: 12px;
-    margin-right: 12.5px;
-    &:hover {
-      color: var(--color-white);
-    }
-  }
-}
 
 @media (--tablet) {
   .top-page-root {
@@ -174,18 +153,6 @@
   }
   .link-button {
     width: 100%;
-  }
-  .sns-icon {
-    &.x {
-      top: 0;
-      width: 11px;
-      margin-right: 7px;
-    }
-    &.note {
-      top: 0;
-      width: 9px;
-      margin-right: 10px;
-    }
   }
 }
 
