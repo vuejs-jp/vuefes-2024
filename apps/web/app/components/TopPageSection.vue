@@ -108,7 +108,7 @@
   left: var(--container-margin);
 }
 .official-announcement {
-  font-size: var(--font-size-heading400);
+  font-size: var(--font-size-heading300);
   font-weight: 700;
   color: var(--color-vue-blue);
 }
@@ -157,11 +157,17 @@
 }
 
 @media (--mobile) {
+  .day-of-week {
+    font-size: var(--font-size-body100);
+  }
   .sns-link-wrapper {
     width: calc(100vw - var(--container-margin) * 2);
   }
   .official-announcement {
     font-size: var(--font-size-body200);
+  }
+  .link-buttons {
+    gap: calc(var(--unit) * 2);
   }
 }
 </style>
