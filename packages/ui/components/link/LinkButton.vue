@@ -26,21 +26,21 @@ const hoverIn = () => {
 const hoverOut = () => {
   hover.value = false
 }
-const style = computed(() =>{
+const style = computed(() => {
   if (hover.value) {
-    return { 
+    return {
       color: updateColor(props.backgroundColor),
       backgroundColor: updateColor(props.color),
       boxShadow: `0 0 0 2px ${updateColor(props.backgroundColor)} inset`,
     }
   }
-  return { 
+  return {
     backgroundColor: updateColor(props.backgroundColor),
     color: updateColor(props.color),
     boxShadow: `0 2px 10px rgb(53, 73, 95, 0.14), inset 0px 0px 0px 2px ${updateColor(props.color)}`,
   }
 })
-const iconColor = computed(() =>{
+const iconColor = computed(() => {
   if (hover.value) {
     return props.backgroundColor
   }
@@ -59,35 +59,72 @@ const iconColor = computed(() =>{
     @focus="() => {}"
     @blur="() => {}"
   >
-    <Icon
-      v-if="props.iconName"
-      :color="iconColor"
-      :name="props.iconName"
-      :can-hover="false"
-      class="icon"
-    />
-    <slot />
+    <div class="icon-wrapper">
+      <Icon
+        v-if="props.iconName"
+        :color="iconColor"
+        :name="props.iconName"
+        :can-hover="false"
+        class="icon"
+      />
+    </div>
+    <span class="text">
+      <slot />
+    </span>
   </a>
 </template>
 
 <style scoped>
+@import url('~/assets/media.css');
+
 .link-button {
+  --icon-wrapper-size: 22px;
+  --height-button: 66px;
+
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 22px 66px;
-  border-radius: 40px;
-  font-size: 20px;
+  height: var(--height-button);
+  border-radius: var(--height-button);
   text-decoration: none;
   cursor: pointer;
   box-shadow: 0 2px 10px rgb(53, 73, 95, 0.14);
 }
 .link-button:hover {
-  transition: .2s;
+  transition: 0.2s;
+}
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--icon-wrapper-size);
+  height: var(--icon-wrapper-size);
+  margin-right: calc(var(--unit) * 1);
 }
 .icon {
-  margin-right: 8px;
+  transform-origin: center;
+  transform: scale(0.77) translateY(0.02em);
+}
+.text {
+  font-size: var(--font-size-body400);
+  line-height: var(--icon-wrapper-size);
+}
+
+@media (--tablet) {
+  .link-button {
+    --icon-wrapper-size: 17px;
+    --height-button: 49px;
+  }
+  .icon-wrapper {
+    margin-right: calc(var(--unit) * 0.5);
+  }
+  .icon {
+    transform: scale(0.6) translateY(0.02em);
+  }
+  .text {
+    font-size: var(--font-size-body200);
+  }
 }
 </style>

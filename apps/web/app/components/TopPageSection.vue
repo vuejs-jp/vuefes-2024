@@ -27,17 +27,15 @@
             color="white"
             icon-name="x"
             href="https://twitter.com/vuefes"
+            >@vuefes</VFLinkButton
           >
-            @vuefes
-          </VFLinkButton>
           <VFLinkButton
             class="link-button"
             background-color="white"
             color="vue-blue"
             icon-name="note"
             href="https://note.com/vuejs_jp/m/mb35849fee631"
-          >
-            note
+            >公式 note
           </VFLinkButton>
         </div>
       </div>
