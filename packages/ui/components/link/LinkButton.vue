@@ -58,16 +58,13 @@ const iconColor = computed(() => {
     @mouseleave="hoverOut"
     @focus="hoverIn"
     @blur="hoverOut"
-  >
-    <div class="icon-wrapper">
-      <Icon
-        v-if="props.iconName"
-        :color="iconColor"
-        :name="props.iconName"
-        :can-hover="false"
-        class="icon"
-      />
-    </div>
+    ><Icon
+      v-if="props.iconName"
+      :color="iconColor"
+      :name="props.iconName"
+      :can-hover="false"
+      class="icon"
+    />
     <span class="text">
       <slot />
     </span>
@@ -78,7 +75,7 @@ const iconColor = computed(() => {
 @import url('~/assets/media.css');
 
 .link-button {
-  --icon-wrapper-size: 22px;
+  --icon-size: 22px;
   --height-button: 66px;
 
   display: inline-flex;
@@ -95,33 +92,23 @@ const iconColor = computed(() => {
 .link-button:hover {
   transition: 0.2s;
 }
-.icon-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: var(--icon-wrapper-size);
-  height: var(--icon-wrapper-size);
-  margin-right: calc(var(--unit) * 1);
-}
 .icon {
-  transform-origin: center;
-  transform: scale(0.77) translateY(0.02em);
+  margin-right: calc(var(--unit) * 1);
+  width: var(--icon-size);
+  height: 100%;
 }
 .text {
   font-size: var(--font-size-body400);
-  line-height: var(--icon-wrapper-size);
+  line-height: var(--icon-size);
 }
 
 @media (--tablet) {
   .link-button {
-    --icon-wrapper-size: 17px;
+    --icon-size: 17px;
     --height-button: 49px;
   }
-  .icon-wrapper {
-    margin-right: calc(var(--unit) * 0.5);
-  }
   .icon {
-    transform: scale(0.6) translateY(0.02em);
+    margin-right: calc(var(--unit) * 0.5);
   }
   .text {
     font-size: var(--font-size-body200);

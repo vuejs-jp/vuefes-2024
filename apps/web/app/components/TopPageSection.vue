@@ -25,7 +25,7 @@
             class="link-button"
             background-color="vue-green"
             color="white"
-            icon-name="x"
+            icon-name="x22"
             href="https://twitter.com/vuefes"
             >@vuefes</VFLinkButton
           >
@@ -33,7 +33,7 @@
             class="link-button"
             background-color="white"
             color="vue-blue"
-            icon-name="note"
+            icon-name="note22"
             href="https://note.com/vuejs_jp/m/mb35849fee631"
             >公式 note
           </VFLinkButton>
