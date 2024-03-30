@@ -108,7 +108,7 @@
   left: var(--container-margin);
 }
 .official-announcement {
-  font-size: var(--font-size-heading400);
+  font-size: var(--font-size-heading300);
   font-weight: 700;
   color: var(--color-vue-blue);
 }
