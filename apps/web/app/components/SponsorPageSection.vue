@@ -8,7 +8,7 @@ const { color } = useColor()
 <template>
   <div class="sponsor">
     <article class="sponsor-body">
-      <VFTitle id="sponsor">
+      <VFTitle id="sponsor" class="title">
         {{ $t('sponsor.title') }}
       </VFTitle>
 
@@ -152,6 +152,12 @@ const { color } = useColor()
 
   .sponsor-button {
     margin: calc(var(--unit) * 2) 0 0;
+  }
+}
+
+@media (--mobile) {
+  .title {
+    font-size: 28px;
   }
 }
 </style>
