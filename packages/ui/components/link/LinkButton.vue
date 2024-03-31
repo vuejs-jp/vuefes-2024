@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { AnchorHTMLAttributes, ref, computed } from 'vue'
 import type { Color as ColorType, IconName } from '@vuejs-jp/model'
-import { useColor } from '@vuejs-jp/composable'
+import { useColor, useTypography } from '@vuejs-jp/composable'
 import Icon from '../icon/Icon.vue'
 
 type _LinkButtonProps = Omit<AnchorHTMLAttributes, 'iconName'>
@@ -18,6 +18,7 @@ const props = withDefaults(defineProps<LinkButtonProps>(), {
 })
 
 const { color: updateColor } = useColor()
+const { fontWeight } = useTypography()
 
 const hover = ref(false)
 const hoverIn = () => {
@@ -29,12 +30,14 @@ const hoverOut = () => {
 const style = computed(() => {
   if (hover.value) {
     return {
+      fontWeight: fontWeight('heading/200'),
       color: updateColor(props.backgroundColor),
       backgroundColor: updateColor(props.color),
       boxShadow: `0 0 0 2px ${updateColor(props.backgroundColor)} inset`,
     }
   }
   return {
+    fontWeight: fontWeight('heading/200'),
     backgroundColor: updateColor(props.backgroundColor),
     color: updateColor(props.color),
     boxShadow: `0 2px 10px rgb(53, 73, 95, 0.14), inset 0px 0px 0px 2px ${updateColor(props.color)}`,
