@@ -13,12 +13,7 @@ useHead({
 
 <template>
   <GlobalHeader />
-  <main>
+  <div>
     <slot />
-  </main>
+  </div>
 </template>
-
-<style scoped>
-main {
-}
-</style>

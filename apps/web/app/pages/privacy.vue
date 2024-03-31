@@ -39,16 +39,16 @@ useHead({
         color: color('vue-blue'),
       }"
     >
-      <h2 class="section-title">
+      <h1 class="section-title">
         {{ t('privacy.title') }}
-      </h2>
+      </h1>
       <div class="markdown-root">
         <MarkDownText path="privacy" class="explain" />
       </div>
       <div class="back">
-        <VFButton class="back-button" fixed-width :href="`${localePath}/`" secondary>
+        <VFLinkButton background-color="white" color="vue-blue" target="" :href="`${localePath}/`">
           {{ t('back_to_top') }}
-        </VFButton>
+        </VFLinkButton>
       </div>
     </div>
   </main>
@@ -130,8 +130,9 @@ useHead({
   }
 }
 .back {
-  margin-top: 40px;
-  margin-bottom: 120px;
+  margin: 40px auto 120px;
+  width: 100%;
+  max-width: 260px;
 }
 @media (--tablet) {
   .markdown-root {

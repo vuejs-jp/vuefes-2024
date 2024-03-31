@@ -28,18 +28,17 @@ const { color } = useColor()
 </script>
 
 <template>
-  <section>
+  <main>
     <div class="coc-root">
-      <div class="title">
-        <h1
-          :style="{
-            fontWeight: fontWeight('heading/700'),
-            color: color('vue-blue'),
-          }"
-        >
-          {{ $t('code_of_conduct.title') }}
-        </h1>
-      </div>
+      <h1
+        :style="{
+          fontWeight: fontWeight('heading/700'),
+          color: color('vue-blue'),
+        }"
+        class="title"
+      >
+        {{ $t('code_of_conduct.title') }}
+      </h1>
       <div
         class="subtitle"
         :style="{
@@ -56,16 +55,17 @@ const { color } = useColor()
         {{ $t('back_to_top') }}
       </VFLinkButton>
     </div>
-  </section>
+  </main>
   <FooterPageSection />
 </template>
 
 <style scoped>
+@import url('../assets/base.css');
 @import url("~/assets/media.css");
 
-section {
+main {
   --header-height: calc(var(--unit) * 10);
-  padding: calc(var(--header-height) + 120px) 20px 120px;
+  padding: calc(var(--header-height) + 120px) 20px 0;
   background: color(--color-white);
 }
 .coc-root {
@@ -102,14 +102,13 @@ section {
   }
 }
 .actions {
-  padding-top: 40px;
-  text-align: center;
-  margin: 0 auto;
-  width: 320px;
+  margin: 40px auto 120px;
+  width: 100%;
+  max-width: 260px;
 }
 
 @media (--mobile) {
-  section {
+  main {
     --header-height: calc(var(--unit) * 8);
     padding: calc(var(--header-height) + 60px) 20px 60px;
   }
