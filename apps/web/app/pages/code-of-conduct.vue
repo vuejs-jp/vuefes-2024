@@ -119,8 +119,10 @@ main {
     font-size: 28px;
   }
   .actions {
-    padding-top: 30px;
     width: 100%;
+    padding: 0 23.5px;
+    margin-top: 30px;
+    margin-bottom: 60px;
   }
 }
 </style>
