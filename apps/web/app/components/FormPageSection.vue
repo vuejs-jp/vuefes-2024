@@ -33,11 +33,9 @@ const updateDetail = (e: any) => {
 <template>
   <section>
     <div class="form-root">
-      <div class="title">
-        <VFTitle id="form">
-          {{ $t('form.title') }}
-        </VFTitle>
-      </div>
+      <VFTitle id="form" class="title">
+        {{ $t('form.title') }}
+      </VFTitle>
       <div
         class="subtitle"
         :style="{
@@ -140,6 +138,10 @@ form {
 }
 
 @media (--mobile) {
+  .title {
+    font-size: 28px;
+  }
+
   .form-button {
     width: 100%;
   }
