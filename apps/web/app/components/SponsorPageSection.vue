@@ -8,7 +8,7 @@ const { color } = useColor()
 <template>
   <div class="sponsor">
     <article class="sponsor-body">
-      <VFTitle id="sponsor" class="title">
+      <VFTitle id="sponsors" class="title">
         {{ $t('sponsor.title') }}
       </VFTitle>
 
