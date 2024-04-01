@@ -1,0 +1,12 @@
+[[redirects]]
+from = "/2024/*"
+to = "/2024/index.html"
+status = 200
+
+[[redirects]]
+from = "/*"
+to = "/2024/:splat"
+status = 301
+
+[functions.server]
+external_node_modules = ["chrome-aws-lambda"]

@@ -27,6 +27,7 @@ coverage
 out/
 build
 dist
+.output
 
 
 # Debug
@@ -37,3 +38,6 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# Local Netlify folder
+.netlify
