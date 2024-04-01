@@ -1,14 +1,14 @@
 import svgLoader from 'vite-svg-loader'
 import { conferenceTitle } from './app/utils/constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
+import { isProd } from './app/utils/environment.constants'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  app: {
-    baseURL: '/2024',
-  },
   srcDir: 'app/',
   app: {
+    buildAssetsDir: '/_nuxt/',
+    baseURL: isProd ? '/2024/' : '/',
     head: {
       title: conferenceTitle,
       meta: [
