@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useI18n } from '#i18n'
+
+const { locale } = useI18n()
+</script>
 
 <template>
   <section>
@@ -12,7 +16,7 @@
         <p class="place">
           Otemachi PLACE HALL &amp; CONFERENCE
           <br /><time datetime="2024-10-19T00:00+09:00"
-            >2024.10.19<span class="day-of-week">SAT</span></time
+            >{{ $t('top_page.date') }}<template v-if="locale === 'ja'"><span class="day-of-week">SAT</span></template></time
           >
         </p>
       </div>
@@ -35,7 +39,7 @@
             color="vue-blue"
             icon-name="note22"
             href="https://note.com/vuejs_jp/m/mb35849fee631"
-            >公式 note
+            >{{ $t('top_page.note') }}
           </VFLinkButton>
         </div>
       </div>
