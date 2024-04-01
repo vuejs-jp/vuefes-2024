@@ -10,9 +10,9 @@ export default defineNuxtConfig({
   },
   srcDir: 'app/',
   app: {
+    buildAssetsDir: '/_nuxt/',
+    baseURL: isProd ? '/2024/' : '/',
     head: {
-      buildAssetsDir: '/_nuxt/',
-      baseURL: isProd ? '/2024/' : '/',
       title: conferenceTitle,
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
