@@ -19,6 +19,7 @@ const { headerRef } = useHeader()
       <a class="link" href="/" aria-label="Vue Fes Japan 2024">
         <Logo class="logo" color="vue-blue" />
       </a>
+      <span>リダイレクトのテスト</span>
     </div>
   </header>
 </template>
