@@ -8,7 +8,7 @@ Vue.js has been steadily evolving since Vue 3 became the default in January 2022
 
 Meanwhile, a new trend is emerging in the ecosystem around Vue.js.
 
-Nitro, Nuxt's core server engine, is starting to be used by other metaframeworks such as SolidStart and Analog. UnJS, a collection of high-quality JavaScript utilities, has gained traction in the non-Vue.js community, and Vite, created by Vue.js author Evan You, has evolved into a next-generation tool that supports a wide variety of front ends beyond Vue.js, Vite, created by Evan You, the author of Vue.js, has evolved into a next-generation tool that supports not only Vue.js, but a wide variety of front-ends, with over 11 million weekly downloads.
+Nitro, Nuxt's core server engine, is starting to be used by other metaframeworks such as SolidStart and Analog. UnJS, a collection of high-quality JavaScript utilities, has gained traction in the non-Vue.js community, and Vite, created by Vue.js author Evan You, has evolved into a next-generation tool that supports a wide variety of front-ends beyond Vue, with over 11 million weekly downloads.
 
 In addition, we are working with the Rspack team and the OXC project to develop Rolldown, a Rust implementation of the Vite core rollup, releasing an initial version in March 2024, and other open source software around Vue.js is far reaching.
 
