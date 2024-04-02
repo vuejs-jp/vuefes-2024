@@ -21,11 +21,11 @@
     "check_doc": "View Sponsorship materials"
   },
   "form": {
-    "title": "Contact",
+    "title": "Inquiry",
     "form_name_label": "Name",
-    "form_name_placeholder": "Taro Yamada",
+    "form_name_placeholder": "John Doe",
     "form_email_label": "Email",
-    "form_text_label": "Content",
+    "form_text_label": "Your Inquiry",
     "submit": "Submit",
     "submit_done": "Successfully sent your message."
   },
