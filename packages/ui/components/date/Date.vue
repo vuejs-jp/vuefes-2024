@@ -4,7 +4,7 @@ import { useColor, useTypography } from '@vuejs-jp/composable'
 export type DateProps = {
   year?: number
   date: string
-  dayOfWeek: string
+  dayOfWeek?: string
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -30,11 +30,13 @@ const { color } = useColor()
       :style="{
         fontSize: fontSize('heading/700'),
         color: color('vue-blue'),
+        marginRight: dayOfWeek ? '18px' : '0',
       }"
       class="day"
     >
       {{ date }}
       <span
+        v-if="dayOfWeek"
         :style="{
           fontSize: fontSize('other/200'),
           fontWeight: fontWeight('other/200'),
@@ -57,7 +59,6 @@ const { color } = useColor()
     font-size: 24px;
   }
   .day {
-    margin-right: 18px;
     font-size: 45px;
     position: relative;
     .day-of-week {

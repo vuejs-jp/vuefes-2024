@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+
+const { locale } = useI18n()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
-
 </script>
 
 <template>
@@ -33,8 +35,8 @@ const { color } = useColor()
         {{ $t('sponsor.apply_period') }}
       </h3>
       <VFDatePeriod
-        :start="{ year: 2024, date: '4.8', dayOfWeek: $t('day_of_week.monday') }"
-        :end="{ date: '4.25', dayOfWeek: $t('day_of_week.thursday') }"
+        :start="{ year: 2024, date: '4.8', dayOfWeek: locale === 'ja' ? $t('day_of_week.monday') : '' }"
+        :end="{ date: '4.25', dayOfWeek: locale === 'ja' ? $t('day_of_week.thursday') : '' }"
       />
 
       <div class="sponsor-buttons">
