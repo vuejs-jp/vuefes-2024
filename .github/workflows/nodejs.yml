@@ -72,6 +72,7 @@ jobs:
 
       - name: E2E test
         run: bun cypress:ci
+        working-directory: apps/web
 
   typecheck:
     runs-on: ubuntu-latest
