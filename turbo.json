@@ -8,6 +8,10 @@
       "outputs": [".nuxt/**", "!.nuxt/cache/**"],
       "dotEnv": [".env"]
     },
+    "build-docs": {
+      "dependsOn": ["^build-docs"],
+      "outputs": [".vitepress/dist/**"]
+    },
     "build-storybook": {
       "dependsOn": ["^build-storybook"],
       "outputs": ["storybook-static/**"]
