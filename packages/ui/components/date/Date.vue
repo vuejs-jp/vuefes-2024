@@ -15,61 +15,60 @@ const { color } = useColor()
 </script>
 
 <template>
-  <div class="date">
-    <span
-      v-if="year"
-      :style="{
-        fontSize: fontSize('heading/300'),
-        color: color('vue-blue'),
-      }"
-      class="year"
-    >
+  <div class="datewrapper">
+    <!-- year -->
+    <span v-if="year" :style="{
+      fontSize: fontSize('heading/300'),
+      color: color('vue-blue'),
+    }" class="year">
       {{ year }}
     </span>
-    <span
-      :style="{
-        fontSize: fontSize('heading/700'),
-        color: color('vue-blue'),
-        marginRight: dayOfWeek ? '18px' : '0',
-      }"
-      class="day"
-    >
+    <!-- date -->
+    <span :style="{
+      fontSize: fontSize('heading/700'),
+      color: color('vue-blue'),
+    }" class="date">
       {{ date }}
-      <span
-        v-if="dayOfWeek"
-        :style="{
-          fontSize: fontSize('other/200'),
-          fontWeight: fontWeight('other/200'),
-          background: color('vue-blue'),
-          color: color('white'),
-        }"
-        class="day-of-week"
-      >
-        {{ dayOfWeek }}
-      </span>
+    </span>
+    <!-- day -->
+    <span v-if="dayOfWeek" :style="{
+      fontSize: fontSize('other/200'),
+      fontWeight: fontWeight('other/200'),
+      background: color('vue-blue'),
+      color: color('white'),
+    }" class="day-of-week">
+      {{ dayOfWeek }}
     </span>
   </div>
 </template>
 
 <style scoped>
+.datewrapper {
+  display: inline;
+  line-height: 1;
+}
+
+.year {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 24px;
+}
+
 .date {
-  height: 45px;
-  .year {
-    margin-right: 6px;
-    font-size: 24px;
-  }
-  .day {
-    font-size: 45px;
-    position: relative;
-    .day-of-week {
-      position: absolute;
-      top: 50%;
-      right: -24px;
-      text-align: center;
-      width: 20px;
-      height: 20px;
-      border-radius: 2px;
-    }
-  }
+  display: inline-block;
+  letter-spacing: 0.2rem;
+}
+
+.day-of-week {
+  position: relative;
+  top: -4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin-left: 4px;
+
 }
 </style>

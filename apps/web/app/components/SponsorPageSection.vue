@@ -14,30 +14,22 @@ const { color } = useColor()
         {{ $t('sponsor.title') }}
       </VFTitle>
 
-      <div
-        class="sponsor-text"
-        :style="{
+      <div class="sponsor-text" :style="{
           fontWeight: fontWeight('body/300'),
           fontSize: fontSize('body/300'),
           color: color('vue-blue'),
-        }"
-      >
+        }">
         <MarkDownText path="sponsor" />
       </div>
 
-      <h3
-        :style="{
+      <h3 :style="{
           fontWeight: fontWeight('heading/400'),
           fontSize: fontSize('heading/300'),
-        }"
-        class="sponsor-subtitle"
-      >
+        }" class="sponsor-subtitle">
         {{ $t('sponsor.apply_period') }}
       </h3>
-      <VFDatePeriod
-        :start="{ year: 2024, date: '4.8', dayOfWeek: locale === 'ja' ? $t('day_of_week.monday') : '' }"
-        :end="{ date: '4.25', dayOfWeek: locale === 'ja' ? $t('day_of_week.thursday') : '' }"
-      />
+      <VFDatePeriod :start="{ year: 2024, date: '4.8', dayOfWeek: locale === 'ja' ? $t('day_of_week.monday') : '' }"
+        :end="{ date: '4.25', dayOfWeek: locale === 'ja' ? $t('day_of_week.thursday') : '' }" />
 
       <div class="sponsor-buttons">
         <!-- 申し込む -->
@@ -47,13 +39,9 @@ const { color } = useColor()
         </VFButton>
         -->
         <!-- 資料を見る -->
-        <VFButton
-          class="sponsor-button"
-          fixed-width
+        <VFButton class="sponsor-button" fixed-width
           href="https://docs.google.com/presentation/d/1YXWqW55CKdt4czr8paarpdxqYz8NjSFRzrOQ-NnClKQ/edit?usp=sharing"
-          target="_blank"
-          secondary
-        >
+          target="_blank" secondary>
           {{ $t('sponsor.check_doc') }}
         </VFButton>
 
@@ -97,8 +85,9 @@ const { color } = useColor()
 
 .sponsor-subtitle {
   margin-top: calc(var(--unit) * 5);
-  background: var(--color-vue-green-gradation); 
-  -webkit-text-fill-color: transparent; 
+  margin-bottom: calc(var(--unit) * 2);
+  background: var(--color-vue-green-gradation);
+  -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
 
@@ -116,25 +105,6 @@ const { color } = useColor()
 .sponsor-button {
   margin: 0 calc(var(--unit) * 1.5);
 }
-
-/* この幅ルールはコンポーネント側に持たせるべき */
-/* .sponsor-button {
-  min-width: 198px;
-  max-width: 260px;
-  width: 100%;
-  padding: calc(var(--unit) * 2) 66px;
-  background: var(--color-vue-green-gradation);
-  font-size: 18px;
-  white-space: nowrap;
-} */
-
-/* .sponsor-button.-border {
-  padding: calc(var(--unit) * 2) 0;
-  background: white;
-  border: solid 2px var(--color-vue-blue);
-  color: var(--color-vue-blue);
-} */
-
 
 @media (--tablet) {
   .sponsor {
