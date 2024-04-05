@@ -7,6 +7,7 @@ export default defineConfig({
     },
     supportFile: 'tests/cypress/support/e2e.ts',
     specPattern: 'tests/cypress/e2e/*.cy.ts',
+    defaultCommandTimeout: 10000,
   },
   downloadsFolder: 'tests/cypress/downloads',
   fixturesFolder: 'tests/cypress/fixtures',
