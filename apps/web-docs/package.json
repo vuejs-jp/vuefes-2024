@@ -1,0 +1,13 @@
+{
+  "name": "@vuejs-jp/web-docs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build-docs": "vitepress build"
+  },
+  "devDependencies": {
+    "vitepress": "1.0.2"
+  }
+}
