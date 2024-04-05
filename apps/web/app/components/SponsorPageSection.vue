@@ -14,21 +14,27 @@ const { color } = useColor()
         {{ $t('sponsor.title') }}
       </VFTitle>
 
-      <div class="sponsor-text" :style="{
+      <div
+        class="sponsor-text"
+        :style="{
           fontWeight: fontWeight('body/300'),
           fontSize: fontSize('body/300'),
           color: color('vue-blue'),
-        }">
+        }"
+      >
         <MarkDownText path="sponsor" />
       </div>
 
-      <h3 :style="{
+      <h3
+        :style="{
           fontWeight: fontWeight('heading/400'),
           fontSize: fontSize('heading/300'),
-        }" class="sponsor-subtitle">
+        }"
+        class="sponsor-subtitle">
         {{ $t('sponsor.apply_period') }}
       </h3>
-      <VFDatePeriod :start="{ year: 2024, date: '4.8', dayOfWeek: locale === 'ja' ? $t('day_of_week.monday') : '' }"
+      <VFDatePeriod
+        :start="{ year: 2024, date: '4.8', dayOfWeek: locale === 'ja' ? $t('day_of_week.monday') : '' }"
         :end="{ date: '4.25', dayOfWeek: locale === 'ja' ? $t('day_of_week.thursday') : '' }" />
 
       <div class="sponsor-buttons">
