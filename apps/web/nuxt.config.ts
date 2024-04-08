@@ -36,6 +36,7 @@ export default defineNuxtConfig({
       },
     ],
     '@nuxtjs/i18n',
+    '@nuxtjs/supabase',
     '@nuxt/content',
     'nuxt-gtag',
   ],
@@ -65,6 +66,9 @@ export default defineNuxtConfig({
       redirectOn: 'root',
     },
   },
+  supabase: {
+    redirect: false,
+  },
   content: {
     markdown: {
       anchorLinks: false,
@@ -79,6 +83,17 @@ export default defineNuxtConfig({
         svgo: false,
       }),
     ],
+  },
+  hooks: {
+    async 'nitro:config'(nitroConfig) {
+      if (nitroConfig.dev) {
+        return
+      }
+
+      const supabaseUrl = process.env.SUPABASE_URL
+      const supabaseKey = process.env.SUPABASE_KEY
+      if (!supabaseUrl || !supabaseKey) return
+    },
   },
   build: {
     transpile: ['vue-toastification'],
@@ -96,6 +111,9 @@ export default defineNuxtConfig({
       newtSpaceUid: process.env.NUXT_NEWT_SPACE_UID,
       newtFormUid: process.env.NUXT_NEWT_FORM_UID,
       reCaptchaWebsiteKey: process.env.NUXT_RECAPTCHA_WEBSITE_KEY,
+      // supabase
+      supabaseProjectUrl: process.env.SUPABASE_URL,
+      supabaseApiKey: process.env.SUPABASE_KEY,
     },
   },
 })
