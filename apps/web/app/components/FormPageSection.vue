@@ -146,10 +146,6 @@ form {
 }
 
 @media (--mobile) {
-  .title {
-    font-size: 28px;
-  }
-
   .form-button {
     width: 100%;
   }

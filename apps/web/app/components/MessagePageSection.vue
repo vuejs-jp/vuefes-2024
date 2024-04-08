@@ -71,10 +71,6 @@
     --content-gap: 30px;
   }
 
-  .title {
-    font-size: 28px;
-  }
-
   .body {
     --body-font-size: 1rem;
 

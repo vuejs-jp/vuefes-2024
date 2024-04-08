@@ -138,10 +138,4 @@ const { color } = useColor()
     margin: calc(var(--unit) * 2) 0 0;
   }
 }
-
-@media (--mobile) {
-  .title {
-    font-size: 28px;
-  }
-}
 </style>
