@@ -45,15 +45,30 @@ const { fontWeight, fontSize } = useTypography()
 </script>
 
 <template>
-  <label :for="id" :style="{
-    fontWeight: fontWeight('heading/100'),
-    fontSize: fontSize('heading/100'),
-  }" class="input-root" :class="{ '-error': errorMessage }">
+  <label
+    :for="id"
+    :style="{
+      fontWeight: fontWeight('heading/100'),
+      fontSize: fontSize('heading/100'),
+    }"
+    class="input-root"
+    :class="{ '-error': errorMessage }"
+  >
     {{ label }}
-    <input :id="id" v-model.trim="modelValue" :style="{
-    fontSize: fontSize('heading/100'),
-  }" class="form-input" :name="name" :type="type" :placeholder="placeholder" :required="required" :disabled="disabled"
-      @blur="handleBlur" />
+    <input
+      :id="id"
+      v-model.trim="modelValue"
+      :style="{
+        fontSize: fontSize('heading/100'),
+      }"
+      class="form-input"
+      :name="name"
+      :type="type"
+      :placeholder="placeholder"
+      :required="required"
+      :disabled="disabled"
+      @blur="handleBlur"
+    />
     <Typography v-if="errorMessage" variant="body/200" color="sangosyo/200">{{ errorMessage }}</Typography>
   </label>
 </template>

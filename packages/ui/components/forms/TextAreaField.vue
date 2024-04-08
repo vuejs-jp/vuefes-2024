@@ -42,15 +42,29 @@ const inputtedText = defineModel<string>('inputtedText')
 const { fontWeight, fontSize } = useTypography()
 </script>
 <template>
-  <label :for="id" :style="{
-    fontWeight: fontWeight('heading/100'),
-    fontSize: fontSize('heading/100'),
-  }" class="textarea-root" :class="{ '-error': errorMessage }">
+  <label
+    :for="id"
+    :style="{
+      fontWeight: fontWeight('heading/100'),
+      fontSize: fontSize('heading/100'),
+    }"
+    class="textarea-root"
+    :class="{ '-error': errorMessage }"
+  >
     {{ label }}
-    <textarea :id="id" v-model.trim="inputtedText" :name="name" :style="{
-    fontSize: fontSize('heading/100'),
-
-  }" class="form-textarea" :rows="rows" :placeholder="placeholder" :required="required" @blur="handleBlur" />
+    <textarea
+      :id="id"
+      v-model.trim="inputtedText"
+      :name="name"
+      :style="{
+        fontSize: fontSize('heading/100'),
+      }"
+      class="form-textarea"
+      :rows="rows"
+      :placeholder="placeholder"
+      :required="required"
+      @blur="handleBlur"
+    />
     <Typography v-if="errorMessage" variant="body/200" color="sangosyo/200">{{ errorMessage }}</Typography>
   </label>
 </template>

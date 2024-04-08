@@ -17,26 +17,37 @@ const { color } = useColor()
 <template>
   <div class="datewrapper">
     <!-- year -->
-    <span v-if="year" :style="{
-      fontSize: fontSize('heading/300'),
-      color: color('vue-blue'),
-    }" class="year">
+    <span
+      v-if="year"
+      :style="{
+        fontSize: fontSize('heading/300'),
+        color: color('vue-blue'),
+      }"
+      class="year"
+    >
       {{ year }}
     </span>
     <!-- date -->
-    <span :style="{
-      fontSize: fontSize('heading/700'),
-      color: color('vue-blue'),
-    }" class="date">
+    <span
+      :style="{
+        fontSize: fontSize('heading/700'),
+        color: color('vue-blue'),
+      }"
+      class="date"
+    >
       {{ date }}
     </span>
     <!-- day -->
-    <span v-if="dayOfWeek" :style="{
-      fontSize: fontSize('other/200'),
-      fontWeight: fontWeight('other/200'),
-      background: color('vue-blue'),
-      color: color('white'),
-    }" class="day-of-week">
+    <span
+      v-if="dayOfWeek"
+      :style="{
+        fontSize: fontSize('other/200'),
+        fontWeight: fontWeight('other/200'),
+        background: color('vue-blue'),
+        color: color('white'),
+      }"
+      class="day-of-week"
+    >
       {{ dayOfWeek }}
     </span>
   </div>

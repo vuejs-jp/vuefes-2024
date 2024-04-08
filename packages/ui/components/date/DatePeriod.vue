@@ -18,10 +18,13 @@ const { color } = useColor()
 <template>
   <div class="date-period">
     <Date v-bind="{ ...start }" />
-    <div :style="{
-      fontSize: fontSize('heading/100'),
-      color: color('vue-blue'),
-    }" class="separator">
+    <div
+      :style="{
+        fontSize: fontSize('heading/100'),
+        color: color('vue-blue'),
+      }"
+      class="separator"
+    >
       ー
     </div>
     <Date v-bind="{ ...end }" />
