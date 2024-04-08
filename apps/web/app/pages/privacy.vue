@@ -46,7 +46,13 @@ useHead({
         <MarkDownText path="privacy" class="explain" />
       </div>
       <div class="back">
-        <VFLinkButton background-color="white" color="vue-blue" target="" :href="`${localePath}/`">
+        <VFLinkButton
+          class="back-action"
+          background-color="white"
+          color="vue-blue"
+          target=""
+          :href="`${localePath}/`"
+        >
           {{ t('back_to_top') }}
         </VFLinkButton>
       </div>
@@ -62,11 +68,12 @@ useHead({
 /* margin等が5の倍数なので、一旦定数で定義 */
 
 .privacy-root {
+  --header-height: calc(var(--unit) * 10);
+
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  --header-height: calc(var(--unit) * 10);
   padding-top: var(--header-height);
 
   & .section-title {
@@ -134,10 +141,19 @@ useHead({
   width: 100%;
   max-width: 260px;
 }
+.back-action {
+  --height-button: 66px;
+
+  height: var(--height-button);
+  border-radius: var(--height-button);
+}
 @media (--tablet) {
   .markdown-root {
     width: 100%;
     padding: 0 23.5px;
+  }
+  .back-action {
+    --height-button: 58px;
   }
 }
 
@@ -174,6 +190,9 @@ useHead({
     padding: 0 23.5px;
     margin-top: 30px;
     margin-bottom: 60px;
+  }
+  .back-action {
+    --height-button: 58px;
   }
 }
 </style>

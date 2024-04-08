@@ -120,7 +120,11 @@ const { locale } = useI18n()
   margin-top: calc(var(--unit) * 2);
 }
 .link-button {
+  --height-button: 66px;
+
   width: 260px;
+  height: var(--height-button);
+  border-radius: var(--height-button);
 }
 
 @media (--tablet) {
@@ -154,6 +158,8 @@ const { locale } = useI18n()
     font-size: var(--font-size-heading200);
   }
   .link-button {
+    --height-button: 49px;
+
     width: 100%;
   }
 }
@@ -169,6 +175,8 @@ const { locale } = useI18n()
     font-size: var(--font-size-body200);
   }
   .link-buttons {
+    --height-button: 49px;
+
     gap: calc(var(--unit) * 2);
   }
 }
