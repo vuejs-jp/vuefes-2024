@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 
 //#region types
 type LinkList = {
@@ -9,6 +11,8 @@ type LinkList = {
 //#endregion
 
 //#region composable
+const { t } = useI18n()
+const { path: localePath } = useLocaleCurrent()
 const { color } = useColor()
 const { fontSize } = useTypography()
 //#endregion
@@ -35,11 +39,11 @@ const snsLinkList: LinkList[] = [
 const internalLinkList: LinkList[] = [
   {
     href: '/privacy',
-    text: 'プライバシーポリシー',
+    text: t('privacy.title'),
   },
   {
     href: '/code-of-conduct',
-    text: '行動規範',
+    text: t('code_of_conduct.title'),
   },
 ]
 const vueFesLinkList: LinkList[] = [
@@ -81,7 +85,7 @@ const vueFesLinkList: LinkList[] = [
       <div class="footer-link">
         <ul class="footer-list">
           <li v-for="(link, index) in internalLinkList" :key="index">
-            <VFTextLink :href="link.href" color="white">
+            <VFTextLink :href="`${localePath}${link.href}`" color="white">
               {{ link.text }}
             </VFTextLink>
           </li>

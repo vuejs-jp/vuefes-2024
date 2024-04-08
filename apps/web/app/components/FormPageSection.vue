@@ -33,11 +33,9 @@ const updateDetail = (e: any) => {
 <template>
   <section>
     <div class="form-root">
-      <div class="title">
-        <VFTitle id="form">
-          {{ $t('form.title') }}
-        </VFTitle>
-      </div>
+      <VFTitle id="form" class="title">
+        {{ $t('form.title') }}
+      </VFTitle>
       <div
         class="subtitle"
         :style="{
@@ -76,6 +74,7 @@ const updateDetail = (e: any) => {
             id="detail"
             v-model="detail"
             name="detail"
+            placeholder="お問い合わせ"
             :label="$t('form.form_text_label')"
             :rows="3"
             required
@@ -98,11 +97,14 @@ const updateDetail = (e: any) => {
 </template>
 
 <style scoped>
+@import url("~/assets/media.css");
+
 section {
   padding: 120px 20px 120px;
-  background: url(/form-bg.png), linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 240, 245, 0.8));
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 240, 245, 0.8));
   background-blend-mode: soft-light;
 }
+
 .form-root {
   display: grid;
   gap: 40px;
@@ -111,35 +113,47 @@ section {
   width: 100%;
   grid-template-columns: minmax(0, 1fr);
 }
+
 .title {
   text-align: center;
 }
+
 .subtitle {
   display: grid;
   place-items: center;
   gap: 40px;
   line-height: 1.8;
+
   &::v-deep a {
     color: var(--color-vue-green);
     text-decoration: underline;
   }
+
   &::v-deep a:hover {
     opacity: 0.4;
     transition: .2s;
   }
 }
+
 form {
   display: grid;
   gap: 40px;
 }
+
 .form-button {
   margin: 0 auto;
   width: 260px;
 }
-@supports (-webkit-touch-callout: none) {
+
+@media (--mobile) {
   section {
-    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 240, 245, 0.8)), url(/form-bg.png); /* for iOS */
-    background-size: 200%; /* for iOS */
+    padding: 60px 20px 60px;
+  }
+  .form-root {
+    gap: 30px;
+  }
+  .form-button {
+    width: 100%;
   }
 }
 </style>

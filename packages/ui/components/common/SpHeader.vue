@@ -15,13 +15,10 @@ const { color } = useColor()
 </script>
 
 <template>
-  <header
-    ref="headerRef"
-    :style="{ top, backgroundColor: color('white') }"
-  >
+  <header ref="headerRef" :style="{ top, backgroundColor: color('white') }">
     <div class="header-root">
-      <a href="/" aria-label="Vue Fes Japan 2024">
-        <Logo color="vue-blue" />
+      <a class="link" href="/" aria-label="Vue Fes Japan 2024">
+        <Logo class="logo" color="vue-blue" />
       </a>
     </div>
   </header>
@@ -41,5 +38,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.link {
+  line-height: 0;
+}
+.logo {
+  height: 32px;
 }
 </style>

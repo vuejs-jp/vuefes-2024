@@ -1,11 +1,9 @@
 <template>
   <section class="container">
     <div class="content">
-      <div class="title">
-        <VFTitle id="message">
-          {{ $t('message.title') }}
-        </VFTitle>
-      </div>
+      <VFTitle id="message" class="title">
+        {{ $t('message.title') }}
+      </VFTitle>
       <div class="body">
         <MarkDownText path="message" />
       </div>

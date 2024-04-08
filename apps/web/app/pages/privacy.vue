@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { useHead } from '#imports'
+import { useHead, useI18n } from '#imports'
 import FooterPageSection from '~/components/FooterPageSection.vue'
 import MarkDownText from '~/components/MarkDownText.vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { conferenceTitle, linkUrl, ogPrivacyDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
-// @ts-expect-error
 const { t } = useI18n()
+const { path: localePath } = useLocaleCurrent()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 
@@ -31,23 +32,29 @@ useHead({
 
 <template>
   <main>
-    <div 
+    <div
       class="privacy-root"
       :style="{
         backgroundColor: color('white'),
         color: color('vue-blue'),
-      }">
-      <h2 
-        class="section-title">
-        {{ t("privacy.title") }}
-      </h2>
+      }"
+    >
+      <h1 class="section-title">
+        {{ t('privacy.title') }}
+      </h1>
       <div class="markdown-root">
         <MarkDownText path="privacy" class="explain" />
       </div>
       <div class="back">
-        <VFButton class="back-button" fixed-width href="/" secondary>
-          {{ t("privacy.button") }}
-        </VFButton>
+        <VFLinkButton
+          class="back-action"
+          background-color="white"
+          color="vue-blue"
+          target=""
+          :href="`${localePath}/`"
+        >
+          {{ t('back_to_top') }}
+        </VFLinkButton>
       </div>
     </div>
   </main>
@@ -55,16 +62,19 @@ useHead({
 </template>
 
 <style scoped>
-@import url("../assets/base.css");
-@import url("../assets/media.css");
+@import url('../assets/base.css');
+@import url('../assets/media.css');
 
 /* margin等が5の倍数なので、一旦定数で定義 */
 
 .privacy-root {
+  --header-height: calc(var(--unit) * 10);
+
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: var(--header-height);
 
   & .section-title {
     /* モバイル表示時に上書きしたいので、:styleではなくCSS内で指定 */
@@ -80,7 +90,7 @@ useHead({
 .markdown-root {
   --tablet-width: 768px;
   max-width: var(--tablet-width);
-  
+
   & :deep(h2) {
     margin-top: 40px;
     margin-bottom: 20px;
@@ -113,8 +123,8 @@ useHead({
     list-style-type: disc;
   }
   /* 箇条書き2段目 */
-  & :deep(ul) li ul{
-    list-style-type: "- ";
+  & :deep(ul) li ul {
+    list-style-type: '- ';
     padding-inline-start: 15px;
   }
   & :deep(ol) li {
@@ -127,18 +137,29 @@ useHead({
   }
 }
 .back {
-  margin-top: 40px;
-  margin-bottom: 120px;
+  margin: 40px auto 120px;
+  width: 100%;
+  max-width: 260px;
+}
+.back-action {
+  --height-button: 66px;
+
+  height: var(--height-button);
+  border-radius: var(--height-button);
 }
 @media (--tablet) {
   .markdown-root {
     width: 100%;
     padding: 0 23.5px;
   }
+  .back-action {
+    --height-button: 58px;
+  }
 }
 
 @media (--mobile) {
   .privacy-root {
+    --header-height: calc(var(--unit) * 8);
     & .section-title {
       --section-title-font-size: var(--font-size-heading400);
       --section-title-line-height: var(--line-height-heading400);
@@ -151,24 +172,27 @@ useHead({
       margin-top: 10px;
       margin-bottom: 15px;
     }
-  
+
     & :deep(h2) a {
       --markdown-font-size-h2: var(--markdown-font-size-heading200);
       --markdown-line-height-h2: var(--markdown-line-height-heading200);
     }
-  
+
     & :deep(p),
     & :deep(ul) li,
     & :deep(ol) li {
       --markdown-font-size-body: var(--markdown-font-size-body300);
       --markdown-line-height-body: var(--markdown-line-height-body300);
     }
-  } 
+  }
   .back {
     width: 100%;
     padding: 0 23.5px;
     margin-top: 30px;
     margin-bottom: 60px;
+  }
+  .back-action {
+    --height-button: 58px;
   }
 }
 </style>

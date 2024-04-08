@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { AnchorHTMLAttributes, ref, computed } from 'vue'
 import type { Color as ColorType, IconName } from '@vuejs-jp/model'
-import { useColor } from '@vuejs-jp/composable'
+import { useColor, useTypography } from '@vuejs-jp/composable'
 import Icon from '../icon/Icon.vue'
 
 type _LinkButtonProps = Omit<AnchorHTMLAttributes, 'iconName'>
@@ -18,6 +18,7 @@ const props = withDefaults(defineProps<LinkButtonProps>(), {
 })
 
 const { color: updateColor } = useColor()
+const { fontWeight } = useTypography()
 
 const hover = ref(false)
 const hoverIn = () => {
@@ -26,22 +27,23 @@ const hoverIn = () => {
 const hoverOut = () => {
   hover.value = false
 }
-const style = computed(() =>{
+const style = computed(() => {
   if (hover.value) {
-    return { 
+    return {
+      fontWeight: fontWeight('heading/200'),
       color: updateColor(props.backgroundColor),
       backgroundColor: updateColor(props.color),
-      borderSize:'1px',
-      borderColor:props.backgroundColor,
+      boxShadow: `0 0 0 2px ${updateColor(props.backgroundColor)} inset`,
     }
   }
-  return { 
+  return {
+    fontWeight: fontWeight('heading/200'),
     backgroundColor: updateColor(props.backgroundColor),
     color: updateColor(props.color),
     boxShadow: `0 2px 10px rgb(53, 73, 95, 0.14), inset 0px 0px 0px 2px ${updateColor(props.color)}`,
   }
 })
-const iconColor = computed(() =>{
+const iconColor = computed(() => {
   if (hover.value) {
     return props.backgroundColor
   }
@@ -57,38 +59,58 @@ const iconColor = computed(() =>{
     class="link-button"
     @mouseover="hoverIn"
     @mouseleave="hoverOut"
-    @focus="() => {}"
-    @blur="() => {}"
-  >
-    <Icon
+    @focus="hoverIn"
+    @blur="hoverOut"
+    ><Icon
       v-if="props.iconName"
       :color="iconColor"
       :name="props.iconName"
       :can-hover="false"
       class="icon"
     />
-    <slot />
+    <span class="text">
+      <slot />
+    </span>
   </a>
 </template>
 
 <style scoped>
 .link-button {
+  --icon-size: 22px;
+  --height-button: 66px;
+
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 22px 66px;
-  border-radius: 40px;
-  font-size: 20px;
+  border-radius: var(--height-button);
   text-decoration: none;
   cursor: pointer;
   box-shadow: 0 2px 10px rgb(53, 73, 95, 0.14);
 }
 .link-button:hover {
-  transition: .2s;
+  transition: 0.2s;
 }
 .icon {
-  margin-right: 8px;
+  margin-right: calc(var(--unit) * 1);
+  width: var(--icon-size);
+  height: 100%;
+}
+.text {
+  font-size: var(--font-size-body400);
+  line-height: var(--icon-size);
+}
+
+@media screen and (max-width: 768px) {
+  .link-button {
+    --icon-size: 17px;
+  }
+  .icon {
+    margin-right: calc(var(--unit) * 0.5);
+  }
+  .text {
+    font-size: var(--font-size-body200);
+  }
 }
 </style>

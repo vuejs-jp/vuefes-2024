@@ -6,22 +6,28 @@
   "not_found": "The page you are looking for cannot be found.",
   "day_of_week": {
     "monday": "Mon",
-    "tuesday": "Tue"
+    "tuesday": "Tue",
+    "thursday": "Thu"
+  },
+  "top_page": {
+    "latest_information": "Get the latest information on our official social media",
+    "date": "Octover 19th, 2024",
+    "note": "note official"
   },
   "sponsor": {
-    "title": "Sponsor",
+    "title": "Sponsors",
     "apply": "Apply",
     "apply_period": "Sponsor Application Period",
-    "check_doc": "Check the doc"
+    "check_doc": "View Sponsorship materials"
   },
   "form": {
-    "title": "Contact",
+    "title": "Inquiry",
     "form_name_label": "Name",
-    "form_name_placeholder": "Taro Yamada",
+    "form_name_placeholder": "John Doe",
     "form_email_label": "Email",
-    "form_text_label": "Content",
+    "form_text_label": "Your Inquiry",
     "submit": "Submit",
-    "submit_done": "Succeeded to send the email."
+    "submit_done": "Successfully sent your message."
   },
   "message": {
     "title": "Message"
@@ -30,7 +36,7 @@
     "title": "Code of Conduct"
   },
   "privacy": {
-    "title": "Privacy policy",
+    "title": "Privacy Policy",
     "button": "Back to Top"
   }
 }

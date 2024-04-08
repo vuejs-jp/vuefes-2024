@@ -32,6 +32,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  couple: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const isLink = Boolean(props.href)
@@ -46,6 +50,9 @@ const myclass = computed(() => {
   }
   if (props.fixedWidth) {
     cls.push('-fixedWidth')
+  }
+  if (props.couple) {
+    cls.push('-couple')
   }
   return cls.join(' ')
 })
@@ -65,7 +72,7 @@ const tag = computed(() => {
 })
 const bindProps = computed(() => {
   if (isRouterLink) {
-    return { to: props.to, }
+    return { to: props.to }
   }
   if (isLink) {
     return {
@@ -80,14 +87,14 @@ const bindProps = computed(() => {
 })
 </script>
 
-
 <template>
   <component
     :is="tag"
     :class="myclass"
     :disabled="props.disabled || null"
     :aria-disabled="props.disabled || null"
-    v-bind="{ ...bindProps }">
+    v-bind="{ ...bindProps }"
+  >
     <span class="button-label">
       <slot />
     </span>
@@ -96,6 +103,12 @@ const bindProps = computed(() => {
 
 <style scoped>
 .button {
+  --color-vue-green-gradation: linear-gradient(to right, #42b883, #41b8aa);
+  --color-vue-green: #42b983;
+  --color-vue-blue: #35495e;
+  --color-disabled: #c6cacf;
+  --box-shadow: 0 2px 10px rgb(53, 73, 95, 0.14);
+
   display: inline-flex;
   justify-content: center;
   min-width: 198px;
@@ -110,29 +123,29 @@ const bindProps = computed(() => {
   box-sizing: border-box;
   text-decoration: none;
   box-shadow: var(--box-shadow);
-  font-family: 'din-2014',
-    'Yu Gothic Medium',
-    '游ゴシック体',
-    YuGothic,
-    '游ゴシック',
-    'Yu Gothic',
+  font-family: 'din-2014', 'Yu Gothic Medium', '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic',
     sans-serif;
 }
 
 .button:hover {
   background: white;
   color: var(--color-vue-green);
-  box-shadow: var(--box-shadow), inset 0px 0px 0px 2px var(--color-vue-green);
+  box-shadow:
+    var(--box-shadow),
+    inset 0px 0px 0px 2px var(--color-vue-green);
 }
 
-.button.-fixedWidth {
+.button.-fixedWidth,
+.button.-couple {
   width: 100%;
   max-width: 260px;
 }
 
 .button.-secondary {
   background: white;
-  box-shadow: var(--box-shadow), inset 0px 0px 0px 2px var(--color-vue-blue);
+  box-shadow:
+    var(--box-shadow),
+    inset 0px 0px 0px 2px var(--color-vue-blue);
   color: var(--color-vue-blue);
 
   &:hover {
@@ -150,9 +163,10 @@ const bindProps = computed(() => {
 }
 
 .button.-secondary[disabled] {
-
   color: var(--color-disabled);
-  box-shadow: var(--box-shadow), inset 0px 0px 0px 2px var(--color-disabled);
+  box-shadow:
+    var(--box-shadow),
+    inset 0px 0px 0px 2px var(--color-disabled);
   background: white;
 }
 
@@ -162,11 +176,23 @@ const bindProps = computed(() => {
 }
 
 @media (width <=768px) {
-
   .button,
-  .button.-fixedWidth {
+  .button.-fixedWidth,
+  .button.-couple {
     width: 100%;
     max-width: none;
+  }
+
+  .button.-couple {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: auto;
+    height: 49px;
+    font-size: var(--font-size-body200);
+    .button-label {
+      padding: 0;
+    }
   }
 }
 </style>

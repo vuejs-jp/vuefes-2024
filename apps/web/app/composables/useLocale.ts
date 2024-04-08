@@ -1,9 +1,9 @@
 import { computed } from 'vue'
+import { useI18n } from '#imports'
 import { match } from 'ts-pattern'
 import type { Path } from '@vuejs-jp/model'
 
 export function useLocale(path: Path) {
-  // @ts-expect-error
   const { locale } = useI18n({ useScope: 'global' })
 
   const docPath = computed(() =>

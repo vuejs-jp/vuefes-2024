@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useColor, useTypography } from '@vuejs-jp/composable'
+import { useTypography } from '@vuejs-jp/composable'
 import Typography from '../common/Typography.vue'
 
 type Props = {
@@ -40,13 +40,16 @@ function handleBlur(e: Event) {
 const inputtedText = defineModel<string>('inputtedText')
 
 const { fontWeight, fontSize } = useTypography()
-const { color } = useColor()
 </script>
 <template>
   <label
     :for="id"
-    :style="{ fontWeight: fontWeight('heading/100'), fontSize: fontSize('heading/100') }"
+    :style="{
+      fontWeight: fontWeight('heading/100'),
+      fontSize: fontSize('heading/100'),
+    }"
     class="textarea-root"
+    :class="{ '-error': errorMessage }"
   >
     {{ label }}
     <textarea
@@ -54,9 +57,7 @@ const { color } = useColor()
       v-model.trim="inputtedText"
       :name="name"
       :style="{
-        fontWeight: fontWeight('heading/100'),
         fontSize: fontSize('heading/100'),
-        boxShadow: errorMessage ? `0 0 2px ${color('sangosyo/200')}` : `0 0 2px ${color('vue-blue')}`,
       }"
       class="form-textarea"
       :rows="rows"
@@ -64,26 +65,42 @@ const { color } = useColor()
       :required="required"
       @blur="handleBlur"
     />
-    <Typography
-      v-if="errorMessage"
-      variant="body/200"
-      color="sangosyo/200"
-    >{{ errorMessage }}</Typography>
+    <Typography v-if="errorMessage" variant="body/200" color="sangosyo/200">{{ errorMessage }}</Typography>
   </label>
 </template>
 
 
 <style scoped>
 .textarea-root {
+  --color-placeholder: #c6cacf;
+  --border: solid 2px transparent;
+
   display: grid;
   gap: 10px;
-  .form-textarea {
-    padding: 24px;
-    border: none;
-    border-radius: 6px;
-  }
-  .form-textarea:focus {
-    box-shadow: 0 0 2px #35495e;
-  }
+  color: var(--color-vue-blue);
+}
+
+.textarea-root.-error .form-textarea {
+  --border: solid 2px #CC4F39;
+}
+
+.form-textarea {
+  padding: 22px 24px;
+  border-radius: 6px;
+  box-shadow: var(--box-shadow-input);
+  border: var(--border);
+  outline: none;
+  color: var(--color-vue-blue);
+  font-weight: normal;
+  min-height: 192px;
+}
+
+.form-textarea:focus {
+  --border: solid 2px var(--color-vue-blue);
+}
+
+.form-textarea::placeholder {
+  color: var(--color-placeholder);
+  font-weight: normal;
 }
 </style>

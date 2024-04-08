@@ -17,29 +17,25 @@ const { color } = useColor()
 
 <template>
   <div class="date-period">
-    <Date v-bind="{...start}" />
+    <Date v-bind="{ ...start }" />
     <div
       :style="{
-        fontSize: fontSize('heading/700'),
+        fontSize: fontSize('heading/100'),
         color: color('vue-blue'),
       }"
       class="separator"
     >
-      -
+      ー
     </div>
-    <Date v-bind="{...end}" />
+    <Date v-bind="{ ...end }" />
   </div>
 </template>
-  
+
 <style scoped>
 .date-period {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   gap: 16px;
-  .separator {
-    font-weight: 700;
-    font-size: 38px;
-  }
 }
 </style>

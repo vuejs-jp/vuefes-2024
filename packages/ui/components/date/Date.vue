@@ -4,7 +4,7 @@ import { useColor, useTypography } from '@vuejs-jp/composable'
 export type DateProps = {
   year?: number
   date: string
-  dayOfWeek: string
+  dayOfWeek?: string
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -15,7 +15,8 @@ const { color } = useColor()
 </script>
 
 <template>
-  <div class="date">
+  <div class="datewrapper">
+    <!-- year -->
     <span
       v-if="year"
       :style="{
@@ -26,6 +27,7 @@ const { color } = useColor()
     >
       {{ year }}
     </span>
+    <!-- date -->
     <span
       :style="{
         fontSize: fontSize('heading/700'),
@@ -35,7 +37,9 @@ const { color } = useColor()
     >
       {{ date }}
     </span>
+    <!-- day -->
     <span
+      v-if="dayOfWeek"
       :style="{
         fontSize: fontSize('other/200'),
         fontWeight: fontWeight('other/200'),
@@ -50,19 +54,32 @@ const { color } = useColor()
 </template>
 
 <style scoped>
+.datewrapper {
+  display: inline;
+  line-height: 1;
+}
+
+.year {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 24px;
+}
+
 .date {
-  .year {
-    margin-right: 6px;
-    font-size: 24px;
-  }
-  .date {
-    font-size: 45px;
-  }
-  .day-of-week {
-    padding: 4px;
-    width: 20px;
-    height: 20px;
-    border-radius: 2px;
-  }
+  display: inline-block;
+  letter-spacing: 0.2rem;
+}
+
+.day-of-week {
+  position: relative;
+  top: -4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin-left: 4px;
+
 }
 </style>

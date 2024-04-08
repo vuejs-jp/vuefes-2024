@@ -32,7 +32,9 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
   },
   template: `<div style="display: flex; gap: 8px;">
     <Icon v-bind="args" />
+    <Icon v-bind="args" name="x22" />
     <Icon v-bind="args" name="note" />
+    <Icon v-bind="args" name="note22" />
     <Icon v-bind="args" name="YouTube" />
     <Icon v-bind="args" name="GitHub" />
   </div>`,

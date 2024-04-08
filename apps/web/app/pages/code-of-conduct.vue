@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { conferenceTitle, linkUrl, ogCoCDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
@@ -21,24 +22,23 @@ useHead({
   ],
 })
 
+const { path: localePath } = useLocaleCurrent()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 </script>
 
 <template>
-  <section>
+  <main>
     <div class="coc-root">
-      <div class="title">
-        <h1
-          :style="{
-            fontWeight: fontWeight('heading/700'),
-            fontSize: fontSize('heading/700'),
-            color: color('vue-blue'),
-          }"
-        >
-          {{ $t('code_of_conduct.title') }}
-        </h1>
-      </div>
+      <h1
+        :style="{
+          fontWeight: fontWeight('heading/700'),
+          color: color('vue-blue'),
+        }"
+        class="title"
+      >
+        {{ $t('code_of_conduct.title') }}
+      </h1>
       <div
         class="subtitle"
         :style="{
@@ -51,17 +51,28 @@ const { color } = useColor()
       </div>
     </div>
     <div class="actions">
-      <VFLinkButton background-color="white" color="vue-blue" target="" href="/">
+      <VFLinkButton
+        class="action"
+        background-color="white"
+        color="vue-blue"
+        target=""
+        :href="`${localePath}/`"
+      >
         {{ $t('back_to_top') }}
       </VFLinkButton>
     </div>
-  </section>
+  </main>
   <FooterPageSection />
 </template>
 
 <style scoped>
-section {
-  padding: 120px 20px 120px;
+@import url('../assets/base.css');
+@import url("~/assets/media.css");
+
+main {
+  --header-height: calc(var(--unit) * 10);
+
+  padding: calc(var(--header-height) + 120px) 20px 0;
   background: color(--color-white);
 }
 .coc-root {
@@ -74,6 +85,7 @@ section {
 }
 .title {
   text-align: center;
+  font-size: 45px;
 }
 .subtitle {
   display: grid;
@@ -81,10 +93,11 @@ section {
   &::v-deep h2 {
     margin-top: 60px;
     font-weight: 700;
-    font-size: 32px;
+    font-size: 24px;
   }
   &::v-deep p {
     margin-top: 20px;
+    line-height: 1.8;
   }
   &::v-deep a {
     color: var(--color-vue-green);
@@ -92,18 +105,46 @@ section {
   }
   &::v-deep a:hover {
     opacity: 0.4;
-    transition: .2s;
+    transition: 0.2s;
   }
 }
 .actions {
-  padding-top: 40px;
-  text-align: center;
-  margin: 0 auto;
-  width: 320px;
+  margin: 40px auto 120px;
+  width: 100%;
+  max-width: 260px;
+  border-radius: var(--height-button);
 }
+.action {
+  --height-button: 66px;
+
+  height: var(--height-button);
+}
+
+@media (--tablet) {
+  .action {
+    --height-button: 58px;
+  }
+}
+
 @media (--mobile) {
+  main {
+    --header-height: calc(var(--unit) * 8);
+    padding: calc(var(--header-height) + 60px) 20px 60px;
+  }
+  .coc-root {
+    gap: 30px;
+  }
   .title {
     font-size: 28px;
+  }
+  .actions {
+    width: 100%;
+    padding: 0 23.5px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+  }
+  .action {
+    --height-button: 58px;
   }
 }
 </style>

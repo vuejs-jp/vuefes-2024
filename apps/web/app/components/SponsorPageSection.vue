@@ -1,14 +1,16 @@
 <script setup lang="ts">
+import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+
+const { locale } = useI18n()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
-
 </script>
 
 <template>
   <div class="sponsor">
     <article class="sponsor-body">
-      <VFTitle id="sponsor">
+      <VFTitle id="sponsors" class="title">
         {{ $t('sponsor.title') }}
       </VFTitle>
 
@@ -28,31 +30,32 @@ const { color } = useColor()
           fontWeight: fontWeight('heading/400'),
           fontSize: fontSize('heading/300'),
         }"
-        class="sponsor-subtitle"
-      >
+        class="sponsor-subtitle">
         {{ $t('sponsor.apply_period') }}
       </h3>
       <VFDatePeriod
-        :start="{ year: 2024, date: '4.1', dayOfWeek: $t('day_of_week.monday') }"
-        :end="{ date: '4.30', dayOfWeek: $t('day_of_week.tuesday') }"
-      />
+        :start="{ year: 2024, date: '4.8', dayOfWeek: locale === 'ja' ? $t('day_of_week.monday') : '' }"
+        :end="{ date: '4.25', dayOfWeek: locale === 'ja' ? $t('day_of_week.thursday') : '' }" />
 
       <div class="sponsor-buttons">
         <!-- 申し込む -->
-        <VFButton class="sponsor-button" fixed-width href="https://forms.gle/paxZqz55oXLE4Njn9" target="_blank">
-          {{ $t('sponsor.apply') }}
-        </VFButton>
-        <!-- 資料を見る -->
-        <VFButton
+        <VFLinkButton
           class="sponsor-button"
-          fixed-width
+          href="https://forms.gle/paxZqz55oXLE4Njn9"
+          background-color="vue-green"
+          color="white"
+        >
+          {{ $t('sponsor.apply') }}
+        </VFLinkButton>
+        <!-- 資料を見る -->
+        <VFLinkButton
+          class="sponsor-button"
           href="https://docs.google.com/presentation/d/1YXWqW55CKdt4czr8paarpdxqYz8NjSFRzrOQ-NnClKQ/edit?usp=sharing"
-          target="_blank"
-          secondary
+          background-color="white"
+          color="vue-blue"
         >
           {{ $t('sponsor.check_doc') }}
-        </VFButton>
-
+        </VFLinkButton>
       </div>
     </article>
 
@@ -64,7 +67,7 @@ const { color } = useColor()
 @import url("~/assets/sample.css");
 
 .sponsor {
-  --sponsor-padding: calc(var(--unit) * 7) 0;
+  --sponsor-padding: calc(var(--unit) * 5.25) 0;
   --sponsor-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 8);
   --sponsor-term-margin: calc(var(--unit) * 5) auto 0;
 
@@ -93,8 +96,9 @@ const { color } = useColor()
 
 .sponsor-subtitle {
   margin-top: calc(var(--unit) * 5);
-  background: var(--color-vue-green-gradation); 
-  -webkit-text-fill-color: transparent; 
+  margin-bottom: calc(var(--unit) * 2);
+  background: var(--color-vue-green-gradation);
+  -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
 
@@ -106,31 +110,18 @@ const { color } = useColor()
 .sponsor-buttons {
   display: flex;
   justify-content: center;
-  margin-top: calc(var(--unit) * 4);
+  gap: 20px;
+  margin-top: calc(var(--unit) * 5);
 }
 
 .sponsor-button {
-  margin: 0 calc(var(--unit) * 1.5);
-}
+  --height-button: 66px;
 
-/* この幅ルールはコンポーネント側に持たせるべき */
-/* .sponsor-button {
-  min-width: 198px;
-  max-width: 260px;
   width: 100%;
-  padding: calc(var(--unit) * 2) 66px;
-  background: var(--color-vue-green-gradation);
-  font-size: 18px;
-  white-space: nowrap;
-} */
-
-/* .sponsor-button.-border {
-  padding: calc(var(--unit) * 2) 0;
-  background: white;
-  border: solid 2px var(--color-vue-blue);
-  color: var(--color-vue-blue);
-} */
-
+  max-width: 260px;
+  height: var(--height-button);
+  border-radius: var(--height-button);
+}
 
 @media (--tablet) {
   .sponsor {
@@ -139,12 +130,30 @@ const { color } = useColor()
     --sponsor-term-margin: calc(var(--unit) * 5) auto 0;
   }
 
+  .sponsor-subtitle {
+    margin-top: calc(var(--unit) * 3.75);
+  }
+
   .sponsor-buttons {
+    margin-top: calc(var(--unit) * 3.75);
     display: block;
   }
 
+  .sponsor-button:first-child {
+    margin-bottom: calc(var(--unit) * 2);
+  }
+
   .sponsor-button {
-    margin: calc(var(--unit) * 2) 0 0;
+    --height-button: 58px;
+
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (--mobile) {
+  .sponsor-button {
+    --height-button: 58px;
   }
 }
 </style>

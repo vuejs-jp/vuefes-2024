@@ -8,9 +8,9 @@ const meta: Meta<typeof InputField> = {
   argTypes: {
     id: { control: 'text' },
     name: { control: 'text' },
-    type: { 
+    type: {
       control: 'radio',
-      options: ['button', 'checkbox', 'text', 'radio']
+      options: ['button', 'checkbox', 'text', 'radio'],
     },
     placeholder: { control: 'text' },
     required: { control: 'boolean' },
@@ -30,6 +30,7 @@ export const Default: Story = {
     id: 'default',
     name: 'default',
     label: 'お名前',
+    placeholder: '山田太郎',
   },
 }
 
@@ -39,6 +40,7 @@ export const Error: Story = {
     id: 'error',
     name: 'error',
     label: 'お名前',
+    placeholder: '山田太郎',
     errorMessage: 'エラーメッセージが表示されます',
   },
 }

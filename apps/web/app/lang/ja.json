@@ -6,7 +6,13 @@
   "not_found": "お探しのページが見つかりません。",
   "day_of_week": {
     "monday": "月",
-    "tuesday": "火"
+    "tuesday": "火",
+    "thursday": "木"
+  },
+  "top_page": {
+    "latest_information": "最新情報は公式SNSでご紹介しています",
+    "date": "2024.10.19",
+    "note": "公式 note"
   },
   "sponsor": {
     "title": "スポンサー",
@@ -20,7 +26,7 @@
     "form_name_placeholder": "山田太郎",
     "form_email_label": "メールアドレス",
     "form_text_label": "お問い合わせ内容",
-    "submit": "送信",
+    "submit": "送信する",
     "submit_done": "メッセージ送信に成功しました。"
   },
   "message": {
