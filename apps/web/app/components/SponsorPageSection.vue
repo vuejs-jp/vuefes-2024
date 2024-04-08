@@ -39,24 +39,23 @@ const { color } = useColor()
 
       <div class="sponsor-buttons">
         <!-- 申し込む -->
-        <VFButton
+        <VFLinkButton
           class="sponsor-button"
-          fixed-width
           href="https://forms.gle/paxZqz55oXLE4Njn9"
-          target="_blank"
+          background-color="vue-green"
+          color="white"
         >
           {{ $t('sponsor.apply') }}
-        </VFButton>
+        </VFLinkButton>
         <!-- 資料を見る -->
-        <VFButton
+        <VFLinkButton
           class="sponsor-button"
-          fixed-width
           href="https://docs.google.com/presentation/d/1YXWqW55CKdt4czr8paarpdxqYz8NjSFRzrOQ-NnClKQ/edit?usp=sharing"
-          target="_blank"
-          secondary
+          background-color="white"
+          color="vue-blue"
         >
           {{ $t('sponsor.check_doc') }}
-        </VFButton>
+        </VFLinkButton>
       </div>
     </article>
 
@@ -111,11 +110,17 @@ const { color } = useColor()
 .sponsor-buttons {
   display: flex;
   justify-content: center;
+  gap: 20px;
   margin-top: calc(var(--unit) * 5);
 }
 
 .sponsor-button {
-  margin: 0 calc(var(--unit) * 1.5);
+  --height-button: 66px;
+
+  width: 100%;
+  max-width: 260px;
+  height: var(--height-button);
+  border-radius: var(--height-button);
 }
 
 @media (--tablet) {
@@ -134,8 +139,21 @@ const { color } = useColor()
     display: block;
   }
 
+  .sponsor-button:first-child {
+    margin-bottom: calc(var(--unit) * 2);
+  }
+
   .sponsor-button {
-    margin: calc(var(--unit) * 2) 0 0;
+    --height-button: 58px;
+
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (--mobile) {
+  .sponsor-button {
+    --height-button: 58px;
   }
 }
 </style>

@@ -53,6 +53,8 @@ useHead({
 
 <style scoped>
 .error {
+  --height-button: 66px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,5 +69,17 @@ h1 {
   text-align: center;
   margin: 0 auto;
   width: 320px;
+  height: var(--height-button);
+  border-radius: var(--height-button);
+}
+@media (--tablet) {
+  .actions {
+    --height-button: 49px;
+  }
+}
+@media (--mobile) {
+  .actions {
+    --height-button: 49px;
+  }
 }
 </style>
