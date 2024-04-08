@@ -146,6 +146,12 @@ form {
 }
 
 @media (--mobile) {
+  section {
+    padding: 60px 20px 60px;
+  }
+  .form-root {
+    gap: 30px;
+  }
   .form-button {
     width: 100%;
   }
