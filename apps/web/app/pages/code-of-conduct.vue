@@ -51,7 +51,13 @@ const { color } = useColor()
       </div>
     </div>
     <div class="actions">
-      <VFLinkButton background-color="white" color="vue-blue" target="" :href="`${localePath}/`">
+      <VFLinkButton
+        class="action"
+        background-color="white"
+        color="vue-blue"
+        target=""
+        :href="`${localePath}/`"
+      >
         {{ $t('back_to_top') }}
       </VFLinkButton>
     </div>
@@ -65,6 +71,7 @@ const { color } = useColor()
 
 main {
   --header-height: calc(var(--unit) * 10);
+
   padding: calc(var(--header-height) + 120px) 20px 0;
   background: color(--color-white);
 }
@@ -105,6 +112,18 @@ main {
   margin: 40px auto 120px;
   width: 100%;
   max-width: 260px;
+  border-radius: var(--height-button);
+}
+.action {
+  --height-button: 66px;
+
+  height: var(--height-button);
+}
+
+@media (--tablet) {
+  .action {
+    --height-button: 58px;
+  }
 }
 
 @media (--mobile) {
@@ -123,6 +142,9 @@ main {
     padding: 0 23.5px;
     margin-top: 30px;
     margin-bottom: 60px;
+  }
+  .action {
+    --height-button: 58px;
   }
 }
 </style>
