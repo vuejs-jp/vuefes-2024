@@ -152,9 +152,6 @@ const { color } = useColor()
 }
 
 @media (--mobile) {
-  .title {
-    font-size: 25px;
-  }
   .sponsor-button {
     --height-button: 58px;
   }

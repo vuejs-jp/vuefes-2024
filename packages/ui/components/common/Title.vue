@@ -1,15 +1,36 @@
 <script setup lang="ts">
-import Typography from './Typography.vue'
+import { useColor, useTypography } from '@vuejs-jp/composable'
 
 type TitleProps = {
   id: string
 }
 
 const props = defineProps<TitleProps>()
+
+const { fontWeight } = useTypography()
+const { color } = useColor()
 </script>
 
 <template>
-  <Typography :id variant="heading/700" color="vue-blue">
+  <h2
+    :id
+    :style="{
+      fontWeight: fontWeight('heading/700'),
+      color: color('vue-blue'),
+    }"
+    class="typography"
+  >
     <slot />
-  </Typography>
+  </h2>
 </template>
+
+<style scoped>
+.typography {
+  font-size: 45px;
+}
+@media (width <=768px) {
+  .typography {
+    font-size: 28px;
+  }
+}
+</style>
