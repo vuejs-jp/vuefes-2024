@@ -1,5 +1,6 @@
 import { mergeConfig } from 'vite'
 import svgLoader from 'vite-svg-loader'
+import turbosnap from 'vite-plugin-turbosnap'
 import { fileURLToPath, URL } from 'url'
 
 module.exports = {
@@ -22,7 +23,10 @@ module.exports = {
   },
   async viteFinal(config, { configType }) {
     return mergeConfig(config, {
-      plugins: [svgLoader({ defaultImport: 'component' })],
+      plugins:
+        configType === 'PRODUCTION'
+          ? [turbosnap({ rootDir: config.root }), svgLoader({ defaultImport: 'component' })]
+          : [svgLoader({ defaultImport: 'component' })],
       resolve: {
         alias: {
           '#components': fileURLToPath(new URL('../mock', import.meta.url)),
