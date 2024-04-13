@@ -44,7 +44,13 @@ useHead({
       {{ $t('not_found') }}
     </h1>
     <div class="actions">
-      <VFLinkButton background-color="white" color="vue-blue" target="" href="/">
+      <VFLinkButton
+        class="action"
+        background-color="white"
+        color="vue-blue"
+        target=""
+        href="/"
+      >
         {{ $t('back_to_top') }}
       </VFLinkButton>
     </div>
@@ -72,13 +78,24 @@ h1 {
   height: var(--height-button);
   border-radius: var(--height-button);
 }
+.action {
+  --height-button: 66px;
+
+  height: var(--height-button);
+}
 @media (--tablet) {
   .actions {
+    --height-button: 49px;
+  }
+  .action {
     --height-button: 49px;
   }
 }
 @media (--mobile) {
   .actions {
+    --height-button: 49px;
+  }
+  .action {
     --height-button: 49px;
   }
 }
