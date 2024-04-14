@@ -8,6 +8,16 @@
       "outputs": [".nuxt/**", "!.nuxt/cache/**"],
       "dotEnv": [".env"]
     },
+    "build-api": {
+      "dependsOn": ["^build-api"],
+      "outputs": ["dist/**"],
+      "dotEnv": [".env"]
+    },
+    "build-after-purchase": {
+      "dependsOn": ["^build-after-purchase"],
+      "outputs": ["dist/**"],
+      "dotEnv": [".env"]
+    },
     "build-docs": {
       "dependsOn": ["^build-docs"],
       "outputs": [".vitepress/dist/**"]

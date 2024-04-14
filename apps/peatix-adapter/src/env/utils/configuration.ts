@@ -1,0 +1,5 @@
+export const configuration = () => ({
+  peatixEventId: process.env.PEATIX_EVENT_ID || '',
+  peatixBasicEmail: process.env.PEATIX_BASIC_EMAIL || '',
+  peatixBasicPassword: process.env.PEATIX_BASIC_PASSWORD || '',
+})
