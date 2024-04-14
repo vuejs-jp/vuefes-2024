@@ -73,7 +73,7 @@ const iconColor = computed(() => {
 
   position: relative;
   padding: 2px;
-  height: 100%;
+  height: var(--height-button);
   border-radius: var(--height-button);
   text-decoration: none;
   cursor: pointer;
@@ -111,6 +111,9 @@ const iconColor = computed(() => {
 @media screen and (max-width: 768px) {
   .secondary-link-button {
     --icon-size: 17px;
+    --height-button: 58px;
+
+    height: var(--height-button);
   }
   .icon {
     margin-right: calc(var(--unit) * 0.5);
