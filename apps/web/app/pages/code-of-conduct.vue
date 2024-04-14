@@ -51,15 +51,13 @@ const { color } = useColor()
       </div>
     </div>
     <div class="actions">
-      <VFLinkButton
+      <VFSecondaryLinkButton
         class="action"
-        background-color="white"
-        color="vue-blue"
         target=""
         :href="`${localePath}/`"
       >
         {{ $t('back_to_top') }}
-      </VFLinkButton>
+      </VFSecondaryLinkButton>
     </div>
   </main>
   <FooterPageSection />
@@ -117,6 +115,7 @@ main {
 .action {
   --height-button: 66px;
 
+  display: block;
   height: var(--height-button);
 }
 

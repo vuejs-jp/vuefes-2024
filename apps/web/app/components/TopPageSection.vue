@@ -31,16 +31,16 @@ const { locale } = useI18n()
             color="white"
             icon-name="x22"
             href="https://twitter.com/vuefes"
-            >@vuefes</VFLinkButton
           >
-          <VFLinkButton
+            @vuefes
+          </VFLinkButton>
+          <VFSecondaryLinkButton
             class="link-button"
-            background-color="white"
-            color="vue-blue"
             icon-name="note22"
             href="https://note.com/vuejs_jp/m/mb35849fee631"
-            >{{ $t('top_page.note') }}
-          </VFLinkButton>
+          >
+            {{ $t('top_page.note') }}
+          </VFSecondaryLinkButton>
         </div>
       </div>
     </div>

@@ -47,7 +47,7 @@ useHead({
       <VFLinkButton
         class="action"
         background-color="white"
-        color="vue-blue"
+        color="vue-blue-gradation"
         target=""
         href="/"
       >

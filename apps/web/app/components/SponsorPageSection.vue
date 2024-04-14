@@ -48,14 +48,12 @@ const { color } = useColor()
           {{ $t('sponsor.apply') }}
         </VFLinkButton>
         <!-- 資料を見る -->
-        <VFLinkButton
+        <VFSecondaryLinkButton
           class="sponsor-button"
           href="https://docs.google.com/presentation/d/1YXWqW55CKdt4czr8paarpdxqYz8NjSFRzrOQ-NnClKQ/edit?usp=sharing"
-          background-color="white"
-          color="vue-blue"
         >
           {{ $t('sponsor.check_doc') }}
-        </VFLinkButton>
+        </VFSecondaryLinkButton>
       </div>
     </article>
 

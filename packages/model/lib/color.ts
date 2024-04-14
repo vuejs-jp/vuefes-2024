@@ -1,6 +1,7 @@
 export type Color =
   | 'white'
   | 'vue-blue'
+  | 'vue-blue-gradation'
   | 'vue-green'
   | 'asagi/100'
   | 'asagi/200'

@@ -46,15 +46,13 @@ useHead({
         <MarkDownText path="privacy" class="explain" />
       </div>
       <div class="back">
-        <VFLinkButton
+        <VFSecondaryLinkButton
           class="back-action"
-          background-color="white"
-          color="vue-blue"
           target=""
           :href="`${localePath}/`"
         >
           {{ t('back_to_top') }}
-        </VFLinkButton>
+        </VFSecondaryLinkButton>
       </div>
     </div>
   </main>
@@ -144,9 +142,10 @@ useHead({
 .back-action {
   --height-button: 66px;
 
+  display: block;
   height: var(--height-button);
-  border-radius: var(--height-button);
 }
+
 @media (--tablet) {
   .markdown-root {
     width: 100%;

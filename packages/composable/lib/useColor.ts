@@ -6,6 +6,7 @@ export function useColor() {
     match<Color>(text)
       .with('white', () => '#ffffff')
       .with('vue-blue', () => '#35495e')
+      .with('vue-blue-gradation', () => 'linear-gradient(to right, #35495E 0%, #353B5E 100%)')
       .with('vue-green', () => '#42b883')
       .with('asagi/100', () => '#33A6B8')
       .with('asagi/200', () => '#1A8191')
