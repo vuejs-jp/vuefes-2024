@@ -44,23 +44,19 @@ useHead({
       {{ $t('not_found') }}
     </h1>
     <div class="actions">
-      <VFLinkButton
+      <VFSecondaryLinkButton
         class="action"
-        background-color="white"
-        color="vue-blue-gradation"
         target=""
         href="/"
       >
         {{ $t('back_to_top') }}
-      </VFLinkButton>
+      </VFSecondaryLinkButton>
     </div>
   </div>
 </template>
 
 <style scoped>
 .error {
-  --height-button: 66px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,7 +77,9 @@ h1 {
 .action {
   --height-button: 66px;
 
+  display: block;
   height: var(--height-button);
+  border-radius: var(--height-button);
 }
 @media (--tablet) {
   .actions {
