@@ -29,14 +29,14 @@ const style = computed(() => {
   return {
     fontWeight: fontWeight('heading/200'),
     '--primaryColor': updateColor('white'),
-    '--secondaryColor': updateColor('vue-blue-gradation'),
+    '--secondaryColor': updateColor('vue-blue'),
   }
 })
 const iconColor = computed(() => {
   if (hover.value) {
     return 'white'
   }
-  return 'vue-blue-gradation'
+  return 'vue-blue'
 })
 </script>
 
@@ -72,13 +72,14 @@ const iconColor = computed(() => {
   --height-button: 66px;
 
   position: relative;
+  display: block;
   padding: 2px;
   height: var(--height-button);
   border-radius: var(--height-button);
   text-decoration: none;
   cursor: pointer;
   background: var(--secondaryColor);
-  color: var(--secondaryColor);
+  color: var(--primaryColor);
   box-shadow: 0 2px 10px rgb(53, 73, 95, 0.14);
 }
 .content {

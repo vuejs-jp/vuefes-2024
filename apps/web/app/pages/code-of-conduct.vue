@@ -115,7 +115,6 @@ main {
 .action {
   --height-button: 66px;
 
-  display: block;
   height: var(--height-button);
 }
 
