@@ -82,6 +82,13 @@ export class PeatixOrderService extends ScraperPage {
 
 puppeteer を利用しなくても、get_view_data を付けた URL に fetch することで、参加者情報を取得できる可能性があります。
 
+そうした参加者情報の取得は、イベント URL に get_view_data を付けることで対応できます。
+
+- イベント URL: `https://<EVENT ID>.peatix.com/`
+- イベント URL に get_view_data を付けた URL: `https://<EVENT ID>.peatix.com/get_view_data`
+
+実際 fetch するため、@nestjs/axios の使える環境を構築します。
+
 ```ts
 import { Injectable, Logger } from '@nestjs/common'
 import { HttpService } from '@nestjs/axios'
