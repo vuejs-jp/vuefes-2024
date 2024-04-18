@@ -2,6 +2,7 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
-    "Vue.volar"
+    "Vue.volar",
+    "denoland.vscode-deno"
   ]
 }
