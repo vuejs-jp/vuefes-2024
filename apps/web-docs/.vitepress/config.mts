@@ -9,6 +9,7 @@ export default defineConfig({
     nav: [
       { text: 'Top', link: '/' },
       { text: 'CSS', link: '/css/getting-started' },
+      { text: 'Peatix', link: '/peatix/csv-usage' },
     ],
 
     sidebar: [
@@ -16,6 +17,12 @@ export default defineConfig({
         text: 'Examples',
         items: [
           { text: 'CSS', link: '/css/getting-started' },
+        ],
+      },
+      {
+        text: 'Guide',
+        items: [
+          { text: 'Peatix', link: '/peatix/csv-usage' },
         ],
       },
     ],
