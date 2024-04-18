@@ -2,6 +2,8 @@
 
 まず、今年はチケット管理に [Peatix](https://peatix.com/) を使います。
 
+ちなみに、昨年の Pass Market では、ログイン機構の障壁によりスクレイピングが実現できませんでしたが、今回の Peatix ではそうしたことの払拭される可能性が高く、購入情報の反映に向けた完全自動化も夢では無いと考えています。
+
 ## 購入情報を取得する
 
 Peatix の購入情報を取得するため、下記の順に実行することを目指します。
@@ -12,7 +14,7 @@ Peatix の購入情報を取得するため、下記の順に実行すること�
 
 ### puppeteer を利用してスクレイピングする
 
-昨年の Pass Market では、ログイン機構の障壁によりスクレイピングが実現できませんでしたが、今回の Peatix ではそうしたことが払拭され完全自動化が実現されるよう考えています。
+実際に Peatix の画面で、関連する全てのセレクタを確認しました。
 
 ```ts
 import { Injectable, Logger } from '@nestjs/common'
@@ -29,7 +31,6 @@ export class PeatixOrderService extends ScraperPage {
   constructor(
     envService: EnvService,
     puppeteerService: IPuppeteerService,
-    private readonly httpService: HttpService,
   ) {
     super(envService, puppeteerService)
   }
