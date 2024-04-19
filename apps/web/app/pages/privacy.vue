@@ -114,7 +114,14 @@ useHead({
   /* 箇条書きとパラグラフ内のリンク */
   & :deep(ul) li a,
   & :deep(p) a {
-    color: var(--color-vue-green);
+    background: var(--color-vue-green200);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  & :deep(ul) li a:hover,
+  & :deep(p) a:hover {
+    opacity: 0.4;
+    transition: .2s;
   }
   /* 箇条書き1段目 reset.cssでnoneになったため追加 */
   & :deep(ul) {

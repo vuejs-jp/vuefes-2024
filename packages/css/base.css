@@ -9,7 +9,8 @@
   --color-disabled: #c6cacf;
 
   /* gradation */
-  --color-vue-green-gradation: linear-gradient(to right, #42b883, #41b8aa);
+  --color-vue-green100: linear-gradient(to right, #42b883 0%, #41b8aa 100%);
+  --color-vue-green200: linear-gradient(to right, #30855f 0%, #328c82 100%);
   --color-vue-blue-gradation: linear-gradient(to right, #35495e 0%, #353b5e 100%);
 
   /* box-shadow */

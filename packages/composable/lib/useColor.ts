@@ -8,6 +8,8 @@ export function useColor() {
       .with('vue-blue', () => '#35495e')
       .with('vue-blue-gradation', () => 'linear-gradient(to right, #35495E 0%, #353B5E 100%)')
       .with('vue-green', () => '#42b883')
+      .with('vue-green100', () => 'linear-gradient(to right, #42B883 0%, #41B8AA 100%)')
+      .with('vue-green200', () => 'linear-gradient(to right, #30855F 0%, #328C82 100%)')
       .with('asagi/100', () => '#33A6B8')
       .with('asagi/200', () => '#1A8191')
       .with('tohou/100', () => '#FFC408')

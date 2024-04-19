@@ -3,6 +3,8 @@ export type Color =
   | 'vue-blue'
   | 'vue-blue-gradation'
   | 'vue-green'
+  | 'vue-green100'
+  | 'vue-green200'
   | 'asagi/100'
   | 'asagi/200'
   | 'tohou/100'

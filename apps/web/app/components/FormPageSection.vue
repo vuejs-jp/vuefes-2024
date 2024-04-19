@@ -125,7 +125,9 @@ section {
   line-height: 1.8;
 
   &::v-deep a {
-    color: var(--color-vue-green);
+    background: var(--color-vue-green200);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
     text-decoration: underline;
   }
 

@@ -95,7 +95,7 @@ const { color } = useColor()
 .sponsor-subtitle {
   margin-top: calc(var(--unit) * 5);
   margin-bottom: calc(var(--unit) * 2);
-  background: var(--color-vue-green-gradation);
+  background: var(--color-vue-green200);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
