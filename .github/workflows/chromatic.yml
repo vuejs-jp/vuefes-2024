@@ -1,12 +1,6 @@
 name: Chromatic CI
 
-on:
-  # push:
-  #   branches:
-  #     - main
-  pull_request:
-    branches:
-      - main
+on: push
 
 jobs:
   chromatic:
@@ -25,24 +19,17 @@ jobs:
 
       - id: diff
         run: echo "::set-output name=changed::$(git diff --name-only origin/${{ github.base_ref }} HEAD --relative ./packages/ui/ | wc -l)"
-    
+
       - name: Install packages
         uses: ./.github/actions/install-packages
-        if: ${{ steps.diff.outputs.changed != '0' }}
-
-      # - name: Chromatic
-      #   uses: chromaui/action@latest
-      #   if: ${{ steps.diff.outputs.changed != '0' }}
-      #   with:
-      #     projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-      #     workingDir: packages/ui
-      #     exitZeroOnChanges: true
-      #     onlyChanged: true
-      #   env:
-      #     LOG_LEVEL: 'debug'
-
-      - name: Chromatic
-        if: ${{ steps.diff.outputs.changed != '0' }}
-        run: |
-          bun build-storybook
-          bunx chromatic -d ./packages/ui/storybook-static --storybook-base-dir ./packages/ui --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }} --exit-zero-on-changes --only-changed
+      - name: Run Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: packages/ui
+          exitZeroOnChanges: true
+          onlyChanged: true
+          diagnostics: true
+          storybookBaseDir: ./packages/ui
+        env:
+          LOG_LEVEL: 'debug'
