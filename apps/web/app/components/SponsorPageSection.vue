@@ -39,6 +39,7 @@ const { color } = useColor()
 
       <div class="sponsor-buttons">
         <!-- 申し込む -->
+        <!--
         <VFLinkButton
           class="sponsor-button"
           href="https://forms.gle/paxZqz55oXLE4Njn9"
@@ -47,6 +48,7 @@ const { color } = useColor()
         >
           {{ $t('sponsor.apply') }}
         </VFLinkButton>
+        -->
         <!-- 資料を見る -->
         <VFLinkButton
           class="sponsor-button"
