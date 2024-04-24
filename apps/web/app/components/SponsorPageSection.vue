@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { useRuntimeConfig } from '#imports'
 import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 
+const config = useRuntimeConfig()
 const { locale } = useI18n()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
@@ -39,8 +41,8 @@ const { color } = useColor()
 
       <div class="sponsor-buttons">
         <!-- 申し込む -->
-        <!--
         <VFLinkButton
+          v-if="config.public.availableApplySponsor"
           class="sponsor-button"
           href="https://forms.gle/paxZqz55oXLE4Njn9"
           background-color="vue-green"
@@ -48,7 +50,6 @@ const { color } = useColor()
         >
           {{ $t('sponsor.apply') }}
         </VFLinkButton>
-        -->
         <!-- 資料を見る -->
         <VFLinkButton
           class="sponsor-button"
