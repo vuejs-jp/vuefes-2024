@@ -114,6 +114,8 @@ export default defineNuxtConfig({
       // supabase
       supabaseProjectUrl: process.env.SUPABASE_URL,
       supabaseApiKey: process.env.SUPABASE_KEY,
+      // feature
+      availableApplySponsor: process.env.AVAILABLE_APPLY_SPONSOR,
     },
   },
 })
