@@ -6,7 +6,7 @@ export default {
   component: IconButton,
   args: {
     href: 'https://twitter.com/vuefes',
-    color: 'vue-green',
+    color: 'vue-blue',
     name: 'x',
   },
   argTypes: {
