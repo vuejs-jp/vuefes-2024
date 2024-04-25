@@ -27,7 +27,7 @@ const { locale } = useI18n()
         <div class="link-buttons">
           <VFLinkButton
             class="link-button"
-            background-color="vue-green"
+            background-color="vue-green/200"
             color="white"
             icon-name="x22"
             href="https://twitter.com/vuefes"

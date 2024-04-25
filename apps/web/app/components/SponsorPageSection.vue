@@ -45,7 +45,7 @@ const { color } = useColor()
           v-if="config.public.availableApplySponsor"
           class="sponsor-button"
           href="https://forms.gle/paxZqz55oXLE4Njn9"
-          background-color="vue-green"
+          background-color="vue-green/200"
           color="white"
         >
           {{ $t('sponsor.apply') }}
