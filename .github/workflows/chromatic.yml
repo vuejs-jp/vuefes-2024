@@ -21,7 +21,6 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: ./packages/ui
-          storybookBaseDir: ./packages/ui
           untraced: \"./packages/!(ui)/**\"
           exitZeroOnChanges: true
           onlyChanged: true

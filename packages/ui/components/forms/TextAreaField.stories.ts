@@ -15,6 +15,17 @@ const meta: Meta<typeof TextAreaField> = {
     label: { control: 'text' },
     errorMessage: { control: 'text' },
   },
+  render: (args) => ({
+    components: { TextAreaField },
+    setup() {
+      const detail = ref<string>()
+      return { args,detail }
+    },
+    template: `<div style="width: 400px;">
+      <p>v-model value: {{ detail }}</p>
+      <TextAreaField v-model:inputted-text="detail" :="args" />
+    </div>`,
+  })
 }
 
 export default meta
@@ -47,30 +58,5 @@ export const withErrorMessage: Story = {
     name: 'detail',
     label: 'お問い合わせ内容/Content',
     errorMessage: 'エラーメッセージを表示します',
-  },
-}
-
-export const vModel: Story = {
-  name: '[for dev] v-model',
-  render: (args) => ({
-    components: { TextAreaField },
-    setup() {
-      const detail = ref<string>()
-      return { args,detail }
-    },
-    template: `<div style="width: 400px;">
-      <p>v-model value: {{ detail }}</p>
-      <TextAreaField v-model:inputted-text="detail" :="args" />
-    </div>`,
-  })
-}
-
-export const wipDebugTurbosnap: Story = {
-  name: 'with error message',
-  args: {
-    id: 'detail',
-    name: 'detail',
-    label: 'お問い合わせ内容/Content',
-    errorMessage: 'Turbosnap動作確認用',
   },
 }
