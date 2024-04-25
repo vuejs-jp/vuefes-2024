@@ -6,7 +6,7 @@ export default {
   tags: ['autodocs'],
   component: LinkButton,
   args: {
-    backgroundColor: 'vue-green',
+    backgroundColor: 'vue-green/200',
     color: 'white',
     href: 'https://forms.gle/paxZqz55oXLE4Njn9',
   },
