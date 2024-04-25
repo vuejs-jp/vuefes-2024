@@ -19,8 +19,7 @@
     "cypress:ci": "start-server-and-test dev http://localhost:3000/ cypress:run",
     "postinstall": "nuxt prepare",
     "vitest": "vitest",
-    "netlify:local": "bun run build && netlify dev --dir=dist",
-    "debug": "for debug"
+    "netlify:local": "bun run build && netlify dev --dir=dist"
   },
   "devDependencies": {
     "@nuxt/content": "2.12.1",
