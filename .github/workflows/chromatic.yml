@@ -21,7 +21,7 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: ./packages/ui
-          untraced: \"./packages/!(ui)/**\"
+          untraced: ./packages/!(ui)/**
           exitZeroOnChanges: true
           onlyChanged: true
         env:
