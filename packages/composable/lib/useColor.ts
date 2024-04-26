@@ -7,6 +7,7 @@ export function useColor() {
       .with('white', () => '#ffffff')
       .with('vue-blue', () => '#35495e')
       .with('vue-green', () => '#42b883')
+      .with('vue-green/100', () => '#42B883')
       .with('vue-green/200', () => '#208558')
       .with('asagi/100', () => '#33A6B8')
       .with('asagi/200', () => '#1A8191')
