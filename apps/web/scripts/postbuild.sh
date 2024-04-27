@@ -10,7 +10,7 @@ if [ ! -d "./dist" ]; then
 fi
 
 mkdir ./tmp
-mv ./.output/* ./tmp
+mv ./dist/* ./tmp
 mkdir ./dist/2024
 mv ./tmp/* ./dist/2024
 rm -rf ./tmp
