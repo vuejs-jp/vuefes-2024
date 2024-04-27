@@ -1,9 +1,18 @@
-name: Chromatic CI
+name: Chromatic
 
-on: push
+on: workflow_call
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-chromatic
+  cancel-in-progress: true
+
+permissions:
+  actions: write
+  contents: read
 
 jobs:
   chromatic:
+    name: Chromatic
     runs-on: ubuntu-latest
 
     strategy:
@@ -11,7 +20,8 @@ jobs:
         node-version: [18.19.0]
 
     steps:
-      - uses: actions/checkout@v4
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Install packages
@@ -21,8 +31,9 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: ./packages/ui
-          untraced: \"./packages/!(ui)/**\"
           exitZeroOnChanges: true
+          exitOnceUploaded: true
           onlyChanged: true
+          skip: '@(renovate/**|dependabot/**)'
         env:
           LOG_LEVEL: 'debug'

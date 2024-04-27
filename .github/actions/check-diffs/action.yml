@@ -1,5 +1,9 @@
+name: 'Check diffs'
+
+description: 'Check diffs between bun.lockb and yarn.lock'
+
 runs:
-  using: 'Composite'
+  using: 'composite'
   steps:
     - run: git fetch origin ${{ github.base_ref }} --depth=1
       shell: bash
