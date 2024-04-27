@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "nuxt dev",
-    "build": "nuxt build && ./scripts/postbuild.sh && node dist/2024/server/index.mjs",
+    "build": "nuxt build && ./scripts/postbuild.sh && node ./dist/2024/server/index.mjs",
     "preview": "nuxt preview",
     "lint": "bun run eslint && bun run htmllint",
     "lint-fix": "bun run eslint-fix && bun run htmllint-fix",
