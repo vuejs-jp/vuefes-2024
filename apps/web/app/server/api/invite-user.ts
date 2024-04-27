@@ -1,7 +1,8 @@
-import { defineEventHandler, useRuntimeConfig } from '#imports'
+import { useRuntimeConfig } from '#imports'
+import { defineEventHandler, readBody, type H3Event } from 'h3'
 import { createClient } from '@supabase/supabase-js'
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event: H3Event) => {
   const body = await readBody(event)
   const email: string = body.email.toString()
 
