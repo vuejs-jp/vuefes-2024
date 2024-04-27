@@ -84,6 +84,10 @@ export default defineNuxtConfig({
       }),
     ],
   },
+  serverMiddleware: [
+    '~/api/invite-user.ts',
+    '~/api/delete-user.ts',
+  ],
   hooks: {
     async 'nitro:config'(nitroConfig) {
       if (nitroConfig.dev) {
@@ -92,7 +96,8 @@ export default defineNuxtConfig({
 
       const supabaseUrl = process.env.SUPABASE_URL
       const supabaseKey = process.env.SUPABASE_KEY
-      if (!supabaseUrl || !supabaseKey) return
+      const serviceKey = process.env.SERVICE_KEY
+      if (!supabaseUrl || !supabaseKey || serviceKey) return
     },
   },
   build: {
@@ -112,8 +117,9 @@ export default defineNuxtConfig({
       newtFormUid: process.env.NUXT_NEWT_FORM_UID,
       reCaptchaWebsiteKey: process.env.NUXT_RECAPTCHA_WEBSITE_KEY,
       // supabase
-      supabaseProjectUrl: process.env.SUPABASE_URL,
-      supabaseApiKey: process.env.SUPABASE_KEY,
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_KEY,
+      serviceKey: process.env.SERVICE_KEY,
       // feature
       availableApplySponsor: process.env.AVAILABLE_APPLY_SPONSOR,
     },
