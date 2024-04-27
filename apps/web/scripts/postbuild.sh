@@ -4,7 +4,6 @@
 # change dir structure
 # ./dist/{html} -> ./dist/2024/{html}
 # 
-mkdir ./dist
 if [ ! -d "./dist" ]; then
     echo "can not find dist"
     exit 1;
