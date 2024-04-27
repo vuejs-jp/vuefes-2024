@@ -6,6 +6,7 @@ import { isProd } from './app/utils/environment.constants'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   srcDir: 'app/',
+  ssr: true,
   app: {
     buildAssetsDir: '/_nuxt/',
     baseURL: isProd ? '/2024/' : '/',
