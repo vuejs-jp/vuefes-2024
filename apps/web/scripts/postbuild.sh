@@ -4,10 +4,10 @@
 # change dir structure
 # ./dist/{html} -> ./dist/2024/{html}
 # 
-if [ ! -d "./.output" ]; then
-    echo "can not find .output"
-    exit 1;
-fi
+# if [ ! -d "./.output" ]; then
+#     echo "can not find .output"
+#     exit 1;
+# fi
 
 mkdir ./tmp
 mv ./.output/* ./tmp
