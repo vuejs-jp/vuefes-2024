@@ -85,6 +85,9 @@ export default defineNuxtConfig({
       }),
     ],
   },
+  nitro: {
+    preset: 'netlify',
+  },
   serverMiddleware: [
     '~/api/invite-user.ts',
     '~/api/delete-user.ts',
