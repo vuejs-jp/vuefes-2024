@@ -95,6 +95,16 @@ const { color } = useColor()
   text-align: left;
   margin-top: calc(var(--unit) * 4);
   line-height: 1.8;
+
+  &::v-deep a {
+    color: var(--color-vue-green200);
+    text-decoration: underline;
+  }
+
+  &::v-deep a:hover {
+    opacity: 0.4;
+    transition: .2s;
+  }
 }
 
 .sponsor-subtitle {
