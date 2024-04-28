@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   srcDir: 'app/',
   app: {
     buildAssetsDir: '/_nuxt/',
-    baseURL: '/',
+    baseURL: isProd ? '/2024/' : '/',
     head: {
       title: conferenceTitle,
       meta: [
