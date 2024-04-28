@@ -36,6 +36,7 @@ const { color } = useColor()
         {{ $t('sponsor.apply_period') }}
       </h3>
       <VFDatePeriod
+        v-if="config.public.availableApplySponsor"
         :start="{ year: 2024, date: '4.8', dayOfWeek: locale === 'ja' ? $t('day_of_week.monday') : '' }"
         :end="{ date: '4.25', dayOfWeek: locale === 'ja' ? $t('day_of_week.thursday') : '' }" />
 
