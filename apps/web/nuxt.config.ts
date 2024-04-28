@@ -7,7 +7,7 @@ import { isProd } from './app/utils/environment.constants'
 export default defineNuxtConfig({
   srcDir: 'app/',
   app: {
-    buildAssetsDir: isProd ? '../_nuxt/' : '/_nuxt/',
+    buildAssetsDir: '/_nuxt/',
     baseURL: isProd ? '/2024/' : '/',
     head: {
       title: conferenceTitle,
