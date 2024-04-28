@@ -7,7 +7,7 @@ import { isProd } from './app/utils/environment.constants'
 export default defineNuxtConfig({
   srcDir: 'app/',
   app: {
-    // buildAssetsDir: '/_nuxt/',
+    buildAssetsDir: isProd ? '/2024/_nuxt/' : '/_nuxt/',
     baseURL: isProd ? '/2024/' : '/',
     head: {
       title: conferenceTitle,
@@ -83,6 +83,14 @@ export default defineNuxtConfig({
         svgo: false,
       }),
     ],
+  },
+  nitro: {
+    runtimeConfig: {
+      app: {
+        buildAssetsDir: '_nuxt',
+        baseURL:'/2024',
+      },
+    },
   },
   hooks: {
     async 'nitro:config'(nitroConfig) {
