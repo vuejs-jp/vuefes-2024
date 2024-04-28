@@ -27,18 +27,21 @@ const { color } = useColor()
         <MarkDownText path="sponsor" />
       </div>
 
-      <h3
-        :style="{
-          fontWeight: fontWeight('heading/400'),
-          fontSize: fontSize('heading/300'),
-        }"
-        class="sponsor-subtitle">
-        {{ $t('sponsor.apply_period') }}
-      </h3>
-      <VFDatePeriod
-        v-if="config.public.availableApplySponsor"
-        :start="{ year: 2024, date: '4.8', dayOfWeek: locale === 'ja' ? $t('day_of_week.monday') : '' }"
-        :end="{ date: '4.25', dayOfWeek: locale === 'ja' ? $t('day_of_week.thursday') : '' }" />
+      <template v-if="config.public.availableApplySponsor">
+        <h3
+          :style="{
+            fontWeight: fontWeight('heading/400'),
+            fontSize: fontSize('heading/300'),
+          }"
+          class="sponsor-subtitle"
+        >
+          {{ $t('sponsor.apply_period') }}
+        </h3>
+        <VFDatePeriod
+          :start="{ year: 2024, date: '4.8', dayOfWeek: locale === 'ja' ? $t('day_of_week.monday') : '' }"
+          :end="{ date: '4.25', dayOfWeek: locale === 'ja' ? $t('day_of_week.thursday') : '' }"
+        />
+      </template>
 
       <div class="sponsor-buttons">
         <!-- 申し込む -->
