@@ -84,14 +84,6 @@ export default defineNuxtConfig({
       }),
     ],
   },
-  nitro: {
-    runtimeConfig: {
-      app: {
-        buildAssetsDir: '_nuxt',
-        baseURL:'/2024',
-      },
-    },
-  },
   hooks: {
     async 'nitro:config'(nitroConfig) {
       if (nitroConfig.dev) {
