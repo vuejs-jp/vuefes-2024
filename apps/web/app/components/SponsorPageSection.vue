@@ -109,6 +109,12 @@ const { color } = useColor()
     opacity: 0.4;
     transition: .2s;
   }
+
+  &:deep(p) {
+    --body-p-margin-bottom: calc(var(--unit) * 4);
+
+    margin-bottom: var(--body-p-margin-bottom);
+  }
 }
 
 .sponsor-subtitle {
