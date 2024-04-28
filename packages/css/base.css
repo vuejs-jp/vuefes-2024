@@ -6,10 +6,13 @@
   --color-white: #fff;
   --color-vue-blue: #35495e;
   --color-vue-green: #42b983;
+  --color-vue-green100: #42B883;
+  --color-vue-green200: #208558;
   --color-disabled: #c6cacf;
 
   /* gradation */
   --color-vue-green-gradation: linear-gradient(to right, #42b883, #41b8aa);
+  --color-vue-blue-gradation: linear-gradient(to right, #35495e 0%, #353b5e 100%);
 
   /* box-shadow */
   --box-shadow: 0 2px 10px rgb(53, 73, 95, 0.14);
