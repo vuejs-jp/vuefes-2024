@@ -26,6 +26,8 @@ jobs:
           fetch-depth: 0
       - name: Install packages
         uses: ./.github/actions/install-packages
+      - name: Build Storybook
+        run: bun run build-storybook
       - name: Run Chromatic
         uses: chromaui/action@v1
         with:
