@@ -88,6 +88,14 @@ export default defineNuxtConfig({
     '~/api/invite-user.ts',
     '~/api/delete-user.ts',
   ],
+  nitro: {
+    prerender: {
+      routes: [
+        '/invite-user',
+        '/delete-user',
+      ],
+    },
+  },
   hooks: {
     async 'nitro:config'(nitroConfig) {
       if (nitroConfig.dev) {
