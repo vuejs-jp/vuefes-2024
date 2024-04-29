@@ -9,7 +9,7 @@ export default {
     labels: ['Sponsor', 'Speaker', 'Staff'],
   },
   argTypes: {
-    href: {
+    labels: {
       description: 'The labels property',
       control: {
         type: 'text',
