@@ -91,8 +91,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        '/invite-user',
-        '/delete-user',
+        '/staff/invite',
       ],
     },
   },
