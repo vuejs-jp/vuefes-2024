@@ -107,7 +107,6 @@ const bindProps = computed(() => {
   --color-vue-green: #42b983;
   --color-vue-blue: #35495e;
   --color-disabled: #c6cacf;
-  --box-shadow: 0 2px 10px rgb(53, 73, 95, 0.14);
 
   display: inline-flex;
   justify-content: center;
@@ -122,7 +121,7 @@ const bindProps = computed(() => {
   border: none;
   box-sizing: border-box;
   text-decoration: none;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-button);
   font-family: 'din-2014', 'Yu Gothic Medium', '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic',
     sans-serif;
 }
@@ -131,7 +130,7 @@ const bindProps = computed(() => {
   background: white;
   color: var(--color-vue-green);
   box-shadow:
-    var(--box-shadow),
+    var(--box-shadow-button),
     inset 0px 0px 0px 2px var(--color-vue-green);
 }
 
@@ -144,7 +143,7 @@ const bindProps = computed(() => {
 .button.-secondary {
   background: white;
   box-shadow:
-    var(--box-shadow),
+    var(--box-shadow-button),
     inset 0px 0px 0px 2px var(--color-vue-blue);
   color: var(--color-vue-blue);
 
@@ -158,14 +157,14 @@ const bindProps = computed(() => {
 .button[disabled] {
   pointer-events: none;
   background: var(--color-disabled);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-button);
   color: white;
 }
 
 .button.-secondary[disabled] {
   color: var(--color-disabled);
   box-shadow:
-    var(--box-shadow),
+    var(--box-shadow-button),
     inset 0px 0px 0px 2px var(--color-disabled);
   background: white;
 }

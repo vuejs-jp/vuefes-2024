@@ -100,9 +100,22 @@ const updateDetail = (e: any) => {
 @import url("~/assets/media.css");
 
 section {
+  position: relative;
   padding: 120px 20px 120px;
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 240, 245, 0.8));
-  background-blend-mode: soft-light;
+  background-color: #fff;
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/form-bg.png'), linear-gradient(#fff, #ebf0f5);
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: top left;
+    background-blend-mode: soft-light;
+  }
 }
 
 .form-root {
@@ -112,6 +125,7 @@ section {
   margin: 0 auto;
   width: 100%;
   grid-template-columns: minmax(0, 1fr);
+  isolation: isolate;
 }
 
 .title {

@@ -90,7 +90,7 @@ const { fontWeight, fontSize } = useTypography()
 .form-input {
   padding: 22px 24px;
   border-radius: 6px;
-  box-shadow: var(--box-shadow-input);
+  box-shadow: var(--box-shadow-button);
   border: var(--border);
   outline: none;
   color: var(--color-vue-blue);

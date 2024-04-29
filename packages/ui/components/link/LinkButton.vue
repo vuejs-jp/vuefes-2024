@@ -87,7 +87,7 @@ const iconColor = computed(() => {
   border-radius: var(--height-button);
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgb(53, 73, 95, 0.14);
+  box-shadow: var(--box-shadow-button);
 }
 .link-button:hover {
   transition: 0.2s;
