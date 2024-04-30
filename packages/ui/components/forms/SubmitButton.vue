@@ -47,7 +47,7 @@ const handleClick = () => {
 .submit-button:hover {
   background-color: var(--color-white);
   color: var(--color-vue-green200);
-  border: 2px solid var(--color-vue-green200);
+  box-shadow: inset 0 0 0 2px var(--color-vue-green200);
 }
 
 .submit-button:disabled {
