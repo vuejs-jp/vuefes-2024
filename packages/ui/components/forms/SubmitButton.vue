@@ -48,6 +48,7 @@ const handleClick = () => {
   background-color: var(--color-white);
   color: var(--color-vue-green200);
   box-shadow: inset 0 0 0 2px var(--color-vue-green200);
+  transition: 0.2s;
 }
 
 .submit-button:disabled {
