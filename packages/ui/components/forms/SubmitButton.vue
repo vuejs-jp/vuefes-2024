@@ -33,14 +33,22 @@ const handleClick = () => {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #42b883;
-  color: #fff;
+  background-color: var(--color-vue-green200);
+  color: var(--color-white);
   width: 100%;
   padding: 22px 66px;
   border-radius: 40px;
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
+  box-shadow: var(--box-shadow-button);
+}
+
+.submit-button:hover {
+  background-color: var(--color-white);
+  color: var(--color-vue-green200);
+  box-shadow: inset 0 0 0 2px var(--color-vue-green200);
+  transition: 0.2s;
 }
 
 .submit-button:disabled {
