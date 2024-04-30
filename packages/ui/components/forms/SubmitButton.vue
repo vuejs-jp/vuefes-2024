@@ -41,6 +41,7 @@ const handleClick = () => {
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
+  box-shadow: var(--box-shadow-button);
 }
 
 .submit-button:disabled {
