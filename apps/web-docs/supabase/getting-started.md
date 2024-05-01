@@ -1,8 +1,8 @@
 # Supabase
 
-昨年に続いて [Supabase](https://supabase.com/) のお世話になります。
+昨年に続いて [Supabase](https://supabase.com/) のお世話になります。今年は事前に **本番投入前チェックのひとつ** として、Supabase 公式より出されていた [Production Checklist](https://supabase.com/docs/guides/platform/going-into-prod) も一読しておくと良いように考えています。
 
-## 環境構築
+## Supabase 環境を構築
 
 ダッシュボードより各種変数を発行、手元の環境でそれらを使えるよう準備します。
 
@@ -21,13 +21,12 @@ export default defineNuxtConfig({
     public: {
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseKey: process.env.SUPABASE_KEY,
-      serviceKey: process.env.SERVICE_KEY,
     },
   },
 })
 ```
 
-なお、ここで supabase.redirect に `false` を設定しないと、強制的にログイン画面へ遷移されるようになっています。
+なお、ここで supabase.redirect に `false` を設定しないと、強制的にログイン画面へ遷移されるようなります。
 
 ```ts
 export default defineNuxtConfig({
@@ -37,7 +36,7 @@ export default defineNuxtConfig({
 })
 ```
 
-## メールアドレスを使って招待
+### メールアドレスを使ってユーザーを招待
 
 [`inviteUserByEmail`](https://supabase.com/docs/reference/javascript/auth-admin-inviteuserbyemail) のお世話になります。事前に Supabase の Auth Admin クライアントを作成する必要があり、直接 Web ブラウザからそれを操作することができません。
 
@@ -72,4 +71,32 @@ const { error } = await supabase.auth.admin.inviteUserByEmail(
   email,
   { data: { user_role: 'admin' } },
 )
+```
+
+### API を利用してユーザーを削除
+
+Supabase 管理画面よりユーザーを削除する操作を行えないため、API ([`deleteUser`](https://supabase.com/docs/reference/javascript/auth-admin-deleteuser)) のお世話になります。
+
+ユーザーの招待時と同じく、事前に Supabase の Auth Admin クライアントを作成する必要があり、直接 Web ブラウザからそれを操作することができません。
+
+```ts
+import { defineEventHandler, useRuntimeConfig } from '#imports'
+import { createClient } from '@supabase/supabase-js'
+
+export default defineEventHandler(async (event: H3Event) => {
+  const config = useRuntimeConfig()
+  const supabaseUrl = config.public.supabaseUrl
+  const serviceKey = config.public.serviceKey
+
+  if (!supabaseUrl || !serviceKey) {
+    return event.node.res.end('No authentication')
+  }
+
+  const supabase = createClient(supabaseUrl, serviceKey)
+  const { error } = await supabase.auth.admin.deleteUser(id)
+
+  if (error) {
+    return event.node.res.end(error)
+  }
+})
 ```
