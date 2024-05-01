@@ -11,6 +11,7 @@ import { configuration } from '../env/utils'
 import { EnvModule } from '../env/env.module'
 import { PeatixOrderService } from '../peatix-order/peatix-order.service'
 import { HttpModule } from '@nestjs/axios'
+import { PeatixOrderModule } from 'src/peatix-order/peatix-order.module'
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { HttpModule } from '@nestjs/axios'
     }),
     EnvModule,
     HttpModule,
+    PeatixOrderModule,
   ],
   providers: [
     ConfigService,

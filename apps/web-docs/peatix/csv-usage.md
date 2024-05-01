@@ -123,3 +123,67 @@ export class PeatixOrderService extends ScraperPage {
 ## 技術スタック
 
 技術スタックは NestJS の [Commander](https://docs.nestjs.com/recipes/nest-commander) 利用を検討しています。
+
+まず、今回は main.ts をはじめ app.module.ts や app.controller.ts、app.service.ts の使用を想定していません。そもそも initial setup で自動的に入るファイル群であり、ごく一般的な NestJS では逆にこれらを使用していくこととなります。
+
+その上で、ドメインごとに src 配下を分類させるディレクトリをそれぞれ作成していく設計方針を取りました。
+
+::: tip
+
+FigJam でざっくり絵を描きました。
+
+https://www.figma.com/file/mRTYOtFjg3L8ozmjEEhHLh/Vue-Fes-Japan-2024
+
+:::
+
+ファイル構成は下に示す通りとなります。
+
+```
++
+├─ src
+│ ├─ after-purchase
+|   ├- after-purchase.module.ts  # 購入後の処理で使用が予定されている依存関係を置く
+|   └- after-purchase.service.ts
+│ ├─ env
+|   ├- env.module.ts             # 環境変数を読み込む基盤を置く
+|   └- env.service.ts
+│ ├─ peatix-order
+|   ├- peatix-order.module.ts    # Peatix へのログインを試み、購入情報を取得、Supabase へ整形したデータを挿入する基盤を置く
+|   └- peatix-order.service.ts
+│ ├─ puppeteer
+|   └- puppeteer.service.ts      # スクレイピング処理の基盤を置く
+| └- cmd.ts                      # 処理の窓口を置く
+├─ nest-cli.json
+└- package.json
+```
+
+これら Commander を発火させるため、main.ts とは別のエントリーポイントを作成する必要があります。
+
+今回は main.ts と同じ並びに cmd.ts を作成することとします。
+
+```ts
+import { CommandFactory } from 'nest-commander'
+import { AfterPurchaseModule } from './after-purchase/after-purchase.module'
+
+async function bootstrap() {
+  await CommandFactory.run(AfterPurchaseModule, [
+    'warn',
+    'error',
+    'debug',
+    'log',
+  ])
+}
+bootstrap()
+```
+
+### NestJS とはなんぞや
+
+そもそも NestJS について、深く知りたいという方のためのセクションを設けました。
+
+::: tip
+
+NestJS の構造からたいへん上手くまとまっているため、合わせてこちらをご一読いただくと良いように考えています。
+
+[NestJS の基礎概念の図解と要約](https://zenn.dev/morinokami/articles/nestjs-overview)
+
+:::

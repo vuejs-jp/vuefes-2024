@@ -17,11 +17,6 @@ export default defineConfig({
         text: 'Examples',
         items: [
           { text: 'CSS', link: '/css/getting-started' },
-        ],
-      },
-      {
-        text: 'Guide',
-        items: [
           { text: 'Peatix', link: '/peatix/csv-usage' },
         ],
       },
