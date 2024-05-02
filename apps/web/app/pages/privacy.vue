@@ -31,34 +31,31 @@ useHead({
 </script>
 
 <template>
-  <main>
-    <div
-      class="privacy-root"
-      :style="{
-        backgroundColor: color('white'),
-        color: color('vue-blue'),
-      }"
-    >
-      <h1 class="section-title">
-        {{ t('privacy.title') }}
-      </h1>
-      <div class="markdown-root">
-        <MarkDownText path="privacy" class="explain" />
-      </div>
-      <div class="back">
-        <VFLinkButton
-          class="back-action"
-          background-color="white"
-          color="vue-blue"
-          target=""
-          :href="`${localePath}/`"
-        >
-          {{ t('back_to_top') }}
-        </VFLinkButton>
-      </div>
+  <div
+    class="privacy-root"
+    :style="{
+      backgroundColor: color('white'),
+      color: color('vue-blue'),
+    }"
+  >
+    <h1 class="section-title">
+      {{ t('privacy.title') }}
+    </h1>
+    <div class="markdown-root">
+      <MarkDownText path="privacy" class="explain" />
     </div>
-  </main>
-  <FooterPageSection />
+    <div class="back">
+      <VFLinkButton
+        class="back-action"
+        background-color="white"
+        color="vue-blue"
+        target=""
+        :href="`${localePath}/`"
+      >
+        {{ t('back_to_top') }}
+      </VFLinkButton>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -122,7 +119,7 @@ useHead({
   & :deep(ul) li a:hover,
   & :deep(p) a:hover {
     opacity: 0.4;
-    transition: .2s;
+    transition: 0.2s;
   }
   /* 箇条書き1段目 reset.cssでnoneになったため追加 */
   & :deep(ul) {
