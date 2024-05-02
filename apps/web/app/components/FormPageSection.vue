@@ -163,6 +163,9 @@ form {
 @media (--mobile) {
   section {
     padding: 60px 20px 60px;
+    &::before {
+      background-size: 364px;
+    }
   }
   .form-root {
     gap: 30px;
