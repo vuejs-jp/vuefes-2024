@@ -13,7 +13,8 @@ useHead({
 
 <template>
   <GlobalHeader />
-  <div>
+  <main>
     <slot />
-  </div>
+  </main>
+  <FooterPageSection />
 </template>
