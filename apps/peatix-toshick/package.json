@@ -1,0 +1,18 @@
+{
+  "name": "peatix-toshick",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun src/index.ts",
+    "install": "npx @puppeteer/browsers install chrome@stable"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "puppeteer": "^22.8.0"
+  }
+}
