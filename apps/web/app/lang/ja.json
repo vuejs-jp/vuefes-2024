@@ -4,11 +4,6 @@
   "about": "このサイトについて",
   "back_to_top": "トップに戻る",
   "not_found": "お探しのページが見つかりません。",
-  "day_of_week": {
-    "monday": "月",
-    "tuesday": "火",
-    "thursday": "木"
-  },
   "top_page": {
     "latest_information": "最新情報は公式SNSでご紹介しています",
     "date": "2024.10.19",
@@ -18,7 +13,16 @@
     "title": "スポンサー",
     "apply": "申し込む",
     "apply_period": "スポンサー申込期間",
-    "check_doc": "資料を見る"
+    "check_doc": "資料を見る",
+    "prefixYear": "2024",
+    "suffixYear": "",
+    "start_date": "4.8",
+    "end_date": "4.25",
+    "day_of_week": {
+      "monday": "月",
+      "tuesday": "火",
+      "thursday": "木"
+    }
   },
   "form": {
     "title": "お問い合わせ",

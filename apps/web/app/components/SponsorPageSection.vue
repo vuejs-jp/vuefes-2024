@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { useRuntimeConfig } from '#imports'
-import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 
 const config = useRuntimeConfig()
-const { locale } = useI18n()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 </script>
@@ -38,8 +36,16 @@ const { color } = useColor()
           {{ $t('sponsor.apply_period') }}
         </h3>
         <VFDatePeriod
-          :start="{ year: 2024, date: '4.8', dayOfWeek: locale === 'ja' ? $t('day_of_week.monday') : '' }"
-          :end="{ date: '4.25', dayOfWeek: locale === 'ja' ? $t('day_of_week.thursday') : '' }"
+          :start="{
+            prefixYear: $t('sponsor.prefixYear'),
+            date: $t('sponsor.start_date'),
+            dayOfWeek: $t('sponsor.day_of_week.monday'),
+          }"
+          :end="{
+            suffixYear: $t('sponsor.suffixYear'),
+            date: $t('sponsor.end_date'),
+            dayOfWeek: $t('sponsor.day_of_week.thursday'),
+          }"
         />
       </template>
 
@@ -65,13 +71,12 @@ const { color } = useColor()
         </VFLinkButton>
       </div>
     </article>
-
   </div>
 </template>
 
 <style scoped>
-@import url("~/assets/media.css");
-@import url("~/assets/sample.css");
+@import url('~/assets/media.css');
+@import url('~/assets/sample.css');
 
 .sponsor {
   --sponsor-padding: calc(var(--unit) * 5.25) 0;
@@ -92,7 +97,6 @@ const { color } = useColor()
   background-color: white;
   max-width: 960px;
   text-align: center;
-
 }
 
 .sponsor-text {
@@ -107,7 +111,7 @@ const { color } = useColor()
 
   &::v-deep a:hover {
     opacity: 0.4;
-    transition: .2s;
+    transition: 0.2s;
   }
 
   &:deep(p) {

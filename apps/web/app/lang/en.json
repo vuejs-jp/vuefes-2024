@@ -4,11 +4,6 @@
   "about": "about",
   "back_to_top": "Back o Top",
   "not_found": "The page you are looking for cannot be found.",
-  "day_of_week": {
-    "monday": "Mon",
-    "tuesday": "Tue",
-    "thursday": "Thu"
-  },
   "top_page": {
     "latest_information": "Get the latest information on our official social media",
     "date": "Octover 19th, 2024",
@@ -18,7 +13,16 @@
     "title": "Sponsors",
     "apply": "Apply",
     "apply_period": "Sponsor Application Period",
-    "check_doc": "View Sponsorship materials"
+    "check_doc": "View Sponsorship materials",
+    "prefixYear": "",
+    "suffixYear": "2024",
+    "start_date": "April 8",
+    "end_date": "25,",
+    "day_of_week": {
+      "monday": "",
+      "tuesday": "",
+      "thursday": ""
+    }
   },
   "form": {
     "title": "Inquiry",
