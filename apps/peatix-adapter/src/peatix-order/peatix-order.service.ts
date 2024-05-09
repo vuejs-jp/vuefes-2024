@@ -1,4 +1,4 @@
-import type { Attendee, Peatix } from '@vuejs-jp/model'
+import type { Peatix, PeatixCsv } from '@vuejs-jp/model'
 import { Injectable, Logger } from '@nestjs/common'
 import { match } from 'ts-pattern'
 import { Page } from 'puppeteer'
@@ -7,10 +7,9 @@ import { EnvService } from '../env/env.service'
 import { IPuppeteerService } from '../puppeteer/puppeteer.service'
 import { Selectors } from '../selectors'
 import { promises, readFileSync } from 'fs'
-import { decode } from 'iconv-lite'
 import { ScraperPage } from '../scraper-page/scraper-page'
 import { HttpService } from '@nestjs/axios'
-import { PUPPETEER_USAGE } from '../features'
+import { JSON_USAGE, PUPPETEER_USAGE } from '../features'
 
 const { parse } = require('csv-parse/sync')
 
@@ -67,10 +66,10 @@ export class PeatixOrderService extends ScraperPage {
       eventsEnabled: true,
     })
 
-    const downloaded = new Promise<void>((resolve, reject) => {
+    const downloaded = new Promise<PeatixCsv[]>((resolve, reject) => {
       client.on(
         'Browser.downloadProgress',
-        async (params: { state: 'inProgress' | 'completed' | 'canceled' }) => {
+        (params: { state: 'inProgress' | 'completed' | 'canceled' }) => {
           match(params.state)
             .with('completed', async () => {
               this.logger.log('Attendee: CSV download completed')
@@ -79,34 +78,32 @@ export class PeatixOrderService extends ScraperPage {
               if (filenames.length === 0) {
                 throw new Error('Attendee: could not download the CSV file')
               }
-  
+
               this.logger.log(
                 `${downloadPath}/${filenames[filenames.length - 1]}`,
               )
 
               const buffer = readFileSync(
                 `${downloadPath}/${filenames[filenames.length - 1]}`,
-                'utf8',
+                { encoding: 'utf16le' },
               )
-              const utf8 = decode(Buffer.from(buffer), 'Shift_JIS')
               const options = {
                 delimiter: '\t',
                 columns: true,
                 relax_column_count: true,
                 relax_quotes: true,
               }
-              const { err } = this.canParse(utf8, options)
+              const { err } = this.canParse(buffer, options)
               if (err !== null) {
                 this.logger.error(err)
                 throw new Error('Attendee: could not parse the CSV file')
               }
 
-              const rows: Record<string, string>[] = parse(utf8, options)
+              const rows: PeatixCsv[] = parse(buffer, options)
 
-              // ToDo: 文字化けを解消する必要があります
               this.logger.log(rows)
 
-              resolve()  
+              resolve(rows)
             })
             .with('canceled', () => {
               this.logger.error('Attendee: CSV download canceled')
@@ -163,14 +160,20 @@ export class PeatixOrderService extends ScraperPage {
     )
 
     try {
+      let attendees = []
+
       if (PUPPETEER_USAGE) {
         await this.login(page)
         await this.download(page)
       }
 
-      const res = await this.fetchJson<{ json_data: Peatix }>()
-      const attendees: Attendee[] = res.json_data.event.attendees
-      this.logger.log(res)
+      if (JSON_USAGE) {
+        const res = await this.fetchJson<{ json_data: Peatix }>()
+        attendees = res.json_data.event.attendees
+        this.logger.log(res)
+      }
+
+      this.logger.log(attendees)
 
       await browser.close()
 

@@ -103,3 +103,15 @@ export interface Pod {
   cover: string
   canonicalUri: string
 }
+
+export interface PeatixCsv {
+  orderId: string
+  name: string
+  displayName: string
+  appliedAt: string
+  ticketName: string
+  count: string
+  status: string
+  contactId: string
+  ticketId: string
+}
