@@ -48,7 +48,7 @@ export class PeatixOrderService extends ScraperPage {
     ])
   }
 
-  private async download(page: Page) {
+  private async download(page: Page, callback: (res: PeatixCsv[]) => void) {
     await page.goto(
       `${Constants.PEATIX_DASHBOARD_URL}${this.envService.PEATIX_EVENT_ID}/list_sales`,
       {
@@ -66,7 +66,7 @@ export class PeatixOrderService extends ScraperPage {
       eventsEnabled: true,
     })
 
-    const downloaded = new Promise<PeatixCsv[]>((resolve, reject) => {
+    const downloaded = new Promise<void>((resolve, reject) => {
       client.on(
         'Browser.downloadProgress',
         (params: { state: 'inProgress' | 'completed' | 'canceled' }) => {
@@ -101,9 +101,9 @@ export class PeatixOrderService extends ScraperPage {
 
               const rows: PeatixCsv[] = parse(buffer, options)
 
-              this.logger.log(rows)
+              callback(rows)
 
-              resolve(rows)
+              resolve()
             })
             .with('canceled', () => {
               this.logger.error('Attendee: CSV download canceled')
@@ -164,7 +164,10 @@ export class PeatixOrderService extends ScraperPage {
 
       if (PUPPETEER_USAGE) {
         await this.login(page)
-        await this.download(page)
+        await this.download(page, (res: PeatixCsv[]) => {
+          attendees = res
+          this.logger.log(res)
+        })
       }
 
       if (JSON_USAGE) {
