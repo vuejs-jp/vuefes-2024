@@ -76,7 +76,6 @@ const { color } = useColor()
 
 <style scoped>
 @import url('~/assets/media.css');
-@import url('~/assets/sample.css');
 
 .sponsor {
   --sponsor-padding: calc(var(--unit) * 5.25) 0;
