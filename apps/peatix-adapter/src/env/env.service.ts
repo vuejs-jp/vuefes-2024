@@ -23,4 +23,12 @@ export class EnvService {
   get PEATIX_BASIC_PASSWORD() {
     return this.configService.getOrThrow('peatixBasicPassword')
   }
+
+  get SUPABASE_URL() {
+    return this.configService.getOrThrow('supabaseUrl')
+  }
+
+  get SUPABASE_KEY() {
+    return this.configService.getOrThrow('supabaseKey')
+  }
 }

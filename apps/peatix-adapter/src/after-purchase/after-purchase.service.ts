@@ -5,12 +5,11 @@ import { PeatixOrderService } from '../peatix-order/peatix-order.service'
 export class AfterPurchaseService {
   private readonly logger = new Logger(AfterPurchaseService.name)
 
-  constructor(private readonly peatixOrderService: PeatixOrderService,) {
+  constructor(private readonly peatixOrderService: PeatixOrderService) {
     //
   }
 
   async apply() {
-    const orders = this.peatixOrderService.getOrders()
-    this.logger.log(orders)
+    this.peatixOrderService.getOrders()
   }
 }

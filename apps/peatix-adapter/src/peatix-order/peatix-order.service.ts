@@ -10,6 +10,7 @@ import { promises, readFileSync } from 'fs'
 import { ScraperPage } from '../scraper-page/scraper-page'
 import { HttpService } from '@nestjs/axios'
 import { JSON_USAGE, PUPPETEER_USAGE } from '../features'
+import { SupabaseService } from 'src/supabase/supabase.service'
 
 const { parse } = require('csv-parse/sync')
 
@@ -21,6 +22,7 @@ export class PeatixOrderService extends ScraperPage {
     envService: EnvService,
     puppeteerService: IPuppeteerService,
     private readonly httpService: HttpService,
+    private readonly supabaseService: SupabaseService,
   ) {
     super(envService, puppeteerService)
   }
@@ -160,33 +162,28 @@ export class PeatixOrderService extends ScraperPage {
     )
 
     try {
-      let attendees = []
-
       if (PUPPETEER_USAGE) {
         await this.login(page)
-        await this.download(page, (res: PeatixCsv[]) => {
-          attendees = res
-          this.logger.log(res)
+        await this.download(page, async (res: PeatixCsv[]) => {
+          const attendees = res
+          this.logger.log(attendees)
+    
+          const adminUsers = await this.supabaseService.fetchAdminUsers()
+          this.logger.log(adminUsers)
         })
       }
 
       if (JSON_USAGE) {
         const res = await this.fetchJson<{ json_data: Peatix }>()
-        attendees = res.json_data.event.attendees
-        this.logger.log(res)
+        const attendees = res.json_data.event.attendees
+        this.logger.log(attendees)
       }
 
-      this.logger.log(attendees)
-
       await browser.close()
-
-      return attendees
     } catch (e) {
       this.logger.error(e)
 
       await browser.close()
-
-      return []
     }
   }
 }

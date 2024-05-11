@@ -24,6 +24,7 @@
     "@nestjs/common": "10.3.7",
     "@nestjs/core": "10.3.7",
     "@nestjs/platform-express": "10.3.7",
+    "@supabase/supabase-js": "2.43.1",
     "puppeteer": "19.9.1",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.8.1"

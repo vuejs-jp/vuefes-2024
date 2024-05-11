@@ -12,6 +12,8 @@ import { EnvModule } from '../env/env.module'
 import { PeatixOrderService } from '../peatix-order/peatix-order.service'
 import { HttpModule } from '@nestjs/axios'
 import { PeatixOrderModule } from 'src/peatix-order/peatix-order.module'
+import { SupabaseModule } from 'src/supabase/supabase.module'
+import { SupabaseService } from 'src/supabase/supabase.service'
 
 @Module({
   imports: [
@@ -22,6 +24,7 @@ import { PeatixOrderModule } from 'src/peatix-order/peatix-order.module'
     }),
     EnvModule,
     HttpModule,
+    SupabaseModule,
     PeatixOrderModule,
   ],
   providers: [
@@ -33,6 +36,7 @@ import { PeatixOrderModule } from 'src/peatix-order/peatix-order.module'
     },
     AfterPurchaseCommand,
     AfterPurchaseService,
+    SupabaseService,
     PeatixOrderService,
   ],
 })
