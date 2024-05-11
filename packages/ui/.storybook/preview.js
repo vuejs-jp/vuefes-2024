@@ -9,30 +9,28 @@ const i18n = createI18n({
   fallbackLocale: 'ja',
   messages: {
     ja: {
-      sponsor: {
-        prefixYear: '2024',
-        suffixYear: '',
-        start_date: '4.8',
-        end_date: '4.25',
-        day_of_week: {
-          monday: '月',
-          tuesday: '火',
-          thursday: '木',
-        },
+      prefix_year: '2024',
+      suffix_year: '',
+      start_date: '4.8',
+      end_date: '4.25',
+      day_of_week: {
+        monday: '月',
+        tuesday: '火',
+        thursday: '木',
       },
     },
     en: {
-      sponsor: {
-        prefixYear: '',
-        suffixYear: '2024',
-        start_date: 'April 8',
-        end_date: '25,',
-        day_of_week: {
-          monday: '',
-          tuesday: '',
-          thursday: '',
-        },
+      prefix_year: '',
+      suffix_year: '2024',
+      start_date: 'April 8',
+      end_date: '25,',
+      // dummy
+      day_of_week: {
+        monday: '',
+        tuesday: '',
+        thursday: '',
       },
+      // end dummy
     },
   },
 })

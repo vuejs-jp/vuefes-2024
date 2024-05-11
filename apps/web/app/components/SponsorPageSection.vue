@@ -1,10 +1,35 @@
 <script setup lang="ts">
+import { useI18n } from '#i18n'
 import { useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
 
 const config = useRuntimeConfig()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
+
+const { t, te } = useI18n()
+const { locale } = useLocaleCurrent()
+/**
+ * Get translation or return empty string
+ * @param key - translation key
+ * @returns translation or empty string
+ */
+function getTranslationOrDefault(key: string): string {
+  return te(key, locale.value) ? t(key) : ''
+}
+
+const periodStart = {
+  prefixYear: t('prefix_year'),
+  date: t('start_date'),
+  dayOfWeek: getTranslationOrDefault('day_of_week.monday'),
+}
+
+const periodEnd = {
+  suffixYear: t('suffix_year'),
+  date: t('end_date'),
+  dayOfWeek: getTranslationOrDefault('day_of_week.thursday'),
+}
 </script>
 
 <template>
@@ -35,18 +60,7 @@ const { color } = useColor()
         >
           {{ $t('sponsor.apply_period') }}
         </h3>
-        <VFDatePeriod
-          :start="{
-            prefixYear: $t('sponsor.prefixYear'),
-            date: $t('sponsor.start_date'),
-            dayOfWeek: $t('sponsor.day_of_week.monday'),
-          }"
-          :end="{
-            suffixYear: $t('sponsor.suffixYear'),
-            date: $t('sponsor.end_date'),
-            dayOfWeek: $t('sponsor.day_of_week.thursday'),
-          }"
-        />
+        <VFDatePeriod :start="periodStart" :end="periodEnd" />
       </template>
 
       <div class="sponsor-buttons">
