@@ -32,3 +32,5 @@ jobs:
           PEATIX_EVENT_ID: ${{ secrets.PEATIX_EVENT_ID }}
           PEATIX_BASIC_EMAIL: ${{ secrets.PEATIX_BASIC_EMAIL }}
           PEATIX_BASIC_PASSWORD: ${{ secrets.PEATIX_BASIC_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
