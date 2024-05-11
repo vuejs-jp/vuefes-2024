@@ -65,7 +65,6 @@ const { color } = useColor()
         </VFLinkButton>
       </div>
     </article>
-
   </div>
 </template>
 
@@ -85,18 +84,20 @@ const { color } = useColor()
   color: var(--color-vue-blue);
 }
 
+.title {
+  text-align: center;
+  line-height: 1.2;
+}
+
 .sponsor-body {
   margin: 0 auto;
   padding: var(--sponsor-body-padding);
   margin: 0 1.5%;
   background-color: white;
   max-width: 960px;
-  text-align: center;
-
 }
 
 .sponsor-text {
-  text-align: left;
   margin-top: calc(var(--unit) * 4);
   line-height: 1.8;
 
@@ -118,8 +119,10 @@ const { color } = useColor()
 }
 
 .sponsor-subtitle {
+  text-align: center;
+  line-height: 1.2;
   margin-top: calc(var(--unit) * 5);
-  margin-bottom: calc(var(--unit) * 2);
+  margin-bottom: calc(var(--unit) * 2.5);
   background: var(--color-vue-green-gradation);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
