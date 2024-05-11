@@ -22,8 +22,6 @@ export class SupabaseService {
       this.envService.SUPABASE_URL,
       this.envService.SUPABASE_KEY,
     )
-
-    this.client
   }
 
   public async fetchAdminUsers() {
