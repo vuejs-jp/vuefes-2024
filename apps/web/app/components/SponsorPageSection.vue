@@ -103,6 +103,11 @@ const periodEnd = {
   color: var(--color-vue-blue);
 }
 
+.title {
+  text-align: center;
+  line-height: 1.2;
+}
+
 .sponsor-body {
   margin: 0 auto;
   padding: var(--sponsor-body-padding);
@@ -113,7 +118,6 @@ const periodEnd = {
 }
 
 .sponsor-text {
-  text-align: left;
   margin-top: calc(var(--unit) * 4);
   line-height: 1.8;
 
@@ -135,8 +139,10 @@ const periodEnd = {
 }
 
 .sponsor-subtitle {
+  text-align: center;
+  line-height: 1.2;
   margin-top: calc(var(--unit) * 5);
-  margin-bottom: calc(var(--unit) * 2);
+  margin-bottom: calc(var(--unit) * 2.5);
   background: var(--color-vue-green-gradation);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
