@@ -1,12 +1,35 @@
 <script setup lang="ts">
-import { useRuntimeConfig } from '#imports'
 import { useI18n } from '#i18n'
+import { useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
 
 const config = useRuntimeConfig()
-const { locale } = useI18n()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
+
+const { t, te } = useI18n()
+const { locale } = useLocaleCurrent()
+/**
+ * Get translation or return empty string
+ * @param key - translation key
+ * @returns translation or empty string
+ */
+function getTranslationOrDefault(key: string): string {
+  return te(key, locale.value) ? t(key) : ''
+}
+
+const periodStart = {
+  prefixYear: t('prefix_year'),
+  date: t('start_date'),
+  dayOfWeek: getTranslationOrDefault('day_of_week.monday'),
+}
+
+const periodEnd = {
+  suffixYear: t('suffix_year'),
+  date: t('end_date'),
+  dayOfWeek: getTranslationOrDefault('day_of_week.thursday'),
+}
 </script>
 
 <template>
@@ -37,10 +60,7 @@ const { color } = useColor()
         >
           {{ $t('sponsor.apply_period') }}
         </h3>
-        <VFDatePeriod
-          :start="{ year: 2024, date: '4.8', dayOfWeek: locale === 'ja' ? $t('day_of_week.monday') : '' }"
-          :end="{ date: '4.25', dayOfWeek: locale === 'ja' ? $t('day_of_week.thursday') : '' }"
-        />
+        <VFDatePeriod :start="periodStart" :end="periodEnd" />
       </template>
 
       <div class="sponsor-buttons">
@@ -69,8 +89,7 @@ const { color } = useColor()
 </template>
 
 <style scoped>
-@import url("~/assets/media.css");
-@import url("~/assets/sample.css");
+@import url('~/assets/media.css');
 
 .sponsor {
   --sponsor-padding: calc(var(--unit) * 5.25) 0;
@@ -95,6 +114,7 @@ const { color } = useColor()
   margin: 0 1.5%;
   background-color: white;
   max-width: 960px;
+  text-align: center;
 }
 
 .sponsor-text {
@@ -108,7 +128,7 @@ const { color } = useColor()
 
   &::v-deep a:hover {
     opacity: 0.4;
-    transition: .2s;
+    transition: 0.2s;
   }
 
   &:deep(p) {

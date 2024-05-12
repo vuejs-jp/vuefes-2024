@@ -1,16 +1,19 @@
-import { StoryFn } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3'
 import Date from './Date.vue'
 
-export default {
+const meta: Meta<typeof Date> = {
   title: 'date/Date',
+  tags: ['autodocs'],
   component: Date,
-  args: {
-    date: '4.1',
-    dayOfWeek: '月',
-  },
   argTypes: {
-    year: {
-      description: 'The year property',
+    prefixYear: {
+      description: 'The prefixYear property',
+      control: {
+        type: 'text',
+      },
+    },
+    suffixYear: {
+      description: 'The suffixYear property',
       control: {
         type: 'text',
       },
@@ -30,18 +33,37 @@ export default {
   },
 }
 
-const Template: StoryFn<unknown> = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { Date },
-  setup() {
-    return { args }
+export default meta
+
+type Story = StoryObj<typeof Date>
+
+/**
+ * Controlでpropsを切り替えると、日付と曜日表記が変わる
+ */
+export const PropsControls: Story = {
+  name: 'propsControls',
+  args: {
+    prefixYear: '2024',
+    suffixYear: '',
+    date: '5.8',
+    dayOfWeek: '月',
   },
-  template: '<Date v-bind="args" />',
-})
+  render: (args) => ({
+    components: { Date },
+    setup() {
+      return { args }
+    },
+    template: '<Date :="args" />',
+  })
+}
 
-export const Default = Template.bind({})
-
-export const WithYear = Template.bind({})
-WithYear.args = {
-  year: 2024,
+/**
+ * ツールバーで言語を切り替えると、日付と曜日表記が変わる
+ */
+export const I18n: Story = {
+  name: 'i18n',
+  render: () => ({
+    components: { Date },
+    template:  '<Date :prefix-year="$t(`prefix_year`)" :suffix-year="$t(`suffix_year`)" :date="$t(`start_date`)" :dayOfWeek="$t(`day_of_week.monday`)" />'
+  })
 }
