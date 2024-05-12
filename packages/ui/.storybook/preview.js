@@ -11,19 +11,19 @@ const i18n = createI18n({
     ja: {
       prefix_year: '2024',
       suffix_year: '',
-      start_date: '4.8',
-      end_date: '4.25',
       day_of_week: {
         monday: '月',
         tuesday: '火',
         thursday: '木',
       },
+      sponsor: {
+        start_date: '4.8',
+        end_date: '4.25',
+      },
     },
     en: {
       prefix_year: '',
       suffix_year: '2024',
-      start_date: 'April 8',
-      end_date: '25,',
       // dummy
       day_of_week: {
         monday: '',
@@ -31,6 +31,10 @@ const i18n = createI18n({
         thursday: '',
       },
       // end dummy
+      sponsor: {
+        start_date: 'April 8',
+        end_date: '25,',  
+      },
     },
   },
 })

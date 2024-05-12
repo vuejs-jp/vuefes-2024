@@ -6,8 +6,6 @@
   "not_found": "お探しのページが見つかりません。",
   "prefix_year": "2024",
   "suffix_year": "",
-  "start_date": "4.8",
-  "end_date": "4.25",
   "day_of_week": {
     "monday": "月",
     "tuesday": "火",
@@ -22,8 +20,10 @@
     "title": "スポンサー",
     "apply": "申し込む",
     "apply_period": "スポンサー申込期間",
-    "check_doc": "資料を見る"
-  },
+    "check_doc": "資料を見る",
+    "start_date": "5.13",
+    "end_date": "4.25"
+    },
   "form": {
     "title": "お問い合わせ",
     "form_name_label": "お名前",

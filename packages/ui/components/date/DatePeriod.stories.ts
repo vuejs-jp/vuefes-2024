@@ -58,6 +58,6 @@ export const I18n: Story = {
   name: 'i18n',
   render: () => ({
     components: { DatePeriod },
-    template: '<DatePeriod :start="{prefixYear:$t(`prefix_year`),date:$t(`start_date`),dayOfWeek:$t(`day_of_week.monday`)}" :end="{suffixYear:$t(`suffix_year`),date:$t(`end_date`),dayOfWeek:$t(`day_of_week.tuesday`)}" />'
+    template: '<DatePeriod :start="{prefixYear:$t(`prefix_year`),date:$t(`sponsor.start_date`),dayOfWeek:$t(`day_of_week.monday`)}" :end="{suffixYear:$t(`suffix_year`),date:$t(`sponsor.end_date`),dayOfWeek:$t(`day_of_week.tuesday`)}" />'
   })
 }
