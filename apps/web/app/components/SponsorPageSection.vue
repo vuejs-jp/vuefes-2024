@@ -21,15 +21,15 @@ function getTranslationOrDefault(key: string): string {
 
 const periodStart = {
   prefixYear: t('prefix_year'),
-  date: t('start_date'),
+  date: t('sponsor.start_date'),
   dayOfWeek: getTranslationOrDefault('day_of_week.monday'),
 }
 
-const periodEnd = {
-  suffixYear: t('suffix_year'),
-  date: t('end_date'),
-  dayOfWeek: getTranslationOrDefault('day_of_week.thursday'),
-}
+// const periodEnd = {
+//   suffixYear: t('suffix_year'),
+//   date: t('sponsor.end_date'),
+//   dayOfWeek: getTranslationOrDefault('day_of_week.thursday'),
+// }
 </script>
 
 <template>
@@ -60,7 +60,7 @@ const periodEnd = {
         >
           {{ $t('sponsor.apply_period') }}
         </h3>
-        <VFDatePeriod :start="periodStart" :end="periodEnd" />
+        <VFDatePeriod :start="periodStart" />
       </template>
 
       <div class="sponsor-buttons">
@@ -114,7 +114,6 @@ const periodEnd = {
   margin: 0 1.5%;
   background-color: white;
   max-width: 960px;
-  text-align: center;
 }
 
 .sponsor-text {
