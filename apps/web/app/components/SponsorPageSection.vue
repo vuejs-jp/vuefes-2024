@@ -114,7 +114,6 @@ const periodStart = {
   margin: 0 1.5%;
   background-color: white;
   max-width: 960px;
-  text-align: center;
 }
 
 .sponsor-text {
