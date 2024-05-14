@@ -4,7 +4,11 @@ import { login, downloadCSV } from './peatix'
   const browser = await launch()
   const page = await browser.newPage()
   await login(page)
-  await downloadCSV(page)
+  const { csvText, errorText } = await downloadCSV(page)
+  if (errorText) {
+    throw new Error(`downloadCSV: ${errorText}`)
+  }
 
+  console.log('csvText', csvText)
   await browser.close()
 })()

@@ -1,11 +1,14 @@
 import puppeteer from 'puppeteer'
 import type { Page } from 'puppeteer'
 
+const WITH_HEAD = process.env.WITH_HEAD || ''
+
 export const launch = async () => {
   const browser = await puppeteer.launch({
     executablePath:
       './chrome/mac_arm-124.0.6367.91/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing',
     ignoreHTTPSErrors: true,
+    headless: WITH_HEAD === '' ? 'new' : false,
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
@@ -28,7 +31,9 @@ export const goto = async (page: Page, url: string) => {
     width: 1024,
     height: 768,
   })
-
+  await page.setExtraHTTPHeaders({
+    'Accept-Language': 'ja-JP',
+  })
   await page.goto(url, {
     waitUntil: 'domcontentloaded',
   })
@@ -45,4 +50,8 @@ export const waitForNavigation = async (page: Page) => {
 export const debugText = async (page: Page, selector: string) => {
   const text = await page.$eval(selector, (el: HTMLElement) => el.innerText)
   console.log('text', text)
+}
+
+export const wait = async (milliseconds: number) => {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds))
 }
