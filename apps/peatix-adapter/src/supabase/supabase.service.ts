@@ -30,4 +30,9 @@ export class SupabaseService {
     const { data } = await this.client.from('admin_users').select()
     return data
   }
+
+  // vuejs-jp/vuefes-2024-backside#226
+  public async updateAttendees() {
+    //
+  }
 }

@@ -167,9 +167,9 @@ export class PeatixOrderService extends ScraperPage {
         await this.download(page, async (res: PeatixCsv[]) => {
           const attendees = res
           this.logger.log(attendees)
-    
-          const adminUsers = await this.supabaseService.fetchAdminUsers()
-          this.logger.log(adminUsers)
+
+          // Peatix 購入情報を Supabase へ反映する
+          await this.supabaseService.updateAttendees()
         })
       }
 
