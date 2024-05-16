@@ -14,7 +14,7 @@ export function useAuthSession() {
   }
 
   if (!supabaseUrl || !supabaseKey) {
-    return { signedUserId: null, onAuthChanged }
+    return { onAuthChanged }
   }
   const supabase = createClient(supabaseUrl, supabaseKey)
 
