@@ -2,33 +2,25 @@
 import { useI18n } from '#i18n'
 import { useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
-import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
+import { useTranslation } from '@/composables/useTranslation'
 
 const config = useRuntimeConfig()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 
-const { t, te } = useI18n()
-const { locale } = useLocaleCurrent()
-/**
- * Get translation or return empty string
- * @param key - translation key
- * @returns translation or empty string
- */
-function getTranslationOrDefault(key: string): string {
-  return te(key, locale.value) ? t(key) : ''
-}
+const { t } = useI18n()
+const { translate } = useTranslation()
 
 const periodStart = {
   prefixYear: t('prefix_year'),
   date: t('sponsor.start_date'),
-  dayOfWeek: getTranslationOrDefault('day_of_week.monday'),
+  dayOfWeek: translate('day_of_week.monday'),
 }
 
 // const periodEnd = {
 //   suffixYear: t('suffix_year'),
 //   date: t('sponsor.end_date'),
-//   dayOfWeek: getTranslationOrDefault('day_of_week.thursday'),
+//   dayOfWeek: translate('day_of_week.thursday'),
 // }
 </script>
 
