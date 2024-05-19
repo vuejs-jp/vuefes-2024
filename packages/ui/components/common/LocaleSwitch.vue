@@ -1,25 +1,51 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
 
 const LANGUAGES = {
   JAPANESE: 'ja',
   ENGLISH: 'en',
 } as const
 
+const router = useRouter()
+const isLoaded = ref(false)
 const isChecked = ref(false)
 
-const getPath = () => (window.location.pathname ? `/${LANGUAGES.ENGLISH}` : '/')
+const getPath = () => {
+  if (isChecked.value) {
+    return `/${LANGUAGES.ENGLISH}${router.currentRoute.value.path}`
+  }
+  return router.currentRoute.value.path.replace(`/${LANGUAGES.ENGLISH}`, '')
+}
+const setSwitchStatus = () => {
+  isChecked.value = router.currentRoute.value.path.includes(LANGUAGES.ENGLISH)
+}
 
 const toggleStatus = () => {
-  window.location.href = getPath()
+  isChecked.value = !isChecked.value
+  const path = getPath()
+  // トレイリングスラッシュ対策
+  if (path === '') {
+    router.push('/')
+    return
+  }
+  router.push(path)
 }
 onMounted(() => {
-  isChecked.value = window.location.pathname !== '/'
+  setSwitchStatus()
+  isLoaded.value = true
 })
+watch(
+  () => router.currentRoute.value.path,
+  () => {
+    setSwitchStatus()
+  },
+)
 </script>
 
 <template>
   <button
+    v-if="isLoaded"
     type="button"
     role="switch"
     class="locale-switch-button"
@@ -57,7 +83,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
-& {
+* {
   --box-shadow: 0 1px 4px color-mix(in srgb, var(--color-vue-blue), transparent calc(100% - 14%));
 }
 
@@ -77,8 +103,7 @@ onMounted(() => {
 .locale-switch-button-switch {
   display: flex;
   align-items: center;
-  /* box-shadow: var(--box-shadow); */
-  box-shadow: 0 1px 4px color-mix(in srgb, var(--color-vue-blue), transparent calc(100% - 14%));
+  box-shadow: var(--box-shadow);
   background-color: #d2d6db;
   border-radius: 0.9375rem;
   height: 1.8125rem;
@@ -100,7 +125,7 @@ onMounted(() => {
   font-weight: bold;
 }
 
-/* din-2014 の `j` のグリフがずれているため調整 */
+/* din-2014 の `j` のグリフがずれているため微調整 */
 .locale-switch-button-language-ja,
 .locale-switch-button-circle-ja {
   box-sizing: border-box;
@@ -119,8 +144,7 @@ onMounted(() => {
   height: 2rem;
   width: 2rem;
   background: #34495e;
-  /* box-shadow: var(--box-shadow); */
-  box-shadow: 0 1px 4px color-mix(in srgb, var(--color-vue-blue), transparent calc(100% - 14%));
+  box-shadow: var(--box-shadow);
 }
 
 .locale-switch-button[aria-checked='true'] .locale-switch-button-circle {
@@ -131,16 +155,4 @@ onMounted(() => {
 .locale-switch-button:hover {
   cursor: pointer;
 }
-
-/* .locale-switch-button:focus,
-.locale-switch-button:hover {
-  border-width: 2px;
-  outline: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.locale-switch-button:focus-visible {
-  border: 2px solid var(--color-vue-blue);
-} */
 </style>
