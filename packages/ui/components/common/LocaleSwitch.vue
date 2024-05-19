@@ -60,15 +60,12 @@ watch(
     >
       <span
         v-if="isChecked"
-        class="locale-switch-button-language locale-switch-button-language-ja"
+        class="locale-switch-button-language"
         :class="{ 'locale-switch-button-language-checked': !isChecked }"
       >
         <span>{{ LANGUAGES.JAPANESE }}</span>
       </span>
-      <span
-        class="locale-switch-button-circle"
-        :class="{ 'locale-switch-button-circle-ja': !isChecked }"
-      >
+      <span class="locale-switch-button-circle">
         {{ isChecked ? LANGUAGES.ENGLISH : LANGUAGES.JAPANESE }}
       </span>
       <span
