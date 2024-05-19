@@ -39,11 +39,11 @@ const snsLinkList: LinkList[] = [
 const internalLinkList: LinkList[] = [
   {
     href: '/privacy',
-    text: t('privacy.title'),
+    text: 'privacy.title',
   },
   {
     href: '/code-of-conduct',
-    text: t('code_of_conduct.title'),
+    text: 'code_of_conduct.title',
   },
 ]
 const vueFesLinkList: LinkList[] = [
@@ -86,14 +86,14 @@ const vueFesLinkList: LinkList[] = [
         <ul class="footer-list">
           <li v-for="(link, index) in internalLinkList" :key="index">
             <VFTextLink :href="`${localePath}${link.href}`" color="white">
-              {{ link.text }}
+              {{ t(link.text) }}
             </VFTextLink>
           </li>
         </ul>
         <ul class="footer-list">
           <li v-for="(link, index) in vueFesLinkList" :key="index">
             <VFTextLink :href="link.href" target="_blank" color="white">
-              {{ link.text }}
+              {{ t(link.text) }}
             </VFTextLink>
           </li>
         </ul>
