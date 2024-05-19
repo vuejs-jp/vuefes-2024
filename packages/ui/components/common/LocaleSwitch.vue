@@ -125,13 +125,6 @@ watch(
   font-weight: bold;
 }
 
-/* din-2014 の `j` のグリフがずれているため微調整 */
-.locale-switch-button-language-ja,
-.locale-switch-button-circle-ja {
-  box-sizing: border-box;
-  padding-left: 0.125rem;
-}
-
 .locale-switch-button-circle {
   position: absolute;
   display: flex;
