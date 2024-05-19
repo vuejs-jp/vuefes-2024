@@ -9,7 +9,7 @@ export default {
 const Template: StoryFn<unknown> = () => ({
   components: { LocaleSwitch },
   setup() {
-    return {  }
+    return {}
   },
   template: '<LocaleSwitch />',
 })
