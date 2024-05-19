@@ -33,6 +33,7 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: ./packages/ui
+          storybookBaseDir: ./packages/ui
           exitZeroOnChanges: true
           exitOnceUploaded: true
           onlyChanged: true

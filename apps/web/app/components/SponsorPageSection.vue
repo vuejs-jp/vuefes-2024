@@ -1,12 +1,27 @@
 <script setup lang="ts">
-import { useRuntimeConfig } from '#imports'
 import { useI18n } from '#i18n'
+import { useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { useTranslation } from '@/composables/useTranslation'
 
 const config = useRuntimeConfig()
-const { locale } = useI18n()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
+
+const { t } = useI18n()
+const { translate } = useTranslation()
+
+const periodStart = {
+  prefixYear: t('prefix_year'),
+  date: t('sponsor.start_date'),
+  dayOfWeek: translate('day_of_week.monday'),
+}
+
+// const periodEnd = {
+//   suffixYear: t('suffix_year'),
+//   date: t('sponsor.end_date'),
+//   dayOfWeek: translate('day_of_week.thursday'),
+// }
 </script>
 
 <template>
@@ -37,10 +52,7 @@ const { color } = useColor()
         >
           {{ $t('sponsor.apply_period') }}
         </h3>
-        <VFDatePeriod
-          :start="{ year: 2024, date: '4.8', dayOfWeek: locale === 'ja' ? $t('day_of_week.monday') : '' }"
-          :end="{ date: '4.25', dayOfWeek: locale === 'ja' ? $t('day_of_week.thursday') : '' }"
-        />
+        <VFDatePeriod :start="periodStart" />
       </template>
 
       <div class="sponsor-buttons">
@@ -69,8 +81,7 @@ const { color } = useColor()
 </template>
 
 <style scoped>
-@import url("~/assets/media.css");
-@import url("~/assets/sample.css");
+@import url('~/assets/media.css');
 
 .sponsor {
   --sponsor-padding: calc(var(--unit) * 5.25) 0;
@@ -108,7 +119,7 @@ const { color } = useColor()
 
   &::v-deep a:hover {
     opacity: 0.4;
-    transition: .2s;
+    transition: 0.2s;
   }
 
   &:deep(p) {

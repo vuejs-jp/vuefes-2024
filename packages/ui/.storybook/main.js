@@ -12,6 +12,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-links',
     '@storybook/addon-viewport',
+    '@storybook/addon-toolbars',
   ],
   framework: {
     name: '@storybook/vue3-vite',
