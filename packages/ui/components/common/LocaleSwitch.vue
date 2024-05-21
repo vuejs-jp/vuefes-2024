@@ -75,11 +75,9 @@ watch(
 </template>
 
 <style scoped>
-* {
-  --box-shadow: 0 1px 4px color-mix(in srgb, var(--color-vue-blue), transparent calc(100% - 14%));
-}
-
 .locale-switch-button {
+  --box-shadow: 0 1px 4px color-mix(in srgb, var(--color-vue-blue), transparent calc(100% - 14%));
+
   border: 0;
   user-select: none;
   line-height: 1.2;
