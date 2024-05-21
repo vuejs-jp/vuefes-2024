@@ -18,17 +18,12 @@ const getPath = () => {
   return router.currentRoute.value.path.replace(`/${LANGUAGES.ENGLISH}`, '')
 }
 const setSwitchStatus = () => {
-  isChecked.value = router.currentRoute.value.path.includes(LANGUAGES.ENGLISH)
+  isChecked.value = router.currentRoute.value.path.includes(`/${LANGUAGES.ENGLISH}/`)
 }
 
 const toggleStatus = () => {
   isChecked.value = !isChecked.value
   const path = getPath()
-  // トレイリングスラッシュ対策
-  if (path === '') {
-    router.push('/')
-    return
-  }
   router.push(path)
 }
 onMounted(() => {
