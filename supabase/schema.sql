@@ -12,6 +12,8 @@ create table if not exists public.sponsors (
   image_url varchar(100) not null,
   speaker_id varchar(100) not null,
   is_personal int(10) not null,
+  category varchar(100) not null,
+  option_categories varchar(100) [] not null,
   created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
