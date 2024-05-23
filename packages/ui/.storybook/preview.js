@@ -1,6 +1,7 @@
 import { setup } from '@storybook/vue3'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { createI18n } from 'vue-i18n'
+import { createRouter, createMemoryHistory } from 'vue-router'
 
 import './global.css'
 
@@ -33,14 +34,29 @@ const i18n = createI18n({
       // end dummy
       sponsor: {
         start_date: 'April 8',
-        end_date: '25,',  
+        end_date: '25,',
       },
     },
   },
 })
 
+const routes = [
+  {
+    path: '/',
+    name: 'ja',
+  },
+  {
+    path: '/en',
+    name: 'en',
+  },
+]
+
+// 画面遷移は発生しないが、StorybookではURLを直接使えないため、createMemoryHistoryで生成
+const router = createRouter({ history: createMemoryHistory(), routes })
+
 setup((app) => {
   app.use(i18n)
+  app.use(router)
 })
 
 export const parameters = {
