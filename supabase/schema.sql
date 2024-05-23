@@ -7,13 +7,16 @@ create table public.admin_users (
 create table if not exists public.sponsors (
   id uuid not null primary key default uuid_generate_v4(),
   name varchar(100) not null,
-  description text not null,
+  description_ja text not null,
+  description_en text not null,
   link_url varchar(100) not null,
   image_url varchar(100) not null,
   speaker_id varchar(100) not null,
   is_personal int(10) not null,
-  category varchar(100) not null,
-  option_categories varchar(100) [] not null,
+  category_ja varchar(100) not null,
+  category_en varchar(100) not null,
+  option_categories_ja varchar(100) [] not null,
+  option_categories_en varchar(100) [] not null,
   created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
