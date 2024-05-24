@@ -5,6 +5,10 @@ const { isMobile } = useDevice()
 </script>
 
 <template>
-  <VFSpHeader v-if="isMobile" />
-  <VFHeader v-if="!isMobile" />
+  <VFSpHeader v-if="isMobile">
+    <VFLocaleSwitch />
+  </VFSpHeader>
+  <VFHeader v-if="!isMobile">
+    <VFLocaleSwitch />
+  </VFHeader>
 </template>
