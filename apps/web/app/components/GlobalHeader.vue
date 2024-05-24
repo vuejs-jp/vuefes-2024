@@ -1,10 +1,19 @@
 <script setup lang="ts">
-import { useDevice } from '#imports'
+import { useDevice, useRouter } from '#imports'
 
 const { isMobile } = useDevice()
+const router = useRouter()
+
+const handle = (path: string) => {
+  router.push(path)
+}
 </script>
 
 <template>
-  <VFSpHeader v-if="isMobile" />
-  <VFHeader v-if="!isMobile" />
+  <VFSpHeader v-if="isMobile">
+    <VFLocaleSwitch :router @toggle="handle" />
+  </VFSpHeader>
+  <VFHeader v-if="!isMobile">
+    <VFLocaleSwitch :router @toggle="handle" />
+  </VFHeader>
 </template>
