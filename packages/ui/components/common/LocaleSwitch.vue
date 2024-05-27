@@ -94,7 +94,7 @@ watch(
   display: flex;
   align-items: center;
   box-shadow: var(--box-shadow);
-  background-color: #d2d6db;
+  background-color: #607488;
   border-radius: 0.9375rem;
   height: 1.8125rem;
   width: 3.5625rem;
