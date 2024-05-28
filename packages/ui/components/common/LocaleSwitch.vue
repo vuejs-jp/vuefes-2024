@@ -126,7 +126,7 @@ watch(
   right: 50%;
   height: 2rem;
   width: 2rem;
-  background: #34495e;
+  background: #283848;
   box-shadow: var(--box-shadow);
 }
 
