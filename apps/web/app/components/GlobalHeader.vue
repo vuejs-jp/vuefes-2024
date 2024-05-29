@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { useDevice, useRouter } from '#imports'
+import { useDevice, useRouter, useRuntimeConfig } from '#imports'
 
 const { isMobile } = useDevice()
 const router = useRouter()
+const config = useRuntimeConfig()
 
 const handle = (path: string) => {
   router.push(path)
@@ -11,9 +12,9 @@ const handle = (path: string) => {
 
 <template>
   <VFSpHeader v-if="isMobile">
-    <VFLocaleSwitch :router @toggle="handle" />
+    <VFLocaleSwitch v-if="config.public.enableSwitchLocale" :router @toggle="handle" />
   </VFSpHeader>
   <VFHeader v-if="!isMobile">
-    <VFLocaleSwitch :router @toggle="handle" />
+    <VFLocaleSwitch v-if="config.public.enableSwitchLocale" :router @toggle="handle" />
   </VFHeader>
 </template>

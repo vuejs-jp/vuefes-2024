@@ -124,6 +124,7 @@ export default defineNuxtConfig({
       supabaseApiKey: process.env.SUPABASE_KEY,
       // feature
       availableApplySponsor: process.env.AVAILABLE_APPLY_SPONSOR,
+      enableSwitchLocale: process.env.ENABLE_SWITCH_LOCALE,
     },
   },
 })
