@@ -94,6 +94,14 @@ export default defineNuxtConfig({
       const supabaseKey = process.env.SUPABASE_KEY
       if (!supabaseUrl || !supabaseKey) return
     },
+    'prerender:routes': (context) => {
+      for (const path of [...context.routes]) {
+        if (!path.endsWith('.html') && path !== '/') {
+          context.routes.delete(path)
+          context.routes.add(`${path}/`)
+        }
+      }
+    },
   },
   build: {
     transpile: ['vue-toastification'],
