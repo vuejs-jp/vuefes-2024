@@ -18,7 +18,10 @@
     "check_doc": "View Sponsorship materials",
     "start_date": "May 13",
     "end_date": "25,"
-    },
+  },
+  "partner": {
+    "title": "Partners"
+  },
   "form": {
     "title": "Inquiry",
     "form_name_label": "Name",
