@@ -46,5 +46,8 @@
     "vitest": "1.4.0",
     "vue-recaptcha-v3": "2.0.1",
     "vue-tsc": "2.0.6"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.43.4"
   }
 }

@@ -8,18 +8,12 @@ const config = useRuntimeConfig()
 
 <template>
   <VFSpHeader v-if="isMobile">
-    <NuxtLink
-      v-if="config.public.enableSwitchLocale"
-      :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
-    >
+    <NuxtLink v-if="config.public.enableSwitchLocale" :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')">
       <VFLocaleSwitch :locale />
     </NuxtLink>
   </VFSpHeader>
   <VFHeader v-if="!isMobile">
-    <NuxtLink
-      v-if="config.public.enableSwitchLocale"
-      :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
-    >
+    <NuxtLink v-if="config.public.enableSwitchLocale" :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')">
       <VFLocaleSwitch :locale />
     </NuxtLink>
   </VFHeader>
