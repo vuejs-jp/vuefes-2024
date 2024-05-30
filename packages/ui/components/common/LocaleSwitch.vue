@@ -1,26 +1,22 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
-import { type Router } from 'vue-router'
+import { onMounted, ref } from 'vue'
 
 const LANGUAGES = {
   JAPANESE: 'ja',
   ENGLISH: 'en',
 } as const
 
-const props = defineProps<{ router: Router }>()
+const props = defineProps<{ locale: string; currentPath: string }>()
 const emits = defineEmits<{ toggle: [value: string] }>()
 
 const isLoaded = ref(false)
 const isChecked = ref(false)
 
 const getPath = () => {
-  if (isChecked.value) {
-    return `/${LANGUAGES.ENGLISH}${props.router.currentRoute.value.path}`
+  if (props.locale === LANGUAGES.JAPANESE) {
+    return `/${LANGUAGES.ENGLISH}${props.currentPath}`
   }
-  return props.router.currentRoute.value.path.replace(`/${LANGUAGES.ENGLISH}`, '')
-}
-const setSwitchStatus = () => {
-  isChecked.value = props.router.currentRoute.value.path.includes(`/${LANGUAGES.ENGLISH}`)
+  return `${props.currentPath}`
 }
 
 const toggleStatus = () => {
@@ -29,15 +25,8 @@ const toggleStatus = () => {
   emits('toggle', path)
 }
 onMounted(() => {
-  setSwitchStatus()
   isLoaded.value = true
 })
-watch(
-  () => props.router.currentRoute.value.path,
-  () => {
-    setSwitchStatus()
-  },
-)
 </script>
 
 <template>
