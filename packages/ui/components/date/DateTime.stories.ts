@@ -30,8 +30,8 @@ export const Ja: Story = {
   args: {
     date: {
       prefixYear: '2024',
-      date: '4.1',
-      dayOfWeek: '月',
+      date: '6.30',
+      dayOfWeek: '日',
     },
     time: {
       hour: '23',
@@ -52,7 +52,7 @@ export const En: Story = {
   args: {
     date: {
       prefixYear: '2024',
-      date: '4.1',
+      date: '6.30',
     },
     time: {
       hour: '11',
