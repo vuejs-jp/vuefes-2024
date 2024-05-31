@@ -2,7 +2,9 @@
 import { onMounted, useHead } from '#imports'
 import { conferenceTitle } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
+import { supabaseClient } from '~/composables/useSupabase'
 
+const { debug } = supabaseClient
 
 useHead({
   // eslint-disable-next-line no-unused-vars
@@ -20,6 +22,7 @@ onMounted(async () => {
 
 <template>
   <TopPageSection />
+  <p>{{ debug }}</p>
   <MessagePageSection />
   <SponsorPageSection />
   <CooperationPartnerSection />

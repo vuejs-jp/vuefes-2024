@@ -2,14 +2,16 @@ import { useRuntimeConfig } from '#app'
 import { createClient } from '@supabase/supabase-js'
 import type { LoginUser } from '~/types/auth'
 
-export function useSupabase() {
+function useSupabase() {
   const { supabaseProjectUrl, supabaseApiKey } = useRuntimeConfig()
   const supabase = useSupabaseClient()
   const hasAuth = ref(false)
   const loginUser = ref<LoginUser | null>(null)
+  const debug = ref(null)
 
   const { data } = supabase.auth.onAuthStateChange((event, session) => {
     // console.log(event, session)
+    debug.value = event
 
     if (event === 'INITIAL_SESSION') {
       // handle initial session
@@ -64,5 +66,7 @@ export function useSupabase() {
     data.subscription.unsubscribe()
   }
 
-  return { hasAuth, loginUser, login, cleanUp, fetchSample }
+  return { hasAuth, loginUser, login, cleanUp, fetchSample, debug }
 }
+
+export const supabaseClient = useSupabase()

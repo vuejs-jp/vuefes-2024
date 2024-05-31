@@ -1,7 +1,7 @@
 <script setup>
-import { useSupabase } from '~/composables/useSupabase'
+import { supabaseClient } from '~/composables/useSupabase'
 
-const { loginUser, login, fetchSample } = useSupabase()
+const { loginUser, login, fetchSample } = supabaseClient
 const i18nHead = useLocaleHead({
   addSeoAttributes: true,
 })
