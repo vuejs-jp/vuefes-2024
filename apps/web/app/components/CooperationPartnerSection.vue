@@ -5,15 +5,17 @@
         {{ $t('partner.title') }}
       </VFTitle>
 
-      <picture>
-        <source srcset="/logo/logo_vueconf-de.png" media="(min-width: 768px)" />
-        <img
-          src="/logo/logo_vueconf-de_sp.png"
-          loading="lazy"
-          alt="vuejs.de"
-          class="partner-image"
-        />
-      </picture>
+      <NuxtLink to="https://conf.vuejs.de/" target="_blank">
+        <picture>
+          <source srcset="/logo/logo_vueconf-de.png" media="(min-width: 768px)" />
+          <img
+            src="/logo/logo_vueconf-de_sp.png"
+            loading="lazy"
+            alt="vuejs.de"
+            class="partner-image"
+          />
+        </picture>
+      </NuxtLink>
     </article>
   </div>
 </template>
