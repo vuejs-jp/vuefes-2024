@@ -15,5 +15,4 @@ useHead({
   <MessagePageSection />
   <SponsorPageSection />
   <FormPageSection />
-  <FooterPageSection />
 </template>

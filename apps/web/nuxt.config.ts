@@ -106,6 +106,14 @@ export default defineNuxtConfig({
       const serviceKey = process.env.SERVICE_KEY
       if (!supabaseUrl || !supabaseKey || serviceKey) return
     },
+    'prerender:routes': (context) => {
+      for (const path of [...context.routes]) {
+        if (!path.endsWith('.html') && path !== '/') {
+          context.routes.delete(path)
+          context.routes.add(`${path}/`)
+        }
+      }
+    },
   },
   build: {
     transpile: ['vue-toastification'],
@@ -131,6 +139,7 @@ export default defineNuxtConfig({
       availableApplySponsor: process.env.AVAILABLE_APPLY_SPONSOR,
       enableInviteStaff: process.env.ENABLE_INVITE_STAFF,
       enableOperateAdmin: process.env.ENABLE_OPERATE_ADMIN,
+      enableSwitchLocale: process.env.ENABLE_SWITCH_LOCALE,
     },
   },
   // for https on localhost

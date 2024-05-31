@@ -102,7 +102,7 @@ const updateDetail = (e: any) => {
 section {
   position: relative;
   padding: 120px 20px 120px;
-  background-color: #fff;
+  background-image: linear-gradient(#fff, #ebf0f5);
   &::before {
     content: "";
     position: absolute;
@@ -110,11 +110,12 @@ section {
     inset: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/form-bg.png'), linear-gradient(#fff, #ebf0f5);
+    background-image: url('/form-bg.png');
     background-size: auto;
     background-repeat: repeat;
     background-position: top left;
-    background-blend-mode: soft-light;
+    opacity: 0.8;
+    mix-blend-mode: overlay;
   }
 }
 
@@ -130,6 +131,7 @@ section {
 
 .title {
   text-align: center;
+  line-height: 1.2;
 }
 
 .subtitle {
@@ -162,6 +164,9 @@ form {
 @media (--mobile) {
   section {
     padding: 60px 20px 60px;
+    &::before {
+      background-size: 364px;
+    }
   }
   .form-root {
     gap: 30px;
