@@ -1,29 +1,16 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 const LANGUAGES = {
   JAPANESE: 'ja',
   ENGLISH: 'en',
 } as const
 
-const props = defineProps<{ locale: string; currentPath: string }>()
-const emits = defineEmits<{ toggle: [value: string] }>()
+const props = defineProps<{ locale: string }>()
 
 const isLoaded = ref(false)
-const isChecked = ref(false)
+const isChecked = computed(() => props.locale === LANGUAGES.ENGLISH)
 
-const getPath = () => {
-  if (props.locale === LANGUAGES.JAPANESE) {
-    return `/${LANGUAGES.ENGLISH}${props.currentPath}`
-  }
-  return `${props.currentPath}`
-}
-
-const toggleStatus = () => {
-  isChecked.value = !isChecked.value
-  const path = getPath()
-  emits('toggle', path)
-}
 onMounted(() => {
   isLoaded.value = true
 })
@@ -37,7 +24,7 @@ onMounted(() => {
     class="locale-switch-button"
     aria-label="translate english"
     :aria-checked="isChecked"
-    @click="toggleStatus"
+    @click="() => {}"
   >
     <span
       class="locale-switch-button-switch"
