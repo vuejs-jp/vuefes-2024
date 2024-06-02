@@ -1,20 +1,26 @@
 <script setup lang="ts">
-import { useDevice, useRouter, useRuntimeConfig } from '#imports'
-
+import { useDevice, useI18n, useRuntimeConfig, useSwitchLocalePath } from '#imports'
 const { isMobile } = useDevice()
-const router = useRouter()
+const { locale } = useI18n({ useScope: 'global' })
+const switchLocalePath = useSwitchLocalePath()
 const config = useRuntimeConfig()
-
-const handle = (path: string) => {
-  router.push(path)
-}
 </script>
 
 <template>
   <VFSpHeader v-if="isMobile">
-    <VFLocaleSwitch v-if="config.public.enableSwitchLocale" :router @toggle="handle" />
+    <NuxtLink
+      v-if="config.public.enableSwitchLocale"
+      :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
+    >
+      <VFLocaleSwitch :locale />
+    </NuxtLink>
   </VFSpHeader>
   <VFHeader v-if="!isMobile">
-    <VFLocaleSwitch v-if="config.public.enableSwitchLocale" :router @toggle="handle" />
+    <NuxtLink
+      v-if="config.public.enableSwitchLocale"
+      :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
+    >
+      <VFLocaleSwitch :locale />
+    </NuxtLink>
   </VFHeader>
 </template>
