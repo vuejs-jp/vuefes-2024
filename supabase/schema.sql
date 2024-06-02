@@ -1,7 +1,7 @@
 create table if not exists public.speakers (
   id uuid not null primary key default uuid_generate_v4(),
   name varchar(100) not null,
-  image varchar(500) not null,
+  image_url varchar(500) not null,
   caption_ja varchar(100) not null,
   caption_en varchar(100) not null,
   description_ja text not null,
