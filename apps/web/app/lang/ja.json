@@ -16,6 +16,16 @@
     "date": "2024.10.19",
     "note": "公式 note"
   },
+  "speaker": {
+    "title": "スピーカー",
+    "application_period": "募集スケジュール",
+    "application_period_before": "募集期限：",
+    "application_period_after": "まで",
+    "apply": "申し込む",
+    "end_date": "6.30",
+    "end_hour": "12",
+    "end_minute": "00"
+  },
   "sponsor": {
     "title": "スポンサー",
     "apply": "申し込む",
@@ -23,7 +33,7 @@
     "check_doc": "資料を見る",
     "start_date": "5.13",
     "end_date": "4.25"
-    },
+  },
   "form": {
     "title": "お問い合わせ",
     "form_name_label": "お名前",

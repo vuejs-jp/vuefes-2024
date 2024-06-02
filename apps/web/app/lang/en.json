@@ -11,6 +11,9 @@
     "date": "Octover 19th, 2024",
     "note": "note official"
   },
+  "speaker": {
+    "title": "Speakers"
+  },
   "sponsor": {
     "title": "Sponsors",
     "apply": "Apply",
@@ -18,7 +21,7 @@
     "check_doc": "View Sponsorship materials",
     "start_date": "May 13",
     "end_date": "25,"
-    },
+  },
   "form": {
     "title": "Inquiry",
     "form_name_label": "Name",
