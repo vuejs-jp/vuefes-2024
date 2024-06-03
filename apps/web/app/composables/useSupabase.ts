@@ -1,17 +1,20 @@
-import { useRuntimeConfig } from '#app'
-import { createClient } from '@supabase/supabase-js'
 import type { LoginUser } from '~/types/auth'
 
-function useSupabase() {
-  const { supabaseProjectUrl, supabaseApiKey } = useRuntimeConfig()
+function _useSupabase() {
   const supabase = useSupabaseClient()
+  const error = ref<Error>(null)
   const hasAuth = ref(false)
   const loginUser = ref<LoginUser | null>(null)
-  const debug = ref(null)
+  const authState = ref(null)
+  const connecting = ref(false)
 
-  const { data } = supabase.auth.onAuthStateChange((event, session) => {
-    // console.log(event, session)
-    debug.value = event
+  const { data } = supabase.auth.onAuthStateChange((event: string, session: any) => {
+    authState.value = event
+    if (!session) {
+      hasAuth.value = false
+      loginUser.value = false
+      return
+    }
 
     if (event === 'INITIAL_SESSION') {
       // handle initial session
@@ -39,34 +42,64 @@ function useSupabase() {
     }
   })
 
-  const login = async () => {
-    const { data, error } = await supabase.auth.signInWithOAuth({
+  const loginWithGithub = async () => {
+    connecting.value = true
+    const { data, error: myerror } = await supabase.auth.signInWithOAuth({
       provider: 'github',
     })
-    if (error) {
-      console.log('ログインエラー', error)
+    connecting.value = false
+    if (myerror) {
+      error.value = new Error(myerror.message)
       return
     }
-    console.log('login supabase', data)
+  }
+
+  const logout = async () => {
+    connecting.value = true
+    const { error: myerror } = await supabase.auth.signOut()
+    connecting.value = false
+    if (myerror) {
+      error.value = new Error(myerror.message)
+      return
+    }
   }
 
   const fetchSample = async () => {
-    console.log('fetchSample')
+    connecting.value = true
     try {
       const { data, error } = await supabase.from('sample').select('*').order('created_at')
-
       if (error) throw new Error(error)
-
       return data
-    } catch (e) {
-      console.error(e.message)
+    } catch (e: any) {
+      error.value = new Error(e.message)
+    } finally {
+      connecting.value = false
     }
   }
+
   const cleanUp = async () => {
     data.subscription.unsubscribe()
   }
 
-  return { hasAuth, loginUser, login, cleanUp, fetchSample, debug }
+  return {
+    error,
+    connecting,
+    hasAuth,
+    logout,
+    loginUser,
+    loginWithGithub,
+    cleanUp,
+    fetchSample,
+    authState,
+  }
 }
 
-export const supabaseClient = useSupabase()
+let client: ReturnType<typeof _useSupabase> | null = null
+
+/**
+ * export as singleton
+ */
+export const useSupabase = () => {
+  if (client === null) client = _useSupabase()
+  return client
+}

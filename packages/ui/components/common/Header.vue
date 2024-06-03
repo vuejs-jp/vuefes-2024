@@ -1,26 +1,16 @@
 <script setup lang="ts">
 import Logo from './Logo.vue'
 import { useHeader } from '@vuejs-jp/composable'
-import Button from '../Button.vue'
-import { computed } from 'vue';
 
 type HeaderProps = {
   top?: number
-  loginUser: object
 }
 
-const p = withDefaults(defineProps<HeaderProps>(), {
+withDefaults(defineProps<HeaderProps>(), {
   top: 0,
-  loginUser: null
 })
 
-const emit = defineEmits(['login', 'debug'])
 const { headerRef } = useHeader()
-const hasAuth = computed(() => p.loginUser !== null)
-const userName = computed(() => {
-  if (p.loginUser) return p.loginUser.user_name
-  return ''
-})
 </script>
 
 <template>
@@ -49,15 +39,10 @@ header {
   padding: 20px 80px;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
-}
-
-.header-root>button {
-  margin-left: 1em;
+  justify-content: space-between;
 }
 
 .link {
   line-height: 0;
-  margin-right: auto;
 }
 </style>

@@ -1,7 +1,4 @@
 <script setup>
-import { supabaseClient } from '~/composables/useSupabase'
-
-const { loginUser, login, fetchSample } = supabaseClient
 const i18nHead = useLocaleHead({
   addSeoAttributes: true,
 })
@@ -12,19 +9,10 @@ useHead({
   link: [...(i18nHead.value.link || [])],
   meta: [...(i18nHead.value.meta || [])],
 })
-const emit = defineEmits(['login'])
-const startLogin = () => {
-  login()
-}
-const debug = async () => {
-
-  const data = await fetchSample()
-  console.log('fetchSample', data)
-}
 </script>
 
 <template>
-  <GlobalHeader :login-user="loginUser" @login="startLogin" @debug="debug" />
+  <GlobalHeader />
   <main>
     <slot />
   </main>

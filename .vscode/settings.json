@@ -1,6 +1,6 @@
 {
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "denoland.vscode-deno"
   },
   "deno.enablePaths": ["supabase/functions"],
   "deno.lint": true,
@@ -32,5 +32,6 @@
     "titleBar.activeForeground": "#a5a5a5",
     "titleBar.inactiveBackground": "#35495e",
     "titleBar.inactiveForeground": "#a5a5a5"
-  }
+  },
+  "deno.enable": true
 }

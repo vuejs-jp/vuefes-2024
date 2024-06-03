@@ -36,6 +36,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  small: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const isLink = Boolean(props.href)
@@ -53,6 +57,9 @@ const myclass = computed(() => {
   }
   if (props.couple) {
     cls.push('-couple')
+  }
+  if (props.small) {
+    cls.push('-small')
   }
   return cls.join(' ')
 })
@@ -88,13 +95,8 @@ const bindProps = computed(() => {
 </script>
 
 <template>
-  <component
-    :is="tag"
-    :class="myclass"
-    :disabled="props.disabled || null"
-    :aria-disabled="props.disabled || null"
-    v-bind="{ ...bindProps }"
-  >
+  <component :is="tag" :class="myclass" :disabled="props.disabled || null" :aria-disabled="props.disabled || null"
+    v-bind="{ ...bindProps }">
     <span class="button-label">
       <slot />
     </span>
@@ -154,6 +156,17 @@ const bindProps = computed(() => {
   }
 }
 
+.button.-small {
+  min-width: auto;
+  max-width: auto;
+  border-radius: 20px;
+
+  .button-label {
+    padding: 10px 20px;
+  }
+}
+
+
 .button[disabled] {
   pointer-events: none;
   background: var(--color-disabled);
@@ -175,6 +188,7 @@ const bindProps = computed(() => {
 }
 
 @media (width <=768px) {
+
   .button,
   .button.-fixedWidth,
   .button.-couple {
@@ -189,6 +203,7 @@ const bindProps = computed(() => {
     min-width: auto;
     height: 49px;
     font-size: var(--font-size-body200);
+
     .button-label {
       padding: 0;
     }
