@@ -23,3 +23,12 @@ create table if not exists public.speakers (
   created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
+
+-- *** Storage buckets ***
+create policy "Avatar images are publicly accessible." on storage.objects for
+select
+  using (bucket_id = 'avatar');
+
+create policy "Anyone can upload an avatar." on storage.objects for
+insert
+  with check (bucket_id = 'avatar');
