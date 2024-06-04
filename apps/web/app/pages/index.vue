@@ -11,8 +11,6 @@ useHead({
 </script>
 
 <template>
-  <SupabaseCheck />
-
   <TopPageSection />
   <MessagePageSection />
   <SponsorPageSection />

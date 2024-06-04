@@ -42,16 +42,18 @@ function _useSupabase() {
     }
   })
 
-  const loginWithGithub = async () => {
+  const loginWithGithub = async () :Promise<string> => {
     connecting.value = true
     const { data, error: myerror } = await supabase.auth.signInWithOAuth({
       provider: 'github',
     })
+
     connecting.value = false
     if (myerror) {
       error.value = new Error(myerror.message)
-      return
+      return ''
     }
+    return data.url
   }
 
   const logout = async () => {

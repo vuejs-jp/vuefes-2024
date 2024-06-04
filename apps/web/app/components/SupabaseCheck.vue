@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { useSupabase } from '~/composables/useSupabase'
 
+const redirecting = ref(false)
 const samples = ref([])
-const { connecting, authState, hasAuth, logout, loginWithGithub, fetchSample, loginUser } = useSupabase()
+const { connecting, authState, hasAuth, logout, loginWithGithub, fetchSample, loginUser } =
+  useSupabase()
+const startLogin = async () => {
+  const url = await loginWithGithub()
+  if (url) {
+    redirecting.value = true
+  }
+}
 const startFetchSample = async () => {
   const data = await fetchSample()
   samples.value = data
@@ -10,18 +18,20 @@ const startFetchSample = async () => {
 </script>
 
 <template>
-  <section>
-    <h2>supabase check
-      <!-- ローディング -->
-      <span v-if="connecting" class="loading">LOADING</span>
-    </h2>
-    <div>
+  <section :class="{ '-redirecting': redirecting }">
+    <article>
+      <h1>
+        supabase check
+        <!-- ローディング -->
+        <span v-if="connecting" class="loading">LOADING</span>
+      </h1>
+
       <p>authState: {{ authState }}</p>
       <!-- ログインユーザの情報 -->
       <div v-if="hasAuth">
         <p>ログインユーザの情報</p>
         <div class="loginuser">
-          <img :src="loginUser.avatar_url" :alt="loginUser.user_name">
+          <img :src="loginUser.avatar_url" :alt="loginUser.user_name" />
           <p>{{ loginUser }}</p>
         </div>
         <ul>
@@ -40,32 +50,57 @@ const startFetchSample = async () => {
       </div>
       <!-- ログインボタン -->
       <p v-else>
-        <VFButton small @click="loginWithGithub">login (github)</VFButton>
+        <VFButton small @click="startLogin">login (github)</VFButton>
         GitHubアカウントでログインする
       </p>
-    </div>
+    </article>
   </section>
 </template>
 
 <style scoped>
-@import url("~/assets/media.css");
+@import url('~/assets/media.css');
 
-h2 {
-  padding: calc(var(--unit) * 2) 0;
+h1 {
+  font-size: 44px;
 }
 
 section {
+  position: relative;
   color: var(--color-white);
-  padding: calc(var(--unit) * 14) calc(var(--unit) * 6);
+  margin-top: calc(var(--unit) * 10);
   background: var(--color-vue-blue-gradation);
+  min-height: 60vh;
+
+  &.-redirecting {
+    &::before {
+      display: flex;
+      content: 'redirecting';
+      justify-content: center;
+      align-items: center;
+      font-size: 34px;
+      color: var(--color-vue-green100);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+  }
+}
+
+article {
+  padding: calc(var(--unit) * 4) calc(var(--unit) * 6);
+
+  &>* {
+    margin-top: calc(var(--unit) * 2);
+  }
+
+  button {
+    margin-right: calc(var(--unit) * 2);
+  }
 }
 
 li+li {
   margin-top: calc(var(--unit) * 2);
-}
-
-li button {
-  margin-right: calc(var(--unit) * 2);
 }
 
 .loginuser {
@@ -99,7 +134,7 @@ li button {
   }
 
   100% {
-    color: #969696
+    color: #969696;
   }
 }
 </style>
