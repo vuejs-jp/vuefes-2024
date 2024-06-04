@@ -32,6 +32,5 @@
     "titleBar.activeForeground": "#a5a5a5",
     "titleBar.inactiveBackground": "#35495e",
     "titleBar.inactiveForeground": "#a5a5a5"
-  },
-  "deno.enable": true
+  }
 }
