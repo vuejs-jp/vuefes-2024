@@ -2,12 +2,15 @@
 import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
+import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
 
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 
 const { t } = useI18n()
 const { translate } = useTranslation()
+
+const currentLocale = useLocaleCurrent().locale
 
 const endPeriodDate = {
   prefixYear: t('prefix_year'),
@@ -17,6 +20,7 @@ const endPeriodDate = {
 const endPeriodTime = {
   hour: t('speaker.end_hour'),
   minute: t('speaker.end_minute'),
+  ampm: t('speaker.end_ampm'),
 }
 </script>
 
@@ -43,7 +47,9 @@ const endPeriodTime = {
       <div class="speaker-end-period">
         <span class="speaker-end-period-text"> {{ $t('speaker.application_period_before') }} </span>
         <VFDateTime :date="endPeriodDate" :time="endPeriodTime" />
-        <span class="speaker-end-period-text"> {{ $t('speaker.application_period_after') }}</span>
+        <span v-if="currentLocale !== 'en'" class="speaker-end-period-text">
+          {{ $t('speaker.application_period_after') }}</span
+        >
       </div>
 
       <div class="speaker-buttons">
