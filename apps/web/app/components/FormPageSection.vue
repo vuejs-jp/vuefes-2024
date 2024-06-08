@@ -97,14 +97,14 @@ const updateDetail = (e: any) => {
 </template>
 
 <style scoped>
-@import url('~/assets/media.css');
+@import url("~/assets/media.css");
 
 section {
   position: relative;
   padding: 120px 20px 120px;
   background-image: linear-gradient(#fff, #ebf0f5);
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     display: block;
     inset: 0;
@@ -147,7 +147,7 @@ section {
 
   &::v-deep a:hover {
     opacity: 0.4;
-    transition: 0.2s;
+    transition: .2s;
   }
 }
 
