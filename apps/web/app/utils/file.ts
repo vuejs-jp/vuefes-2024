@@ -5,3 +5,10 @@ export const getExtension = (fileName: string) => {
   }
   return { extension: tmp.pop(), fileName: tmp.join('.') }
 }
+
+export const getPathWithSlash = (path: string) => {
+  if (path.match(/.+\/$/)) {
+    return path
+  }
+  return `${path}/`
+}
