@@ -1,4 +1,8 @@
+import { v4 as uuidv4 } from 'uuid'
 import type { LoginUser } from '~/types/auth'
+import { getExtension, getPathWithSlash } from '~/utils/file'
+
+const BUCKETNAME = 'sample'
 
 function _useSupabase() {
   const supabase = useSupabaseClient()
@@ -42,7 +46,7 @@ function _useSupabase() {
     }
   })
 
-  const loginWithGithub = async () :Promise<string> => {
+  const loginWithGithub = async (): Promise<string> => {
     connecting.value = true
     const { data, error: myerror } = await supabase.auth.signInWithOAuth({
       provider: 'github',
@@ -79,6 +83,25 @@ function _useSupabase() {
     }
   }
 
+  const uploadImage = async (file: File, path: string = '/') => {
+    connecting.value = true
+    const { fileNameRnd, fileName } = getUploadFileName(file)
+    const url = `${getPathWithSlash(path)}${fileNameRnd}`
+    const { data, error } = await supabase.storage.from(BUCKETNAME).upload(url, file, {
+      cacheControl: '3600',
+      upsert: false,
+    })
+    connecting.value = false
+    if (error) {
+      return { error: error.message, fileName, path: '' }
+    }
+    return {
+      path: data?.path ?? null,
+      error: null,
+      fileName
+    }
+  }
+
   const cleanUp = async () => {
     data.subscription.unsubscribe()
   }
@@ -93,6 +116,7 @@ function _useSupabase() {
     cleanUp,
     fetchSample,
     authState,
+    uploadImage,
   }
 }
 
@@ -104,4 +128,12 @@ let client: ReturnType<typeof _useSupabase> | null = null
 export const useSupabase = () => {
   if (client === null) client = _useSupabase()
   return client
+}
+
+function getUploadFileName(file: File) {
+  const { extension, fileName } = getExtension(file.name)
+  if (!extension) {
+    return {fileNameRnd: '', fileName}
+  }
+  return { fileNameRnd: `${fileName}-${uuidv4()}.${extension}`, fileName }
 }

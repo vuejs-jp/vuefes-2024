@@ -1,10 +1,25 @@
 <script setup lang="ts">
 import { useSupabase } from '~/composables/useSupabase'
 
+const msg = ref('')
 const redirecting = ref(false)
 const samples = ref([])
-const { connecting, authState, hasAuth, logout, loginWithGithub, fetchSample, loginUser } =
-  useSupabase()
+const uploadFileData = ref({
+  file: null,
+  previewUrl: '',
+})
+
+const {
+  connecting,
+  authState,
+  hasAuth,
+  logout,
+  loginWithGithub,
+  fetchSample,
+  loginUser,
+  uploadImage,
+} = useSupabase()
+
 const startLogin = async () => {
   const url = await loginWithGithub()
   if (url) {
@@ -14,6 +29,30 @@ const startLogin = async () => {
 const startFetchSample = async () => {
   const data = await fetchSample()
   samples.value = data
+}
+const startUploadFile = async () => {
+  if (!uploadFileData.value.file) return
+
+  const { error, path } = await uploadImage(uploadFileData.value.file, 'images')
+  if (error) {
+    console.log('upload Error', error)
+    return
+  }
+  msg.value = `uploaded -> ${path}`
+}
+const onChangeFileInput = (e) => {
+  const fileList = e.target?.files
+  if (fileList.length === 0) return
+  const file = fileList[0]
+  const reader = new FileReader()
+  reader.addEventListener('load', (e) => {
+    const previewUrl = e ? e.target.result : ''
+    uploadFileData.value = {
+      file,
+      previewUrl,
+    }
+  })
+  reader.readAsDataURL(file)
 }
 </script>
 
@@ -45,6 +84,17 @@ const startFetchSample = async () => {
             <ul>
               <li v-for="s in samples">{{ s }}</li>
             </ul>
+          </li>
+          <li>
+            <p>upload Image</p>
+            <div class="upload">
+              <input name="file-upload" type="file" accept="image/png, image/jpeg" @change="onChangeFileInput" />
+              <div v-if="uploadFileData.previewUrl" class="upload-preview">
+                <img :src="uploadFileData.previewUrl" />
+                <VFButton small @click="startUploadFile" :disabled="connecting">upload Image (sample bucket)</VFButton>
+              </div>
+              <p v-if="msg">{{ msg }}</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -135,6 +185,27 @@ li+li {
 
   100% {
     color: #969696;
+  }
+}
+
+.upload {
+  padding-left: calc(var(--unit) * 2);
+
+  &>* {
+    margin-top: calc(var(--unit) * 2);
+  }
+}
+
+.upload-preview {
+  display: flex;
+  align-items: flex-start;
+
+  img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: calc(var(--unit) * 2);
   }
 }
 </style>
