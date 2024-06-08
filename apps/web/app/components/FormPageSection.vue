@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useForm } from '~/composables/useForm'
+import { useI18n } from '#i18n'
 
 const {
   name,
@@ -18,6 +20,7 @@ const {
 } = useForm()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
+const { t } = useI18n()
 
 const updateName = (e: any) => {
   name.value = e.target.value
@@ -28,6 +31,16 @@ const updateEmail = (e: any) => {
 const updateDetail = (e: any) => {
   detail.value = e.target.value
 }
+
+const formNamePlaceholder = computed(() => {
+  return `${t('form.form_placeholder_example')}${t('form.form_name_placeholder')}`
+})
+const formEmailPlaceholder = computed(() => {
+  return `${t('form.form_placeholder_example')}hello@vuefes.jp`
+})
+const formTextPlaceholder = computed(() => {
+  return `${t('form.form_placeholder_example')}${t('form.form_text_placeholder')}`
+})
 </script>
 
 <template>
@@ -53,7 +66,7 @@ const updateDetail = (e: any) => {
             v-model="name"
             name="name"
             :label="$t('form.form_name_label')"
-            :placeholder="`${$t('form.form_placeholder_example')}${$t('form.form_name_placeholder')}`"
+            :placeholder="formNamePlaceholder"
             required
             :error="nameError"
             @input="updateName"
@@ -64,7 +77,7 @@ const updateDetail = (e: any) => {
             v-model="email"
             name="email"
             :label="$t('form.form_email_label')"
-            :placeholder="`${$t('form.form_placeholder_example')}hello@vuefes.jp`"
+            :placeholder="formEmailPlaceholder"
             required
             :error="emailError"
             @input="updateEmail"
@@ -74,7 +87,7 @@ const updateDetail = (e: any) => {
             id="detail"
             v-model="detail"
             name="detail"
-            :placeholder="`${$t('form.form_placeholder_example')}${$t('form.form_text_placeholder')}`"
+            :placeholder="formTextPlaceholder"
             :label="$t('form.form_text_label')"
             :rows="3"
             required
@@ -97,14 +110,14 @@ const updateDetail = (e: any) => {
 </template>
 
 <style scoped>
-@import url("~/assets/media.css");
+@import url('~/assets/media.css');
 
 section {
   position: relative;
   padding: 120px 20px 120px;
   background-image: linear-gradient(#fff, #ebf0f5);
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     inset: 0;
@@ -147,7 +160,7 @@ section {
 
   &::v-deep a:hover {
     opacity: 0.4;
-    transition: .2s;
+    transition: 0.2s;
   }
 }
 

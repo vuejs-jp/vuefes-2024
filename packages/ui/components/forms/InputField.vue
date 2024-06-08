@@ -54,7 +54,7 @@ const { fontWeight, fontSize } = useTypography()
     class="input-root"
     :class="{ '-error': errorMessage }"
   >
-    {{ label }}{{ placeholder }}
+    {{ label }}
     <input
       :id="id"
       v-model.trim="modelValue"
