@@ -1,24 +1,24 @@
-<script setup lang="ts">
+<script setup lang='ts'>
 import { InputHTMLAttributes, InputTypeHTMLAttribute } from 'vue'
 import { useTypography } from '@vuejs-jp/composable'
 import Typography from '../common/Typography.vue'
 
-type _InputFieldProps = Omit<InputHTMLAttributes, 'onInput' | 'onBlur'>
+type _InputFieldProps = Omit<InputHTMLAttributes, 'onInput' | 'onBlur'>;
 interface Props extends /* @vue-ignore */ _InputFieldProps {
-  id: string
-  name: string
-  type?: InputTypeHTMLAttribute
-  placeholder?: string
-  required?: boolean
-  disabled?: boolean
+  id: string,
+  name: string,
+  type?: InputTypeHTMLAttribute,
+  placeholder?: string,
+  required?: boolean,
+  disabled?: boolean,
   /* TextInput Label */
-  label: string
+  label: string;
   /* Error Message */
-  errorMessage?: string
-}
+  errorMessage?: string;
+};
 type Emits = {
-  blur: [value: string]
-}
+  blur: [value: string];
+};
 
 withDefaults(defineProps<Props>(), {
   id: '',
@@ -54,7 +54,7 @@ const { fontWeight, fontSize } = useTypography()
     class="input-root"
     :class="{ '-error': errorMessage }"
   >
-    {{ label }}{{ placeholder }}
+    {{ label }}
     <input
       :id="id"
       v-model.trim="modelValue"
@@ -69,9 +69,7 @@ const { fontWeight, fontSize } = useTypography()
       :disabled="disabled"
       @blur="handleBlur"
     />
-    <Typography v-if="errorMessage" variant="body/200" color="sangosyo/200">{{
-      errorMessage
-    }}</Typography>
+    <Typography v-if="errorMessage" variant="body/200" color="sangosyo/200">{{ errorMessage }}</Typography>
   </label>
 </template>
 
@@ -86,7 +84,7 @@ const { fontWeight, fontSize } = useTypography()
 }
 
 .input-root.-error .form-input {
-  --border: solid 2px #cc4f39;
+  --border: solid 2px #CC4F39;
 }
 
 .form-input {
