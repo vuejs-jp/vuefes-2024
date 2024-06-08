@@ -28,6 +28,8 @@
     "form_name_placeholder": "John Doe",
     "form_email_label": "Email",
     "form_text_label": "Your Inquiry",
+    "form_text_placeholder": "Inquiry",
+    "form_placeholder_example": "Example: ",
     "submit": "Submit",
     "submit_done": "Successfully sent your message."
   },
