@@ -1,0 +1,36 @@
+import { StoryFn } from '@storybook/vue3'
+import Avatar from './Avatar.vue'
+
+export default {
+  title: 'Speaker/Avatar',
+  component: Avatar,
+  args: {
+    src: '../assets/avatar/avatar_sample.jpg',
+    alt: 'sample',
+  },
+  argTypes: {
+    src: {
+      description: 'Image source url property',
+      control: {
+        type: 'text',
+      },
+    },
+    alt: {
+      description: 'Image alt property',
+      control: {
+        type: 'text',
+      },
+    },
+  },
+}
+
+const Template: StoryFn<unknown> = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { Avatar },
+  setup() {
+    return { args }
+  },
+  template: '<Avatar v-bind="args" />',
+})
+
+export const Default = Template.bind({})
