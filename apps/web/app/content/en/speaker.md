@@ -1,9 +1,9 @@
-Want to be a speaker at Vue Fes Japan 2024?
+Would you like to speak at Vue Fes Japan 2024?
 
-Share your unique knowledge and experience of Vue and its ecosystem with the rest of Japan at one of the largest Vue.js conferences in Japan.
+Share your insights and experiences on Vue.js and its ecosystem with audiences across Japan at one of the largest Vue.js conferences in the country.
 
-Vue Fes Japan 2024 will use the CFP (Call for Papers) system to solicit speaker presentations from the general public, and the Vue Fes Japan 2024 Organizing Committee will make a selection of the submissions to be used as the official sessions.
+At Vue Fes Japan 2024, we're inviting speakers from a wide range of backgrounds to submit proposals through our Call for Papers (CFP) process. The Vue Fes Japan 2024 organizing committee will review submissions and select them for inclusion as official sessions.
 
-Two presentation formats are available: a 30-minute "Session" and a 5-minute "Lightning Talk (LT)".
+We offer two presentation formats: 30-minute sessions and 5-minute Lightning Talks (LT).
 
-We are looking forward to hearing your passionate presentation on your love of Vue!
+We're eagerly awaiting passionate presentations from those who adore Vue!
