@@ -84,6 +84,7 @@ const iconColor = computed(() => {
   justify-content: center;
   align-items: center;
   width: 100%;
+  border-color: transparent;
   border-radius: var(--height-button);
   text-decoration: none;
   cursor: pointer;
