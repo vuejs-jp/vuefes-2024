@@ -1,43 +1,19 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
-import { type Router } from 'vue-router'
+import { computed, onMounted, ref } from 'vue'
 
 const LANGUAGES = {
   JAPANESE: 'ja',
   ENGLISH: 'en',
 } as const
 
-const props = defineProps<{ router: Router }>()
-const emits = defineEmits<{ toggle: [value: string] }>()
+const props = defineProps<{ locale: string }>()
 
 const isLoaded = ref(false)
-const isChecked = ref(false)
+const isChecked = computed(() => props.locale === LANGUAGES.ENGLISH)
 
-const getPath = () => {
-  if (isChecked.value) {
-    return `/${LANGUAGES.ENGLISH}${props.router.currentRoute.value.path}`
-  }
-  return props.router.currentRoute.value.path.replace(`/${LANGUAGES.ENGLISH}`, '')
-}
-const setSwitchStatus = () => {
-  isChecked.value = props.router.currentRoute.value.path.includes(`/${LANGUAGES.ENGLISH}`)
-}
-
-const toggleStatus = () => {
-  isChecked.value = !isChecked.value
-  const path = getPath()
-  emits('toggle', path)
-}
 onMounted(() => {
-  setSwitchStatus()
   isLoaded.value = true
 })
-watch(
-  () => props.router.currentRoute.value.path,
-  () => {
-    setSwitchStatus()
-  },
-)
 </script>
 
 <template>
@@ -48,7 +24,7 @@ watch(
     class="locale-switch-button"
     aria-label="translate english"
     :aria-checked="isChecked"
-    @click="toggleStatus"
+    @click="() => {}"
   >
     <span
       class="locale-switch-button-switch"

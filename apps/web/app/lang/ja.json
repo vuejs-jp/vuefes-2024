@@ -34,6 +34,10 @@
     "start_date": "5.13",
     "end_date": "4.25"
   },
+
+  "partner": {
+    "title": "協力パートナー"
+  },
   "form": {
     "title": "お問い合わせ",
     "form_name_label": "お名前",

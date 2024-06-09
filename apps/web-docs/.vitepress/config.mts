@@ -9,6 +9,7 @@ export default defineConfig({
     nav: [
       { text: 'Top', link: '/' },
       { text: 'CSS', link: '/css/getting-started' },
+      { text: 'Supabase', link: '/supabase/getting-started' },
     ],
 
     sidebar: [
@@ -16,6 +17,7 @@ export default defineConfig({
         text: 'Examples',
         items: [
           { text: 'CSS', link: '/css/getting-started' },
+          { text: 'Supabase', link: '/supabase/getting-started' },
         ],
       },
     ],
