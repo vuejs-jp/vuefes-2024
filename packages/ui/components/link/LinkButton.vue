@@ -40,7 +40,7 @@ const style = computed(() => {
     fontWeight: fontWeight('heading/200'),
     backgroundColor: updateColor(props.backgroundColor),
     color: updateColor(props.color),
-    boxShadow: `0 2px 10px rgb(53, 73, 95, 0.14), inset 0px 0px 0px 2px ${updateColor(props.color)}`,
+    boxShadow: props.backgroundColor === 'white' ? `0 2px 10px rgb(53, 73, 95, 0.14), inset 0px 0px 0px 2px ${updateColor(props.color)}` : '',
   }
 })
 const iconColor = computed(() => {
@@ -88,7 +88,6 @@ const iconColor = computed(() => {
   border-radius: var(--height-button);
   text-decoration: none;
   cursor: pointer;
-  box-shadow: var(--box-shadow-button);
 }
 .link-button:hover {
   transition: 0.2s;
