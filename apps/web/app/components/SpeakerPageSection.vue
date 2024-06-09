@@ -20,7 +20,7 @@ const endPeriodDate = {
 const endPeriodTime = {
   hour: t('speaker.end_hour'),
   minute: t('speaker.end_minute'),
-  ampm: t('speaker.end_ampm'),
+  ampm: currentLocale.value === 'en' && t('speaker.end_ampm'),
 }
 </script>
 
@@ -35,21 +35,17 @@ const endPeriodTime = {
         <MarkDownText path="speaker" />
       </div>
 
-      <h3
-        :style="{
-          fontWeight: fontWeight('heading/400'),
-          fontSize: fontSize('heading/300'),
-        }"
-        class="speaker-subtitle"
-      >
+      <h3 class="speaker-subtitle">
         {{ $t('speaker.application_period') }}
       </h3>
       <div class="speaker-end-period">
         <span class="speaker-end-period-text"> {{ $t('speaker.application_period_before') }} </span>
-        <VFDateTime :date="endPeriodDate" :time="endPeriodTime" />
-        <span v-if="currentLocale !== 'en'" class="speaker-end-period-text">
-          {{ $t('speaker.application_period_after') }}</span
-        >
+        <div class="speaker-end-period--inner">
+          <VFDateTime :date="endPeriodDate" :time="endPeriodTime" />
+          <span v-if="currentLocale !== 'en'" class="speaker-end-period-text">
+            {{ $t('speaker.application_period_after') }}</span
+          >
+        </div>
       </div>
 
       <div class="speaker-buttons">
@@ -136,25 +132,41 @@ const endPeriodTime = {
 }
 
 .speaker-subtitle {
+  --subtitle-font-size: 1.5rem;
+  --subtitle-font-weight: 700;
+
+  font-size: var(--subtitle-font-size);
+  font-weight: var(--subtitle-font-weight);
   text-align: center;
   line-height: 1.2;
   margin-top: calc(var(--unit) * 5);
   margin-bottom: calc(var(--unit) * 2.5);
   background: var(--color-vue-green-gradation);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
 }
 
 .speaker-end-period {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.speaker-end-period--inner {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-end;
 }
 
 .speaker-end-period-text {
+  --end-period-font-size: 1.25rem;
+
   display: inline-block;
   color: var(--color-vue-blue);
-  font-size: 20px;
+  font-size: var(--end-period-font-size);
+  font-weight: 600;
   line-height: 1.5;
 }
 
@@ -196,6 +208,7 @@ const endPeriodTime = {
 
   .speaker-text {
     --body-font-size: 1rem;
+    margin-top: calc(var(--unit) * 3.75);
 
     & :deep(p) {
       --body-p-margin-bottom: 29px;
@@ -203,7 +216,15 @@ const endPeriodTime = {
   }
 
   .speaker-subtitle {
+    --subtitle-font-size: 1.25rem;
+
     margin-top: calc(var(--unit) * 3.75);
+  }
+
+  .speaker-end-period-text {
+    --end-period-font-size: 1.125rem;
+
+    line-height: 1.2;
   }
 
   .speaker-buttons {
@@ -224,8 +245,15 @@ const endPeriodTime = {
 }
 
 @media (--mobile) {
-  .speaker-button {
-    --height-button: 58px;
+  .speaker-end-period {
+    flex-direction: column;
+    align-items: self-start;
+  }
+  .speaker-end-period--inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
   }
 }
 </style>

@@ -19,11 +19,11 @@
   "speaker": {
     "title": "スピーカー",
     "application_period": "募集スケジュール",
-    "application_period_before": "募集期限：",
+    "application_period_before": "応募期限：",
     "application_period_after": "まで",
     "apply": "申し込む",
     "end_date": "6.30",
-    "end_hour": "12",
+    "end_hour": "24",
     "end_minute": "00"
   },
   "sponsor": {
