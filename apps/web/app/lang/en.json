@@ -17,9 +17,9 @@
     "application_period_before": "Application Deadline：",
     "application_period_after": "",
     "apply": "Apply",
-    "end_date": "6.30",
-    "end_hour": "12",
-    "end_minute": "00",
+    "end_date": "June 30",
+    "end_hour": "11",
+    "end_minute": "59",
     "end_ampm": "pm"
   },
   "sponsor": {

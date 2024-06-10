@@ -12,17 +12,11 @@ const { translate } = useTranslation()
 
 const currentLocale = useLocaleCurrent().locale
 
-const prefixYear = computed(() => {
-  if (currentLocale.value === 'en') {
-    return t('suffix_year')
-  }
-  return t('prefix_year')
-})
-
 const endPeriodDate = {
-  prefixYear: prefixYear.value,
+  prefixYear: t('prefix_year'),
+  suffixyear: t('suffix_year'),
   date: t('speaker.end_date'),
-  dayOfWeek: translate('day_of_week.monday'),
+  dayOfWeek: translate('day_of_week.sunday'),
 }
 const endPeriodTime = {
   hour: t('speaker.end_hour'),
