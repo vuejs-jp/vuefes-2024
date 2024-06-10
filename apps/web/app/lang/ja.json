@@ -23,13 +23,18 @@
     "check_doc": "資料を見る",
     "start_date": "5.13",
     "end_date": "4.25"
-    },
+  },
+  "partner": {
+    "title": "協力パートナー"
+  },
   "form": {
     "title": "お問い合わせ",
     "form_name_label": "お名前",
     "form_name_placeholder": "山田太郎",
     "form_email_label": "メールアドレス",
     "form_text_label": "お問い合わせ内容",
+    "form_text_placeholder": "お問い合わせ",
+    "form_placeholder_example": "入力例：",
     "submit": "送信する",
     "submit_done": "メッセージ送信に成功しました。"
   },

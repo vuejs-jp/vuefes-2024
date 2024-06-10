@@ -8,7 +8,7 @@
   "suffix_year": "2024",
   "top_page": {
     "latest_information": "Get the latest information on our official social media",
-    "date": "Octover 19th, 2024",
+    "date": "October 19th, 2024",
     "note": "note official"
   },
   "sponsor": {
@@ -18,13 +18,18 @@
     "check_doc": "View Sponsorship materials",
     "start_date": "May 13",
     "end_date": "25,"
-    },
+  },
+  "partner": {
+    "title": "Partners"
+  },
   "form": {
     "title": "Inquiry",
     "form_name_label": "Name",
     "form_name_placeholder": "John Doe",
     "form_email_label": "Email",
     "form_text_label": "Your Inquiry",
+    "form_text_placeholder": "Inquiry",
+    "form_placeholder_example": "Example: ",
     "submit": "Submit",
     "submit_done": "Successfully sent your message."
   },

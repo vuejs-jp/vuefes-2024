@@ -8,4 +8,7 @@ hero:
     - theme: brand
       text: CSS
       link: /css/getting-started
+    - theme: brand
+      text: Supabase
+      link: /supabase/getting-started
 ---
