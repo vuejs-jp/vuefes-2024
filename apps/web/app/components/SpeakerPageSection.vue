@@ -3,6 +3,7 @@ import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
 import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
+import { cfpEnUrl, cfpJaUrl } from '~/utils/constants'
 
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
@@ -50,7 +51,12 @@ const endPeriodTime = {
       </div>
 
       <div class="speaker-buttons">
-        <VFLinkButton class="speaker-button" href="" background-color="vue-green/200" color="white">
+        <VFLinkButton
+          class="speaker-button"
+          :href="currentLocale !== 'en' ? cfpJaUrl : cfpEnUrl"
+          background-color="vue-green/200"
+          color="white"
+        >
           {{ $t('speaker.apply') }}
         </VFLinkButton>
       </div>
