@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
-import { useRuntimeConfig } from '#imports'
+import { useFetch, useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
+import SponsorList from './sponsor/SponsorList.vue'
+import type { SponsorInfo, SponsorCategories } from '~/types/app'
+
+type Sponsors = Record<SponsorCategories, SponsorInfo>
 
 const config = useRuntimeConfig()
 const { fontWeight, fontSize } = useTypography()
@@ -17,11 +21,22 @@ const periodStart = {
   dayOfWeek: translate('day_of_week.monday'),
 }
 
-// const periodEnd = {
-//   suffixYear: t('suffix_year'),
-//   date: t('sponsor.end_date'),
-//   dayOfWeek: translate('day_of_week.thursday'),
-// }
+const { data, error } = await useFetch('/api/sponsors')
+if (error.value) {
+  console.error(error.value)
+}
+const {
+  platinumSponsors,
+  goldSponsors,
+  silverSponsors,
+  bronzeSponsors,
+  specialNamingRightSponsors,
+  specialLunchSponsors,
+  afterPartySponsors,
+  nameCardSponsors,
+  simultaneousInterpretationSponsors,
+  mediaSponsors,
+} = data.value as Sponsors
 </script>
 
 <template>
@@ -76,6 +91,20 @@ const periodStart = {
           {{ $t('sponsor.check_doc') }}
         </VFLinkButton>
       </div>
+      <SponsorList v-bind="platinumSponsors" />
+      <SponsorList v-bind="goldSponsors" />
+      <SponsorList v-bind="silverSponsors" />
+      <SponsorList v-bind="bronzeSponsors" />
+      <SponsorList v-bind="specialNamingRightSponsors" />
+      <div class="sponsor-list-layout-separate">
+        <SponsorList v-bind="specialLunchSponsors" />
+        <SponsorList v-bind="afterPartySponsors" />
+      </div>
+      <div class="sponsor-list-layout-separate">
+        <SponsorList v-bind="nameCardSponsors" />
+        <SponsorList v-bind="simultaneousInterpretationSponsors" />
+      </div>
+      <SponsorList v-bind="mediaSponsors" />
     </article>
   </div>
 </template>
@@ -160,6 +189,11 @@ const periodStart = {
   border-radius: var(--height-button);
 }
 
+.sponsor-list-layout-separate {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 @media (--tablet) {
   .sponsor {
     --sponsor-padding: calc(var(--unit) * 2) 0;
@@ -185,6 +219,9 @@ const periodStart = {
 
     width: 100%;
     max-width: none;
+  }
+  .sponsor-list-layout-separate {
+    display: contents;
   }
 }
 

@@ -10,6 +10,10 @@
   --color-vue-green100: #42b883;
   --color-vue-green200: #208558;
   --color-disabled: #c6cacf;
+  --color-hiwamoegi200: #6e8f2e;
+  --color-tohoh200: #e5af00;
+  --color-asagi200: #1a8191;
+  --color-sangosyo200: #cc4f39;
 
   /* gradation */
   --color-vue-green-gradation: linear-gradient(to right, #42b883, #41b8aa);
