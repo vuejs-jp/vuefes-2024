@@ -4,9 +4,9 @@ import { useFetch, useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
 import SponsorList from './sponsor/SponsorList.vue'
-import type { SponsorInfo, SponsorCategories } from '~/types/app'
+import type { SponsorInfo, SponsorCategory } from '~/types/app'
 
-type Sponsors = Record<SponsorCategories, SponsorInfo>
+type Sponsors = Record<SponsorCategory, SponsorInfo>
 
 const config = useRuntimeConfig()
 const { fontWeight, fontSize } = useTypography()
