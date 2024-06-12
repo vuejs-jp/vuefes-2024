@@ -5,7 +5,7 @@ export default {
   title: 'Speaker/Avatar',
   component: Avatar,
   args: {
-    src: '../assets/avatar/avatar_sample.jpg',
+    src: '/avatar/avatar_sample.jpg',
     alt: 'sample',
   },
   argTypes: {

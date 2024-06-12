@@ -5,7 +5,7 @@ export default {
   title: 'Speaker/Speaker',
   component: Speaker,
   args: {
-    image: '../assets/avatar/avatar_sample.jpg',
+    image: '/avatar/avatar_sample.jpg',
     company: 'Sample Company Name',
     division: 'Sample Divison',
     name: 'Sample Name',
