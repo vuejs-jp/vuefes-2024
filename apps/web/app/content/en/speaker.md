@@ -6,4 +6,4 @@ At Vue Fes Japan 2024, we're inviting speakers from a wide range of backgrounds 
 
 We offer two presentation formats: 30-minutes sessions and 5-minutes Lightning Talks (LT).
 
-We're eagerly awaiting passionate presentations from those who adore Vue!
+We're eagerly awaiting passionate presentations from those who adore Vue.js!
