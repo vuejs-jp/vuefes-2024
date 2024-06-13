@@ -11,6 +11,17 @@
     "date": "October 19th, 2024",
     "note": "note official"
   },
+  "speaker": {
+    "title": "Speakers",
+    "application_period": "Application Period",
+    "application_period_before": "Application Deadline：",
+    "application_period_after": "",
+    "apply": "Apply",
+    "end_date": "July 21",
+    "end_hour": "12",
+    "end_minute": "00",
+    "end_ampm": "pm"
+  },
   "sponsor": {
     "title": "Sponsors",
     "apply": "Apply",
