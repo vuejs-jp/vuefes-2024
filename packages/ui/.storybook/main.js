@@ -5,6 +5,7 @@ import { fileURLToPath, URL } from 'url'
 
 module.exports = {
   stories: ['../components/**/*.stories.mdx', '../components/**/*.stories.@(js|ts)'],
+  staticDirs: ['../assets'],
   addons: [
     '@chromatic-com/storybook',
     '@storybook/addon-a11y',
