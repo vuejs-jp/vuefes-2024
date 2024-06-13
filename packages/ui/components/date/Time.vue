@@ -45,12 +45,16 @@ const { color } = useColor()
 </template>
 
 <style scoped>
+@import url('~/assets/media.css');
+
 .timewrapper {
   display: inline;
   line-height: 1;
 }
 
-.hour, .minute, .separator {
+.hour,
+.minute,
+.separator {
   display: inline-block;
   font-size: 45px;
   font-weight: 600;
@@ -58,5 +62,13 @@ const { color } = useColor()
 .ampm {
   font-size: 24px;
   font-weight: 600;
+}
+
+@media (--tablet) {
+  .hour,
+  .minute,
+  .separator {
+    font-size: 38px;
+  }
 }
 </style>

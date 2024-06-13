@@ -7,6 +7,7 @@
   "prefix_year": "2024",
   "suffix_year": "",
   "day_of_week": {
+    "sunday": "日",
     "monday": "月",
     "tuesday": "火",
     "thursday": "木"
@@ -16,6 +17,16 @@
     "date": "2024.10.19",
     "note": "公式 note"
   },
+  "speaker": {
+    "title": "スピーカー",
+    "application_period": "募集スケジュール",
+    "application_period_before": "応募期限：",
+    "application_period_after": "まで",
+    "apply": "申し込む",
+    "end_date": "7.21",
+    "end_hour": "24",
+    "end_minute": "00"
+  },
   "sponsor": {
     "title": "スポンサー",
     "apply": "申し込む",
@@ -24,6 +35,7 @@
     "start_date": "5.13",
     "end_date": "4.25"
   },
+
   "partner": {
     "title": "協力パートナー"
   },

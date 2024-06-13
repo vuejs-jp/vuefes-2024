@@ -20,7 +20,6 @@ const { color } = useColor()
     <span
       v-if="prefixYear"
       :style="{
-        fontSize: fontSize('heading/300'),
         color: color('vue-blue'),
       }"
       class="year prefix-year"
@@ -30,7 +29,6 @@ const { color } = useColor()
     <!-- date -->
     <span
       :style="{
-        fontSize: fontSize('heading/700'),
         color: color('vue-blue'),
       }"
       class="date"
@@ -54,7 +52,6 @@ const { color } = useColor()
     <span
       v-if="suffixYear"
       :style="{
-        fontSize: fontSize('heading/300'),
         color: color('vue-blue'),
       }"
       class="year suffix-year"
@@ -65,6 +62,8 @@ const { color } = useColor()
 </template>
 
 <style scoped>
+@import url('~/assets/media.css');
+
 .datewrapper {
   display: inline;
   line-height: 1;
@@ -73,6 +72,7 @@ const { color } = useColor()
 .year {
   display: inline-block;
   font-size: 24px;
+  font-weight: 600;
 }
 .prefix-year {
   margin-right: 6px;
@@ -83,7 +83,8 @@ const { color } = useColor()
 
 .date {
   display: inline-block;
-  letter-spacing: 0.2rem;
+  font-size: 45px;
+  font-weight: 600;
 }
 
 .day-of-week {
@@ -96,5 +97,15 @@ const { color } = useColor()
   height: 20px;
   border-radius: 2px;
   margin-left: 4px;
+}
+
+@media (--tablet) {
+  .year {
+    font-size: 18px;
+  }
+
+  .date {
+    font-size: 38px;
+  }
 }
 </style>

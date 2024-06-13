@@ -10,6 +10,8 @@ export function useLocale(path: Path) {
     match<Path>(path)
       .with('form', () => `/${locale.value}/contact`)
       .with('message', () => `/${locale.value}/message`)
+      .with('speaker', () => `/${locale.value}/speaker`)
+      .with('speaker_information', () => `/${locale.value}/speaker_information`)
       .with('privacy', () => `/${locale.value}/privacy`)
       .with('sponsor', () => `/${locale.value}/sponsor`)
       .with('code-of-conduct', () => `/${locale.value}/code-of-conduct`)
