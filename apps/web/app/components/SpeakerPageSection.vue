@@ -204,8 +204,10 @@ const endPeriodTime = {
 
 .speaker-section {
   --speaker-section-margin: calc(var(--unit) * 7.5) 0;
+  --speaker-section-padding: 0 3%;
 
   margin: var(--speaker-section-margin);
+  padding: var(--speaker-section-padding);
 }
 
 .speaker-subtitle {
@@ -227,7 +229,7 @@ const endPeriodTime = {
   margin: var(--speaker-cards-margin);
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--speaker-cards-gap);
 }
 /* ここまで */
@@ -369,6 +371,18 @@ const endPeriodTime = {
 
   .speaker-text {
     --speaker-text-padding: 0 4.5%;
+  }
+
+  .speaker-section {
+    --speaker-section-margin: calc(var(--unit) * 6.25) 0;
+  }
+
+  .speaker-cards {
+    --speaker-cards-margin: calc(var(--unit) * 3.5) 0 0;
+    --speaker-cards-gap: 43px 14px;
+
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--speaker-cards-gap);
   }
   /* ここまで */
 
