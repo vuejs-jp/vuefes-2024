@@ -12,6 +12,6 @@ export const linkUrl = 'https://vuefes.jp/2024/'
 
 export const vuefesTwitterID = '@vuefes'
 
-export const cfpJaUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeNCaf74mxCGD-UdtJs2fkQ9p2xm7S-SFt0CqPSCcy-X8FrJQ/viewform'
+export const cfpJaUrl = 'https://docs.google.com/forms/d/1FRbRA6pAwzlcW1mtYxDPKmwIntwm0b3th4NBR6-pkoI/viewform'
 
-export const cfpEnUrl = ''
+export const cfpEnUrl = 'https://docs.google.com/forms/d/1vjDr4ITLrFM58wGfoETC6JeHMAIZVUyrmSI9-9KiaeA/viewform'
