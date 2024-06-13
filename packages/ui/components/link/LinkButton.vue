@@ -42,7 +42,7 @@ const style = computed(() => {
     color: updateColor(props.color),
     boxShadow: props.backgroundColor === 'white'
       ? `0 2px 10px rgb(53, 73, 95, 0.14), inset 0px 0px 0px 2px ${updateColor(props.color)}`
-      : '0 2px 10px rgba(50, 168, 82, 14%)',
+      : '0 2px 10px rgba(53, 73, 94, 14%)',
   }
 })
 const iconColor = computed(() => {
