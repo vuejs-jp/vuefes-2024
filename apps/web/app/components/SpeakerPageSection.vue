@@ -1,87 +1,37 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
+import speakerData from '../assets/data/speaker.json'
 
 type Speaker = {
   id: string
   name: string
-  image: string
-  company: string
-  division: string
-  githubId?: string
-  xId?: string
-
-  // id: string
-  // name: string
-  // image_url: string
-  // caption_ja: string
-  // caption_en: string
-  // description_ja: string
-  // description_en: string
-  // github_url: string
-  // x_url: string
-  // session_title_ja: string
-  // session_title_en: string
-  // session_description_ja: string
-  // session_description_en: string
-  // session_comment_ja: string
-  // session_comment_en: string
-  // session_place: string
-  // session_time_from: string
-  // session_time_duration: number
-  // session_doc_title_ja: string
-  // session_doc_title_en: string
-  // session_doc_url: string
-  // created_at: string
-  // updated_at: string
+  image_url?: string
+  caption_ja?: string
+  caption_en?: string
+  description_ja: string
+  description_en: string
+  github_id?: string
+  x_id?: string
+  session_title_ja?: string
+  session_title_en?: string
+  session_description_ja?: string
+  session_description_en?: string
+  session_comment_ja?: string
+  session_comment_en?: string
+  session_place?: string
+  session_time_from: string
+  session_time_duration: number
+  session_doc_title_ja?: string
+  session_doc_title_en?: string
+  session_doc_url?: string
+  created_at: string
+  updated_at: string
 }
 
-const speakers = ref<Speaker[]>([
-  {
-    id: '',
-    name: 'Evan You',
-    company: '',
-    division: 'Creator of Vue / Vite',
-    githubId: 'yyx990803',
-    xId: 'youyuxi',
-    image: '/speaker/evan-you.png',
-  },
-  {
-    id: '',
-    name: 'Anthony Fu',
-    company: '',
-    division: 'Vue/Vite/Nuxt Core Team Member',
-    githubId: 'antfu',
-    xId: 'antfu7',
-    image: '/speaker/anthony-fu.png',
-  },
-  {
-    id: '',
-    name: 'Boshen Chen',
-    company: '',
-    division: 'Creator of Oxc',
-    githubId: 'boshen',
-    xId: 'boshen_c',
-    image: '/speaker/boshen-chen.png',
-  },
-  {
-    id: '',
-    name: 'Kevin Deng',
-    company: '',
-    division: 'Vue Core Team Member / Creator of Vue Vapor',
-    githubId: 'sxzz',
-    xId: 'sanxiaozhizi',
-    image: '/speaker/kevin-deng.png',
-  },
-  {
-    id: '',
-    name: 'Pooya Parsa',
-    company: '',
-    division: 'Creator of Nitro and UnJS, Nuxt core team',
-    githubId: 'pi0',
-    xId: '_pi0_',
-    image: '/speaker/pooya-parsa.png',
-  },
-])
+const speakers = ref<Speaker[]>(speakerData)
+
+const currentLocale = useLocaleCurrent().locale
 </script>
 
 <template>
@@ -98,12 +48,12 @@ const speakers = ref<Speaker[]>([
         <ul class="speaker-cards">
           <li v-for="speaker in speakers" :key="speaker.id" class="speaker-card">
             <VFSpeaker
-              :image="speaker.image"
-              :company="speaker.company"
-              :division="speaker.division"
+              :image="speaker.image_url"
+              :company="currentLocale === 'en' ? speaker.caption_en : speaker.caption_ja"
+              :division="currentLocale === 'en' ? speaker.description_en : speaker.description_ja"
               :name="speaker.name"
-              :github-id="speaker.githubId"
-              :x-id="speaker.xId"
+              :github-id="speaker.github_id"
+              :x-id="speaker.x_id"
             />
           </li>
         </ul>

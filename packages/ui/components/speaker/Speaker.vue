@@ -7,6 +7,7 @@ type SpeakerProps = {
   image: string
   company?: string
   division: string
+  divisionEn: string
   name: string
   githubId?: string
   xId?: string
