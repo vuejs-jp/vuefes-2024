@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
-import { useColor, useTypography } from '@vuejs-jp/composable'
+import { useColor } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
 import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
 import { cfpEnUrl, cfpJaUrl } from '~/utils/constants'
 
-const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 
 const { t } = useI18n()
