@@ -63,8 +63,6 @@ const endPeriodTime = {
     <div
       class="cfp-more-information"
       :style="{
-        fontWeight: fontWeight('body/200'),
-        fontSize: fontSize('body/400'),
         color: color('vue-blue'),
       }"
     >
@@ -166,9 +164,15 @@ const endPeriodTime = {
 }
 
 .cfp-more-information {
+  --cfp-more-information-font-size: 1.125rem;
+  --cfp-more-information-font-weight: 500;
+
   margin-top: calc(var(--unit) * 2.5);
   display: flex;
   justify-content: center;
+  font-size: var(--cfp-more-information-font-size);
+  font-weight: var(--cfp-more-information-font-weight);
+  line-height: 1.8;
 
   &::v-deep a {
     color: var(--color-vue-green200);
@@ -216,6 +220,10 @@ const endPeriodTime = {
 
     width: 100%;
     max-width: none;
+  }
+
+  .cfp-more-information {
+    --cfp-more-information-font-size: 1rem;
   }
 }
 

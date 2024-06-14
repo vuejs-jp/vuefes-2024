@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Typography from '../common/Typography.vue'
 import IconButton from '../icon/IconButton.vue'
 import Avatar from './Avatar.vue'
+import { useColor } from '@vuejs-jp/composable'
 
 type SpeakerProps = {
   image: string
@@ -13,6 +13,8 @@ type SpeakerProps = {
 }
 
 defineProps<SpeakerProps>()
+
+const { color } = useColor()
 </script>
 
 <template>
@@ -20,10 +22,30 @@ defineProps<SpeakerProps>()
     <Avatar :src="image" :alt="name" />
     <div class="speaker-info">
       <div class="speaker-affiliation">
-        <Typography v-if="company" variant="body/200" color="vue-blue">{{ company }}</Typography>
-        <Typography variant="body/200" color="vue-blue">{{ division }}</Typography>
+        <p
+          v-if="company"
+          :style="{
+            color: color('vue-blue'),
+          }"
+        >
+          {{ company }}
+        </p>
+        <p
+          :style="{
+            color: color('vue-blue'),
+          }"
+        >
+          {{ division }}
+        </p>
       </div>
-      <Typography variant="heading/300" color="vue-blue">{{ name }}</Typography>
+      <h3
+        class="speaker-name"
+        :style="{
+          color: color('vue-blue'),
+        }"
+      >
+        {{ name }}
+      </h3>
     </div>
     <div class="speaker-sns-icons">
       <IconButton
@@ -59,6 +81,19 @@ defineProps<SpeakerProps>()
   gap: calc(var(--unit));
 }
 
+.speaker-affiliation {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.speaker-name {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.66px;
+}
+
 .speaker-sns-icons {
   display: flex;
   gap: calc(var(--unit) * 2);
@@ -70,5 +105,30 @@ defineProps<SpeakerProps>()
   justify-content: center;
   width: calc(var(--unit) * 3);
   height: calc(var(--unit) * 3);
+}
+
+/* TODO: メディアクエリは変数に変えたい（--mobile） */
+@media (width <= 480px) {
+  .speaker-wrapper {
+    gap: calc(var(--unit));
+  }
+
+  .speaker-name {
+    font-size: 0.875rem;
+    letter-spacing: 0.4px;
+  }
+
+  .speaker-affiliation {
+    font-size: 0.6875rem;
+  }
+
+  .speaker-sns-icons {
+    gap: calc(var(--unit) * 1.5);
+  }
+
+  .speaker-sns-icon {
+    width: calc(var(--unit) * 2.25);
+    height: calc(var(--unit) * 2.25);
+  }
 }
 </style>

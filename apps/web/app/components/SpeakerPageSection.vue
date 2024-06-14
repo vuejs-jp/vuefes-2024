@@ -77,7 +77,7 @@ const speakers = ref<Speaker[]>([
     name: 'Pooya Parsa',
     company: '',
     division: 'Creator of Nitro and UnJS, Nuxt core team',
-    githubId: 'kazupon',
+    githubId: 'pi0',
     xId: '_pi0_',
     image: '/speaker/pooya-parsa.png',
   },
@@ -117,12 +117,13 @@ const speakers = ref<Speaker[]>([
 
 .speaker {
   --speaker-padding: calc(var(--unit) * 7.5) 0;
+  --speaker-row-gap: 40px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 40px;
+  row-gap: var(--speaker-row-gap);
   padding: var(--speaker-padding);
   color: var(--color-vue-blue);
   position: relative;
@@ -151,12 +152,12 @@ const speakers = ref<Speaker[]>([
 
 .speaker-body {
   margin: 0 1.5%;
-  max-width: 960px;
+  max-width: calc(960px + 6%);
   isolation: isolate;
 }
 
 .speaker-text {
-  --speaker-text-padding: 0 calc(var(--unit) * 12);
+  --speaker-text-padding: 0 calc(var(--unit) * 12 + 6%);
   --speaker-text-font-size: 1.125rem;
   --speaker-text-font-weight: 500;
 
@@ -201,6 +202,7 @@ const speakers = ref<Speaker[]>([
 @media (--tablet) {
   .speaker {
     --speaker-padding: calc(var(--unit) * 2) 0;
+    --speaker-row-gap: 0px;
   }
 
   .speaker-body {
@@ -209,6 +211,7 @@ const speakers = ref<Speaker[]>([
 
   .speaker-text {
     --speaker-text-padding: 0 4.5%;
+    --speaker-text-font-size: 1rem;
   }
 
   .speaker-section {
