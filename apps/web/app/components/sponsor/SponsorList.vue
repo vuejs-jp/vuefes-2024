@@ -132,6 +132,9 @@ defineProps<Props>()
   &::after {
     content: '';
   }
+  @media (--mobile) {
+    grid-template-columns: 1rem auto 1rem;
+  }
 }
 .sponsor-list-item-image {
   width: 100%;

@@ -1,6 +1,6 @@
 type SponsorType = 'platinum' | 'gold' | 'silver' | 'bronze' | 'option' | 'option-separate'
 
-export type SponsorCategories =
+export type SponsorCategory =
   | 'platinumSponsors'
   | 'goldSponsors'
   | 'silverSponsors'
