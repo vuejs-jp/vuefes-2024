@@ -30,10 +30,18 @@ defineProps<SpeakerProps>()
         v-if="githubId"
         :href="`https://github.com/${githubId}`"
         color="vue-blue"
-        name="GitHub"
-        can-hover
+        name="GitHub24"
+        target-blank
+        class="speaker-sns-icon"
       />
-      <IconButton v-if="xId" :href="`https://x.com/${xId}`" color="vue-blue" name="x" can-hover />
+      <IconButton
+        v-if="xId"
+        :href="`https://x.com/${xId}`"
+        color="vue-blue"
+        name="x24"
+        target-blank
+        class="speaker-sns-icon"
+      />
     </div>
   </div>
 </template>
@@ -53,13 +61,14 @@ defineProps<SpeakerProps>()
 
 .speaker-sns-icons {
   display: flex;
-  gap: calc(var(--unit) * 2.25);
+  gap: calc(var(--unit) * 2);
 }
 
-@media (--mobile) {
-  img {
-    width: 168px;
-    height: 168px;
-  }
+.speaker-sns-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--unit) * 3);
+  height: calc(var(--unit) * 3);
 }
 </style>
