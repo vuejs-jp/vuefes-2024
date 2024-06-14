@@ -32,7 +32,7 @@ const style = computed(() => {
     return {
       fontWeight: fontWeight('heading/200'),
       color: updateColor(props.backgroundColor),
-      backgroundColor: updateColor(props.color),
+      backgroundColor: props.color === 'vue-blue' ? updateColor(props.color) : updateColor('vue-green/200'),
       boxShadow: `0 0 0 2px ${updateColor(props.backgroundColor)} inset`,
     }
   }
