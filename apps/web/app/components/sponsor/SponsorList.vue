@@ -132,7 +132,7 @@ defineProps<Props>()
   &::after {
     content: '';
   }
-  @media (--mobile) {
+  @media (--tablet) {
     grid-template-columns: 1rem auto 1rem;
   }
 }
