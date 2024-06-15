@@ -3,210 +3,210 @@
     "id": "7005275e-b74f-4456-bdaa-11de99dd0207",
     "name": "弁護士ドットコム株式会社",
     "image_url": "/sponsor/logo/p-Bengoshidotcom570322_rgb.png",
-    "option_categories": ["platinum"],
+    "tag": ["platinum"],
     "link_url": "https://www.bengo4.com/corporate/"
   },
   {
     "id": "08ad360e-3503-4383-b6f0-ee76296a9a0c",
     "name": "フューチャーアーキテクト（株）",
     "image_url": "/sponsor/logo/p-FutureArchitect570322_rgb.png",
-    "option_categories": ["platinum"],
+    "tag": ["platinum"],
     "link_url": "https://www.future.co.jp/architect/"
   },
   {
     "id": "b8725e02-ccec-4d09-b5d3-5363b3bf1efc",
     "name": "株式会社リンクアンドモチベーション",
     "image_url": "/sponsor/logo/p-LinkandMotivation570322_rgb.png",
-    "option_categories": ["platinum"],
+    "tag": ["platinum"],
     "link_url": "https://www.motivation-cloud.com/"
   },
   {
     "id": "f4e10cde-f84f-4d26-a2b8-742d38ff2211",
     "name": "株式会社プレイド",
     "image_url": "/sponsor/logo/g-plaid368208_rgb.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://plaid.co.jp/"
   },
   {
     "id": "7748d676-d639-4ff2-810d-6cdadb7204ef",
     "name": "ストックマーク株式会社",
     "image_url": "/sponsor/logo/g-stockmark368208_rgb.png",
-    "option_categories": ["gold", "name-card"],
+    "tag": ["gold", "name-card"],
     "link_url": "https://stockmark.co.jp/"
   },
   {
     "id": "9a6a9b73-9d97-4069-8407-763d28ff0f2b",
     "name": "STORES 株式会社",
     "image_url": "/sponsor/logo/g-stores368208_rgb.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://jobs.st.inc/engineer"
   },
   {
     "id": "70d92594-a397-497e-830a-f63d527bdb4b",
     "name": "株式会社ヤプリ",
     "image_url": "/sponsor/logo/yappli_logo_rgb.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://yappli.co.jp/"
   },
   {
     "id": "a00bc2b1-10db-458e-b9d7-67e7db53b395",
     "name": "株式会社オプティム",
     "image_url": "/sponsor/logo/OPTiM_corp_logo_c.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://www.optim.co.jp/?utm_source=event&utm_medium=referral&utm_campaign=Vuefes"
   },
   {
     "id": "b8c4a5d0-1ca1-4f8a-a669-33b11c49daed",
     "name": "HENNGE K.K.",
     "image_url": "/sponsor/logo/g-HENNGE368208_rgb.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://hennge.com/jp/"
   },
   {
     "id": "72cb7f7f-3ed9-4dd1-b584-7d7f7dadaca0",
     "name": "株式会社スタディスト",
     "image_url": "/sponsor/logo/g-studist368208_rgb.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "http://studist.jp/"
   },
   {
     "id": "b0dd7df5-e823-4ab1-96b3-aeba9be5bb38",
     "name": "メドピア株式会社",
     "image_url": "/sponsor/logo/g-medpeer_rgb.png",
-    "option_categories": ["gold", "special-naming-rights"],
+    "tag": ["gold", "special-naming-rights"],
     "link_url": "https://medpeer.co.jp/"
   },
   {
     "id": "3f43b20d-a7ae-4043-bbb7-fea15c5683ed",
     "name": "GMOインターネットグループ",
     "image_url": "/sponsor/logo/g-GM0368208_rgb.png",
-    "option_categories": ["gold", "after-party"],
+    "tag": ["gold", "after-party"],
     "link_url": "https://developers.gmo.jp/"
   },
   {
     "id": "8a1f0a08-22e1-42a9-90c2-013786c86691",
     "name": "LINEヤフー株式会社",
     "image_url": "/sponsor/logo/g-lycorp368208_rgb.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://www.lycorp.co.jp/ja/technology/"
   },
   {
     "id": "32032996-e100-426f-a255-aa24b1cd3259",
     "name": "株式会社ビザスク",
     "image_url": "/sponsor/logo/VISASQ_globalcorporate_Black.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://visasq.co.jp/"
   },
   {
     "id": "ddf99762-4823-4176-b2f3-59574113ea46",
     "name": "株式会社リブセンス",
     "image_url": "/sponsor/logo/g-livesense368208_rgb.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://job-draft.jp/"
   },
   {
     "id": "772ce1ea-d630-4bc1-b488-4a6cd1735714",
     "name": "株式会社エブリー",
     "image_url": "/sponsor/logo/g-every368208_rgb.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://corp.every.tv/"
   },
   {
     "id": "d2a1d10e-ab0f-4bb3-810c-53d3b95e1e7e",
     "name": "Globee",
     "image_url": "/sponsor/logo/g-globee368208_rgb.png",
-    "option_categories": ["gold", "simultaneous-interpretation"],
+    "tag": ["gold", "simultaneous-interpretation"],
     "link_url": "https://www.globee.io/"
   },
   {
     "id": "e5b9cbab-d949-4907-abd1-980661fd3cc1",
     "name": "株式会社ギフティ",
     "image_url": "/sponsor/logo/g-giftee368208_rgb.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://giftee.co.jp/"
   },
   {
     "id": "03ab4f7a-f786-47d6-a8b2-9c36b3473816",
     "name": "株式会社アンドパッド",
     "image_url": "/sponsor/logo/g-andpad368208_rgb.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://engineer.andpad.co.jp/"
   },
   {
     "id": "a6ecfb96-1d53-4265-95d3-83710b88d8c2",
     "name": "サイボウズ株式会社",
     "image_url": "/sponsor/logo/g-cybozu368208_rgb.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://cybozu.co.jp/recruit/"
   },
   {
     "id": "ef74eb90-7283-4211-9eba-225b8e19113c",
     "name": "株式会社hacomono",
     "image_url": "/sponsor/logo/g-hacomono368208_rgb.png",
-    "option_categories": ["gold"],
+    "tag": ["gold"],
     "link_url": "https://coal-son-1e1.notion.site/Entrance-Book-hacomono-4f5f5cec269e4e60ae8a918bed653efd"
   },
   {
     "id": "6698c2fe-0b93-4170-84d2-e6ce603880c0",
     "name": "株式会社400F",
     "image_url": "/sponsor/logo/s-400f_rgb.png",
-    "option_categories": ["silver"],
+    "tag": ["silver"],
     "link_url": "https://400f.jp/"
   },
   {
     "id": "7dec25c9-5aea-4aed-80b3-e3dbdf67fd90",
     "name": "株式会社TENTIAL",
     "image_url": "/sponsor/logo/s-TENTIAL.png",
-    "option_categories": ["silver"],
+    "tag": ["silver"],
     "link_url": "https://corp.tential.jp/"
   },
   {
     "id": "eab5fef5-65af-47fc-a8fa-3b8ac3a7683e",
     "name": "MNTSQ株式会社",
     "image_url": "/sponsor/logo/s-MNTSQ.png",
-    "option_categories": ["silver", "special-naming-rights"],
+    "tag": ["silver", "special-naming-rights"],
     "link_url": "https://www.mntsq.co.jp/"
   },
   {
     "id": "345c82ba-ec8d-4e59-9594-75094351dc9d",
     "name": "合同会社Steg",
     "image_url": "/sponsor/logo/dummy-logo.png",
-    "option_categories": ["bronze"],
+    "tag": ["bronze"],
     "link_url": "https://team-steg.com/"
   },
   {
     "id": "2a427a49-6e86-4654-8cdb-2d8402fbe398",
     "name": "株式会社スリーシェイク",
     "image_url": "/sponsor/logo/dummy-logo.png",
-    "option_categories": ["bronze"],
+    "tag": ["bronze"],
     "link_url": "https://relance.jp/"
   },
   {
     "id": "8cf7ee25-4629-453f-9e45-ae63b4b873af",
     "name": "アララ株式会社",
     "image_url": "/sponsor/logo/g-arara368208_rgb.png",
-    "option_categories": ["special-lunch"],
+    "tag": ["special-lunch"],
     "link_url": "https://www.arara.com/"
   },
   {
     "id": "4d91f6f5-1e3e-4786-b15f-b54fa7cd97e3",
     "name": "株式会社技術評論社",
     "image_url": "/sponsor/logo/gihyojp2022-logo.svg",
-    "option_categories": ["media"],
+    "tag": ["media"],
     "link_url": "https://gihyo.jp"
   },
   {
     "id": "5f7292b3-10a3-49ba-b509-a03c00c6a40a",
     "name": "Newt株式会社",
     "image_url": "/sponsor/logo/newt_logo.svg",
-    "option_categories": ["media"],
+    "tag": ["media"],
     "link_url": "https://www.newt.so/"
   },
   {
     "id": "983ea561-5f89-43ca-8dce-9c5dded60050",
     "name": "esa",
     "image_url": "/sponsor/logo/dummy-logo.png",
-    "option_categories": ["tool"],
+    "tag": ["tool"],
     "link_url": "https://esa.io/"
   }
 ]

@@ -12,7 +12,7 @@ export type SponsorCategory =
   | 'simultaneousInterpretationSponsors'
   | 'mediaSponsors'
 
-type OptionCategory = 'name-card'
+type Tag = 'name-card'
   | 'special-naming-rights'
   | 'after-party'
   | 'simultaneous-interpretation'
@@ -24,7 +24,7 @@ export type Sponsor = {
   id: string
   name: string
   image_url: string
-  option_categories: Array<SponsorType | OptionCategory>
+  tag: Array<SponsorType | Tag>
   link_url: string
 }
 

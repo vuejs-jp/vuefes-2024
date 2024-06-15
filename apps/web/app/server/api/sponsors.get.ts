@@ -9,61 +9,61 @@ export default defineEventHandler(async () => {
   const platinumSponsors: SponsorInfo = {
     type: 'platinum',
     title: 'Platinum',
-    list: sponsors.filter((s: Sponsor) => s['option_categories'].includes('platinum'))
+    list: sponsors.filter((s: Sponsor) => s['tag'].includes('platinum'))
   }
 
   const goldSponsors: SponsorInfo = {
     type: 'gold',
     title: 'Gold',
-    list: sponsors.filter((s: Sponsor) => s['option_categories'].includes('gold'))
+    list: sponsors.filter((s: Sponsor) => s['tag'].includes('gold'))
   }
 
   const silverSponsors: SponsorInfo = {
     type: 'silver',
     title: 'Silver',
-    list: sponsors.filter((s: Sponsor) => s['option_categories'].includes('silver'))
+    list: sponsors.filter((s: Sponsor) => s['tag'].includes('silver'))
   }
 
   const bronzeSponsors: SponsorInfo = {
     type: 'bronze',
     title: 'Bronze',
-    list: sponsors.filter((s: Sponsor) => s['option_categories'].includes('bronze'))
+    list: sponsors.filter((s: Sponsor) => s['tag'].includes('bronze'))
   }
 
   const specialNamingRightSponsors: SponsorInfo = {
     type: 'option',
     title: 'Special Naming Rights',
-    list: sponsors.filter((s: Sponsor) => s['option_categories'].includes('special-naming-rights'))
+    list: sponsors.filter((s: Sponsor) => s['tag'].includes('special-naming-rights'))
   }
 
   const specialLunchSponsors: SponsorInfo = {
     type: 'option-separate',
     title: 'Special Lunch',
-    list: sponsors.filter((s: Sponsor) => s['option_categories'].includes('special-lunch'))
+    list: sponsors.filter((s: Sponsor) => s['tag'].includes('special-lunch'))
   }
 
   const afterPartySponsors: SponsorInfo = {
     type: 'option-separate',
     title: 'After Party',
-    list: sponsors.filter((s: Sponsor) => s['option_categories'].includes('after-party'))
+    list: sponsors.filter((s: Sponsor) => s['tag'].includes('after-party'))
   }
 
   const nameCardSponsors: SponsorInfo = {
     type: 'option-separate',
     title: 'Name Card',
-    list: sponsors.filter((s: Sponsor) => s['option_categories'].includes('name-card'))
+    list: sponsors.filter((s: Sponsor) => s['tag'].includes('name-card'))
   }
 
   const simultaneousInterpretationSponsors: SponsorInfo = {
     type: 'option-separate',
     title: 'Simultaneous Interpretation',
-    list: sponsors.filter((s: Sponsor) => s['option_categories'].includes('simultaneous-interpretation'))
+    list: sponsors.filter((s: Sponsor) => s['tag'].includes('simultaneous-interpretation'))
   }
 
   const mediaSponsors: SponsorInfo = {
     type: 'option',
     title: 'Media',
-    list: sponsors.filter((s: Sponsor) => s['option_categories'].includes('media'))
+    list: sponsors.filter((s: Sponsor) => s['tag'].includes('media'))
   }
   return {
     platinumSponsors,
