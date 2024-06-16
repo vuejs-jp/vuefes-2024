@@ -21,6 +21,12 @@ const periodStart = {
   dayOfWeek: translate('day_of_week.monday'),
 }
 
+// const periodEnd = {
+//   suffixYear: t('suffix_year'),
+//   date: t('sponsor.end_date'),
+//   dayOfWeek: translate('day_of_week.thursday'),
+// }
+
 const { data, error } = await useFetch('/api/sponsors')
 if (error.value) {
   console.error(error.value)
