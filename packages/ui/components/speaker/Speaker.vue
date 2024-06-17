@@ -79,7 +79,7 @@ const { color } = useColor()
 .speaker-info {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--unit));
+  gap: 0;
 }
 
 .speaker-affiliation {
