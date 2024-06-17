@@ -120,7 +120,7 @@ const {
 
 .sponsor {
   --sponsor-padding: calc(var(--unit) * 5.25) 0;
-  --sponsor-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 8);
+  --sponsor-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
   --sponsor-term-margin: calc(var(--unit) * 5) auto 0;
 
   display: flex;

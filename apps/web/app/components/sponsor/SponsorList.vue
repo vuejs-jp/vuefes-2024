@@ -38,7 +38,8 @@ defineProps<Props>()
     --columns-sponsor-list-item: 1;
   }
 
-  color: var(--color-hiwamoegi200);
+  --color-sponsor-list-title: var(--color-hiwamoegi200);
+  --border-color-sponsor-list-item: var(--color-hiwamoegi100);
 }
 .sponsor-list-gold {
   --gap-sponsor-list-item: 1.875rem;
@@ -48,7 +49,8 @@ defineProps<Props>()
     --columns-sponsor-list-item: 2;
   }
 
-  color: var(--color-tohoh200);
+  --color-sponsor-list-title: var(--color-tohoh200);
+  --border-color-sponsor-list-item: var(--color-tohoh100);
 }
 .sponsor-list-silver {
   --gap-sponsor-list-item: 1.25rem;
@@ -58,7 +60,8 @@ defineProps<Props>()
     --columns-sponsor-list-item: 2;
   }
 
-  color: var(--color-asagi200);
+  --color-sponsor-list-title: var(--color-asagi200);
+  --border-color-sponsor-list-item: var(--color-asagi100);
 }
 .sponsor-list-bronze {
   --gap-sponsor-list-item: 0.9375rem;
@@ -68,7 +71,8 @@ defineProps<Props>()
     --columns-sponsor-list-item: 3;
   }
 
-  color: var(--color-sangosyo200);
+  --color-sponsor-list-title: var(--color-sangosyo200);
+  --border-color-sponsor-list-item: var(--color-sangosyo100);
 }
 .sponsor-list-option {
   --gap-sponsor-list-item: 1.25rem;
@@ -78,7 +82,8 @@ defineProps<Props>()
     --columns-sponsor-list-item: 2;
   }
 
-  color: var(--color-vue-blue);
+  --color-sponsor-list-title: var(--color-vue-blue);
+  --border-color-sponsor-list-item: var(--color-vue-blue);
 }
 .sponsor-list-option-separate {
   --gap-sponsor-list-item: 1.25rem;
@@ -92,11 +97,12 @@ defineProps<Props>()
     --columns-sponsor-list-item: 2;
   }
 
-  color: var(--color-vue-blue);
+  --color-sponsor-list-title: var(--color-vue-blue);
+  --border-color-sponsor-list-item: var(--color-vue-blue);
 }
 
 .sponsor-list-title {
-  color: currentColor;
+  color: var(--color-sponsor-list-title);
   text-align: center;
   font-size: 2rem;
   font-weight: 800;
@@ -116,8 +122,11 @@ defineProps<Props>()
 }
 .sponsor-list-item {
   aspect-ratio: 5 / 3;
-  width: calc(100% / var(--columns-sponsor-list-item) - var(--gap-sponsor-list-item));
-  border: 1px solid currentColor;
+  width: calc(
+    (100% - (var(--gap-sponsor-list-item) * (var(--columns-sponsor-list-item) - 1))) /
+      var(--columns-sponsor-list-item)
+  );
+  border: 1px solid var(--border-color-sponsor-list-item);
   border-radius: 12px;
 }
 .sponsor-list-item-link {
