@@ -33,7 +33,9 @@ const style = computed(() => {
       fontWeight: fontWeight('heading/200'),
       color: updateColor(props.backgroundColor),
       backgroundColor: updateColor(props.color),
-      boxShadow: `0 0 0 2px ${updateColor(props.backgroundColor)} inset`,
+      boxShadow: props.backgroundColor === 'white'
+        ? '0 2px 10px rgba(53, 73, 94, 14%)'
+        : `0 2px 10px rgb(53, 73, 95, 0.14), inset 0px 0px 0px 2px ${updateColor(props.backgroundColor)}`,
     }
   }
   return {
