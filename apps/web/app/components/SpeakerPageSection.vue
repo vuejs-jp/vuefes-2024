@@ -1,37 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useFetch } from '#imports'
 import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
-import speakerData from '../assets/data/speaker.json'
+import type { SpeakerCategory, SpeakerInfo } from '~/types/app'
 
-type Speaker = {
-  id: string
-  name: string
-  image_url?: string
-  caption_ja?: string
-  caption_en?: string
-  description_ja: string
-  description_en: string
-  github_id?: string
-  x_id?: string
-  session_title_ja?: string
-  session_title_en?: string
-  session_description_ja?: string
-  session_description_en?: string
-  session_comment_ja?: string
-  session_comment_en?: string
-  session_place?: string
-  session_time_from: string
-  session_time_duration: number
-  session_doc_title_ja?: string
-  session_doc_title_en?: string
-  session_doc_url?: string
-  created_at: string
-  updated_at: string
-}
-
-const speakers = ref<Speaker[]>(speakerData)
+type Speakers = Record<SpeakerCategory, SpeakerInfo>
 
 const currentLocale = useLocaleCurrent().locale
+
+const { data, error } = await useFetch('/api/speakers')
+if (error.value) {
+  console.error(error.value)
+}
+const { sessionSpeakers } = data.value as Speakers
 </script>
 
 <template>
@@ -46,12 +26,12 @@ const currentLocale = useLocaleCurrent().locale
       <section class="speaker-section">
         <h3 class="speaker-subtitle">Session</h3>
         <ul class="speaker-cards">
-          <li v-for="speaker in speakers" :key="speaker.id" class="speaker-card">
+          <li v-for="speaker in sessionSpeakers.list" :key="speaker.id" class="speaker-card">
             <VFSpeaker
               :image="speaker.image_url"
               :company="currentLocale === 'en' ? speaker.caption_en : speaker.caption_ja"
               :division="currentLocale === 'en' ? speaker.description_en : speaker.description_ja"
-              :name="speaker.name"
+              :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
               :github-id="speaker.github_id"
               :x-id="speaker.x_id"
             />

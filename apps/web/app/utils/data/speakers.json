@@ -1,7 +1,8 @@
 [
   {
-    "id": "",
-    "name": "Evan You",
+    "id": "1",
+    "name_ja": "Evan You",
+    "name_en": "Evan You",
     "image_url": "/speaker/evan-you.png",
     "caption_ja": "",
     "caption_en": "",
@@ -9,6 +10,7 @@
     "description_en": "Creator of Vue / Vite",
     "github_id": "yyx990803",
     "x_id": "youyuxi",
+    "session_type": "session",
     "session_title_ja": "",
     "session_title_en": "",
     "session_description_ja": "",
@@ -25,8 +27,9 @@
     "updated_at": ""
   },
   {
-    "id": "",
-    "name": "Anthony Fu",
+    "id": "2",
+    "name_ja": "Anthony Fu",
+    "name_en": "Anthony Fu",
     "image_url": "/speaker/anthony-fu.png",
     "caption_ja": "",
     "caption_en": "",
@@ -34,6 +37,7 @@
     "description_en": "Vue/Vite/Nuxt Core Team Member",
     "github_id": "antfu",
     "x_id": "antfu7",
+    "session_type": "session",
     "session_title_ja": "",
     "session_title_en": "",
     "session_description_ja": "",
@@ -50,8 +54,9 @@
     "updated_at": ""
   },
   {
-    "id": "",
-    "name": "Boshen Chen",
+    "id": "3",
+    "name_ja": "Boshen Chen",
+    "name_en": "Boshen Chen",
     "image_url": "/speaker/boshen-chen.png",
     "caption_ja": "",
     "caption_en": "",
@@ -59,6 +64,7 @@
     "description_en": "Creator of Oxc",
     "github_id": "boshen",
     "x_id": "boshen_c",
+    "session_type": "session",
     "session_title_ja": "",
     "session_title_en": "",
     "session_description_ja": "",
@@ -75,8 +81,9 @@
     "updated_at": ""
   },
   {
-    "id": "",
-    "name": "Kevin Deng",
+    "id": "4",
+    "name_ja": "Kevin Deng",
+    "name_en": "Kevin Deng",
     "image_url": "/speaker/kevin-deng.png",
     "caption_ja": "",
     "caption_en": "",
@@ -84,6 +91,7 @@
     "description_en": "Vue Core Team Member / Creator of Vue Vapor",
     "github_id": "sxzz",
     "x_id": "sanxiaozhizi",
+    "session_type": "session",
     "session_title_ja": "",
     "session_title_en": "",
     "session_description_ja": "",
@@ -100,8 +108,9 @@
     "updated_at": ""
   },
   {
-    "id": "",
-    "name": "Pooya Parsa",
+    "id": "5",
+    "name_ja": "Pooya Parsa",
+    "name_ea": "Pooya Parsa",
     "image_url": "/speaker/pooya-parsa.png",
     "caption_ja": "",
     "caption_en": "",
@@ -109,6 +118,7 @@
     "description_en": "Creator of Nitro and UnJS, Nuxt core team",
     "github_id": "pi0",
     "x_id": "_pi0_",
+    "session_type": "session",
     "session_title_ja": "",
     "session_title_en": "",
     "session_description_ja": "",
