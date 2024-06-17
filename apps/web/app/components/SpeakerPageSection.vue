@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useFetch } from '#imports'
 import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
-import type { SpeakerCategory, SpeakerInfo } from '~/types/app'
+import type { SpeakerCategory, SpeakerInfo } from '@vuejs-jp/model'
 
 type Speakers = Record<SpeakerCategory, SpeakerInfo>
 
