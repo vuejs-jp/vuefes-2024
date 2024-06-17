@@ -12,7 +12,7 @@ defineProps<Props>()
       {{ title }}
     </h4>
     <ul class="sponsor-list">
-      <li v-for="(item, index) in list" :key="index" class="sponsor-list-item">
+      <li v-for="item in list" :key="item.id" class="sponsor-list-item">
         <a class="sponsor-list-item-link" :href="item['link_url']" target="_blank"
           ><img class="sponsor-list-item-image" :src="item['image_url']" :alt="item.name"
         /></a>
