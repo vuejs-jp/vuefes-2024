@@ -24,20 +24,23 @@ create table if not exists public.sponsors (
   image_url varchar(500),
   speaker_id varchar(100),
   tag varchar(200),
+  is_open bool not null,
   created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
 
 create table if not exists public.speakers (
   id uuid not null primary key default uuid_generate_v4(),
-  name varchar(100) not null,
+  name_jp varchar(100) not null,
+  name_en varchar(100) not null,
   image_url varchar(500),
   caption_ja varchar(100),
   caption_en varchar(100),
   description_ja varchar(200) not null,
   description_en varchar(200) not null,
-  github_id varchar(100) not null,
-  x_id varchar(100) not null,
+  github_id varchar(100),
+  x_id varchar(100),
+  session_type varchar(100),
   session_title_ja varchar(100),
   session_title_en varchar(100),
   session_description_ja varchar(500),
@@ -50,6 +53,7 @@ create table if not exists public.speakers (
   session_doc_title_ja varchar(200),
   session_doc_title_en varchar(200),
   session_doc_url varchar(200),
+  is_open bool not null,
   created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
