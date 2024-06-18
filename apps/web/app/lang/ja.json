@@ -4,7 +4,10 @@
   "about": "このサイトについて",
   "back_to_top": "トップに戻る",
   "not_found": "お探しのページが見つかりません。",
+  "prefix_year": "2024",
+  "suffix_year": "",
   "day_of_week": {
+    "sunday": "日",
     "monday": "月",
     "tuesday": "火",
     "thursday": "木"
@@ -14,11 +17,27 @@
     "date": "2024.10.19",
     "note": "公式 note"
   },
+  "speaker": {
+    "title": "スピーカー",
+    "application_period": "募集スケジュール",
+    "application_period_before": "応募期限：",
+    "application_period_after": "まで",
+    "apply": "申し込む",
+    "end_date": "7.21",
+    "end_hour": "24",
+    "end_minute": "00"
+  },
   "sponsor": {
     "title": "スポンサー",
     "apply": "申し込む",
     "apply_period": "スポンサー申込期間",
-    "check_doc": "資料を見る"
+    "check_doc": "資料を見る",
+    "start_date": "5.13",
+    "end_date": "4.25"
+  },
+
+  "partner": {
+    "title": "協力パートナー"
   },
   "form": {
     "title": "お問い合わせ",
@@ -26,6 +45,8 @@
     "form_name_placeholder": "山田太郎",
     "form_email_label": "メールアドレス",
     "form_text_label": "お問い合わせ内容",
+    "form_text_placeholder": "お問い合わせ",
+    "form_placeholder_example": "入力例：",
     "submit": "送信する",
     "submit_done": "メッセージ送信に成功しました。"
   },

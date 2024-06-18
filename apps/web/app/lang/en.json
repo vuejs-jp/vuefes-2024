@@ -4,21 +4,34 @@
   "about": "about",
   "back_to_top": "Back o Top",
   "not_found": "The page you are looking for cannot be found.",
-  "day_of_week": {
-    "monday": "Mon",
-    "tuesday": "Tue",
-    "thursday": "Thu"
-  },
+  "prefix_year": "",
+  "suffix_year": "2024",
   "top_page": {
     "latest_information": "Get the latest information on our official social media",
-    "date": "Octover 19th, 2024",
+    "date": "October 19th, 2024",
     "note": "note official"
+  },
+  "speaker": {
+    "title": "Speakers",
+    "application_period": "Application Period",
+    "application_period_before": "Application Deadline：",
+    "application_period_after": "",
+    "apply": "Apply",
+    "end_date": "July 21",
+    "end_hour": "12",
+    "end_minute": "00",
+    "end_ampm": "pm"
   },
   "sponsor": {
     "title": "Sponsors",
     "apply": "Apply",
     "apply_period": "Sponsor Application Period",
-    "check_doc": "View Sponsorship materials"
+    "check_doc": "View Sponsorship materials",
+    "start_date": "May 13",
+    "end_date": "25,"
+  },
+  "partner": {
+    "title": "Partners"
   },
   "form": {
     "title": "Inquiry",
@@ -26,6 +39,8 @@
     "form_name_placeholder": "John Doe",
     "form_email_label": "Email",
     "form_text_label": "Your Inquiry",
+    "form_text_placeholder": "Inquiry",
+    "form_placeholder_example": "Example: ",
     "submit": "Submit",
     "submit_done": "Successfully sent your message."
   },

@@ -8,8 +8,7 @@ type DatePeriodProps = {
   end: DateProps
 }
 
-// eslint-disable-next-line no-unused-vars
-const props = defineProps<DatePeriodProps>()
+defineProps<DatePeriodProps>()
 
 const { fontSize } = useTypography()
 const { color } = useColor()

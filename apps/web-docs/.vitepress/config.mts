@@ -10,6 +10,7 @@ export default defineConfig({
       { text: 'Top', link: '/' },
       { text: 'CSS', link: '/css/getting-started' },
       { text: 'Peatix', link: '/peatix/csv-usage' },
+      { text: 'Supabase', link: '/supabase/getting-started' },
     ],
 
     sidebar: [
@@ -18,6 +19,7 @@ export default defineConfig({
         items: [
           { text: 'CSS', link: '/css/getting-started' },
           { text: 'Peatix', link: '/peatix/csv-usage' },
+          { text: 'Supabase', link: '/supabase/getting-started' },
         ],
       },
     ],

@@ -1,9 +1,18 @@
 {
+  "[typescript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "deno.enablePaths": [
+    "supabase/functions"
+  ],
+  "deno.lint": true,
+  "deno.unstable": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
   "eslint.lintTask.enable": true,
   "peacock.color": "#42b883",
+  "scss.lint.unknownAtRules": "ignore",
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#42b883",
     "activityBar.activeBorder": "#e0ee90",
@@ -25,6 +34,5 @@
     "titleBar.activeForeground": "#a5a5a5",
     "titleBar.inactiveBackground": "#35495e",
     "titleBar.inactiveForeground": "#a5a5a5"
-  },
-  "scss.lint.unknownAtRules": "ignore"
+  }
 }

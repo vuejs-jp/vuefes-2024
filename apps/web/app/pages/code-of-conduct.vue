@@ -28,8 +28,8 @@ const { color } = useColor()
 </script>
 
 <template>
-  <main>
-    <div class="coc-root">
+  <div class="coc-root">
+    <div class="conducts">
       <h1
         :style="{
           fontWeight: fontWeight('heading/700'),
@@ -61,21 +61,20 @@ const { color } = useColor()
         {{ $t('back_to_top') }}
       </VFLinkButton>
     </div>
-  </main>
-  <FooterPageSection />
+  </div>
 </template>
 
 <style scoped>
 @import url('../assets/base.css');
-@import url("~/assets/media.css");
+@import url('~/assets/media.css');
 
-main {
+.coc-root {
   --header-height: calc(var(--unit) * 10);
 
   padding: calc(var(--header-height) + 120px) 20px 0;
   background: color(--color-white);
 }
-.coc-root {
+.conducts {
   display: grid;
   gap: 40px;
   max-width: 768px;
@@ -100,7 +99,7 @@ main {
     line-height: 1.8;
   }
   &::v-deep a {
-    color: var(--color-vue-green);
+    color: var(--color-vue-green200);
     text-decoration: underline;
   }
   &::v-deep a:hover {
@@ -127,11 +126,11 @@ main {
 }
 
 @media (--mobile) {
-  main {
+  .coc-root {
     --header-height: calc(var(--unit) * 8);
     padding: calc(var(--header-height) + 60px) 20px 60px;
   }
-  .coc-root {
+  .conducts {
     gap: 30px;
   }
   .title {

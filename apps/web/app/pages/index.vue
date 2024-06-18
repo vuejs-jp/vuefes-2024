@@ -13,7 +13,8 @@ useHead({
 <template>
   <TopPageSection />
   <MessagePageSection />
+  <SpeakerPageSection />
   <SponsorPageSection />
+  <CooperationPartnerSection />
   <FormPageSection />
-  <FooterPageSection />
 </template>

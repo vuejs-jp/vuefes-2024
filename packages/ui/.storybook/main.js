@@ -5,6 +5,7 @@ import { fileURLToPath, URL } from 'url'
 
 module.exports = {
   stories: ['../components/**/*.stories.mdx', '../components/**/*.stories.@(js|ts)'],
+  staticDirs: ['../assets'],
   addons: [
     '@chromatic-com/storybook',
     '@storybook/addon-a11y',
@@ -12,6 +13,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-links',
     '@storybook/addon-viewport',
+    '@storybook/addon-toolbars',
   ],
   framework: {
     name: '@storybook/vue3-vite',
@@ -25,7 +27,10 @@ module.exports = {
     return mergeConfig(config, {
       plugins:
         configType === 'PRODUCTION'
-          ? [turbosnap({ rootDir: config.root }), svgLoader({ defaultImport: 'component' })]
+          ? [
+              turbosnap({ rootDir: config.root ?? process.cwd() }),
+              svgLoader({ defaultImport: 'component' }),
+            ]
           : [svgLoader({ defaultImport: 'component' })],
       resolve: {
         alias: {

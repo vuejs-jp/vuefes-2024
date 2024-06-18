@@ -19,7 +19,7 @@
 
   padding: var(--container-padding);
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(8px);
 }
 
 .content {
@@ -35,6 +35,7 @@
 
 .title {
   text-align: center;
+  line-height: 1.2;
 }
 
 .body {

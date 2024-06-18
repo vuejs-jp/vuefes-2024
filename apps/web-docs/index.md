@@ -11,4 +11,7 @@ hero:
     - theme: brand
       text: Peatix
       link: /peatix/csv-usage
+    - theme: brand
+      text: Supabase
+      link: /supabase/getting-started
 ---

@@ -53,7 +53,7 @@ const updateDetail = (e: any) => {
             v-model="name"
             name="name"
             :label="$t('form.form_name_label')"
-            :placeholder="$t('form.form_name_placeholder')"
+            :placeholder="`${$t('form.form_placeholder_example')}${$t('form.form_name_placeholder')}`"
             required
             :error="nameError"
             @input="updateName"
@@ -64,7 +64,7 @@ const updateDetail = (e: any) => {
             v-model="email"
             name="email"
             :label="$t('form.form_email_label')"
-            placeholder="hello@vuefes.jp"
+            :placeholder="`${$t('form.form_placeholder_example')}hello@vuefes.jp`"
             required
             :error="emailError"
             @input="updateEmail"
@@ -74,7 +74,7 @@ const updateDetail = (e: any) => {
             id="detail"
             v-model="detail"
             name="detail"
-            placeholder="お問い合わせ"
+            :placeholder="`${$t('form.form_placeholder_example')}${$t('form.form_text_placeholder')}`"
             :label="$t('form.form_text_label')"
             :rows="3"
             required
@@ -100,9 +100,23 @@ const updateDetail = (e: any) => {
 @import url("~/assets/media.css");
 
 section {
+  position: relative;
   padding: 120px 20px 120px;
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 240, 245, 0.8));
-  background-blend-mode: soft-light;
+  background-image: linear-gradient(#fff, #ebf0f5);
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/form-bg.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: top left;
+    opacity: 0.8;
+    mix-blend-mode: overlay;
+  }
 }
 
 .form-root {
@@ -112,10 +126,12 @@ section {
   margin: 0 auto;
   width: 100%;
   grid-template-columns: minmax(0, 1fr);
+  isolation: isolate;
 }
 
 .title {
   text-align: center;
+  line-height: 1.2;
 }
 
 .subtitle {
@@ -125,7 +141,7 @@ section {
   line-height: 1.8;
 
   &::v-deep a {
-    color: var(--color-vue-green);
+    color: var(--color-vue-green200);
     text-decoration: underline;
   }
 
@@ -148,6 +164,9 @@ form {
 @media (--mobile) {
   section {
     padding: 60px 20px 60px;
+    &::before {
+      background-size: 364px;
+    }
   }
   .form-root {
     gap: 30px;

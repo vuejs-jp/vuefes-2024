@@ -2,13 +2,13 @@
 import { useColor, useTypography } from '@vuejs-jp/composable'
 
 export type DateProps = {
-  year?: number
+  prefixYear?: string
+  suffixYear?: string
   date: string
   dayOfWeek?: string
 }
 
-// eslint-disable-next-line no-unused-vars
-const props = defineProps<DateProps>()
+defineProps<DateProps>()
 
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
@@ -16,21 +16,19 @@ const { color } = useColor()
 
 <template>
   <div class="datewrapper">
-    <!-- year -->
+    <!-- prefix year -->
     <span
-      v-if="year"
+      v-if="prefixYear"
       :style="{
-        fontSize: fontSize('heading/300'),
         color: color('vue-blue'),
       }"
-      class="year"
+      class="year prefix-year"
     >
-      {{ year }}
+      {{ prefixYear }}
     </span>
     <!-- date -->
     <span
       :style="{
-        fontSize: fontSize('heading/700'),
         color: color('vue-blue'),
       }"
       class="date"
@@ -50,10 +48,22 @@ const { color } = useColor()
     >
       {{ dayOfWeek }}
     </span>
+    <!-- suffix year -->
+    <span
+      v-if="suffixYear"
+      :style="{
+        color: color('vue-blue'),
+      }"
+      class="year suffix-year"
+    >
+      {{ suffixYear }}
+    </span>
   </div>
 </template>
 
 <style scoped>
+@import url('~/assets/media.css');
+
 .datewrapper {
   display: inline;
   line-height: 1;
@@ -61,13 +71,20 @@ const { color } = useColor()
 
 .year {
   display: inline-block;
-  margin-right: 6px;
   font-size: 24px;
+  font-weight: 600;
+}
+.prefix-year {
+  margin-right: 6px;
+}
+.suffix-year {
+  margin-left: 6px;
 }
 
 .date {
   display: inline-block;
-  letter-spacing: 0.2rem;
+  font-size: 45px;
+  font-weight: 600;
 }
 
 .day-of-week {
@@ -80,6 +97,15 @@ const { color } = useColor()
   height: 20px;
   border-radius: 2px;
   margin-left: 4px;
+}
 
+@media (--tablet) {
+  .year {
+    font-size: 18px;
+  }
+
+  .date {
+    font-size: 38px;
+  }
 }
 </style>
