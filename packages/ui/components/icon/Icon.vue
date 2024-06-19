@@ -19,6 +19,9 @@ const svgComponent = match<IconName>(props.name)
   .with('x22', () =>
     defineAsyncComponent(() => import('../../assets/icon/x_22_icon.svg?component')),
   )
+  .with('x24', () =>
+    defineAsyncComponent(() => import('../../assets/icon/x_24_icon.svg?component')),
+  )
   .with('note', () =>
     defineAsyncComponent(() => import('../../assets/icon/note_icon.svg?component')),
   )
@@ -30,6 +33,9 @@ const svgComponent = match<IconName>(props.name)
   )
   .with('GitHub', () =>
     defineAsyncComponent(() => import('../../assets/icon/github_icon.svg?component')),
+  )
+  .with('GitHub24', () =>
+    defineAsyncComponent(() => import('../../assets/icon/github_24_icon.svg?component')),
   )
   .exhaustive()
 

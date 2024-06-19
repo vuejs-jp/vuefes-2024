@@ -1,9 +1,1 @@
-Would you like to speak at Vue Fes Japan 2024?
-
-Share your knowledge and experiences on Vue.js and its ecosystem for audiences at one of the largest Vue.js conferences in Japan.
-
-At Vue Fes Japan 2024, we're inviting speakers from a wide range of backgrounds to submit proposals through our Call for Papers (CFP) process. The Vue Fes Japan 2024 organizing committee will review submissions and select them for inclusion as official sessions.
-
-We offer two presentation formats: 30-minutes sessions and 5-minutes Lightning Talks (LT).
-
-We're eagerly awaiting passionate presentations from those who adore Vue.js!
+Vue Fes Japan 2024 will feature numerous speakers from both Japan and abroad, including Vue.js creator Evan You, core team members of Nuxt and Vite, and experts with extensive knowledge of Vue.js and its ecosystem.

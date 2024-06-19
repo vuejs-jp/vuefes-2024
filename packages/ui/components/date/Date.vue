@@ -62,8 +62,6 @@ const { color } = useColor()
 </template>
 
 <style scoped>
-@import url('~/assets/media.css');
-
 .datewrapper {
   display: inline;
   line-height: 1;
@@ -99,7 +97,13 @@ const { color } = useColor()
   margin-left: 4px;
 }
 
-@media (--tablet) {
+/*
+メディアクエリの読み込みができなかったため、一旦コメントアウト
+@import url('~/assets/media.css');
+@custom-media --tablet (width <= 768px);
+@custom-media --mobile (width <= 480px);
+*/
+@media (width <= 768px) {
   .year {
     font-size: 18px;
   }
