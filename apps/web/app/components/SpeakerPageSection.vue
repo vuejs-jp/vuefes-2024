@@ -24,7 +24,7 @@ const { sessionSpeakers } = data.value as Speakers
       </div>
 
       <section id="session" class="speaker-section">
-        <h3 class="speaker-subtitle">Session</h3>
+        <h3 class="speaker-subtitle">Sessions</h3>
         <ul class="speaker-cards">
           <li v-for="speaker in sessionSpeakers.list" :key="speaker.id" class="speaker-card">
             <VFSpeaker
