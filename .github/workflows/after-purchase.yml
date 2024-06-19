@@ -1,0 +1,36 @@
+name: After Purchase CI
+
+on:
+  # チケット購入が始まって購入情報と照合可能になった際に開放
+  # schedule:
+  #   - cron: 0 * * * * # https://crontab.guru/every-hour
+  # push:
+  #   branches:
+  #     - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  after-purchase:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.19.0]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install packages
+        uses: ./.github/actions/install-packages
+
+      - name: Build after purchase
+        run: bun build-after-purchase
+        working-directory: apps/peatix-adapter
+        env:
+          PEATIX_EVENT_ID: ${{ secrets.PEATIX_EVENT_ID }}
+          PEATIX_BASIC_EMAIL: ${{ secrets.PEATIX_BASIC_EMAIL }}
+          PEATIX_BASIC_PASSWORD: ${{ secrets.PEATIX_BASIC_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}

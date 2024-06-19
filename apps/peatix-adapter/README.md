@@ -1,0 +1,1 @@
+# @vuejs-jp/peatix-adapter
