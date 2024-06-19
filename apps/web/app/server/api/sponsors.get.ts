@@ -1,6 +1,6 @@
 import db from '../db'
 import { defineEventHandler } from 'h3'
-import type { Sponsor, SponsorInfo } from '~/types/app'
+import type { Sponsor, SponsorInfo } from '@vuejs-jp/model'
 
 export default defineEventHandler(async () => {
   const response = await db.sponsor.getList()
@@ -65,6 +65,11 @@ export default defineEventHandler(async () => {
     title: 'Media',
     list: sponsors.filter((s: Sponsor) => s['tag'].includes('media'))
   }
+  const toolSponsors: SponsorInfo = {
+    type: 'option',
+    title: 'Tool',
+    list: sponsors.filter((s: Sponsor) => s['tag'].includes('tool'))
+  }
   return {
     platinumSponsors,
     goldSponsors,
@@ -76,5 +81,6 @@ export default defineEventHandler(async () => {
     nameCardSponsors,
     simultaneousInterpretationSponsors,
     mediaSponsors,
+    toolSponsors
   }
 })

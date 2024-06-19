@@ -11,6 +11,8 @@ export type SponsorCategory =
   | 'nameCardSponsors'
   | 'simultaneousInterpretationSponsors'
   | 'mediaSponsors'
+  | 'toolSponsors'
+
 
 type Tag = 'name-card'
   | 'special-naming-rights'
