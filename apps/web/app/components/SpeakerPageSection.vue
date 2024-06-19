@@ -23,7 +23,7 @@ const { sessionSpeakers } = data.value as Speakers
         <MarkDownText path="speaker" />
       </div>
 
-      <section id="session" class="speaker-section">
+      <section id="sessions" class="speaker-section">
         <h3 class="speaker-subtitle">Sessions</h3>
         <ul class="speaker-cards">
           <li v-for="speaker in sessionSpeakers.list" :key="speaker.id" class="speaker-card">
