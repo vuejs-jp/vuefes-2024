@@ -6,13 +6,16 @@ import Icon from '../icon/Icon.vue'
 
 type _LinkButtonProps = Omit<AnchorHTMLAttributes, 'iconName'>
 interface LinkButtonProps extends /* @vue-ignore */ _LinkButtonProps {
+  is?: 'a' | 'button'
   backgroundColor: ColorType
   color: ColorType
-  href: string
+  href?: string
   target?: string
   iconName?: IconName
 }
 const props = withDefaults(defineProps<LinkButtonProps>(), {
+  is: 'a',
+  href: '',
   target: '_blank',
   iconName: undefined,
 })
@@ -56,7 +59,8 @@ const iconColor = computed(() => {
 </script>
 
 <template>
-  <a
+  <component
+    :is="is ?? 'a'"
     :href
     :target
     :style
@@ -75,7 +79,7 @@ const iconColor = computed(() => {
     <span class="text">
       <slot />
     </span>
-  </a>
+  </component>
 </template>
 
 <style scoped>
@@ -100,7 +104,6 @@ const iconColor = computed(() => {
 .icon {
   margin-right: calc(var(--unit) * 1);
   width: var(--icon-size);
-  height: 100%;
 }
 .text {
   font-size: var(--font-size-body400);
