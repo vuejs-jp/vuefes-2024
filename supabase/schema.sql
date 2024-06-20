@@ -23,7 +23,7 @@ create table if not exists public.sponsors (
   link_url varchar(500),
   image_url varchar(500),
   speaker_id varchar(100),
-  tag varchar(200),
+  tag text array,
   is_open bool not null,
   created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
