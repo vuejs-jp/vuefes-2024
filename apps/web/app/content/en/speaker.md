@@ -1,0 +1,1 @@
+Vue Fes Japan 2024 will feature numerous speakers from both Japan and abroad, including Vue.js creator Evan You, core team members of Nuxt and Vite, and experts with extensive knowledge of Vue.js and its ecosystem.

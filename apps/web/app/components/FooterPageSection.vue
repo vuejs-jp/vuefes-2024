@@ -169,6 +169,7 @@ const vueFesLinkList: LinkList[] = [
     aspect-ratio: 1;
     display: grid;
     place-items: center;
+    width: 100%;
   }
   @media (--mobile) {
     :deep(svg) {

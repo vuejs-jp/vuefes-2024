@@ -50,7 +50,9 @@ const { color } = useColor()
   line-height: 1;
 }
 
-.hour, .minute, .separator {
+.hour,
+.minute,
+.separator {
   display: inline-block;
   font-size: 45px;
   font-weight: 600;
@@ -58,5 +60,19 @@ const { color } = useColor()
 .ampm {
   font-size: 24px;
   font-weight: 600;
+}
+
+/*
+メディアクエリの読み込みができなかったため、一旦コメントアウト
+@import url('~/assets/media.css');
+@custom-media --tablet (width <= 768px);
+@custom-media --mobile (width <= 480px);
+*/
+@media (width <= 768px) {
+  .hour,
+  .minute,
+  .separator {
+    font-size: 38px;
+  }
 }
 </style>

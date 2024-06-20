@@ -6,13 +6,16 @@ import Icon from '../icon/Icon.vue'
 
 type _LinkButtonProps = Omit<AnchorHTMLAttributes, 'iconName'>
 interface LinkButtonProps extends /* @vue-ignore */ _LinkButtonProps {
+  is?: 'a' | 'button'
   backgroundColor: ColorType
   color: ColorType
-  href: string
+  href?: string
   target?: string
   iconName?: IconName
 }
 const props = withDefaults(defineProps<LinkButtonProps>(), {
+  is: 'a',
+  href: '',
   target: '_blank',
   iconName: undefined,
 })
@@ -33,14 +36,18 @@ const style = computed(() => {
       fontWeight: fontWeight('heading/200'),
       color: updateColor(props.backgroundColor),
       backgroundColor: updateColor(props.color),
-      boxShadow: `0 0 0 2px ${updateColor(props.backgroundColor)} inset`,
+      boxShadow: props.backgroundColor === 'white'
+        ? '0 2px 10px rgba(53, 73, 94, 14%)'
+        : `0 2px 10px rgb(53, 73, 95, 0.14), inset 0px 0px 0px 2px ${updateColor(props.backgroundColor)}`,
     }
   }
   return {
     fontWeight: fontWeight('heading/200'),
     backgroundColor: updateColor(props.backgroundColor),
     color: updateColor(props.color),
-    boxShadow: `0 2px 10px rgb(53, 73, 95, 0.14), inset 0px 0px 0px 2px ${updateColor(props.color)}`,
+    boxShadow: props.backgroundColor === 'white'
+      ? `0 2px 10px rgb(53, 73, 95, 0.14), inset 0px 0px 0px 2px ${updateColor(props.color)}`
+      : '0 2px 10px rgba(53, 73, 94, 14%)',
   }
 })
 const iconColor = computed(() => {
@@ -52,7 +59,8 @@ const iconColor = computed(() => {
 </script>
 
 <template>
-  <a
+  <component
+    :is="is ?? 'a'"
     :href
     :target
     :style
@@ -71,7 +79,7 @@ const iconColor = computed(() => {
     <span class="text">
       <slot />
     </span>
-  </a>
+  </component>
 </template>
 
 <style scoped>
@@ -84,6 +92,7 @@ const iconColor = computed(() => {
   justify-content: center;
   align-items: center;
   width: 100%;
+  border-color: transparent;
   border-radius: var(--height-button);
   text-decoration: none;
   cursor: pointer;
@@ -95,7 +104,6 @@ const iconColor = computed(() => {
 .icon {
   margin-right: calc(var(--unit) * 1);
   width: var(--icon-size);
-  height: 100%;
 }
 .text {
   font-size: var(--font-size-body400);

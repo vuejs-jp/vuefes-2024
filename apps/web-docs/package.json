@@ -5,9 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev",
-    "build-docs": "vitepress build"
+    "build-docs": "vitepress build",
+    "lint": "bun run textlint",
+    "lint-fix": "bun run textlint-fix",
+    "textlint": "textlint ./**",
+    "textlint-fix": "textlint ./** --fix"
   },
   "devDependencies": {
+    "textlint": "14.0.4",
+    "textlint-filter-rule-allowlist": "4.0.0",
+    "textlint-rule-preset-vuejs-jp": "github:vuejs-jp/textlint-rule-preset-vuejs-jp",
     "vitepress": "1.0.2"
   }
 }

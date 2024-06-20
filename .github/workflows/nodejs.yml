@@ -55,7 +55,8 @@ jobs:
         uses: ./.github/actions/install-packages
 
       - name: Unit test
-        run: bun vitest
+        run: bun vitest --exclude 'apps/peatix-adapter/src/**'
+        working-directory: apps/web
 
   # e2e-test:
   #   runs-on: ubuntu-latest

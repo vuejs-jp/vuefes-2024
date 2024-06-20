@@ -4,21 +4,18 @@ import type { IconProps } from './Icon.vue'
 
 type IconButtonProps = IconProps & {
   href: string
+  targetBlank?: boolean
 }
 
-const props = withDefaults(defineProps<IconButtonProps>(),{
-  canHover: true
+const props = withDefaults(defineProps<IconButtonProps>(), {
+  canHover: false,
 })
 </script>
 
 <template>
-  <a
-    :href="props.href"
-    :aria-label="props.name"
-    class="icon-wrapper"
-  >
+  <NuxtLink :to="href" :target="targetBlank && '_blank'" :aria-label="name" class="icon-wrapper">
     <Icon v-bind="props" />
-  </a>
+  </NuxtLink>
 </template>
 
 <style scoped>
