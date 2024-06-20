@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SponsorInfo } from '~/types/app'
+import type { SponsorInfo } from '@vuejs-jp/model'
 
 type Props = SponsorInfo
 
@@ -129,25 +129,10 @@ defineProps<Props>()
   border: 1px solid var(--border-color-sponsor-list-item);
   border-radius: 12px;
 }
-.sponsor-list-item-link {
-  display: grid;
-  grid-template-columns: 3rem auto 3rem;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  &::before {
-    content: '';
-  }
-  &::after {
-    content: '';
-  }
-  @media (--tablet) {
-    grid-template-columns: 1rem auto 1rem;
-  }
-}
 .sponsor-list-item-image {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border-radius: 12px;
 }
 </style>
