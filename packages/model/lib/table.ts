@@ -1,1 +1,1 @@
-export type Table = 'speakers'
+export type Table = 'speakers' | 'sponsors'

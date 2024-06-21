@@ -18,8 +18,8 @@ update
 create table if not exists public.sponsors (
   id uuid not null primary key default uuid_generate_v4(),
   name varchar(100) not null,
-  description_ja text not null,
-  description_en text not null,
+  description_ja varchar(500) not null,
+  description_en varchar(500) not null,
   link_url varchar(500),
   image_url varchar(500),
   speaker_id varchar(100),
