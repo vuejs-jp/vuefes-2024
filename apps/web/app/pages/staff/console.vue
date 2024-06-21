@@ -47,13 +47,13 @@ const { hasAuth } = useAuthSession()
       <div v-if="hasAuth" class="tab-wrapper">
         <VFTab :labels="adminPageList">
           <template #tab_content_0>
-            <AdminList page="sponsor" />
+            <AdminPage page="speaker" />
           </template>
           <template #tab_content_1>
-            <AdminList page="speaker" />
+            <AdminPage page="sponsor" />
           </template>
           <template #tab_content_2>
-            <AdminList page="staff" />
+            <AdminPage page="staff" />
           </template>
         </VFTab>
       </div>
