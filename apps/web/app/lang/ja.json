@@ -33,7 +33,14 @@
     "apply_period": "スポンサー申込期間",
     "check_doc": "資料を見る",
     "start_date": "5.13",
-    "end_date": "4.25"
+    "end_date": "4.25",
+    "special_naming_rights": "スペシャルネーミングライツ",
+    "special_lunch": "スペシャルランチ",
+    "after_party": "アフターパーティー",
+    "name_card": "ネームカード",
+    "simultaneous_interpretation": "同時通訳",
+    "media": "メディア",
+    "tool": "ツール"
   },
 
   "partner": {

@@ -32,42 +32,42 @@ export default defineEventHandler(async () => {
 
   const specialNamingRightSponsors: SponsorInfo = {
     type: 'option',
-    title: 'Special Naming Rights',
+    title: 'special_naming_rights',
     list: sponsors.filter((s: Sponsor) => s['tag'].includes('special-naming-rights'))
   }
 
   const specialLunchSponsors: SponsorInfo = {
     type: 'option-separate',
-    title: 'Special Lunch',
+    title: 'special_lunch',
     list: sponsors.filter((s: Sponsor) => s['tag'].includes('special-lunch'))
   }
 
   const afterPartySponsors: SponsorInfo = {
     type: 'option-separate',
-    title: 'After Party',
+    title: 'after_party',
     list: sponsors.filter((s: Sponsor) => s['tag'].includes('after-party'))
   }
 
   const nameCardSponsors: SponsorInfo = {
     type: 'option-separate',
-    title: 'Name Card',
+    title: 'name_card',
     list: sponsors.filter((s: Sponsor) => s['tag'].includes('name-card'))
   }
 
   const simultaneousInterpretationSponsors: SponsorInfo = {
     type: 'option-separate',
-    title: 'Simultaneous Interpretation',
+    title: 'simultaneous_interpretation',
     list: sponsors.filter((s: Sponsor) => s['tag'].includes('simultaneous-interpretation'))
   }
 
   const mediaSponsors: SponsorInfo = {
     type: 'option',
-    title: 'Media',
+    title: 'media',
     list: sponsors.filter((s: Sponsor) => s['tag'].includes('media'))
   }
   const toolSponsors: SponsorInfo = {
     type: 'option',
-    title: 'Tool',
+    title: 'tool',
     list: sponsors.filter((s: Sponsor) => s['tag'].includes('tool'))
   }
   return {

@@ -1,15 +1,18 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { SponsorInfo } from '@vuejs-jp/model'
 
 type Props = SponsorInfo
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const isOption = computed(() => ['option', 'option-separate'].includes(props.type))
 </script>
 
 <template>
   <section :class="`sponsor-list-container sponsor-list-${type}`">
     <h4 class="sponsor-list-title">
-      {{ title }}
+      {{ isOption ? $t(`sponsor.${title}`) : title }}
     </h4>
     <ul class="sponsor-list">
       <li v-for="item in list" :key="item.id" class="sponsor-list-item">
