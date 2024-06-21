@@ -130,18 +130,20 @@ const onSubmit = () => {
           label="肩書き [EN]"
           @input="updateCaptionEn"
         />
-        <VFInputField
+        <VFTextAreaField
           id="description_ja"
           v-model="newSpeaker.description_ja"
           name="description_ja"
           label="スピーカー説明文 [JA]"
+          :rows="3"
           @input="updateDescriptionJa"
         />
-        <VFInputField
+        <VFTextAreaField
           id="description_en"
           v-model="newSpeaker.description_en"
           name="description_en"
           label="スピーカー説明文 [EN]"
+          :rows="3"
           @input="updateDescriptionEn"
         />
         <VFInputField
