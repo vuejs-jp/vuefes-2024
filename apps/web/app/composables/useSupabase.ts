@@ -1,4 +1,5 @@
 import { useSupabaseClient } from '#imports'
+import { bucket } from '@vuejs-jp/model'
 import type { Database } from '~/types/generated/supabase'
 import type { FormSpeaker } from '~/types/supabase'
 
@@ -17,7 +18,7 @@ export function useSupabase() {
   }
 
   async function uploadAvatar(filePath: string, file: File) {
-    await client.storage.from('common_asset').upload(filePath, file)
+    await client.storage.from(bucket).upload(filePath, file)
   }
 
   return { fetchData, upsertSpeaker, uploadAvatar }
