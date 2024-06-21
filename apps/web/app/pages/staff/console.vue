@@ -52,9 +52,6 @@ const { hasAuth } = useAuthSession()
           <template #tab_content_1>
             <AdminPage page="sponsor" />
           </template>
-          <template #tab_content_2>
-            <AdminPage page="staff" />
-          </template>
         </VFTab>
       </div>
     </div>
