@@ -29,7 +29,7 @@ const handleDialog = (id?: string) => {
       <th>x_id</th>
       <th>session_type</th>
       <th>is_open</th>
-      <th>action</th>
+      <th style="min-width: 80px">action</th>
     </tr>
     <tr v-for="speaker in speakers" :key="speaker.id">
       <td>
