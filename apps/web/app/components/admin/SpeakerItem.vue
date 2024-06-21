@@ -14,7 +14,7 @@ const { upsertSpeaker, uploadAvatar } = useSupabase()
 const { getFullAvatarUrl } = useSupabaseStorage()
 
 const newSpeaker = ref<FormSpeaker>({
-  id: props.speaker?.id ?? '',
+  ...props.speaker?.id && { id: props.speaker?.id },
   name_ja: props.speaker?.name_ja ?? '',
   name_en: props.speaker?.name_en ?? '',
   image_url: props.speaker?.image_url ?? '',
