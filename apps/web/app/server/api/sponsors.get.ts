@@ -8,25 +8,25 @@ export default defineEventHandler(async () => {
 
   const platinumSponsors: SponsorInfo = {
     type: 'platinum',
-    title: 'Platinum',
+    title: 'platinum',
     list: sponsors.filter((s: Sponsor) => s['tag'].includes('platinum'))
   }
 
   const goldSponsors: SponsorInfo = {
     type: 'gold',
-    title: 'Gold',
+    title: 'gold',
     list: sponsors.filter((s: Sponsor) => s['tag'].includes('gold'))
   }
 
   const silverSponsors: SponsorInfo = {
     type: 'silver',
-    title: 'Silver',
+    title: 'silver',
     list: sponsors.filter((s: Sponsor) => s['tag'].includes('silver'))
   }
 
   const bronzeSponsors: SponsorInfo = {
     type: 'bronze',
-    title: 'Bronze',
+    title: 'bronze',
     list: sponsors.filter((s: Sponsor) => s['tag'].includes('bronze'))
   }
 
