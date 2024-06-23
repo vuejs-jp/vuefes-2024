@@ -15,7 +15,10 @@ export default defineEventHandler(async (event) => {
     type: 'session',
     title: 'Session',
     list: speakers
-      .filter((speaker: Speaker) => speaker.session_type === 'session' && speaker.is_open === true)
+      .filter((speaker: Speaker) => {
+        if (process.env.NODE_ENV === 'production') return speaker.session_type === 'session' && speaker.is_open === true
+        return speaker.session_type === 'session'
+      })
       .sort((a: Speaker, b: Speaker) => {
         if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
         if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
@@ -26,7 +29,10 @@ export default defineEventHandler(async (event) => {
     type: 'lightning-talk',
     title: 'Lightning talk',
     list: speakers
-      .filter((speaker: Speaker) => speaker.session_type === 'lightning-talk' && speaker.is_open === true)
+      .filter((speaker: Speaker) => {
+        if (process.env.NODE_ENV === 'production') return speaker.session_type === 'lightning-talk' && speaker.is_open === true
+        return speaker.session_type === 'lightning-talk'
+      })
       .sort((a: Speaker, b: Speaker) => {
         if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
         if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
@@ -37,7 +43,10 @@ export default defineEventHandler(async (event) => {
     type: 'sponsor-session',
     title: 'Sponsor session',
     list: speakers
-      .filter((speaker: Speaker) => speaker.session_type === 'sponsor-session' && speaker.is_open === true)
+      .filter((speaker: Speaker) => {
+        if (process.env.NODE_ENV === 'production') return speaker.session_type === 'sponsor-session' && speaker.is_open === true
+        return speaker.session_type === 'sponsor-session'
+      })
       .sort((a: Speaker, b: Speaker) => {
         if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
         if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
