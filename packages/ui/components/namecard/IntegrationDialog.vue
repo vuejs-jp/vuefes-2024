@@ -1,18 +1,13 @@
 <script setup lang="ts">
-import { AuthProvider } from '@vuejs-jp/model'
 import Dialog from '../common/Dialog.vue'
 import LinkButton from '../link/LinkButton.vue'
 
 interface IntegrationDialogProps {
   title: string
 }
-interface IntegrationDialogEmits {
-  (e: 'on-close'): void
-  signin: [value: AuthProvider]
-}
 
 const props = defineProps<IntegrationDialogProps>()
-const emit = defineEmits<IntegrationDialogEmits>()
+const emits = defineEmits(['on-close', 'signin'])
 </script>
 
 <template>
