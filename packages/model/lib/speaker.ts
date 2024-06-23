@@ -28,8 +28,8 @@ export type Speaker = {
   session_doc_title_ja?: string
   session_doc_title_en?: string
   session_doc_url?: string
-  created_at?: string
-  updated_at?: string
+  created_at: string
+  updated_at: string
 }
 
 export type SpeakerInfo = {
