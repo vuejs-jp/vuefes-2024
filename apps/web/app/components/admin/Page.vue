@@ -3,6 +3,7 @@ import { useAsyncData } from '#imports'
 import type { AdminPage } from '@vuejs-jp/model'
 import { ref } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
+import type AdminUserList from './AdminUserList.vue'
 
 interface ListProps {
   page: AdminPage
@@ -11,6 +12,9 @@ interface ListProps {
 const { fetchData } = useSupabase()
 const { data: speakers } = await useAsyncData('speakers', async () => {
   return await fetchData('speakers')
+})
+const { data: adminUsers } = await useAsyncData('admin_users', async () => {
+  return await fetchData('admin_users')
 })
 
 const props = defineProps<ListProps>()
@@ -28,7 +32,17 @@ const pageText = props.page.replace(/^[a-z]/g, function (val) {
     <div class="tab-content-header">
       <h2>{{ pageText }}</h2>
       <VFLinkButton
+        v-if="page === 'adminUser'"
+        href="/staff/invite"
+        class="login-action"
+        background-color="white"
+        color="vue-blue"
+      >
+        Invite Staff
+      </VFLinkButton>
+      <VFLinkButton
         is="button"
+        v-if="page !== 'adminUser'"
         class="action"
         background-color="white"
         color="vue-blue"
@@ -39,6 +53,7 @@ const pageText = props.page.replace(/^[a-z]/g, function (val) {
     </div>
     <AdminSpeakerList v-if="page === 'speaker'" :speakers="speakers?.data" />
     <AdminSponsorList v-if="page === 'sponsor'" />
+    <AdminUserList v-if="page === 'adminUser'" :admin-users="adminUsers?.data" />
     <VFDialog v-if="showDialog">
       <AdminSpeakerItem v-if="page === 'speaker'" @close="handleDialog" />
       <AdminSponsorItem v-if="page === 'sponsor'" @close="handleDialog" />
@@ -57,6 +72,9 @@ const pageText = props.page.replace(/^[a-z]/g, function (val) {
   justify-content: space-between;
   width: 100%;
   padding: 40px 0 20px;
+}
+.tab-content-header a {
+  width: 144px;
 }
 .tab-content-header button {
   width: 92px;
