@@ -58,6 +58,8 @@ create table if not exists public.speakers (
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
 
+ALTER TABLE public.speakers ADD COLUMN display_order int;
+
 -- *** Function definitions ***
 create
 or replace function public.create_admin_user() returns trigger as $ $ begin -- If user_role is 'admin', insert data into admin_users table

@@ -26,6 +26,7 @@ const newSpeaker = ref<FormSpeaker>({
   x_id: props.speaker?.x_id ?? '',
   session_type: props.speaker?.session_type ??  'session',
   is_open: props.speaker?.is_open ?? true,
+  display_order: props.speaker?.display_order ?? null,
   // session_title_ja: '',
   // session_title_en: '',
   // session_description_ja: '',
@@ -75,6 +76,9 @@ const updateGithubId = (e: any) => {
 }
 const updateXId = (e: any) => {
   newSpeaker.value.x_id = e.target.value
+}
+const updateDisplayOrder = (e: any) => {
+  newSpeaker.value.display_order = e.target.value
 }
 
 const onSubmit = () => {
@@ -180,6 +184,13 @@ const onSubmit = () => {
             { value: 'false', text: '非表示' },
             { value: 'true', text: '表示' },
           ]"
+        />
+        <VFInputField
+          id="display_order"
+          v-model="newSpeaker.display_order"
+          name="display_order"
+          label="表示順"
+          @input="updateDisplayOrder"
         />
         <div class="form-button">
           <VFSubmitButton>Save</VFSubmitButton>

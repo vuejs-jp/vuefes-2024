@@ -60,7 +60,10 @@ const handleDialog = (id?: string) => {
       <td>{{ speaker.github_id }}</td>
       <td>{{ speaker.x_id }}</td>
       <td>{{ speaker.session_type }}</td>
-      <td>{{ speaker.is_open ? '表示' : '非表示' }}</td>
+      <td>
+        <p>{{ speaker.is_open ? '表示' : '非表示' }}</p>
+        <p v-if="speaker.display_order">{{ `(${speaker.display_order})` }}</p>
+      </td>
       <td>
         <VFLinkButton
           is="button"

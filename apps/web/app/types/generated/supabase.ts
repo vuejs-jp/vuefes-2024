@@ -64,6 +64,7 @@ export type Database = {
           created_at: string
           description_en: string
           description_ja: string
+          display_order: number | null
           github_id: string | null
           id: string
           image_url: string | null
@@ -92,6 +93,7 @@ export type Database = {
           created_at?: string
           description_en: string
           description_ja: string
+          display_order?: number | null
           github_id?: string | null
           id?: string
           image_url?: string | null
@@ -120,6 +122,7 @@ export type Database = {
           created_at?: string
           description_en?: string
           description_ja?: string
+          display_order?: number | null
           github_id?: string | null
           id?: string
           image_url?: string | null

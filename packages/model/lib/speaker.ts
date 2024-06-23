@@ -15,6 +15,7 @@ export type Speaker = {
   x_id?: string
   session_type: 'session' | 'lightning-talk' | 'sponsor-session'
   is_open: boolean
+  display_order?: number
   session_title_ja?: string
   session_title_en?: string
   session_description_ja?: string
