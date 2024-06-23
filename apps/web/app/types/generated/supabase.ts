@@ -152,6 +152,7 @@ export type Database = {
           created_at: string
           description_en: string
           description_ja: string
+          display_order: number | null
           id: string
           image_url: string | null
           is_open: boolean
@@ -165,6 +166,7 @@ export type Database = {
           created_at?: string
           description_en: string
           description_ja: string
+          display_order?: number | null
           id?: string
           image_url?: string | null
           is_open: boolean
@@ -178,6 +180,7 @@ export type Database = {
           created_at?: string
           description_en?: string
           description_ja?: string
+          display_order?: number | null
           id?: string
           image_url?: string | null
           is_open?: boolean

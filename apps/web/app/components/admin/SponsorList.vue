@@ -56,7 +56,10 @@ const handleDialog = (id?: string) => {
           {{ tag }}
         </p>
       </td>
-      <td>{{ sponsor.is_open ? '表示' : '非表示' }}</td>
+      <td>
+        <p>{{ sponsor.is_open ? '表示' : '非表示' }}</p>
+        <p v-if="sponsor.display_order">{{ `(${sponsor.display_order})` }}</p>
+      </td>
       <td>
         <VFLinkButton
           is="button"

@@ -29,6 +29,8 @@ create table if not exists public.sponsors (
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
 
+ALTER TABLE public.sponsors ADD COLUMN display_order int;
+
 create table if not exists public.speakers (
   id uuid not null primary key default uuid_generate_v4(),
   name_ja varchar(100) not null,

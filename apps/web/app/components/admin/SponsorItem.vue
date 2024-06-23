@@ -25,6 +25,7 @@ const newSponsor = ref({
   speaker_id: props.sponsor?.speaker_id ?? '',
   tag: props.sponsor?.tag ?? [],
   is_open: props.sponsor?.is_open ?? true,
+  display_order: props.sponsor?.display_order ?? null,
 })
 const tagText = ref(props.sponsor?.tag?.map((t) => t).join(',') ?? '')
 
@@ -55,6 +56,9 @@ const updateLinkUrl = (e: any) => {
 const updateTag = (e: any) => {
   tagText.value = e.target.value
   newSponsor.value.tag = tagText.value.split(',')
+}
+const updateDisplayOrder = (e: any) => {
+  newSponsor.value.display_order = e.target.value
 }
 
 const onSubmit = () => {
@@ -135,6 +139,13 @@ const onSubmit = () => {
             { value: 'false', text: '非表示' },
             { value: 'true', text: '表示' },
           ]"
+        />
+        <VFInputField
+          id="display_order"
+          v-model="newSponsor.display_order"
+          name="display_order"
+          label="表示順"
+          @input="updateDisplayOrder"
         />
         <div class="form-button">
           <VFSubmitButton>Save</VFSubmitButton>
