@@ -37,7 +37,7 @@ function handleBlur(e: Event) {
   emit('blur', e.target.value)
 }
 
-const inputtedText = defineModel<string>('inputtedText')
+const modelValue = defineModel<string>()
 
 const { fontWeight, fontSize } = useTypography()
 </script>
@@ -54,7 +54,7 @@ const { fontWeight, fontSize } = useTypography()
     {{ label }}
     <textarea
       :id="id"
-      v-model.trim="inputtedText"
+      v-model.trim="modelValue"
       :name="name"
       :style="{
         fontSize: fontSize('heading/100'),

@@ -31,7 +31,7 @@ create table if not exists public.sponsors (
 
 create table if not exists public.speakers (
   id uuid not null primary key default uuid_generate_v4(),
-  name_jp varchar(100) not null,
+  name_ja varchar(100) not null,
   name_en varchar(100) not null,
   image_url varchar(500),
   caption_ja varchar(100),
@@ -48,8 +48,8 @@ create table if not exists public.speakers (
   session_comment_ja varchar(200),
   session_comment_en varchar(200),
   session_place varchar(100),
-  session_time_from timestamp with time zone default timezone('utc' :: text, now()) not null,
-  session_time_duration int(10) not null,
+  session_time_from timestamp with time zone,
+  session_time_duration int,
   session_doc_title_ja varchar(200),
   session_doc_title_en varchar(200),
   session_doc_url varchar(200),
@@ -57,6 +57,8 @@ create table if not exists public.speakers (
   created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
+
+ALTER TABLE public.speakers ADD COLUMN display_order int;
 
 -- *** Function definitions ***
 create

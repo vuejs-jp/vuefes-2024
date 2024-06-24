@@ -1,7 +1,6 @@
 export const AdminPageMap = {
-  sponsor: 'sponsor',
   speaker: 'speaker',
-  staff: 'staff',
+  sponsor: 'sponsor',
 } as const
 
 export const adminPageList = Object.values(AdminPageMap).map((value) => {
