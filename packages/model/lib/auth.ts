@@ -1,3 +1,3 @@
-export type AuthProvider = 'github' | 'google'
+export type AuthProvider = 'github' | 'google' | 'x'
 
 export type RedirectPath = '/'

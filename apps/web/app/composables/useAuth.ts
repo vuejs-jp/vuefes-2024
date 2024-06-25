@@ -5,7 +5,7 @@ import { REDIRECT_URL } from '~/utils/environment.constants'
 export function useAuth() {
   const supabase = useSupabaseClient()
 
-  async function signIn(provider: AuthProvider, path: RedirectPath) {
+  async function signIn(provider: Extract<AuthProvider, 'github' | 'google'>, path: RedirectPath) {
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
