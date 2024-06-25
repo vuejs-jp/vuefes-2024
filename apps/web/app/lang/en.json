@@ -28,7 +28,18 @@
     "apply_period": "Sponsor Application Period",
     "check_doc": "View Sponsorship materials",
     "start_date": "May 13",
-    "end_date": "25,"
+    "end_date": "25,",
+    "platinum": "Platinum",
+    "gold": "Gold",
+    "silver": "Silver",
+    "bronze": "Bronze",
+    "special_naming_rights": "Special Naming Rights",
+    "special_lunch": "Special Lunch",
+    "after_party": "After Party",
+    "name_card": "Name Card",
+    "simultaneous_interpretation": "Simultaneous Interpretation",
+    "media": "Media",
+    "tool": "Tool"
   },
   "partner": {
     "title": "Partners"
