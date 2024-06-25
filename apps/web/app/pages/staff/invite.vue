@@ -71,7 +71,7 @@ function deleteUser() {
 main {
   --header-height: calc(var(--unit) * 10);
 
-  padding: calc(var(--header-height) + 120px) 20px 0;
+  padding: calc(var(--header-height) + 40px) 20px var(--header-height);
   background: color(--color-white);
 }
 
