@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Speaker } from '@vuejs-jp/model'
+import type { Speaker, Sponsor } from '@vuejs-jp/model'
 import { ref } from 'vue'
 
 interface SponsorListProps {
-  sponsors: any
+  sponsors: Sponsor[]
   speakers: Speaker[]
 }
 
