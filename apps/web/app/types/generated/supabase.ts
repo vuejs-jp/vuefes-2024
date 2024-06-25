@@ -147,6 +147,51 @@ export type Database = {
         }
         Relationships: []
       }
+      sponsors: {
+        Row: {
+          created_at: string
+          description_en: string
+          description_ja: string
+          display_order: number | null
+          id: string
+          image_url: string | null
+          is_open: boolean
+          link_url: string | null
+          name: string
+          speaker_id: string | null
+          tag: string[] | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description_en: string
+          description_ja: string
+          display_order?: number | null
+          id?: string
+          image_url?: string | null
+          is_open: boolean
+          link_url?: string | null
+          name: string
+          speaker_id?: string | null
+          tag?: string[] | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description_en?: string
+          description_ja?: string
+          display_order?: number | null
+          id?: string
+          image_url?: string | null
+          is_open?: boolean
+          link_url?: string | null
+          name?: string
+          speaker_id?: string | null
+          tag?: string[] | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

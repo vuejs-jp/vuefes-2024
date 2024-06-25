@@ -13,6 +13,9 @@ const { fetchData } = useSupabase()
 const { data: speakers } = await useAsyncData('speakers', async () => {
   return await fetchData('speakers')
 })
+const { data: sponsors } = await useAsyncData('sponsors', async () => {
+  return await fetchData('sponsors')
+})
 const { data: adminUsers } = await useAsyncData('admin_users', async () => {
   return await fetchData('admin_users')
 })
@@ -52,11 +55,11 @@ const pageText = props.page.replace(/^[a-z]/g, function (val) {
       </VFLinkButton>
     </div>
     <AdminSpeakerList v-if="page === 'speaker'" :speakers="speakers?.data" />
-    <AdminSponsorList v-if="page === 'sponsor'" />
+    <AdminSponsorList v-if="page === 'sponsor'" :sponsors="sponsors?.data" :speakers="speakers?.data" />
     <AdminUserList v-if="page === 'adminUser'" :admin-users="adminUsers?.data" />
     <VFDialog v-if="showDialog">
       <AdminSpeakerItem v-if="page === 'speaker'" @close="handleDialog" />
-      <AdminSponsorItem v-if="page === 'sponsor'" @close="handleDialog" />
+      <AdminSponsorItem v-if="page === 'sponsor'" :speakers="speakers?.data" @close="handleDialog" />
     </VFDialog>
   </div>
 </template>

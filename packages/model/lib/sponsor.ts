@@ -25,9 +25,14 @@ type Tag = 'name-card'
 export type Sponsor = {
   id: string
   name: string
+  description_ja: string
+  description_en: string
+  speaker_id?: string
   image_url: string
   tag: Array<SponsorType | Tag>
   link_url: string
+  is_open: boolean
+  display_order?: number
 }
 
 export type SponsorInfo = {

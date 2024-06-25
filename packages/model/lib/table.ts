@@ -1,1 +1,1 @@
-export type Table = 'speakers' | 'admin_users'
+export type Table = 'speakers' | 'sponsors' | 'admin_users'
