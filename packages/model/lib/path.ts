@@ -2,7 +2,7 @@ export type Path =
   | 'form'
   | 'message'
   | 'speaker'
-  |'speaker_cfp'
+  | 'speaker_cfp'
   | 'speaker_information'
   | 'volunteer'
   | 'sponsor'
