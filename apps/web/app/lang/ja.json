@@ -10,6 +10,7 @@
     "sunday": "日",
     "monday": "月",
     "tuesday": "火",
+    "wednesday": "水",
     "thursday": "木"
   },
   "top_page": {
@@ -24,6 +25,15 @@
     "application_period_after": "まで",
     "apply": "申し込む",
     "end_date": "7.21",
+    "end_hour": "24",
+    "end_minute": "00"
+  },
+  "volunteer": {
+    "title": "ボランティア募集",
+    "application_period_before": "応募期限：",
+    "application_period_after": "まで",
+    "apply": "申し込む",
+    "end_date": "7.31",
     "end_hour": "24",
     "end_minute": "00"
   },
