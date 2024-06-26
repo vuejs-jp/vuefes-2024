@@ -24,6 +24,9 @@ const endPeriodTime = {
       <VFTitle id="volunteer" class="title">
         {{ translate('volunteer.title') }}
       </VFTitle>
+      <h3 class="volunteer-subtitle">
+        {{ $t('volunteer.subtitle') }}
+      </h3>
       <div class="volunteer-text">
         <MarkDownText path="volunteer" />
       </div>
@@ -88,6 +91,21 @@ const endPeriodTime = {
 .title {
   text-align: center;
   line-height: 1.2;
+}
+
+.volunteer-subtitle {
+  --subtitle-font-size: 1.5rem;
+  --subtitle-font-weight: 700;
+
+  font-size: var(--subtitle-font-size);
+  font-weight: var(--subtitle-font-weight);
+  text-align: center;
+  line-height: 1.2;
+  margin-top: calc(var(--unit) * 5);
+  margin-bottom: calc(var(--unit) * 2.5);
+  background: var(--color-vue-green-gradation);
+  color: transparent;
+  background-clip: text;
 }
 
 .volunteer-body {
