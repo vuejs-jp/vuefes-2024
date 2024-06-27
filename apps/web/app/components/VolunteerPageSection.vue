@@ -30,6 +30,9 @@ const endPeriodTime = {
       <div class="volunteer-text">
         <MarkDownText path="volunteer" />
       </div>
+      <h3 class="volunteer-subtitle">
+        {{ $t('volunteer.application_period') }}
+      </h3>
       <div class="volunteer-end-period">
         <span class="volunteer-end-period-text">
           {{ translate('volunteer.application_period_before') }}

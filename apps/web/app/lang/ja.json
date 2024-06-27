@@ -31,9 +31,10 @@
   "volunteer": {
     "title": "ボランティア募集",
     "subtitle": "あなたも一緒に Vue Fes Japan を盛り上げませんか？",
+    "application_period": "募集スケジュール",
     "application_period_before": "応募期限：",
     "application_period_after": "まで",
-    "apply": "申し込む",
+    "apply": "ボランティアに応募する",
     "end_date": "7.31",
     "end_hour": "24",
     "end_minute": "00"
