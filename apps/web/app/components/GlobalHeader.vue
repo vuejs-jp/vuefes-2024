@@ -41,7 +41,7 @@ const toggleMenu = () => {
       <div v-if="showMenu" class="navigation-mobile-menu">
         <ul>
           <li v-for="link in navLinks" :key="link.anchor">
-            <nuxt-link :to="`${link.anchor}`" @click="toggleMenu">
+            <nuxt-link :to="`/${link.anchor}`" @click="toggleMenu">
               <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
             </nuxt-link>
           </li>
@@ -52,7 +52,7 @@ const toggleMenu = () => {
   <VFHeader v-if="!isMobile">
     <div class="navigation-pc">
       <div class="navigation-links-pc">
-        <nuxt-link v-for="link in navLinks" :key="link.anchor" :to="link.anchor">
+        <nuxt-link v-for="link in navLinks" :key="link.anchor" :to="`/${link.anchor}`">
           <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
         </nuxt-link>
       </div>
