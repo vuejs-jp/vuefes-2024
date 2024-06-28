@@ -11,7 +11,7 @@ const { data, error } = await useFetch('/api/speakers')
 if (error.value) {
   console.error(error.value)
 }
-const { sessionSpeakers } = data.value as Speakers
+const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.value as Speakers
 </script>
 
 <template>
@@ -27,6 +27,38 @@ const { sessionSpeakers } = data.value as Speakers
         <h3 class="speaker-subtitle">Sessions</h3>
         <ul class="speaker-cards">
           <li v-for="speaker in sessionSpeakers.list" :key="speaker.id" class="speaker-card">
+            <VFSpeaker
+              :image="speaker.image_url"
+              :company="currentLocale === 'en' ? speaker.caption_en : speaker.caption_ja"
+              :division="currentLocale === 'en' ? speaker.description_en : speaker.description_ja"
+              :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
+              :github-id="speaker.github_id"
+              :x-id="speaker.x_id"
+            />
+          </li>
+        </ul>
+      </section>
+
+      <section v-if="lightningTalkSpeakers.list.length !== 0" id="lightning-talks" class="speaker-section">
+        <h3 class="speaker-subtitle">Lightning Talks</h3>
+        <ul class="speaker-cards">
+          <li v-for="speaker in lightningTalkSpeakers.list" :key="speaker.id" class="speaker-card">
+            <VFSpeaker
+              :image="speaker.image_url"
+              :company="currentLocale === 'en' ? speaker.caption_en : speaker.caption_ja"
+              :division="currentLocale === 'en' ? speaker.description_en : speaker.description_ja"
+              :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
+              :github-id="speaker.github_id"
+              :x-id="speaker.x_id"
+            />
+          </li>
+        </ul>
+      </section>
+
+      <section v-if="sponsorSessionSpeakers.list.length !== 0" id="sponsor-sessions" class="speaker-section">
+        <h3 class="speaker-subtitle">Sponsor Sessions</h3>
+        <ul class="speaker-cards">
+          <li v-for="speaker in sponsorSessionSpeakers.list" :key="speaker.id" class="speaker-card">
             <VFSpeaker
               :image="speaker.image_url"
               :company="currentLocale === 'en' ? speaker.caption_en : speaker.caption_ja"
