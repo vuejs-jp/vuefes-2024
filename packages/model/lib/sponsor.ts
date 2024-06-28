@@ -33,6 +33,8 @@ export type Sponsor = {
   link_url: string
   is_open: boolean
   display_order?: number
+  created_at: string
+  updated_at: string
 }
 
 export type SponsorInfo = {
