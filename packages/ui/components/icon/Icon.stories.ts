@@ -37,6 +37,7 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
     <Icon v-bind="args" name="note22" />
     <Icon v-bind="args" name="YouTube" />
     <Icon v-bind="args" name="GitHub" />
+    <Icon v-bind="args" name="Menu" />
   </div>`,
 })
 

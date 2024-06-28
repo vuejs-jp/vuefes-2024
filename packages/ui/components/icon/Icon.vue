@@ -40,17 +40,16 @@ const svgComponent = match<IconName>(props.name)
   .with('Google24', () =>
     defineAsyncComponent(() => import('../../assets/icon/google_icon.svg?component')),
   )
+  .with('Menu', () =>
+    defineAsyncComponent(() => import('../../assets/icon/menu_icon.svg?component')),
+  )
   .exhaustive()
 
 const { color: fillColor } = useColor()
 </script>
 
 <template>
-  <component
-    :is="svgComponent"
-    :fill="fillColor(props.color)"
-    :class="{ 'icon_svg': props.canHover }"
-  />
+  <component :is="svgComponent" :fill="fillColor(props.color)" :class="{ 'icon_svg': props.canHover }" />
 </template>
 
 <style scoped>
