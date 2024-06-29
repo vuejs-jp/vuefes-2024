@@ -44,6 +44,9 @@
     "submit": "Submit",
     "submit_done": "Successfully sent your message."
   },
+  "team": {
+    "title": "Team"
+  },
   "message": {
     "title": "Message"
   },
