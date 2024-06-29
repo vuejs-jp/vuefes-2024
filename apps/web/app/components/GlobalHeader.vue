@@ -18,6 +18,7 @@ const navLinks: NavLink[] = [
   // Uncomment out after job board implementation
   // { text: 'Job board', anchor: '#jobboard' },
   { text: 'Contact', anchor: '#form' },
+
 ]
 
 const showMenu = ref(false)
@@ -30,22 +31,25 @@ const toggleMenu = () => {
 <template>
   <VFSpHeader v-if="isMobile">
     <div class="navigation-mobile">
-      <NuxtLink v-if="config.public.enableSwitchLocale" :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
-        class="locale-switch-wrapper">
+      <NuxtLink v-if="config.public.enableSwitchLocale" :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')" class="locale-switch-wrapper">
         <VFLocaleSwitch :locale />
       </NuxtLink>
-      <VFIcon name="Menu" color="vue-blue" can-hover @click="toggleMenu" />
+
+      <a href='' class="navigation-mobile-toggle" name="Menu" @click.prevent="toggleMenu" :class="{ 'isOpened': showMenu }"><span></span><span></span><span></span></a>
+      <!-- <VFIcon name="Menu" color="vue-blue" can-hover @click="toggleMenu" /> -->
     </div>
     <!-- hamburger-menu -->
-    <Transition>
-      <div v-if="showMenu" class="navigation-mobile-menu">
-        <ul>
-          <li v-for="link in navLinks" :key="link.anchor">
-            <nuxt-link :to="`/${link.anchor}`" @click="toggleMenu">
-              <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
-            </nuxt-link>
-          </li>
-        </ul>
+    <Transition name="slide-down">
+      <div v-show="showMenu" class="navigation-mobile-menu">
+        <div>
+          <ul>
+            <li v-for="link in navLinks" :key="link.anchor">
+              <nuxt-link :to="`/${link.anchor}`" @click="toggleMenu">
+                <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
+              </nuxt-link>
+            </li>
+          </ul>
+        </div>
       </div>
     </Transition>
   </VFSpHeader>
@@ -56,8 +60,7 @@ const toggleMenu = () => {
           <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
         </nuxt-link>
       </div>
-      <NuxtLink v-if="config.public.enableSwitchLocale" :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
-        class="locale-switch-wrapper">
+      <NuxtLink v-if="config.public.enableSwitchLocale" :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')" class="locale-switch-wrapper">
         <VFLocaleSwitch :locale />
       </NuxtLink>
     </div>
@@ -82,8 +85,11 @@ const toggleMenu = () => {
   left: 0;
   width: 100vw;
   text-align: center;
-  padding: calc(var(--unit) * 5) 0;
   background-color: var(--color-white);
+
+  &>div {
+    padding: calc(var(--unit) * 5) 0;
+  }
 
   ul {
     padding: 0;
@@ -109,6 +115,54 @@ const toggleMenu = () => {
 
   a {
     text-decoration: none;
+  }
+}
+
+.navigation-mobile-toggle {
+  position: relative;
+  right: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+
+  span {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: var(--color-vue-blue);
+    width: 24px;
+    height: 2px;
+    transition-property: transform opacity;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+
+    &:nth-child(1) {
+      transform: translateY(-11px);
+    }
+
+    &:nth-child(3) {
+      transform: translateY(11px);
+    }
+  }
+
+  &.isOpened {
+    span {
+      transition-property: transform opacity;
+      transition-duration: .1s;
+      transition-timing-function: linear;
+
+      &:nth-child(1) {
+        transform: translateY(0) rotate(-45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: translateY(0) rotate(45deg);
+      }
+    }
   }
 }
 </style>
