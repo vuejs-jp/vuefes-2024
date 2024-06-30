@@ -2,6 +2,7 @@ import svgLoader from 'vite-svg-loader'
 import { conferenceTitle } from './app/utils/constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
 import { isProd } from './app/utils/environment.constants'
+import { join } from 'path'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -73,6 +74,7 @@ export default defineNuxtConfig({
     markdown: {
       anchorLinks: false,
     },
+    sources: [join(__dirname, 'content')],
   },
   gtag: {
     id: process.env.NUXT_GTAG_ID,
