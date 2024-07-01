@@ -15,3 +15,5 @@ export const vuefesTwitterID = '@vuefes'
 export const cfpJaUrl = 'https://docs.google.com/forms/d/1FRbRA6pAwzlcW1mtYxDPKmwIntwm0b3th4NBR6-pkoI/viewform'
 
 export const cfpEnUrl = 'https://docs.google.com/forms/d/1vjDr4ITLrFM58wGfoETC6JeHMAIZVUyrmSI9-9KiaeA/viewform'
+
+export const volunteerUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfiO98GwyyvpKLpNiEWWs8XfROudAu0WfCJnyfRI_96YvZivg/closedform'
