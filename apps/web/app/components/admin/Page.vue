@@ -60,8 +60,10 @@ const pageText = props.page.replace(/^[a-z]/g, function (val) {
     </div>
     <AdminSpeakerList v-if="page === 'speaker'" :speakers="speakers?.data" />
     <AdminSponsorList v-if="page === 'sponsor'" :sponsors="sponsors?.data" :speakers="speakers?.data" />
-    <AdminStaffList v-if="page === 'adminUser'" :staffs="staffs?.data" />
-    <AdminUserList v-if="page === 'adminUser'" :admin-users="adminUsers?.data" />
+    <div v-if="page === 'adminUser'" class="tab-content-admin">
+      <AdminStaffList :staffs="staffs?.data" />
+      <AdminUserList :admin-users="adminUsers?.data" />
+    </div>
     <VFDialog v-if="showDialog">
       <AdminSpeakerItem v-if="page === 'speaker'" @close="handleDialog" />
       <AdminSponsorItem v-if="page === 'sponsor'" :speakers="speakers?.data" @close="handleDialog" />
@@ -87,5 +89,9 @@ const pageText = props.page.replace(/^[a-z]/g, function (val) {
 }
 .tab-content-header button {
   width: 144px;
+}
+.tab-content-admin {
+  display: grid;
+  gap: 20px;
 }
 </style>
