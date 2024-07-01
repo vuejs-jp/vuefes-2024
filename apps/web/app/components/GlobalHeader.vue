@@ -17,7 +17,7 @@ const navLinks: NavLink[] = [
   { text: 'Sponsors', anchor: '#sponsors' },
   // Uncomment out after job board implementation
   // { text: 'Job board', anchor: '#jobboard' },
-  { text: 'Contact', anchor: '#form' },
+  { text: 'Inquiry', anchor: '#form' },
 
 ]
 
