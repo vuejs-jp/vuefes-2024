@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { useHead } from '#imports'
+import { useHead, useI18n } from '#imports'
 import { conferenceTitle } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
+
+const { locale } = useI18n({ useScope: 'global' })
 
 useHead({
   // eslint-disable-next-line no-unused-vars
@@ -14,6 +16,7 @@ useHead({
   <TopPageSection />
   <MessagePageSection />
   <SpeakerPageSection />
+  <VolunteerPageSection v-if="locale === 'ja'" />
   <SponsorPageSection />
   <CooperationPartnerSection />
   <FormPageSection />

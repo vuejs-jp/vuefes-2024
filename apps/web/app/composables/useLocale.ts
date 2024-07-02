@@ -13,6 +13,7 @@ export function useLocale(path: Path) {
       .with('speaker', () => `/${locale.value}/speaker`)
       .with('speaker_cfp', () => `/${locale.value}/speaker_cfp`)
       .with('speaker_information', () => `/${locale.value}/speaker_information`)
+      .with('volunteer', () => `/${locale.value}/volunteer`)
       .with('privacy', () => `/${locale.value}/privacy`)
       .with('sponsor', () => `/${locale.value}/sponsor`)
       .with('code-of-conduct', () => `/${locale.value}/code-of-conduct`)

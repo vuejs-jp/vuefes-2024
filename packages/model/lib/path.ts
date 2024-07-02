@@ -4,6 +4,7 @@ export type Path =
   | 'speaker'
   | 'speaker_cfp'
   | 'speaker_information'
+  | 'volunteer'
   | 'sponsor'
   | 'code-of-conduct'
   | 'privacy'

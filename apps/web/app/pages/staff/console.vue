@@ -35,6 +35,7 @@ const { hasAuth } = useAuthSession()
         </div>
         <div v-if="hasAuth" class="logout-wrapper">
           <VFLinkButton
+            is="button"
             class="logout-action"
             background-color="white"
             color="vue-blue"
@@ -52,6 +53,9 @@ const { hasAuth } = useAuthSession()
           <template #tab_content_1>
             <AdminPage page="sponsor" />
           </template>
+          <template #tab_content_2>
+            <AdminPage page="adminUser" />
+          </template>
         </VFTab>
       </div>
     </div>
@@ -65,7 +69,7 @@ const { hasAuth } = useAuthSession()
 main {
   --header-height: calc(var(--unit) * 10);
 
-  padding: calc(var(--header-height) + 120px) 20px 0;
+  padding: calc(var(--header-height) + 40px) 20px var(--header-height);
   background: color(--color-white);
 }
 
@@ -78,7 +82,7 @@ main {
 }
 .header-wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .title {

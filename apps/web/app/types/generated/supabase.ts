@@ -147,6 +147,87 @@ export type Database = {
         }
         Relationships: []
       }
+      sponsors: {
+        Row: {
+          created_at: string
+          description_en: string
+          description_ja: string
+          display_order: number | null
+          id: string
+          image_url: string | null
+          is_open: boolean
+          link_url: string | null
+          name: string
+          speaker_id: string | null
+          tag: string[] | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description_en: string
+          description_ja: string
+          display_order?: number | null
+          id?: string
+          image_url?: string | null
+          is_open: boolean
+          link_url?: string | null
+          name: string
+          speaker_id?: string | null
+          tag?: string[] | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description_en?: string
+          description_ja?: string
+          display_order?: number | null
+          id?: string
+          image_url?: string | null
+          is_open?: boolean
+          link_url?: string | null
+          name?: string
+          speaker_id?: string | null
+          tag?: string[] | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      staffs: {
+        Row: {
+          created_at: string
+          display_order: number | null
+          github_id: string | null
+          id: string
+          image_url: string | null
+          is_open: boolean
+          name: string
+          updated_at: string
+          x_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number | null
+          github_id?: string | null
+          id?: string
+          image_url?: string | null
+          is_open: boolean
+          name: string
+          updated_at?: string
+          x_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          display_order?: number | null
+          github_id?: string | null
+          id?: string
+          image_url?: string | null
+          is_open?: boolean
+          name?: string
+          updated_at?: string
+          x_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

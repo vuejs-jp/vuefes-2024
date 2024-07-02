@@ -1,20 +1,33 @@
 <script setup lang="ts">
+import type { Speaker } from '@vuejs-jp/model'
 import { ref } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
 import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
+import type { FormSponsor } from '~/types/supabase'
 
+interface AddSponsorProps {
+  sponsor?: FormSponsor
+  speakers: Speaker[]
+}
 const emit = defineEmits<{ close: [] }>()
+const props = defineProps<AddSponsorProps>()
 
+const { upsertSponsor, uploadAvatar } = useSupabase()
 const { getFullAvatarUrl } = useSupabaseStorage()
 
 const newSponsor = ref({
-  name: '',
-  image_url: '',
-  descriptionJa: '',
-  descriptionEn: '',
-  linkUrl: '',
-  tag: '',
+  ...props.sponsor?.id && { id: props.sponsor?.id },
+  name: props.sponsor?.name ?? '',
+  image_url: props.sponsor?.image_url ?? '',
+  description_ja: props.sponsor?.description_ja ?? '',
+  description_en: props.sponsor?.description_en ?? '',
+  link_url: props.sponsor?.link_url ?? '',
+  speaker_id: props.sponsor?.speaker_id ?? '',
+  tag: props.sponsor?.tag ?? [],
+  is_open: props.sponsor?.is_open ?? true,
+  display_order: props.sponsor?.display_order ?? null,
 })
+const tagText = ref(props.sponsor?.tag?.map((t) => t).join(',') ?? '')
 
 const updateName = (e: any) => {
   newSponsor.value.name = e.target.value
@@ -27,25 +40,30 @@ const checkFiles = async (files: File[]) => {
   const fileExt = file.name.split('.').pop()
   const filePath = `/${Math.random()}.${fileExt}`
 
-  // uploadAvatar(filePath, file)
+  uploadAvatar(filePath, file)
 
   newSponsor.value.image_url = getFullAvatarUrl(filePath)
 }
 const updateDescriptionJa = (e: any) => {
-  newSponsor.value.descriptionJa = e.target.value
+  newSponsor.value.description_ja = e.target.value
 }
 const updateDescriptionEn = (e: any) => {
-  newSponsor.value.descriptionEn = e.target.value
+  newSponsor.value.description_en = e.target.value
 }
 const updateLinkUrl = (e: any) => {
-  newSponsor.value.linkUrl = e.target.value
+  newSponsor.value.link_url = e.target.value
 }
 const updateTag = (e: any) => {
-  newSponsor.value.tag = e.target.value
+  tagText.value = e.target.value
+  newSponsor.value.tag = tagText.value.split(',')
+}
+const updateDisplayOrder = (e: any) => {
+  newSponsor.value.display_order = e.target.value
 }
 
 const onSubmit = () => {
-  // addData('sponsors', newSponsor)
+  upsertSponsor('sponsors', newSponsor.value)
+  tagText.value = ''
 }
 </script>
 
@@ -63,42 +81,76 @@ const onSubmit = () => {
         />
         <VFDragDropArea file-name="profiledata" file-accept="image/*" @check-files="checkFiles">
           <div class="upload">
+            <img
+              v-if="newSponsor.image_url"
+              alt=""
+              :src="newSponsor.image_url"
+              height="60"
+              decoding="async"
+            />
             <p>Drag & drop a file</p>
             <p>または</p>
             <p>Select a file</p>
           </div>
         </VFDragDropArea>
-        <VFInputField
+        <VFTextAreaField
           id="descriptionJa"
-          v-model="newSponsor.descriptionJa"
+          v-model="newSponsor.description_ja"
           name="descriptionJa"
-          label="Description [Ja]"
+          label="Description [JA]"
+          :rows="3"
           @input="updateDescriptionJa"
         />
-        <VFInputField
+        <VFTextAreaField
           id="descriptionEn"
-          v-model="newSponsor.descriptionEn"
+          v-model="newSponsor.description_en"
           name="descriptionEn"
-          label="Description [En]"
+          label="Description [EN]"
+          :rows="3"
           @input="updateDescriptionEn"
         />
         <VFInputField
           id="linkUrl"
-          v-model="newSponsor.linkUrl"
+          v-model="newSponsor.link_url"
           name="linkUrl"
           label="Link URL"
           @input="updateLinkUrl"
         />
+        <VFDropdownField
+          id="speaker_id"
+          v-model="newSponsor.speaker_id"
+          name="speaker_id"
+          label="スピーカー"
+          :items="speakers.map((s: Speaker) => ({ value: s.id, text: s.name_ja }))"
+        />
         <VFInputField
-          id="tag"
-          v-model="newSponsor.tag"
-          name="tag"
+          id="tagText"
+          v-model="tagText"
+          name="tagText"
           label="Tag"
           @input="updateTag"
+        />
+        <VFDropdownField
+          id="is_open"
+          v-model="newSponsor.is_open"
+          name="is_open"
+          label="表示・非表示"
+          :items="[
+            { value: 'false', text: '非表示' },
+            { value: 'true', text: '表示' },
+          ]"
+        />
+        <VFInputField
+          id="display_order"
+          v-model="newSponsor.display_order"
+          name="display_order"
+          label="表示順"
+          @input="updateDisplayOrder"
         />
         <div class="form-button">
           <VFSubmitButton>Save</VFSubmitButton>
           <VFLinkButton
+            is="button"
             class="action"
             background-color="white"
             color="vue-blue"

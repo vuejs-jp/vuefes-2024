@@ -18,6 +18,8 @@ export const cfpJaUrl =
 export const cfpEnUrl =
   'https://docs.google.com/forms/d/1vjDr4ITLrFM58wGfoETC6JeHMAIZVUyrmSI9-9KiaeA/viewform'
 
+export const volunteerUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfiO98GwyyvpKLpNiEWWs8XfROudAu0WfCJnyfRI_96YvZivg/closedform'
+
 export const team = [
   {
     name: 'Team Member 1',

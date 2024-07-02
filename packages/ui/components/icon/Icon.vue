@@ -37,6 +37,9 @@ const svgComponent = match<IconName>(props.name)
   .with('GitHub24', () =>
     defineAsyncComponent(() => import('../../assets/icon/github_24_icon.svg?component')),
   )
+  .with('Google24', () =>
+    defineAsyncComponent(() => import('../../assets/icon/google_icon.svg?component')),
+  )
   .exhaustive()
 
 const { color: fillColor } = useColor()

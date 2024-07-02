@@ -18,8 +18,8 @@ update
 create table if not exists public.sponsors (
   id uuid not null primary key default uuid_generate_v4(),
   name varchar(100) not null,
-  description_ja text not null,
-  description_en text not null,
+  description_ja varchar(500) not null,
+  description_en varchar(500) not null,
   link_url varchar(500),
   image_url varchar(500),
   speaker_id varchar(100),
@@ -28,6 +28,8 @@ create table if not exists public.sponsors (
   created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
+
+ALTER TABLE public.sponsors ADD COLUMN display_order int;
 
 create table if not exists public.speakers (
   id uuid not null primary key default uuid_generate_v4(),
@@ -59,6 +61,18 @@ create table if not exists public.speakers (
 );
 
 ALTER TABLE public.speakers ADD COLUMN display_order int;
+
+create table if not exists public.staffs (
+  id uuid not null primary key default uuid_generate_v4(),
+  name varchar(100) not null,
+  image_url varchar(500),
+  x_id varchar(100),
+  github_id varchar(100),
+  is_open bool not null,
+  display_order int,
+  created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
+  updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
+);
 
 -- *** Function definitions ***
 create

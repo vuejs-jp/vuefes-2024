@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
-import { useRuntimeConfig } from '#imports'
+import { useFetch, useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
+import SponsorList from './sponsor/SponsorList.vue'
+import type { SponsorInfo, SponsorCategory } from '@vuejs-jp/model'
+
+type Sponsors = Record<SponsorCategory, SponsorInfo>
 
 const config = useRuntimeConfig()
 const { fontWeight, fontSize } = useTypography()
@@ -22,6 +26,24 @@ const periodStart = {
 //   date: t('sponsor.end_date'),
 //   dayOfWeek: translate('day_of_week.thursday'),
 // }
+
+const { data, error } = await useFetch('/api/sponsors')
+if (error.value) {
+  console.error(error.value)
+}
+const {
+  platinumSponsors,
+  goldSponsors,
+  silverSponsors,
+  bronzeSponsors,
+  specialNamingRightSponsors,
+  specialLunchSponsors,
+  afterPartySponsors,
+  nameCardSponsors,
+  simultaneousInterpretationSponsors,
+  mediaSponsors,
+  toolSponsors,
+} = data.value as Sponsors
 </script>
 
 <template>
@@ -76,6 +98,21 @@ const periodStart = {
           {{ $t('sponsor.check_doc') }}
         </VFLinkButton>
       </div>
+      <SponsorList v-bind="platinumSponsors" />
+      <SponsorList v-bind="goldSponsors" />
+      <SponsorList v-bind="silverSponsors" />
+      <SponsorList v-bind="bronzeSponsors" />
+      <SponsorList v-bind="specialNamingRightSponsors" />
+      <div class="sponsor-list-layout-separate">
+        <SponsorList v-bind="specialLunchSponsors" />
+        <SponsorList v-bind="afterPartySponsors" />
+      </div>
+      <div class="sponsor-list-layout-separate">
+        <SponsorList v-bind="nameCardSponsors" />
+        <SponsorList v-bind="simultaneousInterpretationSponsors" />
+      </div>
+      <SponsorList v-bind="mediaSponsors" />
+      <SponsorList v-bind="toolSponsors" />
     </article>
   </div>
 </template>
@@ -85,12 +122,16 @@ const periodStart = {
 
 .sponsor {
   --sponsor-padding: calc(var(--unit) * 5.25) 0;
-  --sponsor-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 8);
+  --sponsor-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
   --sponsor-term-margin: calc(var(--unit) * 5) auto 0;
 
   display: flex;
   justify-content: center;
-  background-image: url('/sponsor/sponsor-bg.png');
+  background-image: url('/sponsor/sponsor-bg-grid.png'),
+    linear-gradient(to bottom, #35495e, #353b5e);
+  background-position: top -1px left -1px;
+  background-size: 30px;
+  background-blend-mode: overlay;
   padding: var(--sponsor-padding);
   color: var(--color-vue-blue);
 }
@@ -160,6 +201,11 @@ const periodStart = {
   border-radius: var(--height-button);
 }
 
+.sponsor-list-layout-separate {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 @media (--tablet) {
   .sponsor {
     --sponsor-padding: calc(var(--unit) * 2) 0;
@@ -185,6 +231,9 @@ const periodStart = {
 
     width: 100%;
     max-width: none;
+  }
+  .sponsor-list-layout-separate {
+    display: contents;
   }
 }
 
