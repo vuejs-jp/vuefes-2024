@@ -122,6 +122,8 @@ import { team } from '~/utils/constants'
 
   .team-members-container {
     grid-template-columns: repeat(auto-fill, 100px);
+    column-gap: 15px;
+    row-gap: 15px;
   }
 
   .team-member-wrapper {
