@@ -89,7 +89,7 @@ import { team } from '~/utils/constants'
 
 .team-members-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 170px);
+  grid-template-columns: repeat(auto-fill, 172px);
   column-gap: 25px;
   row-gap: 32px;
   place-content: center;
