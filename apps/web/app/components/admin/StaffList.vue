@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { StaffInfo } from '@vuejs-jp/model'
+import type { Staff } from '@vuejs-jp/model'
 import { ref } from 'vue'
 
 interface StaffListProps {
-  staffs: StaffInfo[]
+  staffs: Staff[]
 }
 
 const emit = defineEmits<{ edit: [id: string] }>()

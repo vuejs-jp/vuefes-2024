@@ -1,4 +1,4 @@
-export type StaffInfo = {
+export type Staff = {
   id?: string
   name: string
   image_url: string
@@ -8,4 +8,10 @@ export type StaffInfo = {
   display_order?: number
   created_at: string
   updated_at: string
+}
+
+export type StaffInfo = {
+  type: 'staff'
+  title: string
+  list: Staff[]
 }
