@@ -63,7 +63,7 @@ import { team } from '~/utils/constants'
 }
 
 .title {
-  text-align: center;
+  text-align: left;
   line-height: 1.2;
 }
 
