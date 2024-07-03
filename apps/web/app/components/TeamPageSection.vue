@@ -63,7 +63,7 @@ import { team } from '~/utils/constants'
 }
 
 .title {
-  text-align: left;
+  text-align: center;
   line-height: 1.2;
 }
 
@@ -79,7 +79,6 @@ import { team } from '~/utils/constants'
   --team-section-text-font-size: 1.125rem;
   --team-section-text-font-weight: 500;
 
-  text-align: center;
   padding: var(--team-section-text-padding);
   color: var(--color-vue-blue);
   font-size: var(--team-section-text-font-size);
