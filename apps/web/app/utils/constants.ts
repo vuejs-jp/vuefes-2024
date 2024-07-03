@@ -85,7 +85,7 @@ export const team = [
   {
     name: 'Tsutomu.j.face',
     image: 'team/Tsutomu.j.face.jpg',
-    snsLink: 'https://github.com/Tsutomu.j.face',
+    snsLink: '',
   },
   {
     name: 'Yuhei_FUJITA',
@@ -115,12 +115,12 @@ export const team = [
   {
     name: 'aster-mnch',
     image: 'team/aster-mnch.jpg',
-    snsLink: 'https://github.com/aster-mnch',
+    snsLink: '',
   },
   {
     name: 'csy19',
     image: 'team/csy19.jpg',
-    snsLink: 'https://github.com/csy19',
+    snsLink: '',
   },
   {
     name: 'dero1to',
@@ -140,7 +140,7 @@ export const team = [
   {
     name: 'eri-ito',
     image: 'team/eri-ito.jpg',
-    snsLink: 'https://github.com/eri-ito',
+    snsLink: '',
   },
   {
     name: 'favorita_biz',
@@ -170,7 +170,7 @@ export const team = [
   {
     name: 'jiyuujin',
     image: 'team/jiyuujin.jpg',
-    snsLink: 'https://github.com/jiyuujin',
+    snsLink: '',
   },
   {
     name: 'kaeru_note',
@@ -190,12 +190,12 @@ export const team = [
   {
     name: 'kokoakuma',
     image: 'team/kokoakuma.jpg',
-    snsLink: 'https://github.com/kokoakuma',
+    snsLink: '',
   },
   {
     name: 'kotafujishiro',
     image: 'team/kotafujishiro.jpg',
-    snsLink: 'https://github.com/kotafujishiro',
+    snsLink: '',
   },
   {
     name: 'kspace_trk',
@@ -264,8 +264,8 @@ export const team = [
   },
   {
     name: 'sato-yurika ',
-    image: 'team/sato-yurika .jpg',
-    snsLink: 'https://github.com/sato-yurika ',
+    image: 'team/sato-yurika.jpg',
+    snsLink: '',
   },
   {
     name: 'satoshoco',

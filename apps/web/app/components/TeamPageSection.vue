@@ -15,16 +15,26 @@ import { team } from '~/utils/constants'
 
       <div class="team-members-container">
         <div v-for="member in team" :key="member.name" class="team-member-wrapper">
-          <VFAvatar :src="member.image" :alt="member.name" />
-          <div class="team-member-info">
-            <VFTextLink
-              class="team-member-name"
-              target="_blank"
-              :href="member.snsLink"
-              color="vue-blue"
-              >{{ member.name }}
-            </VFTextLink>
-          </div>
+          <template v-if="member.snsLink !== ''">
+            <a :href="member.snsLink" target="_blank" :aria-label="member.name">
+              <VFAvatar :src="member.image" :alt="member.name" />
+            </a>
+            <div class="team-member-info">
+              <VFTextLink
+                class="team-member-name"
+                target="_blank"
+                :href="member.snsLink"
+                color="vue-blue"
+                >{{ member.name }}
+              </VFTextLink>
+            </div>
+          </template>
+          <template v-else>
+            <VFAvatar :src="member.image" :alt="member.name" />
+            <div class="team-member-info">
+              <span class="team-member-name">{{ member.name }} </span>
+            </div>
+          </template>
         </div>
       </div>
     </article>
