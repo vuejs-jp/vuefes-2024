@@ -1,5 +1,8 @@
 import { Module } from '@nestjs/common'
-import { IPuppeteerService, PuppeteerService } from './puppeteer.service'
+import {
+  symbol as IPuppeteerService,
+  PuppeteerService,
+} from './puppeteer.service'
 
 @Module({
   providers: [

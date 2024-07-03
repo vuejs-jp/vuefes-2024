@@ -5,7 +5,10 @@ import { configuration } from 'src/env/utils'
 import { EnvModule } from 'src/env/env.module'
 import { HttpModule } from '@nestjs/axios'
 import { EnvService } from 'src/env/env.service'
-import { IPuppeteerService, PuppeteerService } from 'src/puppeteer/puppeteer.service'
+import {
+  symbol as IPuppeteerService,
+  PuppeteerService,
+} from 'src/puppeteer/puppeteer.service'
 import { SupabaseModule } from 'src/supabase/supabase.module'
 import { SupabaseService } from 'src/supabase/supabase.service'
 
