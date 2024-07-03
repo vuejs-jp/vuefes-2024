@@ -23,14 +23,19 @@ export const volunteerUrl =
 
 export const team = [
   {
-    name: '373_3',
-    image: 'team/373_3.jpg',
-    snsLink: 'https://x.com/373_3',
+    name: 'kazu_pon',
+    image: 'team/kazu_pon.jpg',
+    snsLink: 'https://x.com/kazu_pon',
   },
   {
     name: '448jp',
     image: 'team/448jp.jpg',
     snsLink: 'https://x.com/448jp',
+  },
+  {
+    name: '373_3',
+    image: 'team/373_3.jpg',
+    snsLink: 'https://x.com/373_3',
   },
   {
     name: 'Bassy3600',
@@ -181,11 +186,6 @@ export const team = [
     name: 'kawakami',
     image: 'team/kawakami.jpg',
     snsLink: 'https://x.com/kawakami',
-  },
-  {
-    name: 'kazu_pon',
-    image: 'team/kazu_pon.jpg',
-    snsLink: 'https://x.com/kazu_pon',
   },
   {
     name: 'kazuyukimiyake',
