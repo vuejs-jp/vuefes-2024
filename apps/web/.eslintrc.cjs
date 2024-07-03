@@ -7,13 +7,16 @@ module.exports = {
       {
         ignores: [
           'index',
+          'console',
           'default',
+          'events',
           'error',
+          'invite',
+          'List',
+          'Page',
           'privacy',
           'register',
           'users',
-          'events',
-          'Provider',
           '[id]',
         ],
       },
