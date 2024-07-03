@@ -183,6 +183,11 @@ export const team = [
     snsLink: 'https://x.com/kawakami',
   },
   {
+    name: 'kazu_pon',
+    image: 'team/kazu_pon.jpg',
+    snsLink: 'https://x.com/kazu_pon',
+  },
+  {
     name: 'kazuyukimiyake',
     image: 'team/kazuyukimiyake.jpg',
     snsLink: 'https://x.com/kazuyukimiyake',
