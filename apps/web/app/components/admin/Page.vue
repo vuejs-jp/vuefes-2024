@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { useAsyncData } from '#imports'
 import type { AdminPage } from '@vuejs-jp/model'
+import { match } from 'ts-pattern'
 import { ref } from 'vue'
+import { useCsv } from '@vuejs-jp/composable'
 import { useSupabase } from '~/composables/useSupabase'
+import { useSupabaseCsv } from '~/composables/useSupabaseCsv'
 import type AdminUserList from './AdminUserList.vue'
 
 interface ListProps {
@@ -10,6 +13,8 @@ interface ListProps {
 }
 
 const { fetchData } = useSupabase()
+const { exportSpeaker, exportSponsor, exportStaff } = useSupabaseCsv()
+const { write } = useCsv()
 const { data: speakers } = await useAsyncData('speakers', async () => {
   return await fetchData('speakers')
 })
@@ -28,6 +33,18 @@ const props = defineProps<ListProps>()
 const showDialog = ref(false)
 const handleDialog = () => showDialog.value = !showDialog.value
 
+const handleCsv = async () => {
+  const res = await match(props.page)
+    .with('speaker', () => exportSpeaker('speakers'))
+    .with('sponsor', () => exportSponsor('sponsors'))
+    .with('adminUser', () => exportStaff('staffs'))
+    .with('namecard', () => null)
+    .exhaustive()
+  if (!res) return
+
+  write(res)
+}
+
 const pageText = props.page.replace(/^[a-z]/g, function (val) {
   return val.toUpperCase()
 })
@@ -40,12 +57,23 @@ const pageText = props.page.replace(/^[a-z]/g, function (val) {
       <div>
         <VFLinkButton
           is="button"
+          v-if="page !== 'namecard'"
           class="action"
           background-color="white"
           color="vue-blue"
           @click="handleDialog"
         >
           {{ `Add ${pageText === 'AdminUser' ? 'staff' : pageText}` }}
+        </VFLinkButton>
+        <VFLinkButton
+          is="button"
+          v-if="page !== 'namecard'"
+          class="action"
+          background-color="white"
+          color="vue-blue"
+          @click="handleCsv"
+        >
+          {{ `Export ${pageText === 'AdminUser' ? 'staff' : pageText}` }}
         </VFLinkButton>
         <VFLinkButton
           v-if="page === 'adminUser'"
@@ -88,7 +116,7 @@ const pageText = props.page.replace(/^[a-z]/g, function (val) {
   width: 144px;
 }
 .tab-content-header button {
-  width: 144px;
+  width: 184px;
 }
 .tab-content-admin {
   display: grid;
