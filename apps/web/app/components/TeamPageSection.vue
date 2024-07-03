@@ -82,6 +82,7 @@ import { team } from '~/utils/constants'
   flex-direction: column;
   gap: 40px;
   isolation: isolate;
+  align-items: center;
 }
 
 .team-section-text {
@@ -97,6 +98,7 @@ import { team } from '~/utils/constants'
 }
 
 .team-members-container {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, 172px);
   column-gap: 25px;
@@ -130,7 +132,8 @@ import { team } from '~/utils/constants'
   }
 
   .team-members-container {
-    grid-template-columns: repeat(auto-fill, 100px);
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    max-width: calc(130px * 3);
     column-gap: 15px;
     row-gap: 15px;
   }
