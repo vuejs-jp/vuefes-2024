@@ -6,7 +6,7 @@ interface BrowserAndPage {
   page: Page;
 }
 
-export const IPuppeteerService = Symbol('PuppeteerService')
+export const symbol = Symbol('PuppeteerService')
 
 export interface IPuppeteerService {
   generateBrowser(): Promise<Browser>;

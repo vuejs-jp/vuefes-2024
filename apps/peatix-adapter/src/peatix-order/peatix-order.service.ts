@@ -4,7 +4,7 @@ import { match } from 'ts-pattern'
 import { Page } from 'puppeteer'
 import { Constants } from '../constnats'
 import { EnvService } from '../env/env.service'
-import { IPuppeteerService } from '../puppeteer/puppeteer.service'
+import { PuppeteerService } from '../puppeteer/puppeteer.service'
 import { Selectors } from '../selectors'
 import { promises, readFileSync } from 'fs'
 import { ScraperPage } from '../scraper-page/scraper-page'
@@ -20,7 +20,7 @@ export class PeatixOrderService extends ScraperPage {
 
   constructor(
     envService: EnvService,
-    puppeteerService: IPuppeteerService,
+    puppeteerService: PuppeteerService,
     private readonly httpService: HttpService,
     private readonly supabaseService: SupabaseService,
   ) {
