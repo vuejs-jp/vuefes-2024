@@ -278,7 +278,7 @@ export const team = [
     snsLink: 'https://x.com/satoshoco',
   },
   {
-    name: 'shindy_JP',
+    name: 'jay-es',
     image: 'team/shindy_JP.jpg',
     snsLink: 'https://x.com/shindy_JP',
   },
