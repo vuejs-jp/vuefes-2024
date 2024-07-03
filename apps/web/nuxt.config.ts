@@ -140,6 +140,8 @@ export default defineNuxtConfig({
       enableInviteStaff: process.env.ENABLE_INVITE_STAFF,
       enableOperateAdmin: process.env.ENABLE_OPERATE_ADMIN,
       enableSwitchLocale: process.env.ENABLE_SWITCH_LOCALE,
+      enableRegisterTicket: process.env.ENABLE_REGISTER_TICKET,
+      enableRegisterNamecard: process.env.ENABLE_REGISTER_NAMECARD,
     },
   },
   // for https on localhost
