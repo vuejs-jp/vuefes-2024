@@ -8,3 +8,4 @@ export type Path =
   | 'sponsor'
   | 'code-of-conduct'
   | 'privacy'
+  | 'team'

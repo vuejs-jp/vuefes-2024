@@ -73,6 +73,9 @@
     "submit": "送信する",
     "submit_done": "メッセージ送信に成功しました。"
   },
+  "team": {
+    "title": "チーム"
+  },
   "message": {
     "title": "メッセージ"
   },

@@ -22,4 +22,5 @@ useHead({
   <TicketPageSection v-if="config.public.enableRegisterTicket" />
   <CooperationPartnerSection />
   <FormPageSection />
+  <TeamPageSection />
 </template>
