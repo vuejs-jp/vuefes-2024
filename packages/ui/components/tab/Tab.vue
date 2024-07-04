@@ -15,9 +15,11 @@ function clickItem(index: number) {
 
 <template>
   <div class="tab">
-    <div v-for="(tab, index) in 3" :key="index">
+    <div v-for="(tab, index) in labels.length" :key="index">
       <input :id="`tab_item_${index}`" type="radio" name="tab-item" :checked="selectedIndex === index" @change="clickItem(index)" />
-      <label class="tab-item" :for="`tab_item_${index}`">{{ labels[index] }}</label>
+      <label class="tab-item" :for="`tab_item_${index}`" :style="{ width: `calc(100% / ${labels.length})` }">
+        {{ labels[index] }}
+      </label>
     </div>
     <slot :name="`tab_content_${selectedIndex}`" />
   </div>
@@ -32,7 +34,6 @@ function clickItem(index: number) {
   margin: 0 auto;
 }
 .tab-item {
-  width: calc(100%/3);
   height: calc(var(--unit) * 6.25);
   border-bottom: 3px solid var(--color-vue-green);
   background-color: var(--color-white);
