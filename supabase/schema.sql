@@ -80,7 +80,7 @@ create table if not exists public.attendees (
     email varchar(100) not null unique,
     avatar_url varchar(500) not null,
     provider varchar(20) not null,
-    display_name varchar(24) not null,
+    display_name varchar(24,
     role varchar(16),
     receipt_id varchar(20) not null unique,
     activated_at timestamp with time zone,
