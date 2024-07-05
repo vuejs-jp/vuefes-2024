@@ -74,6 +74,20 @@ create table if not exists public.staffs (
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
 
+create table if not exists public.attendees (
+    id uuid not null primary key default uuid_generate_v4(),
+    user_id uuid not null references auth.users on delete cascade,
+    email varchar(100) not null unique,
+    avatar_url varchar(500) not null,
+    provider varchar(20) not null,
+    display_name varchar(24),
+    role varchar(16),
+    receipt_id varchar(20) not null unique,
+    activated_at timestamp with time zone,
+    created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
+    updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
+);
+
 -- *** Function definitions ***
 create
 or replace function public.create_admin_user() returns trigger as $ $ begin -- If user_role is 'admin', insert data into admin_users table
