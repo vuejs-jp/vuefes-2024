@@ -59,6 +59,7 @@ export type Database = {
           display_name: string | null
           email: string
           id: string
+          image_file_name: string
           provider: string
           receipt_id: string
           role: string | null
@@ -72,6 +73,7 @@ export type Database = {
           display_name?: string | null
           email: string
           id?: string
+          image_file_name?: string
           provider: string
           receipt_id: string
           role?: string | null
@@ -85,6 +87,7 @@ export type Database = {
           display_name?: string | null
           email?: string
           id?: string
+          image_file_name?: string
           provider?: string
           receipt_id?: string
           role?: string | null
