@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common'
 import { SupabaseClient, createClient } from '@supabase/supabase-js'
 import { EnvService } from 'src/env/env.service'
+import { AttendeeReceipt, Database } from 'src/types/supabase'
 
 @Injectable()
 export class SupabaseService {
@@ -18,7 +19,7 @@ export class SupabaseService {
       return
     }
 
-    this.client = createClient(
+    this.client = createClient<Database>(
       this.envService.SUPABASE_URL,
       this.envService.SUPABASE_KEY,
     )
@@ -32,7 +33,15 @@ export class SupabaseService {
   }
 
   // vuejs-jp/vuefes-2024-backside#226
-  public async updateAttendees() {
-    //
+  public async updateAttendees(targets: AttendeeReceipt[]) {
+    const targetData = [ ...targets ]
+
+    for (const target of targetData) {
+      const { data, error } = await this.client.from('attendees')
+        .upsert({ role: target.role, activated_at: new Date().toISOString() })
+        .eq('receipt_id', target.receipt_id)
+        .eq('activated_at', null)
+      if (error) break
+    }
   }
 }

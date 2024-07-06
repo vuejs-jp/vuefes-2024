@@ -1,4 +1,5 @@
 export * from './lib/admin'
+export * from './lib/attendee'
 export * from './lib/auth'
 export * from './lib/color'
 export * from './lib/icon'

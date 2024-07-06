@@ -62,7 +62,7 @@ const { fontWeight, fontSize } = useTypography()
       :disabled="disabled"
       @blur="handleBlur"
     >
-    <option v-for="item in items" :key="item.value" :value="item.value">
+    <option v-for="item in items" :key="item.value" :value="item.value" :selected="item.value === modelValue">
       {{ item.text }}
     </option>
     </select>
