@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common'
 import { SupabaseClient, createClient } from '@supabase/supabase-js'
 import { EnvService } from 'src/env/env.service'
-import { AttendeeReceipt } from 'src/types/supabase'
+import { AttendeeReceipt, Database } from 'src/types/supabase'
 
 @Injectable()
 export class SupabaseService {
@@ -19,7 +19,7 @@ export class SupabaseService {
       return
     }
 
-    this.client = createClient(
+    this.client = createClient<Database>(
       this.envService.SUPABASE_URL,
       this.envService.SUPABASE_KEY,
     )
