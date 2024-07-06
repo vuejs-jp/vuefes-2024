@@ -88,7 +88,7 @@ create table if not exists public.attendees (
     updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
 
-ALTER TABLE public.attendees ADD COLUMN image_file_name varchar(100) not null unique;
+ALTER TABLE public.attendees ADD COLUMN image_file_name uuid not null unique default uuid_generate_v4();
 
 -- *** Function definitions ***
 create
