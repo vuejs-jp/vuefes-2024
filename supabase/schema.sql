@@ -88,6 +88,8 @@ create table if not exists public.attendees (
     updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
 
+ALTER TABLE public.attendees ADD COLUMN image_file_name varchar(100) not null unique;
+
 -- *** Function definitions ***
 create
 or replace function public.create_admin_user() returns trigger as $ $ begin -- If user_role is 'admin', insert data into admin_users table
