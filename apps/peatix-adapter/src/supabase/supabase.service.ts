@@ -34,6 +34,8 @@ export class SupabaseService {
 
   // vuejs-jp/vuefes-2024-backside#226
   public async updateAttendees(targets: AttendeeReceipt[]) {
+    this.getClient()
+
     const targetData = [ ...targets ]
 
     for (const target of targetData) {
