@@ -5,8 +5,8 @@ export default {
   title: 'namecard/IntegrationDialog',
   component: IntegrationDialog,
   args: {
-    default: 'ネームカードを作成するには、あらかじめチケットの購入が必要です。',
-    title: 'ソーシャルアカウントとの連携',
+    default: 'ネームカードを作成するには、あらかじめチケットの購入が必要です。チケット購入後、以下のいずれかのソーシャルアカウントからログインし、必要な情報をご登録ください。',
+    title: 'ソーシャルアカウントからのログイン',
   },
   argTypes: {
     default: {
