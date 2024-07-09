@@ -9,6 +9,7 @@ module.exports = {
           'Accordion',
           'Avatar',
           'Button',
+          'Comment',
           'Date',
           'Dialog',
           'Header',

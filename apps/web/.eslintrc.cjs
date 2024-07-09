@@ -11,6 +11,7 @@ module.exports = {
       {
         ignores: [
           'index',
+          'complete',
           'console',
           'default',
           'events',
@@ -20,6 +21,7 @@ module.exports = {
           'Page',
           'privacy',
           'register',
+          'share',
           'users',
           '[id]',
         ],
