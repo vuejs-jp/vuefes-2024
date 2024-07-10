@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
-import { useFetch, useRuntimeConfig } from '#imports'
+import { useFetch, useLocaleCurrent, useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
 import SponsorList from './sponsor/SponsorList.vue'
@@ -15,17 +15,39 @@ const { color } = useColor()
 const { t } = useI18n()
 const { translate } = useTranslation()
 
-const periodStart = {
-  prefixYear: t('prefix_year'),
-  date: t('sponsor.start_date'),
-  dayOfWeek: translate('day_of_week.monday'),
-}
+const currentLocale = useLocaleCurrent().locale
+
+// const periodStart = {
+//   prefixYear: t('prefix_year'),
+//   date: t('sponsor.start_date'),
+//   dayOfWeek: translate('day_of_week.monday'),
+// }
 
 // const periodEnd = {
 //   suffixYear: t('suffix_year'),
 //   date: t('sponsor.end_date'),
 //   dayOfWeek: translate('day_of_week.thursday'),
 // }
+
+const firstPeriodEnd = {
+  prefixYear: t('prefix_year'),
+  suffixyear: t('suffix_year'),
+  date: t('sponsor.first_end_date'),
+  dayOfWeek: translate('day_of_week.wednesday'),
+}
+
+const secondPeriodEnd = {
+  prefixYear: t('prefix_year'),
+  suffixyear: t('suffix_year'),
+  date: t('sponsor.second_end_date'),
+  dayOfWeek: translate('day_of_week.saturday'),
+}
+
+const endPeriodTime = {
+  hour: t('speaker.end_hour'),
+  minute: t('speaker.end_minute'),
+  ampm: currentLocale.value === 'en' && t('speaker.end_ampm'),
+}
 
 const { data, error } = await useFetch('/api/sponsors')
 if (error.value) {
@@ -72,9 +94,30 @@ const {
           }"
           class="sponsor-subtitle"
         >
-          {{ $t('sponsor.apply_period') }}
+          {{ $t('sponsor.apply_deadline') }}
         </h3>
-        <VFDatePeriod :start="periodStart" />
+        <p
+          :style="{
+            fontWeight: fontWeight('heading/100'),
+            fontSize: fontSize('heading/100'),
+            color: color('vue-blue'),
+          }"
+          class="sponsor-subtitle-category"
+        >
+          {{ $t('sponsor.creative_wall_drinks_snacks_merchandise') }}
+        </p>
+        <VFDateTime :date="firstPeriodEnd" :time="endPeriodTime" />
+        <p
+          :style="{
+            fontWeight: fontWeight('heading/100'),
+            fontSize: fontSize('heading/100'),
+            color: color('vue-blue'),
+          }"
+          class="sponsor-subtitle-category"
+        >
+          {{ $t('sponsor.all_others') }}
+        </p>
+        <VFDateTime :date="secondPeriodEnd" :time="endPeriodTime" />
       </template>
 
       <div class="sponsor-buttons">
@@ -178,6 +221,12 @@ const {
   background: var(--color-vue-green-gradation);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+}
+
+.sponsor-subtitle-category {
+  text-align: center;
+  line-height: 1.2;
+  margin-top: calc(var(--unit) * 2.5);
 }
 
 .sponsor-term {
