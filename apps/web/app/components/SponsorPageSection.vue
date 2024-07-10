@@ -106,7 +106,12 @@ const {
         >
           {{ $t('sponsor.creative_wall_drinks_snacks_merchandise') }}
         </p>
-        <VFDateTime :date="firstPeriodEnd" :time="endPeriodTime" />
+        <div class="sponsor-end-period--inner">
+          <VFDateTime :date="firstPeriodEnd" :time="endPeriodTime" />
+          <span v-if="currentLocale !== 'en'" class="sponsor-end-period-text">
+            {{ $t('sponsor.application_period_after') }}
+          </span>
+        </div>
         <p
           :style="{
             fontWeight: fontWeight('heading/100'),
@@ -117,7 +122,12 @@ const {
         >
           {{ $t('sponsor.all_others') }}
         </p>
-        <VFDateTime :date="secondPeriodEnd" :time="endPeriodTime" />
+        <div class="sponsor-end-period--inner">
+          <VFDateTime :date="secondPeriodEnd" :time="endPeriodTime" />
+          <span v-if="currentLocale !== 'en'" class="sponsor-end-period-text">
+            {{ $t('sponsor.application_period_after') }}
+          </span>
+        </div>
       </template>
 
       <div class="sponsor-buttons">
@@ -228,6 +238,23 @@ const {
   line-height: 1.2;
   margin-top: calc(var(--unit) * 2.5);
   margin-bottom: calc(var(--unit) * 0.625);
+}
+
+.sponsor-end-period--inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.sponsor-end-period-text {
+  --end-period-font-size: 1.25rem;
+
+  display: inline-block;
+  color: var(--color-vue-blue);
+  font-size: var(--end-period-font-size);
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 .sponsor-term {

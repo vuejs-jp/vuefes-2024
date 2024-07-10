@@ -43,8 +43,8 @@ const endPeriodTime = {
       <div class="cfp-end-period--inner">
         <VFDateTime :date="endPeriodDate" :time="endPeriodTime" />
         <span v-if="currentLocale !== 'en'" class="cfp-end-period-text">
-          {{ $t('speaker.application_period_after') }}</span
-        >
+          {{ $t('speaker.application_period_after') }}
+        </span>
       </div>
     </div>
 
