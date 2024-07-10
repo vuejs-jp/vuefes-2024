@@ -142,6 +142,7 @@ export default defineNuxtConfig({
       enableSwitchLocale: process.env.ENABLE_SWITCH_LOCALE,
       enableRegisterTicket: process.env.ENABLE_REGISTER_TICKET,
       enableRegisterNamecard: process.env.ENABLE_REGISTER_NAMECARD,
+      showStore: process.env.SHOW_STORE,
     },
   },
   // for https on localhost
