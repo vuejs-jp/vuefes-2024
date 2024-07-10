@@ -227,6 +227,7 @@ const {
   text-align: center;
   line-height: 1.2;
   margin-top: calc(var(--unit) * 2.5);
+  margin-bottom: calc(var(--unit) * 0.625);
 }
 
 .sponsor-term {
