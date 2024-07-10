@@ -2,13 +2,18 @@
 import Dialog from '../common/Dialog.vue'
 import LinkButton from '../link/LinkButton.vue'
 import Icon from '../icon/Icon.vue'
+import type { AuthProvider } from '@vuejs-jp/model'
 
 interface IntegrationDialogProps {
   title: string
 }
-
 const props = defineProps<IntegrationDialogProps>()
-const emits = defineEmits(['on-close', 'signin'])
+
+const emits = defineEmits(['on-close', 'signIn'])
+
+function handleLinkButton(provider: Extract<AuthProvider, 'github' | 'google'>) {
+  emits('signIn', provider)
+}
 </script>
 
 <template>
@@ -24,7 +29,7 @@ const emits = defineEmits(['on-close', 'signin'])
             background-color="white"
             color="vue-blue"
             icon-name="Google32"
-            @on-click="$emit('signin', 'google')"
+            @click="handleLinkButton('google')"
           >
             Google
           </LinkButton>
@@ -36,7 +41,7 @@ const emits = defineEmits(['on-close', 'signin'])
             background-color="white"
             color="vue-blue"
             icon-name="GitHub32"
-            @on-click="$emit('signin', 'github')"
+            @click="handleLinkButton('github')"
           >
             GitHub
           </LinkButton>
