@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { AuthProvider, RedirectPath } from '@vuejs-jp/model'
+import type { AuthProvider } from '@vuejs-jp/model'
 import { useAuth } from '~/composables/useAuth'
-import { useAuthSession } from '~/composables/useAuthSession'
+import { createError, useRuntimeConfig } from '#imports'
+
+const config = useRuntimeConfig()
+
+if (!config.public.enableRegisterNamecard) {
+  throw createError({ statusCode: 404, statusMessage: 'You cannot register the namecard.' })
+}
 
 const showDialog = ref(false)
 const { signIn } = useAuth()
