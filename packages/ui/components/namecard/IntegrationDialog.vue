@@ -87,6 +87,7 @@ function handleLinkButton(provider: Extract<AuthProvider, 'github' | 'google'>) 
   line-height: 1.3;
   letter-spacing: 0.66px;
   margin: 0 auto 26px auto;
+  text-align: center;
 }
 .close-button {
   position: absolute;
