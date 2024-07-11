@@ -21,6 +21,8 @@ export const cfpEnUrl =
 export const volunteerUrl =
   'https://docs.google.com/forms/d/e/1FAIpQLSfiO98GwyyvpKLpNiEWWs8XfROudAu0WfCJnyfRI_96YvZivg/closedform'
 
+export const storeUrl = ''
+
 export const team = [
   {
     name: 'kazu_pon',
