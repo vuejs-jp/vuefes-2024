@@ -69,7 +69,7 @@ const { color } = useColor()
 .access-section {
   background-image: url('/access/bg_access.png');
   background-size: 12px;
-  background-color: v-bind(color('white'));
+  background-color: #ffffff;
   display: grid;
   place-items: center;
   padding: 60px 0;
@@ -90,7 +90,7 @@ const { color } = useColor()
     display: grid;
     padding: 60px 96px;
     gap: 40px;
-    background: linear-gradient(to bottom, #fff, rgba(255, 255, 255, .75) 52%, transparent);
+    background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, .75) 52%, transparent);
 
     @media (--tablet) {
       padding: 30px calc(var(--unit) *1.5);
