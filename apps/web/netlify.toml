@@ -8,10 +8,5 @@ from = "/*"
 to = "/2024/:splat"
 status = 301
 
-[[redirects]]
-  from = "/2024/jobboard/*"
-  to = "/2024/200.html"
-  status = 200
-
 [functions.server]
 external_node_modules = ["chrome-aws-lambda"]
