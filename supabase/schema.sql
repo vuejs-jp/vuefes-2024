@@ -31,6 +31,21 @@ create table if not exists public.sponsors (
 
 ALTER TABLE public.sponsors ADD COLUMN display_order int;
 
+alter table
+  public.sponsors enable row level security;
+
+create policy "Allow select for all sponsors." on public.sponsors for
+select
+  using (true);
+
+create policy "Allow insert for all sponsors." on public.sponsors for
+insert
+  with check (true);
+
+create policy "Allow update for all sponsors." on public.sponsors for
+update
+  using (true);
+
 create table if not exists public.speakers (
   id uuid not null primary key default uuid_generate_v4(),
   name_ja varchar(100) not null,
