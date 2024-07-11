@@ -62,6 +62,21 @@ create table if not exists public.speakers (
 
 ALTER TABLE public.speakers ADD COLUMN display_order int;
 
+alter table
+  public.speakers enable row level security;
+
+create policy "Allow select for all speakers." on public.speakers for
+select
+  using (true);
+
+create policy "Allow insert for all speakers." on public.speakers for
+insert
+  with check (true);
+
+create policy "Allow update for all speakers." on public.speakers for
+update
+  using (true);
+
 create table if not exists public.staffs (
   id uuid not null primary key default uuid_generate_v4(),
   name varchar(100) not null,
