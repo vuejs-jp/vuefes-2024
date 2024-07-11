@@ -89,7 +89,6 @@
     "media": "メディア",
     "tool": "ツール"
   },
-
   "partner": {
     "title": "協力パートナー"
   },
@@ -103,6 +102,9 @@
     "form_placeholder_example": "入力例：",
     "submit": "送信する",
     "submit_done": "メッセージ送信に成功しました。"
+  },
+  "jobboard": {
+    "title": "ジョブボード"
   },
   "team": {
     "title": "チーム"

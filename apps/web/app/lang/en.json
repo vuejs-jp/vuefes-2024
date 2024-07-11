@@ -85,6 +85,9 @@
     "submit": "Submit",
     "submit_done": "Successfully sent your message."
   },
+  "jobboard": {
+    "title": "JOB BOARD"
+  },
   "team": {
     "title": "Team"
   },

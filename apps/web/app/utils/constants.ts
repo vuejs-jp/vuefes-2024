@@ -8,6 +8,8 @@ export const ogCoCDescription =
 
 export const ogPrivacyDescription = 'Vue Fes Japan 2024 のプライバシーポリシーです。'
 
+export const ogJobboardDescription = 'Vue Fes Japan 2024 のジョブボードです。'
+
 export const linkUrl = 'https://vuefes.jp/2024/'
 
 export const vuefesTwitterID = '@vuefes'
