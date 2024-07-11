@@ -11,7 +11,8 @@
     "monday": "月",
     "tuesday": "火",
     "wednesday": "水",
-    "thursday": "木"
+    "thursday": "木",
+    "saturday": "土"
   },
   "top_page": {
     "latest_information": "最新情報は公式SNSでご紹介しています",
@@ -43,9 +44,15 @@
     "title": "スポンサー",
     "apply": "申し込む",
     "apply_period": "スポンサー申込期間",
+    "apply_deadline": "スポンサー申込締切",
+    "application_period_after": "まで",
+    "creative_wall_drinks_snacks_merchandise": "クリエイティブウォール、ドリンク、スナック、グッズスポンサー",
+    "all_others": "その他すべてのスポンサー",
     "check_doc": "資料を見る",
     "start_date": "5.13",
     "end_date": "4.25",
+    "first_end_date": "7.31",
+    "second_end_date": "8.31",
     "platinum": "プラチナ",
     "gold": "ゴールド",
     "silver": "シルバー",

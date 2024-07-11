@@ -54,8 +54,9 @@ const { color } = useColor()
 .minute,
 .separator {
   display: inline-block;
-  font-size: 45px;
+  font-size: 24px;
   font-weight: 600;
+  line-height: 1.2;
 }
 .ampm {
   font-size: 24px;
@@ -72,7 +73,8 @@ const { color } = useColor()
   .hour,
   .minute,
   .separator {
-    font-size: 38px;
+    font-size: 18px;
+    line-height: 1.5;
   }
 }
 </style>
