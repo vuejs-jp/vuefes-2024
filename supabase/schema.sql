@@ -135,6 +135,21 @@ create table if not exists public.attendees (
 
 ALTER TABLE public.attendees ADD COLUMN image_file_name uuid not null unique default uuid_generate_v4();
 
+alter table
+  public.attendees enable row level security;
+
+create policy "Allow select for all attendees." on public.attendees for
+select
+  using (true);
+
+create policy "Allow insert for all attendees." on public.attendees for
+insert
+  with check (true);
+
+create policy "Allow update for all attendees." on public.attendees for
+update
+  using (true);
+
 -- *** Function definitions ***
 create
 or replace function public.create_admin_user() returns trigger as $ $ begin -- If user_role is 'admin', insert data into admin_users table
