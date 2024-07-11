@@ -33,17 +33,7 @@ const endPeriodTime = {
       <h3 class="volunteer-subtitle">
         {{ $t('volunteer.application_period') }}
       </h3>
-      <div class="volunteer-end-period">
-        <span class="volunteer-end-period-text">
-          {{ translate('volunteer.application_period_before') }}
-        </span>
-        <div class="volunteer-end-period--inner">
-          <VFDateTime :date="endPeriodDate" :time="endPeriodTime" />
-          <span class="volunteer-end-period-text">
-            {{ translate('volunteer.application_period_after') }}
-          </span>
-        </div>
-      </div>
+      <VFDateTime :date="endPeriodDate" :time="endPeriodTime" />
       <div class="volunteer-buttons">
         <VFLinkButton
           class="volunteer-button"
@@ -140,30 +130,6 @@ const endPeriodTime = {
   }
 }
 
-.volunteer-end-period {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.volunteer-end-period--inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.volunteer-end-period-text {
-  --volunteer-period-font-size: 1.25rem;
-
-  display: inline-block;
-  color: var(--color-vue-blue);
-  font-size: var(--volunteer-period-font-size);
-  font-weight: 600;
-  line-height: 1.5;
-}
-
 .volunteer-buttons {
   display: flex;
   justify-content: center;
@@ -194,12 +160,6 @@ const endPeriodTime = {
     }
   }
 
-  .volunteer-end-period-text {
-    --end-period-font-size: 1.125rem;
-
-    line-height: 1.2;
-  }
-
   .volunteer-buttons {
     margin-top: calc(var(--unit) * 3.75);
     display: block;
@@ -214,19 +174,6 @@ const endPeriodTime = {
 
     width: 100%;
     max-width: none;
-  }
-}
-
-@media (--mobile) {
-  .volunteer-end-period {
-    flex-direction: column;
-    align-items: self-start;
-  }
-  .volunteer-end-period--inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
   }
 }
 </style>

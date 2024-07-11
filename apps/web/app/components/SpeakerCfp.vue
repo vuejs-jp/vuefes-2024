@@ -38,15 +38,7 @@ const endPeriodTime = {
     <h3 class="cfp-subtitle">
       {{ $t('speaker.application_period') }}
     </h3>
-    <div class="cfp-end-period">
-      <span class="cfp-end-period-text"> {{ $t('speaker.application_period_before') }} </span>
-      <div class="cfp-end-period--inner">
-        <VFDateTime :date="endPeriodDate" :time="endPeriodTime" />
-        <span v-if="currentLocale !== 'en'" class="cfp-end-period-text">
-          {{ $t('speaker.application_period_after') }}
-        </span>
-      </div>
-    </div>
+    <VFDateTime :date="endPeriodDate" :time="endPeriodTime" />
 
     <div class="cfp-buttons">
       <VFLinkButton
@@ -122,30 +114,6 @@ const endPeriodTime = {
   background-clip: text;
 }
 
-.cfp-end-period {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.cfp-end-period--inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.cfp-end-period-text {
-  --end-period-font-size: 1.25rem;
-
-  display: inline-block;
-  color: var(--color-vue-blue);
-  font-size: var(--end-period-font-size);
-  font-weight: 600;
-  line-height: 1.5;
-}
-
 .cfp-buttons {
   display: flex;
   justify-content: center;
@@ -199,12 +167,6 @@ const endPeriodTime = {
     margin-top: calc(var(--unit) * 3.75);
   }
 
-  .cfp-end-period-text {
-    --end-period-font-size: 1.125rem;
-
-    line-height: 1.2;
-  }
-
   .cfp-buttons {
     margin-top: calc(var(--unit) * 3.75);
     display: block;
@@ -223,19 +185,6 @@ const endPeriodTime = {
 
   .cfp-more-information {
     --cfp-more-information-font-size: 1rem;
-  }
-}
-
-@media (--mobile) {
-  .cfp-end-period {
-    flex-direction: column;
-    align-items: self-start;
-  }
-  .cfp-end-period--inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
   }
 }
 </style>
