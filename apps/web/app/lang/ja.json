@@ -89,7 +89,17 @@
     "media": "メディア",
     "tool": "ツール"
   },
-
+  "access": {
+    "title": "アクセス",
+    "name": "会場：大手町プレイス ホール＆カンファレンス",
+    "address": "東京都千代田区大手町2-3-1 大手町プレイス（イーストタワー）1F/2F",
+    "hp": "https://otemachi-place-hc.jp/",
+    "route_1": "JR山手線・京浜東北線・東海道新幹線など「東京」駅 丸の内北口より徒歩7分",
+    "route_2": "東京メトロ丸の内線・東西線・千代田線・半蔵門線「大手町」駅 A5出口直結",
+    "route_3": "都営三田線「大手町」駅 A5出口直結",
+    "map": "https://maps.app.goo.gl/ohaSGdrjQ3pt152C9",
+    "map_text": "Googleマップを見る"
+  },
   "partner": {
     "title": "協力パートナー"
   },

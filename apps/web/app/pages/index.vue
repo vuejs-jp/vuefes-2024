@@ -20,6 +20,7 @@ useHead({
   <VolunteerPageSection v-if="locale === 'ja'" />
   <StorePageSection v-if="config.public.showStore" />
   <SponsorPageSection />
+  <AccessPageSection />
   <TicketPageSection v-if="config.public.enableRegisterTicket" />
   <CooperationPartnerSection />
   <FormPageSection />
