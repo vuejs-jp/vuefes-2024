@@ -135,6 +135,9 @@ export default defineNuxtConfig({
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseKey: process.env.SUPABASE_KEY,
       serviceKey: process.env.SERVICE_KEY,
+      // datasource
+      speakerDatasource : process.env.SPEAKER_DATASOURCE, // local or supabase
+      sponsorDatasource : process.env.SPONSOR_DATASOURCE, // local or supabase
       // feature
       availableApplySponsor: process.env.AVAILABLE_APPLY_SPONSOR,
       enableInviteStaff: process.env.ENABLE_INVITE_STAFF,
