@@ -74,6 +74,21 @@ create table if not exists public.staffs (
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
 
+alter table
+  public.staffs enable row level security;
+
+create policy "Allow select for all staffs." on public.staffs for
+select
+  using (true);
+
+create policy "Allow insert for all staffs." on public.staffs for
+insert
+  with check (true);
+
+create policy "Allow update for all staffs." on public.staffs for
+update
+  using (true);
+
 create table if not exists public.attendees (
     id uuid not null primary key default uuid_generate_v4(),
     user_id uuid not null references auth.users on delete cascade,
