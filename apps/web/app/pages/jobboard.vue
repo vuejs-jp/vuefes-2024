@@ -24,13 +24,12 @@ useHead({
 <template>
   <VFPageHeading>{{ $t('jobboard.title') }}</VFPageHeading>
   <div class="jobboard">
-    <ul class='jobboard-body'>
+    <ul class="jobboard-body">
       <li v-for="i in 7">
-        <nuxt-link to="hoge" target="_blank"><img src='https://placehold.jp/f0f0f0/ffffff/920x520.png?text=%20' alt=''></nuxt-link>
+        <nuxt-link to="hoge" target="_blank"><img src="https://placehold.jp/f0f0f0/ffffff/920x520.png?text=%20" alt="" /></nuxt-link>
       </li>
     </ul>
   </div>
-
 </template>
 
 <style scoped>
