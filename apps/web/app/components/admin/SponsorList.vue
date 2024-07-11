@@ -23,6 +23,7 @@ const handleDialog = (id?: string) => {
   <table id="sponsors">
     <tr>
       <th>name</th>
+      <th>detail_page_id</th>
       <th>image_url</th>
       <th>description</th>
       <th>link_url</th>
@@ -33,6 +34,7 @@ const handleDialog = (id?: string) => {
     </tr>
     <tr v-for="sponsor in sponsors" :key="sponsor.id">
       <td>{{ sponsor.name }}</td>
+      <td>{{ sponsor.detail_page_id }}</td>
       <td>
         <img
           v-if="sponsor.image_url"

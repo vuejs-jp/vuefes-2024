@@ -31,6 +31,8 @@ create table if not exists public.sponsors (
 
 ALTER TABLE public.sponsors ADD COLUMN display_order int;
 
+ALTER TABLE public.sponsors ADD COLUMN detail_page_id varchar(40);
+
 alter table
   public.sponsors enable row level security;
 
@@ -76,6 +78,8 @@ create table if not exists public.speakers (
 );
 
 ALTER TABLE public.speakers ADD COLUMN display_order int;
+
+ALTER TABLE public.speakers ADD COLUMN detail_page_id varchar(40);
 
 alter table
   public.speakers enable row level security;

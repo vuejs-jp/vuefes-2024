@@ -6,6 +6,7 @@ export type Speaker = {
   id?: string
   name_ja: string
   name_en: string
+  detail_page_id?: string
   image_url?: string
   caption_ja?: string
   caption_en?: string
