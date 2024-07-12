@@ -2,7 +2,7 @@ import { StoryFn } from '@storybook/vue3'
 import Button from './Button.vue'
 
 export default {
-  title: 'Button',
+  title: 'unused/Button',
   component: Button,
   args: {},
 }
