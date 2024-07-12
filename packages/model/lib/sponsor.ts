@@ -25,6 +25,7 @@ type Tag = 'name-card'
 export type Sponsor = {
   id: string
   name: string
+  detail_page_id?: string
   description_ja: string
   description_en: string
   speaker_id?: string

@@ -17,6 +17,7 @@ const newSpeaker = ref<FormSpeaker>({
   ...props.speaker?.id && { id: props.speaker?.id },
   name_ja: props.speaker?.name_ja ?? '',
   name_en: props.speaker?.name_en ?? '',
+  detail_page_id: props.speaker?.detail_page_id ?? '',
   image_url: props.speaker?.image_url ?? '',
   caption_ja: props.speaker?.caption_ja ?? '',
   caption_en: props.speaker?.caption_en ?? '',
@@ -46,6 +47,9 @@ const updateNameJa = (e: any) => {
 }
 const updateNameEn = (e: any) => {
   newSpeaker.value.name_en = e.target.value
+}
+const updateDetailPageId = (e: any) => {
+  newSpeaker.value.detail_page_id = e.target.value
 }
 const checkFiles = async (files: File[]) => {
   if (files.length === 0) return
@@ -104,6 +108,13 @@ const onSubmit = () => {
           name="name_en"
           label="名前 [EN]"
           @input="updateNameEn"
+        />
+        <VFInputField
+          id="detail_page_id"
+          v-model="newSpeaker.detail_page_id"
+          name="detail_page_id"
+          label="詳細ページのパス"
+          @input="updateDetailPageId"
         />
         <VFDragDropArea file-name="profiledata" file-accept="image/*" @check-files="checkFiles">
           <div class="upload">
