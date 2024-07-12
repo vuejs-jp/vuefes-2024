@@ -6,7 +6,13 @@ import type { FormSpeaker, FormSponsor, FormAttendee, FormStaff } from '~/types/
 export function useSupabase() {
   const client = useSupabaseClient<Database>()
 
-  async function fetchData(table: Table) {
+  async function fetchData(table: Table, options?: { id?: string; detailPageId?: string }) {
+    if (options?.id) {
+      return await client.from(table).select().eq('id', options.id)
+    }
+    if (options?.detailPageId) {
+      return await client.from(table).select().eq('detail_page_id', options.detailPageId)
+    }
     return await client.from(table).select()
   }
 
