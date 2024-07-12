@@ -17,6 +17,7 @@ module.exports = {
           'events',
           'error',
           'invite',
+          'jobboard',
           'List',
           'Page',
           'privacy',
