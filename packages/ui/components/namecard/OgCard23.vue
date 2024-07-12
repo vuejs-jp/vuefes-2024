@@ -1,51 +1,48 @@
 <script setup lang="ts">
-import NamecardAvatar from './NamecardAvatar.vue'
 import type { NamecardUser } from '@vuejs-jp/model'
+import NamecardAvatar from './NamecardAvatar.vue'
 import { defineAsyncComponent } from 'vue'
 
-type NamecardProps = {
+type OgCardProps = {
   user: NamecardUser
   opacity?: number
 }
 
-const props = withDefaults(defineProps<NamecardProps>(), {
+const props = withDefaults(defineProps<OgCardProps>(), {
   opacity: 1,
 })
 
-const SpBlock = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/block.svg?component'))
-const Hook = defineAsyncComponent(() => import('../../assets/namecard/2023/hook.svg?component'))
-const Sponsor = defineAsyncComponent(() => import('../../assets/namecard/2023/sponsor.svg?component'))
+const PcBlock = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/block.svg?component'))
 const NamecardTitle1 = defineAsyncComponent(() => import('../../assets/namecard/2023/title1.svg?component'))
 const NamecardTitle2 = defineAsyncComponent(() => import('../../assets/namecard/2023/title2.svg?component'))
+const Sponsor = defineAsyncComponent(() => import('../../assets/namecard/2023/sponsor.svg?component'))
 const VueFesLogo = defineAsyncComponent(() => import('../../assets/namecard/2023/vuefes_logo.svg?component'))
-const SpBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wave.svg?component'))
+const PcBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wave.svg?component'))
 </script>
 
 <template>
-  <div class="namecard-root" :style="{ opacity }">
+  <div class="og-card-root">
     <div class="components-wrapper">
       <component :is="VueFesLogo" class="vuefes" />
-      <component :is="Hook" class="hook" />
-      <component :is="SpBg" class="wave-bg" />
+      <component :is="PcBg" class="wave-bg" />
       <component :is="NamecardTitle1" class="title-bg1" />
       <component :is="NamecardTitle2" class="title-bg2" />
       <component :is="Sponsor" class="sponsor" />
-      <component :is="SpBlock" class="block-bg" />
+      <component :is="PcBlock" class="block-bg" />
     </div>
     <div class="avatar-wrapper">
       <h2>Hello!! I am</h2>
-      <NamecardAvatar :user="user" />
+      <NamecardAvatar :user="user" use-share />
     </div>
   </div>
 </template>
 
 <style scoped>
-.namecard-root {
+.og-card-root {
   position: relative;
   background-color: var(--color-vue-blue);
-  width: 319px;
-  height: 502px;
-  border-radius: calc(var(--unit) * 2.25);
+  width: 1200px;
+  height: 630px;
 }
 
 .components {
@@ -83,48 +80,39 @@ const SpBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wa
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, 0);
-  width: 60%;
+  transform: translateX(-50%);
+  width: 16%;
   height: 20%;
-  z-index: 2;
+  z-index: 3;
 }
 
 .title-bg2 {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, 0);
-  width: 30%;
+  transform: translateX(-50%);
+  width: 4%;
   height: 12%;
-  z-index: 2;
+  z-index: 3;
 }
 
 .sponsor {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, 0);
-  width: 60%;
+  transform: translateX(-50%);
+  width: 12%;
   height: 10%;
-  z-index: 2;
+  z-index: 3;
 }
 
 .vuefes {
   position: absolute;
-  top: 1%;
-  left: 4%;
-  width: 8%;
-  height: 8%;
-  z-index: 2;
-}
-
-.hook {
-  position: absolute;
   top: 2%;
   left: 50%;
-  transform: translate(-50%, 0);
-  width: 20%;
-  height: 16%;
+  transform: translateX(-50%);
+  width: 4%;
+  height: 4%;
   z-index: 2;
 }
 
@@ -134,7 +122,7 @@ const SpBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wa
   gap: calc(var(--unit) * 1);
   top: 80px;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translateX(-50%);
   width: 100%;
   position: absolute;
   z-index: 3;
@@ -142,7 +130,7 @@ const SpBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wa
 
 .avatar-wrapper h2 {
   color: var(--color-white);
-  font-size: 16px;
+  font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
 }
