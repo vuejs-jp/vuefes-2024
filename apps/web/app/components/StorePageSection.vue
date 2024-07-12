@@ -134,7 +134,7 @@ section {
   --store-padding: calc(var(--unit) * 7.5) 0;
 
   position: relative;
-  padding: var(--store-padding) 0;
+  padding: var(--store-padding);
   background: rgba(255, 255, 255);
   backdrop-filter: blur(8px);
   &::before {
@@ -153,11 +153,9 @@ section {
 }
 
 .store-root {
-  --store-padding: calc(var(--unit) * 7.5) 0;
-
   --store-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
 
-  padding: var(--store-padding) 0;
+  padding: var(--store-body-padding);
   display: flex;
   flex-direction: column;
   gap: calc(8px * 10);
