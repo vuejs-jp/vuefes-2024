@@ -28,3 +28,5 @@ export type Attendee = {
   updated_at: string
   user_id: string
 }
+
+export type NamecardUser = Pick<Attendee, 'display_name' | 'avatar_url' | 'role'>
