@@ -144,8 +144,7 @@ section {
     inset: 0;
     width: 100%;
     height: 20%;
-    background-image: url('/main-visual.png');
-    background-size: 100% auto;
+    background: url(/common/bg_pageheading_pc.jpg) no-repeat right center/cover;
     z-index: -10;
     background-position: 50% 0;
     opacity: 0.4;
@@ -258,6 +257,7 @@ section {
   section {
     &::before {
       height: 10%;
+      background-image: url(/common/bg_pageheading_sp.jpg);
     }
   }
 

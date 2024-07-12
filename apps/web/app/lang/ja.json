@@ -113,6 +113,9 @@
     "submit": "送信する",
     "submit_done": "メッセージ送信に成功しました。"
   },
+  "jobboard": {
+    "title": "ジョブボード"
+  },
   "team": {
     "title": "チーム"
   },
