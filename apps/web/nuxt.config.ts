@@ -1,3 +1,4 @@
+import { createClient } from '@supabase/supabase-js'
 import svgLoader from 'vite-svg-loader'
 import { conferenceTitle } from './app/utils/constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
@@ -87,6 +88,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
+      failOnError: false,
       routes: ['/'],
       ignore: ['/api'],
     },
@@ -105,6 +107,20 @@ export default defineNuxtConfig({
       const supabaseKey = process.env.SUPABASE_KEY
       const serviceKey = process.env.SERVICE_KEY
       if (!supabaseUrl || !supabaseKey || serviceKey) return
+
+      const client = createClient(supabaseUrl, supabaseKey, {})
+      const { data: speakers, error: error1 } = await client.from('speakers').select()
+      const { data: sponsors, error: error2 } = await client.from('sponsors').select()
+      if (error1 || error2) return
+
+      const speakerRoutes = speakers?.map((d) => `/sessions/${d.detail_page_id}`)
+      const speakerEnRoutes = speakers?.map((d) => `/en/sessions/${d.detail_page_id}`)
+      const sponsorRoutes = sponsors?.map((d) => `/sponsors/${d.detail_page_id}`)
+      const sponsorEnRoutes = sponsors?.map((d) => `/en/sponsors/${d.detail_page_id}`)
+      nitroConfig.prerender?.routes?.push(...(speakerRoutes || []))
+      nitroConfig.prerender?.routes?.push(...(speakerEnRoutes || []))
+      nitroConfig.prerender?.routes?.push(...(sponsorRoutes || []))
+      nitroConfig.prerender?.routes?.push(...(sponsorEnRoutes || []))
     },
     'prerender:routes': (context) => {
       for (const path of [...context.routes]) {
@@ -124,6 +140,10 @@ export default defineNuxtConfig({
     plugins: {
       'postcss-custom-media': {},
     },
+  },
+  routeRules: {
+    '/sessions/': { prerender: true },
+    '/sponsors/': { prerender: true },
   },
   runtimeConfig: {
     public: {
