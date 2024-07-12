@@ -6,30 +6,39 @@ const { color } = useColor()
 
 
 <template>
-  <section class='access-section'>
-    <div class='access-section-body'>
+  <section class="access-section">
+    <div class="access-section-body">
       <VFTitle id="access" class="title">
         {{ $t('access.title') }}
       </VFTitle>
 
-      <h3 :style="{
-        fontWeight: fontWeight('heading/800'),
-        fontSize: fontSize('body/400'),
-        color: color('vue-blue')
-      }" class="place-name">
+      <h3
+        :style="{
+          fontWeight: fontWeight('heading/800'),
+          fontSize: fontSize('body/400'),
+          color: color('vue-blue')
+        }"
+        class="place-name"
+      >
         {{ $t('access.name') }}
       </h3>
 
-      <div class='place-address' :style="{
-        color: color('vue-blue')
-      }">
-        <p :style="{
-          fontWeight: fontWeight('body/300'),
-          fontSize: fontSize('body/300'),
-        }">
+      <div
+        class="place-address"
+        :style="{
+          color: color('vue-blue')
+        }"
+      >
+        <p
+          :style="{
+            fontWeight: fontWeight('body/300'),
+            fontSize: fontSize('body/300'),
+          }"
+        >
           {{ $t('access.address') }}
         </p>
-        <NuxtLink :to="$t('access.hp')" target="_blank" :style="{
+        <NuxtLink
+          :to="$t('access.hp')" target="_blank" :style="{
           fontWeight: fontWeight('body/300'),
           fontSize: fontSize('body/300'),
           color: color('vue-blue')
@@ -38,12 +47,12 @@ const { color } = useColor()
         </NuxtLink>
       </div>
 
-      <ul class='place_route' :style="{
+      <ul
+        class="place_route" :style="{
         color: color('vue-blue')
       }">
         <li>{{ $t('access.route_1') }}</li>
         <li>{{ $t('access.route_2') }}</li>
-        <li>{{ $t('access.route_3') }}</li>
       </ul>
 
 
@@ -53,9 +62,9 @@ const { color } = useColor()
         </VFLinkButton>
       </div>
 
-      <figure class='place_image'>
-        <img src='/access/fig_access01.jpg' alt=''>
-        <img src='/access/fig_access02.jpg' alt=''>
+      <figure class="place_image">
+        <img src="/access/fig_access01.jpg" alt="" />
+        <img src="/access/fig_access02.jpg" alt="" />
       </figure>
 
     </div>
