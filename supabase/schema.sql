@@ -31,6 +31,23 @@ create table if not exists public.sponsors (
 
 ALTER TABLE public.sponsors ADD COLUMN display_order int;
 
+ALTER TABLE public.sponsors ADD COLUMN detail_page_id varchar(40);
+
+alter table
+  public.sponsors enable row level security;
+
+create policy "Allow select for all sponsors." on public.sponsors for
+select
+  using (true);
+
+create policy "Allow insert for all sponsors." on public.sponsors for
+insert
+  with check (true);
+
+create policy "Allow update for all sponsors." on public.sponsors for
+update
+  using (true);
+
 create table if not exists public.speakers (
   id uuid not null primary key default uuid_generate_v4(),
   name_ja varchar(100) not null,
@@ -61,6 +78,83 @@ create table if not exists public.speakers (
 );
 
 ALTER TABLE public.speakers ADD COLUMN display_order int;
+
+ALTER TABLE public.speakers ADD COLUMN detail_page_id varchar(40);
+
+ALTER TABLE public.speakers ADD COLUMN events text array;
+
+alter table
+  public.speakers enable row level security;
+
+create policy "Allow select for all speakers." on public.speakers for
+select
+  using (true);
+
+create policy "Allow insert for all speakers." on public.speakers for
+insert
+  with check (true);
+
+create policy "Allow update for all speakers." on public.speakers for
+update
+  using (true);
+
+create table if not exists public.staffs (
+  id uuid not null primary key default uuid_generate_v4(),
+  name varchar(100) not null,
+  image_url varchar(500),
+  x_id varchar(100),
+  github_id varchar(100),
+  is_open bool not null,
+  display_order int,
+  created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
+  updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
+);
+
+alter table
+  public.staffs enable row level security;
+
+create policy "Allow select for all staffs." on public.staffs for
+select
+  using (true);
+
+create policy "Allow insert for all staffs." on public.staffs for
+insert
+  with check (true);
+
+create policy "Allow update for all staffs." on public.staffs for
+update
+  using (true);
+
+create table if not exists public.attendees (
+    id uuid not null primary key default uuid_generate_v4(),
+    user_id uuid not null references auth.users on delete cascade,
+    email varchar(100) not null unique,
+    avatar_url varchar(500) not null,
+    provider varchar(20) not null,
+    display_name varchar(24),
+    role varchar(16),
+    receipt_id varchar(20) not null unique,
+    activated_at timestamp with time zone,
+    created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
+    updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
+);
+
+ALTER TABLE public.attendees ADD COLUMN image_file_name uuid not null unique default uuid_generate_v4();
+
+alter table
+  public.attendees enable row level security;
+
+create policy "Allow select for all attendees." on public.attendees for
+select
+  using (true);
+
+create policy "Allow insert for all attendees." on public.attendees for
+insert
+  with check (true);
+
+create policy "Allow update for all attendees." on public.attendees for
+update
+  using (true);
 
 -- *** Function definitions ***
 create

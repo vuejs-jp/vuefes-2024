@@ -57,6 +57,59 @@ export type Database = {
           },
         ]
       }
+      attendees: {
+        Row: {
+          activated_at: string | null
+          avatar_url: string
+          created_at: string
+          display_name: string | null
+          email: string
+          id: string
+          image_file_name: string
+          provider: string
+          receipt_id: string
+          role: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          activated_at?: string | null
+          avatar_url: string
+          created_at?: string
+          display_name?: string | null
+          email: string
+          id?: string
+          image_file_name?: string
+          provider: string
+          receipt_id: string
+          role?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          activated_at?: string | null
+          avatar_url?: string
+          created_at?: string
+          display_name?: string | null
+          email?: string
+          id?: string
+          image_file_name?: string
+          provider?: string
+          receipt_id?: string
+          role?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'attendees_user_id_fkey'
+            columns: ['user_id']
+            isOneToOne: false
+            referencedRelation: 'users'
+            referencedColumns: ['id']
+          },
+        ]
+      }
       speakers: {
         Row: {
           caption_en: string | null
@@ -64,7 +117,9 @@ export type Database = {
           created_at: string
           description_en: string
           description_ja: string
+          detail_page_id: string | null
           display_order: number | null
+          events: string[] | null
           github_id: string | null
           id: string
           image_url: string | null
@@ -93,7 +148,9 @@ export type Database = {
           created_at?: string
           description_en: string
           description_ja: string
+          detail_page_id?: string | null
           display_order?: number | null
+          events?: string[] | null
           github_id?: string | null
           id?: string
           image_url?: string | null
@@ -122,7 +179,9 @@ export type Database = {
           created_at?: string
           description_en?: string
           description_ja?: string
+          detail_page_id?: string | null
           display_order?: number | null
+          events?: string[] | null
           github_id?: string | null
           id?: string
           image_url?: string | null
@@ -152,6 +211,7 @@ export type Database = {
           created_at: string
           description_en: string
           description_ja: string
+          detail_page_id: string | null
           display_order: number | null
           id: string
           image_url: string | null
@@ -166,6 +226,7 @@ export type Database = {
           created_at?: string
           description_en: string
           description_ja: string
+          detail_page_id?: string | null
           display_order?: number | null
           id?: string
           image_url?: string | null
@@ -180,6 +241,7 @@ export type Database = {
           created_at?: string
           description_en?: string
           description_ja?: string
+          detail_page_id?: string | null
           display_order?: number | null
           id?: string
           image_url?: string | null
@@ -189,6 +251,42 @@ export type Database = {
           speaker_id?: string | null
           tag?: string[] | null
           updated_at?: string
+        }
+        Relationships: []
+      }
+      staffs: {
+        Row: {
+          created_at: string
+          display_order: number | null
+          github_id: string | null
+          id: string
+          image_url: string | null
+          is_open: boolean
+          name: string
+          updated_at: string
+          x_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number | null
+          github_id?: string | null
+          id?: string
+          image_url?: string | null
+          is_open: boolean
+          name: string
+          updated_at?: string
+          x_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          display_order?: number | null
+          github_id?: string | null
+          id?: string
+          image_url?: string | null
+          is_open?: boolean
+          name?: string
+          updated_at?: string
+          x_id?: string | null
         }
         Relationships: []
       }

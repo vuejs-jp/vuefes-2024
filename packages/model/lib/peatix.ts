@@ -27,7 +27,7 @@ export interface PeatixEvent {
   insecureEventUrl: string
   isContactAble: boolean
   eventUrl: string
-  attendees: Attendee[]
+  attendees: PeatixAttendee[]
   organizerId: string
   entriesTotal: number
   venueUrl: string
@@ -71,7 +71,7 @@ export interface Method {
   paymentCutoffDays: number
 }
 
-export interface Attendee {
+export interface PeatixAttendee {
   isProfileVisible: number
   id: string
   profilePictureUrl: string

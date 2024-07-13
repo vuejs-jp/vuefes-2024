@@ -1,15 +1,23 @@
-// import db from '../db'
+import db from '../db'
 import { defineEventHandler } from 'h3'
 import type { Sponsor, SponsorInfo } from '@vuejs-jp/model'
 import { serverSupabaseClient } from '#supabase/server'
 import { Database } from '~/types/supabase'
 
 export default defineEventHandler(async (event) => {
-  // const response = await db.sponsor.getList()
-  // const sponsors = response.default as Sponsor[]
+  const config = useRuntimeConfig()
+  let sponsors: Sponsor[] = []
 
-  const client = await serverSupabaseClient<Database>(event)
-  const { data: sponsors } = await client.from('sponsors').select() as { data: Sponsor[] }
+  if (config.public.sponsorDatasource === 'local') {
+    const response = await db.sponsor.getList()
+    sponsors = response.default as Sponsor[]
+  }
+
+  if (config.public.sponsorDatasource === 'supabase') {
+    const client = await serverSupabaseClient<Database>(event)
+    const { data: _sponsors } = await client.from('sponsors').select() as { data: Sponsor[] }
+    sponsors = _sponsors
+  }
 
   const platinumSponsors: SponsorInfo = {
     type: 'platinum',
@@ -160,6 +168,7 @@ export default defineEventHandler(async (event) => {
         return a.display_order - b.display_order
       }),
   }
+
   const toolSponsors: SponsorInfo = {
     type: 'option',
     title: 'tool',
@@ -174,6 +183,7 @@ export default defineEventHandler(async (event) => {
         return a.display_order - b.display_order
       }),
   }
+
   return {
     platinumSponsors,
     goldSponsors,

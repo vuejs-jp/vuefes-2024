@@ -1,6 +1,7 @@
 export const AdminPageMap = {
   speaker: 'speaker',
   sponsor: 'sponsor',
+  namecard: 'namecard',
   adminUser: 'adminUser',
 } as const
 

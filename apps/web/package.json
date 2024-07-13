@@ -38,6 +38,7 @@
     "@vuejs-jp/typescript-config": "workspace:*",
     "@vuejs-jp/vuefes-ui": "workspace:*",
     "cypress": "13.6.4",
+    "eslint-plugin-cypress": "3.3.0",
     "nuxt": "3.11.2",
     "nuxt-gtag": "2.0.5",
     "open-props": "^1.6.21",

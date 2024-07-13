@@ -22,6 +22,7 @@ const handleDialog = (id?: string) => {
   <table id="speakers">
     <tr>
       <th>name</th>
+      <th>detail_page_id</th>
       <th>image_url</th>
       <th>caption</th>
       <th>description</th>
@@ -36,6 +37,7 @@ const handleDialog = (id?: string) => {
         <p>{{ speaker.name_ja }}</p>
         <p>{{ speaker.name_en }}</p>
       </td>
+      <td>{{ speaker.detail_page_id }}</td>
       <td>
         <img
           v-if="speaker.image_url"
@@ -59,7 +61,12 @@ const handleDialog = (id?: string) => {
       </td>
       <td>{{ speaker.github_id }}</td>
       <td>{{ speaker.x_id }}</td>
-      <td>{{ speaker.session_type }}</td>
+      <td>
+        <template v-if="speaker.session_type !== 'panel-event'">{{ speaker.session_type }}</template>
+        <template v-else>
+          <p v-for="e in speaker.events" :key="e">{{ e }}</p>
+        </template>
+      </td>
       <td>
         <p>{{ speaker.is_open ? '表示' : '非表示' }}</p>
         <p v-if="speaker.display_order">{{ `(${speaker.display_order})` }}</p>

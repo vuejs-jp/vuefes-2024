@@ -1,11 +1,16 @@
-type SpeakerType = 'session' | 'lightning-talk' | 'sponsor-session'
+export type SpeakerType = 'session' | 'lightning-talk' | 'sponsor-session' | 'panel-event'
 
-export type SpeakerCategory = 'sessionSpeakers' | 'lightningTalkSpeakers' | 'sponsorSessionSpeakers'
+export type SpeakerCategory =
+  | 'sessionSpeakers'
+  | 'lightningTalkSpeakers'
+  | 'sponsorSessionSpeakers'
+  | 'panelEventSpeakers'
 
 export type Speaker = {
   id?: string
   name_ja: string
   name_en: string
+  detail_page_id?: string
   image_url?: string
   caption_ja?: string
   caption_en?: string
@@ -13,7 +18,8 @@ export type Speaker = {
   description_en: string
   github_id?: string
   x_id?: string
-  session_type: 'session' | 'lightning-talk' | 'sponsor-session'
+  events?: string[]
+  session_type: 'session' | 'lightning-talk' | 'sponsor-session' | 'panel-event'
   is_open: boolean
   display_order?: number
   session_title_ja?: string
