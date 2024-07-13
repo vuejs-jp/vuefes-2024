@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { useDevice, useI18n, useRuntimeConfig, useSwitchLocalePath } from '#imports'
-const { isMobile } = useDevice()
+import { useI18n, useRuntimeConfig, useSwitchLocalePath } from '#imports'
+import { useWindowSize } from '@vueuse/core'
+import { ref } from 'vue'
 const { locale } = useI18n({ useScope: 'global' })
 const switchLocalePath = useSwitchLocalePath()
 const config = useRuntimeConfig()
-import { ref } from 'vue'
+const { width } = useWindowSize()
 
 type NavLink = {
   text: string
@@ -29,13 +30,15 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <VFSpHeader v-if="isMobile">
+  <VFSpHeader v-if="width <= 1080">
     <div class="navigation-mobile">
-      <NuxtLink v-if="config.public.enableSwitchLocale" :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')" class="locale-switch-wrapper">
+      <NuxtLink v-if="config.public.enableSwitchLocale" :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
+        class="locale-switch-wrapper">
         <VFLocaleSwitch :locale />
       </NuxtLink>
 
-      <a href='' class="navigation-mobile-toggle" name="Menu" @click.prevent="toggleMenu" :class="{ 'isOpened': showMenu }"><span></span><span></span><span></span></a>
+      <a href="" class="navigation-mobile-toggle" name="Menu" :class="{ 'isOpened': showMenu }"
+        @click.prevent="toggleMenu"><span /><span /><span /></a>
       <!-- <VFIcon name="Menu" color="vue-blue" can-hover @click="toggleMenu" /> -->
     </div>
     <!-- hamburger-menu -->
@@ -53,14 +56,15 @@ const toggleMenu = () => {
       </div>
     </Transition>
   </VFSpHeader>
-  <VFHeader v-if="!isMobile">
+  <VFHeader v-else>
     <div class="navigation-pc">
       <div class="navigation-links-pc">
         <nuxt-link v-for="link in navLinks" :key="link.anchor" :to="`/${link.anchor}`">
           <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
         </nuxt-link>
       </div>
-      <NuxtLink v-if="config.public.enableSwitchLocale" :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')" class="locale-switch-wrapper">
+      <NuxtLink v-if="config.public.enableSwitchLocale" :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
+        class="locale-switch-wrapper">
         <VFLocaleSwitch :locale />
       </NuxtLink>
     </div>
