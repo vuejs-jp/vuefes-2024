@@ -33,4 +33,22 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
   template: '<Tag v-bind="args" />',
 })
 
-export const Default = Template.bind({})
+export const Platinum = Template.bind({})
+
+export const Gold = Template.bind({})
+Gold.args = {
+  background: '#E5AF00',
+  label: 'ゴールド',
+}
+
+export const Silver = Template.bind({})
+Silver.args = {
+  background: '#1A8191',
+  label: 'シルバー',
+}
+
+export const Bronze = Template.bind({})
+Bronze.args = {
+  background: '#CC4F39',
+  label: 'ブロンズ',
+}
