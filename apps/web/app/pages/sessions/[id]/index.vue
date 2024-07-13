@@ -45,7 +45,7 @@ useHead({
   <VFPageHeading>{{ $t('speaker.title') }}</VFPageHeading>
   <div class="session-detail">
     <div class="session-detail-body">
-      <VFTitle id="sponsor-detail" class="detailbody-title">
+      <VFTitle id="session-detail" class="detailbody-title">
         {{ currentLocale === 'ja' ? (speakerData[0].session_title_ja ?? 'TBD') : (speakerData[0].session_title_en ?? 'TBD') }}
       </VFTitle>
 
@@ -117,7 +117,7 @@ useHead({
 }
 
 .session-detail-body {
-  --head-img-width: 475px;
+  --head-img-width: 308px;
 
   margin: 0 auto;
   padding: 60px 0 120px;
