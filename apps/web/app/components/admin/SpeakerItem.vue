@@ -25,6 +25,7 @@ const newSpeaker = ref<FormSpeaker>({
   description_en: props.speaker?.description_en ?? '',
   github_id: props.speaker?.github_id ?? '',
   x_id: props.speaker?.x_id ?? '',
+  events: props.speaker?.events ?? [],
   session_type: props.speaker?.session_type ??  'session',
   is_open: props.speaker?.is_open ?? true,
   display_order: props.speaker?.display_order ?? null,
@@ -41,6 +42,7 @@ const newSpeaker = ref<FormSpeaker>({
   // session_doc_title_en: '',
   // session_doc_url: '',
 })
+const eventsText = ref(props.speaker?.events?.map((e) => e).join(',') ?? '')
 
 const updateNameJa = (e: any) => {
   newSpeaker.value.name_ja = e.target.value
@@ -80,6 +82,10 @@ const updateGithubId = (e: any) => {
 }
 const updateXId = (e: any) => {
   newSpeaker.value.x_id = e.target.value
+}
+const updateEvents = (e: any) => {
+  eventsText.value = e.target.value
+  newSpeaker.value.events = eventsText.value.split(',')
 }
 const updateDisplayOrder = (e: any) => {
   newSpeaker.value.display_order = e.target.value
@@ -184,7 +190,15 @@ const onSubmit = () => {
             { value: 'session', text: 'Session' },
             { value: 'lightning-talk', text: 'Lightning Talk' },
             { value: 'sponsor-session', text: 'Sponsor Session' },
+            { value: 'panel-event', text: 'Panel Event' },
           ]"
+        />
+        <VFInputField
+          id="events"
+          v-model="newSpeaker.events"
+          name="events"
+          label="パネラーイベント (welcome-vuejs-community と nextgen-frontend-crosstalk から選択可)"
+          @input="updateEvents"
         />
         <VFDropdownField
           id="is_open"

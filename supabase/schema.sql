@@ -81,6 +81,8 @@ ALTER TABLE public.speakers ADD COLUMN display_order int;
 
 ALTER TABLE public.speakers ADD COLUMN detail_page_id varchar(40);
 
+ALTER TABLE public.speakers ADD COLUMN events text array;
+
 alter table
   public.speakers enable row level security;
 
