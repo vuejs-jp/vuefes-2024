@@ -22,6 +22,16 @@
     "end_minute": "00",
     "end_ampm": "pm"
   },
+  "event": {
+    "welcome_vuejs_community": "Welcome to the Vue.js community!",
+    "vuejs_handson": "Vue.js / Nuxt Hands-on",
+    "nextgen_frontend_crosstalk": "Next generation front-end crosstalk",
+    "creative_wall": "Creative Wall",
+    "refreshment_space": "Refreshment Space",
+    "tattoo_booth": "Tattoo Booth",
+    "cocktail_bash": "Vue Cocktail Bash",
+    "sponsor_booth_fotolary": "Sponsor Booth Fotolary"
+  },
   "store": {
     "do_again_this_year": "Do Again This Year",
     "payment_method": "Payment Method",
@@ -52,7 +62,7 @@
     "apply_period": "Sponsor Application Period",
     "apply_deadline": "Sponsor Application Deadline",
     "application_period_after": "",
-    "creative_wall_drinks_snacks_merchandise": "Creative wall, drinks, snacks, merchandise sponsor",
+    "creative_wall_drinks_snacks_merchandise": "Creative Wall, Drinks, Snacks, Merchandise sponsor",
     "all_others": "All other sponsors",
     "check_doc": "View Sponsorship materials",
     "start_date": "May 13",

@@ -40,6 +40,16 @@
     "end_hour": "24",
     "end_minute": "00"
   },
+  "event": {
+    "welcome_vuejs_community": "Vue.jsコミュニティにようこそ！",
+    "vuejs_handson": "Vue.js / Nuxt ハンズオン",
+    "nextgen_frontend_crosstalk": "次世代フロントエンドクロストーク",
+    "creative_wall": "クリエイティブウォール",
+    "refreshment_space": "リフレッシュメントスペース",
+    "tattoo_booth": "タトゥーブース",
+    "cocktail_bash": "Vue Cocktail Bash",
+    "sponsor_booth_fotolary": "スポンサーブースフォトラリー"
+  },
   "store": {
     "do_again_this_year": "今年もやります",
     "payment_method": "購入方法",

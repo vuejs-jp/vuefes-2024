@@ -1,0 +1,1 @@
+Take photos at sponsor booths inside the venue and get Vue Fes Japan original merchandise! Each sponsor booth has one photo frame set up. Take pictures with all 15 photo frames in total, show them at the reception desk, and you might win some delightful prizes through a lucky draw!
