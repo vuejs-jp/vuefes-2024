@@ -1,9 +1,9 @@
 <script setup lang="ts">
-interface EventProps {
+interface EventFrameProps {
   title: string
 }
 
-const props = defineProps<EventProps>()
+const props = defineProps<EventFrameProps>()
 </script>
 
 <template>

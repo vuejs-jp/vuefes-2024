@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { Event } from '@vuejs-jp/model'
 
-interface EventSectionProps {
+interface EventCardProps {
   title: Event
 }
 
-const props = defineProps<EventSectionProps>()
+const props = defineProps<EventCardProps>()
 </script>
 
 <template>
