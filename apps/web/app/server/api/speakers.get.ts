@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
 
   if (config.public.speakerDatasource === 'supabase') {
     const client = await serverSupabaseClient<Database>(event)
-    const { data: _speakers } = await client.from('speakers').select() as { data: Speaker[] }
+    const { data: _speakers } = await client.from('speakers').select().eq('is_open', true).neq('session_type', 'panel-event') as { data: Speaker[] }
     speakers = _speakers
   }
 
