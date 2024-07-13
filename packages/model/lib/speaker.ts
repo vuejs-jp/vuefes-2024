@@ -18,6 +18,7 @@ export type Speaker = {
   description_en: string
   github_id?: string
   x_id?: string
+  events?: string[]
   session_type: 'session' | 'lightning-talk' | 'sponsor-session' | 'panel-event'
   is_open: boolean
   display_order?: number

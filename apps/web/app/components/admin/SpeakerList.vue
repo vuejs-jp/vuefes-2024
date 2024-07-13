@@ -61,7 +61,12 @@ const handleDialog = (id?: string) => {
       </td>
       <td>{{ speaker.github_id }}</td>
       <td>{{ speaker.x_id }}</td>
-      <td>{{ speaker.session_type }}</td>
+      <td>
+        <template v-if="speaker.session_type !== 'panel-event'">{{ speaker.session_type }}</template>
+        <template v-else>
+          <p v-for="e in speaker.events" :key="e">{{ e }}</p>
+        </template>
+      </td>
       <td>
         <p>{{ speaker.is_open ? '表示' : '非表示' }}</p>
         <p v-if="speaker.display_order">{{ `(${speaker.display_order})` }}</p>

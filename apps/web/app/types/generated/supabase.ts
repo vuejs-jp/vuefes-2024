@@ -119,6 +119,7 @@ export type Database = {
           description_ja: string
           detail_page_id: string | null
           display_order: number | null
+          events: string[] | null
           github_id: string | null
           id: string
           image_url: string | null
@@ -149,6 +150,7 @@ export type Database = {
           description_ja: string
           detail_page_id?: string | null
           display_order?: number | null
+          events?: string[] | null
           github_id?: string | null
           id?: string
           image_url?: string | null
@@ -179,6 +181,7 @@ export type Database = {
           description_ja?: string
           detail_page_id?: string | null
           display_order?: number | null
+          events?: string[] | null
           github_id?: string | null
           id?: string
           image_url?: string | null
