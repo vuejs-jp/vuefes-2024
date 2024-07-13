@@ -2,7 +2,8 @@
 import { ref } from 'vue'
 import type { AuthProvider } from '@vuejs-jp/model'
 import { useAuth } from '~/composables/useAuth'
-import { createError, useRuntimeConfig } from '#imports'
+import { useAuthSession } from '#imports'
+import { createError, useRuntimeConfig, navigateTo } from '#imports'
 
 const config = useRuntimeConfig()
 
@@ -11,11 +12,12 @@ if (!config.public.enableRegisterNamecard) {
 }
 
 const showDialog = ref(false)
-const { signIn } = useAuth()
+const { signIn, authUserId } = useAuth()
+const { hasAuth } = useAuthSession()
 
 function handleClickButton(type: 'open' | 'close') {
-  // TODO セッション確認を行い、ログイン済みの場合はリダイレクト処理を実行しあと工程スキップ
   if (type === 'open') {
+    if (hasAuth?.value) return navigateTo(`/namecard/${authUserId}/`)
     showDialog.value = true
   } else {
     showDialog.value = false
@@ -23,8 +25,7 @@ function handleClickButton(type: 'open' | 'close') {
 }
 
 function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
-  // TODO リダイレクト先は namecard/[id]/ とする（編集画面作成時に変更） ローカル開発用にフルパス指定（環境変数で振り分け）した方が便利
-  signIn(provider, '/')
+  signIn(provider, `/namecard/${authUserId}/`)
 }
 </script>
 
