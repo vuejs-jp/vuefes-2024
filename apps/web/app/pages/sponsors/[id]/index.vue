@@ -27,13 +27,6 @@ const { data: speakers } = await useAsyncData('speakers', async () => {
 })
 
 const speakerData = speakers.value?.data as Speaker[]
-if (!speakerData) {
-  throw createError({ statusCode: 404, statusMessage: 'Speaker not found' })
-}
-
-if (!speakerData[0].detail_page_id) {
-  throw createError({ statusCode: 404, statusMessage: 'Speaker not found' })
-}
 
 const currentLocale = useLocaleCurrent().locale
 const { color } = useSponsor()
