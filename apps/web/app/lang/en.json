@@ -129,6 +129,16 @@
       "inquiry_in_progress": "inquiry in progress",
       "inquiry_failed": "inquiry failed",
       "inquiry_completed": "inquiry complete"
+    },
+    "form": {
+      "label_name": "お名前／Name",
+      "label_avatar": "アバター／Avatar",
+      "label_order_number": "Order Number",
+      "annotation_name": "Up to 12 full-width characters (24 half-width characters)",
+      "annotation_order_number": "* The order number can be found in the receipt data included in the email sent by Peatix when you purchase a ticket.",
+      "placeholder_order_number": "Please enter the order number",
+      "submit": "Submit",
+      "registrationCompleted": "The name card information has been successfully registered!"
     }
   }
 }

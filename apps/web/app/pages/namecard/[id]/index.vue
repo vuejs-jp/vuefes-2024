@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '#i18n'
+import { navigateTo, useRoute } from '#imports'
 import CreationStatus, { type Status } from '~/components/namecard/CreationStatus.vue'
-import { useColor, useTypography } from '@vuejs-jp/composable'
 import type { NamecardUser } from '@vuejs-jp/model'
 
+const route = useRoute()
 const { t } = useI18n()
-const { fontWeight, fontSize } = useTypography()
-const { color } = useColor()
 
 const statusKey = computed<Status>(() => {
   // TODO テーブルから取得する
@@ -21,44 +20,30 @@ const user = computed<NamecardUser>(() => {
     role: 'attendee',
   }
 })
+
+function handleLinkButton() {
+  navigateTo(`/namecard/${route.params.id}/edit/`)
+}
 </script>
 <template>
-  <div class="name-card-user-root">
-    <h1
-      :style="{
-        fontWeight: fontWeight('heading/700'),
-        fontSize: fontSize('heading/700'),
-        color: color('vue-blue'),
-      }"
-      class="title"
-    >
-      {{ t('namecard.title_edit') }}
-    </h1>
+  <NuxtLayout name="namecard-base">
     <CreationStatus :status-key="statusKey" class="creation-status" />
     <VFNamecard23 :user="user" class="namecard" />
     <VFLinkButton
       is="button"
       background-color="vue-green/200"
       color="white"
-      href=""
       class="edit-button"
+      @click="handleLinkButton"
       >{{ t('namecard.edit') }}</VFLinkButton
     >
     <!-- TODO 作成フロー・注記挿入 -->
-  </div>
+  </NuxtLayout>
 </template>
 
 <style scoped>
 @import url('~/assets/media.css');
 
-.name-card-user-root {
-  --header-height: calc(var(--unit) * 10);
-  padding-top: calc(var(--header-height) + var(--unit) * 15);
-  text-align: center;
-}
-.title {
-  margin-bottom: calc(var(--unit) * 5);
-}
 .creation-status {
   margin: 0 auto calc(var(--unit) * 2.5);
 }
@@ -73,4 +58,6 @@ const user = computed<NamecardUser>(() => {
   height: 66px;
   margin: 0 auto calc(var(--unit) * 5);
 }
+
+/* TODO モバイル版スタイル */
 </style>
