@@ -4,13 +4,14 @@ import { match } from 'ts-pattern'
 import { Page } from 'puppeteer'
 import { Constants } from '../constnats'
 import { EnvService } from '../env/env.service'
-import { IPuppeteerService } from '../puppeteer/puppeteer.service'
+import { PuppeteerService } from '../puppeteer/puppeteer.service'
 import { Selectors } from '../selectors'
 import { promises, readFileSync } from 'fs'
 import { ScraperPage } from '../scraper-page/scraper-page'
 import { HttpService } from '@nestjs/axios'
 import { JSON_USAGE, PUPPETEER_USAGE } from '../features'
 import { SupabaseService } from 'src/supabase/supabase.service'
+import { AttendeeReceipt } from 'src/types/supabase'
 
 const { parse } = require('csv-parse/sync')
 
@@ -20,7 +21,7 @@ export class PeatixOrderService extends ScraperPage {
 
   constructor(
     envService: EnvService,
-    puppeteerService: IPuppeteerService,
+    puppeteerService: PuppeteerService,
     private readonly httpService: HttpService,
     private readonly supabaseService: SupabaseService,
   ) {
@@ -168,8 +169,18 @@ export class PeatixOrderService extends ScraperPage {
           const attendees = res
           this.logger.log(attendees)
 
+          const receipts: AttendeeReceipt[] = attendees.map((attendee) => {
+            const receiptId = attendee[Object.keys(attendee)[0]]
+            const ticketName = attendee[Object.keys(attendee)[4]]
+
+            // チケット名から参加者の種別を特定する
+
+            return { role: 'attendee', receipt_id: receiptId }
+          })
+          this.logger.log(receipts)
+
           // Peatix 購入情報を Supabase へ反映する
-          await this.supabaseService.updateAttendees()
+          // await this.supabaseService.updateAttendees(receipts)
         })
       }
 

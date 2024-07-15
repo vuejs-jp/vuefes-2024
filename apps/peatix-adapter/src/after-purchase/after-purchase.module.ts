@@ -3,7 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { AfterPurchaseService } from './after-purchase.service'
 import { EnvService } from '../env/env.service'
 import {
-  IPuppeteerService,
+  symbol as IPuppeteerService,
   PuppeteerService,
 } from '../puppeteer/puppeteer.service'
 import { AfterPurchaseCommand } from './after-purchase.command'

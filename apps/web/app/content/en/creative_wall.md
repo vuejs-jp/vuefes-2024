@@ -1,0 +1,1 @@
+The popular Creative Wall from last year will make a return this year. Please write down your passionate thoughts about Vue.js and Vue Fes Japan. We also have props ready for photos, perfect for commemorative snapshots.

@@ -7,7 +7,7 @@ import { useColor } from '@vuejs-jp/composable'
 export type IconProps = {
   color: Color
   name: IconName
-  canHover: boolean
+  canHover?: boolean
 }
 
 const props = withDefaults(defineProps<IconProps>(), {
@@ -37,8 +37,17 @@ const svgComponent = match<IconName>(props.name)
   .with('GitHub24', () =>
     defineAsyncComponent(() => import('../../assets/icon/github_24_icon.svg?component')),
   )
+  .with('GitHub32', () =>
+    defineAsyncComponent(() => import('../../assets/icon/github_32_icon.svg?component')),
+  )
   .with('Google24', () =>
     defineAsyncComponent(() => import('../../assets/icon/google_icon.svg?component')),
+  )
+  .with('Google32', () =>
+    defineAsyncComponent(() => import('../../assets/icon/google_32_icon.svg?component')),
+  )
+  .with('close', () =>
+    defineAsyncComponent(() => import('../../assets/icon/close_icon.svg?component')),
   )
   .exhaustive()
 

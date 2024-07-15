@@ -1,6 +1,22 @@
+<script setup lang="ts">
+type Props = {
+  arialabel?: string
+  ariaModal?: boolean
+}
+withDefaults(defineProps<Props>(), {
+  arialabel: '',
+  ariaModal: false,
+})
+</script>
 <template>
   <div class="mask" @click="$emit('on-close')">
-    <div class="root" role="document" @click="(e) => e.stopPropagation()">
+    <div
+      role="dialog"
+      class="root"
+      :aria-label="arialabel"
+      :aria-modal="ariaModal"
+      @click="(e) => e.stopPropagation()"
+    >
       <slot />
     </div>
   </div>
@@ -15,8 +31,9 @@
   transform: translateX(-50%) translateY(-50%);
   width: 80%;
   max-width: 960px;
-  transition: .2s;
+  transition: 0.2s;
   background-color: #fff;
+  border: 2px solid var(--color-vue-blue);
 }
 .mask {
   position: fixed;

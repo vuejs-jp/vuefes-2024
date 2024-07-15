@@ -1,4 +1,4 @@
-type SponsorType = 'platinum' | 'gold' | 'silver' | 'bronze' | 'option' | 'option-separate'
+export type SponsorType = 'platinum' | 'gold' | 'silver' | 'bronze' | 'option' | 'option-separate'
 
 export type SponsorCategory =
   | 'platinumSponsors'
@@ -14,7 +14,8 @@ export type SponsorCategory =
   | 'toolSponsors'
 
 
-type Tag = 'name-card'
+export type OptionSponsorType =
+  | 'name-card'
   | 'special-naming-rights'
   | 'after-party'
   | 'simultaneous-interpretation'
@@ -25,11 +26,12 @@ type Tag = 'name-card'
 export type Sponsor = {
   id: string
   name: string
+  detail_page_id?: string
   description_ja: string
   description_en: string
   speaker_id?: string
   image_url: string
-  tag: Array<SponsorType | Tag>
+  tag: Array<SponsorType | OptionSponsorType>
   link_url: string
   is_open: boolean
   display_order?: number

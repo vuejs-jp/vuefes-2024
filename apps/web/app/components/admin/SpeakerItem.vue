@@ -17,6 +17,7 @@ const newSpeaker = ref<FormSpeaker>({
   ...props.speaker?.id && { id: props.speaker?.id },
   name_ja: props.speaker?.name_ja ?? '',
   name_en: props.speaker?.name_en ?? '',
+  detail_page_id: props.speaker?.detail_page_id ?? '',
   image_url: props.speaker?.image_url ?? '',
   caption_ja: props.speaker?.caption_ja ?? '',
   caption_en: props.speaker?.caption_en ?? '',
@@ -24,6 +25,7 @@ const newSpeaker = ref<FormSpeaker>({
   description_en: props.speaker?.description_en ?? '',
   github_id: props.speaker?.github_id ?? '',
   x_id: props.speaker?.x_id ?? '',
+  events: props.speaker?.events ?? [],
   session_type: props.speaker?.session_type ??  'session',
   is_open: props.speaker?.is_open ?? true,
   display_order: props.speaker?.display_order ?? null,
@@ -40,12 +42,16 @@ const newSpeaker = ref<FormSpeaker>({
   // session_doc_title_en: '',
   // session_doc_url: '',
 })
+const eventsText = ref(props.speaker?.events?.map((e) => e).join(',') ?? '')
 
 const updateNameJa = (e: any) => {
   newSpeaker.value.name_ja = e.target.value
 }
 const updateNameEn = (e: any) => {
   newSpeaker.value.name_en = e.target.value
+}
+const updateDetailPageId = (e: any) => {
+  newSpeaker.value.detail_page_id = e.target.value
 }
 const checkFiles = async (files: File[]) => {
   if (files.length === 0) return
@@ -77,6 +83,10 @@ const updateGithubId = (e: any) => {
 const updateXId = (e: any) => {
   newSpeaker.value.x_id = e.target.value
 }
+const updateEvents = (e: any) => {
+  eventsText.value = e.target.value
+  newSpeaker.value.events = eventsText.value.split(',')
+}
 const updateDisplayOrder = (e: any) => {
   newSpeaker.value.display_order = e.target.value
 }
@@ -104,6 +114,13 @@ const onSubmit = () => {
           name="name_en"
           label="名前 [EN]"
           @input="updateNameEn"
+        />
+        <VFInputField
+          id="detail_page_id"
+          v-model="newSpeaker.detail_page_id"
+          name="detail_page_id"
+          label="詳細ページのパス"
+          @input="updateDetailPageId"
         />
         <VFDragDropArea file-name="profiledata" file-accept="image/*" @check-files="checkFiles">
           <div class="upload">
@@ -173,7 +190,15 @@ const onSubmit = () => {
             { value: 'session', text: 'Session' },
             { value: 'lightning-talk', text: 'Lightning Talk' },
             { value: 'sponsor-session', text: 'Sponsor Session' },
+            { value: 'panel-event', text: 'Panel Event' },
           ]"
+        />
+        <VFInputField
+          id="events"
+          v-model="newSpeaker.events"
+          name="events"
+          label="パネラーイベント (welcome-vuejs-community と nextgen-frontend-crosstalk から選択可)"
+          @input="updateEvents"
         />
         <VFDropdownField
           id="is_open"

@@ -10,7 +10,9 @@
     "sunday": "日",
     "monday": "月",
     "tuesday": "火",
-    "thursday": "木"
+    "wednesday": "水",
+    "thursday": "木",
+    "saturday": "土"
   },
   "top_page": {
     "latest_information": "最新情報は公式SNSでご紹介しています",
@@ -27,13 +29,64 @@
     "end_hour": "24",
     "end_minute": "00"
   },
+  "volunteer": {
+    "title": "ボランティア募集",
+    "subtitle": "あなたも一緒に Vue Fes Japan を盛り上げませんか？",
+    "application_period": "募集スケジュール",
+    "application_period_before": "応募期限：",
+    "application_period_after": "まで",
+    "apply": "ボランティアに応募する",
+    "end_date": "7.31",
+    "end_hour": "24",
+    "end_minute": "00"
+  },
+  "event": {
+    "welcome_vuejs_community": "Vue.jsコミュニティにようこそ！",
+    "vuejs_handson": "Vue.js / Nuxt ハンズオン",
+    "nextgen_frontend_crosstalk": "次世代フロントエンドクロストーク",
+    "creative_wall": "クリエイティブウォール",
+    "refreshment_space": "リフレッシュメントスペース",
+    "tattoo_booth": "タトゥーブース",
+    "cocktail_bash": "Vue Cocktail Bash",
+    "sponsor_booth_fotolary": "スポンサーブースフォトラリー"
+  },
+  "store": {
+    "do_again_this_year": "今年もやります",
+    "payment_method": "購入方法",
+    "payment_method_explain": "購入方法は以下の2種類があります。",
+    "preorder": "事前注文する",
+    "tshirt": "Tシャツ",
+    "tshirt_detail": "Vue Fes Japan 2023 のオリジナル T シャツです。サイズはS・M・L・XLの4種類。前面のみのプリントです。",
+    "parka": "パーカー",
+    "parka_detail": "Vue Fes Japan 2023 のオリジナルパーカーです。サイズは S、M、L、XL の4種類。前・背面プリントです。",
+    "vue_badge": "アクリルピンバッジ（Vue.js）",
+    "vue_badge_detail": "Vue.jsのロゴを使ったミニサイズのアクリルピンバッジです。",
+    "nuxt_badge": "アクリルピンバッジ（Nuxt）",
+    "nuxt_badge_detail": "Nuxtのロゴを使ったミニサイズのアクリルピンバッジです。",
+    "vite_badge": "アクリルピンバッジ（Vite）",
+    "vite_badge_detail": "Viteのロゴを使ったミニサイズのアクリルピンバッジです。",
+    "sticker": "ステッカー",
+    "sticker_detail": "Vue.js、Nuxt、Vite、Vue Fes Japanのロゴが集まった特製ステッカーです。",
+    "cushion": "クッション",
+    "cushion_detail": "表面Vue.js、裏面Vue Fes Japanのロゴのふかふかクッションです。素材は、触り心地が良いブランケットのような生地です。",
+    "tape": "マスキングテープ",
+    "tape_detail": "マスキングテープ(15mm幅)です。",
+    "store_item_color": "カラー： {0}",
+    "store_item_size": "サイズ： {0}"
+  },
   "sponsor": {
     "title": "スポンサー",
     "apply": "申し込む",
     "apply_period": "スポンサー申込期間",
+    "apply_deadline": "スポンサー申込締切",
+    "application_period_after": "まで",
+    "creative_wall_drinks_snacks_merchandise": "クリエイティブウォール、ドリンク、スナック、グッズスポンサー",
+    "all_others": "その他すべてのスポンサー",
     "check_doc": "資料を見る",
     "start_date": "5.13",
     "end_date": "4.25",
+    "first_end_date": "7.31",
+    "second_end_date": "8.31",
     "platinum": "プラチナ",
     "gold": "ゴールド",
     "silver": "シルバー",
@@ -46,7 +99,16 @@
     "media": "メディア",
     "tool": "ツール"
   },
-
+  "access": {
+    "title": "アクセス",
+    "name": "会場：大手町プレイス ホール＆カンファレンス",
+    "address": "東京都千代田区大手町2-3-1 大手町プレイス（イーストタワー）1F/2F",
+    "hp": "https://otemachi-place-hc.jp/",
+    "route_1": "JR山手線・京浜東北線・東海道新幹線など「東京」駅 丸の内北口より徒歩7分",
+    "route_2": "東京メトロ丸の内線・東西線・千代田線・半蔵門線「大手町」駅 都営三田線「大手町」駅 A5出口直結",
+    "map": "https://maps.app.goo.gl/ohaSGdrjQ3pt152C9",
+    "map_text": "Googleマップを見る"
+  },
   "partner": {
     "title": "協力パートナー"
   },
@@ -60,6 +122,12 @@
     "form_placeholder_example": "入力例：",
     "submit": "送信する",
     "submit_done": "メッセージ送信に成功しました。"
+  },
+  "jobboard": {
+    "title": "ジョブボード"
+  },
+  "team": {
+    "title": "チーム"
   },
   "message": {
     "title": "メッセージ"

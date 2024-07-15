@@ -18,6 +18,7 @@ const { getFullAvatarUrl } = useSupabaseStorage()
 const newSponsor = ref({
   ...props.sponsor?.id && { id: props.sponsor?.id },
   name: props.sponsor?.name ?? '',
+  detail_page_id: props.sponsor?.detail_page_id ?? '',
   image_url: props.sponsor?.image_url ?? '',
   description_ja: props.sponsor?.description_ja ?? '',
   description_en: props.sponsor?.description_en ?? '',
@@ -31,6 +32,9 @@ const tagText = ref(props.sponsor?.tag?.map((t) => t).join(',') ?? '')
 
 const updateName = (e: any) => {
   newSponsor.value.name = e.target.value
+}
+const updateDetailPageId = (e: any) => {
+  newSponsor.value.detail_page_id = e.target.value
 }
 const checkFiles = async (files: File[]) => {
   if (files.length === 0) return
@@ -78,6 +82,13 @@ const onSubmit = () => {
           name="name"
           label="Name"
           @input="updateName"
+        />
+        <VFInputField
+          id="detail_page_id"
+          v-model="newSponsor.detail_page_id"
+          name="detail_page_id"
+          label="詳細ページのパス"
+          @input="updateDetailPageId"
         />
         <VFDragDropArea file-name="profiledata" file-accept="image/*" @check-files="checkFiles">
           <div class="upload">

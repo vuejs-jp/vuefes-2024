@@ -3,7 +3,8 @@ import { useFetch } from '#imports'
 import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
 import type { SpeakerCategory, SpeakerInfo } from '@vuejs-jp/model'
 
-type Speakers = Record<SpeakerCategory, SpeakerInfo>
+type _SpeakerCategory = Extract<SpeakerCategory, 'sessionSpeakers' | 'lightningTalkSpeakers' | 'sponsorSessionSpeakers'>
+type Speakers = Record<_SpeakerCategory, SpeakerInfo>
 
 const currentLocale = useLocaleCurrent().locale
 

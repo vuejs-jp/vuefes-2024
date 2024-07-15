@@ -22,13 +22,53 @@
     "end_minute": "00",
     "end_ampm": "pm"
   },
+  "event": {
+    "welcome_vuejs_community": "Welcome to the Vue.js community!",
+    "vuejs_handson": "Vue.js / Nuxt Hands-on",
+    "nextgen_frontend_crosstalk": "Next generation front-end crosstalk",
+    "creative_wall": "Creative Wall",
+    "refreshment_space": "Refreshment Space",
+    "tattoo_booth": "Tattoo Booth",
+    "cocktail_bash": "Vue Cocktail Bash",
+    "sponsor_booth_fotolary": "Sponsor Booth Fotolary"
+  },
+  "store": {
+    "do_again_this_year": "Do Again This Year",
+    "payment_method": "Payment Method",
+    "payment_method_explain": "There are two methods of payment.",
+    "preorder": "Pre-Order",
+    "tshirt": "T-sgirt",
+    "tshirt_detail": "Vue Fes Japan 2023 のオリジナル T シャツです。サイズはS・M・L・XLの4種類。前面のみのプリントです。",
+    "parka": "Hooded sweatshirt",
+    "parka_detail": "Vue Fes Japan 2023 のオリジナルパーカーです。サイズは S、M、L、XL の4種類。前・背面プリントです。",
+    "vue_badge": "Acrylic pin badge (Vue.js)",
+    "vue_badge_detail": "Vue.jsのロゴを使ったミニサイズのアクリルピンバッジです。",
+    "nuxt_badge": "Acrylic pin badge (Nuxt)",
+    "nuxt_badge_detail": "Nuxtのロゴを使ったミニサイズのアクリルピンバッジです。",
+    "vite_badge": "Acrylic pin badge (Vite)",
+    "vite_badge_detail": "Viteのロゴを使ったミニサイズのアクリルピンバッジです。",
+    "sticker": "Sticker",
+    "sticker_detail": "Vue.js、Nuxt、Vite、Vue Fes Japanのロゴが集まった特製ステッカーです。",
+    "cushion": "Cushion",
+    "cushion_detail": "表面Vue.js、裏面Vue Fes Japanのロゴのふかふかクッションです。素材は、触り心地が良いブランケットのような生地です。",
+    "tape": "Masking tape",
+    "tape_detail": "Masking tape (width: 15mm)",
+    "store_item_color": "Color: {0}",
+    "store_item_size": "Size: {0}"
+  },
   "sponsor": {
     "title": "Sponsors",
     "apply": "Apply",
     "apply_period": "Sponsor Application Period",
+    "apply_deadline": "Sponsor Application Deadline",
+    "application_period_after": "",
+    "creative_wall_drinks_snacks_merchandise": "Creative Wall, Drinks, Snacks, Merchandise sponsor",
+    "all_others": "All other sponsors",
     "check_doc": "View Sponsorship materials",
     "start_date": "May 13",
     "end_date": "25,",
+    "first_end_date": "July 31",
+    "second_end_date": "August 31",
     "platinum": "Platinum",
     "gold": "Gold",
     "silver": "Silver",
@@ -40,6 +80,16 @@
     "simultaneous_interpretation": "Simultaneous Interpretation",
     "media": "Media",
     "tool": "Tool"
+  },
+  "access": {
+    "title": "Access",
+    "name": "Place：OTEMACHI PLACE HALL & CONFERENCE",
+    "address": "1F/2F, OTEMACHI PLACE(EAST TOWER), 2-3-1, OTEMACHI, CHIYODA-KU, TOKYO",
+    "hp": "https://otemachi-place-hc.jp/",
+    "route_1": "Walk 7 minutes from the Marunouchi North Exit of Tokyo Station from the JR Yamanote Line, Keihin Tohoku Line, Tokaido Shinkansen etc.",
+    "route_2": "Directly connected to Exit A5 of Otemachi Station on the Tokyo Metro Marunouchi Line, Tozai Line, Chiyoda Line, Hanzomon Line and the Toei Mita Line",
+    "map": "https://maps.app.goo.gl/ohaSGdrjQ3pt152C9",
+    "map_text": "View on Google Maps"
   },
   "partner": {
     "title": "Partners"
@@ -54,6 +104,12 @@
     "form_placeholder_example": "Example: ",
     "submit": "Submit",
     "submit_done": "Successfully sent your message."
+  },
+  "jobboard": {
+    "title": "JOB BOARD"
+  },
+  "team": {
+    "title": "Team"
   },
   "message": {
     "title": "Message"

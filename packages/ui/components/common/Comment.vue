@@ -1,0 +1,59 @@
+<script setup lang="ts">
+import { useColor } from '@vuejs-jp/composable'
+import { Color } from '@vuejs-jp/model'
+import { PropType } from 'vue'
+
+const props = defineProps({
+  color: {
+    type: String as PropType<Color>,
+    default: 'vue-green',
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+})
+
+const { color: textColor } = useColor()
+</script>
+
+<template>
+  <p class="comment">
+    <span
+      class="comment-main"
+      :style="{
+        '--main-color': textColor(color),
+      }"
+    >
+      {{ title }}
+    </span>
+  </p>
+</template>
+
+<style scoped>
+.comment {
+  text-align: center;
+}
+.comment-main {
+  color: var(--main-color);
+  font-size: 16px;
+  font-weight: 700;
+}
+.comment-main::before,
+.comment-main::after {
+  position: relative;
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 2px;
+  height: 2em;
+  margin: 0 1em;
+  background: var(--main-color);
+}
+.comment-main::before {
+  transform: rotate(-35deg);
+}
+.comment-main::after {
+  transform: rotate(35deg);
+}
+</style>
