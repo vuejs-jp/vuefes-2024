@@ -1,9 +1,4 @@
-<script setup lang="ts">
-import { definePageMeta } from '#imports'
-definePageMeta({
-  middleware: 'auth',
-})
-</script>
+<script setup lang="ts"></script>
 <template>
   <div class="name-card-user-root">
     <VFLinkButton is="button" background-color="vue-green/200" color="white" href=""
