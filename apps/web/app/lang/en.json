@@ -120,5 +120,15 @@
   "privacy": {
     "title": "Privacy Policy",
     "button": "Back to Top"
+  },
+  "namecard": {
+    "title_edit": "Create/Edit Name Card",
+    "edit": "edit",
+    "creation_status": {
+      "not_created": "not created",
+      "inquiry_in_progress": "inquiry in progress",
+      "inquiry_failed": "inquiry failed",
+      "inquiry_completed": "inquiry complete"
+    }
   }
 }
