@@ -53,9 +53,28 @@
 
   --markdown-line-height-h2: var(--line-height-heading300);
   --markdown-line-height-body: var(--line-height-body400);
+
+  --header-height: 90px;
+  --sp-header-height: 90px;
 }
 
 html {
   font-family: 'din-2014', 'Yu Gothic Medium', '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic',
     sans-serif;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+[id] {
+  scroll-margin-top: var(--header-height);
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: var(--sp-header-height);
+  }
+
+  [id] {
+    scroll-margin-top: var(--sp-header-height);
+  }
 }
