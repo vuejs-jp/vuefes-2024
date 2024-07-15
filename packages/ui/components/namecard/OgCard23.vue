@@ -81,8 +81,8 @@ const PcBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wa
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 16%;
-  height: 20%;
+  width: 24%;
+  height: 32%;
   z-index: 3;
 }
 
@@ -91,8 +91,8 @@ const PcBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wa
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 4%;
-  height: 12%;
+  width: 8%;
+  height: 24%;
   z-index: 3;
 }
 
@@ -101,8 +101,8 @@ const PcBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wa
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 12%;
-  height: 10%;
+  width: 60%;
+  height: 12%;
   z-index: 3;
 }
 
