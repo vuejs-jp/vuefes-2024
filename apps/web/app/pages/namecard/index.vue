@@ -31,7 +31,7 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
 
 <!-- TODO i18n対応 -->
 <template>
-  <div class="name-card-root">
+  <div class="namecard-root">
     <VFIntegrationDialog
       v-if="showDialog"
       title="ソーシャルアカウントからのログイン"
@@ -46,7 +46,7 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
 </template>
 
 <style scoped>
-.name-card-root {
+.namecard-root {
   --header-height: calc(var(--unit) * 10);
   padding-top: var(--header-height);
 }

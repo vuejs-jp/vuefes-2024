@@ -140,5 +140,25 @@
   "privacy": {
     "title": "プライバシーポリシー",
     "button": "トップに戻る"
+  },
+  "namecard": {
+    "title_edit": "ネームカード作成・編集",
+    "edit": "編集する",
+    "creation_status": {
+      "not_created": "未作成",
+      "inquiry_in_progress": "注文番号照会中",
+      "inquiry_failed": "注文番号照会失敗",
+      "inquiry_completed": "注文番号照合完了"
+    },
+    "form": {
+      "label_name": "お名前／Name",
+      "label_avatar": "アバター／Avatar",
+      "label_order_number": "注文番号",
+      "annotation_name": "※全角12文字（半角24文字）まで",
+      "annotation_order_number": "※注文番号は、チケット購入時にPeatixから送信されるメール内に含まれる領収データから確認できます。",
+      "placeholder_order_number": "注文番号を入力してください",
+      "submit": "確定する",
+      "registrationCompleted": "ネームカードの情報登録が完了しました！"
+    }
   }
 }
