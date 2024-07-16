@@ -1,10 +1,12 @@
+import type { Event } from './event'
+
 export type SpeakerType = 'session' | 'lightning-talk' | 'sponsor-session' | 'panel-event'
 
 export type SpeakerCategory =
   | 'sessionSpeakers'
   | 'lightningTalkSpeakers'
   | 'sponsorSessionSpeakers'
-  | 'panelEventSpeakers'
+  | 'panelEventPanelers'
 
 export type Speaker = {
   id?: string
@@ -42,4 +44,10 @@ export type SpeakerInfo = {
   type: SpeakerType
   title: string
   list: Speaker[]
+}
+
+export type PanelerInfo = {
+  type: SpeakerType
+  title: string
+  list: Record<Extract<Event, 'welcome-vuejs-community' | 'nextgen-frontend-crosstalk'>, Speaker[]>
 }

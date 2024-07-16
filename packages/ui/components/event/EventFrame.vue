@@ -18,5 +18,9 @@ const props = defineProps<EventFrameProps>()
 .event-frame-root {
   display: grid;
   gap: calc(var(--unit) * 1);
+  padding: calc(var(--unit) * 2);
+  width: var(--head-width);
+  background-color: #E7EFF7;
+  border-radius: calc(var(--unit) * 3);
 }
 </style>

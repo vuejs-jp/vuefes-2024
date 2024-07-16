@@ -41,6 +41,8 @@
     "end_minute": "00"
   },
   "event": {
+    "title": "イベント",
+    "scheduled_speakers": "登壇予定者",
     "welcome_vuejs_community": "Vue.jsコミュニティにようこそ！",
     "vuejs_handson": "Vue.js / Nuxt ハンズオン",
     "nextgen_frontend_crosstalk": "次世代フロントエンドクロストーク",

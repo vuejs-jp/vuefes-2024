@@ -23,6 +23,8 @@
     "end_ampm": "pm"
   },
   "event": {
+    "title": "Event",
+    "scheduled_speakers": "Scheduled Speakers",
     "welcome_vuejs_community": "Welcome to the Vue.js community!",
     "vuejs_handson": "Vue.js / Nuxt Hands-on",
     "nextgen_frontend_crosstalk": "Next generation front-end crosstalk",
