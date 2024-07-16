@@ -174,8 +174,14 @@ export class PeatixOrderService extends ScraperPage {
             const ticketName = attendee[Object.keys(attendee)[4]]
 
             // チケット名から参加者の種別を特定する
+            if (ticketName.includes(Constants.PEATIX_GENERAL_TICKET)) {
+              return { role: Constants.PEATIX_GENERAL_ROLE, receipt_id: receiptId }
+            }
+            if (ticketName.includes(Constants.PEATIX_WITH_PARTY_TICKET)) {
+              return { role: Constants.PEATIX_WITH_PARTY_ROLE, receipt_id: receiptId }
+            }
 
-            return { role: 'attendee', receipt_id: receiptId }
+            // return { role: 'attendee', receipt_id: receiptId }
           })
           this.logger.log(receipts)
 
