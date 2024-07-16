@@ -28,7 +28,9 @@ const { color } = useColor()
 
 .namecard-base-layout {
   --header-height: calc(var(--unit) * 10);
-  padding-top: calc(var(--header-height) + var(--unit) * 15);
+  --content-padding: calc(var(--unit) * 15);
+  padding-top: calc(var(--header-height) + var(--content-padding));
+  padding-bottom: var(--content-padding);
   max-width: 769px;
   margin: 0 auto;
 }

@@ -1,1 +1,1 @@
-①　Please purchase [a ticket for Vue Fes Japan 2024](./#ticket) in advance.
+①　事前に[Vue Fes Japan 2024のチケット](./#ticket)をご購入ください。

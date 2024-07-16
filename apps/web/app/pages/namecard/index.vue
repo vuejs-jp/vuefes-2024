@@ -85,7 +85,7 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 198px;
+  width: 238px;
   height: 66px;
   margin: 0 auto calc(var(--unit) * 5);
 }
