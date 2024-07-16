@@ -125,8 +125,8 @@
   },
   "namecard": {
     "title_edit": "Create/Edit Name Card",
-    "edit": "edit",
-    "login": "login",
+    "edit": "Edit",
+    "login": "Login",
     "namecard-samples-alt": "Name card samples",
     "creation-process": {
       "title": "Name Card Creation Process"
