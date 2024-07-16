@@ -144,6 +144,11 @@
   "namecard": {
     "title_edit": "ネームカード作成・編集",
     "edit": "編集する",
+    "login": "ログインする",
+    "namecard-samples-alt": "ネームカードのサンプル",
+    "creation-process": {
+      "title": "ネームカード作成の流れ"
+    },
     "creation_status": {
       "not_created": "未作成",
       "inquiry_in_progress": "注文番号照会中",

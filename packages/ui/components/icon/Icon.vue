@@ -52,13 +52,20 @@ const svgComponent = match<IconName>(props.name)
   .with('close', () =>
     defineAsyncComponent(() => import('../../assets/icon/close_icon.svg?component')),
   )
+  .with('alert32', () =>
+    defineAsyncComponent(() => import('../../assets/icon/alert_32_icon.svg?component')),
+  )
   .exhaustive()
 
 const { color: fillColor } = useColor()
 </script>
 
 <template>
-  <component :is="svgComponent" :fill="fillColor(props.color)" :class="{ 'icon_svg': props.canHover }" />
+  <component
+    :is="svgComponent"
+    :fill="fillColor(props.color)"
+    :class="{ 'icon_svg': props.canHover }"
+  />
 </template>
 
 <style scoped>

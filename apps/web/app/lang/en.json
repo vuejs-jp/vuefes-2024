@@ -126,6 +126,11 @@
   "namecard": {
     "title_edit": "Create/Edit Name Card",
     "edit": "edit",
+    "login": "login",
+    "namecard-samples-alt": "Name card samples",
+    "creation-process": {
+      "title": "Name Card Creation Process"
+    },
     "creation_status": {
       "not_created": "not created",
       "inquiry_in_progress": "inquiry in progress",

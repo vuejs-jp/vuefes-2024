@@ -11,3 +11,4 @@ export type IconName =
   | 'Google24'
   | 'Google32'
   | 'close'
+  | 'alert32'
