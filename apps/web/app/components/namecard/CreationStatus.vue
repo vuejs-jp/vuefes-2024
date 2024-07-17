@@ -42,11 +42,11 @@ const backgroundColor = computed(() => {
 
 <style scoped>
 .creation-status-root {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 166px;
   height: 38px;
   border-radius: 38px;
+  padding: 0 38px;
 }
 </style>
