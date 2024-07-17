@@ -23,5 +23,13 @@ export function useSponsor() {
       .exhaustive()
   }
 
-  return { color }
+  function borderColor(tag: string[]) {
+    if (tag.includes('platinum')) return '#6E8F2E'
+    if (tag.includes('gold')) return '#E5AF00'
+    if (tag.includes('silver')) return '#1A8191'
+    if (tag.includes('bronze')) return '#CC4F39'
+    return '#35495E'
+  }
+
+  return { color, borderColor }
 }
