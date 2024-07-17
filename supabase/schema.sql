@@ -48,6 +48,33 @@ create policy "Allow update for all sponsors." on public.sponsors for
 update
   using (true);
 
+create table if not exists public.jobs (
+  id uuid not null primary key default uuid_generate_v4(),
+  sponsor_id uuid not null references public.sponsors on delete cascade,
+  link_url varchar(500),
+  image_url varchar(500),
+  image_alt varchar(100),
+  display_order int,
+  is_open bool not null,
+  created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
+  updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
+);
+
+alter table
+  public.jobs enable row level security;
+
+create policy "Allow select for all jobs." on public.jobs for
+select
+  using (true);
+
+create policy "Allow insert for all jobs." on public.jobs for
+insert
+  with check (true);
+
+create policy "Allow update for all jobs." on public.jobs for
+update
+  using (true);
+
 create table if not exists public.speakers (
   id uuid not null primary key default uuid_generate_v4(),
   name_ja varchar(100) not null,

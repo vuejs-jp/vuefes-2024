@@ -110,6 +110,50 @@ export type Database = {
           },
         ]
       }
+      jobs: {
+        Row: {
+          created_at: string
+          display_order: number | null
+          id: string
+          image_alt: string | null
+          image_url: string | null
+          is_open: boolean
+          link_url: string | null
+          sponsor_id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          image_alt?: string | null
+          image_url?: string | null
+          is_open: boolean
+          link_url?: string | null
+          sponsor_id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          image_alt?: string | null
+          image_url?: string | null
+          is_open?: boolean
+          link_url?: string | null
+          sponsor_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'jobs_sponsor_id_fkey'
+            columns: ['sponsor_id']
+            isOneToOne: false
+            referencedRelation: 'sponsors'
+            referencedColumns: ['id']
+          },
+        ]
+      }
       speakers: {
         Row: {
           caption_en: string | null
