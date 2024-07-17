@@ -28,10 +28,14 @@ const { color } = useColor()
 
 .namecard-base-layout {
   --header-height: calc(var(--unit) * 10);
-  padding-top: calc(var(--header-height) + var(--unit) * 15);
-  text-align: center;
+  --content-padding: calc(var(--unit) * 15);
+  padding-top: calc(var(--header-height) + var(--content-padding));
+  padding-bottom: var(--content-padding);
+  max-width: 769px;
+  margin: 0 auto;
 }
 .title {
   margin-bottom: calc(var(--unit) * 5);
+  text-align: center;
 }
 </style>
