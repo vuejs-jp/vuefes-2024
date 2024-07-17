@@ -32,13 +32,22 @@ const toggleMenu = () => {
 <template>
   <VFSpHeader v-if="width <= 1080">
     <div class="navigation-mobile">
-      <NuxtLink v-if="config.public.enableSwitchLocale" :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
+      <NuxtLink
+        v-if="config.public.enableSwitchLocale"
+        :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
         class="locale-switch-wrapper">
         <VFLocaleSwitch :locale />
       </NuxtLink>
 
-      <a href="" class="navigation-mobile-toggle" name="Menu" :class="{ 'isOpened': showMenu }"
-        @click.prevent="toggleMenu"><span /><span /><span /></a>
+      <a
+        href=""
+        class="navigation-mobile-toggle"
+        name="Menu"
+        :class="{ 'isOpened': showMenu }"
+        @click.prevent="toggleMenu"
+      >
+        <span /><span /><span />
+      </a>
       <!-- <VFIcon name="Menu" color="vue-blue" can-hover @click="toggleMenu" /> -->
     </div>
     <!-- hamburger-menu -->
@@ -63,8 +72,11 @@ const toggleMenu = () => {
           <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
         </nuxt-link>
       </div>
-      <NuxtLink v-if="config.public.enableSwitchLocale" :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
-        class="locale-switch-wrapper">
+      <NuxtLink
+        v-if="config.public.enableSwitchLocale"
+        :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
+        class="locale-switch-wrapper"
+      >
         <VFLocaleSwitch :locale />
       </NuxtLink>
     </div>
