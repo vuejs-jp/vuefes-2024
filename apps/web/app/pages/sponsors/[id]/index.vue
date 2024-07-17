@@ -191,7 +191,24 @@ useHead({
   }
 
   .detailhead-right {
-    font-size: 18px;
+    --body-font-size: 1.125rem;
+    --body-font-weight: 500;
+
+    font-size: var(--body-font-size);
+    font-weight: var(--body-font-weight);
+    white-space: pre-wrap;
+
+    ::v-deep(p) {
+      --body-p-margin-bottom: calc(var(--unit) * 4);
+
+      margin-bottom: var(--body-p-margin-bottom);
+      line-height: 1.8;
+    }
+
+    ::v-deep(p:last-child) {
+      text-align: right;
+      margin-bottom: 0px;
+    }
   }
 
   .detailhead-right ::v-deep(a) {
