@@ -186,7 +186,11 @@ export class PeatixOrderService extends ScraperPage {
           this.logger.log(receipts)
 
           // Peatix 購入情報を Supabase へ反映する
-          // await this.supabaseService.updateAttendees(receipts)
+          for (const receipt of receipts) {
+            this.logger.log(receipt)
+            // const result = await this.supabaseService.updateAttendees(receipt)
+            // if (!result) break
+          }
         })
       }
 
