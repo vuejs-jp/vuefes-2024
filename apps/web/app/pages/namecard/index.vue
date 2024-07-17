@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import type { AuthProvider } from '@vuejs-jp/model'
 import { useAuth } from '~/composables/useAuth'
 import { useAuthSession } from '#imports'
-import { createError, useRuntimeConfig, navigateTo } from '#imports'
+import { createError, useRuntimeConfig, navigateTo, useAsyncData } from '#imports'
 import { useI18n } from '#i18n'
 import MarkDownText from '~/components/MarkDownText.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
@@ -16,12 +16,16 @@ if (!config.public.enableRegisterNamecard) {
 
 const { t } = useI18n()
 const showDialog = ref(false)
-const { signIn, authUserId } = useAuth()
+const { signIn, getUser } = useAuth()
 const { hasAuth } = useAuthSession()
+
+const { data: authUserId } = await useAsyncData('authUserId', async () => {
+  return (await getUser()).id
+})
 
 function handleClickButton(type: 'open' | 'close') {
   if (type === 'open') {
-    if (hasAuth?.value) return navigateTo(`/namecard/${authUserId}/`)
+    if (hasAuth?.value && authUserId.value) return navigateTo(`/namecard/${authUserId.value}/`)
     showDialog.value = true
   } else {
     showDialog.value = false
@@ -29,7 +33,7 @@ function handleClickButton(type: 'open' | 'close') {
 }
 
 function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
-  signIn(provider, `/namecard/${authUserId}/`)
+  signIn(provider, `/namecard/${authUserId.value}/`)
 }
 </script>
 
