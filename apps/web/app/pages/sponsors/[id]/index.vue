@@ -29,7 +29,7 @@ const { data: speakers } = await useAsyncData('speakers', async () => {
 const speakerData = speakers.value?.data as Speaker[]
 
 const currentLocale = useLocaleCurrent().locale
-const { color } = useSponsor()
+const { color, borderColor } = useSponsor()
 
 useHead({
   titleTemplate: (titleChunk) => `${sponsorData[0].name} | ${conferenceTitle}`,
@@ -60,7 +60,7 @@ useHead({
 
       <div class="detailhead-body">
         <div class="detailhead-left">
-          <p class="detailhead-img">
+          <p class="detailhead-img" :style="{ border: `1px solid ${borderColor(sponsorData[0].tag)}` }">
             <img
               :src="`${sponsorData[0].image_url}`"
               :alt="sponsorData[0].name"
@@ -226,8 +226,7 @@ useHead({
     width: var(--head-img-width);
     height: auto;
     aspect-ratio: 690 / 388;
-    box-shadow: 0px 4px 4px 0px #00000040;
-    border-radius: calc(var(--space-8) * 1);
+    border-radius: calc(var(--unit) * 1.5);
   }
 
   .detailhead-img img {
