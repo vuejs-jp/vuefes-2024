@@ -2,7 +2,7 @@
 import type { Event } from '@vuejs-jp/model'
 
 interface EventAssetProps {
-  title: Extract<Event, 'creative-wall' | 'refreshment-space' | 'tattoo-booth'>
+  title: Extract<Event, 'creative-wall' | 'free-drinks-and-snacks' | 'tattoo-booth'>
 }
 
 const props = defineProps<EventAssetProps>()

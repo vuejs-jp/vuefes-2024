@@ -3,7 +3,7 @@ export const EventMap = {
   'vuejs-handson': 'vuejs-handson',
   'nextgen-frontend-crosstalk': 'nextgen-frontend-crosstalk',
   'creative-wall': 'creative-wall',
-  'refreshment-space': 'refreshment-space',
+  'free-drinks-and-snacks': 'free-drinks-and-snacks',
   'tattoo-booth': 'tattoo-booth',
   'cocktail-bash': 'cocktail-bash',
   'sponsor-booth-fotolary': 'sponsor-booth-fotolary',

@@ -9,7 +9,7 @@ export type Path =
   | 'vuejs_handson'
   | 'nextgen_frontend_crosstalk'
   | 'creative_wall'
-  | 'refreshment_space'
+  | 'free_drinks_and_snacks'
   | 'tattoo_booth'
   | 'cocktail_bash'
   | 'sponsor_booth_fotolary'
