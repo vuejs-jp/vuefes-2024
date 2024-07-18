@@ -1,57 +1,22 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useI18n } from '#i18n'
-import { navigateTo, useRoute, useAsyncData, useAuthSession, useAuth } from '#imports'
-import CreationStatus, { type Status } from '~/components/namecard/CreationStatus.vue'
+import { navigateTo } from '#imports'
+import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
-import type { NamecardUser } from '@vuejs-jp/model'
-import { useSupabase } from '~/composables/useSupabase'
+import { useNamecard } from '~/composables/useNamecard'
 
-const route = useRoute()
 const { t } = useI18n()
-
-const { fetchAttendeeDataByUserId } = useSupabase()
-// TODO 認証確認をどこまで正確に行うか
-const { getUser } = useAuth()
-const { hasAuth } = useAuthSession()
-
-const { data: authUserId } = await useAsyncData('authUserId', async () => {
-  return (await getUser()).id
-})
-
-const { data: attendeeByUserId } = await useAsyncData('attendeeByUserId', async () => {
-  return await fetchAttendeeDataByUserId('attendees', authUserId.value ?? '')
-})
-
-const userData = computed(() => {
-  return attendeeByUserId.value?.data?.[0]
-})
-
-const statusKey = computed<Status>(() => {
-  // TODO テーブルのどの箇所を参照して全ステータスを判定する？
-  if (userData.value?.activated_at) {
-    return 'inquiry_in_progress'
-  } else {
-    return 'not_created'
-  }
-})
-const user = computed<NamecardUser>(() => {
-  return {
-    display_name: userData.value?.display_name ?? '',
-    avatar_url: userData.value?.avatar_url ?? '',
-    role: userData.value?.role ?? '',
-  }
-})
+const { authUserId, statusKey, attendee } = await useNamecard()
 
 function handleLinkButton() {
-  navigateTo(`/namecard/${route.params.id}/edit/`)
+  navigateTo(`/namecard/${authUserId.value}/edit/`)
 }
 </script>
 <template>
   <NuxtLayout name="namecard-base">
     <div class="namecard-user-root">
       <CreationStatus :status-key="statusKey" class="creation-status" />
-      <VFNamecard23 :user="user" class="namecard" />
+      <VFNamecard23 :user="attendee" class="namecard" />
       <VFLinkButton
         is="button"
         background-color="vue-green/200"
