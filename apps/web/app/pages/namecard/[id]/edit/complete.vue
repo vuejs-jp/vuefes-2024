@@ -1,28 +1,85 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useI18n } from '#i18n'
-import CreationStatus, { type Status } from '~/components/namecard/CreationStatus.vue'
-import type { NamecardUser } from '@vuejs-jp/model'
+import { useColor, useTypography } from '@vuejs-jp/composable'
+import CreationStatus from '~/components/namecard/CreationStatus.vue'
+import { useNamecard } from '~/composables/useNamecard'
 
 const { t } = useI18n()
-const statusKey = computed<Status>(() => {
-  // TODO テーブルから取得する
-  return 'inquiry_in_progress'
-})
-const user = computed<NamecardUser>(() => {
-  // TODO テーブルから取得する
-  return {
-    display_name: 'jiyuujin',
-    avatar_url: '',
-    role: 'attendee',
-  }
-})
+const { fontWeight, fontSize } = useTypography()
+const { color } = useColor()
+
+const { authUserId, statusKey, attendee } = await useNamecard()
 </script>
 <template>
   <NuxtLayout name="namecard-base">
-    <p>{{ t('namecard.form.registrationCompleted') }}</p>
-    <!-- TODO テキスト&SNSリンク追加 -->
-    <CreationStatus :status-key="statusKey" class="creation-status" />
-    <VFNamecard23 :user="user" class="namecard" />
+    <div class="namecard-complete-root">
+      <h2
+        :style="{
+          fontWeight: fontWeight('heading/700'),
+          fontSize: fontSize('heading/300'),
+          color: color('vue-green/100'),
+        }"
+        class="sub-title"
+      >
+        {{ t('namecard.form.registrationCompleted') }}
+      </h2>
+      <div class="complete-message">
+        <p
+          :style="{
+            fontWeight: fontWeight('body/400'),
+            fontSize: fontSize('body/400'),
+            color: color('vue-blue'),
+          }"
+        >
+          {{ t('namecard.complete_message') }}
+        </p>
+      </div>
+      <VFComment :title="t('namecard.lets_share')" class="share-comment" />
+      <div class="sns-buttons">
+        <!-- TODO  Web Share API 利用 & スタイル調整 -->
+        <VFIconButton
+          name="x"
+          color="black"
+          :href="`/namecard/${authUserId}/share/`"
+          can-hover
+          class="sns-button"
+        />
+        <!-- TODO facebook追加 -->
+        <!--         <VFIconButton
+          class="sns-button"
+          name="facebook"
+          :href="`/namecard/${authUserId}/share/`"
+          can-hover
+        /> -->
+      </div>
+      <CreationStatus :status-key="statusKey" size="small" class="creation-status" />
+      <!-- TODO 24に置き換え&smallサイズ指定 -->
+      <VFNamecard23 :user="attendee" class="namecard-preview" />
+    </div>
   </NuxtLayout>
 </template>
+<style scoped>
+@import url('~/assets/media.css');
+
+.namecard-complete-root {
+  text-align: center;
+}
+.sub-title {
+  margin-bottom: calc(var(--unit) * 5);
+}
+.complete-message {
+  text-align: left;
+  line-height: 1.8;
+  padding: calc(var(--unit) * 3) calc(var(--unit) * 4);
+  margin-bottom: calc(var(--unit) * 5);
+  background-color: #e7eff7;
+}
+.share-comment,
+.creation-status {
+  margin-bottom: calc(var(--unit) * 2.5);
+}
+
+.namecard-preview {
+  margin: 0 auto;
+}
+</style>
