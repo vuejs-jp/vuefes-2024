@@ -46,14 +46,14 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
       @on-close="handleClickButton('close')"
       @sign-in="handleSignIn"
       ><p>
-        ネームカードを作成するには、あらかじめチケットの購入が必要です。チケット購入後、以下のいずれかのソーシャルアカウントからログインし、必要な情報をご登録ください。
+        {{ t('namecard.dialog_message') }}
       </p></VFIntegrationDialog
     >
     <div class="namecard-root">
       <img
         class="namecard-samples"
         src="/namecard/namecard-samples.png"
-        :alt="t('namecard.namecard-samples-alt')"
+        :alt="t('namecard.namecard_samples_alt')"
       />
       <div class="lead-sentence">
         <MarkDownText path="namecard_lead" />

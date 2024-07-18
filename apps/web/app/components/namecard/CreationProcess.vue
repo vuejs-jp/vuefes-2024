@@ -18,7 +18,7 @@ const { color } = useColor()
       }"
       class="title"
     >
-      {{ t('namecard.creation-process.title') }}
+      {{ t('namecard.creation_process.title') }}
     </h2>
     <ol
       :style="{
