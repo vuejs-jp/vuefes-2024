@@ -13,6 +13,7 @@ export function useSponsor() {
         'option-separate',
         'name-card',
         'special-naming-rights',
+        'naming-rights',
         'after-party',
         'simultaneous-interpretation',
         'special-lunch',

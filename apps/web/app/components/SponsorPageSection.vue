@@ -59,6 +59,7 @@ const {
   silverSponsors,
   bronzeSponsors,
   specialNamingRightSponsors,
+  namingRightSponsors,
   specialLunchSponsors,
   afterPartySponsors,
   nameCardSponsors,
@@ -146,6 +147,7 @@ const {
       <SponsorList v-bind="silverSponsors" />
       <SponsorList v-bind="bronzeSponsors" />
       <SponsorList v-bind="specialNamingRightSponsors" />
+      <SponsorList v-bind="namingRightSponsors" />
       <div class="sponsor-list-layout-separate">
         <SponsorList v-bind="specialLunchSponsors" />
         <SponsorList v-bind="afterPartySponsors" />
