@@ -42,13 +42,13 @@ const toggleMenu = () => {
       <a
         href=""
         class="navigation-mobile-toggle"
-        name="Menu"
+        name="menu"
         :class="{ 'isOpened': showMenu }"
         @click.prevent="toggleMenu"
       >
         <span /><span /><span />
       </a>
-      <!-- <VFIcon name="Menu" color="vue-blue" can-hover @click="toggleMenu" /> -->
+      <!-- <VFIcon name="menu" color="vue-blue" can-hover @click="toggleMenu" /> -->
     </div>
     <!-- hamburger-menu -->
     <Transition name="slide-down">
