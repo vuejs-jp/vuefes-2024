@@ -6,6 +6,7 @@ export type SponsorCategory =
   | 'silverSponsors'
   | 'bronzeSponsors'
   | 'specialNamingRightSponsors'
+  | 'namingRightSponsors'
   | 'specialLunchSponsors'
   | 'afterPartySponsors'
   | 'nameCardSponsors'
@@ -17,6 +18,7 @@ export type SponsorCategory =
 export type OptionSponsorType =
   | 'name-card'
   | 'special-naming-rights'
+  | 'naming-rights'
   | 'after-party'
   | 'simultaneous-interpretation'
   | 'special-lunch'
