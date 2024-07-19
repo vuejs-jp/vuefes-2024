@@ -32,4 +32,5 @@ export const Error = Template.bind({})
 Error.args = {
   hasError: true,
   title: '印刷工程の都合上、ネームカードの編集期限後は編集できなくなります。当日会場にてネームカードをご希望の方は期限までに編集を完了させてください。',
+  content: 'ネームカード編集期限：\n2024年9月16日（月祝）24:00',
 }
