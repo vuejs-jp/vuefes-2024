@@ -159,6 +159,7 @@ export default defineNuxtConfig({
       speakerDatasource : process.env.SPEAKER_DATASOURCE, // local or supabase
       sponsorDatasource : process.env.SPONSOR_DATASOURCE, // local or supabase
       // feature
+      availableApplySpeaker: process.env.AVAILABLE_APPLY_SPEAKER,
       availableApplySponsor: process.env.AVAILABLE_APPLY_SPONSOR,
       enableInviteStaff: process.env.ENABLE_INVITE_STAFF,
       enableOperateAdmin: process.env.ENABLE_OPERATE_ADMIN,

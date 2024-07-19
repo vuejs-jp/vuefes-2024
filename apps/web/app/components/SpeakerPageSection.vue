@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useFetch } from '#imports'
+import SpeakerCfp from '~/components/speaker/SpeakerCfp.vue'
 import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
 import type { SpeakerCategory, SpeakerInfo } from '@vuejs-jp/model'
 
@@ -17,9 +18,9 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.
 
 <template>
   <div class="speaker">
-    <SpeakerCfp />
+    <article class="speaker-body-wrapper">
+      <SpeakerCfp />
 
-    <article class="speaker-body">
       <div class="speaker-text">
         <MarkDownText path="speaker" />
       </div>
@@ -108,12 +109,7 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.
   }
 }
 
-.title {
-  text-align: center;
-  line-height: 1.2;
-}
-
-.speaker-body {
+.speaker-body-wrapper {
   margin: 0 1.5%;
   max-width: calc(960px + 6%);
   isolation: isolate;
@@ -168,7 +164,7 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.
     --speaker-row-gap: 0px;
   }
 
-  .speaker-body {
+  .speaker-body-wrapper {
     --speaker-body-padding: calc(var(--unit) * 4) 4.5% calc(var(--unit) * 6);
   }
 

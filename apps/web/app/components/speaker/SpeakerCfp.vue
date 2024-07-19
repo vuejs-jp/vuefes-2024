@@ -4,8 +4,11 @@ import { useColor } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
 import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
 import { cfpEnUrl, cfpJaUrl } from '~/utils/constants'
+import { useRuntimeConfig } from '#imports'
 
 const { color } = useColor()
+
+const config = useRuntimeConfig()
 
 const { t } = useI18n()
 const { translate } = useTranslation()
@@ -26,40 +29,42 @@ const endPeriodTime = {
 </script>
 
 <template>
-  <article class="cfp-body">
+  <div class="cfp-body">
     <VFTitle id="speakers" class="title">
       {{ $t('speaker.title') }}
     </VFTitle>
 
-    <div class="cfp-text">
-      <MarkDownText path="speaker_cfp" />
-    </div>
+    <template v-if="config.public.availableApplySpeaker">
+      <div class="cfp-text">
+        <MarkDownText path="speaker_cfp" />
+      </div>
 
-    <h3 class="cfp-subtitle">
-      {{ $t('speaker.application_period') }}
-    </h3>
-    <VFDateTime :date="endPeriodDate" :time="endPeriodTime" />
+      <h3 class="cfp-subtitle">
+        {{ $t('speaker.application_period') }}
+      </h3>
+      <VFDateTime :date="endPeriodDate" :time="endPeriodTime" />
 
-    <div class="cfp-buttons">
-      <VFLinkButton
-        class="cfp-button"
-        :href="currentLocale !== 'en' ? cfpJaUrl : cfpEnUrl"
-        background-color="vue-green/200"
-        color="white"
+      <div class="cfp-buttons">
+        <VFLinkButton
+          class="cfp-button"
+          :href="currentLocale !== 'en' ? cfpJaUrl : cfpEnUrl"
+          background-color="vue-green/200"
+          color="white"
+        >
+          {{ $t('speaker.apply') }}
+        </VFLinkButton>
+      </div>
+
+      <div
+        class="cfp-more-information"
+        :style="{
+          color: color('vue-blue'),
+        }"
       >
-        {{ $t('speaker.apply') }}
-      </VFLinkButton>
-    </div>
-
-    <div
-      class="cfp-more-information"
-      :style="{
-        color: color('vue-blue'),
-      }"
-    >
-      <MarkDownText path="speaker_information" />
-    </div>
-  </article>
+        <MarkDownText path="speaker_information" />
+      </div>
+    </template>
+  </div>
 </template>
 
 <style scoped>
