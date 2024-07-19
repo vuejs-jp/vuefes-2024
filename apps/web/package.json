@@ -24,7 +24,7 @@
     "netlify:local": "bun run build && netlify dev --dir=dist"
   },
   "devDependencies": {
-    "@nuxt/content": "2.12.1",
+    "@nuxt/content": "2.13.1",
     "@nuxt/types": "^2.17.3",
     "@nuxtjs/device": "3.1.1",
     "@nuxtjs/i18n": "8.2.0",
@@ -39,7 +39,7 @@
     "@vuejs-jp/vuefes-ui": "workspace:*",
     "cypress": "13.6.4",
     "eslint-plugin-cypress": "3.3.0",
-    "nuxt": "3.11.2",
+    "nuxt": "3.12.4",
     "nuxt-gtag": "2.0.5",
     "open-props": "^1.6.21",
     "postcss-custom-media": "^10.0.3",
