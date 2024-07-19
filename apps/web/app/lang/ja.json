@@ -163,10 +163,14 @@
       "label_avatar": "アバター／Avatar",
       "label_order_number": "注文番号",
       "annotation_name": "※全角12文字（半角24文字）まで",
+      "annotation_avatar": "※アバターは正方形（比率1:1）の画像をアップロードしてください。",
       "annotation_order_number": "※注文番号は、チケット購入時にPeatixから送信されるメール内に含まれる領収データから確認できます。",
       "placeholder_order_number": "注文番号を入力してください",
       "submit": "確定する",
-      "registrationCompleted": "ネームカードの情報登録が完了しました！"
+      "registrationCompleted": "ネームカードの情報登録が完了しました！",
+      "drag_and_drop": "ファイルをドラッグ＆ドロップ",
+      "or": "または",
+      "select_file": "ファイルを選択"
     }
   }
 }

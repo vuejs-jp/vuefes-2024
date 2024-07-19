@@ -37,7 +37,7 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
 }
 </script>
 
-<!-- TODO i18n対応, モバイル対応 -->
+<!-- TODO モバイル対応 -->
 <template>
   <NuxtLayout name="namecard-base">
     <VFIntegrationDialog
