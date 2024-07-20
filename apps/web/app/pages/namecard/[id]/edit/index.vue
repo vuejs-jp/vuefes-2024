@@ -79,13 +79,15 @@ function onSubmit(e: Event) {
     navigateTo(`/namecard/${authUserId.value}/edit/complete/`)
   }
 }
+
+// TODO バリデート、エラー制御を追加する
 </script>
 <template>
   <NuxtLayout name="namecard-base">
     <div class="namecard-edit-root">
       <div class="preview-wrapper">
         <VFNamecard23 :user="namecard" class="namecard" />
-        <CreationStatus :status-key="statusKey" class="creation-status" />
+        <CreationStatus :status-key="statusKey" size="small" class="creation-status" />
       </div>
       <div class="form-wrapper">
         <form @submit.prevent="onSubmit">
@@ -97,17 +99,16 @@ function onSubmit(e: Event) {
             :label="t('namecard.form.label_name')"
             :placeholder="`${t('form.form_placeholder_example')}${t('form.form_name_placeholder')}`"
             required
-            :annotation="t('namecard.form.annotation_name')"
             :error="nameError"
             @input="updateName"
             @blur="validateName"
-          />
+            ><p class="annotation">{{ t('namecard.form.annotation_name') }}</p></VFInputField
+          >
           <ImageUploader
             class="image-uploader"
             file-accept="image/*"
             @check-files.prevent="checkFiles"
           />
-          <!-- TODO 領収書データ を外部リンク化する Nuxt Content使う -->
           <VFInputField
             id="orderNumber"
             v-model="receiptId"
@@ -116,13 +117,13 @@ function onSubmit(e: Event) {
             :label="t('namecard.form.label_order_number')"
             :placeholder="t('namecard.form.placeholder_order_number')"
             required
-            :annotation="t('namecard.form.annotation_order_number')"
             :error="orderNumberError"
             @input="updateReceiptId"
             @blur="validateOrderNumbere"
-          />
+            ><div class="annotation"><MarkDownText path="namecard_annotation_order_number" /></div
+          ></VFInputField>
           <div class="form-buttons">
-            <!-- TODO ボタン キャンセルボタン disable の制御 スタイルを追加する disable の制御も -->
+            <!-- TODO ボタン キャンセルボタン スタイルを追加する -->
             <VFSubmitButton id="submit-button" :disabled="!isSubmitting">
               {{ $t('namecard.form.submit') }}
             </VFSubmitButton>
@@ -142,6 +143,9 @@ function onSubmit(e: Event) {
   margin: 0 auto;
   gap: 0 calc(var(--unit) * 8);
 }
+.namecard {
+  margin-bottom: calc(var(--unit) * 2);
+}
 .form-wrapper {
   text-align: left;
 }
@@ -159,7 +163,8 @@ function onSubmit(e: Event) {
   font-weight: 700;
   color: var(--color-vue-green200);
 }
-:deep(.annotation) {
+.annotation,
+.annotation:deep(p) {
   font-weight: 500;
   color: var(--color-vue-blue);
 }

@@ -149,7 +149,6 @@
       "label_order_number": "Order Number",
       "annotation_name": "Up to 12 full-width characters (24 half-width characters)",
       "annotation_avatar": "*  Upload a square image (aspect ratio 1:1) for your avatar.",
-      "annotation_order_number": "* The order number can be found in the receipt data included in the email sent by Peatix when you purchase a ticket.",
       "placeholder_order_number": "Please enter the order number",
       "submit": "Submit",
       "registrationCompleted": "The name card information has been successfully registered!",

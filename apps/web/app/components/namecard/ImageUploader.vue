@@ -116,7 +116,7 @@ onMounted(() => {
         @change="onFileInputChange"
       />
     </button>
-    <span
+    <p
       class="annotation"
       :style="{
         fontSize: fontSize('body/300'),
@@ -125,7 +125,7 @@ onMounted(() => {
       }"
     >
       {{ t('namecard.form.annotation_avatar') }}
-    </span>
+    </p>
     <!--   TODO エラー制御
     <Typography v-if="errorMessage" variant="body/200" color="sangosyo/200">{{
       errorMessage
