@@ -156,7 +156,7 @@
       "not_created": "未作成",
       "inquiry_in_progress": "注文番号照会中",
       "inquiry_failed": "注文番号照会失敗",
-      "inquiry_completed": "注文番号照合完了"
+      "inquiry_completed": "注文番号照会完了"
     },
     "form": {
       "label_name": "お名前／Name",

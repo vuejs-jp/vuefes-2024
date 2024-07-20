@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
-import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 import { useI18n } from '#i18n'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
-// import ImageUploader from '~/components/namecard/ImageUploader.vue'
 import { navigateTo } from '#imports'
 import { useNamecard } from '~/composables/useNamecard'
 import ImageUploader from '~/components/namecard/ImageUploader.vue'
@@ -12,12 +10,12 @@ import ImageUploader from '~/components/namecard/ImageUploader.vue'
 const { t } = useI18n()
 const { authUserId, statusKey, attendee } = await useNamecard()
 const { upsertAttendee, uploadAvatar } = useSupabase()
-const { getFullAvatarUrl } = useSupabaseStorage()
 
-// TODO useFormとは別でコンポーザブルを作成する
 const name = ref('')
 const receiptId = ref('')
-const isSubmitting = ref(true)
+const isSubmitting = computed(() => {
+  return name.value && receiptId.value && filePathRef.value && fileRef.value
+})
 
 const updateName = (e: any) => {
   name.value = e.target.value
@@ -25,6 +23,8 @@ const updateName = (e: any) => {
 const updateReceiptId = (e: any) => {
   receiptId.value = e.target.value
 }
+
+const namecard = ref({ ...attendee.value })
 
 const newAttendee = ref({
   ...attendee.value,
@@ -36,41 +36,45 @@ receiptId.value = newAttendee.value?.receipt_id ?? ''
 watchEffect(() => {
   newAttendee.value.display_name = name.value
   newAttendee.value.receipt_id = receiptId.value
+  namecard.value.display_name = name.value
+  namecard.value.receipt_id = receiptId.value
 })
 
-const avatarPreview = ref<string>()
+const filePathRef = ref<string | null>(null)
+const fileRef = ref<File | null>(null)
+
 const checkFiles = (e: Event, files: File[]) => {
   e.preventDefault()
-  if (files.length === 0) return
+  if (files.length === 0) {
+    filePathRef.value = null
+    fileRef.value = null
+    namecard.value.avatar_url = ''
+  } else {
+    const file = files[0]
 
-  const file = files[0]
+    let reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = (e) => {
+      namecard.value.avatar_url = e.target?.result as string
+    }
+    const fileExt = file.name.split('.').pop()
+    const filePath = `/${Math.random()}.${fileExt}`
 
-  let reader = new FileReader()
-  reader.readAsDataURL(file)
-  reader.onload = (e) => {
-    avatarPreview.value = e.target?.result as string
+    fileRef.value = file
+    filePathRef.value = filePath
   }
-  // const filename = file.name
-  const fileExt = file.name.split('.').pop()
-  const filePath = `/${Math.random()}.${fileExt}`
-
-  uploadAvatar(filePath, file)
-
-  newAttendee.value.avatar_url = getFullAvatarUrl(filePath)
-  // TODO avatarPreviewを利用してプレビューを表示するか、既存の実装を利用するか検討
-  // newAttendee.value.avatar_url = avatarPreview.value ?? ''
 }
+
 function onSubmit(e: Event) {
-  console.log('🤩🤩onSubmit')
-  // TODO フォーム送信処理追加
   // TODO updated_atに現在時刻を追加する必要ある？supabaseの機能でなんかない？
   e.preventDefault()
 
   const submitEvent = e as SubmitEvent
   const submitter = submitEvent.submitter as HTMLElement
 
-  if (submitter && submitter.id === 'submit-button') {
+  if (submitter && submitter.id === 'submit-button' && filePathRef.value && fileRef.value) {
     upsertAttendee('attendees', newAttendee.value)
+    uploadAvatar(filePathRef.value, fileRef.value)
 
     navigateTo(`/namecard/${authUserId.value}/edit/complete/`)
   }
@@ -80,7 +84,7 @@ function onSubmit(e: Event) {
   <NuxtLayout name="namecard-base">
     <div class="namecard-edit-root">
       <div class="preview-wrapper">
-        <VFNamecard23 :user="newAttendee" class="namecard" />
+        <VFNamecard23 :user="namecard" class="namecard" />
         <CreationStatus :status-key="statusKey" class="creation-status" />
       </div>
       <div class="form-wrapper">

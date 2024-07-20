@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useI18n } from '#i18n'
 import { onMounted, ref } from 'vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
@@ -15,6 +14,8 @@ const emit = defineEmits<{
   'check-files': [e: Event, value: File[]]
 }>()
 
+const fileName = ref<string | null>()
+
 const { t } = useI18n()
 const onDropFile = (e: DragEvent) => {
   e.preventDefault()
@@ -24,14 +25,11 @@ const onDropFile = (e: DragEvent) => {
   }
 }
 
-const fileName = ref<string | null>(null)
-
-function handleCloseButton() {
+function handleCloseButton(e: Event) {
   fileName.value = null
+  emit('check-files', e, [])
 }
 
-// TODO input要素をクリックしているわけではないので、実質この処理が死んでいる。
-// TODO inputクリック時の動作を実装する必要がある。
 const onFileInputChange = (event: Event) => {
   event.preventDefault()
   const { target } = event
@@ -45,30 +43,6 @@ const onFileInputChange = (event: Event) => {
 
 const { color: updateColor } = useColor()
 const { fontWeight, fontSize } = useTypography()
-
-const hover = ref(false)
-const hoverIn = () => {
-  hover.value = true
-}
-const hoverOut = () => {
-  hover.value = false
-}
-
-const buttonStyle = computed(() => {
-  if (hover.value) {
-    return {
-      fontWeight: fontWeight('heading/200'),
-      color: updateColor('white'),
-      backgroundColor: updateColor('vue-blue'),
-      boxShadow: '0 2px 10px rgba(53, 73, 94, 14%)',
-    }
-  }
-  return {
-    fontWeight: fontWeight('heading/200'),
-    color: updateColor('vue-blue'),
-    backgroundColor: updateColor('white'),
-  }
-})
 
 onMounted(() => {
   window.ondrop = (e) => {
@@ -110,10 +84,6 @@ onMounted(() => {
       @dragleave="() => (isDragEnter = false)"
       @dragover.prevent
       @drop.prevent="onDropFile"
-      @mouseover="hoverIn"
-      @mouseleave="hoverOut"
-      @focus="hoverIn"
-      @blur="hoverOut"
     >
       <div class="message-area">
         <p
@@ -136,10 +106,10 @@ onMounted(() => {
         >
           {{ t('namecard.form.or') }}
         </p>
-        <p class="select-button" :style="buttonStyle">{{ t('namecard.form.select_file') }}</p>
       </div>
       <input
         id="fileUpload"
+        class="select-button"
         type="file"
         name="avatar"
         :accept="fileAccept"
@@ -176,7 +146,6 @@ onMounted(() => {
   border-radius: 6px;
   background-color: #fff;
   color: var(--color-vue-blue);
-  cursor: pointer;
 }
 .drag-drop-area:hover {
   transition: 0.2s;
@@ -201,6 +170,7 @@ onMounted(() => {
 .icon-close {
   display: inline-block;
   text-align: right;
+  height: 22px;
 }
 .message-area {
   display: inline-flex;
@@ -209,48 +179,38 @@ onMounted(() => {
   align-items: center;
   height: var(--height-input-area);
   width: 100%;
-  padding: calc(var(--unit) * 3);
+  padding: calc(var(--unit) * 3) calc(var(--unit) * 3) 0;
   text-align: center;
-  cursor: pointer;
 }
 .label {
   margin-bottom: calc(var(--unit) * 1.5);
 }
-.select-button {
+#fileUpload {
+  font-size: 0;
+}
+::file-selector-button {
   --height-button: 50px;
 
   display: inline-flex;
   justify-content: center;
   align-items: center;
 
+  font-size: var(--font-size-body400);
+  font-weight: 700;
+  color: var(--color-vue-blue);
+  background-color: var(--color-white);
+
   height: var(--height-button);
   padding: 0 43px;
-  margin: 0 auto;
+  margin: 0 auto calc(var(--unit) * 3);
   border: 2px solid var(--color-vue-blue);
   border-radius: var(--height-button);
-}
-#fileUpload {
-  display: none;
-}
-/* .uploadarea {
-  position: relative;
-  display: grid;
-  margin: 40px auto;
-  place-items: center;
-  width: 100%;
-  height: 214px;
   cursor: pointer;
 }
-.uploadarea input {
-  display: none;
+::file-selector-button:hover {
+  transition: 0.2s;
+  color: var(--color-white);
+  background-color: var(--color-vue-blue);
+  box-shadow: 0 2px 10px rgba(53, 73, 94, 14%);
 }
-.uploadarea p {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(0, -50%);
-  margin: 0;
-  width: 100%;
-  text-align: center;
-} */
 </style>
