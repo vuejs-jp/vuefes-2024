@@ -6,6 +6,9 @@
   "not_found": "お探しのページが見つかりません。",
   "prefix_year": "2024",
   "suffix_year": "",
+  "invite_vue_fes": "あなたもVue Fes Japan 2024に参加しませんか？",
+  "share_namecard": "このネームカードをSNSでシェアしよう！",
+  "official_site": "Vue Fes Japan 2024公式サイト",
   "day_of_week": {
     "sunday": "日",
     "monday": "月",

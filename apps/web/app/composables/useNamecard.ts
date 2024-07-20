@@ -4,7 +4,7 @@ import type { Status } from '~/components/namecard/CreationStatus.vue'
 import type { Attendee } from '@vuejs-jp/model'
 
 
-export async function useNamecard() {
+export async function useNamecard(userId?:string) {
   const { fetchAttendeeDataByUserId } = useSupabase()
   const { getUser } = useAuth()
 
@@ -13,7 +13,7 @@ export async function useNamecard() {
   })
 
   const { data: attendeeByUserId } = await useAsyncData('attendeeByUserId', async () => {
-    return await fetchAttendeeDataByUserId('attendees', authUserId.value ?? '')
+    return await fetchAttendeeDataByUserId('attendees', authUserId.value ?? userId ?? '')
   })
 
   const userData = computed(() => {
