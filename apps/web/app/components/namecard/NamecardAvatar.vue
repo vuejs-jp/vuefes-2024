@@ -15,7 +15,7 @@ const COLOR_AVATAR_NAME = {
 
 <template>
   <div class="avatar">
-    <span class="hook" aria-hidden="true" />
+    <span class="avatar-hook" aria-hidden="true" />
     <div class="vuefes-logo-wrapper">
       <img src="/namecard/vuefes_logo.svg" alt="vuefes logo" />
     </div>
@@ -52,7 +52,7 @@ const COLOR_AVATAR_NAME = {
   box-shadow: var(--shadow-1);
 }
 
-.hook {
+.avatar-hook {
   margin-top: 1.25rem;
   width: 25px;
   aspect-ratio: 1;
