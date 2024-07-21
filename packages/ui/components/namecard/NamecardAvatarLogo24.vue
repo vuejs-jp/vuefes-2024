@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import type { NamecardUser } from '@vuejs-jp/model'
+import { onMounted, ref } from 'vue'
 
 type NamecardAvatarLogoProps = {
   user: NamecardUser
 }
 
 defineProps<NamecardAvatarLogoProps>()
+const vuefesLogoImagePath = ref('')
+onMounted(() => {
+  vuefesLogoImagePath.value = new URL('../../assets/namecard/vuefes_logo.svg', import.meta.url).href
+})
 </script>
 
 <template>
@@ -13,11 +18,7 @@ defineProps<NamecardAvatarLogoProps>()
     <img :alt="user.display_name" :src="user.avatar_url" class="avatar-logo" decoding="async" />
   </template>
   <template v-else>
-    <img
-      alt="vuefes logo avatar sample"
-      src="../../assets/namecard/vuefes_logo.svg"
-      class="sample-logo"
-    />
+    <img alt="vuefes logo avatar sample" :src="vuefesLogoImagePath" class="sample-logo" />
   </template>
 </template>
 
