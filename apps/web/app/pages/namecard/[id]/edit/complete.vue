@@ -44,13 +44,13 @@ const { authUserId, statusKey, attendee } = await useNamecard()
           can-hover
           class="sns-button"
         />
-        <!-- TODO facebook追加 -->
-        <!--         <VFIconButton
-          class="sns-button"
-          name="facebook"
+        <VFIconButton
+          name="Facebook"
+          color="black"
           :href="`/namecard/${authUserId}/share/`"
           can-hover
-        /> -->
+          class="sns-button"
+        />
       </div>
       <CreationStatus :status-key="statusKey" size="small" class="creation-status" />
       <!-- TODO 24に置き換え&smallサイズ指定 -->

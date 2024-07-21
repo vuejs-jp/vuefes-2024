@@ -50,11 +50,16 @@ useHead({
       >{{ t('official_site') }}</VFLinkButton
     >
     <VFComment class="share-namecard" :title="t('share_namecard')" />
-    <!-- TODO snsアイコン&リンク設置 -->
     <ul class="sns-list">
-      <li>x</li>
-      <li>facebook</li>
-      <li>copy</li>
+      <li>
+        <VFIcon color="vue-blue" name="x40" />
+      </li>
+      <li>
+        <VFIcon color="vue-blue" name="Facebook" />
+      </li>
+      <li>
+        <VFIcon color="vue-blue" name="external" :can-hover="false" />
+      </li>
     </ul>
   </div>
 </template>
@@ -72,7 +77,8 @@ useHead({
   max-width: 960px;
   margin: 0 auto calc(var(--unit) * 7.5);
 }
-.invite-comment {
+.invite-comment,
+.share-session {
   margin: 0 auto calc(var(--unit) * 2.5);
 }
 .link-button {
@@ -85,5 +91,16 @@ useHead({
   height: var(--height-button);
   border-radius: var(--height-button);
   margin: 0 auto calc(var(--unit) * 7.5);
+}
+.sns-list {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--unit) * 2.5);
+  padding: 0;
+  margin: 0;
+}
+.sns-list li {
+  padding: 0;
+  margin: 0;
 }
 </style>

@@ -59,6 +59,7 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
     <h3>Google</h3>
     <div style="display: flex; gap: 8px;">
       <Icon v-bind="args" name="Google24" />
+      <Icon v-bind="args" name="Google32" />
     </div>
     <h3>Menu</h3>
     <div style="display: flex; gap: 8px;">
