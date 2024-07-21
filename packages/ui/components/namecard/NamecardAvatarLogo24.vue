@@ -14,7 +14,7 @@ defineProps<NamecardAvatarLogoProps>()
   </template>
   <template v-else>
     <img
-      alt="avatar sample(vuefes logo)"
+      alt="vuefes logo avatar sample"
       src="../../assets/namecard/vuefes_logo.svg"
       class="sample-logo"
     />
