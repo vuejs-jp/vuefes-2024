@@ -60,10 +60,22 @@ useHead({
     <VFComment class="share-session" :title="$t('share_namecard')" />
     <ul class="sns-list">
       <li>
-        <VFIcon color="vue-blue" name="x40" />
+        <VFIconButton
+          color="vue-blue"
+          name="x40"
+          :href="`https://x.com/share?url=${encodeURIComponent(
+            `https://vuefes.jp/2024/namecard/${id}/share`,
+          )}`"
+        />
       </li>
       <li>
-        <VFIcon color="vue-blue" name="Facebook" />
+        <VFIconButton
+          color="vue-blue"
+          name="Facebook"
+          :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+            `https://vuefes.jp/2024/namecard/${id}/share`,
+          )}`"
+        />
       </li>
       <li>
         <VFIcon color="vue-blue" name="external" :can-hover="false" />
