@@ -52,7 +52,7 @@ useHead({
     <VFOgCard23
       class="session"
       :user="{
-        name: speakerData[0].name_ja,
+        display_name: speakerData[0].name_ja,
         avatar_url: speakerData[0].image_url,
         role: 'speaker',
       }"

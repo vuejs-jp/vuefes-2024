@@ -52,7 +52,7 @@ useHead({
     <VFOgCard23
       class="session"
       :user="{
-        name: sponsorData[0].name,
+        display_name: sponsorData[0].name,
         avatar_url: sponsorData[0].share_image_url,
         role: 'sponsor',
       }"
