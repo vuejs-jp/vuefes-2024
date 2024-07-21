@@ -26,3 +26,4 @@ export type Path =
   | 'namecard_process_3'
   | 'namecard_process_4'
   | 'namecard_process_alert'
+  | 'namecard_annotation_order_number'

@@ -1,82 +1,130 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
+import { useSupabase } from '~/composables/useSupabase'
 import { useI18n } from '#i18n'
-import CreationStatus, { type Status } from '~/components/namecard/CreationStatus.vue'
+import CreationStatus from '~/components/namecard/CreationStatus.vue'
+import { navigateTo } from '#imports'
+import { useNamecard } from '~/composables/useNamecard'
 import ImageUploader from '~/components/namecard/ImageUploader.vue'
-import type { NamecardUser } from '@vuejs-jp/model'
-import { navigateTo, useRoute } from '#imports'
 
 const { t } = useI18n()
-const route = useRoute()
+const { authUserId, statusKey, attendee } = await useNamecard()
+const { upsertAttendee, uploadAvatar } = useSupabase()
 
-// TODO useFormとは別でコンポーザブルを作成する
 const name = ref('')
-const orderNumber = ref('')
-const isSubmitting = ref(true)
-function onSubmit(e: any) {
-  // TODO フォーム送信処理追加
-  e.preventDefault()
-  navigateTo(`/namecard/${route.params.id}/edit/complete/`)
-}
+const receiptId = ref('')
+const isSubmitting = computed(() => {
+  return name.value && receiptId.value && filePathRef.value && fileRef.value
+})
 
 const updateName = (e: any) => {
   name.value = e.target.value
 }
-const updateOrderNumber = (e: any) => {
-  orderNumber.value = e.target.value
+const updateReceiptId = (e: any) => {
+  receiptId.value = e.target.value
 }
 
-const statusKey = computed<Status>(() => {
-  // TODO テーブルから取得する
-  return 'not_created'
+const namecard = ref({ ...attendee.value })
+
+const newAttendee = ref({
+  ...attendee.value,
 })
-const user = computed<NamecardUser>(() => {
-  // TODO form から取得する
-  return {
-    display_name: 'jiyuujin',
-    avatar_url: '',
-    role: 'attendee',
+
+name.value = newAttendee.value?.display_name ?? ''
+receiptId.value = newAttendee.value?.receipt_id ?? ''
+
+watchEffect(() => {
+  newAttendee.value.display_name = name.value
+  newAttendee.value.receipt_id = receiptId.value
+  namecard.value.display_name = name.value
+  namecard.value.receipt_id = receiptId.value
+})
+
+const filePathRef = ref<string | null>(null)
+const fileRef = ref<File | null>(null)
+
+const checkFiles = (e: Event, files: File[]) => {
+  e.preventDefault()
+  if (files.length === 0) {
+    filePathRef.value = null
+    fileRef.value = null
+    namecard.value.avatar_url = ''
+  } else {
+    const file = files[0]
+
+    let reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = (e) => {
+      namecard.value.avatar_url = e.target?.result as string
+    }
+    const fileExt = file.name.split('.').pop()
+    const filePath = `/${Math.random()}.${fileExt}`
+
+    fileRef.value = file
+    filePathRef.value = filePath
   }
-})
+}
+
+function onSubmit(e: Event) {
+  // TODO updated_atに現在時刻を追加する必要ある？supabaseの機能でなんかない？
+  e.preventDefault()
+
+  const submitEvent = e as SubmitEvent
+  const submitter = submitEvent.submitter as HTMLElement
+
+  if (submitter && submitter.id === 'submit-button' && filePathRef.value && fileRef.value) {
+    upsertAttendee('attendees', newAttendee.value)
+    uploadAvatar(filePathRef.value, fileRef.value)
+
+    navigateTo(`/namecard/${authUserId.value}/edit/complete/`)
+  }
+}
+
+// TODO バリデート、エラー制御を追加する
 </script>
 <template>
   <NuxtLayout name="namecard-base">
     <div class="namecard-edit-root">
       <div class="preview-wrapper">
-        <VFNamecard23 :user="user" class="namecard" />
-        <CreationStatus :status-key="statusKey" class="creation-status" />
+        <VFNamecard23 :user="namecard" class="namecard" />
+        <CreationStatus :status-key="statusKey" size="small" class="creation-status" />
       </div>
       <div class="form-wrapper">
-        <form @submit="onSubmit">
+        <form @submit.prevent="onSubmit">
           <VFInputField
             id="name"
             v-model="name"
+            class="name"
             name="name"
             :label="t('namecard.form.label_name')"
             :placeholder="`${t('form.form_placeholder_example')}${t('form.form_name_placeholder')}`"
             required
-            :annotation="t('namecard.form.annotation_name')"
             :error="nameError"
             @input="updateName"
             @blur="validateName"
+            ><p class="annotation">{{ t('namecard.form.annotation_name') }}</p></VFInputField
+          >
+          <ImageUploader
+            class="image-uploader"
+            file-accept="image/*"
+            @check-files.prevent="checkFiles"
           />
-          <ImageUploader :label="t('namecard.form.label_avatar')" />
-          <!-- TODO 領収書データ を外部リンク化する -->
           <VFInputField
             id="orderNumber"
-            v-model="orderNumber"
+            v-model="receiptId"
+            class="order-number"
             name="orderNumber"
             :label="t('namecard.form.label_order_number')"
             :placeholder="t('namecard.form.placeholder_order_number')"
             required
-            :annotation="t('namecard.form.annotation_order_number')"
             :error="orderNumberError"
-            @input="updateOrderNumber"
+            @input="updateReceiptId"
             @blur="validateOrderNumbere"
-          />
+            ><div class="annotation"><MarkDownText path="namecard_annotation_order_number" /></div
+          ></VFInputField>
           <div class="form-buttons">
-            <!-- TODO ボタンのスタイルを追加する -->
-            <VFSubmitButton :disabled="!isSubmitting">
+            <!-- TODO ボタン キャンセルボタン スタイルを追加する -->
+            <VFSubmitButton id="submit-button" :disabled="!isSubmitting">
               {{ $t('namecard.form.submit') }}
             </VFSubmitButton>
           </div>
@@ -95,8 +143,31 @@ const user = computed<NamecardUser>(() => {
   margin: 0 auto;
   gap: 0 calc(var(--unit) * 8);
 }
+.namecard {
+  margin-bottom: calc(var(--unit) * 2);
+}
 .form-wrapper {
   text-align: left;
 }
+
+.name,
+.image-uploader {
+  margin-bottom: calc(var(--unit) * 5);
+}
+.order-number {
+  margin-bottom: calc(var(--unit) * 10);
+}
+
+:deep(.input-root) {
+  font-size: var(--font-size-body300);
+  font-weight: 700;
+  color: var(--color-vue-green200);
+}
+.annotation,
+.annotation:deep(p) {
+  font-weight: 500;
+  color: var(--color-vue-blue);
+}
+
 /* TODO モバイル版スタイル */
 </style>
