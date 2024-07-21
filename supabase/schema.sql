@@ -33,6 +33,8 @@ ALTER TABLE public.sponsors ADD COLUMN display_order int;
 
 ALTER TABLE public.sponsors ADD COLUMN detail_page_id varchar(40);
 
+ALTER TABLE public.sponsors ADD COLUMN share_image_url varchar(500);
+
 alter table
   public.sponsors enable row level security;
 

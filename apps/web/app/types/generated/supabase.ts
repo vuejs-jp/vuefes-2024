@@ -262,6 +262,7 @@ export type Database = {
           is_open: boolean
           link_url: string | null
           name: string
+          share_image_url: string | null
           speaker_id: string | null
           tag: string[] | null
           updated_at: string
@@ -277,6 +278,7 @@ export type Database = {
           is_open: boolean
           link_url?: string | null
           name: string
+          share_image_url?: string | null
           speaker_id?: string | null
           tag?: string[] | null
           updated_at?: string
@@ -292,6 +294,7 @@ export type Database = {
           is_open?: boolean
           link_url?: string | null
           name?: string
+          share_image_url?: string | null
           speaker_id?: string | null
           tag?: string[] | null
           updated_at?: string

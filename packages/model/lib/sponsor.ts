@@ -33,6 +33,7 @@ export type Sponsor = {
   description_en: string
   speaker_id?: string
   image_url: string
+  share_image_url: string
   tag: Array<SponsorType | OptionSponsorType>
   link_url: string
   is_open: boolean

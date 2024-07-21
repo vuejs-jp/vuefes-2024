@@ -35,6 +35,7 @@ export function useLocale(path: Path) {
       .with('namecard_process_3', () => `/${locale.value}/namecard_process_3`)
       .with('namecard_process_4', () => `/${locale.value}/namecard_process_4`)
       .with('namecard_process_alert', () => `/${locale.value}/namecard_process_alert`)
+      .with('namecard_annotation_order_number', () => `/${locale.value}/namecard_annotation_order_number`)
       .exhaustive(),
   )
 

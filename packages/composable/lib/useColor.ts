@@ -5,6 +5,7 @@ export function useColor() {
   const color = (text: Color) =>
     match<Color>(text)
       .with('white', () => '#ffffff')
+      .with('black', () => '#000000')
       .with('vue-blue', () => '#35495e')
       .with('vue-green', () => '#42b883')
       .with('vue-green/100', () => '#42B883')

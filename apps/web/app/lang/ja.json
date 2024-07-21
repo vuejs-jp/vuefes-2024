@@ -6,6 +6,9 @@
   "not_found": "お探しのページが見つかりません。",
   "prefix_year": "2024",
   "suffix_year": "",
+  "invite_vue_fes": "あなたもVue Fes Japan 2024に参加しませんか？",
+  "share_namecard": "このネームカードをSNSでシェアしよう！",
+  "official_site": "Vue Fes Japan 2024公式サイト",
   "day_of_week": {
     "sunday": "日",
     "monday": "月",
@@ -146,25 +149,31 @@
     "title_edit": "ネームカード作成・編集",
     "edit": "編集する",
     "login": "ログインする",
-    "namecard-samples-alt": "ネームカードのサンプル",
-    "creation-process": {
+    "dialog_message": "ネームカードを作成するには、あらかじめチケットの購入が必要です。チケット購入後、以下のいずれかのソーシャルアカウントからログインし、必要な情報をご登録ください。",
+    "namecard_samples_alt": "ネームカードのサンプル",
+    "complete_message": "これから注文番号の照合を行います。注文番号照合の状況はネームカードページのステータスで確認できます。編集期限前に照合が正常に完了したことを確認してください。",
+    "lets_share": "作成したネームカードをSNSでシェアしよう！",
+    "creation_process": {
       "title": "ネームカード作成の流れ"
     },
     "creation_status": {
       "not_created": "未作成",
       "inquiry_in_progress": "注文番号照会中",
       "inquiry_failed": "注文番号照会失敗",
-      "inquiry_completed": "注文番号照合完了"
+      "inquiry_completed": "注文番号照会完了"
     },
     "form": {
       "label_name": "お名前／Name",
       "label_avatar": "アバター／Avatar",
       "label_order_number": "注文番号",
       "annotation_name": "※全角12文字（半角24文字）まで",
-      "annotation_order_number": "※注文番号は、チケット購入時にPeatixから送信されるメール内に含まれる領収データから確認できます。",
+      "annotation_avatar": "※アバターは正方形（比率1:1）の画像をアップロードしてください。",
       "placeholder_order_number": "注文番号を入力してください",
       "submit": "確定する",
-      "registrationCompleted": "ネームカードの情報登録が完了しました！"
+      "registrationCompleted": "ネームカードの情報登録が完了しました！",
+      "drag_and_drop": "ファイルをドラッグ＆ドロップ",
+      "or": "または",
+      "select_file": "ファイルを選択"
     }
   }
 }

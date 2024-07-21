@@ -42,7 +42,6 @@ export const Error: Story = {
     label: 'お名前',
     placeholder: '山田太郎',
     errorMessage: 'エラーメッセージが表示されます',
-    annotation:'※全角12文字（半角24文字）まで'
   },
 }
 

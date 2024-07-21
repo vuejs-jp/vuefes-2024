@@ -15,7 +15,6 @@ interface Props extends /* @vue-ignore */ _InputFieldProps {
   label: string
   /* Error Message */
   errorMessage?: string
-  annotation?: string
 }
 type Emits = {
   blur: [value: string]
@@ -30,7 +29,6 @@ withDefaults(defineProps<Props>(), {
   disabled: false,
   label: '',
   errorMessage: '',
-  annotation: '',
 })
 
 const emit = defineEmits<Emits>()
@@ -71,7 +69,7 @@ const { fontWeight, fontSize } = useTypography()
       :disabled="disabled"
       @blur="handleBlur"
     />
-    <span v-if="annotation" class="annotation">{{ annotation }}</span>
+    <slot />
     <Typography v-if="errorMessage" variant="body/200" color="sangosyo/200">{{
       errorMessage
     }}</Typography>

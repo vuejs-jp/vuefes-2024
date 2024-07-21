@@ -23,6 +23,10 @@ export function useSupabase() {
     return await client.from(table).select().eq('role', role)
   }
 
+  async function fetchAttendeeDataByUserId(table: Extract<Table, 'attendees'>, userId:string) {
+    return await client.from(table).select().eq('user_id', userId)
+  }
+
   async function upsertSpeaker(table: Extract<Table, 'speakers'>, target: FormSpeaker) {
     const targetData = { ...target }
 
@@ -65,6 +69,7 @@ export function useSupabase() {
   return {
     fetchData,
     fetchAttendeeData,
+    fetchAttendeeDataByUserId,
     upsertSpeaker,
     upsertSponsor,
     upsertJob,
