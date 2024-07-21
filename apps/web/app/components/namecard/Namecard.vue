@@ -16,10 +16,13 @@ const { backgroundColor } = useUserRole()
 <template>
   <div class="namecard-root">
     <NamecardAvatar :user="user" :is-placeholder="isPlaceholder" />
-    <div class="role" :style="{ '--background-color-role': backgroundColor(user.role ?? 'staff') }">
+    <div
+      class="namecard-role"
+      :style="{ '--background-color-role': backgroundColor(user.role ?? 'staff') }"
+    >
       {{ user.role }}
     </div>
-    <div class="sponsor">
+    <div class="namecard-sponsor">
       <img src="/namecard/support.svg" alt="Supported by Stockmark" />
     </div>
   </div>
@@ -40,7 +43,7 @@ const { backgroundColor } = useUserRole()
   }
 }
 
-.role {
+.namecard-role {
   --background-color-role: color-mix(in srgb, var(--color-vue-blue), #000 20%);
   font-size: 1.3125rem;
   height: 2.0625rem;
@@ -52,7 +55,7 @@ const { backgroundColor } = useUserRole()
   background-color: var(--background-color-role);
 }
 
-.sponsor {
+.namecard-sponsor {
   display: grid;
   place-items: center;
   height: 3.75rem;

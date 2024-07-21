@@ -23,7 +23,7 @@ const COLOR_AVATAR_NAME = {
       <img :alt="user.display_name" :src="user.avatar_url" class="avatar-logo" decoding="async" />
     </div>
     <div class="avatar-name-area">
-      <h2
+      <div
         class="avatar-name"
         :style="{
           '--color-avatar-name': isPlaceholder
@@ -32,9 +32,9 @@ const COLOR_AVATAR_NAME = {
         }"
       >
         {{ user.display_name }}
-      </h2>
+      </div>
     </div>
-    <div class="avatar-footer">Vue Fes Japan 2024</div>
+    <small class="avatar-footer">Vue Fes Japan 2024</small>
   </div>
 </template>
 
