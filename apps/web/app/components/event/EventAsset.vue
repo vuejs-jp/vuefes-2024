@@ -3,27 +3,22 @@ import type { Event } from '@vuejs-jp/model'
 
 interface EventAssetProps {
   title: Extract<Event, 'creative-wall' | 'free-drinks-and-snacks' | 'tattoo-booth'>
+  marginTop?: number
 }
 
 const props = defineProps<EventAssetProps>()
 </script>
 
 <template>
-  <div class="eventcard-image">
-    <img :src="`/event/${title}.png`" alt="" />
-  </div>
+  <img :src="`/event/${title}-old.png`" alt="" class="eventcard-image" :style="{ marginTop: `${marginTop}px` }" />
 </template>
 
 <style scoped>
 .eventcard-image {
-  --head-img-width: 292px;
-}
+  --head-img-height: 192px;
 
-.eventcard-image ::v-deep(img) {
-  width: var(--head-img-width);
-
-  @media (--mobile) {
-    --head-img-width: 100%;
-  }
+  width: 100%;
+  height: var(--head-img-height);
+  object-fit: cover;
 }
 </style>
