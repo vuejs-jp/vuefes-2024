@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { NamecardUser } from '@vuejs-jp/model'
-import NamecardAvatar from './NamecardAvatar.vue'
+import NamecardAvatar from './NamecardAvatar23.vue'
 import { defineAsyncComponent } from 'vue'
 
 type OgCardProps = {
@@ -12,11 +12,21 @@ const props = withDefaults(defineProps<OgCardProps>(), {
   opacity: 1,
 })
 
-const PcBlock = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/block.svg?component'))
-const NamecardTitle1 = defineAsyncComponent(() => import('../../assets/namecard/2023/title1.svg?component'))
-const NamecardTitle2 = defineAsyncComponent(() => import('../../assets/namecard/2023/title2.svg?component'))
-const Sponsor = defineAsyncComponent(() => import('../../assets/namecard/2023/sponsor.svg?component'))
-const VueFesLogo = defineAsyncComponent(() => import('../../assets/namecard/2023/vuefes_logo.svg?component'))
+const PcBlock = defineAsyncComponent(
+  () => import('../../assets/namecard/2023/pc/block.svg?component'),
+)
+const NamecardTitle1 = defineAsyncComponent(
+  () => import('../../assets/namecard/2023/title1.svg?component'),
+)
+const NamecardTitle2 = defineAsyncComponent(
+  () => import('../../assets/namecard/2023/title2.svg?component'),
+)
+const Sponsor = defineAsyncComponent(
+  () => import('../../assets/namecard/2023/sponsor.svg?component'),
+)
+const VueFesLogo = defineAsyncComponent(
+  () => import('../../assets/namecard/2023/vuefes_logo.svg?component'),
+)
 const PcBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wave.svg?component'))
 </script>
 

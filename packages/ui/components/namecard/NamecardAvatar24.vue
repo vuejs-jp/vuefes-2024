@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import NamecardAvatarLogo from './NamecardAvatarLogo24.vue'
 import type { NamecardUser } from '@vuejs-jp/model'
 
 type NamecardAvatarProps = {
@@ -17,10 +18,10 @@ const COLOR_AVATAR_NAME = {
   <div class="avatar">
     <span class="avatar-hook" aria-hidden="true" />
     <div class="vuefes-logo-wrapper">
-      <img src="/namecard/vuefes_logo.svg" alt="vuefes logo" />
+      <img src="../../assets/namecard/vuefes_logo.svg" alt="vuefes logo" />
     </div>
     <div class="avatar-logo-wrapper">
-      <img :alt="user.display_name" :src="user.avatar_url" class="avatar-logo" decoding="async" />
+      <NamecardAvatarLogo :user="user" />
     </div>
     <div class="avatar-name-area">
       <div
@@ -39,15 +40,13 @@ const COLOR_AVATAR_NAME = {
 </template>
 
 <style scoped>
-@import url('~/assets/media.css');
-
 .avatar {
   display: grid;
   place-items: center;
-  background: color-mix(in srgb, var(--color-vue-blue), #000 20%) url('/namecard/bg_texture.png') no-repeat;
+  background: color-mix(in srgb, var(--color-vue-blue), #000 20%)
+    url('../../assets/namecard/bg_texture.png') no-repeat;
   background-size: cover;
   container: avatar / inline-size;
-  box-shadow: var(--shadow-1);
 }
 
 .avatar-hook {
@@ -56,7 +55,7 @@ const COLOR_AVATAR_NAME = {
   aspect-ratio: 1;
   background-color: var(--color-white);
   border-radius: 50%;
-  @media (--mobile) {
+  @media (width <= 480px) {
     margin-top: 0.9375rem;
     width: 20px;
   }
@@ -70,7 +69,7 @@ const COLOR_AVATAR_NAME = {
   img {
     width: 100%;
   }
-  @media (--mobile) {
+  @media (width <= 480px) {
     top: 13.77px;
     right: 10.77px;
     width: 22.76px;
@@ -82,18 +81,15 @@ const COLOR_AVATAR_NAME = {
   aspect-ratio: 1;
   border-radius: 50%;
   margin-top: 2.5rem;
-  @media (--mobile) {
+  background: var(--color-vue-green-gradation);
+  display: grid;
+  place-items: center;
+  border: 4px solid var(--color-white);
+  container: avatar-logo / inline-size;
+  @media (width <= 480px) {
+    border-width: 3px;
     margin-top: 1.875rem;
   }
-}
-
-.avatar-logo {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 4px solid var(--color-white);
-  box-sizing: border-box;
-  vertical-align: top;
 }
 
 .avatar-name-area {
@@ -107,7 +103,7 @@ const COLOR_AVATAR_NAME = {
   padding-inline: 1rem;
   overflow-wrap: anywhere;
   word-break: break-all;
-  @media (--mobile) {
+  @media (width <= 480px) {
     margin-top: 0.625rem;
     height: 6.125rem;
   }
@@ -120,7 +116,7 @@ const COLOR_AVATAR_NAME = {
   font-weight: 700;
   line-height: 1.1;
   color: var(--color-avatar-name);
-  @media (--mobile) {
+  @media (width <= 480px) {
     font-size: 1.6875rem;
   }
 }
@@ -133,7 +129,7 @@ const COLOR_AVATAR_NAME = {
   margin-bottom: 0.75rem;
   line-height: 1;
   height: 0.75rem;
-  @media (--mobile) {
+  @media (width <= 480px) {
     font-size: 0.8125rem;
     margin-top: 2.125rem;
     margin-bottom: 0.4rem;
