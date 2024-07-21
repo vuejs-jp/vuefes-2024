@@ -43,10 +43,8 @@ const COLOR_AVATAR_NAME = {
 
 .avatar {
   display: grid;
-
   place-items: center;
-  background: color-mix(in srgb, var(--color-vue-blue), #000 20%) url('/namecard/bg_texture.png')
-    no-repeat;
+  background: color-mix(in srgb, var(--color-vue-blue), #000 20%) url('/namecard/bg_texture.png') no-repeat;
   background-size: cover;
   container: avatar / inline-size;
   box-shadow: var(--shadow-1);
@@ -56,7 +54,7 @@ const COLOR_AVATAR_NAME = {
   margin-top: 1.25rem;
   width: 25px;
   aspect-ratio: 1;
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 50%;
   @media (--mobile) {
     margin-top: 0.9375rem;
