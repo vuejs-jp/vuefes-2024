@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NamecardAvatarLogo from './NamecardAvatarLogo24.vue'
 import type { NamecardUser } from '@vuejs-jp/model'
+import { onMounted, ref } from 'vue'
 
 type NamecardAvatarProps = {
   user: NamecardUser
@@ -12,13 +13,17 @@ const COLOR_AVATAR_NAME = {
   DEFAULT: 'color-mix(in srgb, var(--color-vue-blue), #000 20%)',
   PLACEHOLDER: 'var(--color-gray100)',
 }
+const vuefesLogoImagePath = ref('')
+onMounted(() => {
+  vuefesLogoImagePath.value = new URL('../../assets/namecard/vuefes_logo.svg', import.meta.url).href
+})
 </script>
 
 <template>
   <div class="avatar">
     <span class="avatar-hook" aria-hidden="true" />
     <div class="vuefes-logo-wrapper">
-      <img src="../../assets/namecard/vuefes_logo.svg" alt="vuefes logo" />
+      <img :src="vuefesLogoImagePath" alt="vuefes logo" />
     </div>
     <div class="avatar-logo-wrapper">
       <NamecardAvatarLogo :user="user" />

@@ -2,6 +2,7 @@
 import NamecardAvatar from './NamecardAvatar24.vue'
 import type { NamecardUser } from '@vuejs-jp/model'
 import { useUserRole } from '@vuejs-jp/composable'
+import { onMounted, ref } from 'vue'
 
 type NamecardProps = {
   user: NamecardUser
@@ -11,6 +12,10 @@ type NamecardProps = {
 defineProps<NamecardProps>()
 
 const { backgroundColor } = useUserRole()
+const sponsorImagePath = ref('')
+onMounted(() => {
+  sponsorImagePath.value = new URL('../../assets/namecard/support.svg', import.meta.url).href
+})
 </script>
 
 <template>
@@ -23,7 +28,7 @@ const { backgroundColor } = useUserRole()
       {{ user.role }}
     </div>
     <div class="namecard-sponsor">
-      <img src="../../assets/namecard/support.svg" alt="Supported by Stockmark" />
+      <img :src="sponsorImagePath" alt="Supported by Stockmark" />
     </div>
   </div>
 </template>
