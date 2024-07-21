@@ -58,6 +58,7 @@ useHead({
           :href="`https://x.com/share?url=${encodeURIComponent(
             `https://vuefes.jp/2024/namecard/${id}/share`,
           )}`"
+          target-blank
           can-hover
         />
       </li>
@@ -68,6 +69,7 @@ useHead({
           :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
             `https://vuefes.jp/2024/namecard/${id}/share`,
           )}`"
+          target-blank
         />
       </li>
       <li>
