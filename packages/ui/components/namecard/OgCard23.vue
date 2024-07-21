@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { NamecardUser } from '@vuejs-jp/model'
-import NamecardAvatar from './NamecardAvatar.vue'
+import NamecardAvatar from './NamecardAvatar23.vue'
 import { defineAsyncComponent } from 'vue'
 
 type OgCardProps = {

@@ -24,7 +24,7 @@ export type Attendee = {
   id?: string
   provider: string
   receipt_id: string
-  role?: string
+  role?: Role
   updated_at: string
   user_id: string
 }

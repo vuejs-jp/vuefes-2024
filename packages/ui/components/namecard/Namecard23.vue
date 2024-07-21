@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NamecardAvatar from './NamecardAvatar.vue'
+import NamecardAvatar from './NamecardAvatar23.vue'
 import type { NamecardUser } from '@vuejs-jp/model'
 import { defineAsyncComponent } from 'vue'
 

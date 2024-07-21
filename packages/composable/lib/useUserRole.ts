@@ -4,11 +4,11 @@ import { match } from 'ts-pattern'
 export function useUserRole() {
   const backgroundColor = (role: Role) =>
     match(role)
-      .with('staff', () => '#233445')
-      .with('speaker', () => '#90B44B')
-      .with('sponsor', () => '#FFC408')
-      .with('attendee', () => '#F17C67')
-      .with('attendee + party', () => '#33A6B8')
+      .with('staff', () => 'color-mix(in srgb, var(--color-vue-blue), #000 20%)')
+      .with('speaker', () => 'var(--color-hiwamoegi200)')
+      .with('sponsor', () => 'var(--color-tohoh200)')
+      .with('attendee', () => 'var(--color-sangosyo200)')
+      .with('attendee + party', () => 'var(--color-asagi200)')
       .exhaustive()
 
   const textColor = (role: Role) =>
