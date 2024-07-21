@@ -39,7 +39,7 @@ onMounted(() => {
   background-color: var(--color-white);
   border-radius: calc(var(--unit) * 1.25);
   overflow: hidden;
-  box-shadow: 0px 8px 24px 0px hsla(0, 0%, 0%, 0.239);
+  box-shadow: 0px 8px 24px 0px #0000003d;
   border: 1px solid #000;
   @media (width <= 480px) {
     width: 18rem;

@@ -108,6 +108,7 @@ onMounted(() => {
   padding-inline: 1rem;
   overflow-wrap: anywhere;
   word-break: break-all;
+  overflow-y: hidden;
   @media (width <= 480px) {
     margin-top: 0.625rem;
     height: 6.125rem;
