@@ -66,6 +66,7 @@ useHead({
           :href="`https://x.com/share?url=${encodeURIComponent(
             `https://vuefes.jp/2024/namecard/${id}/share`,
           )}`"
+          can-hover
         />
       </li>
       <li>
