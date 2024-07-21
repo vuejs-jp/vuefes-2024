@@ -45,27 +45,11 @@ const COLOR_AVATAR_NAME = {
   display: grid;
 
   place-items: center;
-  background: color-mix(in srgb, #4e5764, #000 20%) url('/namecard/bg_texture.png') no-repeat;
+  background: color-mix(in srgb, var(--color-vue-blue), #000 20%) url('/namecard/bg_texture.png')
+    no-repeat;
   background-size: cover;
   container: avatar / inline-size;
   box-shadow: var(--shadow-1);
-  @media (--mobile) {
-    background: #4e5764;
-    position: relative;
-    &::before {
-      position: absolute;
-      z-index: -1;
-      left: 0;
-      top: 0;
-      opacity: 0.5;
-      content: '';
-      display: block;
-      width: 100%;
-      height: 100%;
-      background-image: url('/namecard/bg_texture.png');
-      background-size: cover;
-    }
-  }
 }
 
 .hook {
