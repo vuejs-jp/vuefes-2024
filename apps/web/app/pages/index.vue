@@ -18,6 +18,7 @@ useHead({
   <MessagePageSection />
   <SpeakerPageSection />
   <VolunteerPageSection v-if="locale === 'ja'" />
+  <EventPageSection v-if="config.public.showEvent" />
   <StorePageSection v-if="config.public.showStore" />
   <SponsorPageSection />
   <AccessPageSection />

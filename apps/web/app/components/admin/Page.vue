@@ -14,13 +14,16 @@ interface ListProps {
 const selectedRole = ref<Role>('attendee')
 
 const { fetchData, fetchAttendeeData } = useSupabase()
-const { exportSpeaker, exportSponsor, exportAttendee, exportStaff } = useSupabaseCsv()
+const { exportSpeaker, exportSponsor, exportJob, exportAttendee, exportStaff } = useSupabaseCsv()
 const { write } = useCsv()
 const { data: speakers } = await useAsyncData('speakers', async () => {
   return await fetchData('speakers')
 })
 const { data: sponsors } = await useAsyncData('sponsors', async () => {
   return await fetchData('sponsors')
+})
+const { data: jobs } = await useAsyncData('jobs', async () => {
+  return await fetchData('jobs')
 })
 const { data: attendees } = await useAsyncData('attendees', async () => {
   return await fetchAttendeeData('attendees', selectedRole.value)
@@ -41,6 +44,7 @@ const handleCsv = async () => {
   const res = await match(props.page)
     .with('speaker', () => exportSpeaker('speakers'))
     .with('sponsor', () => exportSponsor('sponsors'))
+    .with('job', () => exportJob('jobs'))
     .with('adminUser', () => exportStaff('staffs'))
     .with('namecard', () => exportAttendee('attendees'))
     .exhaustive()
@@ -91,6 +95,7 @@ const pageText = props.page.replace(/^[a-z]/g, function (val) {
     </div>
     <AdminSpeakerList v-if="page === 'speaker'" :speakers="speakers?.data" />
     <AdminSponsorList v-if="page === 'sponsor'" :sponsors="sponsors?.data" :speakers="speakers?.data" />
+    <AdminJobList v-if="page === 'job'" :jobs="jobs?.data" :sponsors="sponsors?.data" />
     <div v-if="page === 'namecard'" class="tab-content-attendee">
       <VFDropdownField
         id="selected_role"
@@ -108,6 +113,7 @@ const pageText = props.page.replace(/^[a-z]/g, function (val) {
     <VFDialog v-if="showDialog">
       <AdminSpeakerItem v-if="page === 'speaker'" @close="handleDialog" />
       <AdminSponsorItem v-if="page === 'sponsor'" :speakers="speakers?.data" @close="handleDialog" />
+      <AdminJobItem v-if="page === 'job'" :sponsors="sponsors?.data" @close="handleDialog" />
       <AdminStaffItem v-if="page === 'adminUser'" @close="handleDialog" />
     </VFDialog>
   </div>

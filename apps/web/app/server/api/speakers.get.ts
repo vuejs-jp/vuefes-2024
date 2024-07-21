@@ -1,6 +1,6 @@
 import db from '../db'
 import { defineEventHandler } from 'h3'
-import type { Speaker, SpeakerInfo } from '@vuejs-jp/model'
+import type { PanelerInfo, Speaker, SpeakerInfo } from '@vuejs-jp/model'
 import { serverSupabaseClient } from '#supabase/server'
 import { Database } from '~/types/supabase'
 
@@ -64,9 +64,39 @@ export default defineEventHandler(async (event) => {
       }),
   }
 
+  const panelEventPanelers: PanelerInfo = {
+    type: 'panel-event',
+    title: 'Panel Event',
+    list: {
+      'welcome-vuejs-community': speakers
+        .filter((s: Speaker) => {
+          if (!s['events']) return false
+          if (process.env.NODE_ENV === 'production') return s['events'].includes('welcome-vuejs-community') && s.is_open === true
+          return s['events'].includes('welcome-vuejs-community')
+        })
+        .sort((a: Speaker, b: Speaker) => {
+          if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
+          if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
+          return a.display_order - b.display_order
+        }),
+      'nextgen-frontend-crosstalk': speakers
+        .filter((s: Speaker) => {
+          if (!s['events']) return false
+          if (process.env.NODE_ENV === 'production') return s['events'].includes('nextgen-frontend-crosstalk') && s.is_open === true
+          return s['events'].includes('nextgen-frontend-crosstalk')
+        })
+        .sort((a: Speaker, b: Speaker) => {
+          if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
+          if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
+          return a.display_order - b.display_order
+        }),
+    },
+  }
+
   return {
    sessionSpeakers,
    lightningTalkSpeakers,
    sponsorSessionSpeakers,
+   panelEventPanelers,
   }
 })

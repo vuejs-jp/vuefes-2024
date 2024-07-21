@@ -25,6 +25,16 @@ export function useSupabaseCsv() {
     return data
   }
 
+  async function exportJob(table: Extract<Table, 'jobs'>) {
+    const { data, error } = await client.from(table)
+      .select()
+      .eq('is_open', true)
+      .csv()
+    if (error) return
+
+    return data
+  }
+
   async function exportAttendee(table: Extract<Table, 'attendees'>) {
     const { data, error } = await client.from(table)
       .select('display_name, image_url, image_file_name')
@@ -45,5 +55,5 @@ export function useSupabaseCsv() {
     return data
   }
 
-  return { exportSpeaker, exportSponsor, exportAttendee, exportStaff }
+  return { exportSpeaker, exportSponsor, exportJob, exportAttendee, exportStaff }
 }
