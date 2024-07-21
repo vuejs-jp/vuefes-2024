@@ -40,7 +40,7 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
     </div>
     <h3>Facebook</h3>
     <div style="display: flex; gap: 8px;">
-      <Icon v-bind="args" name="Facebook40" />
+      <Icon v-bind="args" name="Facebook" />
     </div>
     <h3>note</h3>
     <div style="display: flex; gap: 8px;">
@@ -59,6 +59,7 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
     <h3>Google</h3>
     <div style="display: flex; gap: 8px;">
       <Icon v-bind="args" name="Google24" />
+      <Icon v-bind="args" name="Google32" />
     </div>
     <h3>Menu</h3>
     <div style="display: flex; gap: 8px;">

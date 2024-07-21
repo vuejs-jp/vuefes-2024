@@ -20,6 +20,7 @@ const newSponsor = ref({
   name: props.sponsor?.name ?? '',
   detail_page_id: props.sponsor?.detail_page_id ?? '',
   image_url: props.sponsor?.image_url ?? '',
+  share_image_url: props.sponsor?.share_image_url ?? '',
   description_ja: props.sponsor?.description_ja ?? '',
   description_en: props.sponsor?.description_en ?? '',
   link_url: props.sponsor?.link_url ?? '',
@@ -47,6 +48,18 @@ const checkFiles = async (files: File[]) => {
   uploadAvatar(filePath, file)
 
   newSponsor.value.image_url = getFullAvatarUrl(filePath)
+}
+const checkShareFiles = async (files: File[]) => {
+  if (files.length === 0) return
+
+  const file = files[0]
+  // const filename = file.name
+  const fileExt = file.name.split('.').pop()
+  const filePath = `/${Math.random()}.${fileExt}`
+
+  uploadAvatar(filePath, file)
+
+  newSponsor.value.share_image_url = getFullAvatarUrl(filePath)
 }
 const updateDescriptionJa = (e: any) => {
   newSponsor.value.description_ja = e.target.value
@@ -99,9 +112,23 @@ const onSubmit = () => {
               height="60"
               decoding="async"
             />
-            <p>Drag & drop a file</p>
+            <p>Drag & drop an image file</p>
             <p>または</p>
-            <p>Select a file</p>
+            <p>Select an image file</p>
+          </div>
+        </VFDragDropArea>
+        <VFDragDropArea file-name="profiledata" file-accept="image/*" @check-files="checkShareFiles">
+          <div class="upload">
+            <img
+              v-if="newSponsor.share_image_url"
+              alt=""
+              :src="newSponsor.share_image_url"
+              height="60"
+              decoding="async"
+            />
+            <p>Drag & drop a share image file</p>
+            <p>または</p>
+            <p>Select a share image file</p>
           </div>
         </VFDragDropArea>
         <VFTextAreaField
