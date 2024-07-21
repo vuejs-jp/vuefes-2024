@@ -45,14 +45,18 @@ const { backgroundColor } = useUserRole()
 
 .namecard-role {
   --background-color-role: color-mix(in srgb, var(--color-vue-blue), #000 20%);
-  font-size: 1.3125rem;
-  height: 2.0625rem;
+  font-size: 1.6875rem;
+  height: 2.625rem;
   display: grid;
   place-items: center;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--color-white);
   background-color: var(--background-color-role);
+  @media (--mobile) {
+    font-size: 1.3125rem;
+    height: 2.0625rem;
+  }
 }
 
 .namecard-sponsor {
@@ -61,7 +65,10 @@ const { backgroundColor } = useUserRole()
   height: 3.75rem;
   img {
     width: 16.25rem;
-    @media (--mobile) {
+  }
+  @media (--mobile) {
+    height: 2.8125rem;
+    img {
       width: 12.5rem;
     }
   }

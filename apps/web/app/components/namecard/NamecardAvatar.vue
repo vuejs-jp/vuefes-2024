@@ -100,15 +100,18 @@ const COLOR_AVATAR_NAME = {
 
 .avatar-name-area {
   width: 85cqi;
+  height: 8rem;
   background-color: var(--color-white);
   margin-top: 0.8125rem;
   display: grid;
   place-items: center;
   border-radius: calc(var(--unit) * 1.25);
-  padding: 2.8125rem 1rem;
+  padding-inline: 1rem;
+  overflow-wrap: anywhere;
+  word-break: break-all;
   @media (--mobile) {
     margin-top: 0.625rem;
-    padding: 2.25rem 0.5rem;
+    height: 6.125rem;
   }
 }
 
@@ -137,13 +140,5 @@ const COLOR_AVATAR_NAME = {
     margin-top: 2.125rem;
     margin-bottom: 0.4rem;
   }
-}
-
-.role {
-  padding: calc(var(--unit) * 1) calc(var(--unit) * 3);
-  border-radius: calc(var(--unit) * 6.25);
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
 }
 </style>
