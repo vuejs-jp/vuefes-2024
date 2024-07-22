@@ -1,4 +1,4 @@
-Tickets for Vue Fes Japan 2044 will go on sale starting from 12:00 PM on Monday, July 29, 2024. There are two types of general tickets available: with or without the after-party, and all seats include lunch.
+Tickets for Vue Fes Japan 2024 will go on sale starting from 12:00 PM on Monday, July 29, 2024. There are two types of general tickets available: with or without the after-party, and all seats include lunch.
 
 As options, we also offer hands-on and individual sponsor tickets.
 
