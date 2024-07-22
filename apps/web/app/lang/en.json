@@ -91,15 +91,15 @@
     "card": {
       "ippan": {
         "title": "Regular",
-        "early": "Early Purchase: ¥7,000",
+        "early": "Early: ¥7,000",
         "earlySub": "Purchase by Aug 12th, 24:00",
-        "regular": "Regular Purchase: ¥8,000"
+        "regular": "Regular: ¥8,000"
       },
       "ippanParty": {
         "title": "Regular + After Party",
-        "early": "Early Purchase: ¥10,000",
+        "early": "Early: ¥10,000",
         "earlySub": "Purchase by Aug 12th, 24:00",
-        "regular": "Regular Purchase: ¥11,000"
+        "regular": "Regular: ¥11,000"
       },
       "handsOn": {
         "title": "Hands On",
