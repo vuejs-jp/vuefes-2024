@@ -14,7 +14,7 @@
       <div class="ticket-button-wrapper">
         <VFLinkButton
           class="purchase-ticket-button"
-          href="https://forms.gle/paxZqz55oXLE4Njn9"
+          href="https://vuefes2024.peatix.com"
           background-color="vue-green/200"
           color="white"
         >
@@ -101,7 +101,7 @@
         <div class="ticket-button-wrapper">
           <VFLinkButton
             class="purchase-ticket-button"
-            href="https://forms.gle/paxZqz55oXLE4Njn9"
+            href="https://vuefes2024.peatix.com"
             background-color="vue-green/200"
             color="white"
           >
