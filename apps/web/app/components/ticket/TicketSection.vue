@@ -3,7 +3,7 @@
 <template>
   <div class="ticket">
     <article class="ticket-body">
-      <VFTitle color="white" class="title">
+      <VFTitle color="white" class="title" id="ticket">
         {{ $t('ticket.title') }}
       </VFTitle>
 
