@@ -114,25 +114,15 @@ export default defineNuxtConfig({
       if (error1 || error2 || error3) return
 
       const speakerRoutes = speakers?.map((d) => `/sessions/${d.detail_page_id}`)
-      const speakerEnRoutes = speakers?.map((d) => `/en/sessions/${d.detail_page_id}`)
       const speakerShareRoutes = speakers?.map((d) => `/sessions/${d.detail_page_id}/share`)
-      const speakerEnShareRoutes = speakers?.map((d) => `/en/sessions/${d.detail_page_id}/share`)
       const sponsorRoutes = sponsors?.map((d) => `/sponsors/${d.detail_page_id}`)
-      const sponsorEnRoutes = sponsors?.map((d) => `/en/sponsors/${d.detail_page_id}`)
       const sponsorShareRoutes = sponsors?.map((d) => `/sponsors/${d.detail_page_id}/share`)
-      const sponsorEnShareRoutes = sponsors?.map((d) => `/en/sponsors/${d.detail_page_id}/share`)
       const staffShareRoutes = staffs?.map((d) => `/staffs/${d.detail_page_id}/share`)
-      const staffEnShareRoutes = staffs?.map((d) => `/en/staffs/${d.detail_page_id}/share`)
       nitroConfig.prerender?.routes?.push(...(speakerRoutes || []))
-      nitroConfig.prerender?.routes?.push(...(speakerEnRoutes || []))
       nitroConfig.prerender?.routes?.push(...(speakerShareRoutes || []))
-      nitroConfig.prerender?.routes?.push(...(speakerEnShareRoutes || []))
       nitroConfig.prerender?.routes?.push(...(sponsorRoutes || []))
-      nitroConfig.prerender?.routes?.push(...(sponsorEnRoutes || []))
       nitroConfig.prerender?.routes?.push(...(sponsorShareRoutes || []))
-      nitroConfig.prerender?.routes?.push(...(sponsorEnShareRoutes || []))
       nitroConfig.prerender?.routes?.push(...(staffShareRoutes || []))
-      nitroConfig.prerender?.routes?.push(...(staffEnShareRoutes || []))
     },
     // 'prerender:routes': (context) => {
     //   for (const path of [...context.routes]) {
