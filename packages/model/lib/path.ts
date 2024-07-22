@@ -20,6 +20,7 @@ export type Path =
   | 'code-of-conduct'
   | 'privacy'
   | 'team'
+  | 'ticket'
   | 'namecard_lead'
   | 'namecard_process_1'
   | 'namecard_process_2'

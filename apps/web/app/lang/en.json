@@ -84,6 +84,32 @@
     "media": "Media",
     "tool": "Tool"
   },
+  "ticket": {
+    "title": "Ticket",
+    "purchaseButton": "Purchase Ticket",
+    "card": {
+      "ippan": {
+        "early": "Early Purchase: 7,000¥",
+        "earlySub": "Purchase by Aug 12th, 24:00",
+        "regular": "Regular Purchase: 8,000¥"
+      },
+      "ippan-party": {
+        "early": "Early Purchase: 10,000¥",
+        "earlySub": "Purchase by Aug 12th, 24:00",
+        "regular": "Regular Purchase: 11,000¥"
+      },
+      "handsOn": {
+        "cost": "Free",
+        "details1": "*Additionally, the purchase of either a regular ticket or a regular + after-party ticket is required.",
+        "details2": "*For more details, please refer to the Hands-on section."
+      },
+      "individualSponsor": {
+        "cost": "10,000¥",
+        "details1": "*For those attending on the day, the purchase of either a general ticket or a general + after-party ticket is required.",
+        "details2": "*For more details, please refer to the Individual Sponsor section."
+      }
+    }
+  },
   "access": {
     "title": "Access",
     "name": "Place：OTEMACHI PLACE HALL & CONFERENCE",
