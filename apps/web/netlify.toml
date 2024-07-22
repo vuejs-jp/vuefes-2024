@@ -1,14 +1,4 @@
 [[redirects]]
-  from = "/2024/en/*"
-  to = "/2024/200.html"
-  status = 200
-
-[[redirects]]
-  from = "/2024/en/*"
-  to = "/2024/:splat"
-  status = 301
-
-[[redirects]]
 from = "/2024/*"
 to = "/2024/index.html"
 status = 200
