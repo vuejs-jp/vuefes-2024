@@ -135,14 +135,14 @@ export default defineNuxtConfig({
       nitroConfig.prerender?.routes?.push(...(staffShareRoutes || []))
       nitroConfig.prerender?.routes?.push(...(staffEnShareRoutes || []))
     },
-    'prerender:routes': (context) => {
-      for (const path of [...context.routes]) {
-        if (!path.endsWith('.html') && path !== '/') {
-          context.routes.delete(path)
-          context.routes.add(`${path}/`)
-        }
-      }
-    },
+    // 'prerender:routes': (context) => {
+    //   for (const path of [...context.routes]) {
+    //     if (!path.endsWith('.html') && path !== '/') {
+    //       context.routes.delete(path)
+    //       context.routes.add(`${path}/`)
+    //     }
+    //   }
+    // },
   },
   build: {
     transpile: ['vue-toastification'],
