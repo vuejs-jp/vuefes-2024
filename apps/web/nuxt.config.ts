@@ -108,9 +108,9 @@ export default defineNuxtConfig({
       if (!supabaseUrl || !supabaseKey || serviceKey) return
 
       const client = createClient(supabaseUrl, supabaseKey, {})
-      const { data: speakers, error: error1 } = await client.from('speakers').select()
-      const { data: sponsors, error: error2 } = await client.from('sponsors').select()
-      const { data: staffs, error: error3 } = await client.from('staffs').select()
+      const { data: speakers, error: error1 } = await client.from('speakers').select().eq('is_open', true).neq('session_type', 'panel-event')
+      const { data: sponsors, error: error2 } = await client.from('sponsors').select().eq('is_open', true)
+      const { data: staffs, error: error3 } = await client.from('staffs').select().eq('is_open', true)
       if (error1 || error2 || error3) return
 
       const speakerRoutes = speakers?.map((d) => `/sessions/${d.detail_page_id}`)
