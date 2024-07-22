@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import { team } from '~/utils/constants'
+// import type { StaffInfo } from '@vuejs-jp/model'
+
+// type Staffs = Record<'allStaffs', StaffInfo>
+
+// const data = await $fetch('/api/staffs')
+// const { allStaffs } = data as Staffs
+// const team = allStaffs.list
 </script>
 
 <template>
@@ -15,22 +22,22 @@ import { team } from '~/utils/constants'
 
       <div class="team-members-container">
         <div v-for="member in team" :key="member.name" class="team-member-wrapper">
-          <template v-if="member.snsLink !== ''">
-            <a :href="member.snsLink" target="_blank" :aria-label="member.name">
-              <VFAvatar :src="member.image" :alt="member.name" />
+          <template v-if="member.x_id !== ''">
+            <a :href="`https://x.com/${member.x_id}`" target="_blank" :aria-label="member.name">
+              <VFAvatar :src="member.image_url" :alt="member.name" />
             </a>
             <div class="team-member-info">
               <VFTextLink
                 class="team-member-name"
                 target="_blank"
-                :href="member.snsLink"
+                :href="`https://x.com/${member.x_id}`"
                 color="vue-blue"
                 >{{ member.name }}
               </VFTextLink>
             </div>
           </template>
           <template v-else>
-            <VFAvatar :src="member.image" :alt="member.name" />
+            <VFAvatar :src="member.image_url" :alt="member.name" />
             <div class="team-member-info">
               <span class="team-member-name">{{ member.name }} </span>
             </div>

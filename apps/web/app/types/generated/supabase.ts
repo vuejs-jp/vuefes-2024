@@ -304,6 +304,7 @@ export type Database = {
       staffs: {
         Row: {
           created_at: string
+          detail_page_id: string | null
           display_order: number | null
           github_id: string | null
           id: string
@@ -315,6 +316,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          detail_page_id?: string | null
           display_order?: number | null
           github_id?: string | null
           id?: string
@@ -326,6 +328,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          detail_page_id?: string | null
           display_order?: number | null
           github_id?: string | null
           id?: string

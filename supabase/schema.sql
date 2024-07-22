@@ -139,6 +139,8 @@ create table if not exists public.staffs (
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
 
+ALTER TABLE public.staffs ADD COLUMN detail_page_id varchar(40);
+
 alter table
   public.staffs enable row level security;
 
