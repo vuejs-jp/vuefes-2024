@@ -155,8 +155,10 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
+    '/jobboard/': { prerender: true },
     '/sessions/': { prerender: true },
     '/sponsors/': { prerender: true },
+    '/staff/': { prerender: true },
     '/staffs/': { prerender: true },
   },
   runtimeConfig: {

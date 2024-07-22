@@ -8,5 +8,40 @@ from = "/*"
 to = "/2024/:splat"
 status = 301
 
+[[redirects]]
+  from = "/2024/jobboard"
+  to = "/2024/jobboard/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/2024/sessions/*"
+  to = "/2024/200.html"
+  status = 200
+
+[[redirects]]
+  from = "/2024/sponsors/*"
+  to = "/2024/200.html"
+  status = 200
+
+[[redirects]]
+  from = "/2024/staff/*"
+  to = "/2024/200.html"
+  status = 200
+
+[[redirects]]
+  from = "/2024/staffs/*"
+  to = "/2024/200.html"
+  status = 200
+
+[[redirects]]
+  from = "/2024/staff/console"
+  to = "/2024/200.html"
+  status = 200
+
+[[redirects]]
+  from = "/2024/staff/invite"
+  to = "/2024/200.html"
+  status = 200
+
 [functions.server]
 external_node_modules = ["chrome-aws-lambda"]
