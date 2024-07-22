@@ -3,7 +3,7 @@
 <template>
   <div class="ticket">
     <article class="ticket-body">
-      <VFTitle id="sponsors" color="white" class="title">
+      <VFTitle color="white" class="title">
         {{ $t('ticket.title') }}
       </VFTitle>
 
@@ -11,10 +11,9 @@
         <MarkDownText path="ticket" />
       </div>
 
-      <div class="sponsor-buttons">
-        <!-- 申し込む -->
+      <div class="ticket-button-wrapper">
         <VFLinkButton
-          class="sponsor-button"
+          class="purchase-ticket-button"
           href="https://forms.gle/paxZqz55oXLE4Njn9"
           background-color="vue-green/200"
           color="white"
@@ -23,72 +22,93 @@
         </VFLinkButton>
       </div>
 
-      <div class="ticket-cards-container">
-        <VFTicketCard title="Regular" img-src="ticket/ippan.jpg">
-          <div class="ippan-details">
-            <div class="early-purchase">
-              <span class="cost">
-                {{ $t('ticket.card.ippan.early') }}
-              </span>
-              <span class="cost-details">
-                {{ $t('ticket.card.ippan.earlySub') }}
-              </span>
+      <section class="ticket-cards">
+        <h3 class="ticket-cards-title">
+          {{ $t('ticket.ticketTypes') }}
+        </h3>
+        <div class="ticket-cards-container">
+          <VFTicketCard :title="$t('ticket.card.ippan.title')" img-src="ticket/ippan.jpg">
+            <div class="ticket-details ippan-details">
+              <div class="early-purchase">
+                <span class="cost">
+                  {{ $t('ticket.card.ippan.early') }}
+                </span>
+                <span class="cost-details">
+                  {{ $t('ticket.card.ippan.earlySub') }}
+                </span>
+              </div>
+              <div class="standard-purchase">
+                <span class="cost">
+                  {{ $t('ticket.card.ippan.regular') }}
+                </span>
+              </div>
             </div>
-            <div class="standard-purchase">
-              <span class="cost">
-                {{ $t('ticket.card.ippan.regular') }}
-              </span>
+          </VFTicketCard>
+          <VFTicketCard
+            :title="$t('ticket.card.ippanParty.title')"
+            img-src="ticket/ippan-party.jpg"
+          >
+            <div class="ticket-details ippan-party-details">
+              <div class="early-purchase">
+                <span class="cost">
+                  {{ $t('ticket.card.ippanParty.early') }}
+                </span>
+                <span class="cost-details">
+                  {{ $t('ticket.card.ippanParty.earlySub') }}
+                </span>
+              </div>
+              <div class="standard-purchase">
+                <span class="cost">
+                  {{ $t('ticket.card.ippanParty.regular') }}
+                </span>
+              </div>
             </div>
-          </div>
-        </VFTicketCard>
-        <VFTicketCard title="Regular + Party" img-src="ticket/ippan-party.jpg">
-          <div class="ippan-party-details">
-            <div class="early-purchase">
-              <span class="cost">
-                {{ $t('ticket.card.ippan-party.early') }}
-              </span>
-              <span class="cost-details">
-                {{ $t('ticket.card.ippan-party.earlySub') }}
-              </span>
+          </VFTicketCard>
+          <VFTicketCard :title="$t('ticket.card.handsOn.title')" img-src="ticket/hands-on.jpg">
+            <div class="ticket-details hands-on-details">
+              <div class="cost">
+                {{ $t('ticket.card.handsOn.cost') }}
+              </div>
+              <div class="cost-details">
+                <span>
+                  {{ $t('ticket.card.handsOn.details1') }}
+                </span>
+                <span>
+                  {{ $t('ticket.card.handsOn.details2') }}
+                </span>
+              </div>
             </div>
-            <div class="standard-purchase">
-              <span class="cost">
-                {{ $t('ticket.card.ippan-party.regular') }}
-              </span>
+          </VFTicketCard>
+          <VFTicketCard
+            :title="$t('ticket.card.individualSponsor.title')"
+            img-src="ticket/individual-sponsor.jpg"
+          >
+            <div class="ticket-details individual-sponsor-details">
+              <div class="cost">
+                {{ $t('ticket.card.individualSponsor.cost') }}
+              </div>
+              <div class="cost-details">
+                <span>
+                  {{ $t('ticket.card.individualSponsor.details1') }}
+                </span>
+                <span>
+                  {{ $t('ticket.card.individualSponsor.details2') }}
+                </span>
+              </div>
             </div>
-          </div>
-        </VFTicketCard>
-        <VFTicketCard title="Hands On" img-src="ticket/hands-on.jpg">
-          <div class="hands-on-details">
-            <div class="cost">
-              {{ $t('ticket.card.handsOn.cost') }}
-            </div>
-            <div class="cost-details">
-              <span>
-                {{ $t('ticket.card.handsOn.details1') }}
-              </span>
-              <span>
-                {{ $t('ticket.card.handsOn.details2') }}
-              </span>
-            </div>
-          </div>
-        </VFTicketCard>
-        <VFTicketCard title="Individual Sponsor" img-src="ticket/individual-sponsor.jpg">
-          <div class="individual-sponsor-details">
-            <div class="cost">
-              {{ $t('ticket.card.individualSponsor.cost') }}
-            </div>
-            <div class="cost-details">
-              <span>
-                {{ $t('ticket.card.individualSponsor.details1') }}
-              </span>
-              <span>
-                {{ $t('ticket.card.individualSponsor.details2') }}
-              </span>
-            </div>
-          </div>
-        </VFTicketCard>
-      </div>
+          </VFTicketCard>
+        </div>
+        <div class="ticket-button-wrapper">
+          <VFLinkButton
+            class="purchase-ticket-button"
+            href="https://forms.gle/paxZqz55oXLE4Njn9"
+            background-color="vue-green/200"
+            color="white"
+          >
+            {{ $t('ticket.purchaseButton') }}
+          </VFLinkButton>
+        </div>
+      </section>
     </article>
   </div>
 </template>
@@ -122,6 +142,7 @@
   padding: var(--sponsor-body-padding);
   margin: 0 1.5%;
   max-width: 960px;
+  width: 100%;
 }
 
 .ticket-text {
@@ -146,6 +167,20 @@
   }
 }
 
+.ticket-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px;
+}
+
+.ticket-cards-title {
+  color: white;
+  font-weight: 700;
+  font-size: 36px;
+}
+
 .ticket-cards-container {
   display: grid;
   column-gap: 25px;
@@ -155,35 +190,37 @@
   padding: 40px 0;
 }
 
-.sponsor-subtitle {
-  text-align: center;
-  line-height: 1.2;
-  margin-top: calc(var(--unit) * 5);
-  margin-bottom: calc(var(--unit) * 2.5);
-  background: var(--color-vue-green-gradation);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
+.ticket-details,
+.early-purchase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.sponsor-subtitle-category {
-  text-align: center;
-  line-height: 1.2;
-  margin-top: calc(var(--unit) * 2.5);
-  margin-bottom: calc(var(--unit) * 0.625);
+.ticket-details {
+  gap: 8px;
 }
 
-.sponsor-term {
-  display: block;
-  margin: var(--sponsor-term-margin);
+.cost {
+  font-weight: 700;
+  font-size: 32px;
 }
 
-.sponsor-buttons {
+.cost-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.ticket-button-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: calc(var(--unit) * 5);
+  width: 100%;
 }
 
-.sponsor-button {
+.purchase-ticket-button {
   --height-button: 66px;
 
   width: 100%;
@@ -192,44 +229,18 @@
   border-radius: var(--height-button);
 }
 
-.sponsor-list-layout-separate {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
 @media (--tablet) {
-  .sponsor {
+  .ticket-cards-container {
+    grid-template-columns: repeat(1, auto);
+  }
+
+  .ticket {
     --sponsor-padding: calc(var(--unit) * 2) 0;
     --sponsor-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 6);
     --sponsor-term-margin: calc(var(--unit) * 5) auto 0;
   }
 
-  .sponsor-subtitle {
-    margin-top: calc(var(--unit) * 3.75);
-  }
-
-  .sponsor-buttons {
-    margin-top: calc(var(--unit) * 3.75);
-    display: block;
-  }
-
-  .sponsor-button:first-child {
-    margin-bottom: calc(var(--unit) * 2);
-  }
-
-  .sponsor-button {
-    --height-button: 58px;
-
-    width: 100%;
-    max-width: none;
-  }
-  .sponsor-list-layout-separate {
-    display: contents;
-  }
-}
-
-@media (--mobile) {
-  .sponsor-button {
+  .purchase-ticket-button {
     --height-button: 58px;
   }
 }

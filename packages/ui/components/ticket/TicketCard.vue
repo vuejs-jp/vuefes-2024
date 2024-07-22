@@ -18,6 +18,8 @@ const props = defineProps<TicketCardProps>()
 </template>
 
 <style scoped>
+@import url('~/assets/media.css');
+
 .ticket-card {
   width: 464px;
   height: 456px;
@@ -29,6 +31,7 @@ const props = defineProps<TicketCardProps>()
 .ticket-img {
   height: 260px;
   object-fit: cover;
+  border-radius: 12px 12px 0 0;
 }
 
 .ticket-title {
@@ -43,7 +46,7 @@ const props = defineProps<TicketCardProps>()
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 336px;
+  width: 90%;
 }
 
 .ticket-content {
@@ -53,5 +56,22 @@ const props = defineProps<TicketCardProps>()
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 0 0 12px 12px;
+  padding: 28px 48px 24px 48px;
+}
+
+@media (--mobile) {
+  .ticket-card {
+    width: 342px;
+    height: 388px;
+  }
+
+  .ticket-img {
+    height: 192px;
+  }
+
+  .ticket-title {
+    transform: translate(-50%, -50%);
+  }
 }
 </style>
