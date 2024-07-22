@@ -14,6 +14,11 @@ status = 301
   status = 200
 
 [[redirects]]
+  from = "/2024/namecard/*"
+  to = "/2024/200.html"
+  status = 200
+
+[[redirects]]
   from = "/2024/sessions/*"
   to = "/2024/200.html"
   status = 200
