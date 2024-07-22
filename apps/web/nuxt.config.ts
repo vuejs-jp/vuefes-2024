@@ -148,7 +148,8 @@ export default defineNuxtConfig({
     '/namecard/': { prerender: true },
     '/sessions/': { prerender: true },
     '/sponsors/': { prerender: true },
-    '/staff/': { prerender: true },
+    '/staff/console/': { prerender: true },
+    '/staff/invite/': { prerender: true },
     '/staffs/': { prerender: true },
   },
   runtimeConfig: {
