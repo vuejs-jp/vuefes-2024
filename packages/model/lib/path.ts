@@ -19,6 +19,7 @@ export type Path =
   | 'sponsor'
   | 'code-of-conduct'
   | 'privacy'
+  | 'tokusho'
   | 'team'
   | 'namecard_lead'
   | 'namecard_process_1'

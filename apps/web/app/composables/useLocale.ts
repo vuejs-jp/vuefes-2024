@@ -28,6 +28,7 @@ export function useLocale(path: Path) {
       .with('store_samedaysales', () => `/${locale.value}/store_samedaysales`)
       .with('sponsor', () => `/${locale.value}/sponsor`)
       .with('code-of-conduct', () => `/${locale.value}/code-of-conduct`)
+      .with('tokusho', () => `/${locale.value}/tokusho`)
       .with('team', () => `/${locale.value}/team`)
       .with('namecard_lead', () => `/${locale.value}/namecard_lead`)
       .with('namecard_process_1', () => `/${locale.value}/namecard_process_1`)
