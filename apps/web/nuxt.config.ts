@@ -105,7 +105,7 @@ export default defineNuxtConfig({
       const supabaseUrl = process.env.SUPABASE_URL
       const supabaseKey = process.env.SUPABASE_KEY
       const serviceKey = process.env.SERVICE_KEY
-      if (!supabaseUrl || !supabaseKey || serviceKey) return
+      if (!supabaseUrl || !supabaseKey || !serviceKey) return
 
       const client = createClient(supabaseUrl, supabaseKey, {})
       const { data: speakers, error: error1 } = await client.from('speakers').select().eq('is_open', true).neq('session_type', 'panel-event')
