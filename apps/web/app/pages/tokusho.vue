@@ -2,21 +2,21 @@
 import { useHead } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
-import { conferenceTitle, linkUrl, ogCoCDescription } from '~/utils/constants'
+import { conferenceTitle, linkUrl, ogTokushoDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
 useHead({
   // eslint-disable-next-line no-unused-vars
-  titleTemplate: (titleChunk) => `特定商取引法に関する表記 | ${conferenceTitle}`,
+  titleTemplate: (titleChunk) => `特定商取引法に基づく表記 | ${conferenceTitle}`,
   meta: [
     ...generalOg({
       title: `特定商取引法に基づく表記 | ${conferenceTitle}`,
-      description: ogCoCDescription,
+      description: ogTokushoDescription,
       url: `${linkUrl}tokusho`,
     }),
     ...twitterOg({
       title: `特定商取引法に基づく表記 | ${conferenceTitle}`,
-      description: ogCoCDescription,
+      description: ogTokushoDescription,
       url: `${linkUrl}tokusho`,
     }),
   ],
