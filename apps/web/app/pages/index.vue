@@ -16,6 +16,7 @@ useHead({
 <template>
   <TopPageSection />
   <MessagePageSection />
+  <TimeTablePageSection />
   <SpeakerPageSection />
   <VolunteerPageSection v-if="locale === 'ja'" />
   <EventPageSection v-if="config.public.showEvent" />
