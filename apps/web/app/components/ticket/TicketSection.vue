@@ -117,9 +117,9 @@
 @import url('~/assets/media.css');
 
 .ticket {
-  --sponsor-padding: calc(var(--unit) * 5.25) 0;
-  --sponsor-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
-  --sponsor-term-margin: calc(var(--unit) * 5) auto 0;
+  --ticket-padding: calc(var(--unit) * 5.25) 0;
+  --ticket-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
+  --ticket-term-margin: calc(var(--unit) * 5) auto 0;
 
   display: flex;
   justify-content: center;
@@ -128,7 +128,7 @@
   background-position: top -1px left -1px;
   background-size: 30px;
   background-blend-mode: overlay;
-  padding: var(--sponsor-padding);
+  padding: var(--ticket-padding);
   color: var(--color-vue-blue);
 }
 
@@ -139,7 +139,7 @@
 
 .ticket-body {
   margin: 0 auto;
-  padding: var(--sponsor-body-padding);
+  padding: var(--ticket-body-padding);
   margin: 0 1.5%;
   max-width: 960px;
   width: 100%;
@@ -235,9 +235,9 @@
   }
 
   .ticket {
-    --sponsor-padding: calc(var(--unit) * 2) 0;
-    --sponsor-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 6);
-    --sponsor-term-margin: calc(var(--unit) * 5) auto 0;
+    --ticket-padding: calc(var(--unit) * 2) 0;
+    --ticket-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 6);
+    --ticket-term-margin: calc(var(--unit) * 5) auto 0;
   }
 
   .purchase-ticket-button {
