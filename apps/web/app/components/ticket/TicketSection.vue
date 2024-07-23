@@ -109,6 +109,11 @@
           </VFLinkButton>
         </div>
       </section>
+      <div class="separator">
+        <span class="triangle" />
+        <span class="triangle" />
+        <span class="triangle" />
+      </div>
     </article>
   </div>
 </template>
@@ -122,7 +127,8 @@
   --ticket-term-margin: calc(var(--unit) * 5) auto 0;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-image: url('/sponsor/sponsor-bg-grid.png'),
     linear-gradient(to bottom, #35495e, #353b5e);
   background-position: top -1px left -1px;
@@ -172,7 +178,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px;
+  padding: 80px 80px 0 80px;
 }
 
 .ticket-cards-title {
@@ -227,6 +233,23 @@
   max-width: 260px;
   height: var(--height-button);
   border-radius: var(--height-button);
+}
+
+.separator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 235px;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
 }
 
 @media (--tablet) {
