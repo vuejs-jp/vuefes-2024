@@ -19,7 +19,7 @@ import { ticketUrl } from '~/utils/constants'
         <img alt="" :src="`/sponsor/merit-${i}.jpg`" />
       </VFMeritCard>
     </div>
-    <div class="explain">
+    <div class="personal-sponsor-text">
       <MarkDownText path="personal_sponsor_2" />
     </div>
     <div class="apply">

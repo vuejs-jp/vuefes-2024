@@ -35,8 +35,11 @@
   color: white;
 
   &::v-deep h4 {
+    --body-h4-margin-bottom: calc(var(--unit) * 1.5);
+
     font-size: 18px;
     font-weight: 700;
+    margin-bottom: var(--body-h4-margin-bottom);
   }
 
   &::v-deep a {
@@ -50,10 +53,17 @@
   }
 
   &:deep(p) {
-    --body-p-margin-bottom: calc(var(--unit) * 4);
+    --body-p-margin-bottom: calc(var(--unit) * 1.5);
     font-size: 18px;
     font-weight: 500;
 
+    margin-bottom: var(--body-p-margin-bottom);
+  }
+
+  &::v-deep ul {
+    --body-p-margin-bottom: calc(var(--unit) * 1.5);
+
+    list-style-type: disc;
     margin-bottom: var(--body-p-margin-bottom);
   }
 }

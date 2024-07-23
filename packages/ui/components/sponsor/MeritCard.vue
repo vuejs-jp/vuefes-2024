@@ -1,8 +1,5 @@
 <script setup lang="ts">
-// import PolygonSvg from '~/assets/sponsor/polygon.svg'
-
 interface MeritProps {
-  id?: number
   title: string
   detail: string
   caution?: string
@@ -14,14 +11,6 @@ const props = defineProps<MeritProps>()
 <template>
   <div class="merit">
     <div class="merit-card">
-      <!--
-      <div class="merit-id">
-        {{ id }}
-      </div>
-      <div class="polygon">
-        <PolygonSvg />
-      </div>
-      -->
       <div class="image">
         <slot />
       </div>
@@ -52,43 +41,8 @@ const props = defineProps<MeritProps>()
   background: var(--color-white);
 }
 
-/*.merit-id {
-  position: absolute;
-  top: 2%;
-  left: 2%;
-  z-index: 1;
-  color: var(--color-white);
-  font-size: 18px;
-  font-weight: 800;
-}
-
-.polygon {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.polygon ::v-deep(svg) {
-  width: 80px;
-  height: 80px;
-}*/
-
 .image {
   text-align: center;
-}
-
-.image ::v-deep(svg) {
-  width: 160px;
-}
-
-.image ::v-deep(a) {
-  display: block;
-  width: 300px;
-  margin: 0 auto;
-  background: var(--color-vue-blue);
-  color: var(--color-white);
-  padding: calc(var(--unit) * 1) 0;
-  border-radius: calc(var(--unit) * 6.25);
 }
 
 .merit-item {
@@ -123,25 +77,15 @@ const props = defineProps<MeritProps>()
   }
 
   .merit-card {
-    width: 114px;
-    height: 83px;
+    width: 343px;
+    height: 228px;
   }
 
-  /*.merit-id {
-    font-size: 14px;
-  }
-
-  .polygon ::v-deep(svg) {
-    width: 48px;
-    height: 48px;
-  }*/
-
-  .image ::v-deep(img) {
-    width: 100%;
-  }
-
-  .image ::v-deep(svg) {
-    width: 40px;
+  .image {
+    margin: 0 auto;
+    width: 343px;
+    display: flex;
+    justify-content: center;
   }
 
   .merit-item ::v-deep(h4) {
