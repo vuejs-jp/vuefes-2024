@@ -62,6 +62,8 @@ create table if not exists public.jobs (
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
 
+ALTER TABLE public.jobs ALTER COLUMN image_alt TYPE varchar(500);
+
 alter table
   public.jobs enable row level security;
 
