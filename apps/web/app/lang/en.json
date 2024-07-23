@@ -128,6 +128,34 @@
     "map": "https://maps.app.goo.gl/ohaSGdrjQ3pt152C9",
     "map_text": "View on Google Maps"
   },
+  "childcare": {
+    "title": "Child Care",
+    "apply": "Apply"
+  },
+  "personal_sponsor": {
+    "title": "Personal Sponsor",
+    "merit1": {
+      "title": "Credit Listing",
+      "detail": "We will feature your name on the Vue Fes Japan official website (upon request)."
+    },
+    "merit2": {
+      "title": "Vue Fes Japan 2024 Staff Exclusive T-shirt",
+      "detail": "You will receive a limited edition T-shirt available exclusively to staff members.",
+      "caution": "- Sizes range from S to XXXL. Please specify your size when purchasing tickets.\n- T-shirts will be distributed only at the venue on the day of the event. Shipping is not available."
+    },
+    "merit3": {
+      "title": "Priority Entry",
+      "detail": "We will provide a dedicated priority lane for individual sponsors at the on-site registration. This allows for smooth entry without having to wait in line."
+    },
+    "merit4": {
+      "title": "Priority Seating",
+      "detail": "Priority seating will be provided at the front row of each track venue.",
+      "caution": "*If seats are available after the session begins, they will be open to general attendees as well.*"
+    }
+  },
+  "handson": {
+    "title": "Hands-on"
+  },
   "partner": {
     "title": "Partners"
   },
