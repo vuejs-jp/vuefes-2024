@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
       })
       .sort((a: Staff, b: Staff) => {
         if (a.display_order) return -1
-        if (b.display_order) return -1
+        if (b.display_order) return 1
         if (!a.display_order) return a.name < b.name ? -1 : 1
         if (!b.display_order) return a.name < b.name ? -1 : 1
         return a.display_order - b.display_order
