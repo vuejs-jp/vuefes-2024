@@ -29,6 +29,7 @@ export function useLocale(path: Path) {
       .with('sponsor', () => `/${locale.value}/sponsor`)
       .with('code-of-conduct', () => `/${locale.value}/code-of-conduct`)
       .with('team', () => `/${locale.value}/team`)
+      .with('ticket', () => `/${locale.value}/ticket`)
       .with('namecard_lead', () => `/${locale.value}/namecard_lead`)
       .with('namecard_process_1', () => `/${locale.value}/namecard_process_1`)
       .with('namecard_process_2', () => `/${locale.value}/namecard_process_2`)
