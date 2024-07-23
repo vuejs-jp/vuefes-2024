@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { team as teamData } from '~/utils/constants'
 import type { StaffInfo } from '@vuejs-jp/model'
-import { useRuntimeConfig } from '#imports'
+import { useFetch, useRuntimeConfig } from '#imports'
 
 type Staffs = Record<'allStaffs', StaffInfo>
 
 const config = useRuntimeConfig()
 
-const data = await $fetch('/api/staffs')
-const { allStaffs } = data as Staffs
+const { data, error } = await useFetch('/api/staffs')
+if (error.value) {
+  console.error(error.value)
+}
+const { allStaffs } = data.value as Staffs
 const team = config.public.staffDatasource === 'supabase' ? allStaffs.list : teamData
 </script>
 
