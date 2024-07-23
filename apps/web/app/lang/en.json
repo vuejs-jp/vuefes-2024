@@ -156,6 +156,9 @@
     "button": "Back to Top"
   },
   "namecard": {
+    "sectionTitle1": "＼  With your avatar and name on it!  ／",
+    "sectionTitle2": "Namecard",
+    "createNamecard": "Create Namecard",
     "title_edit": "Create/Edit Name Card",
     "edit": "Edit",
     "login": "Login",
