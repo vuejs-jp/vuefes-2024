@@ -56,8 +56,8 @@ useHead({
       <div class="detailbody-persons">
         <VFSpeaker
           :image="speakerData[0].image_url"
-          :company="currentLocale === 'en' ? speakerData[0].caption_en : speakerData[0].caption_ja"
-          :division="currentLocale === 'en' ? speakerData[0].description_en : speakerData[0].description_ja"
+          :company="currentLocale === 'en' ? speakerData[0].company_en : speakerData[0].company_ja"
+          :division="currentLocale === 'en' ? speakerData[0].position_en : speakerData[0].position_ja"
           :name="currentLocale === 'en' ? speakerData[0].name_en : speakerData[0].name_ja"
           :github-id="speakerData[0].github_id"
           :x-id="speakerData[0].x_id"

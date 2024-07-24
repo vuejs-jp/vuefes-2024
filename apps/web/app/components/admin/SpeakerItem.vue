@@ -19,8 +19,10 @@ const newSpeaker = ref<FormSpeaker>({
   name_en: props.speaker?.name_en ?? '',
   detail_page_id: props.speaker?.detail_page_id ?? '',
   image_url: props.speaker?.image_url ?? '',
-  caption_ja: props.speaker?.caption_ja ?? '',
-  caption_en: props.speaker?.caption_en ?? '',
+  company_ja: props.speaker?.company_ja ?? '',
+  company_en: props.speaker?.company_en ?? '',
+  position_ja: props.speaker?.position_ja ?? '',
+  position_en: props.speaker?.position_en ?? '',
   description_ja: props.speaker?.description_ja ?? '',
   description_en: props.speaker?.description_en ?? '',
   github_id: props.speaker?.github_id ?? '',
@@ -65,11 +67,17 @@ const checkFiles = async (files: File[]) => {
 
   newSpeaker.value.image_url = getFullAvatarUrl(filePath)
 }
-const updateCaptionJa = (e: any) => {
-  newSpeaker.value.caption_ja = e.target.value
+const updateCompanyJa = (e: any) => {
+  newSpeaker.value.company_ja = e.target.value
 }
-const updateCaptionEn = (e: any) => {
-  newSpeaker.value.caption_en = e.target.value
+const updateCompanyEn = (e: any) => {
+  newSpeaker.value.company_en = e.target.value
+}
+const updatePositionJa = (e: any) => {
+  newSpeaker.value.position_ja = e.target.value
+}
+const updatePositionEn = (e: any) => {
+  newSpeaker.value.position_en = e.target.value
 }
 const updateDescriptionJa = (e: any) => {
   newSpeaker.value.description_ja = e.target.value
@@ -138,18 +146,32 @@ const onSubmit = () => {
           </div>
         </VFDragDropArea>
         <VFInputField
-          id="caption_ja"
-          v-model="newSpeaker.caption_ja"
-          name="caption_ja"
-          label="肩書き [JA]"
-          @input="updateCaptionJa"
+          id="company_ja"
+          v-model="newSpeaker.company_ja"
+          name="company_ja"
+          label="企業 [JA]"
+          @input="updateCompanyJa"
         />
         <VFInputField
-          id="caption_en"
-          v-model="newSpeaker.caption_en"
-          name="caption_en"
+          id="company_en"
+          v-model="newSpeaker.company_en"
+          name="company_en"
+          label="企業 [EN]"
+          @input="updateCompanyEn"
+        />
+        <VFInputField
+          id="position_ja"
+          v-model="newSpeaker.position_ja"
+          name="position_ja"
+          label="肩書き [JA]"
+          @input="updatePositionJa"
+        />
+        <VFInputField
+          id="position_en"
+          v-model="newSpeaker.position_en"
+          name="position_ja"
           label="肩書き [EN]"
-          @input="updateCaptionEn"
+          @input="updatePositionEn"
         />
         <VFTextAreaField
           id="description_ja"

@@ -114,6 +114,14 @@ ALTER TABLE public.speakers ADD COLUMN detail_page_id varchar(40);
 
 ALTER TABLE public.speakers ADD COLUMN events text array;
 
+ALTER TABLE public.speakers RENAME COLUMN caption_ja TO company_ja;
+
+ALTER TABLE public.speakers RENAME COLUMN caption_en TO company_en;
+
+ALTER TABLE public.speakers ADD COLUMN position_ja varchar(100);
+
+ALTER TABLE public.speakers ADD COLUMN position_en varchar(100);
+
 alter table
   public.speakers enable row level security;
 
