@@ -12,7 +12,6 @@ const currentLocale = useLocaleCurrent().locale
 </script>
 
 <template>
-  <h4>{{ $t('event.scheduled_speakers') }}</h4>
   <div class="eventcard-persons">
     <VFSpeaker
       v-for="paneler in panelers"
@@ -33,6 +32,7 @@ const currentLocale = useLocaleCurrent().locale
 
   display: flex;
   gap: calc(var(--unit) * 2);
+  padding: 0 calc(var(--unit) * 2);
 }
 
 .eventcard-persons ::v-deep(img) {

@@ -27,6 +27,11 @@ export function useLocale(path: Path) {
       .with('store_preorder', () => `/${locale.value}/store_preorder`)
       .with('store_samedaysales', () => `/${locale.value}/store_samedaysales`)
       .with('sponsor', () => `/${locale.value}/sponsor`)
+      .with('childcare', () => `/${locale.value}/childcare`)
+      .with('personal_sponsor_1', () => `/${locale.value}/personal_sponsor_1`)
+      .with('personal_sponsor_2', () => `/${locale.value}/personal_sponsor_2`)
+      .with('handson', () => `/${locale.value}/handson`)
+      .with('faq', () => `/${locale.value}/faq`)
       .with('code-of-conduct', () => `/${locale.value}/code-of-conduct`)
       .with('team', () => `/${locale.value}/team`)
       .with('ticket', () => `/${locale.value}/ticket`)
@@ -36,6 +41,7 @@ export function useLocale(path: Path) {
       .with('namecard_process_3', () => `/${locale.value}/namecard_process_3`)
       .with('namecard_process_4', () => `/${locale.value}/namecard_process_4`)
       .with('namecard_process_alert', () => `/${locale.value}/namecard_process_alert`)
+      .with('namecard_annotation_order_number', () => `/${locale.value}/namecard_annotation_order_number`)
       .exhaustive(),
   )
 

@@ -6,6 +6,9 @@
   "not_found": "The page you are looking for cannot be found.",
   "prefix_year": "",
   "suffix_year": "2024",
+  "invite_vue_fes": "Would you like to join Vue Fes Japan 2024 as well?",
+  "share_namecard": "Let's share this name card on social media!",
+  "official_site": "Vue Fes Japan Official Website",
   "top_page": {
     "latest_information": "Get the latest information on our official social media",
     "date": "October 19th, 2024",
@@ -125,6 +128,34 @@
     "map": "https://maps.app.goo.gl/ohaSGdrjQ3pt152C9",
     "map_text": "View on Google Maps"
   },
+  "childcare": {
+    "title": "Child Care",
+    "apply": "Apply"
+  },
+  "personal_sponsor": {
+    "title": "Personal Sponsor",
+    "merit1": {
+      "title": "Credit Listing",
+      "detail": "We will feature your name on the Vue Fes Japan official website (upon request)."
+    },
+    "merit2": {
+      "title": "Vue Fes Japan 2024 Staff Exclusive T-shirt",
+      "detail": "You will receive a limited edition T-shirt available exclusively to staff members.",
+      "caution": "- Sizes range from S to XXXL. Please specify your size when purchasing tickets.\n- T-shirts will be distributed only at the venue on the day of the event. Shipping is not available."
+    },
+    "merit3": {
+      "title": "Priority Entry",
+      "detail": "We will provide a dedicated priority lane for individual sponsors at the on-site registration. This allows for smooth entry without having to wait in line."
+    },
+    "merit4": {
+      "title": "Priority Seating",
+      "detail": "Priority seating will be provided at the front row of each track venue.",
+      "caution": "*If seats are available after the session begins, they will be open to general attendees as well.*"
+    }
+  },
+  "handson": {
+    "title": "Hands-on"
+  },
   "partner": {
     "title": "Partners"
   },
@@ -162,8 +193,11 @@
     "title_edit": "Create/Edit Name Card",
     "edit": "Edit",
     "login": "Login",
-    "namecard-samples-alt": "Name card samples",
-    "creation-process": {
+    "dialog_message": "To create a name card, you need to purchase a ticket in advance. After purchasing your ticket, log in using one of the following social accounts and register the necessary information.",
+    "namecard_samples_alt": "Name card samples",
+    "complete_message": "We will now verify your order number. You can check the status of the order number verification on the name card page. Please ensure that the verification is successfully completed before the editing deadline.",
+    "lets_share": "Share your created name card on social media!",
+    "creation_process": {
       "title": "Name Card Creation Process"
     },
     "creation_status": {
@@ -177,10 +211,13 @@
       "label_avatar": "アバター／Avatar",
       "label_order_number": "Order Number",
       "annotation_name": "Up to 12 full-width characters (24 half-width characters)",
-      "annotation_order_number": "* The order number can be found in the receipt data included in the email sent by Peatix when you purchase a ticket.",
+      "annotation_avatar": "*  Upload a square image (aspect ratio 1:1) for your avatar.",
       "placeholder_order_number": "Please enter the order number",
       "submit": "Submit",
-      "registrationCompleted": "The name card information has been successfully registered!"
+      "registrationCompleted": "The name card information has been successfully registered!",
+      "drag_and_drop": "Drag & drop a file",
+      "or": "or",
+      "select_file": "Select a file"
     }
   }
 }

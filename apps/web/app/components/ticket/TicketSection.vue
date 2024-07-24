@@ -1,142 +1,122 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ticketUrl } from '~/utils/constants'
+</script>
 
 <template>
-  <div class="ticket">
-    <article class="ticket-body">
-      <VFTitle color="white" class="title" id="ticket">
-        {{ $t('ticket.title') }}
-      </VFTitle>
+  <article class="ticket-body">
+    <VFTitle id="ticket" color="white" class="title">
+      {{ $t('ticket.title') }}
+    </VFTitle>
 
-      <div class="ticket-text">
-        <MarkDownText path="ticket" />
+    <div class="ticket-text">
+      <MarkDownText path="ticket" />
+    </div>
+
+    <div class="ticket-button-wrapper">
+      <VFLinkButton
+        class="purchase-ticket-button"
+        :href="ticketUrl"
+        background-color="vue-green/200"
+        color="white"
+      >
+        {{ $t('ticket.purchaseButton') }}
+      </VFLinkButton>
+    </div>
+
+    <section class="ticket-cards">
+      <h3 class="ticket-cards-title">
+        {{ $t('ticket.ticketTypes') }}
+      </h3>
+      <div class="ticket-cards-container">
+        <VFTicketCard :title="$t('ticket.card.ippan.title')" img-src="ticket/ippan.jpg">
+          <div class="ticket-details ippan-details">
+            <div class="early-purchase">
+              <span class="cost">
+                {{ $t('ticket.card.ippan.early') }}
+              </span>
+              <span class="cost-details">
+                {{ $t('ticket.card.ippan.earlySub') }}
+              </span>
+            </div>
+            <div class="standard-purchase">
+              <span class="cost">
+                {{ $t('ticket.card.ippan.regular') }}
+              </span>
+            </div>
+          </div>
+        </VFTicketCard>
+        <VFTicketCard :title="$t('ticket.card.ippanParty.title')" img-src="ticket/ippan-party.jpg">
+          <div class="ticket-details ippan-party-details">
+            <div class="early-purchase">
+              <span class="cost">
+                {{ $t('ticket.card.ippanParty.early') }}
+              </span>
+              <span class="cost-details">
+                {{ $t('ticket.card.ippanParty.earlySub') }}
+              </span>
+            </div>
+            <div class="standard-purchase">
+              <span class="cost">
+                {{ $t('ticket.card.ippanParty.regular') }}
+              </span>
+            </div>
+          </div>
+        </VFTicketCard>
+        <VFTicketCard :title="$t('ticket.card.handsOn.title')" img-src="ticket/hands-on.jpg">
+          <div class="ticket-details hands-on-details">
+            <div class="cost">
+              {{ $t('ticket.card.handsOn.cost') }}
+            </div>
+            <div class="cost-details">
+              <span>
+                {{ $t('ticket.card.handsOn.details1') }}
+              </span>
+              <span>
+                {{ $t('ticket.card.handsOn.details2') }}
+              </span>
+            </div>
+          </div>
+        </VFTicketCard>
+        <VFTicketCard
+          :title="$t('ticket.card.individualSponsor.title')"
+          img-src="ticket/individual-sponsor.jpg"
+        >
+          <div class="ticket-details individual-sponsor-details">
+            <div class="cost">
+              {{ $t('ticket.card.individualSponsor.cost') }}
+            </div>
+            <div class="cost-details">
+              <span>
+                {{ $t('ticket.card.individualSponsor.details1') }}
+              </span>
+              <span>
+                {{ $t('ticket.card.individualSponsor.details2') }}
+              </span>
+            </div>
+          </div>
+        </VFTicketCard>
       </div>
-
       <div class="ticket-button-wrapper">
         <VFLinkButton
           class="purchase-ticket-button"
-          href="https://vuefes2024.peatix.com"
+          :href="ticketUrl"
           background-color="vue-green/200"
           color="white"
         >
           {{ $t('ticket.purchaseButton') }}
         </VFLinkButton>
       </div>
-
-      <section class="ticket-cards">
-        <h3 class="ticket-cards-title">
-          {{ $t('ticket.ticketTypes') }}
-        </h3>
-        <div class="ticket-cards-container">
-          <VFTicketCard :title="$t('ticket.card.ippan.title')" img-src="ticket/ippan.jpg">
-            <div class="ticket-details ippan-details">
-              <div class="early-purchase">
-                <span class="cost">
-                  {{ $t('ticket.card.ippan.early') }}
-                </span>
-                <span class="cost-details">
-                  {{ $t('ticket.card.ippan.earlySub') }}
-                </span>
-              </div>
-              <div class="standard-purchase">
-                <span class="cost">
-                  {{ $t('ticket.card.ippan.regular') }}
-                </span>
-              </div>
-            </div>
-          </VFTicketCard>
-          <VFTicketCard
-            :title="$t('ticket.card.ippanParty.title')"
-            img-src="ticket/ippan-party.jpg"
-          >
-            <div class="ticket-details ippan-party-details">
-              <div class="early-purchase">
-                <span class="cost">
-                  {{ $t('ticket.card.ippanParty.early') }}
-                </span>
-                <span class="cost-details">
-                  {{ $t('ticket.card.ippanParty.earlySub') }}
-                </span>
-              </div>
-              <div class="standard-purchase">
-                <span class="cost">
-                  {{ $t('ticket.card.ippanParty.regular') }}
-                </span>
-              </div>
-            </div>
-          </VFTicketCard>
-          <VFTicketCard :title="$t('ticket.card.handsOn.title')" img-src="ticket/hands-on.jpg">
-            <div class="ticket-details hands-on-details">
-              <div class="cost">
-                {{ $t('ticket.card.handsOn.cost') }}
-              </div>
-              <div class="cost-details">
-                <span>
-                  {{ $t('ticket.card.handsOn.details1') }}
-                </span>
-                <span>
-                  {{ $t('ticket.card.handsOn.details2') }}
-                </span>
-              </div>
-            </div>
-          </VFTicketCard>
-          <VFTicketCard
-            :title="$t('ticket.card.individualSponsor.title')"
-            img-src="ticket/individual-sponsor.jpg"
-          >
-            <div class="ticket-details individual-sponsor-details">
-              <div class="cost">
-                {{ $t('ticket.card.individualSponsor.cost') }}
-              </div>
-              <div class="cost-details">
-                <span>
-                  {{ $t('ticket.card.individualSponsor.details1') }}
-                </span>
-                <span>
-                  {{ $t('ticket.card.individualSponsor.details2') }}
-                </span>
-              </div>
-            </div>
-          </VFTicketCard>
-        </div>
-        <div class="ticket-button-wrapper">
-          <VFLinkButton
-            class="purchase-ticket-button"
-            href="https://vuefes2024.peatix.com"
-            background-color="vue-green/200"
-            color="white"
-          >
-            {{ $t('ticket.purchaseButton') }}
-          </VFLinkButton>
-        </div>
-      </section>
-      <div class="separator">
-        <span class="triangle" />
-        <span class="triangle" />
-        <span class="triangle" />
-      </div>
-    </article>
-  </div>
+    </section>
+    <div class="separator">
+      <span class="triangle" />
+      <span class="triangle" />
+      <span class="triangle" />
+    </div>
+  </article>
 </template>
 
 <style scoped>
 @import url('~/assets/media.css');
-
-.ticket {
-  --ticket-padding: calc(var(--unit) * 5.25) 0;
-  --ticket-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
-  --ticket-term-margin: calc(var(--unit) * 5) auto 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-image: url('/sponsor/sponsor-bg-grid.png'),
-    linear-gradient(to bottom, #35495e, #353b5e);
-  background-position: top -1px left -1px;
-  background-size: 30px;
-  background-blend-mode: overlay;
-  padding: var(--ticket-padding);
-  color: var(--color-vue-blue);
-}
 
 .title {
   text-align: center;
@@ -144,6 +124,8 @@
 }
 
 .ticket-body {
+  --ticket-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
+
   margin: 0 auto;
   padding: var(--ticket-body-padding);
   margin: 0 1.5%;
@@ -255,12 +237,6 @@
 @media (--tablet) {
   .ticket-cards-container {
     grid-template-columns: repeat(1, auto);
-  }
-
-  .ticket {
-    --ticket-padding: calc(var(--unit) * 2) 0;
-    --ticket-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 6);
-    --ticket-term-margin: calc(var(--unit) * 5) auto 0;
   }
 
   .purchase-ticket-button {

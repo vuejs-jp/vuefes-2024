@@ -1,5 +1,6 @@
 export type Color =
   | 'white'
+  | 'black'
   | 'vue-blue'
   | 'vue-green'
   | 'vue-green/100'

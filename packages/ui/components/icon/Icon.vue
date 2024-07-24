@@ -24,7 +24,7 @@ const svgComponent = match<IconName>(props.name)
   .with('x40', () =>
     defineAsyncComponent(() => import('../../assets/icon/x_40_icon.svg?component')),
   )
-  .with('Facebook40', () =>
+  .with('Facebook', () =>
     defineAsyncComponent(() => import('../../assets/icon/facebook_icon.svg?component')),
   )
   .with('note', () =>
@@ -43,13 +43,13 @@ const svgComponent = match<IconName>(props.name)
     defineAsyncComponent(() => import('../../assets/icon/github_32_icon.svg?component')),
   )
   .with('Google24', () =>
-    defineAsyncComponent(() => import('../../assets/icon/google_icon.svg?component')),
-  )
-  .with('menu', () =>
-    defineAsyncComponent(() => import('../../assets/icon/menu_icon.svg?component')),
+    defineAsyncComponent(() => import('../../assets/icon/google_24_icon.svg?component')),
   )
   .with('Google32', () =>
     defineAsyncComponent(() => import('../../assets/icon/google_32_icon.svg?component')),
+  )
+  .with('menu', () =>
+    defineAsyncComponent(() => import('../../assets/icon/menu_icon.svg?component')),
   )
   .with('close', () =>
     defineAsyncComponent(() => import('../../assets/icon/close_icon.svg?component')),

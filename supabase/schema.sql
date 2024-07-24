@@ -33,6 +33,8 @@ ALTER TABLE public.sponsors ADD COLUMN display_order int;
 
 ALTER TABLE public.sponsors ADD COLUMN detail_page_id varchar(40);
 
+ALTER TABLE public.sponsors ADD COLUMN share_image_url varchar(500);
+
 alter table
   public.sponsors enable row level security;
 
@@ -59,6 +61,8 @@ create table if not exists public.jobs (
   created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
+
+ALTER TABLE public.jobs ALTER COLUMN image_alt TYPE varchar(500);
 
 alter table
   public.jobs enable row level security;
@@ -136,6 +140,8 @@ create table if not exists public.staffs (
   created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
+
+ALTER TABLE public.staffs ADD COLUMN detail_page_id varchar(40);
 
 alter table
   public.staffs enable row level security;

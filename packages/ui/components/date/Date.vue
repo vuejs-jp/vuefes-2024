@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { Color } from '@vuejs-jp/model'
 
 export type DateProps = {
   prefixYear?: string
   suffixYear?: string
   date: string
   dayOfWeek?: string
+  color?: Color
 }
 
-defineProps<DateProps>()
+withDefaults(defineProps<DateProps>(), {
+  color: 'vue-blue',
+})
 
 const { fontWeight, fontSize } = useTypography()
-const { color } = useColor()
+const { color: textColor } = useColor()
 </script>
 
 <template>
@@ -20,7 +24,7 @@ const { color } = useColor()
     <span
       v-if="prefixYear"
       :style="{
-        color: color('vue-blue'),
+        color: textColor(color),
       }"
       class="year prefix-year"
     >
@@ -29,7 +33,7 @@ const { color } = useColor()
     <!-- date -->
     <span
       :style="{
-        color: color('vue-blue'),
+        color: textColor(color),
       }"
       class="date"
     >
@@ -41,8 +45,8 @@ const { color } = useColor()
       :style="{
         fontSize: fontSize('other/200'),
         fontWeight: fontWeight('other/200'),
-        background: color('vue-blue'),
-        color: color('white'),
+        background: textColor(color === 'vue-blue' ? 'vue-blue' : 'white'),
+        color: textColor(color === 'vue-blue' ? 'white' : 'vue-blue'),
       }"
       class="day-of-week"
     >
@@ -52,7 +56,7 @@ const { color } = useColor()
     <span
       v-if="suffixYear"
       :style="{
-        color: color('vue-blue'),
+        color: textColor(color),
       }"
       class="year suffix-year"
     >

@@ -2,7 +2,7 @@ export type IconName =
   | 'x'
   | 'x24'
   | 'x40'
-  | 'Facebook40'
+  | 'Facebook'
   | 'note'
   | 'YouTube'
   | 'GitHub'

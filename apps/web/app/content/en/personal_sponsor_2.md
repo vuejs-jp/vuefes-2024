@@ -1,0 +1,1 @@
+Please note that attending Vue Fes Japan requires both an individual sponsor ticket and a general admission ticket. You cannot enter with the individual sponsor ticket alone, so please be aware of this requirement. If you do not attend on the day of the event, it is also possible to purchase the individual sponsor ticket separately (benefits will be limited to name credit only).
