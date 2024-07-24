@@ -64,6 +64,7 @@ const {
   afterPartySponsors,
   nameCardSponsors,
   simultaneousInterpretationSponsors,
+  childcareSponsors,
   mediaSponsors,
   toolSponsors,
 } = data.value as Sponsors
@@ -156,6 +157,7 @@ const {
         <SponsorList v-bind="nameCardSponsors" />
         <SponsorList v-bind="simultaneousInterpretationSponsors" />
       </div>
+      <SponsorList v-bind="childcareSponsors" />
       <SponsorList v-bind="mediaSponsors" />
       <SponsorList v-bind="toolSponsors" />
     </article>
