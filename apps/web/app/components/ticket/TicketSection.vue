@@ -128,6 +128,7 @@ import { ticketUrl } from '~/utils/constants'
 
   margin: 0 auto;
   padding: var(--ticket-body-padding);
+  padding-bottom: 0;
   margin: 0 1.5%;
   max-width: 960px;
   width: 100%;

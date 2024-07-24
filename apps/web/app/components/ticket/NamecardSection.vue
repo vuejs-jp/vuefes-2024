@@ -1,64 +1,46 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ticketUrl } from '~/utils/constants'
+</script>
 
 <template>
-  <div class="namecard">
-    <article class="namecard-body">
-      <div class="title-wrapper">
-        <span class="title-1">{{ $t('namecard.sectionTitle1') }}</span>
-        <VFTitle color="white" class="title-2" id="namecard">
-          {{ $t('namecard.sectionTitle2') }}
-        </VFTitle>
-      </div>
+  <article class="namecard-body">
+    <div class="title-wrapper">
+      <span class="title-1">{{ $t('namecard.sectionTitle1') }}</span>
+      <VFTitle color="white" class="title-2" id="namecard">
+        {{ $t('namecard.sectionTitle2') }}
+      </VFTitle>
+    </div>
 
-      <div class="namecard-text">
-        <MarkDownText path="namecard_lead" />
-      </div>
+    <div class="namecard-text">
+      <MarkDownText path="namecard_lead" />
+    </div>
 
-      <div class="content-wrapper">
-        <img :src="'namecard/namecard-samples.png'" alt="test" />
-        <div class="buttons-wrapper">
-          <VFLinkButton
-            class="action-button"
-            href="https://vuefes2024.peatix.com"
-            background-color="vue-green/200"
-            color="white"
-          >
-            {{ $t('namecard.createNamecard') }}
-          </VFLinkButton>
-          <VFLinkButton
-            class="action-button"
-            href="https://vuefes2024.peatix.com"
-            background-color="vue-green/200"
-            color="white"
-          >
-            {{ $t('ticket.purchaseButton') }}
-          </VFLinkButton>
-        </div>
+    <div class="content-wrapper">
+      <img :src="'namecard/namecard-samples.png'" alt="test" />
+      <div class="buttons-wrapper">
+        <VFLinkButton
+          class="action-button"
+          href="/namecard"
+          background-color="vue-green/200"
+          color="white"
+        >
+          {{ $t('namecard.createNamecard') }}
+        </VFLinkButton>
+        <VFLinkButton
+          class="action-button"
+          :href="ticketUrl"
+          background-color="vue-green/200"
+          color="white"
+        >
+          {{ $t('ticket.purchaseButton') }}
+        </VFLinkButton>
       </div>
-    </article>
-  </div>
+    </div>
+  </article>
 </template>
 
 <style scoped>
 @import url('~/assets/media.css');
-
-.namecard {
-  --namecard-padding: calc(var(--unit) * 5.25) 0;
-  --namecard-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
-  --namecard-term-margin: calc(var(--unit) * 5) auto 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-image: url('/sponsor/sponsor-bg-grid.png');
-  background-color: #353b5e;
-  background-position: top -1px left -1px;
-  background-size: 30px;
-  background-blend-mode: overlay;
-  padding: var(--sponsor-padding);
-  padding-top: 0;
-  color: var(--color-vue-blue);
-}
 
 .title-wrapper {
   display: flex;
@@ -76,6 +58,8 @@
 }
 
 .namecard-body {
+  --namecard-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
+
   margin: 0 auto;
   padding: var(--namecard-body-padding);
   padding-top: 0;
