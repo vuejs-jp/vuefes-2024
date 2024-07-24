@@ -4,4 +4,4 @@ As options, we also offer hands-on and individual sponsor tickets.
 
 We will use Peatix as the ticket sales platform. At the time of the release, a link to purchase tickets will be posted on this website. After purchasing tickets, an email with application details will be automatically sent from Peatix. By installing the Peatix app through the link provided in the email, your ticket will be displayed, so please present it at the reception on the day of the event.
 
-If you purchase by 24:00 on Monday, August 12, you can take advantage of an early bird discount, so be sure to get your tickets early!
+If you purchase by August 25 24:00, you can take advantage of an early bird discount, so be sure to get your tickets early!
