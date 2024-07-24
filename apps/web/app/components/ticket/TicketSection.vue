@@ -8,7 +8,6 @@ import { ticketUrl } from '~/utils/constants'
       {{ $t('ticket.title') }}
     </VFTitle>
 
-
     <div class="ticket-text">
       <MarkDownText path="ticket" />
     </div>
@@ -16,7 +15,7 @@ import { ticketUrl } from '~/utils/constants'
     <div class="ticket-button-wrapper">
       <VFLinkButton
         class="purchase-ticket-button"
-        href="https://vuefes2024.peatix.com"
+        :href="ticketUrl"
         background-color="vue-green/200"
         color="white"
       >
@@ -46,10 +45,7 @@ import { ticketUrl } from '~/utils/constants'
             </div>
           </div>
         </VFTicketCard>
-        <VFTicketCard
-          :title="$t('ticket.card.ippanParty.title')"
-          img-src="ticket/ippan-party.jpg"
-        >
+        <VFTicketCard :title="$t('ticket.card.ippanParty.title')" img-src="ticket/ippan-party.jpg">
           <div class="ticket-details ippan-party-details">
             <div class="early-purchase">
               <span class="cost">
@@ -111,6 +107,11 @@ import { ticketUrl } from '~/utils/constants'
         </VFLinkButton>
       </div>
     </section>
+    <div class="separator">
+      <span class="triangle" />
+      <span class="triangle" />
+      <span class="triangle" />
+    </div>
   </article>
 </template>
 
@@ -127,6 +128,7 @@ import { ticketUrl } from '~/utils/constants'
 
   margin: 0 auto;
   padding: var(--ticket-body-padding);
+  padding-bottom: 0;
   margin: 0 1.5%;
   max-width: 960px;
   width: 100%;
@@ -159,7 +161,7 @@ import { ticketUrl } from '~/utils/constants'
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px;
+  padding: 80px 80px 0 80px;
 }
 
 .ticket-cards-title {
@@ -214,6 +216,23 @@ import { ticketUrl } from '~/utils/constants'
   max-width: 260px;
   height: var(--height-button);
   border-radius: var(--height-button);
+}
+
+.separator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 235px;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
 }
 
 @media (--tablet) {
