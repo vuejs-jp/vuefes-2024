@@ -29,6 +29,10 @@ export const cfpEnUrl =
 export const volunteerUrl =
   'https://docs.google.com/forms/d/e/1FAIpQLSfiO98GwyyvpKLpNiEWWs8XfROudAu0WfCJnyfRI_96YvZivg/closedform'
 
+export const ticketUrl = 'https://vuefes2024.peatix.com'
+
+export const childCareUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeHWTkQNHvK4YEiFzVpNP0OUSQpQ6n1ZcR6tBV9YiK4DzTNhg/viewform'
+
 export const storeUrl = ''
 
 export const team = [
