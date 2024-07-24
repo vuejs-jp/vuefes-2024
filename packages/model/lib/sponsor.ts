@@ -11,6 +11,7 @@ export type SponsorCategory =
   | 'afterPartySponsors'
   | 'nameCardSponsors'
   | 'simultaneousInterpretationSponsors'
+  | 'childcareSponsors'
   | 'mediaSponsors'
   | 'toolSponsors'
 
@@ -21,6 +22,7 @@ export type OptionSponsorType =
   | 'naming-rights'
   | 'after-party'
   | 'simultaneous-interpretation'
+  | 'childcare'
   | 'special-lunch'
   | 'media'
   | 'tool'
