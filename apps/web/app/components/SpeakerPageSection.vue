@@ -31,8 +31,8 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.
           <li v-for="speaker in sessionSpeakers.list" :key="speaker.id" class="speaker-card">
             <VFSpeaker
               :image="speaker.image_url"
-              :company="currentLocale === 'en' ? speaker.caption_en : speaker.caption_ja"
-              :division="currentLocale === 'en' ? speaker.description_en : speaker.description_ja"
+              :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
+              :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
               :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
               :github-id="speaker.github_id"
               :x-id="speaker.x_id"
@@ -47,8 +47,8 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.
           <li v-for="speaker in lightningTalkSpeakers.list" :key="speaker.id" class="speaker-card">
             <VFSpeaker
               :image="speaker.image_url"
-              :company="currentLocale === 'en' ? speaker.caption_en : speaker.caption_ja"
-              :division="currentLocale === 'en' ? speaker.description_en : speaker.description_ja"
+              :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
+              :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
               :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
               :github-id="speaker.github_id"
               :x-id="speaker.x_id"
@@ -63,8 +63,8 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.
           <li v-for="speaker in sponsorSessionSpeakers.list" :key="speaker.id" class="speaker-card">
             <VFSpeaker
               :image="speaker.image_url"
-              :company="currentLocale === 'en' ? speaker.caption_en : speaker.caption_ja"
-              :division="currentLocale === 'en' ? speaker.description_en : speaker.description_ja"
+              :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
+              :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
               :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
               :github-id="speaker.github_id"
               :x-id="speaker.x_id"

@@ -156,8 +156,8 @@ export type Database = {
       }
       speakers: {
         Row: {
-          caption_en: string | null
-          caption_ja: string | null
+          company_en: string | null
+          company_ja: string | null
           created_at: string
           description_en: string
           description_ja: string
@@ -170,6 +170,8 @@ export type Database = {
           is_open: boolean
           name_en: string
           name_ja: string
+          position_en: string | null
+          position_ja: string | null
           session_comment_en: string | null
           session_comment_ja: string | null
           session_description_en: string | null
@@ -187,8 +189,8 @@ export type Database = {
           x_id: string | null
         }
         Insert: {
-          caption_en?: string | null
-          caption_ja?: string | null
+          company_en?: string | null
+          company_ja?: string | null
           created_at?: string
           description_en: string
           description_ja: string
@@ -201,6 +203,8 @@ export type Database = {
           is_open: boolean
           name_en: string
           name_ja: string
+          position_en: string | null
+          position_ja: string | null
           session_comment_en?: string | null
           session_comment_ja?: string | null
           session_description_en?: string | null
@@ -218,8 +222,8 @@ export type Database = {
           x_id?: string | null
         }
         Update: {
-          caption_en?: string | null
-          caption_ja?: string | null
+          company_en?: string | null
+          company_ja?: string | null
           created_at?: string
           description_en?: string
           description_ja?: string
@@ -232,6 +236,8 @@ export type Database = {
           is_open?: boolean
           name_en?: string
           name_ja?: string
+          position_en: string | null
+          position_ja: string | null
           session_comment_en?: string | null
           session_comment_ja?: string | null
           session_description_en?: string | null
