@@ -12,7 +12,6 @@ const { color } = useColor()
     <h1
       :style="{
         fontWeight: fontWeight('heading/700'),
-        fontSize: fontSize('heading/700'),
         color: color('vue-blue'),
       }"
       class="title"
@@ -35,7 +34,20 @@ const { color } = useColor()
   margin: 0 auto;
 }
 .title {
+  font-size: var(--title-size);
   margin-bottom: calc(var(--unit) * 5);
   text-align: center;
+}
+
+@media (--mobile) {
+  .namecard-base-layout {
+    --header-height: calc(var(--unit) * 9);
+    --content-padding: calc(var(--unit) * 7.5);
+    padding-left: 23.5px;
+    padding-right: 23.5px;
+  }
+  .title {
+    --title-size: var(--font-size-heading400);
+  }
 }
 </style>
