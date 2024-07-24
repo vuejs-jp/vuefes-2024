@@ -122,13 +122,20 @@ function onSubmit(e: Event) {
             @blur="validateOrderNumbere"
             ><div class="annotation"><MarkDownText path="namecard_annotation_order_number" /></div
           ></VFInputField>
-          <div class="form-buttons">
-            <!-- TODO ボタン キャンセルボタン スタイルを追加する -->
-            <VFSubmitButton id="submit-button" :disabled="!isSubmitting">
-              {{ $t('namecard.form.submit') }}
-            </VFSubmitButton>
-          </div>
         </form>
+      </div>
+      <div class="form-buttons">
+        <VFLinkButton
+          class="button cancel-button"
+          background-color="white"
+          color="vue-blue"
+          :href="`/namecard/${authUserId}`"
+          target="_self"
+          >{{ $t('cancel') }}</VFLinkButton
+        >
+        <VFSubmitButton id="submit-button" class="button submit-button" :disabled="!isSubmitting">
+          {{ $t('namecard.form.submit') }}
+        </VFSubmitButton>
       </div>
     </div>
   </NuxtLayout>
@@ -137,17 +144,37 @@ function onSubmit(e: Event) {
 <style scoped>
 @import url('~/assets/media.css');
 .namecard-edit-root {
-  /** TODO スタイル調整を行う 仮組でflex適応しているだけ */
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'namecard form form'
+    'namecard form form'
+    'button button button';
+
   max-width: 769px;
   margin: 0 auto;
   gap: 0 calc(var(--unit) * 8);
 }
-.namecard {
-  margin-bottom: calc(var(--unit) * 2);
+.preview-wrapper {
+  grid-area: namecard;
 }
 .form-wrapper {
+  grid-area: form;
   text-align: left;
+}
+.form-buttons {
+  --width-form-buttons: 474px;
+  grid-area: button;
+  width: var(--width-form-buttons);
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.namecard {
+  margin-bottom: calc(var(--unit) * 2);
 }
 
 .name,
@@ -168,6 +195,55 @@ function onSubmit(e: Event) {
   font-weight: 500;
   color: var(--color-vue-blue);
 }
+.button {
+  --button-width: 222px;
+  --button-height: 66px;
 
-/* TODO モバイル版スタイル */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--button-width);
+  height: var(--button-height);
+}
+
+@media (--mobile) {
+  .namecard-edit-root {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      'namecard'
+      'form'
+      'button';
+    gap: calc(var(--unit) * 5);
+  }
+  .preview-wrapper {
+    text-align: center;
+  }
+  .namecard {
+    margin: 0 auto calc(var(--unit) * 2);
+  }
+  .order-number {
+    margin-bottom: calc(var(--unit) * 5);
+  }
+  .form-buttons {
+    display: block;
+    --width-form-buttons: 100%;
+    text-align: center;
+  }
+  .cancel-button {
+    width: 222px;
+    margin-bottom: calc(var(--unit) * 2.5);
+
+    &:deep(.text) {
+      font-size: var(--font-size-body400);
+    }
+  }
+  .submit-button {
+    width: 198px;
+  }
+  .form-buttons :deep(.submit-button) {
+    font-size: var(--font-size-body400);
+    padding: 0;
+  }
+}
 </style>

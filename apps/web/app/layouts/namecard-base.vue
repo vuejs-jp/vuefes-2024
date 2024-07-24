@@ -34,6 +34,7 @@ const { color } = useColor()
   margin: 0 auto;
 }
 .title {
+  --title-size: var(--font-size-heading700);
   font-size: var(--title-size);
   margin-bottom: calc(var(--unit) * 5);
   text-align: center;
