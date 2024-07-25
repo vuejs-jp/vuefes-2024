@@ -38,23 +38,26 @@ const { authUserId, statusKey, attendee } = await useNamecard()
       <VFComment :title="t('namecard.lets_share')" class="share-comment" />
       <div class="sns-buttons">
         <VFIconButton
-          name="x"
-          color="black"
-          :href="`/namecard/${authUserId}/share/`"
+          name="x40"
+          color="vue-blue"
+          :href="`https://x.com/share?url=${encodeURIComponent(
+            `https://vuefes.jp/2024/namecard/${authUserId}/share`,
+          )}`"
           can-hover
           class="sns-button"
         />
         <VFIconButton
           name="Facebook"
-          color="black"
-          :href="`/namecard/${authUserId}/share/`"
-          can-hover
+          color="vue-blue"
+          :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+            `https://vuefes.jp/2024/namecard/${authUserId}/share`,
+          )}`"
           class="sns-button"
         />
       </div>
       <CreationStatus :status-key="statusKey" size="small" class="creation-status" />
-      <!-- TODO 24に置き換え&smallサイズ指定 -->
-      <VFNamecard23 :user="attendee" class="namecard-preview" />
+      <!-- TODO smallサイズ指定 -->
+      <VFNamecard24 :user="attendee" class="namecard-preview" />
     </div>
   </NuxtLayout>
 </template>

@@ -38,6 +38,11 @@ const { color } = useColor()
   font-size: var(--title-size);
   margin-bottom: calc(var(--unit) * 5);
   text-align: center;
+  font-size: 36px;
+
+  @media (--mobile) {
+    font-size: 28px;
+  }
 }
 
 @media (--mobile) {

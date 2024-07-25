@@ -42,7 +42,7 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
   <NuxtLayout name="namecard-base">
     <VFIntegrationDialog
       v-if="showDialog"
-      title="ソーシャルアカウントからのログイン"
+      :title="t('namecard.login_title')"
       @on-close="handleClickButton('close')"
       @sign-in="handleSignIn"
       ><p>
@@ -67,6 +67,13 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
         >{{ t('namecard.login') }}</VFLinkButton
       >
       <CreationProcess />
+      <div class="edit-sentence">
+        <VFStatusCard
+          has-error
+          :title="t('namecard.caution')"
+          :content="t('namecard.edit_deadline')"
+        />
+      </div>
     </div>
   </NuxtLayout>
 </template>
@@ -76,14 +83,29 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
 
 .namecard-samples {
   margin: 0 auto;
+  border-radius: 1px;
+
+  @media (--mobile) {
+    width: 100%;
+  }
 }
 .lead-sentence {
   & :deep(p) {
     --body-p-margin-bottom: calc(var(--unit) * 4);
 
     margin-bottom: var(--body-p-margin-bottom);
+    font-size: 18px;
+    font-weight: 500;
     line-height: 1.8;
+
+    @media (--mobile) {
+      font-size: 16px;
+      font-weight: 700;
+    }
   }
+}
+.edit-sentence {
+  padding-top: calc(var(--unit) * 3);
 }
 .login-button {
   --width-login-button: 238px;

@@ -5,9 +5,11 @@ import { useI18n } from '#i18n'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import { navigateTo } from '#imports'
 import { useNamecard } from '~/composables/useNamecard'
+import { useFormError } from '~/composables/useFormError'
 import ImageUploader from '~/components/namecard/ImageUploader.vue'
 
 const { t } = useI18n()
+const { nameError, orderNumberError, validateName, validateOrderNumber } = useFormError()
 const { authUserId, statusKey, attendee } = await useNamecard()
 const { upsertAttendee, uploadAvatar } = useSupabase()
 
@@ -80,64 +82,62 @@ function onSubmit(e: Event) {
   }
 }
 
-// TODO バリデート、エラー制御を追加する
+// TODO エラー制御を追加する
 </script>
 <template>
   <NuxtLayout name="namecard-base">
-    <div class="namecard-edit-root">
+    <form class="namecard-edit-root" @submit.prevent="onSubmit">
       <div class="preview-wrapper">
-        <VFNamecard23 :user="namecard" class="namecard" />
+        <VFNamecard24 :user="namecard" class="namecard" />
         <CreationStatus :status-key="statusKey" size="small" class="creation-status" />
       </div>
       <div class="form-wrapper">
-        <form @submit.prevent="onSubmit">
-          <VFInputField
-            id="name"
-            v-model="name"
-            class="name"
-            name="name"
-            :label="t('namecard.form.label_name')"
-            :placeholder="`${t('form.form_placeholder_example')}${t('form.form_name_placeholder')}`"
-            required
-            :error="nameError"
-            @input="updateName"
-            @blur="validateName"
-            ><p class="annotation">{{ t('namecard.form.annotation_name') }}</p></VFInputField
-          >
-          <ImageUploader
-            class="image-uploader"
-            file-accept="image/*"
-            @check-files.prevent="checkFiles"
-          />
-          <VFInputField
-            id="orderNumber"
-            v-model="receiptId"
-            class="order-number"
-            name="orderNumber"
-            :label="t('namecard.form.label_order_number')"
-            :placeholder="t('namecard.form.placeholder_order_number')"
-            required
-            :error="orderNumberError"
-            @input="updateReceiptId"
-            @blur="validateOrderNumbere"
-            ><div class="annotation"><MarkDownText path="namecard_annotation_order_number" /></div
-          ></VFInputField>
-        </form>
+        <VFInputField
+          id="name"
+          v-model="name"
+          class="name"
+          name="name"
+          :label="t('namecard.form.label_name')"
+          :placeholder="`${t('form.form_placeholder_example')}${t('form.form_name_placeholder')}`"
+          required
+          :error="nameError"
+          @input="updateName"
+          @blur="validateName"
+          ><p class="annotation">{{ t('namecard.form.annotation_name') }}</p></VFInputField
+        >
+        <ImageUploader
+          class="image-uploader"
+          file-accept="image/*"
+          @check-files.prevent="checkFiles"
+        />
+        <VFInputField
+          id="orderNumber"
+          v-model="receiptId"
+          class="order-number"
+          name="orderNumber"
+          :label="t('namecard.form.label_order_number')"
+          :placeholder="t('namecard.form.placeholder_order_number')"
+          required
+          :error="orderNumberError"
+          @input="updateReceiptId"
+          @blur="validateOrderNumber"
+          ><div class="annotation"><MarkDownText path="namecard_annotation_order_number" /></div
+        ></VFInputField>
       </div>
       <div class="form-buttons">
         <VFLinkButton
-          class="button cancel-button"
+          :href="`/namecard/${authUserId}/`"
+          target="_self"
           background-color="white"
           color="vue-blue"
-          :href="`/namecard/${authUserId}`"
-          target="_self"
-          >{{ $t('cancel') }}</VFLinkButton
+          class="button cancel-button"
+          >{{ t('namecard.cancel') }}</VFLinkButton
         >
         <VFSubmitButton id="submit-button" class="button submit-button" :disabled="!isSubmitting">
           {{ $t('namecard.form.submit') }}
         </VFSubmitButton>
       </div>
-    </div>
+    </form>
   </NuxtLayout>
 </template>
 
@@ -146,7 +146,7 @@ function onSubmit(e: Event) {
 .namecard-edit-root {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 0px 0px;
+  gap: 0px calc(var(--unit) * 8);
   grid-auto-flow: row;
   grid-template-areas:
     'namecard form form'
@@ -154,9 +154,18 @@ function onSubmit(e: Event) {
     'button button button';
 
   max-width: 769px;
+  padding: var(--namecard-edit-padding);
   margin: 0 auto;
-  gap: 0 calc(var(--unit) * 8);
+
+  @media (--tablet) {
+    --namecard-edit-padding: calc(var(--unit) * 2) 0;
+  }
+
+  @media (--mobile) {
+    width: 100%;
+  }
 }
+
 .preview-wrapper {
   grid-area: namecard;
 }
