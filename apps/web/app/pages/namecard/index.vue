@@ -1,14 +1,41 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import type { AuthProvider } from '@vuejs-jp/model'
 import { useAuth } from '~/composables/useAuth'
 import { useAuthSession } from '#imports'
-import { createError, useRuntimeConfig, navigateTo, useAsyncData } from '#imports'
+import { createError, useRuntimeConfig, navigateTo, useAsyncData, useRoute } from '#imports'
 import { useI18n } from '#i18n'
 import MarkDownText from '~/components/MarkDownText.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
+import { useDebounceFn } from '@vueuse/core'
 
 const config = useRuntimeConfig()
+const route = useRoute()
+/* リファクタリング検討
+ * 力技でログイン処理後のリダイレクトを行なっている
+ *
+ * supabase.auth.signInWithOAuth を利用した認証処理を行った後、リダイレクト先のURLにクエリパラメータ code が付与される
+ * この code と supabase.auth.getUser() で取得したユーザーIDは別物
+ * そのため、code が変更された際に getUser() を実行し、少し待ってからユーザーIDを取得している
+ * 取得したユーザーIDを元にリダイレクトを行なっている
+ */
+watch(
+  () => route.query.code,
+  () => {
+    if (route.query.code) {
+      const debouncedFn = useDebounceFn(async () => {
+        const { data: authUserId } = await useAsyncData('authUserId', async () => {
+          return (await getUser()).id
+        })
+        return authUserId.value
+      }, 1000)
+      debouncedFn().then((id) => {
+        navigateTo(`/namecard/${id}/`)
+      })
+    }
+  },
+  { immediate: true },
+)
 
 if (!config.public.enableRegisterNamecard) {
   throw createError({ statusCode: 404, statusMessage: 'You cannot register the namecard.' })
@@ -33,7 +60,7 @@ function handleClickButton(type: 'open' | 'close') {
 }
 
 function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
-  signIn(provider, `/namecard/${authUserId.value}/`)
+  signIn(provider, '/namecard/')
 }
 </script>
 
