@@ -86,68 +86,72 @@ function onSubmit(e: Event) {
 </script>
 <template>
   <NuxtLayout name="namecard-base">
-    <div class="namecard-edit-root">
-      <form @submit.prevent="onSubmit">
-        <div class="form">
-          <div class="preview-wrapper">
-            <VFNamecard24 :user="namecard" class="namecard" />
-            <CreationStatus :status-key="statusKey" size="small" class="creation-status" />
-          </div>
-          <div class="form-wrapper">
-            <VFInputField
-              id="name"
-              v-model="name"
-              class="name"
-              name="name"
-              :label="t('namecard.form.label_name')"
-              :placeholder="`${t('form.form_placeholder_example')}${t('form.form_name_placeholder')}`"
-              required
-              :error="nameError"
-              @input="updateName"
-              @blur="validateName"
-              ><p class="annotation">{{ t('namecard.form.annotation_name') }}</p></VFInputField
-            >
-            <ImageUploader
-              class="image-uploader"
-              file-accept="image/*"
-              @check-files.prevent="checkFiles"
-            />
-            <VFInputField
-              id="orderNumber"
-              v-model="receiptId"
-              class="order-number"
-              name="orderNumber"
-              :label="t('namecard.form.label_order_number')"
-              :placeholder="t('namecard.form.placeholder_order_number')"
-              required
-              :error="orderNumberError"
-              @input="updateReceiptId"
-              @blur="validateOrderNumber"
-              ><div class="annotation"><MarkDownText path="namecard_annotation_order_number" /></div
-            ></VFInputField>
-          </div>
-        </div>
-        <div class="form-buttons">
-          <VFLinkButton
-            :href="`/namecard/${authUserId}/`"
-            background-color="white"
-            color="vue-blue"
-            class="cancel-button"
+    <form class="namecard-edit-root" @submit.prevent="onSubmit">
+      <div class="preview-wrapper">
+        <VFNamecard24 :user="namecard" class="namecard" />
+        <CreationStatus :status-key="statusKey" size="small" class="creation-status" />
+      </div>
+      <div class="form-wrapper">
+        <VFInputField
+          id="name"
+          v-model="name"
+          class="name"
+          name="name"
+          :label="t('namecard.form.label_name')"
+          :placeholder="`${t('form.form_placeholder_example')}${t('form.form_name_placeholder')}`"
+          required
+          :error="nameError"
+          @input="updateName"
+          @blur="validateName"
+          ><p class="annotation">{{ t('namecard.form.annotation_name') }}</p></VFInputField
+        >
+        <ImageUploader
+          class="image-uploader"
+          file-accept="image/*"
+          @check-files.prevent="checkFiles"
+        />
+        <VFInputField
+          id="orderNumber"
+          v-model="receiptId"
+          class="order-number"
+          name="orderNumber"
+          :label="t('namecard.form.label_order_number')"
+          :placeholder="t('namecard.form.placeholder_order_number')"
+          required
+          :error="orderNumberError"
+          @input="updateReceiptId"
+          @blur="validateOrderNumber"
+          ><div class="annotation"><MarkDownText path="namecard_annotation_order_number" /></div
+        ></VFInputField>
+      </div>
+      <div class="form-buttons">
+        <VFLinkButton
+          :href="`/namecard/${authUserId}/`"
+          target="_self"
+          background-color="white"
+          color="vue-blue"
+          class="button cancel-button"
           >{{ t('namecard.cancel') }}</VFLinkButton
-          >
-          <VFSubmitButton id="submit-button" :disabled="!isSubmitting">
-            {{ $t('namecard.form.submit') }}
-          </VFSubmitButton>
-        </div>
-      </form>
-    </div>
+        >
+        <VFSubmitButton id="submit-button" class="button submit-button" :disabled="!isSubmitting">
+          {{ $t('namecard.form.submit') }}
+        </VFSubmitButton>
+      </div>
+    </form>
   </NuxtLayout>
 </template>
 
 <style scoped>
 @import url('~/assets/media.css');
 .namecard-edit-root {
-  --namecard-edit-padding: calc(var(--unit) * 5.25) 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0px calc(var(--unit) * 8);
+  grid-auto-flow: row;
+  grid-template-areas:
+    'namecard form form'
+    'namecard form form'
+    'button button button';
 
   max-width: 769px;
   padding: var(--namecard-edit-padding);
@@ -161,20 +165,25 @@ function onSubmit(e: Event) {
     width: 100%;
   }
 }
-.form {
-  display: flex;
-  justify-content: center;
-  gap: 0 calc(var(--unit) * 8);
 
-  @media (--mobile) {
-    flex-direction: column;
-  }
-}
-.namecard {
-  margin-bottom: calc(var(--unit) * 2);
+.preview-wrapper {
+  grid-area: namecard;
 }
 .form-wrapper {
+  grid-area: form;
   text-align: left;
+}
+.form-buttons {
+  --width-form-buttons: 474px;
+  grid-area: button;
+  width: var(--width-form-buttons);
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.namecard {
+  margin-bottom: calc(var(--unit) * 2);
 }
 
 .name,
@@ -195,24 +204,55 @@ function onSubmit(e: Event) {
   font-weight: 500;
   color: var(--color-vue-blue);
 }
+.button {
+  --button-width: 222px;
+  --button-height: 66px;
 
-.form-buttons {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
-  gap: calc(var(--unit) * 5);
-
-  @media (--mobile) {
-    flex-direction: column-reverse;
-  }
+  align-items: center;
+  width: var(--button-width);
+  height: var(--button-height);
 }
-.cancel-button,
-.form-buttons button {
-  --height-button: 66px;
 
-  height: var(--height-button);
+@media (--mobile) {
+  .namecard-edit-root {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      'namecard'
+      'form'
+      'button';
+    gap: calc(var(--unit) * 5);
+  }
+  .preview-wrapper {
+    text-align: center;
+  }
+  .namecard {
+    margin: 0 auto calc(var(--unit) * 2);
+  }
+  .order-number {
+    margin-bottom: calc(var(--unit) * 5);
+  }
+  .form-buttons {
+    display: block;
+    --width-form-buttons: 100%;
+    text-align: center;
+  }
+  .cancel-button {
+    width: 222px;
+    margin-bottom: calc(var(--unit) * 2.5);
 
-  @media (--mobile) {
-    --height-button: 58px;
+    &:deep(.text) {
+      font-size: var(--font-size-body400);
+    }
+  }
+  .submit-button {
+    width: 198px;
+  }
+  .form-buttons :deep(.submit-button) {
+    font-size: var(--font-size-body400);
+    padding: 0;
   }
 }
 </style>

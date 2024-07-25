@@ -61,6 +61,7 @@ const { color } = useColor()
   padding: calc(var(--unit) * 3) calc(var(--unit) * 4);
   background-color: #e7eff7;
   line-height: 1.8;
+  text-align: left;
 }
 .title {
   margin-bottom: calc(var(--unit) * 3);

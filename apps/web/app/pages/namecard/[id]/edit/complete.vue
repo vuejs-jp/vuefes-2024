@@ -34,6 +34,7 @@ const { authUserId, statusKey, attendee } = await useNamecard()
           {{ t('namecard.complete_message') }}
         </p>
       </div>
+      <!-- TODO Commentコンポーネントのモバイル対応が必要 -->
       <VFComment :title="t('namecard.lets_share')" class="share-comment" />
       <div class="sns-buttons">
         <VFIconButton
@@ -84,8 +85,16 @@ const { authUserId, statusKey, attendee } = await useNamecard()
 .sns-buttons {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: calc(var(--unit) * 2.5);
-  padding-bottom: calc(var(--unit) * 2.5);
+  margin-bottom: calc(var(--unit) * 2.5);
+}
+.sns-button {
+  &:deep(svg, a) {
+    display: block;
+    width: 40px;
+    height: auto;
+  }
 }
 
 .namecard-preview {
