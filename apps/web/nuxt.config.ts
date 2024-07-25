@@ -40,7 +40,11 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@nuxt/content',
     'nuxt-gtag',
+    'nuxt-og-image',
   ],
+  site: {
+    url: 'https://vuefes.jp/2024/',
+  },
   i18n: {
     legacy: false,
     strategy: 'prefix_except_default',
