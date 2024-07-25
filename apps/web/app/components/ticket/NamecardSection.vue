@@ -6,7 +6,7 @@ import { ticketUrl } from '~/utils/constants'
   <article class="namecard-body">
     <div class="title-wrapper">
       <span class="title-1">{{ $t('namecard.sectionTitle1') }}</span>
-      <VFTitle color="white" class="title-2" id="namecard">
+      <VFTitle id="namecard" color="white" class="title-2">
         {{ $t('namecard.sectionTitle2') }}
       </VFTitle>
     </div>
