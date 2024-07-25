@@ -202,7 +202,7 @@ function onSubmit(e: Event) {
   gap: calc(var(--unit) * 5);
 
   @media (--mobile) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }
 .cancel-button,
