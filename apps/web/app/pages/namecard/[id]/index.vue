@@ -42,13 +42,22 @@ function handleLinkButton() {
   margin: 0 auto calc(var(--unit) * 5);
 }
 .edit-button {
+  --height-button: 66px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 198px;
-  height: 66px;
+  height: var(--height-button);
   margin: 0 auto calc(var(--unit) * 7.5);
 }
 
-/* TODO モバイル版スタイル */
+@media (--mobile) {
+  .edit-button {
+    --height-button: 58px;
+
+    &:deep(.text) {
+      font-size: var(--font-size-body400);
+    }
+  }
+}
 </style>

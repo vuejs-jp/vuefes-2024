@@ -86,11 +86,20 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
   }
 }
 .login-button {
+  --width-login-button: 238px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 238px;
+  width: var(--width-login-button);
   height: 66px;
   margin: 0 auto calc(var(--unit) * 5);
+}
+@media (--mobile) {
+  .login-button {
+    --width-login-button: 100%;
+  }
+  :deep(.text) {
+    font-size: var(--font-size-body400);
+  }
 }
 </style>
