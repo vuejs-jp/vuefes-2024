@@ -94,7 +94,7 @@ useHead({
           <VFCssResetButton @click="copyUrl">
             <VFIcon color="vue-blue" name="external" :can-hover="false" />
           </VFCssResetButton>
-          <span>コピーしました！</span>
+          <span>{{ $t('copied') }}</span>
         </div>
       </li>
     </ul>

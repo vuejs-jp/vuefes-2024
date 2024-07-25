@@ -16,7 +16,7 @@ function handleLinkButton() {
   <NuxtLayout name="namecard-base">
     <div class="namecard-user-root">
       <CreationStatus :status-key="statusKey" class="creation-status" />
-      <VFNamecard23 :user="attendee" class="namecard" />
+      <VFNamecard24 :user="attendee" class="namecard" />
       <VFLinkButton
         is="button"
         background-color="vue-green/200"

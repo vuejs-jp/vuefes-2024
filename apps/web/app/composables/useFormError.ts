@@ -3,6 +3,7 @@ import { ref } from 'vue'
 export function useFormError() {
   const idError = ref('')
   const nameError = ref('')
+  const orderNumberError = ref('')
   const emailError = ref('')
   const detailError = ref('')
 
@@ -20,6 +21,14 @@ export function useFormError() {
       return
     }
     nameError.value = ''
+  }
+
+  function validateOrderNumber(value: string) {
+    if (value === '') {
+      orderNumberError.value = '注文番号を入力してください'
+      return
+    }
+    orderNumberError.value = ''
   }
 
   function validateEmail(value: string) {
@@ -55,10 +64,12 @@ export function useFormError() {
   return {
     idError,
     nameError,
+    orderNumberError,
     emailError,
     detailError,
     validateId,
     validateName,
+    validateOrderNumber,
     validateEmail,
     validateAdminEmail,
     validateDetail,

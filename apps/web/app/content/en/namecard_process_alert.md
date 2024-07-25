@@ -6,6 +6,6 @@
 
 ・To display the latest status, please refresh the page.
 
-・Once the order number verification is complete, the status will change to “Complete.” If the status remains “Order Number Verification Failed” for several days, please contact us through [the inquiry form](<(./#form)>).
+・Once the order number verification is complete, the status will change to “Complete.” If the status remains “Order Number Verification Failed” for several days, please contact us through [the inquiry form](<(/#form)>).
 
 ・Re-editing is possible until the editing deadline.
