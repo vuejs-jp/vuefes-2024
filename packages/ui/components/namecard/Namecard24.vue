@@ -23,9 +23,9 @@ onMounted(() => {
     <NamecardAvatar :user="user" :is-placeholder="isPlaceholder" />
     <div
       class="namecard-role"
-      :style="{ '--background-color-role': backgroundColor(user.role || 'staff') }"
+      :style="{ '--background-color-role': backgroundColor(user?.role || 'staff') }"
     >
-      {{ user.role }}
+      {{ user?.role }}
     </div>
     <div class="namecard-sponsor">
       <img :src="sponsorImagePath" alt="Supported by Stockmark" />

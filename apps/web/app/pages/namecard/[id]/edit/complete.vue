@@ -8,7 +8,7 @@ const { t } = useI18n()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 
-const { authUserId, statusKey, attendee } = await useNamecard()
+const { authUser, statusKey, namecardUser } = await useNamecard()
 </script>
 <template>
   <NuxtLayout name="namecard-base">
@@ -41,7 +41,7 @@ const { authUserId, statusKey, attendee } = await useNamecard()
           name="x40"
           color="vue-blue"
           :href="`https://x.com/share?url=${encodeURIComponent(
-            `https://vuefes.jp/2024/namecard/${authUserId}/share`,
+            `https://vuefes.jp/2024/namecard/${authUser?.id}/share`,
           )}`"
           can-hover
           class="sns-button"
@@ -50,14 +50,13 @@ const { authUserId, statusKey, attendee } = await useNamecard()
           name="Facebook"
           color="vue-blue"
           :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-            `https://vuefes.jp/2024/namecard/${authUserId}/share`,
+            `https://vuefes.jp/2024/namecard/${authUser?.id}/share`,
           )}`"
           class="sns-button"
         />
       </div>
       <CreationStatus :status-key="statusKey" size="small" class="creation-status" />
-      <!-- TODO smallサイズ指定 -->
-      <VFNamecard24 :user="attendee" class="namecard-preview" />
+      <VFNamecard24 :user="namecardUser" class="namecard-preview" />
     </div>
   </NuxtLayout>
 </template>

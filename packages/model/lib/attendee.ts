@@ -29,4 +29,4 @@ export type Attendee = {
   user_id: string
 }
 
-export type NamecardUser = Pick<Attendee, 'display_name' | 'avatar_url' | 'role'>
+export type NamecardUser = Pick<Attendee, 'display_name' | 'avatar_url' | 'role' | 'receipt_id'>
