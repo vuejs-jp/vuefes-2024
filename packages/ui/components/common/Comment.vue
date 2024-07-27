@@ -3,7 +3,7 @@ import { useColor } from '@vuejs-jp/composable'
 import { Color } from '@vuejs-jp/model'
 import { PropType } from 'vue'
 
-const props = defineProps({
+defineProps({
   color: {
     type: String as PropType<Color>,
     default: 'vue-green',
