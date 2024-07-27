@@ -79,12 +79,26 @@ function onSubmit(e: Event) {
     uploadAvatar(filePathRef.value, fileRef.value)
     newAttendee.value.avatar_url = getFullAvatarUrl(filePathRef.value)
 
-    upsertAttendee('attendees', {
-      ...newAttendee.value,
+    const initData = {
       email: attendeeDataByUserId.value?.email ?? authUser.value?.email ?? '',
       provider: attendeeDataByUserId.value?.provider ?? authUser.value?.app_metadata.provider ?? '',
       user_id: attendeeDataByUserId.value?.user_id ?? authUser.value?.id ?? '',
-    })
+    }
+    const id = {
+      id: attendeeDataByUserId.value?.id ?? '',
+    }
+    if (attendeeDataByUserId.value?.created_at) {
+      upsertAttendee('attendees', {
+        ...id,
+        ...newAttendee.value,
+        ...initData,
+      })
+    } else {
+      upsertAttendee('attendees', {
+        ...newAttendee.value,
+        ...initData,
+      })
+    }
 
     navigateTo(`/namecard/${authUser.value?.id}/edit/complete/`)
   }
