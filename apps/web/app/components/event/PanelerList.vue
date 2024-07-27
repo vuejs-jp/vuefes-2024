@@ -27,19 +27,34 @@ const currentLocale = useLocaleCurrent().locale
 </template>
 
 <style scoped>
+@import url('~/assets/media.css');
+
 .eventcard-persons {
-  --head-img-width: 193px;
+  --head-img-width: 172px;
 
   display: flex;
+  flex-wrap: wrap;
   gap: calc(var(--unit) * 2);
-  padding: 0 calc(var(--unit) * 2);
+  padding: 0 calc(var(--unit) * 2) calc(var(--unit) * 5);
+
+  @media (--mobile) {
+    gap: calc(var(--unit) * 1);
+  }
+}
+
+.eventcard-persons ::v-deep(p) {
+  width: var(--head-img-width);
+
+  @media (--mobile) {
+    --head-img-width: 103px;
+  }
 }
 
 .eventcard-persons ::v-deep(img) {
   width: var(--head-img-width);
 
   @media (--mobile) {
-    --head-img-width: 93px;
+    --head-img-width: 103px;
   }
 }
 </style>
