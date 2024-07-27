@@ -41,6 +41,7 @@
     "eslint-plugin-cypress": "3.3.0",
     "nuxt": "3.11.2",
     "nuxt-gtag": "2.0.5",
+    "nuxt-og-image": "3.0.0-rc.64",
     "open-props": "^1.6.21",
     "postcss-custom-media": "^10.0.3",
     "start-server-and-test": "2.0.3",

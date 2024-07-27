@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { createError, useHead, useRoute } from '#imports'
+import { createError, useHead, useRoute, defineOgImageComponent } from '#imports'
 import { useI18n } from '#i18n'
 import { useNamecard } from '~/composables/useNamecard'
 import { conferenceTitle, linkUrl, ogSpeakerDescription } from '~/utils/constants'
@@ -30,7 +30,7 @@ const officialSiteUrl = computed(() => {
   return currentLocale.value === 'ja' ? linkUrl : `${linkUrl}/en`
 })
 
-// TODO OGタグの設定
+defineOgImageComponent('VFOgCard24')
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
@@ -49,7 +49,7 @@ useHead({
 </script>
 <template>
   <div class="namecard-share-root">
-    <VFOgCard23 class="namecard" :user="attendee" />
+    <VFOgCard24 class="namecard" :user="attendee" />
     <VFComment class="invite-comment" :title="t('invite_vue_fes')" />
     <VFLinkButton
       class="link-button"
@@ -137,7 +137,7 @@ useHead({
   display: inline-block;
 }
 .copycode span {
-  opacity: 0; 
+  opacity: 0;
   position: absolute;
   top: 0px;
   right: -5px;
@@ -150,7 +150,13 @@ useHead({
   animation: fade-out 2s ease-in;
 }
 @keyframes fade-out {
-  0% { visibility: visible; opacity: 1; }
-  100% { visibility: hidden; opacity: 0; }
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 </style>

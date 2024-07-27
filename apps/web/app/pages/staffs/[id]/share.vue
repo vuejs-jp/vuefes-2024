@@ -1,5 +1,13 @@
 <script setup lang="ts">
-import { createError, useAsyncData, useHead, useLocaleCurrent, useRoute, useSupabase } from '#imports'
+import {
+  createError,
+  useAsyncData,
+  useHead,
+  useLocaleCurrent,
+  useRoute,
+  useSupabase,
+  defineOgImageComponent,
+} from '#imports'
 import { conferenceTitle, linkUrl, ogStaffDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import type { Staff } from '@vuejs-jp/model'
@@ -27,6 +35,13 @@ function copyUrl() {
   document.body.removeChild(element)
 }
 
+defineOgImageComponent('VFOgCard24', {
+  user: {
+    display_name: staffData[0].name,
+    avatar_url: staffData[0].image_url,
+    role: 'staff',
+  },
+})
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
@@ -43,9 +58,10 @@ useHead({
   ],
 })
 </script>
+
 <template>
   <div class="staff-share-root">
-    <VFOgCard23
+    <VFOgCard24
       class="staff"
       :user="{
         display_name: staffData[0].name,
@@ -141,7 +157,7 @@ useHead({
   display: inline-block;
 }
 .copycode span {
-  opacity: 0; 
+  opacity: 0;
   position: absolute;
   top: 0px;
   right: -5px;
@@ -154,7 +170,13 @@ useHead({
   animation: fade-out 8s ease-in;
 }
 @keyframes fade-out {
-  0% { visibility: visible; opacity: 1; }
-  100% { visibility: hidden; opacity: 0; }
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 </style>
