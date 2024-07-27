@@ -13,7 +13,7 @@ const { locale } = useI18n({ useScope: 'global' })
 </script>
 
 <template>
-  <div class="ticket">
+  <section class="ticket">
     <TicketSection />
     <NamecardSection v-if="config.public.enableRegisterNamecard" />
     <VolunteerSection v-if="config.public.enableRegisterTicket && locale === 'ja'" />
@@ -21,14 +21,16 @@ const { locale } = useI18n({ useScope: 'global' })
     <PersonalSponsorSection />
     <HandsonSection />
     <FaqSection />
-  </div>
+  </section>
 </template>
 
 <style scoped>
 .ticket {
   --ticket-padding: calc(var(--unit) * 5) 0;
 
-  display: grid;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   place-items: center;
   background-image: url('/sponsor/sponsor-bg-grid.png'),
     linear-gradient(to bottom, #35495e, #353b5e);

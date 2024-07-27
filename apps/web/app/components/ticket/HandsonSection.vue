@@ -39,6 +39,7 @@ import { ticketUrl } from '~/utils/constants'
   text-align: center;
   color: var(--color-white);
   font-size: 36px;
+  line-height: 1.2;
   font-weight: 700;
 }
 
@@ -65,24 +66,34 @@ import { ticketUrl } from '~/utils/constants'
 }
 
 .apply {
-  width: 320px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 24px;
 }
 
-.apply {
+.apply-button {
   --height-button: 66px;
 
-  margin: 40px auto 0;
   width: 100%;
   max-width: 260px;
-  display: flex;
   height: var(--height-button);
   border-radius: var(--height-button);
 }
 
 @media (--tablet) {
-  .handson {
-    --handson-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 6);
+  .handson-body {
+    --handson-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 4);
+  }
+
+  .handson-body h3 {
+    font-size: 24px;
+  }
+  
+  .handson-body-text p {
+    font-size: 16px;
   }
 
   .apply {
@@ -91,19 +102,7 @@ import { ticketUrl } from '~/utils/constants'
 }
 
 @media (--mobile) {
-  .handson h3 {
-    font-size: 32px;
-  }
-  
-  .handson p {
-    font-size: 16px;
-  }
-
   .apply {
-    width: 100%;
-    padding: 0 23.5px;
-    margin-top: 30px;
-    margin-bottom: 60px;
     --height-button: 58px;
   }
 }
