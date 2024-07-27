@@ -33,6 +33,7 @@ export function useLocale(path: Path) {
       .with('handson', () => `/${locale.value}/handson`)
       .with('faq', () => `/${locale.value}/faq`)
       .with('code-of-conduct', () => `/${locale.value}/code-of-conduct`)
+      .with('tokusho', () => `/${locale.value}/tokusho`)
       .with('team', () => `/${locale.value}/team`)
       .with('ticket', () => `/${locale.value}/ticket`)
       .with('namecard_lead', () => `/${locale.value}/namecard_lead`)

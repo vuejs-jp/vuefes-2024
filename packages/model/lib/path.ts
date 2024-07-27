@@ -24,6 +24,7 @@ export type Path =
   | 'faq'
   | 'code-of-conduct'
   | 'privacy'
+  | 'tokusho'
   | 'team'
   | 'ticket'
   | 'namecard_lead'

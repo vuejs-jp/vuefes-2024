@@ -43,7 +43,7 @@ export interface PeatixEvent {
   datetime: string
   timezoneId: string
   tags: Tag[]
-  tickets: Ticket[]
+  tickets: PeatixTicket[]
   shortUrl: string
   countryName: string
   isTokenGated: boolean
@@ -85,7 +85,7 @@ export interface Tag {
   tagUri: string
 }
 
-export interface Ticket {
+export interface PeatixTicket {
   seatsAvailable: number
   status: number
   seatsSold: number

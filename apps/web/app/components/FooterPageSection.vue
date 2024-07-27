@@ -45,6 +45,10 @@ const internalLinkList: LinkList[] = [
     href: '/code-of-conduct',
     text: 'code_of_conduct.title',
   },
+  {
+    href: '/tokusho',
+    text: 'tokusho.title',
+  },
 ]
 const vueFesLinkList: LinkList[] = [
   {

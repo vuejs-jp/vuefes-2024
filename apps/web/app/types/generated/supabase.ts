@@ -61,6 +61,7 @@ export type Database = {
         Row: {
           activated_at: string | null
           avatar_url: string
+          canceled_at: string | null
           created_at: string
           display_name: string | null
           email: string
@@ -75,6 +76,7 @@ export type Database = {
         Insert: {
           activated_at?: string | null
           avatar_url: string
+          canceled_at?: string | null
           created_at?: string
           display_name?: string | null
           email: string
@@ -89,6 +91,7 @@ export type Database = {
         Update: {
           activated_at?: string | null
           avatar_url?: string
+          canceled_at?: string | null
           created_at?: string
           display_name?: string | null
           email?: string
@@ -203,8 +206,8 @@ export type Database = {
           is_open: boolean
           name_en: string
           name_ja: string
-          position_en: string | null
-          position_ja: string | null
+          position_en?: string | null
+          position_ja?: string | null
           session_comment_en?: string | null
           session_comment_ja?: string | null
           session_description_en?: string | null
@@ -236,8 +239,8 @@ export type Database = {
           is_open?: boolean
           name_en?: string
           name_ja?: string
-          position_en: string | null
-          position_ja: string | null
+          position_en?: string | null
+          position_ja?: string | null
           session_comment_en?: string | null
           session_comment_ja?: string | null
           session_description_en?: string | null

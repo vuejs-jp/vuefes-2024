@@ -181,6 +181,7 @@ create table if not exists public.attendees (
 );
 
 ALTER TABLE public.attendees ADD COLUMN image_file_name uuid not null unique default uuid_generate_v4();
+ALTER TABLE public.attendees ADD COLUMN canceled_at timestamp with time zone;
 
 alter table
   public.attendees enable row level security;
