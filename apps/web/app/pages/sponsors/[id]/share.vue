@@ -49,7 +49,7 @@ useHead({
 </script>
 <template>
   <div class="session-share-root">
-    <VFOgCard23
+    <VFOgCard24
       class="session"
       :user="{
         display_name: sponsorData[0].name,

@@ -49,7 +49,7 @@ useHead({
 </script>
 <template>
   <div class="session-share-root">
-    <VFOgCard23
+    <VFOgCard24
       class="session"
       :user="{
         display_name: speakerData[0].name_ja,

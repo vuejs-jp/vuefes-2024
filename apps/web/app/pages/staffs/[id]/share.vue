@@ -45,7 +45,7 @@ useHead({
 </script>
 <template>
   <div class="staff-share-root">
-    <VFOgCard23
+    <VFOgCard24
       class="staff"
       :user="{
         display_name: staffData[0].name,

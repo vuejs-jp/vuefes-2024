@@ -49,7 +49,7 @@ useHead({
 </script>
 <template>
   <div class="namecard-share-root">
-    <VFOgCard23 class="namecard" :user="attendee" />
+    <VFOgCard24 class="namecard" :user="attendee" />
     <VFComment class="invite-comment" :title="t('invite_vue_fes')" />
     <VFLinkButton
       class="link-button"
