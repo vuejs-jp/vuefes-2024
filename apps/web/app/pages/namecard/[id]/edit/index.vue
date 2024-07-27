@@ -84,7 +84,7 @@ function onSubmit(e: Event) {
       email: attendeeDataByUserId.value?.email ?? authUser.value?.email ?? '',
       provider: attendeeDataByUserId.value?.provider ?? authUser.value?.app_metadata.provider ?? '',
       user_id: attendeeDataByUserId.value?.user_id ?? authUser.value?.id ?? '',
-      role: (attendeeDataByUserId.value?.role as Role) ?? 'attendee',
+      role: (attendeeDataByUserId.value?.role as Role) || 'attendee',
     }
     const id = {
       id: attendeeDataByUserId.value?.id ?? '',

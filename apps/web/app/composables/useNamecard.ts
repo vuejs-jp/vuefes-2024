@@ -20,11 +20,14 @@ export async function useNamecard(userId?:string) {
   })
 
   const statusKey = computed<Status>(() => {
-    // TODO ここにステータスの判定ロジックを書く
     if (attendeeDataByUserId.value?.activated_at) {
       return 'inquiry_completed'
+    } else if (!attendeeDataByUserId.value?.role){
+     return 'not_created'
+    } else if (attendeeDataByUserId.value?.canceled_at) {
+      return 'inquiry_failed'
     } else {
-      
+      return 'inquiry_in_progress'
     }
   })
 
