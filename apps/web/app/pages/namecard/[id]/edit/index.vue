@@ -8,6 +8,7 @@ import { navigateTo } from '#imports'
 import { useNamecard } from '~/composables/useNamecard'
 import { useFormError } from '~/composables/useFormError'
 import ImageUploader from '~/components/namecard/ImageUploader.vue'
+import type { Role } from '@vuejs-jp/model'
 
 const { t } = useI18n()
 const { nameError, orderNumberError, validateName, validateOrderNumber } = useFormError()
@@ -79,10 +80,11 @@ function onSubmit(e: Event) {
     uploadAvatar(filePathRef.value, fileRef.value)
     newAttendee.value.avatar_url = getFullAvatarUrl(filePathRef.value)
 
-    const initData = {
+    const baseData = {
       email: attendeeDataByUserId.value?.email ?? authUser.value?.email ?? '',
       provider: attendeeDataByUserId.value?.provider ?? authUser.value?.app_metadata.provider ?? '',
       user_id: attendeeDataByUserId.value?.user_id ?? authUser.value?.id ?? '',
+      role: (attendeeDataByUserId.value?.role as Role) ?? 'attendee',
     }
     const id = {
       id: attendeeDataByUserId.value?.id ?? '',
@@ -91,12 +93,12 @@ function onSubmit(e: Event) {
       upsertAttendee('attendees', {
         ...id,
         ...newAttendee.value,
-        ...initData,
+        ...baseData,
       })
     } else {
       upsertAttendee('attendees', {
         ...newAttendee.value,
-        ...initData,
+        ...baseData,
       })
     }
 

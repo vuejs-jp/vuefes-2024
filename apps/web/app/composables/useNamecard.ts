@@ -20,11 +20,11 @@ export async function useNamecard(userId?:string) {
   })
 
   const statusKey = computed<Status>(() => {
-    // TODO statusKeyの参照先を変更する
+    // TODO ここにステータスの判定ロジックを書く
     if (attendeeDataByUserId.value?.activated_at) {
-      return 'inquiry_in_progress'
+      return 'inquiry_completed'
     } else {
-      return 'not_created'
+      
     }
   })
 
