@@ -35,7 +35,7 @@ function copyUrl() {
   document.body.removeChild(element)
 }
 
-defineOgImageComponent('NuxtSeo')
+defineOgImageComponent('VFOgCard24')
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [

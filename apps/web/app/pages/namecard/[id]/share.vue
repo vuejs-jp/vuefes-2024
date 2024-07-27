@@ -30,7 +30,7 @@ const officialSiteUrl = computed(() => {
   return currentLocale.value === 'ja' ? linkUrl : `${linkUrl}/en`
 })
 
-defineOgImageComponent('NuxtSeo')
+defineOgImageComponent('VFOgCard24')
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
