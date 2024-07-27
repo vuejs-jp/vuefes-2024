@@ -14,6 +14,8 @@ import { HttpModule } from '@nestjs/axios'
 import { PeatixOrderModule } from 'src/peatix-order/peatix-order.module'
 import { SupabaseModule } from 'src/supabase/supabase.module'
 import { SupabaseService } from 'src/supabase/supabase.service'
+import { DiscordModule } from 'src/discord/discord.module'
+import { DiscordService } from 'src/discord/discord.service'
 
 @Module({
   imports: [
@@ -26,6 +28,7 @@ import { SupabaseService } from 'src/supabase/supabase.service'
     HttpModule,
     SupabaseModule,
     PeatixOrderModule,
+    DiscordModule,
   ],
   providers: [
     ConfigService,
@@ -38,6 +41,7 @@ import { SupabaseService } from 'src/supabase/supabase.service'
     AfterPurchaseService,
     SupabaseService,
     PeatixOrderService,
+    DiscordService,
   ],
 })
 export class AfterPurchaseModule {}

@@ -35,4 +35,8 @@ export class EnvService {
   get SENTRY_DSN() {
     return this.configService.getOrThrow('sentryDsn')
   }
+
+  get DISCORD_WEBHOOK_URL() {
+    return this.configService.getOrThrow('discordWebhookUrl')
+  }
 }
