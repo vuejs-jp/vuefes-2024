@@ -35,7 +35,13 @@ function copyUrl() {
   document.body.removeChild(element)
 }
 
-defineOgImageComponent('VFOgCard24')
+defineOgImageComponent('VFOgCard24', {
+  user: {
+    display_name: staffData[0].name,
+    avatar_url: staffData[0].image_url,
+    role: 'staff',
+  },
+})
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
@@ -52,6 +58,7 @@ useHead({
   ],
 })
 </script>
+
 <template>
   <div class="staff-share-root">
     <VFOgCard24

@@ -39,7 +39,13 @@ function copyUrl() {
   document.body.removeChild(element)
 }
 
-defineOgImageComponent('VFOgCard24')
+defineOgImageComponent('VFOgCard24', {
+  user: {
+    display_name: speakerData[0].name_ja,
+    avatar_url: speakerData[0].image_url,
+    role: 'speaker',
+  },
+})
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
@@ -56,6 +62,7 @@ useHead({
   ],
 })
 </script>
+
 <template>
   <div class="session-share-root">
     <VFOgCard24
