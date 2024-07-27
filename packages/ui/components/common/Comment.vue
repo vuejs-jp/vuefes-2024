@@ -43,10 +43,9 @@ const { color: textColor } = useColor()
   text-wrap: balance;
   align-items: center;
   gap: 32px;
-  @media (width > 480px) {
-    &:deep(br) {
-      display: none;
-    }
+  white-space: pre;
+  @media (width < 480px) {
+    white-space: pre-wrap;
   }
 }
 .comment-main::before,

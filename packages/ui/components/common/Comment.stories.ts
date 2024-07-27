@@ -27,5 +27,5 @@ Disabled.args = {
 
 export const MultipleLines = Template.bind({})
 MultipleLines.args = {
-  title: '作成したネームカードを<br>SNSでシェアしよう！',
+  title: '作成したネームカードを\nSNSでシェアしよう！',
 }
