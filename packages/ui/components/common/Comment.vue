@@ -24,9 +24,8 @@ const { color: textColor } = useColor()
       :style="{
         '--main-color': textColor(color),
       }"
-    >
-      {{ title }}
-    </span>
+      v-html="title"
+    />
   </p>
 </template>
 
@@ -37,7 +36,18 @@ const { color: textColor } = useColor()
 .comment-main {
   color: var(--main-color);
   font-size: 16px;
+  line-height: 20.42px;
   font-weight: 700;
+  display: flex;
+  justify-content: center;
+  text-wrap: balance;
+  align-items: center;
+  gap: 32px;
+  @media (width > 480px) {
+    &:deep(br) {
+      display: none;
+    }
+  }
 }
 .comment-main::before,
 .comment-main::after {
@@ -47,7 +57,6 @@ const { color: textColor } = useColor()
   vertical-align: middle;
   width: 2px;
   height: 2em;
-  margin: 0 1em;
   background: var(--main-color);
 }
 .comment-main::before {
