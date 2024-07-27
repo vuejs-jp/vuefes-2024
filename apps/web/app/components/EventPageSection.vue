@@ -49,7 +49,7 @@ const { panelEventPanelers } = data as Panelers
 
 .event {
   --event-padding: calc(var(--unit) * 5.25) 0;
-  --event-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
+  --event-body-padding: calc(var(--unit) * 6) 0;
 
   display: flex;
   justify-content: center;
@@ -59,6 +59,7 @@ const { panelEventPanelers } = data as Panelers
   background-size: 30px;
   background-blend-mode: overlay;
   padding: var(--event-padding);
+  margin: 0 auto;
   color: var(--color-vue-blue);
 }
 
@@ -89,7 +90,7 @@ const { panelEventPanelers } = data as Panelers
 }
 
 @media (--tablet) {
-  .event-root {
+  .event {
     --event-padding: calc(var(--unit) * 2) 0;
   }
 
