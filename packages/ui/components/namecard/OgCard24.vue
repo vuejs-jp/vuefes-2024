@@ -76,7 +76,7 @@ onMounted(() => {
   position: absolute;
   top: 1.875rem;
   left: 1.875rem;
-  height: 2.1875rem;
+  height: 2.18rem;
   color: var(--color-white);
   display: flex;
   align-items: center;
@@ -161,6 +161,7 @@ onMounted(() => {
   place-items: center;
   background-color: var(--color-white);
   border-radius: 0.3125rem 0 0 0.3125rem;
+  box-shadow: inset -1px 0 0 0 #fff;
   @media (width <= 480px) {
     bottom: 0.615rem;
     width: 5.625rem;
