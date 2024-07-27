@@ -10,8 +10,6 @@ import { promises, readFileSync } from 'fs'
 import { ScraperPage } from '../scraper-page/scraper-page'
 import { HttpService } from '@nestjs/axios'
 import { JSON_USAGE, PUPPETEER_USAGE } from '../features'
-import { SupabaseService } from 'src/supabase/supabase.service'
-import { AttendeeReceipt } from 'src/types/supabase'
 
 const { parse } = require('csv-parse/sync')
 
@@ -23,7 +21,6 @@ export class PeatixOrderService extends ScraperPage {
     envService: EnvService,
     puppeteerService: PuppeteerService,
     private readonly httpService: HttpService,
-    private readonly supabaseService: SupabaseService,
   ) {
     super(envService, puppeteerService)
   }
@@ -51,7 +48,7 @@ export class PeatixOrderService extends ScraperPage {
     ])
   }
 
-  private async download(page: Page, callback: (res: PeatixCsv[]) => void) {
+  private async download(page: Page) {
     await page.goto(
       `${Constants.PEATIX_DASHBOARD_URL}${this.envService.PEATIX_EVENT_ID}/list_sales`,
       {
@@ -69,7 +66,8 @@ export class PeatixOrderService extends ScraperPage {
       eventsEnabled: true,
     })
 
-    const downloaded = new Promise<void>((resolve, reject) => {
+    const [downloaded] = await Promise.all([
+      new Promise<PeatixCsv[]>((resolve, reject) => {
       client.on(
         'Browser.downloadProgress',
         (params: { state: 'inProgress' | 'completed' | 'canceled' }) => {
@@ -104,9 +102,7 @@ export class PeatixOrderService extends ScraperPage {
 
               const rows: PeatixCsv[] = parse(buffer, options)
 
-              callback(rows)
-
-              resolve()
+              resolve(rows)
             })
             .with('canceled', () => {
               this.logger.error('Attendee: CSV download canceled')
@@ -116,24 +112,13 @@ export class PeatixOrderService extends ScraperPage {
               this.logger.log('Attendee: CSV download in progress')
             })
             .exhaustive()
-        },
-      )
-    })
-
-    await Promise.all([
-      page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+          }
+        )
+      }),
       page.click(Selectors.ORDERS.PEATIX.DOWNLOAD_EXECUTE),
     ])
 
-    await Promise.race([
-      downloaded,
-      new Promise((resolve, reject) => {
-        setTimeout(
-          () => reject('Attendee: downloading the CSV file timed out'),
-          100000,
-        )
-      }),
-    ])
+    return downloaded
   }
 
   private async fetchJson<T>() {
@@ -165,46 +150,23 @@ export class PeatixOrderService extends ScraperPage {
     try {
       if (PUPPETEER_USAGE) {
         await this.login(page)
-        await this.download(page, async (res: PeatixCsv[]) => {
-          const attendees = res
-          this.logger.log(attendees)
+        const receipts = await this.download(page)
 
-          const receipts: AttendeeReceipt[] = attendees.map((attendee) => {
-            const receiptId = attendee[Object.keys(attendee)[0]]
-            const ticketName = attendee[Object.keys(attendee)[4]]
-
-            // チケット名から参加者の種別を特定する
-            if (ticketName.includes(Constants.PEATIX_GENERAL_TICKET)) {
-              return { role: Constants.PEATIX_GENERAL_ROLE, receipt_id: receiptId }
-            }
-            if (ticketName.includes(Constants.PEATIX_WITH_PARTY_TICKET)) {
-              return { role: Constants.PEATIX_WITH_PARTY_ROLE, receipt_id: receiptId }
-            }
-
-            // return { role: 'attendee', receipt_id: receiptId }
-          })
-          this.logger.log(receipts)
-
-          // Peatix 購入情報を Supabase へ反映する
-          for (const receipt of receipts) {
-            this.logger.log(receipt)
-            // const result = await this.supabaseService.updateAttendees(receipt)
-            // if (!result) break
-          }
-        })
+        await browser.close()
+        return receipts
       }
 
       if (JSON_USAGE) {
-        const res = await this.fetchJson<{ json_data: Peatix }>()
-        const attendees = res.json_data.event.attendees
-        this.logger.log(attendees)
-      }
+        const attendees = await this.fetchJson<{ json_data: Peatix }>()
 
-      await browser.close()
+        await browser.close()
+        return attendees.json_data.event.attendees
+      }
     } catch (e) {
       this.logger.error(e)
 
       await browser.close()
+      return []
     }
   }
 }
