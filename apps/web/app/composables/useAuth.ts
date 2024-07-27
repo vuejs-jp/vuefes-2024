@@ -1,15 +1,20 @@
 import { useSupabaseClient } from '#imports'
 import type { AuthProvider } from '@vuejs-jp/model'
-import { REDIRECT_URL } from '~/utils/environment.constants'
+import { ref,onMounted } from '#imports'
 
 export function useAuth() {
   const supabase = useSupabaseClient()
+  const origin = ref('')
+  onMounted(() => {
+    const uri = new URL(window.location.href)
+    origin.value = uri.origin
+  })
 
   async function signIn(provider: Extract<AuthProvider, 'github' | 'google'>, path: string) {
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${REDIRECT_URL}${path}`,
+        redirectTo: `${origin.value}${path}`,
       }
     })
     if (error) console.log(error)
