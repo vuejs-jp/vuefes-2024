@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { createError, useHead, useRoute, defineOgImageComponent } from '#imports'
+import { createError, useHead, useRoute, defineOgImageWithoutCache } from '#imports'
 import { useI18n } from '#i18n'
 import { useNamecard } from '~/composables/useNamecard'
 import { conferenceTitle, linkUrl, ogSpeakerDescription } from '~/utils/constants'
@@ -30,7 +30,8 @@ const officialSiteUrl = computed(() => {
   return currentLocale.value === 'ja' ? linkUrl : `${linkUrl}/en`
 })
 
-defineOgImageComponent('OgAvatarTemplate', {
+defineOgImageWithoutCache({
+  component: 'OgAvatarTemplate',
   user: attendee,
 })
 useHead({

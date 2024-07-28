@@ -6,7 +6,7 @@ import {
   useLocaleCurrent,
   useRoute,
   useSupabase,
-  defineOgImageComponent,
+  defineOgImageWithoutCache,
 } from '#imports'
 import { conferenceTitle, linkUrl, ogStaffDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
@@ -35,7 +35,8 @@ function copyUrl() {
   document.body.removeChild(element)
 }
 
-defineOgImageComponent('OgAvatarTemplate', {
+defineOgImageWithoutCache({
+  component: 'OgAvatarTemplate',
   user: {
     display_name: staffData[0].name,
     avatar_url: staffData[0].image_url,
