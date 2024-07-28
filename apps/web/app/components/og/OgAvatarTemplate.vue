@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { NamecardUser } from '@vuejs-jp/model'
-import AvatarLogo from './AvatarLogo.vue'
+import AvatarLogo from './logo/AvatarLogo.vue'
 import { useUserRole } from '@vuejs-jp/composable'
 import { onMounted, ref } from 'vue'
 
