@@ -14,8 +14,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <template v-if="user.avatar_url">
-    <img :alt="user.display_name" :src="user.avatar_url" class="avatar-logo" decoding="async" />
+  <template v-if="user?.avatar_url">
+    <img :alt="user?.display_name" :src="user?.avatar_url" class="avatar-logo" decoding="async" />
   </template>
   <template v-else>
     <img alt="vuefes logo avatar sample" :src="vuefesLogoImagePath" class="sample-logo" />

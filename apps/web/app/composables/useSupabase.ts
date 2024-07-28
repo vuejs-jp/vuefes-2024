@@ -1,7 +1,7 @@
 import { useSupabaseClient } from '#imports'
 import { bucket, type Role, type Table } from '@vuejs-jp/model'
 import type { Database } from '~/types/generated/supabase'
-import type { FormSpeaker, FormSponsor, FormAttendee, FormStaff, FormJob } from '~/types/supabase'
+import type { FormSpeaker, FormSponsor, FormAttendeeOverride, FormStaff, FormJob } from '~/types/supabase'
 
 export function useSupabase() {
   const client = useSupabaseClient<Database>()
@@ -48,7 +48,7 @@ export function useSupabase() {
     if (error) return
   }
 
-  async function upsertAttendee(table: Extract<Table, 'attendees'>, target: FormAttendee) {
+  async function upsertAttendee(table: Extract<Table, 'attendees'>, target: FormAttendeeOverride) {
     const targetData = { ...target }
 
     const { error } = await client.from(table).upsert(targetData)

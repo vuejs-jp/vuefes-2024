@@ -37,7 +37,7 @@ onMounted(() => {
             : COLOR_AVATAR_NAME.DEFAULT,
         }"
       >
-        {{ user.display_name }}
+        {{ user?.display_name }}
       </div>
     </div>
     <small class="avatar-footer">Vue Fes Japan 2024</small>

@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import { ref, computed, watchEffect } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
+import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 import { useI18n } from '#i18n'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import { navigateTo } from '#imports'
 import { useNamecard } from '~/composables/useNamecard'
 import { useFormError } from '~/composables/useFormError'
 import ImageUploader from '~/components/namecard/ImageUploader.vue'
+import type { Role } from '@vuejs-jp/model'
 
 const { t } = useI18n()
 const { nameError, orderNumberError, validateName, validateOrderNumber } = useFormError()
-const { authUserId, statusKey, attendee } = await useNamecard()
+const { authUser, attendeeDataByUserId, statusKey, namecardUser } = await useNamecard()
 const { upsertAttendee, uploadAvatar } = useSupabase()
+const { getFullAvatarUrl } = useSupabaseStorage()
 
 const name = ref('')
 const receiptId = ref('')
@@ -26,10 +29,10 @@ const updateReceiptId = (e: any) => {
   receiptId.value = e.target.value
 }
 
-const namecard = ref({ ...attendee.value })
+const namecard = ref({ ...namecardUser.value })
 
 const newAttendee = ref({
-  ...attendee.value,
+  ...namecardUser.value,
 })
 
 name.value = newAttendee.value?.display_name ?? ''
@@ -68,21 +71,40 @@ const checkFiles = (e: Event, files: File[]) => {
 }
 
 function onSubmit(e: Event) {
-  // TODO updated_atに現在時刻を追加する必要ある？supabaseの機能でなんかない？
   e.preventDefault()
 
   const submitEvent = e as SubmitEvent
   const submitter = submitEvent.submitter as HTMLElement
 
   if (submitter && submitter.id === 'submit-button' && filePathRef.value && fileRef.value) {
-    upsertAttendee('attendees', newAttendee.value)
     uploadAvatar(filePathRef.value, fileRef.value)
+    newAttendee.value.avatar_url = getFullAvatarUrl(filePathRef.value)
 
-    navigateTo(`/namecard/${authUserId.value}/edit/complete/`)
+    const baseData = {
+      email: attendeeDataByUserId.value?.email ?? authUser.value?.email ?? '',
+      provider: attendeeDataByUserId.value?.provider ?? authUser.value?.app_metadata.provider ?? '',
+      user_id: attendeeDataByUserId.value?.user_id ?? authUser.value?.id ?? '',
+      role: (attendeeDataByUserId.value?.role as Role) || 'attendee',
+    }
+    const id = {
+      id: attendeeDataByUserId.value?.id ?? '',
+    }
+    if (attendeeDataByUserId.value?.created_at) {
+      upsertAttendee('attendees', {
+        ...id,
+        ...newAttendee.value,
+        ...baseData,
+      })
+    } else {
+      upsertAttendee('attendees', {
+        ...newAttendee.value,
+        ...baseData,
+      })
+    }
+
+    navigateTo(`/namecard/${authUser.value?.id}/edit/complete/`)
   }
 }
-
-// TODO エラー制御を追加する
 </script>
 <template>
   <NuxtLayout name="namecard-base">
@@ -126,7 +148,7 @@ function onSubmit(e: Event) {
       </div>
       <div class="form-buttons">
         <VFLinkButton
-          :href="`/namecard/${authUserId}/`"
+          :href="`/namecard/${authUser?.id}/`"
           target="_self"
           background-color="white"
           color="vue-blue"

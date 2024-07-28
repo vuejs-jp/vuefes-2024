@@ -4,7 +4,7 @@ import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 
 const { t } = useI18n()
-const { fontWeight, fontSize } = useTypography()
+const { fontWeight } = useTypography()
 const { color } = useColor()
 export type Status = 'not_created' | 'inquiry_in_progress' | 'inquiry_failed' | 'inquiry_completed'
 type Props = {

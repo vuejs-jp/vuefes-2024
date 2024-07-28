@@ -6,17 +6,17 @@ import CreationProcess from '~/components/namecard/CreationProcess.vue'
 import { useNamecard } from '~/composables/useNamecard'
 
 const { t } = useI18n()
-const { authUserId, statusKey, attendee } = await useNamecard()
+const { authUser, statusKey, namecardUser } = await useNamecard()
 
 function handleLinkButton() {
-  navigateTo(`/namecard/${authUserId.value}/edit/`)
+  navigateTo(`/namecard/${authUser.value?.id}/edit/`)
 }
 </script>
 <template>
   <NuxtLayout name="namecard-base">
     <div class="namecard-user-root">
       <CreationStatus :status-key="statusKey" class="creation-status" />
-      <VFNamecard24 :user="attendee" class="namecard" />
+      <VFNamecard24 :user="namecardUser" class="namecard" />
       <VFLinkButton
         is="button"
         background-color="vue-green/200"
