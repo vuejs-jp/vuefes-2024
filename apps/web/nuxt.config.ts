@@ -46,6 +46,23 @@ export default defineNuxtConfig({
   // site: {
   //   url: 'https://vuefes.jp/2024/',
   // },
+  ogImage: {
+    playground: true,
+    runtimeBrowser: true,
+    runtimeCacheStorage: false,
+    componentDirs: ['og'],
+    debug: true,
+    fonts: [
+      {
+        name: 'notosansjp-black',
+        weight: 900,
+        path: '/fonts/NotoSansJP-Black.ttf',
+      },
+    ],
+  },
+  experimental: {
+    componentIslands: true,
+  },
   i18n: {
     legacy: false,
     strategy: 'prefix_except_default',

@@ -62,6 +62,10 @@ const { color } = useColor()
       </VFLinkButton>
     </div>
   </div>
+  <OgImage
+    component="OgHeaderTemplate"
+    title="行動規範"
+  />
 </template>
 
 <style scoped>

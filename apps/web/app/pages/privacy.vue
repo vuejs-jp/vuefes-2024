@@ -56,6 +56,10 @@ useHead({
       </VFLinkButton>
     </div>
   </div>
+  <OgImage
+    component="OgHeaderTemplate"
+    title="プライバシーポリシー"
+  />
 </template>
 
 <style scoped>

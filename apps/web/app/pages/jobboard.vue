@@ -40,6 +40,10 @@ useHead({
       </li>
     </ul>
   </div>
+  <OgImage
+    component="OgHeaderTemplate"
+    title="ジョブボード"
+  />
 </template>
 
 <style scoped>

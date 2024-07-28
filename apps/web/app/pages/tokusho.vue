@@ -62,6 +62,10 @@ const { color } = useColor()
       </VFLinkButton>
     </div>
   </div>
+  <OgImage
+    component="OgHeaderTemplate"
+    title="特定商取引法に基づく表記"
+  />
 </template>
 
 <style scoped>
