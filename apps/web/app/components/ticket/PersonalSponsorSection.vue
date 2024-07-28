@@ -51,6 +51,7 @@ import { ticketUrl } from '~/utils/constants'
 
 .personal-sponsor-body h3 {
   font-size: 36px;
+  line-height: 1.2;
   color: var(--color-white);
   font-weight: bold;
   margin-bottom: calc(var(--unit) * 4);
@@ -87,45 +88,39 @@ import { ticketUrl } from '~/utils/constants'
 }
 
 .apply {
-  width: 320px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 24px;
 }
 
-.apply {
+.apply-button {
   --height-button: 66px;
 
-  margin: 0 auto;
   width: 100%;
   max-width: 260px;
-  display: flex;
   height: var(--height-button);
   border-radius: var(--height-button);
 }
 
 @media (--tablet) {
   .personal-sponsor-body {
-    --personal-sponsor-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 6);
+    --personal-sponsor-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 4);
   }
 
-  .apply {
+  .personal-sponsor-body h3 {
+    font-size: 24px;
+  }
+
+  .apply-button {
     --height-button: 58px;
   }
 }
 
 @media (--mobile) {
-  .personal-sponsor {
-    padding: calc(var(--unit) * 2) 0;
-  }
-
-  .personal-sponsor-body h3 {
-    font-size: 32px;
-  }
-
-  .apply {
-    width: 100%;
-    padding: 0 23.5px;
-    margin-top: 30px;
-    margin-bottom: 60px;
+  .apply-button {
     --height-button: 58px;
   }
 }

@@ -107,11 +107,6 @@ import { ticketUrl } from '~/utils/constants'
         </VFLinkButton>
       </div>
     </section>
-    <div class="separator">
-      <span class="triangle" />
-      <span class="triangle" />
-      <span class="triangle" />
-    </div>
   </article>
 </template>
 
@@ -129,7 +124,6 @@ import { ticketUrl } from '~/utils/constants'
   margin: 0 auto;
   padding: var(--ticket-body-padding);
   padding-bottom: 0;
-  margin: 0 1.5%;
   max-width: 960px;
   width: 100%;
 }
@@ -218,24 +212,15 @@ import { ticketUrl } from '~/utils/constants'
   border-radius: var(--height-button);
 }
 
-.separator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  height: 235px;
-}
-
-.triangle {
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid white;
-}
-
 @media (--tablet) {
+  .ticket-body {
+    --ticket-body-padding: calc(var(--unit) * 3) 6%;
+  }
+
+  .ticket-cards-title {
+    font-size: 24px;
+  }
+
   .ticket-cards-container {
     grid-template-columns: repeat(1, auto);
   }
