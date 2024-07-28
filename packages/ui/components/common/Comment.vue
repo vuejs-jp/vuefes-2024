@@ -14,6 +14,12 @@ defineProps({
   },
 })
 
+const decodeHtml = (htmlStr: string) => {
+  const txt = document.createElement('textarea')
+  txt.innerHTML = htmlStr
+  return txt.value
+}
+
 const { color: textColor } = useColor()
 </script>
 
@@ -24,7 +30,7 @@ const { color: textColor } = useColor()
       :style="{
         '--main-color': textColor(color),
       }"
-      v-html="title"
+      v-html="decodeHtml(title)"
     />
   </p>
 </template>
