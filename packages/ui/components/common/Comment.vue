@@ -43,7 +43,6 @@ const { color: textColor } = useColor()
   text-wrap: balance;
   align-items: center;
   gap: 32px;
-  white-space: pre;
   @media (width < 480px) {
     white-space: pre-wrap;
   }
