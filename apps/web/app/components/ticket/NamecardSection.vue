@@ -3,9 +3,14 @@ import { ticketUrl } from '~/utils/constants'
 </script>
 
 <template>
+  <div class="separator">
+    <span class="triangle" />
+    <span class="triangle" />
+    <span class="triangle" />
+  </div>
   <article class="namecard-body">
     <div class="title-wrapper">
-      <span class="title-1">{{ $t('namecard.sectionTitle1') }}</span>
+      <VFComment color="white" :title="$t('namecard.sectionTitle1')" />
       <VFTitle id="namecard" color="white" class="title-2">
         {{ $t('namecard.sectionTitle2') }}
       </VFTitle>
@@ -116,11 +121,26 @@ import { ticketUrl } from '~/utils/constants'
   gap: 24px;
 }
 
+.separator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 235px;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+}
+
 @media (--tablet) {
-  .namecard {
-    --namecard-padding: calc(var(--unit) * 2) 0;
+  .namecard-body {
     --namecard-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 6);
-    --namecard-term-margin: calc(var(--unit) * 5) auto 0;
   }
 
   .action-button {

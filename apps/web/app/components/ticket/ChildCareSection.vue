@@ -29,7 +29,6 @@ import { childCareUrl } from '~/utils/constants'
 
   margin: 0 auto;
   padding: var(--childcare-body-padding);
-  margin: 0 1.5%;
   max-width: 960px;
   width: 100%;
   border-bottom: 1px solid var(--color-white);
@@ -39,6 +38,7 @@ import { childCareUrl } from '~/utils/constants'
   text-align: center;
   color: var(--color-white);
   font-size: 36px;
+  line-height: 1.2;
   font-weight: 700;
 }
 
@@ -65,24 +65,34 @@ import { childCareUrl } from '~/utils/constants'
 }
 
 .apply {
-  width: 320px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 24px;
 }
 
-.apply {
+.apply-button {
   --height-button: 66px;
 
-  margin: 40px auto 0;
   width: 100%;
   max-width: 260px;
-  display: flex;
   height: var(--height-button);
   border-radius: var(--height-button);
 }
 
 @media (--tablet) {
-  .childcare {
-    --childcare-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 6);
+  .childcare-body {
+    --childcare-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 4);
+  }
+
+  .childcare-body h3 {
+    font-size: 24px;
+  }
+  
+  .childcare-body-text p {
+    font-size: 16px;
   }
 
   .apply {
@@ -91,19 +101,7 @@ import { childCareUrl } from '~/utils/constants'
 }
 
 @media (--mobile) {
-  .childcare h3 {
-    font-size: 32px;
-  }
-  
-  .childcare p {
-    font-size: 16px;
-  }
-
   .apply {
-    width: 100%;
-    padding: 0 23.5px;
-    margin-top: 30px;
-    margin-bottom: 60px;
     --height-button: 58px;
   }
 }

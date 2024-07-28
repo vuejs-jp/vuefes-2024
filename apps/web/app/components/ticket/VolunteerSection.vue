@@ -19,59 +19,39 @@ const endPeriodTime = {
 </script>
 
 <template>
-  <div class="volunteer">
-    <article class="volunteer-body">
-      <h3 id="volunteer" class="title">
-        {{ translate('volunteer.title') }}
-      </h3>
-      <div class="volunteer-subtitle">
-        {{ $t('volunteer.subtitle') }}
-      </div>
-      <div class="volunteer-text">
-        <MarkDownText path="volunteer" />
-      </div>
-      <h3 class="volunteer-subtitle">
-        {{ $t('volunteer.application_period') }}
-      </h3>
-      <VFDateTime :date="endPeriodDate" :time="endPeriodTime" color="white" />
-      <div class="volunteer-buttons">
-        <VFLinkButton
-          class="volunteer-button"
-          :href="volunteerUrl"
-          background-color="vue-green/200"
-          color="white"
-        >
-          {{ translate('volunteer.apply') }}
-        </VFLinkButton>
-      </div>
-    </article>
-  </div>
+  <article class="volunteer-body">
+    <h3 id="volunteer" class="title">
+      {{ translate('volunteer.title') }}
+    </h3>
+    <div class="volunteer-subtitle">
+      {{ $t('volunteer.subtitle') }}
+    </div>
+    <div class="volunteer-text">
+      <MarkDownText path="volunteer" />
+    </div>
+    <h3 class="volunteer-subtitle">
+      {{ $t('volunteer.application_period') }}
+    </h3>
+    <VFDateTime :date="endPeriodDate" :time="endPeriodTime" color="white" />
+    <div class="volunteer-buttons">
+      <VFLinkButton
+        class="volunteer-button"
+        :href="volunteerUrl"
+        background-color="vue-green/200"
+        color="white"
+      >
+        {{ translate('volunteer.apply') }}
+      </VFLinkButton>
+    </div>
+  </article>
 </template>
 
 <style scoped>
 @import url('~/assets/media.css');
 
-.volunteer {
-  --volunteer-padding: calc(var(--unit) * 7.5) 0;
-  --volunteer-row-gap: 40px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  row-gap: var(--volunteer-row-gap);
-  padding: var(--volunteer-padding);
-  color: var(--color-white);
-  border-bottom: 1px solid var(--color-white);
-}
-
-.title {
-  text-align: center;
-  line-height: 1.2;
-}
-
-.volunteer h3 {
+.volunteer-body h3 {
   font-size: 36px;
+  line-height: 1.2;
   color: var(--color-white);
   font-weight: bold;
   margin-bottom: calc(var(--unit) * 4);
@@ -79,10 +59,9 @@ const endPeriodTime = {
 }
 
 .volunteer-subtitle {
-  --subtitle-font-size: 1.5rem;
   --subtitle-font-weight: 700;
 
-  font-size: var(--subtitle-font-size);
+  font-size: 24px;
   font-weight: var(--subtitle-font-weight);
   text-align: center;
   line-height: 1.2;
@@ -92,7 +71,7 @@ const endPeriodTime = {
 }
 
 .volunteer-body {
-  --volunteer-padding: calc(var(--unit) * 7.5) calc(var(--unit) * 12);
+  --volunteer-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
 
   height: fit-content;
   margin: 0 1.5%;
@@ -121,9 +100,10 @@ const endPeriodTime = {
 
 .volunteer-buttons {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 20px;
-  margin-top: calc(var(--unit) * 5);
+  width: 100%;
+  margin-top: calc(var(--unit) * 7.5);
 }
 
 .volunteer-button {
@@ -136,8 +116,16 @@ const endPeriodTime = {
 }
 
 @media (--tablet) {
+  .volunteer-body h3 {
+    font-size: 24px;
+  }
+
+  .volunteer-subtitle {
+    font-size: 16px;
+  }
+
   .volunteer-body {
-    --volunteer-padding: calc(var(--unit) * 4) 4.5% calc(var(--unit) * 6);
+    --volunteer-padding: calc(var(--unit) * 4) 4.5% calc(var(--unit) * 4);
   }
 
   .volunteer-text {
@@ -151,24 +139,10 @@ const endPeriodTime = {
 
   .volunteer-buttons {
     margin-top: calc(var(--unit) * 3.75);
-    display: block;
-  }
-
-  .volunteer-button:first-child {
-    margin-bottom: calc(var(--unit) * 2);
   }
 
   .volunteer-button {
     --height-button: 58px;
-
-    width: 100%;
-    max-width: none;
-  }
-
-  @media (--mobile) {
-    .volunteer h3 {
-      font-size: 32px;
-    }
   }
 }
 </style>

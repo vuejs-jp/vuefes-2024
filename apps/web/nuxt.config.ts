@@ -40,7 +40,12 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@nuxt/content',
     'nuxt-gtag',
+    'nuxt-og-image',
   ],
+  // .env の NUXT_PUBLIC_SITE_URL を設定したので、一旦コメントアウトする
+  // site: {
+  //   url: 'https://vuefes.jp/2024/',
+  // },
   i18n: {
     legacy: false,
     strategy: 'prefix_except_default',

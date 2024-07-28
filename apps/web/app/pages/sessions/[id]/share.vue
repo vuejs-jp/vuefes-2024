@@ -1,5 +1,13 @@
 <script setup lang="ts">
-import { createError, useAsyncData, useHead, useLocaleCurrent, useRoute, useSupabase } from '#imports'
+import {
+  createError,
+  useAsyncData,
+  useHead,
+  useLocaleCurrent,
+  useRoute,
+  useSupabase,
+  defineOgImageComponent,
+} from '#imports'
 import { conferenceTitle, linkUrl, ogSpeakerDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import type { Speaker } from '@vuejs-jp/model'
@@ -31,6 +39,13 @@ function copyUrl() {
   document.body.removeChild(element)
 }
 
+defineOgImageComponent('VFOgCard24', {
+  user: {
+    display_name: speakerData[0].name_ja,
+    avatar_url: speakerData[0].image_url,
+    role: 'speaker',
+  },
+})
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
@@ -47,9 +62,10 @@ useHead({
   ],
 })
 </script>
+
 <template>
   <div class="session-share-root">
-    <VFOgCard23
+    <VFOgCard24
       class="session"
       :user="{
         display_name: speakerData[0].name_ja,
@@ -145,7 +161,7 @@ useHead({
   display: inline-block;
 }
 .copycode span {
-  opacity: 0; 
+  opacity: 0;
   position: absolute;
   top: 0px;
   right: -5px;
@@ -158,7 +174,13 @@ useHead({
   animation: fade-out 2s ease-in;
 }
 @keyframes fade-out {
-  0% { visibility: visible; opacity: 1; }
-  100% { visibility: hidden; opacity: 0; }
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 </style>

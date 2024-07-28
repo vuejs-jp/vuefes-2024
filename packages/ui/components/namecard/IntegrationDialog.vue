@@ -7,7 +7,7 @@ import type { AuthProvider } from '@vuejs-jp/model'
 interface IntegrationDialogProps {
   title: string
 }
-const props = defineProps<IntegrationDialogProps>()
+defineProps<IntegrationDialogProps>()
 
 const emits = defineEmits(['on-close', 'signIn'])
 

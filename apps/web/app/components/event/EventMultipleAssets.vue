@@ -23,7 +23,8 @@ const props = withDefaults(defineProps<EventMultipleAssetsProps>(), {
 .eventcard-images {
   display: flex;
   gap: calc(var(--unit) * 1.5);
-  padding: 0 calc(var(--unit) * 2);
+  grid-template-columns: auto 1fr;
+  padding: 0 calc(var(--unit) * 2) calc(var(--unit) * 5);
 
   @media (--mobile) {
     flex-direction: column;
@@ -31,9 +32,10 @@ const props = withDefaults(defineProps<EventMultipleAssetsProps>(), {
 }
 
 .eventcard-images ::v-deep(img) {
-  --head-img-height: 192px;
+  --head-img-height: 256px;
 
   padding: 0;
+  margin: 0 auto;
   height: var(--head-img-height);
 }
 </style>
