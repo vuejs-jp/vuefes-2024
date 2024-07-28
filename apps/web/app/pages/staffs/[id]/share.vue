@@ -35,7 +35,7 @@ function copyUrl() {
   document.body.removeChild(element)
 }
 
-defineOgImageComponent('VFOgCard24', {
+defineOgImageComponent('OgAvatarTemplate', {
   user: {
     display_name: staffData[0].name,
     avatar_url: staffData[0].image_url,
