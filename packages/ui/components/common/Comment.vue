@@ -32,7 +32,7 @@ const { color: textColor } = useColor()
       :style="{
         '--main-color': textColor(color),
       }"
-      v-html="decodeHtml(title)"
+      v-html="decodeHtml(title) ?? title"
     />
   </p>
 </template>
