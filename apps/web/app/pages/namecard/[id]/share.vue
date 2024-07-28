@@ -30,7 +30,9 @@ const officialSiteUrl = computed(() => {
   return currentLocale.value === 'ja' ? linkUrl : `${linkUrl}/en`
 })
 
-defineOgImageComponent('VFOgCard24')
+defineOgImageComponent('VFOgCard24', {
+  user: attendee,
+})
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
