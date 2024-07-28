@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<NamecardAvatarLogoProps>(), {
 })
 
 const VueFesLogo = defineAsyncComponent(
-  () => import('../../assets/namecard/vuefes_logo.svg?component'),
+  () => import('../../../assets/namecard/vuefes_logo.svg?component'),
 )
 </script>
 
