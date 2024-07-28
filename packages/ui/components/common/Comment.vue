@@ -15,9 +15,11 @@ defineProps({
 })
 
 const decodeHtml = (htmlStr: string) => {
-  const txt = document.createElement('textarea')
-  txt.innerHTML = htmlStr
-  return txt.value
+  if ((import.meta as any).client) {
+    const txt = document.createElement('textarea')
+    txt.innerHTML = htmlStr
+    return txt.value
+  }
 }
 
 const { color: textColor } = useColor()
