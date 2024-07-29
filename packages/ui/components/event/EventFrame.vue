@@ -22,14 +22,12 @@ const props = withDefaults(defineProps<EventFrameProps>(), {
 </template>
 
 <style scoped>
-@import url('~/assets/media.css');
-
 .event-frame-root {
   width: var(--head-width);
   background-color: #E7EFF7;
   border-radius: calc(var(--unit) * 3);
 
-  @media (--mobile) {
+  @media (width <= 768px) {
     border-radius: calc(var(--unit) * 1.5);
   }
 }
@@ -42,7 +40,7 @@ const props = withDefaults(defineProps<EventFrameProps>(), {
 .content-1 {
   padding: calc(var(--unit) * 5) calc(var(--unit) * 12);
 
-  @media (--mobile) {
+  @media (width <= 768px) {
     padding: calc(var(--unit) * 2);
   }
 }
@@ -50,7 +48,7 @@ const props = withDefaults(defineProps<EventFrameProps>(), {
 .content-2 {
   padding: calc(var(--unit) * 5) calc(var(--unit) * 5);
 
-  @media (--mobile) {
+  @media (width <= 768px) {
     padding: calc(var(--unit) * 2);
   }
 }
@@ -63,7 +61,7 @@ h3 {
 .title-1 {
   font-size: 36px;
 
-  @media (--mobile) {
+  @media (width <= 768px) {
     font-size: 24px;
   }
 }
@@ -71,7 +69,7 @@ h3 {
 .title-2 {
   font-size: 30px;
 
-  @media (--mobile) {
+  @media (width <= 768px) {
     font-size: 24px;
   }
 }
