@@ -2,14 +2,14 @@
 interface TicketCardProps {
   title: string
   imgSrc: string
-  alt: string
+  imgAlt: string
 }
 const props = defineProps<TicketCardProps>()
 </script>
 
 <template>
   <div class="ticket-card">
-    <img class="ticket-img" :src="props.imgSrc" alt="props.alt" />
+    <img class="ticket-img" :src="props.imgSrc" :alt="props.imgAlt" />
     <div class="ticket-title">{{ props.title }}</div>
     <div class="ticket-content">
       <slot />

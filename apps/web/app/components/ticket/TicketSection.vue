@@ -1,5 +1,28 @@
 <script setup lang="ts">
 import { ticketUrl } from '~/utils/constants'
+
+const ticketCards = {
+  ippan: {
+    title: $t('ticket.card.ippan.title'),
+    imgSrc: 'ticket/ippan.jpg',
+    imgAlt: $t('ticket.card.ippan.imgAlt'),
+  },
+  ippanParty: {
+    title: $t('ticket.card.ippanParty.title'),
+    imgSrc: 'ticket/ippan-party.jpg',
+    imgAlt: $t('ticket.card.ippanParty.imgAlt'),
+  },
+  handsOn: {
+    title: $t('ticket.card.handsOn.title'),
+    imgSrc: 'ticket/hands-on.jpg',
+    imgAlt: $t('ticket.card.handsOn.imgAlt'),
+  },
+  individualSponsor: {
+    title: $t('ticket.card.individualSponsor.title'),
+    imgSrc: 'ticket/individual-sponsor.jpg',
+    imgAlt: $t('ticket.card.individualSponsor.imgAlt'),
+  },
+}
 </script>
 
 <template>
@@ -28,7 +51,11 @@ import { ticketUrl } from '~/utils/constants'
         {{ $t('ticket.ticketTypes') }}
       </h3>
       <div class="ticket-cards-container">
-        <VFTicketCard :title="$t('ticket.card.ippan.title')" img-src="ticket/ippan.jpg">
+        <VFTicketCard
+          :title="ticketCards.ippan.title"
+          :img-src="ticketCards.ippan.imgSrc"
+          :img-alt="ticketCards.ippan.imgAlt"
+        >
           <div class="ticket-details ippan-details">
             <div class="early-purchase">
               <span class="cost">
@@ -45,7 +72,11 @@ import { ticketUrl } from '~/utils/constants'
             </div>
           </div>
         </VFTicketCard>
-        <VFTicketCard :title="$t('ticket.card.ippanParty.title')" img-src="ticket/ippan-party.jpg">
+        <VFTicketCard
+          :title="ticketCards.ippanParty.title"
+          :img-src="ticketCards.ippanParty.imgSrc"
+          :img-alt="ticketCards.ippanParty.imgAlt"
+        >
           <div class="ticket-details ippan-party-details">
             <div class="early-purchase">
               <span class="cost">
@@ -62,7 +93,11 @@ import { ticketUrl } from '~/utils/constants'
             </div>
           </div>
         </VFTicketCard>
-        <VFTicketCard :title="$t('ticket.card.handsOn.title')" img-src="ticket/hands-on.jpg">
+        <VFTicketCard
+          :title="ticketCards.handsOn.title"
+          :img-src="ticketCards.handsOn.imgSrc"
+          :img-alt="ticketCards.handsOn.imgAlt"
+        >
           <div class="ticket-details hands-on-details">
             <div class="cost">
               {{ $t('ticket.card.handsOn.cost') }}
@@ -78,8 +113,9 @@ import { ticketUrl } from '~/utils/constants'
           </div>
         </VFTicketCard>
         <VFTicketCard
-          :title="$t('ticket.card.individualSponsor.title')"
-          img-src="ticket/individual-sponsor.jpg"
+          :title="ticketCards.individualSponsor.title"
+          :img-src="ticketCards.individualSponsor.imgSrc"
+          :img-alt="ticketCards.individualSponsor.imgAlt"
         >
           <div class="ticket-details individual-sponsor-details">
             <div class="cost">
