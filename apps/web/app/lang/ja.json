@@ -6,8 +6,8 @@
   "not_found": "お探しのページが見つかりません。",
   "prefix_year": "2024",
   "suffix_year": "",
-  "invite_vue_fes": "あなたもVue Fes Japan 2024に参加しませんか？",
-  "share_namecard": "このネームカードをSNSでシェアしよう！",
+  "invite_vue_fes": "あなたもVue Fes Japan 2024に&lt;br&gt;参加しませんか？",
+  "share_namecard": "このネームカードを&lt;br&gt;SNSでシェアしよう！",
   "copied": "コピーしました",
   "official_site": "Vue Fes Japan 2024公式サイト",
   "day_of_week": {
@@ -223,7 +223,7 @@
     "dialog_message": "ネームカードを作成するには、あらかじめチケットの購入が必要です。チケット購入後、以下のいずれかのソーシャルアカウントからログインし、必要な情報をご登録ください。",
     "namecard_samples_alt": "ネームカードのサンプル",
     "complete_message": "これから注文番号の照合を行います。注文番号照合の状況はネームカードページのステータスで確認できます。編集期限前に照合が正常に完了したことを確認してください。",
-    "lets_share": "作成したネームカードをSNSでシェアしよう！",
+    "lets_share": "作成したネームカードを&lt;br&gt;SNSでシェアしよう！",
     "creation_process": {
       "title": "ネームカード作成の流れ"
     },
