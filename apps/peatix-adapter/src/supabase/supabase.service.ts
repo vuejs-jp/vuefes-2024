@@ -42,8 +42,8 @@ export class SupabaseService {
       .upsert({ role: targetData.role, activated_at: new Date().toISOString() })
       .eq('receipt_id', targetData.receipt_id)
       .eq('activated_at', null)
-    if (error) false
+    if (error) return { status: false, data: null }
 
-    return true
+    return { status: true, data }
   }
 }
