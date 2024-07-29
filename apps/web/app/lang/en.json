@@ -106,14 +106,14 @@
         "early": "Early: ¥10,000",
         "earlySub": "Purchase by Aug 25th, 24:00",
         "regular": "Regular: ¥11,000",
-        "imgAlt": "Table with assorted food for dinner"
+        "imgAlt": "Example of an after party"
       },
       "handsOn": {
         "title": "Hands On",
         "cost": "Free",
         "details1": "*Additionally, the purchase of either a regular ticket or a regular + after-party ticket is required.",
         "details2": "*For more details, please refer to the Hands-on section.",
-        "imgAlt": "Person working on app development"
+        "imgAlt": "Example of a workhop event"
       },
       "individualSponsor": {
         "title": "Individual Sponsor",

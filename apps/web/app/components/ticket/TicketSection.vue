@@ -1,26 +1,29 @@
 <script setup lang="ts">
+import { useI18n } from '#imports'
 import { ticketUrl } from '~/utils/constants'
+
+const { t } = useI18n()
 
 const ticketCards = {
   ippan: {
-    title: $t('ticket.card.ippan.title'),
+    title: t('ticket.card.ippan.title'),
     imgSrc: 'ticket/ippan.jpg',
-    imgAlt: $t('ticket.card.ippan.imgAlt'),
+    imgAlt: t('ticket.card.ippan.imgAlt'),
   },
   ippanParty: {
-    title: $t('ticket.card.ippanParty.title'),
+    title: t('ticket.card.ippanParty.title'),
     imgSrc: 'ticket/ippan-party.jpg',
-    imgAlt: $t('ticket.card.ippanParty.imgAlt'),
+    imgAlt: t('ticket.card.ippanParty.imgAlt'),
   },
   handsOn: {
-    title: $t('ticket.card.handsOn.title'),
+    title: t('ticket.card.handsOn.title'),
     imgSrc: 'ticket/hands-on.jpg',
-    imgAlt: $t('ticket.card.handsOn.imgAlt'),
+    imgAlt: t('ticket.card.handsOn.imgAlt'),
   },
   individualSponsor: {
-    title: $t('ticket.card.individualSponsor.title'),
+    title: t('ticket.card.individualSponsor.title'),
     imgSrc: 'ticket/individual-sponsor.jpg',
-    imgAlt: $t('ticket.card.individualSponsor.imgAlt'),
+    imgAlt: t('ticket.card.individualSponsor.imgAlt'),
   },
 }
 </script>
