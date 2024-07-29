@@ -1,7 +1,7 @@
-At Vue Fes Japan, we hold a hands-on workshop every year for those who want to start learning Vue.js!
+Vue Fes Japan では、これから Vue.js を学び始めたい方のために毎年ハンズオン企画を行っています！
 
-Nuxt, the meta-framework of Vue.js, has an official tutorial called [Nuxt Tutorial](https://github.com/nuxt/learn.nuxt.com) currently under development. This time, in collaboration with its author [Anthony Fu](https://github.com/antfu) and Vue Fes Japan, we will release this official tutorial in Japanese in advance and use it as the subject of our hands-on workshop.
+Vue.js のメタフレームワークである Nuxt には [Nuxt Tutorial](https://github.com/nuxt/learn.nuxt.com) という現在開発中の公式チュートリアルがあります。今回はその作者である [Anthony Fu](https://github.com/antfu) さんと Vue Fes Japan のコラボレーションにより、この公式チュートリアルを日本語版で先行公開し、ハンズオン企画の題材として扱います。
 
-This tutorial starts with the basics of Vue.js (reactivity, Composition API, etc.) and aims to help understand the core concepts of Nuxt. It is designed for Vue.js beginners who have never used Vue.js but want to create practical applications with it.
+このチュートリアルは Vue.js の基礎（リアクティビティ、Composition API など）から始まり、 Nuxt のコアなコンセプトを理解するためのもので、「Vue.js を触ったことがないけど Vue.js で実用的なアプリケーションを作ってみたい！」という Vue.js 初心者の方に楽しんでいただける内容になっています。
 
-Advance registration is required to participate. When purchasing a general ticket, please also apply for a hands-on ticket (free). Seats are limited and available on a first-come, first-served basis, so please apply early!
+参加には事前のお申し込みが必要です。一般チケットご購入時に、ハンズオンチケット（無料）を一緒にお申し込みください。席数には限りがあり、先着順となっておりますので、お申し込みはお早めに！

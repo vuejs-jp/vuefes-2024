@@ -1,7 +1,7 @@
-At Vue Fes Japan 2024, we will conduct hands-on sessions where participants can experience Vue.js application development by actively writing code together (a style of learning where you learn by actually coding).
+At Vue Fes Japan, we hold a hands-on workshop every year for those who want to start learning Vue.js!
 
-From beginners who are interested in learning Vue.js for the first time to experienced developers who want to catch up on the new development methods of Vue 3, you can master the basics of Vue.js in just 2 hours. Additionally, there will be Q&A sessions hosted by Vue.js Japan User Group staff.
+Nuxt, the meta-framework of Vue.js, has an official tutorial called [Nuxt Tutorial](https://github.com/nuxt/learn.nuxt.com) currently under development. This time, in collaboration with its author [Anthony Fu](https://github.com/antfu) and Vue Fes Japan, we will release this official tutorial in Japanese in advance and use it as the subject of our hands-on workshop.
 
-Pre-registration is required to participate. When purchasing general tickets, please also apply for a hands-on ticket (free of charge). Seats are limited and allocated on a first-come, first-served basis, so please register early!
+This tutorial starts with the basics of Vue.js (reactivity, Composition API, etc.) and aims to help understand the core concepts of Nuxt. It is designed for Vue.js beginners who have never used Vue.js but want to create practical applications with it.
 
-* When participating, please prepare your development environment using the following link as a reference: https://handson.vuejs-jp.org/setup.html
+Advance registration is required to participate. When purchasing a general ticket, please also apply for a hands-on ticket (free). Seats are limited and available on a first-come, first-served basis, so please apply early!
