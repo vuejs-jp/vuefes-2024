@@ -98,25 +98,29 @@
         "title": "Regular",
         "early": "Early: ¥7,000",
         "earlySub": "Purchase by Aug 25th, 24:00",
-        "regular": "Regular: ¥8,000"
+        "regular": "Regular: ¥8,000",
+        "imgAlt": "Speaker giving a presentation"
       },
       "ippanParty": {
         "title": "Regular + After Party",
         "early": "Early: ¥10,000",
         "earlySub": "Purchase by Aug 25th, 24:00",
-        "regular": "Regular: ¥11,000"
+        "regular": "Regular: ¥11,000",
+        "imgAlt": "Example of an after party"
       },
       "handsOn": {
         "title": "Hands On",
         "cost": "Free",
         "details1": "*Additionally, the purchase of either a regular ticket or a regular + after-party ticket is required.",
-        "details2": "*For more details, please refer to the Hands-on section."
+        "details2": "*For more details, please refer to the Hands-on section.",
+        "imgAlt": "Example of a workhop event"
       },
       "individualSponsor": {
         "title": "Individual Sponsor",
         "cost": "¥10,000",
         "details1": "*For those attending on the day, the purchase of either a regular ticket or a regular + after-party ticket is required.",
-        "details2": "*For more details, please refer to the Individual Sponsor section."
+        "details2": "*For more details, please refer to the Individual Sponsor section.",
+        "imgAlt": "Event-branded t-shirts"
       }
     }
   },
