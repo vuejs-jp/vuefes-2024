@@ -27,7 +27,13 @@ const props = withDefaults(defineProps<EventFrameProps>(), {
   background-color: #E7EFF7;
   border-radius: calc(var(--unit) * 3);
 
-  @media (--mobile) {
+  /*
+  メディアクエリの読み込みができなかったため、一旦コメントアウト
+  @import url('~/assets/media.css');
+  @custom-media --tablet (width <= 768px);
+  @custom-media --mobile (width <= 480px);
+  */
+  @media (width <= 480px) {
     border-radius: calc(var(--unit) * 1.5);
   }
 }
@@ -40,7 +46,13 @@ const props = withDefaults(defineProps<EventFrameProps>(), {
 .content-1 {
   padding: calc(var(--unit) * 5) calc(var(--unit) * 12);
 
-  @media (--mobile) {
+  /*
+  メディアクエリの読み込みができなかったため、一旦コメントアウト
+  @import url('~/assets/media.css');
+  @custom-media --tablet (width <= 768px);
+  @custom-media --mobile (width <= 480px);
+  */
+  @media (width <= 480px) {
     padding: calc(var(--unit) * 2);
   }
 }
@@ -48,7 +60,13 @@ const props = withDefaults(defineProps<EventFrameProps>(), {
 .content-2 {
   padding: calc(var(--unit) * 5) calc(var(--unit) * 5);
 
-  @media (--mobile) {
+  /*
+  メディアクエリの読み込みができなかったため、一旦コメントアウト
+  @import url('~/assets/media.css');
+  @custom-media --tablet (width <= 768px);
+  @custom-media --mobile (width <= 480px);
+  */
+  @media (width <= 480px) {
     padding: calc(var(--unit) * 2);
   }
 }
@@ -61,7 +79,13 @@ h3 {
 .title-1 {
   font-size: 36px;
 
-  @media (--mobile) {
+  /*
+  メディアクエリの読み込みができなかったため、一旦コメントアウト
+  @import url('~/assets/media.css');
+  @custom-media --tablet (width <= 768px);
+  @custom-media --mobile (width <= 480px);
+  */
+  @media (width <= 480px) {
     font-size: 24px;
   }
 }
@@ -69,7 +93,13 @@ h3 {
 .title-2 {
   font-size: 30px;
 
-  @media (--mobile) {
+  /*
+  メディアクエリの読み込みができなかったため、一旦コメントアウト
+  @import url('~/assets/media.css');
+  @custom-media --tablet (width <= 768px);
+  @custom-media --mobile (width <= 480px);
+  */
+  @media (width <= 480px) {
     font-size: 24px;
   }
 }

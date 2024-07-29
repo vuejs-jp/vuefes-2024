@@ -4,12 +4,16 @@ import EventCard from '~/components/event/EventCard.vue'
 import EventAsset from '~/components/event/EventAsset.vue'
 import EventMultipleAssets from '~/components/event/EventMultipleAssets.vue'
 import PanelerList from '~/components/event/PanelerList.vue'
+import { useFetch } from '#imports'
 
 type _PanelerCategory = Extract<SpeakerCategory, 'panelEventPanelers'>
 type Panelers = Record<_PanelerCategory, PanelerInfo>
 
-const data = await $fetch('/api/speakers')
-const { panelEventPanelers } = data as Panelers
+const { data, error } = await useFetch('/api/speakers')
+if (error.value) {
+  console.error(error.value)
+}
+const { panelEventPanelers } = data.value as Panelers
 </script>
 
 <template>
