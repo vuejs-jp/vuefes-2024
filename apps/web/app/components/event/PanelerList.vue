@@ -22,6 +22,7 @@ const currentLocale = useLocaleCurrent().locale
       :name="currentLocale === 'en' ? paneler.name_en : paneler.name_ja"
       :github-id="paneler.github_id"
       :x-id="paneler.x_id"
+      row-position
     />
   </div>
 </template>
@@ -30,7 +31,8 @@ const currentLocale = useLocaleCurrent().locale
 @import url('~/assets/media.css');
 
 .eventcard-persons {
-  --head-img-width: 172px;
+  --head-img-width: 103px;
+  --head-img-height: 103px;
 
   display: flex;
   flex-wrap: wrap;
@@ -42,16 +44,18 @@ const currentLocale = useLocaleCurrent().locale
   }
 }
 
-.eventcard-persons ::v-deep(p) {
-  width: var(--head-img-width);
+.eventcard-persons div {
+  width: calc(calc(100% - 16px) / 2);
+  height: 120px;
 
   @media (--mobile) {
-    --head-img-width: 103px;
+    width: 100%;
   }
 }
 
 .eventcard-persons ::v-deep(img) {
   width: var(--head-img-width);
+  height: var(--head-img-height);
 
   @media (--mobile) {
     --head-img-width: 103px;

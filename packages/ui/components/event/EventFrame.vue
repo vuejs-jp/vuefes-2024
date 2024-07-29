@@ -22,6 +22,8 @@ const props = withDefaults(defineProps<EventFrameProps>(), {
 </template>
 
 <style scoped>
+@import url('~/assets/media.css');
+
 .event-frame-root {
   width: var(--head-width);
   background-color: #E7EFF7;

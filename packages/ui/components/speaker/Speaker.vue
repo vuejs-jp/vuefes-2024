@@ -11,6 +11,7 @@ type SpeakerProps = {
   name: string
   githubId?: string
   xId?: string
+  rowPosition?: boolean
 }
 
 defineProps<SpeakerProps>()
@@ -19,7 +20,7 @@ const { color } = useColor()
 </script>
 
 <template>
-  <div class="speaker-wrapper">
+  <div class="speaker-wrapper" :style="rowPosition ? '' : 'flex-direction: column;'">
     <Avatar :src="image" :alt="name" />
     <div class="speaker-info">
       <div class="speaker-affiliation">
@@ -48,7 +49,7 @@ const { color } = useColor()
         {{ name }}
       </h3>
     </div>
-    <div class="speaker-sns-icons">
+    <div v-if="!rowPosition" class="speaker-sns-icons">
       <IconButton
         v-if="githubId"
         :href="`https://github.com/${githubId}`"
@@ -72,7 +73,6 @@ const { color } = useColor()
 <style scoped>
 .speaker-wrapper {
   display: flex;
-  flex-direction: column;
   gap: calc(var(--unit) * 1.5);
 }
 
