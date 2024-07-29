@@ -63,7 +63,7 @@ Please refer to "About Individual Sponsors."
 It may have been treated as spam. Please check if it was sorted into your spam folder. If you still haven't received it, please contact us via the inquiry form.
 
 #### Can I cancel my ticket?
-**Cancellation is possible until September 30, 2023 (Saturday).** Please note that **cancellations and refunds cannot be processed from October 1 (Sunday) onwards**.
+**Cancellation is possible until September 30, 2024.** Please note that **cancellations and refunds cannot be processed from October 1 onwards**.
 
 Additionally, ticket cancellation and refund are possible within 50 days of purchase only if payment was made by credit card. Please note that cancellation and refund are not possible for convenience store or ATM payments.
 
