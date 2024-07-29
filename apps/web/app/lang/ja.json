@@ -34,7 +34,7 @@
     "end_minute": "00"
   },
   "volunteer": {
-    "title": "ボランティア募集",
+    "title": "当日ボランティア募集",
     "subtitle": "あなたも一緒に Vue Fes Japan を盛り上げませんか？",
     "application_period": "募集スケジュール",
     "application_period_before": "応募期限：",
@@ -149,11 +149,11 @@
     "map_text": "Googleマップを見る"
   },
   "childcare": {
-    "title": "託児サポートについて",
-    "apply": "託児サポートに申し込む"
+    "title": "託児サポート supported by STORES",
+    "apply": "託児サポートを申し込む"
   },
   "personal_sponsor": {
-    "title": "個人スポンサーについて",
+    "title": "個人スポンサー",
     "merit1": {
       "title": "クレジット掲載",
       "detail": "Vue Fes Japan 公式 Web サイトにお名前を掲載します（希望者のみ）。"
@@ -174,7 +174,7 @@
     }
   },
   "handson": {
-    "title": "ハンズオンについて"
+    "title": "Vue.js / Nuxt ハンズオン"
   },
   "partner": {
     "title": "協力パートナー"

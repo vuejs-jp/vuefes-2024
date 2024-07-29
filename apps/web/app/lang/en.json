@@ -131,7 +131,7 @@
     "map_text": "View on Google Maps"
   },
   "childcare": {
-    "title": "Child Care",
+    "title": "Child Care supported by STORES",
     "apply": "Apply"
   },
   "personal_sponsor": {
@@ -156,7 +156,7 @@
     }
   },
   "handson": {
-    "title": "Hands-on"
+    "title": "Vue.js / Nuxt Hands-on"
   },
   "partner": {
     "title": "Partners"

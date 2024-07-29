@@ -40,6 +40,7 @@
 
     font-size: 18px;
     font-weight: 700;
+    margin-top: calc(var(--unit) * 6);
     margin-bottom: var(--body-h4-margin-bottom);
   }
 
