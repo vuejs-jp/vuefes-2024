@@ -18,8 +18,6 @@ const props = defineProps<TicketCardProps>()
 </template>
 
 <style scoped>
-@import url('~/assets/media.css');
-
 .ticket-card {
   width: 464px;
   height: 456px;
@@ -60,7 +58,13 @@ const props = defineProps<TicketCardProps>()
   padding: 28px 48px 24px 48px;
 }
 
-@media (--mobile) {
+/*
+メディアクエリの読み込みができなかったため、一旦コメントアウト
+@import url('~/assets/media.css');
+@custom-media --tablet (width <= 768px);
+@custom-media --mobile (width <= 480px);
+*/
+@media (width <= 480px) {
   .ticket-card {
     width: 342px;
     height: 388px;
