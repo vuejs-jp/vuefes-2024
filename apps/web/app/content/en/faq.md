@@ -16,7 +16,7 @@ There will be no live streaming on the day. The event will be strictly offline, 
 However, sessions will be recorded and will be made available on the [Vue.js Japan User Group YouTube channel](https://www.youtube.com/channel/UC6KPwA1kZJtQYdlh8_2hxCA) from the year following the event.
 
 #### What is the Early Bird discount?
-It's a special discount available only to those who purchase tickets early. Take advantage of this great offer and purchase your tickets early. Please note that the Early Bird discount is available until 8/12 (Monday, public holiday) 24:00.
+It's a special discount available only to those who purchase tickets early. Take advantage of this great offer and purchase your tickets early. Please note that the Early Bird discount is available until 8/25 24:00.
 
 #### What about the timetable and session details?
 They will be announced on this website before ticket sales begin. Please note that some details may be released after ticket sales start.
