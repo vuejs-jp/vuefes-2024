@@ -1,13 +1,19 @@
 <script setup lang="ts">
 import { useI18n, useRuntimeConfig, useSwitchLocalePath } from '#imports'
 import { useWindowSize } from '@vueuse/core'
-import { ref, computed } from 'vue'
+import { ref, watchEffect, onMounted } from 'vue'
 const { locale } = useI18n({ useScope: 'global' })
 const switchLocalePath = useSwitchLocalePath()
 const config = useRuntimeConfig()
 
 const { width } = useWindowSize()
-const isShowSpHeader = computed(() => width.value <= 1080)
+const shouldShowSpHeader = ref()
+onMounted(() => {
+  shouldShowSpHeader.value = width.value <= 1080
+})
+watchEffect(() => {
+  shouldShowSpHeader.value = width.value <= 1080
+})
 
 type NavLink = {
   text: string
@@ -31,7 +37,7 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <VFSpHeader v-if="isShowSpHeader">
+  <VFSpHeader v-if="shouldShowSpHeader">
     <div class="navigation-mobile">
       <NuxtLink
         v-if="config.public.enableSwitchLocale"
