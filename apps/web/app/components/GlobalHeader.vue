@@ -19,7 +19,6 @@ const navLinks: NavLink[] = [
   // Uncomment out after job board implementation
   // { text: 'Job board', anchor: '#jobboard' },
   { text: 'Inquiry', anchor: '#form' },
-
 ]
 
 const showMenu = ref(false)
@@ -35,19 +34,19 @@ const toggleMenu = () => {
       <NuxtLink
         v-if="config.public.enableSwitchLocale"
         :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
-        class="locale-switch-wrapper">
+        class="locale-switch-wrapper"
+      >
         <VFLocaleSwitch :locale />
       </NuxtLink>
 
-      <a
-        href=""
+      <button
         class="navigation-mobile-toggle"
         name="menu"
         :class="{ 'isOpened': showMenu }"
-        @click.prevent="toggleMenu"
+        @click="toggleMenu"
       >
         <span /><span /><span />
-      </a>
+      </button>
       <!-- <VFIcon name="menu" color="vue-blue" can-hover @click="toggleMenu" /> -->
     </div>
     <!-- hamburger-menu -->
@@ -103,7 +102,7 @@ const toggleMenu = () => {
   text-align: center;
   background-color: var(--color-white);
 
-  &>div {
+  & > div {
     padding: calc(var(--unit) * 5) 0;
   }
 
@@ -128,10 +127,6 @@ const toggleMenu = () => {
 .navigation-links-pc {
   display: flex;
   gap: calc(var(--unit) * 8);
-
-  a {
-    text-decoration: none;
-  }
 }
 
 .navigation-mobile-toggle {
@@ -140,6 +135,9 @@ const toggleMenu = () => {
   top: 0;
   width: 24px;
   height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
 
   span {
     position: absolute;
@@ -149,7 +147,7 @@ const toggleMenu = () => {
     width: 24px;
     height: 2px;
     transition-property: transform opacity;
-    transition-duration: .1s;
+    transition-duration: 0.1s;
     transition-timing-function: linear;
 
     &:nth-child(1) {
@@ -164,7 +162,7 @@ const toggleMenu = () => {
   &.isOpened {
     span {
       transition-property: transform opacity;
-      transition-duration: .1s;
+      transition-duration: 0.1s;
       transition-timing-function: linear;
 
       &:nth-child(1) {
