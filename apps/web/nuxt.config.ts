@@ -67,9 +67,9 @@ export default defineNuxtConfig({
     langDir: 'lang',
     defaultLocale: 'ja',
     detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root',
+      useCookie: false,
+      // cookieKey: 'i18n_redirected',
+      // redirectOn: 'root',
     },
   },
   supabase: {
@@ -141,7 +141,13 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vue-toastification'],
   },
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
   css: ['~/assets/base.css'],
   postcss: {
     plugins: {
