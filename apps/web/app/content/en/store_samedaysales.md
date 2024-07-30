@@ -9,7 +9,7 @@ For same-day sales, <b>only cashless payment methods are accepted</b>. Please be
 <br>
 Accepted Payment Methods (planned):
 
-Various credit cards, various transportation IC cards (electronic money), iD, QUICPay, Apple Pay, UnionPay
+Various credit cards, various transportation e-money, iD, QUICPay, Apple Pay, UnionPay, Alipay+, WeChat Pay, COIN+, au PAY, d 払い (d Barai), PayPay, Rakuten Pay, J-Coin Pay, Smart Code™
 
 <br>
 ※ Profits from merchandise sales will be used exclusively for the operation of Vue Fes Japan or the activities of the Vue.js Japan User Group.

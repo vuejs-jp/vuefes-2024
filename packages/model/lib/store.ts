@@ -4,6 +4,7 @@ export interface Product {
   price: string
   size: string
   color?: string
+  weight?: string
   src: string
   alt: string
 }
