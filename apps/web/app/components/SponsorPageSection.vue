@@ -46,7 +46,7 @@ const secondPeriodEnd = {
 const endPeriodTime = {
   hour: t('speaker.end_hour'),
   minute: t('speaker.end_minute'),
-  ampm: currentLocale.value === 'en' && t('speaker.end_ampm'),
+  ampm: currentLocale.value === 'en' ? t('speaker.end_ampm') : '',
 }
 
 const { data, error } = await useFetch('/api/sponsors')
