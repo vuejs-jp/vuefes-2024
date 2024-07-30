@@ -1,6 +1,7 @@
 export type Staff = {
   id?: string
   name: string
+  detail_page_id: string
   image_url: string
   x_id?: string
   github_id?: string

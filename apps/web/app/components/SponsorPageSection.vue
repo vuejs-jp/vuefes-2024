@@ -59,10 +59,12 @@ const {
   silverSponsors,
   bronzeSponsors,
   specialNamingRightSponsors,
+  namingRightSponsors,
   specialLunchSponsors,
   afterPartySponsors,
   nameCardSponsors,
   simultaneousInterpretationSponsors,
+  childcareSponsors,
   mediaSponsors,
   toolSponsors,
 } = data.value as Sponsors
@@ -146,6 +148,7 @@ const {
       <SponsorList v-bind="silverSponsors" />
       <SponsorList v-bind="bronzeSponsors" />
       <SponsorList v-bind="specialNamingRightSponsors" />
+      <SponsorList v-bind="namingRightSponsors" />
       <div class="sponsor-list-layout-separate">
         <SponsorList v-bind="specialLunchSponsors" />
         <SponsorList v-bind="afterPartySponsors" />
@@ -154,6 +157,7 @@ const {
         <SponsorList v-bind="nameCardSponsors" />
         <SponsorList v-bind="simultaneousInterpretationSponsors" />
       </div>
+      <SponsorList v-bind="childcareSponsors" />
       <SponsorList v-bind="mediaSponsors" />
       <SponsorList v-bind="toolSponsors" />
     </article>

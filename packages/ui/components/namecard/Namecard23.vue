@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NamecardAvatar from './NamecardAvatar.vue'
+import NamecardAvatar from './NamecardAvatar23.vue'
 import type { NamecardUser } from '@vuejs-jp/model'
 import { defineAsyncComponent } from 'vue'
 
@@ -85,7 +85,7 @@ const SpBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wa
   left: 50%;
   transform: translate(-50%, 0);
   width: 60%;
-  height: 20%;
+  height: 32%;
   z-index: 2;
 }
 
@@ -95,7 +95,7 @@ const SpBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wa
   left: 50%;
   transform: translate(-50%, 0);
   width: 30%;
-  height: 12%;
+  height: 24%;
   z-index: 2;
 }
 
@@ -105,7 +105,7 @@ const SpBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wa
   left: 50%;
   transform: translate(-50%, 0);
   width: 60%;
-  height: 10%;
+  height: 12%;
   z-index: 2;
 }
 
@@ -120,11 +120,11 @@ const SpBg = defineAsyncComponent(() => import('../../assets/namecard/2023/pc/wa
 
 .hook {
   position: absolute;
-  top: 2%;
+  top: 0;
   left: 50%;
   transform: translate(-50%, 0);
   width: 20%;
-  height: 16%;
+  height: 10%;
   z-index: 2;
 }
 

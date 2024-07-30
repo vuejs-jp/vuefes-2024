@@ -21,6 +21,7 @@ const props = defineProps<StoreItemProps>()
     <div class="supplement">
       <p>{{ size }}</p>
       <p v-if="color">{{ color }}</p>
+      <p v-if="weight">{{ weight }}</p>
     </div>
   </div>
 </template>
@@ -40,6 +41,7 @@ const props = defineProps<StoreItemProps>()
 
 .explain {
   width: 308px;
+  white-space: pre-wrap;
 }
 
 .price {

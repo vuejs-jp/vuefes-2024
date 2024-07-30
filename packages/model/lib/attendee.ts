@@ -24,9 +24,9 @@ export type Attendee = {
   id?: string
   provider: string
   receipt_id: string
-  role?: string
+  role?: Role
   updated_at: string
   user_id: string
 }
 
-export type NamecardUser = Pick<Attendee, 'display_name' | 'avatar_url' | 'role'>
+export type NamecardUser = Pick<Attendee, 'display_name' | 'avatar_url' | 'role' | 'receipt_id'>

@@ -30,9 +30,5 @@ export function useAuth() {
    return data.user
   }
 
-  const authUserId = getUser().then(user => {
-    return user.id
-  }).catch(()=> null)
-
-  return { signIn, signOut, authUserId }
+  return { signIn, signOut, getUser }
 }

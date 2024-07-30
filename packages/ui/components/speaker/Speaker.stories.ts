@@ -62,3 +62,8 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
 })
 
 export const Default = Template.bind({})
+
+export const RowPosition = Template.bind({})
+RowPosition.args = {
+  rowPosition: true,
+}

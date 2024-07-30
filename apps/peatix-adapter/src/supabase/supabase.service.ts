@@ -33,17 +33,17 @@ export class SupabaseService {
   }
 
   // vuejs-jp/vuefes-2024-backside#226
-  public async updateAttendees(targets: AttendeeReceipt[]) {
+  public async updateAttendees(targets: AttendeeReceipt) {
     this.getClient()
 
-    const targetData = [ ...targets ]
+    const targetData = { ...targets }
 
-    for (const target of targetData) {
-      const { data, error } = await this.client.from('attendees')
-        .upsert({ role: target.role, activated_at: new Date().toISOString() })
-        .eq('receipt_id', target.receipt_id)
-        .eq('activated_at', null)
-      if (error) break
-    }
+    const { data, error } = await this.client.from('attendees')
+      .upsert({ role: targetData.role, activated_at: new Date().toISOString() })
+      .eq('receipt_id', targetData.receipt_id)
+      .eq('activated_at', null)
+    if (error) return { status: false, data: null }
+
+    return { status: true, data }
   }
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { createError, useAsyncData, useHead, useRoute, useSponsor } from '#imports'
-import type { Speaker, Sponsor } from '@vuejs-jp/model'
+import type { Job, Speaker, Sponsor } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useSupabase } from '~/composables/useSupabase'
 import { conferenceTitle, linkUrl, ogSponsorDescription } from '~/utils/constants'
@@ -28,8 +28,14 @@ const { data: speakers } = await useAsyncData('speakers', async () => {
 
 const speakerData = speakers.value?.data as Speaker[]
 
+const { data: jobs } = await useAsyncData('jobs', async () => {
+  return await fetchData('jobs', { sponsorId: sponsorData[0].id })
+})
+
+const jobData = jobs.value?.data as Job[]
+
 const currentLocale = useLocaleCurrent().locale
-const { color } = useSponsor()
+const { color, borderColor } = useSponsor()
 
 useHead({
   titleTemplate: (titleChunk) => `${sponsorData[0].name} | ${conferenceTitle}`,
@@ -60,7 +66,7 @@ useHead({
 
       <div class="detailhead-body">
         <div class="detailhead-left">
-          <p class="detailhead-img">
+          <p class="detailhead-img" :style="{ border: `1px solid ${borderColor(sponsorData[0].tag)}` }">
             <img
               :src="`${sponsorData[0].image_url}`"
               :alt="sponsorData[0].name"
@@ -84,6 +90,9 @@ useHead({
       </div>
 
       <div v-if="sponsorData[0].speaker_id" class="detailbody-persons">
+        <h3 class="sponsor-subtitle">
+          {{ `${sponsorData[0].name}のスポンサーセッション` }}
+        </h3>
         <VFSpeaker
           :image="speakerData[0].image_url"
           :company="currentLocale === 'en' ? speakerData[0].caption_en : speakerData[0].caption_ja"
@@ -95,6 +104,15 @@ useHead({
         <div class="person-info">
           {{ currentLocale === 'ja' ? speakerData[0].description_ja : speakerData[0].description_en }}
         </div>
+      </div>
+
+      <div v-if="jobData.length !== 0" class="detailbody-jobboard">
+        <h3 class="sponsor-subtitle">
+          {{ `${sponsorData[0].name}のジョブボード` }}
+        </h3>
+        <nuxt-link :to="jobData[0].link_url" target="_blank">
+          <img :src="jobData[0].image_url" :alt="jobData[0].image_alt" />
+        </nuxt-link>
       </div>
 
       <div class="back">
@@ -173,6 +191,7 @@ useHead({
     margin-top: calc(var(--unit) * 4);
     color: #292C33;
     gap: calc(var(--unit) * 5);
+    padding: calc(var(--unit) * 2.5) 0 calc(var(--unit) * 5);
   }
 
   .detailhead-body ::v-deep(a) {
@@ -191,7 +210,24 @@ useHead({
   }
 
   .detailhead-right {
-    font-size: 18px;
+    --body-font-size: 1.125rem;
+    --body-font-weight: 500;
+
+    font-size: var(--body-font-size);
+    font-weight: var(--body-font-weight);
+    white-space: pre-wrap;
+
+    ::v-deep(p) {
+      --body-p-margin-bottom: calc(var(--unit) * 4);
+
+      margin-bottom: var(--body-p-margin-bottom);
+      line-height: 1.8;
+    }
+
+    ::v-deep(p:last-child) {
+      text-align: right;
+      margin-bottom: 0px;
+    }
   }
 
   .detailhead-right ::v-deep(a) {
@@ -209,8 +245,7 @@ useHead({
     width: var(--head-img-width);
     height: auto;
     aspect-ratio: 690 / 388;
-    box-shadow: 0px 4px 4px 0px #00000040;
-    border-radius: calc(var(--space-8) * 1);
+    border-radius: calc(var(--unit) * 1.5);
   }
 
   .detailhead-img img {
@@ -229,11 +264,25 @@ useHead({
     }
   }
 
+  .sponsor-subtitle {
+    --sponsor-subtitle-font-size: 2rem;
+    --sponsor-subtitle-font-weight: 700;
+
+    font-size: var(--sponsor-subtitle-font-size);
+    font-weight: var(--sponsor-subtitle-font-weight);
+    line-height: normal;
+    background: var(--color-vue-green-gradation);
+    background-clip: text;
+    color: transparent;
+  }
+
   .detailbody-persons {
     font-size: 18px;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: calc(var(--unit) * 4);
+    padding: calc(var(--unit) * 5) 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .detailbody-persons ::v-deep(img) {
@@ -262,6 +311,20 @@ useHead({
     transition: 0.2s;
   }
 
+  .detailbody-jobboard {
+    display: grid;
+    gap: calc(var(--unit) * 2.5);
+    padding: calc(var(--unit) * 5) 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .detailbody-jobboard ::v-deep(a) {
+    width: 460px;
+
+    @media(--mobile) {
+      width: 100%;
+    }
+  }
 
   .back {
     margin: 40px auto 0;

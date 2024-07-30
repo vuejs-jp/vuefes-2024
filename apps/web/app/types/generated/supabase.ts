@@ -61,6 +61,7 @@ export type Database = {
         Row: {
           activated_at: string | null
           avatar_url: string
+          canceled_at: string | null
           created_at: string
           display_name: string | null
           email: string
@@ -75,6 +76,7 @@ export type Database = {
         Insert: {
           activated_at?: string | null
           avatar_url: string
+          canceled_at?: string | null
           created_at?: string
           display_name?: string | null
           email: string
@@ -89,6 +91,7 @@ export type Database = {
         Update: {
           activated_at?: string | null
           avatar_url?: string
+          canceled_at?: string | null
           created_at?: string
           display_name?: string | null
           email?: string
@@ -110,10 +113,54 @@ export type Database = {
           },
         ]
       }
+      jobs: {
+        Row: {
+          created_at: string
+          display_order: number | null
+          id: string
+          image_alt: string | null
+          image_url: string | null
+          is_open: boolean
+          link_url: string | null
+          sponsor_id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          image_alt?: string | null
+          image_url?: string | null
+          is_open: boolean
+          link_url?: string | null
+          sponsor_id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          image_alt?: string | null
+          image_url?: string | null
+          is_open?: boolean
+          link_url?: string | null
+          sponsor_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'jobs_sponsor_id_fkey'
+            columns: ['sponsor_id']
+            isOneToOne: false
+            referencedRelation: 'sponsors'
+            referencedColumns: ['id']
+          },
+        ]
+      }
       speakers: {
         Row: {
-          caption_en: string | null
-          caption_ja: string | null
+          company_en: string | null
+          company_ja: string | null
           created_at: string
           description_en: string
           description_ja: string
@@ -126,6 +173,8 @@ export type Database = {
           is_open: boolean
           name_en: string
           name_ja: string
+          position_en: string | null
+          position_ja: string | null
           session_comment_en: string | null
           session_comment_ja: string | null
           session_description_en: string | null
@@ -143,8 +192,8 @@ export type Database = {
           x_id: string | null
         }
         Insert: {
-          caption_en?: string | null
-          caption_ja?: string | null
+          company_en?: string | null
+          company_ja?: string | null
           created_at?: string
           description_en: string
           description_ja: string
@@ -157,6 +206,8 @@ export type Database = {
           is_open: boolean
           name_en: string
           name_ja: string
+          position_en?: string | null
+          position_ja?: string | null
           session_comment_en?: string | null
           session_comment_ja?: string | null
           session_description_en?: string | null
@@ -174,8 +225,8 @@ export type Database = {
           x_id?: string | null
         }
         Update: {
-          caption_en?: string | null
-          caption_ja?: string | null
+          company_en?: string | null
+          company_ja?: string | null
           created_at?: string
           description_en?: string
           description_ja?: string
@@ -188,6 +239,8 @@ export type Database = {
           is_open?: boolean
           name_en?: string
           name_ja?: string
+          position_en?: string | null
+          position_ja?: string | null
           session_comment_en?: string | null
           session_comment_ja?: string | null
           session_description_en?: string | null
@@ -218,6 +271,7 @@ export type Database = {
           is_open: boolean
           link_url: string | null
           name: string
+          share_image_url: string | null
           speaker_id: string | null
           tag: string[] | null
           updated_at: string
@@ -233,6 +287,7 @@ export type Database = {
           is_open: boolean
           link_url?: string | null
           name: string
+          share_image_url?: string | null
           speaker_id?: string | null
           tag?: string[] | null
           updated_at?: string
@@ -248,6 +303,7 @@ export type Database = {
           is_open?: boolean
           link_url?: string | null
           name?: string
+          share_image_url?: string | null
           speaker_id?: string | null
           tag?: string[] | null
           updated_at?: string
@@ -257,6 +313,7 @@ export type Database = {
       staffs: {
         Row: {
           created_at: string
+          detail_page_id: string | null
           display_order: number | null
           github_id: string | null
           id: string
@@ -268,6 +325,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          detail_page_id?: string | null
           display_order?: number | null
           github_id?: string | null
           id?: string
@@ -279,6 +337,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          detail_page_id?: string | null
           display_order?: number | null
           github_id?: string | null
           id?: string

@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { Color } from '@vuejs-jp/model'
 
 type TitleProps = {
   id: string
+  color?: Color
 }
 
-const props = defineProps<TitleProps>()
+const props = withDefaults(defineProps<TitleProps>(), {
+  color: 'vue-blue',
+})
 
 const { fontWeight } = useTypography()
-const { color } = useColor()
+const { color: updateColor } = useColor()
 </script>
 
 <template>
@@ -16,7 +20,7 @@ const { color } = useColor()
     :id
     :style="{
       fontWeight: fontWeight('heading/700'),
-      color: color('vue-blue'),
+      color: updateColor(color ?? 'vue-blue'),
     }"
     class="typography"
   >

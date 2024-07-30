@@ -33,6 +33,8 @@ ALTER TABLE public.sponsors ADD COLUMN display_order int;
 
 ALTER TABLE public.sponsors ADD COLUMN detail_page_id varchar(40);
 
+ALTER TABLE public.sponsors ADD COLUMN share_image_url varchar(500);
+
 alter table
   public.sponsors enable row level security;
 
@@ -45,6 +47,35 @@ insert
   with check (true);
 
 create policy "Allow update for all sponsors." on public.sponsors for
+update
+  using (true);
+
+create table if not exists public.jobs (
+  id uuid not null primary key default uuid_generate_v4(),
+  sponsor_id uuid not null references public.sponsors on delete cascade,
+  link_url varchar(500),
+  image_url varchar(500),
+  image_alt varchar(100),
+  display_order int,
+  is_open bool not null,
+  created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
+  updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
+);
+
+ALTER TABLE public.jobs ALTER COLUMN image_alt TYPE varchar(500);
+
+alter table
+  public.jobs enable row level security;
+
+create policy "Allow select for all jobs." on public.jobs for
+select
+  using (true);
+
+create policy "Allow insert for all jobs." on public.jobs for
+insert
+  with check (true);
+
+create policy "Allow update for all jobs." on public.jobs for
 update
   using (true);
 
@@ -83,6 +114,14 @@ ALTER TABLE public.speakers ADD COLUMN detail_page_id varchar(40);
 
 ALTER TABLE public.speakers ADD COLUMN events text array;
 
+ALTER TABLE public.speakers RENAME COLUMN caption_ja TO company_ja;
+
+ALTER TABLE public.speakers RENAME COLUMN caption_en TO company_en;
+
+ALTER TABLE public.speakers ADD COLUMN position_ja varchar(100);
+
+ALTER TABLE public.speakers ADD COLUMN position_en varchar(100);
+
 alter table
   public.speakers enable row level security;
 
@@ -109,6 +148,8 @@ create table if not exists public.staffs (
   created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
+
+ALTER TABLE public.staffs ADD COLUMN detail_page_id varchar(40);
 
 alter table
   public.staffs enable row level security;
@@ -140,6 +181,7 @@ create table if not exists public.attendees (
 );
 
 ALTER TABLE public.attendees ADD COLUMN image_file_name uuid not null unique default uuid_generate_v4();
+ALTER TABLE public.attendees ADD COLUMN canceled_at timestamp with time zone;
 
 alter table
   public.attendees enable row level security;

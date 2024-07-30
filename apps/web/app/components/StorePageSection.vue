@@ -6,73 +6,84 @@ import { storeUrl } from '~/utils/constants'
 
 const { t } = useI18n()
 
-// TODO: Replace with actual product data
 const products: Product[] = [
   {
     src: 'store/vue-t-shirt.png',
     alt: '',
     name: t('store.tshirt'),
-    price: '¥2,500',
+    price: '¥3,000',
     explain: t('store.tshirt_detail'),
-    color: 'ネイビー',
+    color: 'ホワイト',
     size: 'S / M / L / XL',
   },
   {
     src: 'store/vue-parka.png',
     alt: '',
     name: t('store.parka'),
-    price: '¥5,500',
+    price: '¥6,000',
     explain: t('store.parka_detail'),
-    color: 'グレー',
+    color: 'ホワイト',
     size: 'S / M / L / XL',
   },
   {
-    src: 'store/vue-badge.png',
+    src: 'store/pin-badge.png',
     alt: '',
-    name: t('store.vue_badge'),
-    price: '¥600',
-    explain: t('store.vue_badge_detail'),
-    size: 'W19×H17mm',
+    name: t('store.pin_badge'),
+    price: '¥500',
+    explain: t('store.pin_badge_detail'),
+    size: 'W28～35×H25～28mm',
   },
   {
-    src: 'store/nuxt-badge.png',
-    alt: '',
-    name: t('store.nuxt_badge'),
-    price: '¥600',
-    explain: t('store.nuxt_badge_detail'),
-    size: 'W19×H14mm',
-  },
-  {
-    src: 'store/vite-badge.png',
-    alt: '',
-    name: t('store.vite_badge'),
-    price: '¥600',
-    explain: t('store.vite_badge_detail'),
-    size: 'W18×H18mm',
-  },
-  {
-    src: 'store/vue-sticker.png',
+    src: 'store/sticker.png',
     alt: '',
     name: t('store.sticker'),
     price: '¥300',
-    explain: t('store.sticker_detail'),
-    size: 'W200×H122mm',
+    explain: `${t('store.sticker_type')}: Vue Fes Japan / Vue.js / Nuxt / Vite\n${t('store.sticker_detail')}`,
+    size: 'W206×H118mm',
   },
   {
-    src: 'store/vue-cushion.png',
+    src: 'store/kawaii-sticker.png',
     alt: '',
-    name: t('store.cushion'),
-    price: '¥5,000',
-    explain: t('store.cushion_detail'),
+    name: t('store.kawaii_sticker'),
+    price: '¥300',
+    explain: t('store.kawaii_sticker_detail'),
+    size: 'W206×H118mm',
+  },
+  {
+    src: 'store/towel.png',
+    alt: '',
+    name: t('store.towel'),
+    price: '¥800',
+    explain: t('store.towel_detail'),
     size: 'W360×H360mm',
   },
   {
-    src: 'store/vue-tape.png',
+    src: 'store/2way-bag.png',
     alt: '',
-    name: t('store.tape'),
-    price: '¥1,100',
-    explain: t('store.tape_detail'),
-    size: 'W15mm',
+    name: t('store.2way_bag'),
+    price: '¥2,800',
+    explain: t('store.2way_bag_detail'),
+    color: 'ブラック',
+    size: 'W150～350×H190～330mm',
+  },
+  {
+    src: 'store/bag-hangar.png',
+    alt: '',
+    name: t('store.bag_hanger'),
+    price: '¥1,800',
+    explain: t('store.bag_hanger_detail'),
+    size: 'W44×H44mm',
+    weight: t('store.approximately_2_5kg'),
+  },
+  {
+    src: 'store/strap-holder.png',
+    alt: '',
+    name: t('store.strap_holder'),
+    price: '¥1,600',
+    explain: t('store.strap_holder_detail'),
+    color: 'ブラック',
+    size: 'W53xH31×D0.5mm',
+    weight: t('store.approximately_5kg'),
   },
 ]
 </script>
@@ -81,48 +92,59 @@ const products: Product[] = [
   <section>
     <div class="store-root">
       <div class="store-body">
-      <div class="store-title">
-        <VFComment :title="$t('store.do_again_this_year')" />
-        <VFTitle id="store" class="title">
-          Vue Fes Store
-        </VFTitle>
-        <div class="explain">
-          <MarkDownText path="store" />
+        <div class="store-title">
+          <VFComment :title="$t('store.do_again_this_year')" />
+          <VFTitle id="store" class="title">
+            Vue Fes Store
+          </VFTitle>
+          <div class="explain">
+            <MarkDownText path="store" />
+          </div>
         </div>
-      </div>
 
-      <div class="store-menu">
-        <div v-for="product in products" :key="product.name" class="store-card">
-          <VFProduct v-bind="product" />
+        <div class="store-menu">
+          <div v-for="product in products" :key="product.name" class="store-card">
+            <VFProduct v-bind="product" />
+          </div>
         </div>
-      </div>
 
-      <div class="store-info">
-        <div class="store-purchase">
-          <div class="sub-title">
-            <h6>{{ $t('store.payment_method') }}</h6>
-            <p>{{ $t('store.payment_method_explain') }}</p>
-          </div>
-          <div class="pre-order">
-            <MarkDownText path="store_preorder" />
-          </div>
-          <div class="button">
-            <VFLinkButton
-              :href="storeUrl"
-              target="_blank"
-              rel="noreferrer"
-              background-color="vue-green/200"
-              color="white"
-            >
-              {{ $t('store.preorder') }}
-            </VFLinkButton>
-          </div>
-          <div class="same-day-sales">
-            <MarkDownText path="store_samedaysales" />
+        <div class="store-info">
+          <div class="store-purchase">
+            <div class="button">
+              <VFLinkButton
+                :href="storeUrl"
+                target="_blank"
+                rel="noreferrer"
+                background-color="vue-green/200"
+                color="white"
+              >
+                {{ $t('store.preorder') }}
+              </VFLinkButton>
+            </div>
+            <div class="sub-title">
+              <h6>{{ $t('store.payment_method') }}</h6>
+              <p>{{ $t('store.payment_method_explain') }}</p>
+            </div>
+            <div class="pre-order">
+              <MarkDownText path="store_preorder" />
+            </div>
+            <div class="button">
+              <VFLinkButton
+                :href="storeUrl"
+                target="_blank"
+                rel="noreferrer"
+                background-color="vue-green/200"
+                color="white"
+              >
+                {{ $t('store.preorder') }}
+              </VFLinkButton>
+            </div>
+            <div class="same-day-sales">
+              <MarkDownText path="store_samedaysales" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
 </template>
@@ -156,10 +178,6 @@ section {
   --store-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
 
   padding: var(--store-body-padding);
-  display: flex;
-  flex-direction: column;
-  gap: calc(8px * 10);
-  justify-content: center;
 }
 
 .title {
@@ -168,14 +186,21 @@ section {
 }
 
 .store-body {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--unit) * 5);
+  justify-content: center;
   margin: 0 auto;
   max-width: calc(960px + 6%);
+
+  @media (--mobile) {
+    gap: calc(var(--unit) * 2.5);
+  }
 }
 
 .store-title {
   display: grid;
   gap: calc(8px * 3);
-  text-align: center;
   margin: calc(-8px * 8) auto 0;
   max-width: 760px;
 }
@@ -188,8 +213,6 @@ section {
 
 .explain {
   max-width: 760px;
-  display: flex;
-  justify-content: center;
 }
 
 .explain p {
@@ -268,7 +291,7 @@ section {
   }
 }
 
-@media (max-width: 480px) {
+@media (--mobile) {
   section {
     &::before {
       height: 5%;

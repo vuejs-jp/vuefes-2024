@@ -15,18 +15,20 @@ const props = withDefaults(defineProps<IconProps>(), {
 })
 
 const svgComponent = match<IconName>(props.name)
-  .with('x', () => defineAsyncComponent(() => import('../../assets/icon/x_icon.svg?component')))
-  .with('x22', () =>
-    defineAsyncComponent(() => import('../../assets/icon/x_22_icon.svg?component')),
+  .with('x', () =>
+    defineAsyncComponent(() => import('../../assets/icon/x_icon.svg?component')),
   )
   .with('x24', () =>
     defineAsyncComponent(() => import('../../assets/icon/x_24_icon.svg?component')),
   )
+  .with('x40', () =>
+    defineAsyncComponent(() => import('../../assets/icon/x_40_icon.svg?component')),
+  )
+  .with('Facebook', () =>
+    defineAsyncComponent(() => import('../../assets/icon/facebook_icon.svg?component')),
+  )
   .with('note', () =>
     defineAsyncComponent(() => import('../../assets/icon/note_icon.svg?component')),
-  )
-  .with('note22', () =>
-    defineAsyncComponent(() => import('../../assets/icon/note_22_icon.svg?component')),
   )
   .with('YouTube', () =>
     defineAsyncComponent(() => import('../../assets/icon/youtube_icon.svg?component')),
@@ -41,13 +43,22 @@ const svgComponent = match<IconName>(props.name)
     defineAsyncComponent(() => import('../../assets/icon/github_32_icon.svg?component')),
   )
   .with('Google24', () =>
-    defineAsyncComponent(() => import('../../assets/icon/google_icon.svg?component')),
+    defineAsyncComponent(() => import('../../assets/icon/google_24_icon.svg?component')),
   )
   .with('Google32', () =>
     defineAsyncComponent(() => import('../../assets/icon/google_32_icon.svg?component')),
   )
+  .with('menu', () =>
+    defineAsyncComponent(() => import('../../assets/icon/menu_icon.svg?component')),
+  )
   .with('close', () =>
     defineAsyncComponent(() => import('../../assets/icon/close_icon.svg?component')),
+  )
+  .with('external', () =>
+    defineAsyncComponent(() => import('../../assets/icon/external_icon.svg?component')),
+  )
+  .with('alert', () =>
+    defineAsyncComponent(() => import('../../assets/icon/alert_32_icon.svg?component')),
   )
   .exhaustive()
 

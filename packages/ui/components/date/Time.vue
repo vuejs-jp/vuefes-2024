@@ -1,15 +1,19 @@
 <script setup lang="ts">
 import { useColor } from '@vuejs-jp/composable'
+import { Color } from '@vuejs-jp/model'
 
 export type TimeProps = {
   hour: string
   minute: string
   ampm?: 'am' | 'pm'
+  color?: Color
 }
 
-defineProps<TimeProps>()
+withDefaults(defineProps<TimeProps>(), {
+  color: 'vue-blue',
+})
 
-const { color } = useColor()
+const { color: textColor } = useColor()
 </script>
 
 <template>
@@ -17,7 +21,7 @@ const { color } = useColor()
     <span
       v-if="hour"
       :style="{
-        color: color('vue-blue'),
+        color: textColor(color),
       }"
       class="hour"
     >
@@ -26,7 +30,7 @@ const { color } = useColor()
     <span v-if="minute" class="separator">{{ `:` }}</span>
     <span
       :style="{
-        color: color('vue-blue'),
+        color: textColor(color),
       }"
       class="minute"
     >
@@ -35,7 +39,7 @@ const { color } = useColor()
     <span
       v-if="ampm"
       :style="{
-        color: color('vue-blue'),
+        color: textColor(color),
       }"
       class="ampm"
     >

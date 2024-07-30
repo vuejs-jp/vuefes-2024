@@ -25,6 +25,7 @@ const handleDialog = (id?: string) => {
       <th>name</th>
       <th>detail_page_id</th>
       <th>image_url</th>
+      <th>share_image_url</th>
       <th>description</th>
       <th>link_url</th>
       <th>speaker_id</th>
@@ -45,6 +46,19 @@ const handleDialog = (id?: string) => {
         />
         <p v-if="!sponsor.image_url">
           No image
+        </p>
+      </td>
+      <td>
+        <img
+          v-if="sponsor.share_image_url"
+          alt=""
+          :src="sponsor.share_image_url"
+          width="60"
+          height="60"
+          decoding="async"
+        />
+        <p v-if="!sponsor.share_image_url">
+          No share image
         </p>
       </td>
       <td>

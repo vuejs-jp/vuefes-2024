@@ -94,6 +94,21 @@ export default defineEventHandler(async (event) => {
       }),
   }
 
+  const namingRightSponsors: SponsorInfo = {
+    type: 'option',
+    title: 'naming_rights',
+    list: sponsors
+      .filter((s: Sponsor) => {
+        if (process.env.NODE_ENV === 'production') return s['tag'].includes('naming-rights') && s.is_open === true
+        return s['tag'].includes('naming-rights')
+      })
+      .sort((a: Sponsor, b: Sponsor) => {
+        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
+        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
+        return a.display_order - b.display_order
+      }),
+  }
+
   const specialLunchSponsors: SponsorInfo = {
     type: 'option-separate',
     title: 'special_lunch',
@@ -154,6 +169,21 @@ export default defineEventHandler(async (event) => {
       }),
   }
 
+  const childcareSponsors: SponsorInfo = {
+    type: 'option',
+    title: 'childcare',
+    list: sponsors
+      .filter((s: Sponsor) => {
+        if (process.env.NODE_ENV === 'production') return s['tag'].includes('childcare') && s.is_open === true
+        return s['tag'].includes('childcare')
+      })
+      .sort((a: Sponsor, b: Sponsor) => {
+        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
+        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
+        return a.display_order - b.display_order
+      }),
+  }
+
   const mediaSponsors: SponsorInfo = {
     type: 'option',
     title: 'media',
@@ -190,10 +220,12 @@ export default defineEventHandler(async (event) => {
     silverSponsors,
     bronzeSponsors,
     specialNamingRightSponsors,
+    namingRightSponsors,
     specialLunchSponsors,
     afterPartySponsors,
     nameCardSponsors,
     simultaneousInterpretationSponsors,
+    childcareSponsors,
     mediaSponsors,
     toolSponsors
   }

@@ -6,6 +6,10 @@
   "not_found": "お探しのページが見つかりません。",
   "prefix_year": "2024",
   "suffix_year": "",
+  "invite_vue_fes": "あなたもVue Fes Japan 2024に&lt;br&gt;参加しませんか？",
+  "share_namecard": "このネームカードを&lt;br&gt;SNSでシェアしよう！",
+  "copied": "コピーしました",
+  "official_site": "Vue Fes Japan 2024公式サイト",
   "day_of_week": {
     "sunday": "日",
     "monday": "月",
@@ -30,7 +34,7 @@
     "end_minute": "00"
   },
   "volunteer": {
-    "title": "ボランティア募集",
+    "title": "当日ボランティア募集",
     "subtitle": "あなたも一緒に Vue Fes Japan を盛り上げませんか？",
     "application_period": "募集スケジュール",
     "application_period_before": "応募期限：",
@@ -41,11 +45,13 @@
     "end_minute": "00"
   },
   "event": {
+    "title": "イベント",
+    "scheduled_speakers": "登壇予定者",
     "welcome_vuejs_community": "Vue.jsコミュニティにようこそ！",
     "vuejs_handson": "Vue.js / Nuxt ハンズオン",
     "nextgen_frontend_crosstalk": "次世代フロントエンドクロストーク",
     "creative_wall": "クリエイティブウォール",
-    "refreshment_space": "リフレッシュメントスペース",
+    "free_drinks_and_snacks": "フリードリンク＆スナック",
     "tattoo_booth": "タトゥーブース",
     "cocktail_bash": "Vue Cocktail Bash",
     "sponsor_booth_fotolary": "スポンサーブースフォトラリー"
@@ -56,23 +62,28 @@
     "payment_method_explain": "購入方法は以下の2種類があります。",
     "preorder": "事前注文する",
     "tshirt": "Tシャツ",
-    "tshirt_detail": "Vue Fes Japan 2023 のオリジナル T シャツです。サイズはS・M・L・XLの4種類。前面のみのプリントです。",
+    "tshirt_detail": "富士山と太陽をイメージしたVue Fes Japan 2024 のオリジナル T シャツです。前面のみのプリントです。",
     "parka": "パーカー",
-    "parka_detail": "Vue Fes Japan 2023 のオリジナルパーカーです。サイズは S、M、L、XL の4種類。前・背面プリントです。",
-    "vue_badge": "アクリルピンバッジ（Vue.js）",
-    "vue_badge_detail": "Vue.jsのロゴを使ったミニサイズのアクリルピンバッジです。",
-    "nuxt_badge": "アクリルピンバッジ（Nuxt）",
-    "nuxt_badge_detail": "Nuxtのロゴを使ったミニサイズのアクリルピンバッジです。",
-    "vite_badge": "アクリルピンバッジ（Vite）",
-    "vite_badge_detail": "Viteのロゴを使ったミニサイズのアクリルピンバッジです。",
+    "parka_detail": "背面にメインビジュアルとVue.jsエコシステムのロゴをあしらった、Vue Fes Japan 2024のオリジナルパーカーです。前面のプリントはありません。",
+    "pin_badge": "アクリルピンバッジ（Vue.js）",
+    "pin_badge_detail": "Vue Fes Japan、Vue.js、Nuxt、Viteの公式ロゴを使ったミニサイズの透明アクリルピンバッジです。セットではなく単品での販売になります。",
     "sticker": "ステッカー",
-    "sticker_detail": "Vue.js、Nuxt、Vite、Vue Fes Japanのロゴが集まった特製ステッカーです。",
-    "cushion": "クッション",
-    "cushion_detail": "表面Vue.js、裏面Vue Fes Japanのロゴのふかふかクッションです。素材は、触り心地が良いブランケットのような生地です。",
-    "tape": "マスキングテープ",
-    "tape_detail": "マスキングテープ(15mm幅)です。",
+    "sticker_type": "種類",
+    "sticker_detail": "Vue Fes Japan、Vue.js、Nuxt、Vite、Rolldown、UnJS、Oxcの公式ロゴが集まった特製ステッカーです。",
+    "kawaii_sticker": "kawaiiロゴステッカー",
+    "kawaii_sticker_detail": "Icarusさんが作成したkawaiiロゴのVue.js、Nuxt、Vite、Rolldown、Oxcが集まった特製ステッカーです。",
+    "towel": "タオルハンカチ",
+    "towel_detail": "富士山と太陽をイメージしたミニサイズのタオルハンカチです。素材は吸収性の良い綿素材を使用しています。",
+    "2way_bag": "2WAYバッグ",
+    "2way_bag_detail": "サコッシュとエコバッグが一体化した2WAYタイプのバッグです。サコッシュとしての利用時はメッシュポケットも使えます。",
+    "bag_hanger": "バッグハンガー",
+    "bag_hanger_detail": "様々な公式ロゴをあしらったバッグハンガーです。手荷物をテーブルにぶら下げられます。きんちゃく袋付き。",
+    "strap_holder": "ストラップホルダー",
+    "strap_holder_detail": "Vue Fes Japanのロゴをあしらったスマホ用のストラップホルダーです。スマホケースに挟んで金具にストラップをつけると、手首や首からスマホを掛けられます。取り外しできるハンドストラップ付き。",
     "store_item_color": "カラー： {0}",
-    "store_item_size": "サイズ： {0}"
+    "store_item_size": "サイズ： {0}",
+    "approximately_2_5kg": "約2.5kg",
+    "approximately_5kg": "約5kg"
   },
   "sponsor": {
     "title": "スポンサー",
@@ -92,12 +103,49 @@
     "silver": "シルバー",
     "bronze": "ブロンズ",
     "special_naming_rights": "スペシャルネーミングライツ",
+    "naming_rights": "ネーミングライツ",
     "special_lunch": "スペシャルランチ",
     "after_party": "アフターパーティー",
     "name_card": "ネームカード",
     "simultaneous_interpretation": "同時通訳",
+    "childcare": "託児サポート",
     "media": "メディア",
     "tool": "ツール"
+  },
+  "ticket": {
+    "title": "チケット",
+    "purchaseButton": "チケットを購入する",
+    "ticketTypes": "チケット種別",
+    "card": {
+      "ippan": {
+        "title": "一般チケット",
+        "early": "早割：7,000円",
+        "earlySub": "※8/25（日）24:00まで",
+        "regular": "通常：8,000円 ",
+        "imgAlt": "プレゼンしている人"
+      },
+      "ippanParty": {
+        "title": "一般 + アフターパーティーチケット",
+        "early": "早割：10,000円",
+        "earlySub": "※8/25（日）24:00まで",
+        "regular": "通常：11,000円 ",
+        "imgAlt": "アフターパーティの例"
+      },
+      "handsOn": {
+        "title": "ハンズオンチケット",
+        "cost": "無料",
+        "details1": "※別途、一般もしくは一般＋アフターパーティーチケットの購入が必須です。",
+        "details2": "※ 詳しくは ハンズオン についてをご覧ください。",
+        "imgAlt": "ハンズオンイベントの例"
+      },
+      "individualSponsor": {
+        "title": "個人スポンサーチケット",
+        "cost": "10,000円",
+        "details1": "※当日来場される方は、別途、一般もしくは一般＋アフターパーティーチケットの購入が必要です。",
+        "details2": "※詳しくは個人スポンサーについてをご覧ください。",
+        "imgAlt": "イベントTシャツ"
+      }
+    }
   },
   "access": {
     "title": "アクセス",
@@ -108,6 +156,34 @@
     "route_2": "東京メトロ丸の内線・東西線・千代田線・半蔵門線「大手町」駅 都営三田線「大手町」駅 A5出口直結",
     "map": "https://maps.app.goo.gl/ohaSGdrjQ3pt152C9",
     "map_text": "Googleマップを見る"
+  },
+  "childcare": {
+    "title": "託児サポート supported by STORES",
+    "apply": "託児サポートを申し込む"
+  },
+  "personal_sponsor": {
+    "title": "個人スポンサー",
+    "merit1": {
+      "title": "クレジット掲載",
+      "detail": "Vue Fes Japan 公式 Web サイトにお名前を掲載します（希望者のみ）。"
+    },
+    "merit2": {
+      "title": "Vue Fes Japan 2024 スタッフ限定Tシャツ",
+      "detail": "スタッフのみに配布される限定Tシャツがもらえます。",
+      "caution": "※サイズはS～XXXL。チケット購入時にご指定ください。\n※当日、会場でのみのお渡しとなります。発送はできかねます。"
+    },
+    "merit3": {
+      "title": "優先入場",
+      "detail": "当日の受付に個人スポンサー優先レーンをご用意します。\n行列に並ぶことなく、スムーズにご入場いただけます。"
+    },
+    "merit4": {
+      "title": "優先席",
+      "detail": "各トラック会場の最前列に優先席をご用意いたします。",
+      "caution": "※セッション開始後、空席になっている場合は一般参加者にも開放されます。"
+    }
+  },
+  "handson": {
+    "title": "Vue.js / Nuxt ハンズオン"
   },
   "partner": {
     "title": "協力パートナー"
@@ -138,5 +214,46 @@
   "privacy": {
     "title": "プライバシーポリシー",
     "button": "トップに戻る"
+  },
+  "tokusho": {
+    "title": "特定商取引法に基づく表記"
+  },
+  "namecard": {
+    "sectionTitle1": "アバター＋名前入りがもらえる！",
+    "sectionTitle2": "ネームカード",
+    "createNamecard": "ネームカードを作成する",
+    "title_edit": "ネームカード作成・編集",
+    "cancel": "キャンセル",
+    "edit": "編集する",
+    "login_title": "ソーシャルアカウントからのログイン",
+    "login": "ログインする",
+    "caution": "印刷工程の都合上、ネームカードの編集期限後は編集できなくなります。当日会場にてネームカードをご希望の方は期限までに編集を完了させてください。",
+    "edit_deadline": "ネームカード編集期限：\n2024年9月16日（月祝）24:00",
+    "dialog_message": "ネームカードを作成するには、あらかじめチケットの購入が必要です。チケット購入後、以下のいずれかのソーシャルアカウントからログインし、必要な情報をご登録ください。",
+    "namecard_samples_alt": "ネームカードのサンプル",
+    "complete_message": "これから注文番号の照合を行います。注文番号照合の状況はネームカードページのステータスで確認できます。編集期限前に照合が正常に完了したことを確認してください。",
+    "lets_share": "作成したネームカードを&lt;br&gt;SNSでシェアしよう！",
+    "creation_process": {
+      "title": "ネームカード作成の流れ"
+    },
+    "creation_status": {
+      "not_created": "未作成",
+      "inquiry_in_progress": "注文番号照会中",
+      "inquiry_failed": "注文番号照会失敗",
+      "inquiry_completed": "注文番号照会完了"
+    },
+    "form": {
+      "label_name": "お名前／Name",
+      "label_avatar": "アバター／Avatar",
+      "label_order_number": "注文番号",
+      "annotation_name": "※全角12文字（半角24文字）まで",
+      "annotation_avatar": "※アバターは正方形（比率1:1）の画像をアップロードしてください。",
+      "placeholder_order_number": "注文番号を入力してください",
+      "submit": "確定する",
+      "registrationCompleted": "ネームカードの情報登録が完了しました！",
+      "drag_and_drop": "ファイルをドラッグ＆ドロップ",
+      "or": "または",
+      "select_file": "ファイルを選択"
+    }
   }
 }

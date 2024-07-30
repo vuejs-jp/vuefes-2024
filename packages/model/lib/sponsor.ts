@@ -6,10 +6,12 @@ export type SponsorCategory =
   | 'silverSponsors'
   | 'bronzeSponsors'
   | 'specialNamingRightSponsors'
+  | 'namingRightSponsors'
   | 'specialLunchSponsors'
   | 'afterPartySponsors'
   | 'nameCardSponsors'
   | 'simultaneousInterpretationSponsors'
+  | 'childcareSponsors'
   | 'mediaSponsors'
   | 'toolSponsors'
 
@@ -17,8 +19,10 @@ export type SponsorCategory =
 export type OptionSponsorType =
   | 'name-card'
   | 'special-naming-rights'
+  | 'naming-rights'
   | 'after-party'
   | 'simultaneous-interpretation'
+  | 'childcare'
   | 'special-lunch'
   | 'media'
   | 'tool'
@@ -31,6 +35,7 @@ export type Sponsor = {
   description_en: string
   speaker_id?: string
   image_url: string
+  share_image_url: string
   tag: Array<SponsorType | OptionSponsorType>
   link_url: string
   is_open: boolean

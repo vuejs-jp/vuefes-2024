@@ -31,4 +31,12 @@ export class EnvService {
   get SUPABASE_KEY() {
     return this.configService.getOrThrow('supabaseKey')
   }
+
+  get SENTRY_DSN() {
+    return this.configService.getOrThrow('sentryDsn')
+  }
+
+  get DISCORD_WEBHOOK_URL() {
+    return this.configService.getOrThrow('discordWebhookUrl')
+  }
 }

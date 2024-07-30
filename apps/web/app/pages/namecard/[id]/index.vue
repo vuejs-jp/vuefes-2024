@@ -1,20 +1,63 @@
 <script setup lang="ts">
-import { definePageMeta } from '#imports'
-definePageMeta({
-  middleware: 'auth',
-})
+import { useI18n } from '#i18n'
+import { navigateTo } from '#imports'
+import CreationStatus from '~/components/namecard/CreationStatus.vue'
+import CreationProcess from '~/components/namecard/CreationProcess.vue'
+import { useNamecard } from '~/composables/useNamecard'
+
+const { t } = useI18n()
+const { authUser, statusKey, namecardUser } = await useNamecard()
+
+function handleLinkButton() {
+  navigateTo(`/namecard/${authUser.value?.id}/edit/`)
+}
 </script>
 <template>
-  <div class="name-card-user-root">
-    <VFLinkButton is="button" background-color="vue-green/200" color="white" href=""
-      >hoge</VFLinkButton
-    >
-  </div>
+  <NuxtLayout name="namecard-base">
+    <div class="namecard-user-root">
+      <CreationStatus :status-key="statusKey" class="creation-status" />
+      <VFNamecard24 :user="namecardUser" class="namecard" />
+      <VFLinkButton
+        is="button"
+        background-color="vue-green/200"
+        color="white"
+        class="edit-button"
+        @click="handleLinkButton"
+        >{{ t('namecard.edit') }}</VFLinkButton
+      >
+      <CreationProcess />
+    </div>
+  </NuxtLayout>
 </template>
 
 <style scoped>
-.name-card-user-root {
-  --header-height: calc(var(--unit) * 10);
-  padding-top: var(--header-height);
+@import url('~/assets/media.css');
+.namecard-user-root {
+  text-align: center;
+}
+.creation-status {
+  margin: 0 auto calc(var(--unit) * 2.5);
+}
+.namecard {
+  margin: 0 auto calc(var(--unit) * 5);
+}
+.edit-button {
+  --height-button: 66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 198px;
+  height: var(--height-button);
+  margin: 0 auto calc(var(--unit) * 7.5);
+}
+
+@media (--mobile) {
+  .edit-button {
+    --height-button: 58px;
+
+    &:deep(.text) {
+      font-size: var(--font-size-body400);
+    }
+  }
 }
 </style>

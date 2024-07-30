@@ -56,8 +56,8 @@ useHead({
       <div class="detailbody-persons">
         <VFSpeaker
           :image="speakerData[0].image_url"
-          :company="currentLocale === 'en' ? speakerData[0].caption_en : speakerData[0].caption_ja"
-          :division="currentLocale === 'en' ? speakerData[0].description_en : speakerData[0].description_ja"
+          :company="currentLocale === 'en' ? speakerData[0].company_en : speakerData[0].company_ja"
+          :division="currentLocale === 'en' ? speakerData[0].position_en : speakerData[0].position_ja"
           :name="currentLocale === 'en' ? speakerData[0].name_en : speakerData[0].name_ja"
           :github-id="speakerData[0].github_id"
           :x-id="speakerData[0].x_id"
@@ -139,7 +139,24 @@ useHead({
   }
 
   .detailbody-explain {
-    /* margin: 0 auto calc(var(--unit) * 8); */
+    --body-font-size: 1.125rem;
+    --body-font-weight: 500;
+
+    font-size: var(--body-font-size);
+    font-weight: var(--body-font-weight);
+    white-space: pre-wrap;
+
+    ::v-deep(p) {
+      --body-p-margin-bottom: calc(var(--unit) * 4);
+
+      margin-bottom: var(--body-p-margin-bottom);
+      line-height: 1.8;
+    }
+
+    ::v-deep(p:last-child) {
+      text-align: right;
+      margin-bottom: 0px;
+    }
   }
 
   .detailbody-explain ul {

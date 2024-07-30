@@ -11,14 +11,16 @@ const props = withDefaults(defineProps<NamecardAvatarLogoProps>(), {
   size: 'small',
 })
 
-const VueFesLogo = defineAsyncComponent(() => import('../../assets/namecard/2023/vuefes_logo.svg?component'))
+const VueFesLogo = defineAsyncComponent(
+  () => import('../../assets/namecard/2023/vuefes_logo.svg?component'),
+)
 </script>
 
 <template>
-  <template v-if="user.avatar_url">
+  <template v-if="user?.avatar_url">
     <img
       :alt="user.display_name"
-      :src="user.avatar_url"
+      :src="user?.avatar_url"
       :width="size === 'small' ? 40 : 120"
       :height="size === 'small' ? 40 : 120"
       class="avatar-logo"
@@ -49,6 +51,6 @@ const VueFesLogo = defineAsyncComponent(() => import('../../assets/namecard/2023
 .sample-logo {
   display: grid;
   place-items: center;
-  background: linear-gradient(#90B44B, #42B983);
+  background: linear-gradient(#90b44b, #42b983);
 }
 </style>
