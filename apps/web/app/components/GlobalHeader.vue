@@ -14,6 +14,7 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   { text: 'Message', anchor: '#message' },
+  { text: 'Ticket', anchor: '#ticket' },
   { text: 'Speakers', anchor: '#speakers' },
   { text: 'Sponsors', anchor: '#sponsors' },
   // Uncomment out after job board implementation
