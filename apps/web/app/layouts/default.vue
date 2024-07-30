@@ -1,4 +1,5 @@
 <script setup>
+import { useLocaleHead, useHead } from '#imports'
 const i18nHead = useLocaleHead({
   addSeoAttributes: true,
 })
