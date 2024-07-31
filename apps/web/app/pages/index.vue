@@ -18,7 +18,9 @@ useHead({
   <MessagePageSection />
   <TicketPageSection v-if="config.public.enableRegisterTicket" />
   <SpeakerPageSection />
+  <!--
   <VolunteerPageSection v-if="!config.public.enableRegisterTicket && locale === 'ja'" />
+  -->
   <EventPageSection v-if="config.public.showEvent" />
   <StorePageSection v-if="config.public.showStore" />
   <AccessPageSection />
