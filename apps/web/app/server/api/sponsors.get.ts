@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
 
   if (config.public.sponsorDatasource === 'supabase') {
     const client = await serverSupabaseClient<Database>(event)
-    const { data: _sponsors } = await client.from('sponsors').select() as { data: Sponsor[] }
+    const { data: _sponsors } = await client.from('sponsors').select().eq('is_open', true) as { data: Sponsor[] }
     sponsors = _sponsors
   }
 
