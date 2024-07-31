@@ -135,6 +135,10 @@ const toggleMenu = () => {
 .navigation-links-pc {
   display: flex;
   gap: calc(var(--unit) * 8);
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .navigation-mobile-toggle {
