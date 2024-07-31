@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import { useI18n, useRuntimeConfig } from '#imports'
+import { useRuntimeConfig } from '#imports'
 import TicketSection from '~/components/ticket/TicketSection.vue'
 import NamecardSection from '~/components/ticket/NamecardSection.vue'
-import VolunteerSection from '~/components/ticket/VolunteerSection.vue'
+// import VolunteerSection from '~/components/ticket/VolunteerSection.vue'
 import ChildCareSection from '~/components/ticket/ChildCareSection.vue'
 import PersonalSponsorSection from '~/components/ticket/PersonalSponsorSection.vue'
 import HandsonSection from '~/components/ticket/HandsonSection.vue'
 import FaqSection from '~/components/ticket/FaqSection.vue'
 
 const config = useRuntimeConfig()
-const { locale } = useI18n({ useScope: 'global' })
 </script>
 
 <template>
   <section class="ticket">
     <TicketSection />
     <NamecardSection v-if="config.public.enableRegisterNamecard" />
+    <!--
     <VolunteerSection v-if="config.public.enableRegisterTicket && locale === 'ja'" />
+    -->
     <ChildCareSection />
     <PersonalSponsorSection />
     <HandsonSection />
