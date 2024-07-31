@@ -79,6 +79,9 @@ export default defineNuxtConfig({
     markdown: {
       anchorLinks: false,
     },
+    experimental: {
+      clientDB: true, // https://github.com/nuxt/content/issues/2215#issuecomment-1713796864
+    },
   },
   gtag: {
     id: process.env.NUXT_GTAG_ID,
