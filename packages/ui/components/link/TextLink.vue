@@ -2,16 +2,19 @@
 import { match } from 'ts-pattern'
 import type { Color } from '@vuejs-jp/model'
 import { useColor, useTypography } from '@vuejs-jp/composable'
-import { AnchorHTMLAttributes } from 'vue'
 
 type _Color = 'white' | 'vue-green' | 'vue-blue'
 
-interface TextLinkProps extends /* @vue-ignore */ AnchorHTMLAttributes {
+interface TextLinkProps {
   /* Text Color */
+  href: string
+  target?: string
   color: Extract<Color, _Color>
 }
 
-const props = defineProps<TextLinkProps>()
+const props = withDefaults(defineProps<TextLinkProps>(), {
+  target: '',
+})
 
 const COLOR_WHITE = 'white' as const
 const COLOR_GREEN = 'vue-green' as const

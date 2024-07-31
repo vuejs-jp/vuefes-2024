@@ -13,7 +13,12 @@ const props = withDefaults(defineProps<IconButtonProps>(), {
 </script>
 
 <template>
-  <NuxtLink :to="href" :target="targetBlank && '_blank'" :aria-label="name" class="icon-wrapper">
+  <NuxtLink
+    :to="href"
+    :target="targetBlank ? '_blank' : ''"
+    :aria-label="name"
+    class="icon-wrapper"
+  >
     <Icon v-bind="props" />
   </NuxtLink>
 </template>
