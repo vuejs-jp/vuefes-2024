@@ -31,20 +31,25 @@ const newSpeaker = ref<FormSpeaker>({
   session_type: props.speaker?.session_type ??  'session',
   is_open: props.speaker?.is_open ?? true,
   display_order: props.speaker?.display_order ?? null,
-  // session_title_ja: '',
-  // session_title_en: '',
-  // session_description_ja: '',
-  // session_description_en: '',
-  // session_comment_ja: '',
-  // session_comment_en: '',
-  // session_place: '',
-  // session_time_from: '',
-  // session_time_duration: 0,
-  // session_doc_title_ja: '',
-  // session_doc_title_en: '',
-  // session_doc_url: '',
+  session_title_ja: props.speaker?.session_title_ja ?? '',
+  session_title_en: props.speaker?.session_title_en ?? '',
+  session_description_ja: props.speaker?.session_description_ja ?? '',
+  session_description_en: props.speaker?.session_description_en ?? '',
+  session_comment_ja: props.speaker?.session_comment_ja ?? '',
+  session_comment_en: props.speaker?.session_comment_en ?? '',
+  session_place: props.speaker?.session_place ?? '',
+  session_time_from: props.speaker?.session_time_from ?? new Date().toISOString(),
+  session_time_duration: props.speaker?.session_time_duration ?? 0,
+  session_doc_title_ja: props.speaker?.session_doc_title_ja ?? '',
+  session_doc_title_en: props.speaker?.session_doc_title_en ?? '',
+  session_doc_url: props.speaker?.session_doc_url ?? '',
 })
 const eventsText = ref(props.speaker?.events?.map((e) => e).join(',') ?? '')
+const date = new Date(newSpeaker.value.session_time_from!)
+date.setHours(date.getHours() + 9)
+const sessionTimeDurationText = ref(
+  newSpeaker.value.session_time_from ? date.toISOString().slice(11, 16) : new Date().toISOString().slice(11, 16)
+)
 
 const updateNameJa = (e: any) => {
   newSpeaker.value.name_ja = e.target.value
@@ -97,6 +102,44 @@ const updateEvents = (e: any) => {
 }
 const updateDisplayOrder = (e: any) => {
   newSpeaker.value.display_order = e.target.value
+}
+const updateSessionTitleJa = (e: any) => {
+  newSpeaker.value.session_title_ja = e.target.value
+}
+const updateSessionTitleEn = (e: any) => {
+  newSpeaker.value.session_title_en = e.target.value
+}
+const updateSessionDescriptionJa = (e: any) => {
+  newSpeaker.value.session_description_ja = e.target.value
+}
+const updateSessionDescriptionEn = (e: any) => {
+  newSpeaker.value.session_description_en = e.target.value
+}
+const updateSessionCommentJa = (e: any) => {
+  newSpeaker.value.session_comment_ja = e.target.value
+}
+const updateSessionCommentEn = (e: any) => {
+  newSpeaker.value.session_comment_en = e.target.value
+}
+const updateSessionTimeFrom = (e: any) => {
+  if (e.target.value.length === 5) {
+    const hour = e.target.value.split(':')[0]
+    const minute = e.target.value.split(':')[1]
+    const timestamp = new Date(2024, 10 - 1, 19, hour, minute).toISOString()
+    newSpeaker.value.session_time_from = timestamp
+  }
+}
+const updateSessionTimeDuration = (e: any) => {
+  newSpeaker.value.session_time_duration = e.target.value
+}
+const updateSessionDocTitleJa = (e: any) => {
+  newSpeaker.value.session_doc_title_ja = e.target.value
+}
+const updateSessionDocTitleEn = (e: any) => {
+  newSpeaker.value.session_doc_title_en = e.target.value
+}
+const updateSessionDocUrl = (e: any) => {
+  newSpeaker.value.session_doc_url = e.target.value
 }
 
 const onSubmit = () => {
@@ -239,6 +282,100 @@ const onSubmit = () => {
           label="表示順"
           @input="updateDisplayOrder"
         />
+        <VFAccordion title="セッション情報">
+          <div class="accordion-form">
+            <VFInputField
+              id="session_title_ja"
+              v-model="newSpeaker.session_title_ja"
+              name="session_title_ja"
+              label="セッションタイトル [JA]"
+              @input="updateSessionTitleJa"
+            />
+            <VFInputField
+              id="session_title_en"
+              v-model="newSpeaker.session_title_en"
+              name="session_title_en"
+              label="セッションタイトル [EN]"
+              @input="updateSessionTitleEn"
+            />
+            <VFTextAreaField
+              id="session_description_ja"
+              v-model="newSpeaker.session_description_ja"
+              name="session_description_ja"
+              label="セッション説明文 [JA]"
+              :rows="3"
+              @input="updateSessionDescriptionJa"
+            />
+            <VFTextAreaField
+              id="session_description_en"
+              v-model="newSpeaker.session_description_en"
+              name="session_description_en"
+              label="セッション説明文 [EN]"
+              :rows="3"
+              @input="updateSessionDescriptionEn"
+            />
+            <VFInputField
+              id="session_comment_ja"
+              v-model="newSpeaker.session_comment_ja"
+              name="session_comment_ja"
+              label="セッションコメント [JA]"
+              @input="updateSessionCommentJa"
+            />
+            <VFInputField
+              id="session_comment_en"
+              v-model="newSpeaker.session_comment_en"
+              name="session_comment_en"
+              label="セッションコメント [EN]"
+              @input="updateSessionCommentEn"
+            />
+            <VFDropdownField
+              id="session_place"
+              v-model="newSpeaker.session_place"
+              name="session_place"
+              label="トラック"
+              :items="[
+                { value: 'medpeer', text: 'メドピアトラック' },
+                { value: 'mntsq', text: 'MNTSQ全ての合意をフェアにするトラック' },
+                { value: 'kickflow', text: 'kickflowトラック' },
+              ]"
+            />
+            <VFInputField
+              id="sessionTimeDurationText"
+              v-model="sessionTimeDurationText"
+              name="sessionTimeDurationText"
+              label="開始時間 (HH:MM)"
+              @input="updateSessionTimeFrom"
+            />
+            <VFInputField
+              id="session_time_duration"
+              v-model="newSpeaker.session_time_duration"
+              name="session_time_duration"
+              label="セッション時間"
+              @input="updateSessionTimeDuration"
+            />
+            <VFInputField
+              id="session_doc_title_ja"
+              v-model="newSpeaker.session_doc_title_ja"
+              name="session_doc_title_ja"
+              label="登壇スライドタイトル [JA]"
+              @input="updateSessionDocTitleJa"
+            />
+            <VFInputField
+              id="session_doc_title_en"
+              v-model="newSpeaker.session_doc_title_en"
+              name="session_doc_title_en"
+              label="登壇スライドタイトル [EN]"
+              @input="updateSessionDocTitleEn"
+            />
+            <VFInputField
+              id="session_doc_url"
+              v-model="newSpeaker.session_doc_url"
+              name="session_doc_url"
+              label="登壇スライドURL"
+              @input="updateSessionDocUrl"
+            />
+          </div>
+        </VFAccordion>
         <div class="form-button">
           <VFSubmitButton>Save</VFSubmitButton>
           <VFLinkButton
@@ -263,6 +400,11 @@ const onSubmit = () => {
 }
 .form {
   padding: 40px 20px;
+}
+.accordion-form {
+  display: grid;
+  gap: 20px;
+  width: 100%;
 }
 form {
   display: grid;
