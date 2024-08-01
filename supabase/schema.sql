@@ -122,6 +122,10 @@ ALTER TABLE public.speakers ADD COLUMN position_ja varchar(100);
 
 ALTER TABLE public.speakers ADD COLUMN position_en varchar(100);
 
+ALTER TABLE public.speakers ALTER COLUMN session_description_ja TYPE varchar(1000);
+
+ALTER TABLE public.speakers ALTER COLUMN session_description_en TYPE varchar(1000);
+
 alter table
   public.speakers enable row level security;
 
