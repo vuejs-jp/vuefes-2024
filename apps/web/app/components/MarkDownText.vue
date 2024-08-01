@@ -7,12 +7,10 @@ type MarkDownTextProps = {
 }
 
 const props = defineProps<MarkDownTextProps>()
-
-const { docPath } = useLocale(props.path)
 </script>
 
 <template>
-  <ContentDoc v-slot="{ doc }" :path="docPath" :head="false">
+  <ContentDoc v-slot="{ doc }" :path="useLocale(props.path).docPath" :head="false">
     <ContentRenderer :value="doc" />
   </ContentDoc>
 </template>

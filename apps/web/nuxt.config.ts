@@ -67,9 +67,9 @@ export default defineNuxtConfig({
     langDir: 'lang',
     defaultLocale: 'ja',
     detectBrowserLanguage: {
-      useCookie: false,
-      // cookieKey: 'i18n_redirected',
-      // redirectOn: 'root',
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
     },
   },
   supabase: {
