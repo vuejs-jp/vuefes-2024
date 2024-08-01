@@ -8,6 +8,7 @@ export type FormAttendee = Database['public']['Tables']['attendees']['Insert']
 export type FormAdminUser = Database['public']['Tables']['admin_users']['Insert']
 
 export type AttendeeReceipt = {
+  date: string
   role: Extract<Role, TicketRole>
   receipt_id: string
 }
