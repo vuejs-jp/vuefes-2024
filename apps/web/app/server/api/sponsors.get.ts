@@ -124,6 +124,21 @@ export default defineEventHandler(async (event) => {
       }),
   }
 
+  const lunchSponsors: SponsorInfo = {
+    type: 'option-separate',
+    title: 'lunch',
+    list: sponsors
+      .filter((s: Sponsor) => {
+        if (process.env.NODE_ENV === 'production') return s['tag'].includes('lunch') && s.is_open === true
+        return s['tag'].includes('lunch')
+      })
+      .sort((a: Sponsor, b: Sponsor) => {
+        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
+        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
+        return a.display_order - b.display_order
+      }),
+  }
+
   const afterPartySponsors: SponsorInfo = {
     type: 'option-separate',
     title: 'after_party',
@@ -170,7 +185,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const childcareSponsors: SponsorInfo = {
-    type: 'option',
+    type: 'option-separate',
     title: 'childcare',
     list: sponsors
       .filter((s: Sponsor) => {
@@ -222,6 +237,7 @@ export default defineEventHandler(async (event) => {
     specialNamingRightSponsors,
     namingRightSponsors,
     specialLunchSponsors,
+    lunchSponsors,
     afterPartySponsors,
     nameCardSponsors,
     simultaneousInterpretationSponsors,

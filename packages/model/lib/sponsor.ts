@@ -8,6 +8,7 @@ export type SponsorCategory =
   | 'specialNamingRightSponsors'
   | 'namingRightSponsors'
   | 'specialLunchSponsors'
+  | 'lunchSponsors'
   | 'afterPartySponsors'
   | 'nameCardSponsors'
   | 'simultaneousInterpretationSponsors'
@@ -24,6 +25,7 @@ export type OptionSponsorType =
   | 'simultaneous-interpretation'
   | 'childcare'
   | 'special-lunch'
+  | 'lunch'
   | 'media'
   | 'tool'
 
