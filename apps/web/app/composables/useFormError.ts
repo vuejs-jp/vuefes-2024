@@ -1,6 +1,10 @@
 import { ref } from 'vue'
+import { useString } from '@vuejs-jp/composable'
+import { displayNameMaxLength } from '~/utils/constants'
 
 export function useFormError() {
+  const { count } = useString()
+
   const idError = ref('')
   const nameError = ref('')
   const orderNumberError = ref('')
@@ -18,6 +22,22 @@ export function useFormError() {
   function validateName(value: string) {
     if (value === '') {
       nameError.value = '名前を入力してください'
+      return
+    }
+    if (count(value) > 24) {
+      nameError.value = '名前は24文字以内で入力してください'
+      return
+    }
+    nameError.value = ''
+  }
+
+  function validateNameWithMaxLength(value: string) {
+    if (value === '') {
+      nameError.value = '名前を入力してください'
+      return
+    }
+    if (count(value) > displayNameMaxLength) {
+      nameError.value = `名前は${displayNameMaxLength}文字以内で入力してください`
       return
     }
     nameError.value = ''
@@ -69,6 +89,7 @@ export function useFormError() {
     detailError,
     validateId,
     validateName,
+    validateNameWithMaxLength,
     validateOrderNumber,
     validateEmail,
     validateAdminEmail,

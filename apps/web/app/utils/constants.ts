@@ -37,6 +37,8 @@ export const childCareUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeHWTkQNHv
 
 export const storeUrl = ''
 
+export const displayNameMaxLength = 24
+
 export const team = [
   {
     name: 'kazu_pon',

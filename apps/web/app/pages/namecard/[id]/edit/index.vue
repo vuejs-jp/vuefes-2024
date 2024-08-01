@@ -11,7 +11,7 @@ import ImageUploader from '~/components/namecard/ImageUploader.vue'
 import type { Role } from '@vuejs-jp/model'
 
 const { t } = useI18n()
-const { nameError, orderNumberError, validateName, validateOrderNumber } = useFormError()
+const { nameError, orderNumberError, validateNameWithMaxLength, validateOrderNumber } = useFormError()
 const { authUser, attendeeDataByUserId, statusKey, namecardUser } = await useNamecard()
 const { upsertAttendee, uploadAvatar } = useSupabase()
 const { getFullAvatarUrl } = useSupabaseStorage()
@@ -124,7 +124,7 @@ function onSubmit(e: Event) {
           required
           :error="nameError"
           @input="updateName"
-          @blur="validateName"
+          @blur="validateNameWithMaxLength"
           ><p class="annotation">{{ t('namecard.form.annotation_name') }}</p></VFInputField
         >
         <ImageUploader
