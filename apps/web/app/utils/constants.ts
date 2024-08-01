@@ -236,7 +236,7 @@ export const team = [
   {
     name: 'mdrn0519',
     image_url: 'team/mdrn0519.jpg',
-    x_id: 'mdrn0519',
+    x_id: '',
   },
   {
     name: 'mizukirimatsu',
