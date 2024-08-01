@@ -61,6 +61,7 @@ const {
   specialNamingRightSponsors,
   namingRightSponsors,
   specialLunchSponsors,
+  lunchSponsors,
   afterPartySponsors,
   nameCardSponsors,
   simultaneousInterpretationSponsors,
@@ -153,13 +154,16 @@ const {
       <SponsorList v-bind="namingRightSponsors" />
       <div class="sponsor-list-layout-separate">
         <SponsorList v-bind="specialLunchSponsors" />
-        <SponsorList v-bind="afterPartySponsors" />
+        <SponsorList v-bind="lunchSponsors" />
       </div>
       <div class="sponsor-list-layout-separate">
+        <SponsorList v-bind="afterPartySponsors" />
         <SponsorList v-bind="nameCardSponsors" />
-        <SponsorList v-bind="simultaneousInterpretationSponsors" />
       </div>
-      <SponsorList v-bind="childcareSponsors" />
+      <div class="sponsor-list-layout-separate">
+        <SponsorList v-bind="simultaneousInterpretationSponsors" />
+        <SponsorList v-bind="childcareSponsors" />
+      </div>
       <SponsorList v-bind="mediaSponsors" />
       <SponsorList v-bind="toolSponsors" />
     </article>
