@@ -62,6 +62,8 @@ create table if not exists public.jobs (
   updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
 );
 
+ALTER TABLE public.jobs ALTER COLUMN image_alt TYPE varchar(500);
+
 alter table
   public.jobs enable row level security;
 
@@ -111,6 +113,18 @@ ALTER TABLE public.speakers ADD COLUMN display_order int;
 ALTER TABLE public.speakers ADD COLUMN detail_page_id varchar(40);
 
 ALTER TABLE public.speakers ADD COLUMN events text array;
+
+ALTER TABLE public.speakers RENAME COLUMN caption_ja TO company_ja;
+
+ALTER TABLE public.speakers RENAME COLUMN caption_en TO company_en;
+
+ALTER TABLE public.speakers ADD COLUMN position_ja varchar(100);
+
+ALTER TABLE public.speakers ADD COLUMN position_en varchar(100);
+
+ALTER TABLE public.speakers ALTER COLUMN session_description_ja TYPE varchar(1000);
+
+ALTER TABLE public.speakers ALTER COLUMN session_description_en TYPE varchar(1000);
 
 alter table
   public.speakers enable row level security;
@@ -171,6 +185,7 @@ create table if not exists public.attendees (
 );
 
 ALTER TABLE public.attendees ADD COLUMN image_file_name uuid not null unique default uuid_generate_v4();
+ALTER TABLE public.attendees ADD COLUMN canceled_at timestamp with time zone;
 
 alter table
   public.attendees enable row level security;

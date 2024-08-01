@@ -40,7 +40,12 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@nuxt/content',
     'nuxt-gtag',
+    'nuxt-og-image',
   ],
+  // .env の NUXT_PUBLIC_SITE_URL を設定したので、一旦コメントアウトする
+  // site: {
+  //   url: 'https://vuefes.jp/2024/',
+  // },
   i18n: {
     legacy: false,
     strategy: 'prefix_except_default',
@@ -89,7 +94,6 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       failOnError: false,
-      routes: ['/'],
       ignore: ['/api'],
     },
   },
@@ -106,43 +110,33 @@ export default defineNuxtConfig({
       const supabaseUrl = process.env.SUPABASE_URL
       const supabaseKey = process.env.SUPABASE_KEY
       const serviceKey = process.env.SERVICE_KEY
-      if (!supabaseUrl || !supabaseKey || serviceKey) return
+      if (!supabaseUrl || !supabaseKey || !serviceKey) return
 
       const client = createClient(supabaseUrl, supabaseKey, {})
-      const { data: speakers, error: error1 } = await client.from('speakers').select()
-      const { data: sponsors, error: error2 } = await client.from('sponsors').select()
-      const { data: staffs, error: error3 } = await client.from('staffs').select()
+      const { data: speakers, error: error1 } = await client.from('speakers').select().eq('is_open', true).neq('session_type', 'panel-event')
+      const { data: sponsors, error: error2 } = await client.from('sponsors').select().eq('is_open', true)
+      const { data: staffs, error: error3 } = await client.from('staffs').select().eq('is_open', true)
       if (error1 || error2 || error3) return
 
       const speakerRoutes = speakers?.map((d) => `/sessions/${d.detail_page_id}`)
-      const speakerEnRoutes = speakers?.map((d) => `/en/sessions/${d.detail_page_id}`)
       const speakerShareRoutes = speakers?.map((d) => `/sessions/${d.detail_page_id}/share`)
-      const speakerEnShareRoutes = speakers?.map((d) => `/en/sessions/${d.detail_page_id}/share`)
       const sponsorRoutes = sponsors?.map((d) => `/sponsors/${d.detail_page_id}`)
-      const sponsorEnRoutes = sponsors?.map((d) => `/en/sponsors/${d.detail_page_id}`)
       const sponsorShareRoutes = sponsors?.map((d) => `/sponsors/${d.detail_page_id}/share`)
-      const sponsorEnShareRoutes = sponsors?.map((d) => `/en/sponsors/${d.detail_page_id}/share`)
       const staffShareRoutes = staffs?.map((d) => `/staffs/${d.detail_page_id}/share`)
-      const staffEnShareRoutes = staffs?.map((d) => `/en/staffs/${d.detail_page_id}/share`)
       nitroConfig.prerender?.routes?.push(...(speakerRoutes || []))
-      nitroConfig.prerender?.routes?.push(...(speakerEnRoutes || []))
       nitroConfig.prerender?.routes?.push(...(speakerShareRoutes || []))
-      nitroConfig.prerender?.routes?.push(...(speakerEnShareRoutes || []))
       nitroConfig.prerender?.routes?.push(...(sponsorRoutes || []))
-      nitroConfig.prerender?.routes?.push(...(sponsorEnRoutes || []))
       nitroConfig.prerender?.routes?.push(...(sponsorShareRoutes || []))
-      nitroConfig.prerender?.routes?.push(...(sponsorEnShareRoutes || []))
       nitroConfig.prerender?.routes?.push(...(staffShareRoutes || []))
-      nitroConfig.prerender?.routes?.push(...(staffEnShareRoutes || []))
     },
-    'prerender:routes': (context) => {
-      for (const path of [...context.routes]) {
-        if (!path.endsWith('.html') && path !== '/') {
-          context.routes.delete(path)
-          context.routes.add(`${path}/`)
-        }
-      }
-    },
+    // 'prerender:routes': (context) => {
+    //   for (const path of [...context.routes]) {
+    //     if (!path.endsWith('.html') && path !== '/') {
+    //       context.routes.delete(path)
+    //       context.routes.add(`${path}/`)
+    //     }
+    //   }
+    // },
   },
   build: {
     transpile: ['vue-toastification'],
@@ -155,8 +149,12 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
+    '/jobboard/': { prerender: true },
+    '/namecard/': { prerender: true },
     '/sessions/': { prerender: true },
     '/sponsors/': { prerender: true },
+    '/staff/console/': { prerender: true },
+    '/staff/invite/': { prerender: true },
     '/staffs/': { prerender: true },
   },
   runtimeConfig: {
@@ -172,6 +170,7 @@ export default defineNuxtConfig({
       // datasource
       speakerDatasource : process.env.SPEAKER_DATASOURCE, // local or supabase
       sponsorDatasource : process.env.SPONSOR_DATASOURCE, // local or supabase
+      staffDatasource : process.env.STAFF_DATASOURCE, // local or supabase
       // feature
       availableApplySpeaker: process.env.AVAILABLE_APPLY_SPEAKER,
       availableApplySponsor: process.env.AVAILABLE_APPLY_SPONSOR,

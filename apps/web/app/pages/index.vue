@@ -17,13 +17,15 @@ useHead({
   <TopPageSection />
   <MessagePageSection />
   <TimeTablePageSection />
+  <TicketPageSection v-if="config.public.enableRegisterTicket" />
   <SpeakerPageSection />
-  <VolunteerPageSection v-if="locale === 'ja'" />
+  <!--
+  <VolunteerPageSection v-if="!config.public.enableRegisterTicket && locale === 'ja'" />
+  -->
   <EventPageSection v-if="config.public.showEvent" />
   <StorePageSection v-if="config.public.showStore" />
-  <SponsorPageSection />
   <AccessPageSection />
-  <TicketPageSection v-if="config.public.enableRegisterTicket" />
+  <SponsorPageSection />
   <CooperationPartnerSection />
   <FormPageSection />
   <TeamPageSection />

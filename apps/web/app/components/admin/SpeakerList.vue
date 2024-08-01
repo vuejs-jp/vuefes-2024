@@ -24,7 +24,8 @@ const handleDialog = (id?: string) => {
       <th>name</th>
       <th>detail_page_id</th>
       <th>image_url</th>
-      <th>caption</th>
+      <th>company</th>
+      <th>position</th>
       <th>description</th>
       <th>github_id</th>
       <th>x_id</th>
@@ -52,8 +53,12 @@ const handleDialog = (id?: string) => {
         </p>
       </td>
       <td>
-        <p>{{ speaker.caption_ja }}</p>
-        <p>{{ speaker.caption_en }}</p>
+        <p>{{ speaker.company_ja }}</p>
+        <p>{{ speaker.company_en }}</p>
+      </td>
+      <td>
+        <p>{{ speaker.position_ja }}</p>
+        <p>{{ speaker.position_en }}</p>
       </td>
       <td>
         <p>{{ speaker.description_ja }}</p>

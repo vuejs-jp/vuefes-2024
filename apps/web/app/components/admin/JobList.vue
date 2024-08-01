@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type { Job, Sponsor } from '@vuejs-jp/model'
 import { ref } from 'vue'
 
 interface JobListProps {
-  jobs: any
+  jobs: Job[]
+  sponsors: Sponsor[]
 }
 
 const emit = defineEmits<{ edit: [id: string] }>()
@@ -20,14 +22,16 @@ const handleDialog = (id?: string) => {
 <template>
   <table id="jobs">
     <tr>
-      <th>link_url</th>
+      <th style="max-width: 400px;">link_url</th>
       <th>image_url</th>
       <th>image_alt</th>
       <th>is_open</th>
       <th style="min-width: 80px">action</th>
     </tr>
     <tr v-for="job in jobs" :key="job.id">
-      <td>{{ job.link_url }}</td>
+      <td style="max-width: 400px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+        {{ job.link_url }}
+      </td>
       <td>
         <img
           v-if="job.image_url"
@@ -61,6 +65,7 @@ const handleDialog = (id?: string) => {
   <VFDialog v-if="showDialog">
     <AdminJobItem
       :job="jobs.filter((s) => s.id === jobId)[0]"
+      :sponsors
       @close="handleDialog"
     />
   </VFDialog>

@@ -8,6 +8,8 @@ export const ogCoCDescription =
 
 export const ogPrivacyDescription = 'Vue Fes Japan 2024 のプライバシーポリシーです。'
 
+export const ogTokushoDescription = 'Vue Fes Japan 2024 の特定商取引法に基づく表記です。'
+
 export const ogSpeakerDescription = 'Vue Fes Japan 2024 のスピーカー、セッション情報です。'
 
 export const ogSponsorDescription = 'Vue Fes Japan 2024 のスポンサー情報です。'
@@ -28,6 +30,10 @@ export const cfpEnUrl =
 
 export const volunteerUrl =
   'https://docs.google.com/forms/d/e/1FAIpQLSfiO98GwyyvpKLpNiEWWs8XfROudAu0WfCJnyfRI_96YvZivg/closedform'
+
+export const ticketUrl = 'https://vuefes2024.peatix.com'
+
+export const childCareUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeHWTkQNHvK4YEiFzVpNP0OUSQpQ6n1ZcR6tBV9YiK4DzTNhg/viewform'
 
 export const storeUrl = ''
 

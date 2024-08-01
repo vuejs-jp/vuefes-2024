@@ -4,12 +4,16 @@ import EventCard from '~/components/event/EventCard.vue'
 import EventAsset from '~/components/event/EventAsset.vue'
 import EventMultipleAssets from '~/components/event/EventMultipleAssets.vue'
 import PanelerList from '~/components/event/PanelerList.vue'
+import { useFetch } from '#imports'
 
 type _PanelerCategory = Extract<SpeakerCategory, 'panelEventPanelers'>
 type Panelers = Record<_PanelerCategory, PanelerInfo>
 
-const data = await $fetch('/api/speakers')
-const { panelEventPanelers } = data as Panelers
+const { data, error } = await useFetch('/api/speakers')
+if (error.value) {
+  console.error(error.value)
+}
+const { panelEventPanelers } = data.value as Panelers
 </script>
 
 <template>
@@ -49,7 +53,7 @@ const { panelEventPanelers } = data as Panelers
 
 .event {
   --event-padding: calc(var(--unit) * 5.25) 0;
-  --event-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
+  --event-body-padding: calc(var(--unit) * 6) 0;
 
   display: flex;
   justify-content: center;
@@ -59,6 +63,7 @@ const { panelEventPanelers } = data as Panelers
   background-size: 30px;
   background-blend-mode: overlay;
   padding: var(--event-padding);
+  margin: 0 auto;
   color: var(--color-vue-blue);
 }
 
@@ -89,7 +94,7 @@ const { panelEventPanelers } = data as Panelers
 }
 
 @media (--tablet) {
-  .event-root {
+  .event {
     --event-padding: calc(var(--unit) * 2) 0;
   }
 

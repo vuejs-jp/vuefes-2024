@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
 
   if (config.public.sponsorDatasource === 'supabase') {
     const client = await serverSupabaseClient<Database>(event)
-    const { data: _sponsors } = await client.from('sponsors').select() as { data: Sponsor[] }
+    const { data: _sponsors } = await client.from('sponsors').select().eq('is_open', true) as { data: Sponsor[] }
     sponsors = _sponsors
   }
 
@@ -124,6 +124,21 @@ export default defineEventHandler(async (event) => {
       }),
   }
 
+  const lunchSponsors: SponsorInfo = {
+    type: 'option-separate',
+    title: 'lunch',
+    list: sponsors
+      .filter((s: Sponsor) => {
+        if (process.env.NODE_ENV === 'production') return s['tag'].includes('lunch') && s.is_open === true
+        return s['tag'].includes('lunch')
+      })
+      .sort((a: Sponsor, b: Sponsor) => {
+        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
+        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
+        return a.display_order - b.display_order
+      }),
+  }
+
   const afterPartySponsors: SponsorInfo = {
     type: 'option-separate',
     title: 'after_party',
@@ -161,6 +176,21 @@ export default defineEventHandler(async (event) => {
       .filter((s: Sponsor) => {
         if (process.env.NODE_ENV === 'production') return s['tag'].includes('simultaneous-interpretation') && s.is_open === true
         return s['tag'].includes('simultaneous-interpretation')
+      })
+      .sort((a: Sponsor, b: Sponsor) => {
+        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
+        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
+        return a.display_order - b.display_order
+      }),
+  }
+
+  const childcareSponsors: SponsorInfo = {
+    type: 'option-separate',
+    title: 'childcare',
+    list: sponsors
+      .filter((s: Sponsor) => {
+        if (process.env.NODE_ENV === 'production') return s['tag'].includes('childcare') && s.is_open === true
+        return s['tag'].includes('childcare')
       })
       .sort((a: Sponsor, b: Sponsor) => {
         if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
@@ -207,9 +237,11 @@ export default defineEventHandler(async (event) => {
     specialNamingRightSponsors,
     namingRightSponsors,
     specialLunchSponsors,
+    lunchSponsors,
     afterPartySponsors,
     nameCardSponsors,
     simultaneousInterpretationSponsors,
+    childcareSponsors,
     mediaSponsors,
     toolSponsors
   }

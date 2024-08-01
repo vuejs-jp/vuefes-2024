@@ -8,6 +8,7 @@
   "suffix_year": "2024",
   "invite_vue_fes": "Would you like to join Vue Fes Japan 2024 as well?",
   "share_namecard": "Let's share this name card on social media!",
+  "copied": "Copied",
   "official_site": "Vue Fes Japan Official Website",
   "top_page": {
     "latest_information": "Get the latest information on our official social media",
@@ -43,23 +44,28 @@
     "payment_method_explain": "There are two methods of payment.",
     "preorder": "Pre-Order",
     "tshirt": "T-sgirt",
-    "tshirt_detail": "Vue Fes Japan 2023 のオリジナル T シャツです。サイズはS・M・L・XLの4種類。前面のみのプリントです。",
+    "tshirt_detail": "This is an original T-shirt for Vue Fes Japan 2024, inspired by Mount Fuji and the sun. It features a print only on the front.",
     "parka": "Hooded sweatshirt",
-    "parka_detail": "Vue Fes Japan 2023 のオリジナルパーカーです。サイズは S、M、L、XL の4種類。前・背面プリントです。",
-    "vue_badge": "Acrylic pin badge (Vue.js)",
-    "vue_badge_detail": "Vue.jsのロゴを使ったミニサイズのアクリルピンバッジです。",
-    "nuxt_badge": "Acrylic pin badge (Nuxt)",
-    "nuxt_badge_detail": "Nuxtのロゴを使ったミニサイズのアクリルピンバッジです。",
-    "vite_badge": "Acrylic pin badge (Vite)",
-    "vite_badge_detail": "Viteのロゴを使ったミニサイズのアクリルピンバッジです。",
+    "parka_detail": "This is an original hoodie for Vue Fes Japan 2024, featuring the main visual and the Vue.js ecosystem logo on the back. There is no print on the front.",
+    "pin_badge": "Acrylic pin badge (Vue.js)",
+    "pin_badge_detail": "This is a mini-sized transparent acrylic pin badge featuring the official logos of Vue Fes Japan, Vue.js, Nuxt, and Vite. It is sold individually, not as a set.",
     "sticker": "Sticker",
-    "sticker_detail": "Vue.js、Nuxt、Vite、Vue Fes Japanのロゴが集まった特製ステッカーです。",
-    "cushion": "Cushion",
-    "cushion_detail": "表面Vue.js、裏面Vue Fes Japanのロゴのふかふかクッションです。素材は、触り心地が良いブランケットのような生地です。",
-    "tape": "Masking tape",
-    "tape_detail": "Masking tape (width: 15mm)",
+    "sticker_type": "Type",
+    "sticker_detail": "This is a special sticker featuring the official logos of Vue Fes Japan, Vue.js, Nuxt, Vite, Rolldown, UnJS, and Oxc.",
+    "kawaii_sticker": "kawaiiロゴステッカー",
+    "kawaii_sticker_detail": "This is a special sticker featuring kawaii logos of Vue.js, Nuxt, Vite, Rolldown, and Oxc, created by Icarus.",
+    "towel": "Towel Handkerchief",
+    "towel_detail": "This is a mini-sized towel handkerchief inspired by Mount Fuji and the sun. It is made from highly absorbent cotton material.",
+    "2way_bag": "2WAY Bag",
+    "2way_bag_detail": "This is a 2-way type bag that combines a sacoche and an eco bag. When used as a sacoche, you can also use the mesh pocket.",
+    "bag_hanger": "Bag Hanger",
+    "bag_hanger_detail": "This is a bag hanger adorned with various official logos. You can hang your bag on a table. It comes with a drawstring pouch.",
+    "strap_holder": "Strap Holder",
+    "strap_holder_detail": "This is a strap holder for smartphones featuring the Vue Fes Japan logo. By inserting it into your phone case and attaching a strap to the metal fixture, you can hang your smartphone from your wrist or neck. It comes with a detachable hand strap.",
     "store_item_color": "Color: {0}",
-    "store_item_size": "Size: {0}"
+    "store_item_size": "Size: {0}",
+    "approximately_2_5kg": "Approximately 2.5kg",
+    "approximately_5kg": "Approximately 5kg"
   },
   "sponsor": {
     "title": "Sponsors",
@@ -68,6 +74,7 @@
     "apply_deadline": "Sponsor Application Deadline",
     "application_period_after": "",
     "creative_wall_drinks_snacks_merchandise": "Creative Wall, Drinks, Snacks, Merchandise sponsor",
+    "silver_bronze_special_lunch_lunch_handson_media": "Silver, Bronze, Special Lunch, Lunch, Hands-on, Media sponsor",
     "all_others": "All other sponsors",
     "check_doc": "View Sponsorship materials",
     "start_date": "May 13",
@@ -81,11 +88,48 @@
     "special_naming_rights": "Special Naming Rights",
     "naming_rights": "Naming Rights",
     "special_lunch": "Special Lunch",
+    "lunch": "Lunch",
     "after_party": "After Party",
     "name_card": "Name Card",
     "simultaneous_interpretation": "Simultaneous Interpretation",
+    "childcare": "Childcare Support",
     "media": "Media",
     "tool": "Tool"
+  },
+  "ticket": {
+    "title": "Ticket",
+    "purchaseButton": "Purchase Ticket",
+    "ticketTypes": "Tickets",
+    "card": {
+      "ippan": {
+        "title": "Regular",
+        "early": "Early: ¥7,000",
+        "earlySub": "Purchase by Aug 25th, 24:00",
+        "regular": "Regular: ¥8,000",
+        "imgAlt": "Speaker giving a presentation"
+      },
+      "ippanParty": {
+        "title": "Regular + After Party",
+        "early": "Early: ¥10,000",
+        "earlySub": "Purchase by Aug 25th, 24:00",
+        "regular": "Regular: ¥11,000",
+        "imgAlt": "Example of an after party"
+      },
+      "handsOn": {
+        "title": "Hands On",
+        "cost": "Free",
+        "details1": "*Additionally, the purchase of either a regular ticket or a regular + after-party ticket is required.",
+        "details2": "*For more details, please refer to the Hands-on section.",
+        "imgAlt": "Example of a workhop event"
+      },
+      "individualSponsor": {
+        "title": "Individual Sponsor",
+        "cost": "¥10,000",
+        "details1": "*For those attending on the day, the purchase of either a regular ticket or a regular + after-party ticket is required.",
+        "details2": "*For more details, please refer to the Individual Sponsor section.",
+        "imgAlt": "Event-branded t-shirts"
+      }
+    }
   },
   "access": {
     "title": "Access",
@@ -96,6 +140,34 @@
     "route_2": "Directly connected to Exit A5 of Otemachi Station on the Tokyo Metro Marunouchi Line, Tozai Line, Chiyoda Line, Hanzomon Line and the Toei Mita Line",
     "map": "https://maps.app.goo.gl/ohaSGdrjQ3pt152C9",
     "map_text": "View on Google Maps"
+  },
+  "childcare": {
+    "title": "Child Care supported by STORES",
+    "apply": "Apply"
+  },
+  "personal_sponsor": {
+    "title": "Personal Sponsor",
+    "merit1": {
+      "title": "Credit Listing",
+      "detail": "We will feature your name on the Vue Fes Japan official website (upon request)."
+    },
+    "merit2": {
+      "title": "Vue Fes Japan 2024 Staff Exclusive T-shirt",
+      "detail": "You will receive a limited edition T-shirt available exclusively to staff members.",
+      "caution": "- Sizes range from S to XXXL. Please specify your size when purchasing tickets.\n- T-shirts will be distributed only at the venue on the day of the event. Shipping is not available."
+    },
+    "merit3": {
+      "title": "Priority Entry",
+      "detail": "We will provide a dedicated priority lane for individual sponsors at the on-site registration. This allows for smooth entry without having to wait in line."
+    },
+    "merit4": {
+      "title": "Priority Seating",
+      "detail": "Priority seating will be provided at the front row of each track venue.",
+      "caution": "*If seats are available after the session begins, they will be open to general attendees as well.*"
+    }
+  },
+  "handson": {
+    "title": "Vue.js / Nuxt Hands-on"
   },
   "partner": {
     "title": "Partners"
@@ -127,10 +199,20 @@
     "title": "Privacy Policy",
     "button": "Back to Top"
   },
+  "tokusho": {
+    "title": "Notation based on the Specified Commercial Transactions Law"
+  },
   "namecard": {
+    "sectionTitle1": "With your avatar and name on it!",
+    "sectionTitle2": "Namecard",
+    "createNamecard": "Create Namecard",
     "title_edit": "Create/Edit Name Card",
+    "cancel": "Cancel",
     "edit": "Edit",
+    "login_title": "Login via social account",
     "login": "Login",
+    "caution": "Due to the printing process constraints, it will not be possible to edit the name cards after the editing deadline. If you wish to have name cards at the venue on the day of the event, please complete your editing before the deadline.",
+    "edit_deadline": "Name Card Editing Deadline:\nSeptember 16, 2024 24:00",
     "dialog_message": "To create a name card, you need to purchase a ticket in advance. After purchasing your ticket, log in using one of the following social accounts and register the necessary information.",
     "namecard_samples_alt": "Name card samples",
     "complete_message": "We will now verify your order number. You can check the status of the order number verification on the name card page. Please ensure that the verification is successfully completed before the editing deadline.",

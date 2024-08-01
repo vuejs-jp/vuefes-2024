@@ -14,8 +14,10 @@ export type Speaker = {
   name_en: string
   detail_page_id?: string
   image_url?: string
-  caption_ja?: string
-  caption_en?: string
+  company_ja?: string
+  company_en?: string
+  position_ja?: string
+  position_en?: string
   description_ja: string
   description_en: string
   github_id?: string

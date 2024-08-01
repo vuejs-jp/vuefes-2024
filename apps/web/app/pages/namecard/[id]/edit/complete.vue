@@ -8,7 +8,7 @@ const { t } = useI18n()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 
-const { authUserId, statusKey, attendee } = await useNamecard()
+const { authUser, statusKey, namecardUser } = await useNamecard()
 </script>
 <template>
   <NuxtLayout name="namecard-base">
@@ -34,27 +34,29 @@ const { authUserId, statusKey, attendee } = await useNamecard()
           {{ t('namecard.complete_message') }}
         </p>
       </div>
+      <!-- TODO Commentコンポーネントのモバイル対応が必要 -->
       <VFComment :title="t('namecard.lets_share')" class="share-comment" />
       <div class="sns-buttons">
-        <!-- TODO  Web Share API 利用 & スタイル調整 -->
         <VFIconButton
-          name="x"
-          color="black"
-          :href="`/namecard/${authUserId}/share/`"
+          name="x40"
+          color="vue-blue"
+          :href="`https://x.com/share?url=${encodeURIComponent(
+            `https://vuefes.jp/2024/namecard/${authUser?.id}/share`,
+          )}`"
           can-hover
           class="sns-button"
         />
         <VFIconButton
           name="Facebook"
-          color="black"
-          :href="`/namecard/${authUserId}/share/`"
-          can-hover
+          color="vue-blue"
+          :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+            `https://vuefes.jp/2024/namecard/${authUser?.id}/share`,
+          )}`"
           class="sns-button"
         />
       </div>
       <CreationStatus :status-key="statusKey" size="small" class="creation-status" />
-      <!-- TODO 24に置き換え&smallサイズ指定 -->
-      <VFNamecard23 :user="attendee" class="namecard-preview" />
+      <VFNamecard24 :user="namecardUser" class="namecard-preview" />
     </div>
   </NuxtLayout>
 </template>
@@ -77,6 +79,21 @@ const { authUserId, statusKey, attendee } = await useNamecard()
 .share-comment,
 .creation-status {
   margin-bottom: calc(var(--unit) * 2.5);
+}
+
+.sns-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--unit) * 2.5);
+  margin-bottom: calc(var(--unit) * 2.5);
+}
+.sns-button {
+  &:deep(svg, a) {
+    display: block;
+    width: 40px;
+    height: auto;
+  }
 }
 
 .namecard-preview {

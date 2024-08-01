@@ -4,7 +4,7 @@ import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 
 const { t } = useI18n()
-const { fontWeight, fontSize } = useTypography()
+const { fontWeight } = useTypography()
 const { color } = useColor()
 export type Status = 'not_created' | 'inquiry_in_progress' | 'inquiry_failed' | 'inquiry_completed'
 type Props = {
@@ -37,36 +37,49 @@ const style = computed(() => {
     case 'small':
       return {
         ...baseStyle,
-        height: '24px',
-        borderRadius: '24px',
         padding: '0 20px',
         fontWeight: fontWeight('heading/700'),
-        fontSize: fontSize('body/100'),
       }
     default:
       return {
         ...baseStyle,
-        height: '38px',
-        borderRadius: '38px',
         padding: '0 38px',
         fontWeight: fontWeight('heading/700'),
-        fontSize: fontSize('heading/200'),
       }
   }
 })
 </script>
 
 <template>
-  <div class="creation-status-root" :style="style">
+  <div class="creation-status-root" :style="style" :class="size">
     {{ t(`namecard.creation_status.${statusKey}`) }}
   </div>
 </template>
 
 <style scoped>
+@import url('~/assets/media.css');
+
 .creation-status-root {
+  --height: 38px;
+  --font-size: var(--font-size-heading200);
+
   display: inline-flex;
   justify-content: center;
   align-items: center;
   line-height: 1;
+  height: var(--height);
+  border-radius: var(--height);
+  font-size: var(--font-size);
+}
+.small {
+  --height: 24px;
+  --font-size: var(--font-size-body100);
+}
+
+@media (--mobile) {
+  .creation-status-root {
+    --height: 22px;
+    --font-size: var(--font-size-body100);
+  }
 }
 </style>

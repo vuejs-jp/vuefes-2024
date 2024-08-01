@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import { ref, computed, watchEffect } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
+import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 import { useI18n } from '#i18n'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import { navigateTo } from '#imports'
 import { useNamecard } from '~/composables/useNamecard'
+import { useFormError } from '~/composables/useFormError'
 import ImageUploader from '~/components/namecard/ImageUploader.vue'
+import type { Role } from '@vuejs-jp/model'
 
 const { t } = useI18n()
-const { authUserId, statusKey, attendee } = await useNamecard()
+const { nameError, orderNumberError, validateName, validateOrderNumber } = useFormError()
+const { authUser, attendeeDataByUserId, statusKey, namecardUser } = await useNamecard()
 const { upsertAttendee, uploadAvatar } = useSupabase()
+const { getFullAvatarUrl } = useSupabaseStorage()
 
 const name = ref('')
 const receiptId = ref('')
@@ -24,10 +29,10 @@ const updateReceiptId = (e: any) => {
   receiptId.value = e.target.value
 }
 
-const namecard = ref({ ...attendee.value })
+const namecard = ref({ ...namecardUser.value })
 
 const newAttendee = ref({
-  ...attendee.value,
+  ...namecardUser.value,
 })
 
 name.value = newAttendee.value?.display_name ?? ''
@@ -66,88 +71,141 @@ const checkFiles = (e: Event, files: File[]) => {
 }
 
 function onSubmit(e: Event) {
-  // TODO updated_atに現在時刻を追加する必要ある？supabaseの機能でなんかない？
   e.preventDefault()
 
   const submitEvent = e as SubmitEvent
   const submitter = submitEvent.submitter as HTMLElement
 
   if (submitter && submitter.id === 'submit-button' && filePathRef.value && fileRef.value) {
-    upsertAttendee('attendees', newAttendee.value)
     uploadAvatar(filePathRef.value, fileRef.value)
+    newAttendee.value.avatar_url = getFullAvatarUrl(filePathRef.value)
 
-    navigateTo(`/namecard/${authUserId.value}/edit/complete/`)
+    const baseData = {
+      email: attendeeDataByUserId.value?.email ?? authUser.value?.email ?? '',
+      provider: attendeeDataByUserId.value?.provider ?? authUser.value?.app_metadata.provider ?? '',
+      user_id: attendeeDataByUserId.value?.user_id ?? authUser.value?.id ?? '',
+      role: (attendeeDataByUserId.value?.role as Role) || 'attendee',
+    }
+    const id = {
+      id: attendeeDataByUserId.value?.id ?? '',
+    }
+    if (attendeeDataByUserId.value?.created_at) {
+      upsertAttendee('attendees', {
+        ...id,
+        ...newAttendee.value,
+        ...baseData,
+      })
+    } else {
+      upsertAttendee('attendees', {
+        ...newAttendee.value,
+        ...baseData,
+      })
+    }
+
+    navigateTo(`/namecard/${authUser.value?.id}/edit/complete/`)
   }
 }
-
-// TODO バリデート、エラー制御を追加する
 </script>
 <template>
   <NuxtLayout name="namecard-base">
-    <div class="namecard-edit-root">
+    <form class="namecard-edit-root" @submit.prevent="onSubmit">
       <div class="preview-wrapper">
-        <VFNamecard23 :user="namecard" class="namecard" />
+        <VFNamecard24 :user="namecard" class="namecard" />
         <CreationStatus :status-key="statusKey" size="small" class="creation-status" />
       </div>
       <div class="form-wrapper">
-        <form @submit.prevent="onSubmit">
-          <VFInputField
-            id="name"
-            v-model="name"
-            class="name"
-            name="name"
-            :label="t('namecard.form.label_name')"
-            :placeholder="`${t('form.form_placeholder_example')}${t('form.form_name_placeholder')}`"
-            required
-            :error="nameError"
-            @input="updateName"
-            @blur="validateName"
-            ><p class="annotation">{{ t('namecard.form.annotation_name') }}</p></VFInputField
-          >
-          <ImageUploader
-            class="image-uploader"
-            file-accept="image/*"
-            @check-files.prevent="checkFiles"
-          />
-          <VFInputField
-            id="orderNumber"
-            v-model="receiptId"
-            class="order-number"
-            name="orderNumber"
-            :label="t('namecard.form.label_order_number')"
-            :placeholder="t('namecard.form.placeholder_order_number')"
-            required
-            :error="orderNumberError"
-            @input="updateReceiptId"
-            @blur="validateOrderNumbere"
-            ><div class="annotation"><MarkDownText path="namecard_annotation_order_number" /></div
-          ></VFInputField>
-          <div class="form-buttons">
-            <!-- TODO ボタン キャンセルボタン スタイルを追加する -->
-            <VFSubmitButton id="submit-button" :disabled="!isSubmitting">
-              {{ $t('namecard.form.submit') }}
-            </VFSubmitButton>
-          </div>
-        </form>
+        <VFInputField
+          id="name"
+          v-model="name"
+          class="name"
+          name="name"
+          :label="t('namecard.form.label_name')"
+          :placeholder="`${t('form.form_placeholder_example')}${t('form.form_name_placeholder')}`"
+          required
+          :error="nameError"
+          @input="updateName"
+          @blur="validateName"
+          ><p class="annotation">{{ t('namecard.form.annotation_name') }}</p></VFInputField
+        >
+        <ImageUploader
+          class="image-uploader"
+          file-accept="image/*"
+          @check-files.prevent="checkFiles"
+        />
+        <VFInputField
+          id="orderNumber"
+          v-model="receiptId"
+          class="order-number"
+          name="orderNumber"
+          :label="t('namecard.form.label_order_number')"
+          :placeholder="t('namecard.form.placeholder_order_number')"
+          required
+          :error="orderNumberError"
+          @input="updateReceiptId"
+          @blur="validateOrderNumber"
+          ><div class="annotation"><MarkDownText path="namecard_annotation_order_number" /></div
+        ></VFInputField>
       </div>
-    </div>
+      <div class="form-buttons">
+        <VFLinkButton
+          :href="`/namecard/${authUser?.id}/`"
+          target="_self"
+          background-color="white"
+          color="vue-blue"
+          class="button cancel-button"
+          >{{ t('namecard.cancel') }}</VFLinkButton
+        >
+        <VFSubmitButton id="submit-button" class="button submit-button" :disabled="!isSubmitting">
+          {{ $t('namecard.form.submit') }}
+        </VFSubmitButton>
+      </div>
+    </form>
   </NuxtLayout>
 </template>
 
 <style scoped>
 @import url('~/assets/media.css');
 .namecard-edit-root {
-  /** TODO スタイル調整を行う 仮組でflex適応しているだけ */
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0px calc(var(--unit) * 8);
+  grid-auto-flow: row;
+  grid-template-areas:
+    'namecard form form'
+    'namecard form form'
+    'button button button';
+
   max-width: 769px;
+  padding: var(--namecard-edit-padding);
   margin: 0 auto;
-  gap: 0 calc(var(--unit) * 8);
+
+  @media (--tablet) {
+    --namecard-edit-padding: calc(var(--unit) * 2) 0;
+  }
+
+  @media (--mobile) {
+    width: 100%;
+  }
 }
-.namecard {
-  margin-bottom: calc(var(--unit) * 2);
+
+.preview-wrapper {
+  grid-area: namecard;
 }
 .form-wrapper {
+  grid-area: form;
   text-align: left;
+}
+.form-buttons {
+  --width-form-buttons: 474px;
+  grid-area: button;
+  width: var(--width-form-buttons);
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.namecard {
+  margin-bottom: calc(var(--unit) * 2);
 }
 
 .name,
@@ -168,6 +226,55 @@ function onSubmit(e: Event) {
   font-weight: 500;
   color: var(--color-vue-blue);
 }
+.button {
+  --button-width: 222px;
+  --button-height: 66px;
 
-/* TODO モバイル版スタイル */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--button-width);
+  height: var(--button-height);
+}
+
+@media (--mobile) {
+  .namecard-edit-root {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      'namecard'
+      'form'
+      'button';
+    gap: calc(var(--unit) * 5);
+  }
+  .preview-wrapper {
+    text-align: center;
+  }
+  .namecard {
+    margin: 0 auto calc(var(--unit) * 2);
+  }
+  .order-number {
+    margin-bottom: calc(var(--unit) * 5);
+  }
+  .form-buttons {
+    display: block;
+    --width-form-buttons: 100%;
+    text-align: center;
+  }
+  .cancel-button {
+    width: 222px;
+    margin-bottom: calc(var(--unit) * 2.5);
+
+    &:deep(.text) {
+      font-size: var(--font-size-body400);
+    }
+  }
+  .submit-button {
+    width: 198px;
+  }
+  .form-buttons :deep(.submit-button) {
+    font-size: var(--font-size-body400);
+    padding: 0;
+  }
+}
 </style>

@@ -45,6 +45,10 @@ const internalLinkList: LinkList[] = [
     href: '/code-of-conduct',
     text: 'code_of_conduct.title',
   },
+  {
+    href: '/tokusho',
+    text: 'tokusho.title',
+  },
 ]
 const vueFesLinkList: LinkList[] = [
   {
@@ -93,7 +97,7 @@ const vueFesLinkList: LinkList[] = [
         <ul class="footer-list">
           <li v-for="(link, index) in vueFesLinkList" :key="index">
             <VFTextLink :href="link.href" target="_blank" color="white">
-              {{ t(link.text) }}
+              {{ link.text }}
             </VFTextLink>
           </li>
         </ul>

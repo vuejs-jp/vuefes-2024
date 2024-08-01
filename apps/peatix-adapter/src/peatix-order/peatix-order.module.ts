@@ -9,8 +9,6 @@ import {
   symbol as IPuppeteerService,
   PuppeteerService,
 } from 'src/puppeteer/puppeteer.service'
-import { SupabaseModule } from 'src/supabase/supabase.module'
-import { SupabaseService } from 'src/supabase/supabase.service'
 
 @Module({
   imports: [
@@ -21,7 +19,6 @@ import { SupabaseService } from 'src/supabase/supabase.service'
     }),
     EnvModule,
     HttpModule,
-    SupabaseModule,
   ],
   providers: [
     ConfigService,
@@ -30,7 +27,6 @@ import { SupabaseService } from 'src/supabase/supabase.service'
       provide: IPuppeteerService,
       useClass: PuppeteerService,
     },
-    SupabaseService,
     PeatixOrderService,
   ],
   exports: [PeatixOrderService],
