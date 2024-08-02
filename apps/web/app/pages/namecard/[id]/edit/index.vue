@@ -20,7 +20,8 @@ const { getFullAvatarUrl } = useSupabaseStorage()
 const name = ref('')
 const receiptId = ref('')
 const isSubmitting = computed(() => {
-  return name.value && receiptId.value && filePathRef.value && fileRef.value
+  if (!name.value || !receiptId.value) return false
+  return  nameError.value === '' && orderNumberError.value === ''
 })
 
 const updateName = (e: any) => {
