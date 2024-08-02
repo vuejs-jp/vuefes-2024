@@ -126,8 +126,9 @@ function onSubmit(e: Event) {
           :error="nameError"
           @input="updateName"
           @blur="validateNameWithMaxLength"
-          ><p class="annotation">{{ t('namecard.form.annotation_name') }}</p></VFInputField
         >
+          <p class="annotation">{{ t('namecard.form.annotation_name') }}</p>
+        </VFInputField>
         <ImageUploader
           class="image-uploader"
           file-accept="image/*"
@@ -161,8 +162,9 @@ function onSubmit(e: Event) {
           background-color="white"
           color="vue-blue"
           class="button cancel-button"
-          >{{ t('namecard.cancel') }}</VFLinkButton
         >
+          {{ t('namecard.cancel') }}
+        </VFLinkButton>
         <VFSubmitButton id="submit-button" class="button submit-button" :disabled="!isSubmitting">
           {{ $t('namecard.form.submit') }}
         </VFSubmitButton>
