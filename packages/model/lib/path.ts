@@ -28,8 +28,4 @@ export type Path =
   | 'team'
   | 'ticket'
   | 'namecard_lead'
-  | 'namecard_process_1'
-  | 'namecard_process_2'
-  | 'namecard_process_3'
-  | 'namecard_process_4'
   | 'namecard_process_alert'

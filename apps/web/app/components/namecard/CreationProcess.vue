@@ -29,19 +29,23 @@ const { color } = useColor()
       class="process-list"
     >
       <li>
-        <MarkDownText path="namecard_process_1" />
+        <i18n-t keypath="namecard.process_1_message" tag="p">
+          <template #ticketUrl>
+            <a href="/#ticket" target="_blank">{{ $t('namecard.ticket_data') }}</a>
+          </template>
+        </i18n-t>
         <SvgProcessDown class="down-icon" />
       </li>
       <li>
-        <MarkDownText path="namecard_process_2" />
+        <i18n-t keypath="namecard.process_2_message" tag="p" />
         <SvgProcessDown class="down-icon" />
       </li>
       <li>
-        <MarkDownText path="namecard_process_3" />
+        <i18n-t keypath="namecard.process_3_message" tag="p" />
         <SvgProcessDown class="down-icon" />
       </li>
       <li>
-        <MarkDownText path="namecard_process_4" />
+        <i18n-t keypath="namecard.process_4_message" tag="p" />
       </li>
     </ol>
     <div
