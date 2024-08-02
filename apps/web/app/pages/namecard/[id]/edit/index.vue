@@ -8,6 +8,7 @@ import { navigateTo } from '#imports'
 import { useNamecard } from '~/composables/useNamecard'
 import { useFormError } from '~/composables/useFormError'
 import ImageUploader from '~/components/namecard/ImageUploader.vue'
+import { peatixReferenceUrl } from '~/utils/constants'
 import type { Role } from '@vuejs-jp/model'
 
 const { t } = useI18n()
@@ -143,8 +144,15 @@ function onSubmit(e: Event) {
           :error="orderNumberError"
           @input="updateReceiptId"
           @blur="validateOrderNumber"
-          ><div class="annotation"><MarkDownText path="namecard_annotation_order_number" /></div
-        ></VFInputField>
+        >
+          <div class="annotation">
+            <i18n-t keypath="namecard.annotation_order_number" tag="p">
+              <template #peatixReferenceUrl>
+                <a :href="peatixReferenceUrl" target="_blank">{{ $t('namecard.receipt_data') }}</a>
+              </template>
+            </i18n-t>
+          </div>
+        </VFInputField>
       </div>
       <div class="form-buttons">
         <VFLinkButton
