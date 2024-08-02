@@ -3,6 +3,9 @@ import { useI18n } from '#i18n'
 import { useFetch, useLocaleCurrent, useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
+import TimeTableRow from '@/components/time-table/TimeTableRow.vue'
+
+import type { TimeTable } from '@vuejs-jp/model'
 
 const config = useRuntimeConfig()
 const { fontWeight, fontSize } = useTypography()
@@ -12,6 +15,13 @@ const { t } = useI18n()
 const { translate } = useTranslation()
 
 const currentLocale = useLocaleCurrent().locale
+
+const { data, error } = await useFetch('/api/timetable')
+if (error.value) {
+  console.error(error.value)
+}
+
+const timeTables = data.value.timeTable as TimeTable
 </script>
 
 <template>
@@ -24,27 +34,17 @@ const currentLocale = useLocaleCurrent().locale
       <table class="time-table-table">
         <thead>
           <tr>
-            <th />
-            <VFTrack color="hiwamoegi">トラックA</VFTrack>
-            <VFTrack color="tohoh">トラックB</VFTrack>
-            <VFTrack color="asagi">トラックC</VFTrack>
-            <VFTrack color="sangosyo">トラックD</VFTrack>
+            <th aria-label="cell" />
+            <VFTrack color="hiwamoegi">メドピアトラック</VFTrack>
+            <VFTrack color="tohoh">MNTSQ 全ての合意をフェアにするトラック</VFTrack>
+            <VFTrack color="asagi">kickflowトラック</VFTrack>
+            <VFTrack color="sangosyo">Vueトラック</VFTrack>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <VFSessionTime>10:00</VFSessionTime>
-            <VFSessionContent>開会式</VFSessionContent>
-            <VFSessionContent>開会式</VFSessionContent>
-            <VFSessionContent>開会式</VFSessionContent>
-            <VFSessionContent>開会式</VFSessionContent>
-          </tr>
-          <tr>
-            <VFSessionTime>10:30</VFSessionTime>
-            <VFSessionContent>セッション1</VFSessionContent>
-            <VFSessionContent>セッション2</VFSessionContent>
-            <VFSessionContent>セッション3</VFSessionContent>
-            <VFSessionContent>セッション4</VFSessionContent>
+          <tr v-for="timeTable in timeTables" :key="timeTable.time">
+            <VFSessionTime>{{ timeTable.time }}</VFSessionTime>
+            <TimeTableRow :tracks="timeTable.tracks" />
           </tr>
         </tbody>
       </table>
@@ -59,14 +59,13 @@ const currentLocale = useLocaleCurrent().locale
 @import url('~/assets/media.css');
 
 .time-table {
-  --time-table-padding: calc(var(--unit) * 5.25) 0;
-  --time-table-term-margin: calc(var(--unit) * 5) auto 0;
+  --time-table-padding: calc(var(--unit) * 5.25) 1.5%;
 
-  background-image: url('/sponsor/sponsor-bg-grid.png'),
-    linear-gradient(to bottom, #35495e, #353b5e);
+  background-image: url('/sponsor/sponsor-bg-grid.png'), linear-gradient(to top, #35495e, #353b5e);
   background-position: top -1px left -1px;
   background-size: 30px;
   background-blend-mode: overlay;
+  width: 100%;
   padding: var(--time-table-padding);
   color: var(--color-vue-blue);
 }
@@ -77,8 +76,7 @@ const currentLocale = useLocaleCurrent().locale
 }
 
 .time-table-body {
-  width: 100%;
-  margin: 0 1.5%;
+  margin: 0 auto;
   max-width: 960px;
 }
 
@@ -89,9 +87,8 @@ const currentLocale = useLocaleCurrent().locale
 
 @media (--tablet) {
   .time-table {
-    --time-table-padding: calc(var(--unit) * 2) 0;
+    --time-table-padding: calc(var(--unit) * 2) 1.5%;
     --time-table-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 6);
-    --time-table-term-margin: calc(var(--unit) * 5) auto 0;
   }
 }
 
