@@ -31,9 +31,8 @@ export default defineEventHandler(async (event) => {
         return speaker.session_type === 'session'
       })
       .sort((a: Speaker, b: Speaker) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -46,9 +45,7 @@ export default defineEventHandler(async (event) => {
         return speaker.session_type === 'lightning-talk'
       })
       .sort((a: Speaker, b: Speaker) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -61,9 +58,7 @@ export default defineEventHandler(async (event) => {
         return speaker.session_type === 'sponsor-session'
       })
       .sort((a: Speaker, b: Speaker) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -78,9 +73,8 @@ export default defineEventHandler(async (event) => {
           return s['events'].includes('welcome-vuejs-community')
         })
         .sort((a: Speaker, b: Speaker) => {
-          if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-          if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-          return a.display_order - b.display_order
+          if (b.display_order && a.display_order) return a.display_order - b.display_order
+          return a.created_at < b.created_at ? -1 : 1
         }),
       'nextgen-frontend-crosstalk': allSpeakers
         .filter((s: Speaker) => {
@@ -89,9 +83,8 @@ export default defineEventHandler(async (event) => {
           return s['events'].includes('nextgen-frontend-crosstalk')
         })
         .sort((a: Speaker, b: Speaker) => {
-          if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-          if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-          return a.display_order - b.display_order
+          if (b.display_order && a.display_order) return a.display_order - b.display_order
+          return a.created_at < b.created_at ? -1 : 1
         }),
     },
   }
