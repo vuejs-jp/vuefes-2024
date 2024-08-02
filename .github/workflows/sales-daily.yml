@@ -2,8 +2,8 @@ name: Sales Daily CI
 
 on:
   # 毎週金曜の 17:00 に実行
-  # schedule:
-  #   - cron: 0 17 * * 5 # https://crontab.guru/#0_17_*_*_5
+  schedule:
+    - cron: 0 17 * * 5 # https://crontab.guru/#0_17_*_*_5
   # push:
   #   branches:
   #     - main
