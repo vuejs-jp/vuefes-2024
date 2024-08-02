@@ -4,6 +4,9 @@ import Namecard24 from './Namecard24.vue'
 export default {
   title: 'namecard/Namecard24',
   component: Namecard24,
+  argTypes: {
+    user:{ control: 'object' },
+  },
   args: {
     user: {
       display_name: 'jiyuujin',
@@ -68,4 +71,13 @@ NoAvatar.args = {
     role: 'attendee',
   },
   isPlaceholder: true,
+}
+
+export const FullWidthCharacters12 = Template.bind({})
+FullWidthCharacters12.args = {
+  user: {
+    display_name: '上上上上上上上上上上上上',
+    avatar_url: '',
+    role: 'attendee',
+  },
 }
