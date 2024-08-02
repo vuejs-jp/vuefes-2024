@@ -1,9 +1,9 @@
-name: After Purchase CI
+name: Sales Daily CI
 
 on:
-  # 2 時間おきに実行
+  # 毎週金曜の 17:00 に実行
   # schedule:
-  #   - cron: 0 1/2 * * * # https://crontab.guru/#0_1/2_*_*_*
+  #   - cron: 0 17 * * 5 # https://crontab.guru/#0_17_*_*_5
   # push:
   #   branches:
   #     - main
@@ -12,7 +12,7 @@ on:
       - main
 
 jobs:
-  after-purchase:
+  sales-daily:
     runs-on: ubuntu-latest
 
     strategy:
@@ -25,8 +25,8 @@ jobs:
       - name: Install packages
         uses: ./.github/actions/install-packages
 
-      - name: Build after purchase
-        run: bun build-after-purchase
+      - name: Build sales daily
+        run: bun build-sales-daily
         working-directory: apps/peatix-adapter
         env:
           PEATIX_EVENT_ID: ${{ secrets.PEATIX_EVENT_ID }}
