@@ -18,6 +18,16 @@
       "outputs": ["dist/**"],
       "dotEnv": [".env"]
     },
+    "build-unactivated-check": {
+      "dependsOn": ["^build-after-purchase"],
+      "outputs": ["dist/**"],
+      "dotEnv": [".env"]
+    },
+    "build-sales-daily": {
+      "dependsOn": ["^build-after-purchase"],
+      "outputs": ["dist/**"],
+      "dotEnv": [".env"]
+    },
     "build-docs": {
       "dependsOn": ["^build-docs"],
       "outputs": [".vitepress/dist/**"]

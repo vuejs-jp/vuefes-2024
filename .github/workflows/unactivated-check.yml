@@ -1,9 +1,9 @@
-name: After Purchase CI
+name: Unactivated Check CI
 
 on:
-  # 2 時間おきに実行
+  # 毎日 23:00 に実行
   # schedule:
-  #   - cron: 0 1/2 * * * # https://crontab.guru/#0_1/2_*_*_*
+  #   - cron: 0 23 * * * # https://crontab.guru/#0_23_*_*_*
   # push:
   #   branches:
   #     - main
@@ -12,7 +12,7 @@ on:
       - main
 
 jobs:
-  after-purchase:
+  unactivated-check:
     runs-on: ubuntu-latest
 
     strategy:
@@ -25,8 +25,8 @@ jobs:
       - name: Install packages
         uses: ./.github/actions/install-packages
 
-      - name: Build after purchase
-        run: bun build-after-purchase
+      - name: Build unactivated check
+        run: bun build-unactivated-check
         working-directory: apps/peatix-adapter
         env:
           PEATIX_EVENT_ID: ${{ secrets.PEATIX_EVENT_ID }}
