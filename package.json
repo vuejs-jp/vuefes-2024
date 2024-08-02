@@ -8,6 +8,8 @@
     "dev": "turbo dev",
     "build": "turbo build",
     "build-after-purchase": "turbo build-after-purchase",
+    "build-unactivated-check": "turbo build-unactivated-check",
+    "build-sales-daily": "turbo build-sales-daily",
     "build-docs": "turbo build-docs",
     "build-storybook": "turbo build-storybook",
     "lint": "turbo lint",
