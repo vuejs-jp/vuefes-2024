@@ -48,6 +48,8 @@ export class SupabaseService {
   }
 
   public async updateUnactivatedAttendees() {
+    this.getClient()
+
     const { data, error } = await this.client.from('attendees')
       .upsert({ canceled_at: new Date().toISOString() })
       .eq('activated_at', '')
