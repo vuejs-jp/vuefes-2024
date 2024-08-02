@@ -98,7 +98,8 @@ onMounted(() => {
 }
 
 .avatar-name-area {
-  width: 85cqi;
+  --name-area-width: 85cqi;
+  width: var(--name-area-width);
   height: 8rem;
   background-color: var(--color-white);
   margin-top: 0.8125rem;
@@ -118,13 +119,10 @@ onMounted(() => {
 .avatar-name {
   --color-avatar-name: color-mix(in srgb, var(--color-vue-blue), #000 20%);
 
-  font-size: 2.25rem;
+  font-size: calc(var(--name-area-width) / 12);
   font-weight: 700;
   line-height: 1.1;
   color: var(--color-avatar-name);
-  @media (width <= 480px) {
-    font-size: 1.6875rem;
-  }
 }
 
 .avatar-footer {
