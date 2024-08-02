@@ -71,18 +71,6 @@ export class AfterPurchaseService {
 
     this.discordService.send('After Purchase Bot', `${receipts.length}件 購入済`)
 
-    // 各日毎の購入数を集計する
-    // const startedDate = new Date(2024, 7 - 1, 29)
-    // let archives = [[], [], []]
-    // for (let date = startedDate; date <= new Date(); date.setDate(date.getDate() + 1)) {
-    //   archives[0].push(`${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`)
-    //   archives[1].push(`${receipts.filter(v => v.role === Constants.PEATIX_GENERAL_ROLE).filter(v => v.date.includes(`${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`)).length}`)
-    //   archives[2].push(`${receipts.filter(v => v.role === Constants.PEATIX_WITH_PARTY_ROLE).filter(v => v.date.includes(`${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`)).length}`)
-    // }
-    // for (const archive of archives) {
-    //   this.logger.log(`${archive.join(', ')} `)
-    // }
-
     let i = 0
 
     // Peatix 購入情報を Supabase へ反映する
