@@ -37,6 +37,8 @@ export const childCareUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeHWTkQNHv
 
 export const storeUrl = ''
 
+export const peatixReferenceUrl = 'https://help-attendee.peatix.com/ja-JP/support/solutions/articles/44001821741'
+
 export const displayNameMaxLength = 24
 
 export const team = [

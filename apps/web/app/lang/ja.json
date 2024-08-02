@@ -233,6 +233,8 @@
     "edit_deadline": "ネームカード編集期限：\n2024年9月16日（月祝）24:00",
     "dialog_message": "ネームカードを作成するには、あらかじめチケットの購入が必要です。チケット購入後、以下のいずれかのソーシャルアカウントからログインし、必要な情報をご登録ください。",
     "namecard_samples_alt": "ネームカードのサンプル",
+    "annotation_order_number": "※注文番号は、チケット購入時に Peatix から送信されるメール内に含まれる{peatixReferenceUrl}から確認できます。",
+    "receipt_data": "領収データ",
     "complete_message": "これから注文番号の照合を行います。注文番号照合の状況はネームカードページのステータスで確認できます。編集期限前に照合が正常に完了したことを確認してください。",
     "lets_share": "作成したネームカードを&lt;br&gt;SNSでシェアしよう！",
     "creation_process": {

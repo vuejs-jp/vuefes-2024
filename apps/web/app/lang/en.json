@@ -215,6 +215,8 @@
     "edit_deadline": "Name Card Editing Deadline:\nSeptember 16, 2024 24:00",
     "dialog_message": "To create a name card, you need to purchase a ticket in advance. After purchasing your ticket, log in using one of the following social accounts and register the necessary information.",
     "namecard_samples_alt": "Name card samples",
+    "annotation_order_number": "*You can find the order number in the {peatixReferenceUrl} included in the email sent from Peatix when you purchased the ticket.*",
+    "receipt_data": "Receipt data",
     "complete_message": "We will now verify your order number. You can check the status of the order number verification on the name card page. Please ensure that the verification is successfully completed before the editing deadline.",
     "lets_share": "Share your created name card on social media!",
     "creation_process": {
