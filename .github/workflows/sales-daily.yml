@@ -1,4 +1,4 @@
-name: After Purchase CI
+name: Sales Daily CI
 
 on:
   # 毎週金曜の 17:00 に実行

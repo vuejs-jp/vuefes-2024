@@ -1,4 +1,4 @@
-name: After Purchase CI
+name: Unactivated Check CI
 
 on:
   # 毎日 23:00 に実行
