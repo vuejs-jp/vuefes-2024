@@ -35,7 +35,7 @@
   line-height: 1.8;
   color: white;
 
-  &::v-deep h4 {
+  &::v-deep(h4) {
     --body-h4-margin-bottom: calc(var(--unit) * 1.5);
 
     font-size: 18px;
@@ -44,17 +44,17 @@
     margin-bottom: var(--body-h4-margin-bottom);
   }
 
-  &::v-deep a {
+  &::v-deep(a) {
     color: var(--color-white);
     text-decoration: underline;
   }
 
-  &::v-deep a:hover {
+  &::v-deep(a:hover) {
     opacity: 0.4;
     transition: 0.2s;
   }
 
-  &::v-deep p {
+  &::v-deep(p) {
     --body-p-margin-bottom: calc(var(--unit) * 1.5);
     font-size: 18px;
     font-weight: 500;
@@ -62,7 +62,7 @@
     margin-bottom: var(--body-p-margin-bottom);
   }
 
-  &::v-deep ul {
+  &::v-deep(ul) {
     --body-p-margin-bottom: calc(var(--unit) * 1.5);
 
     list-style-type: disc;
@@ -80,12 +80,12 @@
   }
 
   .faq-body-text {
-    &::v-deep h4 {
+    &::v-deep(h4) {
       font-size: 20px;
       font-weight: 500;
     }
 
-    &::v-deep p {
+    &::v-deep(p) {
       font-size: 16px;
     }
   }
