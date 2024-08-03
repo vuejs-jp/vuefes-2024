@@ -1,18 +1,15 @@
 import { computed } from 'vue'
-import { useSupabase, useAsyncData, useAuth } from '#imports'
+import { useSupabase,useSupabaseUser, useAsyncData } from '#imports'
 import type { Status } from '~/components/namecard/CreationStatus.vue'
 import type { NamecardUser, Role } from '@vuejs-jp/model'
 
 export async function useNamecard(userId?:string) {
   const { fetchAttendeeDataByUserId } = useSupabase()
-  const { getUser } = useAuth()
 
-  const { data: authUser } = await useAsyncData('authUser', async () => {
-    return await getUser()
-  })
+  const authUser = useSupabaseUser()
 
   const { data: attendeeByUserId } = await useAsyncData('attendeeByUserId', async () => {
-    return await fetchAttendeeDataByUserId('attendees', authUser.value?.id ?? userId ?? '')
+    return await fetchAttendeeDataByUserId('attendees', userId ?? authUser.value?.id ?? '')
   })
 
   const attendeeDataByUserId = computed(() => {

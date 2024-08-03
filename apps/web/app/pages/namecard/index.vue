@@ -8,7 +8,7 @@ import MarkDownText from '~/components/MarkDownText.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
 
 definePageMeta({
-  middleware: 'namecard-auth',
+  middleware: 'query-redirect',
 })
 
 const config = useRuntimeConfig()
@@ -33,13 +33,12 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
   /** サインイン処理
    * 認証後のフロー
    * 1. 認証処理後、第二引数のパスにリダイレクトする（クエリパラメータ付き
-   * 2. ミドルウェア(namecard-auth)でクエリパラメータを元に、リダイレクト先を上書きする
+   * 2. ミドルウェア(query-redirect)でクエリパラメータを元に、リダイレクト先を上書きする
    */
   signIn(provider, '/namecard/')
 }
 </script>
 
-<!-- TODO モバイル対応 -->
 <template>
   <NuxtLayout name="namecard-base">
     <VFIntegrationDialog
@@ -86,6 +85,7 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
 .namecard-samples {
   margin: 0 auto;
   border-radius: 1px;
+  aspect-ratio: 596 / 401;
 
   @media (--mobile) {
     width: 100%;
