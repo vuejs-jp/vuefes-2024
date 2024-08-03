@@ -11,8 +11,13 @@ import ImageUploader from '~/components/namecard/ImageUploader.vue'
 import { peatixReferenceUrl } from '~/utils/constants'
 import type { Role } from '@vuejs-jp/model'
 
+/* definePageMeta({
+  middleware: 'auth',
+}) */
+
 const { t } = useI18n()
-const { nameError, orderNumberError, validateNameWithMaxLength, validateOrderNumber } = useFormError()
+const { nameError, orderNumberError, validateNameWithMaxLength, validateOrderNumber } =
+  useFormError()
 const { authUser, attendeeDataByUserId, statusKey, namecardUser } = await useNamecard()
 const { upsertAttendee, uploadAvatar } = useSupabase()
 const { getFullAvatarUrl } = useSupabaseStorage()
@@ -21,7 +26,7 @@ const name = ref('')
 const receiptId = ref('')
 const isSubmitting = computed(() => {
   if (!name.value || !receiptId.value) return false
-  return  nameError.value === '' && orderNumberError.value === ''
+  return nameError.value === '' && orderNumberError.value === ''
 })
 
 const updateName = (e: any) => {
