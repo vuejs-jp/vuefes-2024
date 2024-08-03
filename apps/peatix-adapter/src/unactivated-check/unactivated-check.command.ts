@@ -16,6 +16,5 @@ export class UnactivatedCheckCommand extends CommandRunner {
 
   async run(params: string[], options?: CommandOptions): Promise<void> {
     this.unactivatedCheckService.apply()
-    return Promise.resolve()
   }
 }

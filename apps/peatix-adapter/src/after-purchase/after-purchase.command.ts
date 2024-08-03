@@ -16,6 +16,5 @@ export class AfterPurchaseCommand extends CommandRunner {
 
   async run(params: string[], options?: CommandOptions): Promise<void> {
     this.afterPurchaseService.apply()
-    return Promise.resolve()
   }
 }
