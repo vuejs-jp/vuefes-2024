@@ -194,7 +194,7 @@ export const team = [
   },
   {
     name: 'jiyuujin',
-    image_url: 'team/jiyuujin.jpg',
+    image_url: 'team/jiyuujin.png',
     x_id: '',
   },
   {
