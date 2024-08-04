@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n, useRuntimeConfig, useSwitchLocalePath } from '#imports'
 import { useWindowSize } from '@vueuse/core'
-import { ref, watchEffect, onMounted } from 'vue'
+import { ref, watchEffect, onMounted, computed } from 'vue'
 const { locale } = useI18n({ useScope: 'global' })
 const switchLocalePath = useSwitchLocalePath()
 const config = useRuntimeConfig()
@@ -38,6 +38,10 @@ const showMenu = ref(false)
 const toggleMenu = () => {
   showMenu.value = !showMenu.value
 }
+
+const getAnchorPath = computed(
+  () => (anchor: string) => (locale.value === 'ja' ? `/${anchor}` : `/en/${anchor}`),
+)
 </script>
 
 <template>
@@ -61,7 +65,7 @@ const toggleMenu = () => {
         <div>
           <ul>
             <li v-for="link in navLinks" :key="link.anchor">
-              <nuxt-link :to="`/${link.anchor}`" @click="toggleMenu">
+              <nuxt-link :to="getAnchorPath(link.anchor)" @click="toggleMenu">
                 <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
               </nuxt-link>
             </li>
@@ -73,7 +77,7 @@ const toggleMenu = () => {
   <VFHeader v-else>
     <div class="navigation-pc">
       <div class="navigation-links-pc">
-        <nuxt-link v-for="link in navLinks" :key="link.anchor" :to="`/${link.anchor}`">
+        <nuxt-link v-for="link in navLinks" :key="link.anchor" :to="getAnchorPath(link.anchor)">
           <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
         </nuxt-link>
       </div>
