@@ -10,6 +10,10 @@
   "share_namecard": "Let's share this name card on social media!",
   "copied": "Copied",
   "official_site": "Vue Fes Japan Official Website",
+  "color": {
+    "white": "White",
+    "black": "Black"
+  },
   "top_page": {
     "latest_information": "Get the latest information on our official social media",
     "date": "October 19th, 2024",
@@ -43,6 +47,7 @@
     "payment_method": "Payment Method",
     "payment_method_explain": "There are two methods of payment.",
     "preorder": "Pre-Order",
+    "caution": "The product image is for illustrative purposes. Actual product colors and details may differ.",
     "tshirt": "T-sgirt",
     "tshirt_detail": "This is an original T-shirt for Vue Fes Japan 2024, inspired by Mount Fuji and the sun. It features a print only on the front.",
     "parka": "Hooded sweatshirt",
@@ -53,7 +58,7 @@
     "sticker_type": "Type",
     "sticker_detail": "This is a special sticker featuring the official logos of Vue Fes Japan, Vue.js, Nuxt, Vite, Rolldown, UnJS, and Oxc.",
     "kawaii_sticker": "kawaiiロゴステッカー",
-    "kawaii_sticker_detail": "This is a special sticker featuring kawaii logos of Vue.js, Nuxt, Vite, Rolldown, and Oxc, created by Icarus.",
+    "kawaii_sticker_detail": "This is a special sticker featuring kawaii logos of Vue.js, Nuxt, Vite, Rolldown, and Oxc, created by {kawaiiStickerCreator}.",
     "towel": "Towel Handkerchief",
     "towel_detail": "This is a mini-sized towel handkerchief inspired by Mount Fuji and the sun. It is made from highly absorbent cotton material.",
     "2way_bag": "2WAY Bag",

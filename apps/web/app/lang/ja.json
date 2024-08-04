@@ -10,6 +10,10 @@
   "share_namecard": "このネームカードを&lt;br&gt;SNSでシェアしよう！",
   "copied": "コピーしました",
   "official_site": "Vue Fes Japan 2024公式サイト",
+  "color": {
+    "white": "ホワイト",
+    "black": "ブラック"
+  },
   "day_of_week": {
     "sunday": "日",
     "monday": "月",
@@ -60,7 +64,8 @@
     "do_again_this_year": "今年もやります",
     "payment_method": "購入方法",
     "payment_method_explain": "購入方法は以下の2種類があります。",
-    "preorder": "事前注文する",
+    "preorder": "予約注文する",
+    "caution": "※商品画像はイメージです。実際の商品と色味や細部が異なる場合があります。",
     "tshirt": "Tシャツ",
     "tshirt_detail": "富士山と太陽をイメージしたVue Fes Japan 2024 のオリジナル T シャツです。前面のみのプリントです。",
     "parka": "パーカー",
@@ -71,7 +76,7 @@
     "sticker_type": "種類",
     "sticker_detail": "Vue Fes Japan、Vue.js、Nuxt、Vite、Rolldown、UnJS、Oxcの公式ロゴが集まった特製ステッカーです。",
     "kawaii_sticker": "kawaiiロゴステッカー",
-    "kawaii_sticker_detail": "Icarusさんが作成したkawaiiロゴのVue.js、Nuxt、Vite、Rolldown、Oxcが集まった特製ステッカーです。",
+    "kawaii_sticker_detail": "{kawaiiStickerCreator}が作成したkawaiiロゴのVue.js、Nuxt、Vite、Rolldown、Oxcが集まった特製ステッカーです。",
     "towel": "タオルハンカチ",
     "towel_detail": "富士山と太陽をイメージしたミニサイズのタオルハンカチです。素材は吸収性の良い綿素材を使用しています。",
     "2way_bag": "2WAYバッグ",

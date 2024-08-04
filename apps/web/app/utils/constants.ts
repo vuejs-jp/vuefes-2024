@@ -35,7 +35,7 @@ export const ticketUrl = 'https://vuefes2024.peatix.com'
 
 export const childCareUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeHWTkQNHvK4YEiFzVpNP0OUSQpQ6n1ZcR6tBV9YiK4DzTNhg/viewform'
 
-export const storeUrl = ''
+export const storeUrl = 'https://vuejs-jp.stores.jp'
 
 export const peatixReferenceUrl = 'https://help-attendee.peatix.com/ja-JP/support/solutions/articles/44001821741'
 
