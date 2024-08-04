@@ -10,8 +10,8 @@ import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 const { t } = useI18n()
 const route = useRoute()
 const id = route.params.id as string
-const { attendee } = await useNamecard(id)
-if (!attendee) {
+const { attendeeDataByUserId } = await useNamecard(id)
+if (!attendeeDataByUserId) {
   throw createError({ statusCode: 404, statusMessage: 'Attendee not found' })
 }
 
@@ -31,7 +31,7 @@ const officialSiteUrl = computed(() => {
 })
 
 defineOgImageComponent('VFOgCard24', {
-  user: attendee,
+  user: attendeeDataByUserId,
 })
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
@@ -51,7 +51,7 @@ useHead({
 </script>
 <template>
   <div class="namecard-share-root">
-    <VFOgCard24 class="namecard" :user="attendee" />
+    <VFOgCard24 class="namecard" :user="attendeeDataByUserId" />
     <VFComment class="invite-comment" :title="t('invite_vue_fes')" />
     <VFLinkButton
       class="link-button"

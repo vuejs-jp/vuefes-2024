@@ -6,6 +6,7 @@ export const Constants = {
   PEATIX_HANDSON_TICKET: 'ハンズオンチケット',
   PEATIX_PERSONAL_SPONSOR_TICKET: '個人スポンサーチケット',
   PEATIX_RECEIPT_ID_ROW_INDEX: 0, // レシート ID
+  PEATIX_APPLIED_AT_ROW_INDEX: 3, // 申込日時
   PEATIX_RECEIPTS_TICKET_NAME_ROW_INDEX: 4, // チケット名
   PEATIX_PERSONAL_SPONSOR_NAME_ROW_INDEX: 15, // 個人スポンサー クレジット名
   PEATIX_GENERAL_ROLE: 'attendee',

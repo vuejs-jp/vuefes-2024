@@ -5,12 +5,13 @@ import { Color } from '@vuejs-jp/model'
 export type TimeProps = {
   hour: string
   minute: string
-  ampm?: 'am' | 'pm'
+  ampm?: 'am' | 'pm' | ''
   color?: Color
 }
 
 withDefaults(defineProps<TimeProps>(), {
   color: 'vue-blue',
+  ampm: '',
 })
 
 const { color: textColor } = useColor()

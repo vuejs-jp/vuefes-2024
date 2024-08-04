@@ -5,6 +5,8 @@
   "scripts": {
     "build-api": "nest build",
     "build-after-purchase": "nest build && node dist/src/cmd after-purchase",
+    "build-unactivated-check": "nest build && node dist/src/cmd unactivated-check",
+    "build-sales-daily": "nest build && node dist/src/cmd sales-daily",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",

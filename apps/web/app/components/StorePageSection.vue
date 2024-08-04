@@ -12,8 +12,8 @@ const products: Product[] = [
     alt: '',
     name: t('store.tshirt'),
     price: '¥3,000',
-    explain: t('store.tshirt_detail'),
-    color: 'ホワイト',
+    explain: 'store.tshirt_detail',
+    color: t('color.white'),
     size: 'S / M / L / XL',
   },
   {
@@ -21,8 +21,8 @@ const products: Product[] = [
     alt: '',
     name: t('store.parka'),
     price: '¥6,000',
-    explain: t('store.parka_detail'),
-    color: 'ホワイト',
+    explain: 'store.parka_detail',
+    color: t('color.white'),
     size: 'S / M / L / XL',
   },
   {
@@ -30,7 +30,7 @@ const products: Product[] = [
     alt: '',
     name: t('store.pin_badge'),
     price: '¥500',
-    explain: t('store.pin_badge_detail'),
+    explain: 'store.pin_badge_detail',
     size: 'W28～35×H25～28mm',
   },
   {
@@ -46,7 +46,7 @@ const products: Product[] = [
     alt: '',
     name: t('store.kawaii_sticker'),
     price: '¥300',
-    explain: t('store.kawaii_sticker_detail'),
+    explain: 'store.kawaii_sticker_detail',
     size: 'W206×H118mm',
   },
   {
@@ -54,7 +54,7 @@ const products: Product[] = [
     alt: '',
     name: t('store.towel'),
     price: '¥800',
-    explain: t('store.towel_detail'),
+    explain: 'store.towel_detail',
     size: 'W360×H360mm',
   },
   {
@@ -62,8 +62,8 @@ const products: Product[] = [
     alt: '',
     name: t('store.2way_bag'),
     price: '¥2,800',
-    explain: t('store.2way_bag_detail'),
-    color: 'ブラック',
+    explain: 'store.2way_bag_detail',
+    color: t('color.black'),
     size: 'W150～350×H190～330mm',
   },
   {
@@ -71,7 +71,7 @@ const products: Product[] = [
     alt: '',
     name: t('store.bag_hanger'),
     price: '¥1,800',
-    explain: t('store.bag_hanger_detail'),
+    explain: 'store.bag_hanger_detail',
     size: 'W44×H44mm',
     weight: t('store.approximately_2_5kg'),
   },
@@ -80,8 +80,8 @@ const products: Product[] = [
     alt: '',
     name: t('store.strap_holder'),
     price: '¥1,600',
-    explain: t('store.strap_holder_detail'),
-    color: 'ブラック',
+    explain: 'store.strap_holder_detail',
+    color: t('color.black'),
     size: 'W53xH31×D0.5mm',
     weight: t('store.approximately_5kg'),
   },
@@ -101,11 +101,31 @@ const products: Product[] = [
             <MarkDownText path="store" />
           </div>
         </div>
+        <div class="button">
+          <VFLinkButton
+            :href="storeUrl"
+            target="_blank"
+            rel="noreferrer"
+            background-color="vue-green/200"
+            color="white"
+          >
+            {{ $t('store.preorder') }}
+          </VFLinkButton>
+        </div>
 
         <div class="store-menu">
           <div v-for="product in products" :key="product.name" class="store-card">
-            <VFProduct v-bind="product" />
+            <VFProduct v-bind="product">
+              <template #explain>
+                <i18n-t :keypath="product.explain" tag="p" style="margin: 0;">
+                  <template #kawaiiStickerCreator>
+                    <a href="https://x.com/icarusgkx" target="_blank">Icarusさん</a>
+                  </template>
+                </i18n-t>
+              </template>
+            </VFProduct>
           </div>
+          <p class="store-caution">{{ $t('store.caution') }}</p>
         </div>
 
         <div class="store-info">
@@ -225,7 +245,15 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 28px;
-  justify-content: center;
+
+  @media (--mobile) {
+    justify-content: center;
+  }
+}
+
+.store-caution {
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .store-info {

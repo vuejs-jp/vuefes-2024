@@ -6,7 +6,7 @@ type CommandOptions = {
   id?: number;
 };
 
-@Command({ name: 'after-purchase', description: 'A after purchase command.' })
+@Command({ name: 'after-purchase', description: 'An after purchase command.' })
 export class AfterPurchaseCommand extends CommandRunner {
   private readonly logger = new Logger(AfterPurchaseCommand.name)
 
@@ -16,6 +16,5 @@ export class AfterPurchaseCommand extends CommandRunner {
 
   async run(params: string[], options?: CommandOptions): Promise<void> {
     this.afterPurchaseService.apply()
-    return Promise.resolve()
   }
 }

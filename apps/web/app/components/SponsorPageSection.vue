@@ -29,12 +29,12 @@ const currentLocale = useLocaleCurrent().locale
 //   dayOfWeek: translate('day_of_week.thursday'),
 // }
 
-const firstPeriodEnd = {
-  prefixYear: t('prefix_year'),
-  suffixyear: t('suffix_year'),
-  date: t('sponsor.first_end_date'),
-  dayOfWeek: translate('day_of_week.wednesday'),
-}
+// const firstPeriodEnd = {
+//   prefixYear: t('prefix_year'),
+//   suffixyear: t('suffix_year'),
+//   date: t('sponsor.first_end_date'),
+//   dayOfWeek: translate('day_of_week.wednesday'),
+// }
 
 const secondPeriodEnd = {
   prefixYear: t('prefix_year'),
@@ -46,7 +46,7 @@ const secondPeriodEnd = {
 const endPeriodTime = {
   hour: t('speaker.end_hour'),
   minute: t('speaker.end_minute'),
-  ampm: currentLocale.value === 'en' && t('speaker.end_ampm'),
+  ampm: currentLocale.value === 'en' ? t('speaker.end_ampm') : '',
 }
 
 const { data, error } = await useFetch('/api/sponsors')
@@ -61,6 +61,7 @@ const {
   specialNamingRightSponsors,
   namingRightSponsors,
   specialLunchSponsors,
+  lunchSponsors,
   afterPartySponsors,
   nameCardSponsors,
   simultaneousInterpretationSponsors,
@@ -98,6 +99,7 @@ const {
         >
           {{ $t('sponsor.apply_deadline') }}
         </h3>
+        <!--
         <p
           :style="{
             fontWeight: fontWeight('heading/100'),
@@ -109,6 +111,7 @@ const {
           {{ $t('sponsor.creative_wall_drinks_snacks_merchandise') }}
         </p>
         <VFDateTime :date="firstPeriodEnd" :time="endPeriodTime" />
+        -->
         <p
           :style="{
             fontWeight: fontWeight('heading/100'),
@@ -117,7 +120,7 @@ const {
           }"
           class="sponsor-subtitle-category"
         >
-          {{ $t('sponsor.all_others') }}
+          {{ $t('sponsor.silver_bronze_special_lunch_lunch_handson_media') }}
         </p>
         <VFDateTime :date="secondPeriodEnd" :time="endPeriodTime" />
       </template>
@@ -151,13 +154,16 @@ const {
       <SponsorList v-bind="namingRightSponsors" />
       <div class="sponsor-list-layout-separate">
         <SponsorList v-bind="specialLunchSponsors" />
-        <SponsorList v-bind="afterPartySponsors" />
+        <SponsorList v-bind="lunchSponsors" />
       </div>
       <div class="sponsor-list-layout-separate">
+        <SponsorList v-bind="afterPartySponsors" />
         <SponsorList v-bind="nameCardSponsors" />
-        <SponsorList v-bind="simultaneousInterpretationSponsors" />
       </div>
-      <SponsorList v-bind="childcareSponsors" />
+      <div class="sponsor-list-layout-separate">
+        <SponsorList v-bind="simultaneousInterpretationSponsors" />
+        <SponsorList v-bind="childcareSponsors" />
+      </div>
       <SponsorList v-bind="mediaSponsors" />
       <SponsorList v-bind="toolSponsors" />
     </article>
@@ -200,12 +206,12 @@ const {
   margin-top: calc(var(--unit) * 4);
   line-height: 1.8;
 
-  &::v-deep a {
+  &::v-deep(a) {
     color: var(--color-vue-green200);
     text-decoration: underline;
   }
 
-  &::v-deep a:hover {
+  &::v-deep(a:hover) {
     opacity: 0.4;
     transition: 0.2s;
   }

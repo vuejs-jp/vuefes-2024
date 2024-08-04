@@ -22,13 +22,5 @@ export function useAuth() {
     }
   }
 
-  async function getUser() {
-    const { data,error } = await supabase.auth.getUser()
-    if (error) {
-      throw new Error('can not get user')
-    }
-   return data.user
-  }
-
-  return { signIn, signOut, getUser }
+  return { signIn, signOut }
 }

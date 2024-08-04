@@ -24,7 +24,7 @@ const endPeriodDate = {
 const endPeriodTime = {
   hour: t('speaker.end_hour'),
   minute: t('speaker.end_minute'),
-  ampm: currentLocale.value === 'en' && t('speaker.end_ampm'),
+  ampm: currentLocale.value === 'en' ? t('speaker.end_ampm') : '',
 }
 </script>
 
@@ -146,7 +146,7 @@ const endPeriodTime = {
   font-weight: var(--cfp-more-information-font-weight);
   line-height: 1.8;
 
-  &::v-deep a {
+  &::v-deep(a) {
     color: var(--color-vue-green200);
     text-decoration: underline;
   }

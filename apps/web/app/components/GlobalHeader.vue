@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n, useRuntimeConfig, useSwitchLocalePath } from '#imports'
 import { useWindowSize } from '@vueuse/core'
-import { ref } from 'vue'
+import { ref, watchEffect, onMounted } from 'vue'
 const { locale } = useI18n({ useScope: 'global' })
 const switchLocalePath = useSwitchLocalePath()
 const config = useRuntimeConfig()
@@ -10,6 +10,13 @@ const onSwitchLocalePath = () => {
   switchLocalePath(locale.value === 'ja' ? 'en' : 'ja')
 }
 const { width } = useWindowSize()
+const shouldShowSpHeader = ref()
+onMounted(() => {
+  shouldShowSpHeader.value = width.value <= 1080
+})
+watchEffect(() => {
+  shouldShowSpHeader.value = width.value <= 1080
+})
 
 type NavLink = {
   text: string
@@ -18,6 +25,7 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   { text: 'Message', anchor: '#message' },
+  { text: 'Ticket', anchor: '#ticket' },
   { text: 'Speakers', anchor: '#speakers' },
   { text: 'Sponsors', anchor: '#sponsors' },
   // Uncomment out after job board implementation
@@ -33,19 +41,18 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <VFSpHeader v-if="width <= 1080">
+  <VFSpHeader v-if="shouldShowSpHeader">
     <div class="navigation-mobile">
       <VFLocaleSwitch :locale @switch-locale-path="onSwitchLocalePath" />
 
-      <a
-        href=""
+      <button
         class="navigation-mobile-toggle"
         name="menu"
         :class="{ 'isOpened': showMenu }"
-        @click.prevent="toggleMenu"
+        @click="toggleMenu"
       >
         <span /><span /><span />
-      </a>
+      </button>
       <!-- <VFIcon name="menu" color="vue-blue" can-hover @click="toggleMenu" /> -->
     </div>
     <!-- hamburger-menu -->
@@ -138,6 +145,9 @@ const toggleMenu = () => {
   top: 0;
   width: 24px;
   height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
 
   span {
     position: absolute;

@@ -16,6 +16,10 @@ import { SupabaseModule } from 'src/supabase/supabase.module'
 import { SupabaseService } from 'src/supabase/supabase.service'
 import { DiscordModule } from 'src/discord/discord.module'
 import { DiscordService } from 'src/discord/discord.service'
+import { UnactivatedCheckCommand } from 'src/unactivated-check/unactivated-check.command'
+import { SalesDailyCommand } from 'src/sales-daily/sales-daily.command'
+import { UnactivatedCheckService } from 'src/unactivated-check/unactivated-check.service'
+import { SalesDailyService } from 'src/sales-daily/sales-daily.service'
 
 @Module({
   imports: [
@@ -38,7 +42,11 @@ import { DiscordService } from 'src/discord/discord.service'
       useClass: PuppeteerService,
     },
     AfterPurchaseCommand,
+    UnactivatedCheckCommand,
+    SalesDailyCommand,
     AfterPurchaseService,
+    UnactivatedCheckService,
+    SalesDailyService,
     SupabaseService,
     PeatixOrderService,
     DiscordService,

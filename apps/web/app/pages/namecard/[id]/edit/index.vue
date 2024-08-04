@@ -8,10 +8,16 @@ import { navigateTo } from '#imports'
 import { useNamecard } from '~/composables/useNamecard'
 import { useFormError } from '~/composables/useFormError'
 import ImageUploader from '~/components/namecard/ImageUploader.vue'
+import { peatixReferenceUrl } from '~/utils/constants'
 import type { Role } from '@vuejs-jp/model'
 
+/* definePageMeta({
+  middleware: 'auth',
+}) */
+
 const { t } = useI18n()
-const { nameError, orderNumberError, validateName, validateOrderNumber } = useFormError()
+const { nameError, orderNumberError, validateNameWithMaxLength, validateOrderNumber } =
+  useFormError()
 const { authUser, attendeeDataByUserId, statusKey, namecardUser } = await useNamecard()
 const { upsertAttendee, uploadAvatar } = useSupabase()
 const { getFullAvatarUrl } = useSupabaseStorage()
@@ -19,7 +25,8 @@ const { getFullAvatarUrl } = useSupabaseStorage()
 const name = ref('')
 const receiptId = ref('')
 const isSubmitting = computed(() => {
-  return name.value && receiptId.value && filePathRef.value && fileRef.value
+  if (!name.value || !receiptId.value) return false
+  return nameError.value === '' && orderNumberError.value === ''
 })
 
 const updateName = (e: any) => {
@@ -124,9 +131,10 @@ function onSubmit(e: Event) {
           required
           :error="nameError"
           @input="updateName"
-          @blur="validateName"
-          ><p class="annotation">{{ t('namecard.form.annotation_name') }}</p></VFInputField
+          @blur="validateNameWithMaxLength"
         >
+          <p class="annotation">{{ t('namecard.form.annotation_name') }}</p>
+        </VFInputField>
         <ImageUploader
           class="image-uploader"
           file-accept="image/*"
@@ -143,8 +151,15 @@ function onSubmit(e: Event) {
           :error="orderNumberError"
           @input="updateReceiptId"
           @blur="validateOrderNumber"
-          ><div class="annotation"><MarkDownText path="namecard_annotation_order_number" /></div
-        ></VFInputField>
+        >
+          <div class="annotation">
+            <i18n-t keypath="namecard.annotation_order_number" tag="p">
+              <template #peatixReferenceUrl>
+                <a :href="peatixReferenceUrl" target="_blank">{{ $t('namecard.receipt_data') }}</a>
+              </template>
+            </i18n-t>
+          </div>
+        </VFInputField>
       </div>
       <div class="form-buttons">
         <VFLinkButton
@@ -153,8 +168,9 @@ function onSubmit(e: Event) {
           background-color="white"
           color="vue-blue"
           class="button cancel-button"
-          >{{ t('namecard.cancel') }}</VFLinkButton
         >
+          {{ t('namecard.cancel') }}
+        </VFLinkButton>
         <VFSubmitButton id="submit-button" class="button submit-button" :disabled="!isSubmitting">
           {{ $t('namecard.form.submit') }}
         </VFSubmitButton>

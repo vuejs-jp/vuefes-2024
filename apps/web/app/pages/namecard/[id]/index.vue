@@ -5,11 +5,15 @@ import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
 import { useNamecard } from '~/composables/useNamecard'
 
+/* definePageMeta({
+  middleware: 'auth',
+}) */
+
 const { t } = useI18n()
 const { authUser, statusKey, namecardUser } = await useNamecard()
 
-function handleLinkButton() {
-  navigateTo(`/namecard/${authUser.value?.id}/edit/`)
+async function handleLinkButton() {
+  navigateTo(`/namecard/${authUser.value?.id}/edit`)
 }
 </script>
 <template>

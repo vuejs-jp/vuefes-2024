@@ -172,12 +172,12 @@ const ticketCards = {
   line-height: 1.8;
   color: white;
 
-  &::v-deep a {
+  &::v-deep(a) {
     color: var(--color-vue-green200);
     text-decoration: underline;
   }
 
-  &::v-deep a:hover {
+  &::v-deep(a:hover) {
     opacity: 0.4;
     transition: 0.2s;
   }

@@ -1,41 +1,17 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import type { AuthProvider } from '@vuejs-jp/model'
 import { useAuth } from '~/composables/useAuth'
-import { useAuthSession } from '#imports'
-import { createError, useRuntimeConfig, navigateTo, useAsyncData, useRoute } from '#imports'
+import { createError, useRuntimeConfig, definePageMeta } from '#imports'
 import { useI18n } from '#i18n'
 import MarkDownText from '~/components/MarkDownText.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
-import { useDebounceFn } from '@vueuse/core'
+
+definePageMeta({
+  middleware: 'query-redirect',
+})
 
 const config = useRuntimeConfig()
-const route = useRoute()
-/* リファクタリング検討
- * 力技でログイン処理後のリダイレクトを行なっている
- *
- * supabase.auth.signInWithOAuth を利用した認証処理を行った後、リダイレクト先のURLにクエリパラメータ code が付与される
- * この code と supabase.auth.getUser() で取得したユーザーIDは別物
- * そのため、code が変更された際に getUser() を実行し、少し待ってからユーザーIDを取得している
- * 取得したユーザーIDを元にリダイレクトを行なっている
- */
-watch(
-  () => route.query.code,
-  () => {
-    if (route.query.code) {
-      const debouncedFn = useDebounceFn(async () => {
-        const { data: authUserId } = await useAsyncData('authUserId', async () => {
-          return (await getUser()).id
-        })
-        return authUserId.value
-      }, 1000)
-      debouncedFn().then((id) => {
-        navigateTo(`/namecard/${id}/`)
-      })
-    }
-  },
-  { immediate: true },
-)
 
 if (!config.public.enableRegisterNamecard) {
   throw createError({ statusCode: 404, statusMessage: 'You cannot register the namecard.' })
@@ -43,16 +19,10 @@ if (!config.public.enableRegisterNamecard) {
 
 const { t } = useI18n()
 const showDialog = ref(false)
-const { signIn, getUser } = useAuth()
-const { hasAuth } = useAuthSession()
-
-const { data: authUserId } = await useAsyncData('authUserId', async () => {
-  return (await getUser()).id
-})
+const { signIn } = useAuth()
 
 function handleClickButton(type: 'open' | 'close') {
   if (type === 'open') {
-    if (hasAuth?.value && authUserId.value) return navigateTo(`/namecard/${authUserId.value}/`)
     showDialog.value = true
   } else {
     showDialog.value = false
@@ -60,11 +30,15 @@ function handleClickButton(type: 'open' | 'close') {
 }
 
 function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
+  /** サインイン処理
+   * 認証後のフロー
+   * 1. 認証処理後、第二引数のパスにリダイレクトする（クエリパラメータ付き
+   * 2. ミドルウェア(query-redirect)でクエリパラメータを元に、リダイレクト先を上書きする
+   */
   signIn(provider, '/namecard/')
 }
 </script>
 
-<!-- TODO モバイル対応 -->
 <template>
   <NuxtLayout name="namecard-base">
     <VFIntegrationDialog
@@ -111,6 +85,7 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
 .namecard-samples {
   margin: 0 auto;
   border-radius: 1px;
+  aspect-ratio: 596 / 401;
 
   @media (--mobile) {
     width: 100%;
