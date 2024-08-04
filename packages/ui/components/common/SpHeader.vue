@@ -25,8 +25,6 @@ const { headerRef } = useHeader()
 </template>
 
 <style scoped>
-@import url('~/assets/media.css');
-
 header {
   position: fixed;
   z-index: 10;
@@ -34,7 +32,7 @@ header {
   padding: 0;
   margin: 0;
   box-shadow: 0 0 8px rgba(198, 202, 207, 0.8);
-  background-color: var(--color-white);
+  background-color: #fff;
 }
 .header-root {
   padding: 16px 0;
