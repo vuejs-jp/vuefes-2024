@@ -17,7 +17,9 @@ const props = defineProps<StoreItemProps>()
     />
     <div class="name">{{ name }}</div>
     <div class="price">{{ price }}</div>
-    <div class="explain">{{ explain }}</div>
+    <div class="explain">
+      <slot name="explain" />
+    </div>
     <div class="supplement">
       <p>{{ size }}</p>
       <p v-if="color">{{ color }}</p>
@@ -42,6 +44,16 @@ const props = defineProps<StoreItemProps>()
 .explain {
   width: 308px;
   white-space: pre-wrap;
+
+  &::v-deep(a) {
+    color: var(--color-vue-green200);
+    text-decoration: none;
+  }
+
+  &::v-deep(a:hover) {
+    opacity: 0.4;
+    transition: .2s;
+  }
 }
 
 .price {

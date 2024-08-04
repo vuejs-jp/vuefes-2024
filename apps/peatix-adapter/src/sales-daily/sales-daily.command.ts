@@ -16,6 +16,5 @@ export class SalesDailyCommand extends CommandRunner {
 
   async run(params: string[], options?: CommandOptions): Promise<void> {
     this.salesDailyService.apply()
-    return Promise.resolve()
   }
 }
