@@ -245,6 +245,10 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 28px;
+
+  @media (--mobile) {
+    justify-content: center;
+  }
 }
 
 .store-caution {
