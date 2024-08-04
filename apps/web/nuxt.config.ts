@@ -150,13 +150,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vue-toastification'],
   },
-  devtools: {
-    enabled: true,
-
-    timeline: {
-      enabled: true,
-    },
-  },
+  devtools: { enabled: true },
   css: ['~/assets/base.css'],
   postcss: {
     plugins: {
@@ -164,7 +158,6 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    '/': { prerender: true },
     '/jobboard/': { prerender: true },
     '/namecard/': { prerender: true },
     '/sessions/': { prerender: true },
