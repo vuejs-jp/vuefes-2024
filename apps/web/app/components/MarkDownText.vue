@@ -12,7 +12,7 @@ const { docPath } = useLocale(props.path)
 </script>
 
 <template>
-  <ContentDoc v-if="docPath" v-slot="{ doc }" :path="docPath" :head="false">
+  <ContentDoc v-slot="{ doc }" :path="docPath" :head="false">
     <ContentRenderer :value="doc" />
   </ContentDoc>
 </template>
