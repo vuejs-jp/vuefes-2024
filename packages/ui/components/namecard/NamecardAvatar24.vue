@@ -99,6 +99,7 @@ onMounted(() => {
 
 .avatar-name-area {
   --name-area-width: 85cqi;
+  --name-area-padding: 1rem;
   width: var(--name-area-width);
   height: 8rem;
   background-color: var(--color-white);
@@ -106,7 +107,7 @@ onMounted(() => {
   display: grid;
   place-items: center;
   border-radius: calc(var(--unit) * 1.25);
-  padding-inline: 1rem;
+  padding-inline: var(--name-area-padding);
   overflow-wrap: anywhere;
   word-break: break-all;
   overflow-y: hidden;
@@ -119,7 +120,7 @@ onMounted(() => {
 .avatar-name {
   --color-avatar-name: color-mix(in srgb, var(--color-vue-blue), #000 20%);
 
-  font-size: calc(var(--name-area-width) / 12);
+  font-size: calc((var(--name-area-width) - var(--name-area-padding) * 2) / 12);
   font-weight: 700;
   line-height: 1.1;
   color: var(--color-avatar-name);
