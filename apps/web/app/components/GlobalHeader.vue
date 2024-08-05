@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n, useRuntimeConfig, useSwitchLocalePath } from '#imports'
-import { useWindowSize } from '@vueuse/core'
-import { ref, watchEffect, onMounted, computed } from 'vue'
+import { useScreenOrientation, useWindowSize } from '@vueuse/core'
+import { ref, watch, onMounted, computed } from 'vue'
 const { locale } = useI18n({ useScope: 'global' })
 const switchLocalePath = useSwitchLocalePath()
 const config = useRuntimeConfig()
@@ -10,11 +10,12 @@ const onSwitchLocalePath = () => {
   switchLocalePath(locale.value === 'ja' ? 'en' : 'ja')
 }
 const { width } = useWindowSize()
+const { orientation } = useScreenOrientation()
 const shouldShowSpHeader = ref()
 onMounted(() => {
   shouldShowSpHeader.value = width.value <= 1080
 })
-watchEffect(() => {
+watch([width, orientation], () => {
   shouldShowSpHeader.value = width.value <= 1080
 })
 
