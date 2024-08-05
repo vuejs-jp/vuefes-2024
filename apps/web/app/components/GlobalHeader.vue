@@ -6,9 +6,6 @@ const { locale } = useI18n({ useScope: 'global' })
 const switchLocalePath = useSwitchLocalePath()
 const config = useRuntimeConfig()
 
-const onSwitchLocalePath = () => {
-  switchLocalePath(locale.value === 'ja' ? 'en' : 'ja')
-}
 const { width } = useWindowSize()
 const { orientation } = useScreenOrientation()
 const shouldShowSpHeader = ref()
@@ -48,7 +45,13 @@ const getAnchorPath = computed(
 <template>
   <VFSpHeader v-if="shouldShowSpHeader">
     <div class="navigation-mobile">
-      <VFLocaleSwitch :locale @switch-locale-path="onSwitchLocalePath" />
+      <NuxtLink
+        v-if="config.public.enableSwitchLocale"
+        :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
+        class="locale-switch-wrapper"
+      >
+        <VFLocaleSwitch :locale />
+      </NuxtLink>
 
       <button
         class="navigation-mobile-toggle"
