@@ -42,5 +42,5 @@ export function useAuthSession() {
       .exhaustive()
   })
 
-  return { hasAuth, onAuthChanged }
+  return { hasAuth, onAuthChanged,signedUserId }
 }
