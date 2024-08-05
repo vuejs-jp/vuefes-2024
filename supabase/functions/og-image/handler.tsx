@@ -108,8 +108,8 @@ export default function handler(req: Request) {
           <div
             style={{
               fontSize: '50px',
-              fontWeight: 700,
-              lineHeight: 1.1,
+              fontWeight: 900,
+              lineHeight: '74px',
               marginTop: '20px',
               color: '#fff',
               overflowWrap: 'anywhere',
