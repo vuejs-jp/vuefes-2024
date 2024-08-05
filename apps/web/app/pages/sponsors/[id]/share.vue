@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import {
   createError,
+  // defineOgImageComponent,
   useAsyncData,
   useHead,
-  useLocaleCurrent,
   useRoute,
-  useSupabase,
-  defineOgImageComponent,
+  useRuntimeConfig,
 } from '#imports'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
+import { useSupabase } from '~/composables/useSupabase'
 import { conferenceTitle, linkUrl, ogSponsorDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import type { Sponsor } from '@vuejs-jp/model'
 
+const config = useRuntimeConfig()
 const route = useRoute()
 const id = route.params.id as string
 
@@ -39,13 +41,13 @@ function copyUrl() {
   document.body.removeChild(element)
 }
 
-defineOgImageComponent('VFOgCard24', {
-  user: {
-    display_name: sponsorData[0].name,
-    avatar_url: sponsorData[0].share_image_url,
-    role: 'sponsor',
-  },
-})
+// defineOgImageComponent('VFOgCard24', {
+//   user: {
+//     display_name: sponsorData[0].name,
+//     avatar_url: sponsorData[0].share_image_url,
+//     role: 'sponsor',
+//   },
+// })
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
@@ -53,11 +55,13 @@ useHead({
       title: `${conferenceTitle}`,
       description: ogSponsorDescription,
       url: `${linkUrl}sponsors/${id}/share`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?display_name=${sponsorData[0].name}&avatar_url=${sponsorData[0].share_image_url}&role=sponsor`,
     }),
     ...twitterOg({
       title: `${conferenceTitle}`,
       description: ogSponsorDescription,
       url: `${linkUrl}sponsors/${id}/share`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?display_name=${sponsorData[0].name}&avatar_url=${sponsorData[0].share_image_url}&role=sponsor`,
     }),
   ],
 })
