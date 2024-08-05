@@ -21,8 +21,8 @@ const props = defineProps<StoreItemProps>()
       <slot name="explain" />
     </div>
     <div class="supplement">
-      <p>{{ size }}</p>
       <p v-if="color">{{ color }}</p>
+      <p>{{ size }}</p>
       <p v-if="weight">{{ weight }}</p>
     </div>
   </div>
@@ -34,6 +34,11 @@ const props = defineProps<StoreItemProps>()
   display: flex;
   flex-direction: column;
   gap: 1em;
+  color: var(--color-vue-blue);
+}
+
+.store-item img {
+  border: 1px solid #DCE1E5;
 }
 
 .name {

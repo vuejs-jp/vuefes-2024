@@ -10,10 +10,6 @@
   "share_namecard": "このネームカードを&lt;br&gt;SNSでシェアしよう！",
   "copied": "コピーしました",
   "official_site": "Vue Fes Japan 2024公式サイト",
-  "color": {
-    "white": "ホワイト",
-    "black": "ブラック"
-  },
   "day_of_week": {
     "sunday": "日",
     "monday": "月",
@@ -67,28 +63,44 @@
     "preorder": "予約注文する",
     "caution": "※商品画像はイメージです。実際の商品と色味や細部が異なる場合があります。",
     "tshirt": "Tシャツ",
+    "tshirt_size": "サイズ: S / M / L / XL",
     "tshirt_detail": "富士山と太陽をイメージしたVue Fes Japan 2024 のオリジナル T シャツです。前面のみのプリントです。",
     "parka": "パーカー",
+    "parka_size": "サイズ: S / M / L / XL",
     "parka_detail": "背面にメインビジュアルとVue.jsエコシステムのロゴをあしらった、Vue Fes Japan 2024のオリジナルパーカーです。前面のプリントはありません。",
-    "pin_badge": "アクリルピンバッジ（Vue.js）",
+    "pin_badge": "アクリルピンバッジ",
+    "pin_badge_size": "サイズ: W28～35×H25～28mm",
     "pin_badge_detail": "Vue Fes Japan、Vue.js、Nuxt、Viteの公式ロゴを使ったミニサイズの透明アクリルピンバッジです。セットではなく単品での販売になります。",
-    "sticker": "ステッカー",
+    "sticker": "公式ロゴステッカー",
+    "sticker_size": "サイズ: W206×H118mm",
     "sticker_type": "種類",
     "sticker_detail": "Vue Fes Japan、Vue.js、Nuxt、Vite、Rolldown、UnJS、Oxcの公式ロゴが集まった特製ステッカーです。",
     "kawaii_sticker": "kawaiiロゴステッカー",
+    "kawaii_sticker_size": "サイズ: W206×H118mm",
+    "kawaii_sticker_creator": "Icarusさん",
     "kawaii_sticker_detail": "{kawaiiStickerCreator}が作成したkawaiiロゴのVue.js、Nuxt、Vite、Rolldown、Oxcが集まった特製ステッカーです。",
     "towel": "タオルハンカチ",
+    "towel_size": "サイズ: W200×H200mm",
     "towel_detail": "富士山と太陽をイメージしたミニサイズのタオルハンカチです。素材は吸収性の良い綿素材を使用しています。",
     "2way_bag": "2WAYバッグ",
+    "2way_bag_size": "サイズ: W150～350×H190～330mm",
     "2way_bag_detail": "サコッシュとエコバッグが一体化した2WAYタイプのバッグです。サコッシュとしての利用時はメッシュポケットも使えます。",
     "bag_hanger": "バッグハンガー",
+    "bag_hanger_size": "サイズ: W44×H44mm",
     "bag_hanger_detail": "様々な公式ロゴをあしらったバッグハンガーです。手荷物をテーブルにぶら下げられます。きんちゃく袋付き。",
     "strap_holder": "ストラップホルダー",
+    "strap_holder_size": "サイズ: W53xH31×D0.5mm",
     "strap_holder_detail": "Vue Fes Japanのロゴをあしらったスマホ用のストラップホルダーです。スマホケースに挟んで金具にストラップをつけると、手首や首からスマホを掛けられます。取り外しできるハンドストラップ付き。",
     "store_item_color": "カラー： {0}",
+    "color": {
+      "white": "カラー: ホワイト",
+      "black": "カラー: ブラック"
+    },
     "store_item_size": "サイズ： {0}",
-    "approximately_2_5kg": "約2.5kg",
-    "approximately_5kg": "約5kg"
+    "weight": {
+      "approximately_2_5kg": "耐荷重: 約2.5kg",
+      "approximately_5kg": "耐荷重: 約5kg"
+    }
   },
   "sponsor": {
     "title": "スポンサー",
