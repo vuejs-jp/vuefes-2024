@@ -10,6 +10,7 @@ const products: Product[] = [
   {
     src: 'store/vue-t-shirt.png',
     alt: '',
+    url: 'https://vuejs-jp.stores.jp/items/669f30e11c3f4f05a719da33',
     name: t('store.tshirt'),
     price: '¥3,000',
     explain: 'store.tshirt_detail',
@@ -19,6 +20,7 @@ const products: Product[] = [
   {
     src: 'store/vue-parka.png',
     alt: '',
+    url: 'https://vuejs-jp.stores.jp/items/669df8717b8f0302792ab071',
     name: t('store.parka'),
     price: '¥6,000',
     explain: 'store.parka_detail',
@@ -28,6 +30,7 @@ const products: Product[] = [
   {
     src: 'store/pin-badge.png',
     alt: '',
+    url: 'https://vuejs-jp.stores.jp/items/669e32e32d3496002be8f95a',
     name: t('store.pin_badge'),
     price: '¥500',
     explain: 'store.pin_badge_detail',
@@ -37,6 +40,7 @@ const products: Product[] = [
   {
     src: 'store/sticker.png',
     alt: '',
+    url: 'https://vuejs-jp.stores.jp/items/669f1fa06005370379515ece',
     name: t('store.sticker'),
     price: '¥300',
     explain: t('store.sticker_detail'),
@@ -45,6 +49,7 @@ const products: Product[] = [
   {
     src: 'store/kawaii-sticker.png',
     alt: '',
+    url: 'https://vuejs-jp.stores.jp/items/66a329230f4efd01c2067c89',
     name: t('store.kawaii_sticker'),
     price: '¥300',
     explain: 'store.kawaii_sticker_detail',
@@ -53,6 +58,7 @@ const products: Product[] = [
   {
     src: 'store/towel.png',
     alt: '',
+    url: 'https://vuejs-jp.stores.jp/items/669f343d243a75002b3364df',
     name: t('store.towel'),
     price: '¥800',
     explain: 'store.towel_detail',
@@ -61,6 +67,7 @@ const products: Product[] = [
   {
     src: 'store/2way-bag.png',
     alt: '',
+    url: 'https://vuejs-jp.stores.jp/items/669e516052c94a03fe69fa32',
     name: t('store.2way_bag'),
     price: '¥2,800',
     explain: 'store.2way_bag_detail',
@@ -70,6 +77,7 @@ const products: Product[] = [
   {
     src: 'store/bag-hangar.png',
     alt: '',
+    url: 'https://vuejs-jp.stores.jp/items/669a7717d8e56a0fcc1059a7',
     name: t('store.bag_hanger'),
     price: '¥1,800',
     explain: 'store.bag_hanger_detail',
@@ -79,6 +87,7 @@ const products: Product[] = [
   {
     src: 'store/strap-holder.png',
     alt: '',
+    url: 'https://vuejs-jp.stores.jp/items/669e5741294039019ab7aa76',
     name: t('store.strap_holder'),
     price: '¥1,600',
     explain: 'store.strap_holder_detail',

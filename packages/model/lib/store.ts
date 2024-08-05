@@ -2,6 +2,7 @@ export interface Product {
   name: string
   explain: string
   price: string
+  url: string
   type?: string
   size: string
   color?: string

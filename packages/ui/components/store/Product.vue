@@ -8,13 +8,15 @@ const props = defineProps<StoreItemProps>()
 
 <template>
   <div class="store-item">
-    <img
-      width="308"
-      height="308"
-      :alt
-      :src
-      decoding="async"
-    />
+    <a :href="url" target="_blank">
+      <img
+        width="308"
+        height="308"
+        :alt
+        :src
+        decoding="async"
+      />
+    </a>
     <div class="name">{{ name }}</div>
     <div class="price">{{ price }}</div>
     <div class="explain">
@@ -85,7 +87,6 @@ const props = defineProps<StoreItemProps>()
   }
   .store-item img {
     display: block;
-    max-width: 80%;
     margin: 0 auto;
   }
   .explain {
