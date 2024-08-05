@@ -123,18 +123,20 @@ const products: Product[] = [
         </div>
 
         <div class="store-menu">
-          <div v-for="product in products" :key="product.name" class="store-card">
-            <VFProduct v-bind="product">
-              <template #explain>
-                <i18n-t :keypath="product.explain" tag="p" style="margin: 0;">
-                  <template #kawaiiStickerCreator>
-                    <a href="https://x.com/icarusgkx" target="_blank">
-                      {{ $t('store.kawaii_sticker_creator') }}
-                    </a>
-                  </template>
-                </i18n-t>
-              </template>
-            </VFProduct>
+          <div class="store-menu-list">
+            <div v-for="product in products" :key="product.name" class="store-card">
+              <VFProduct v-bind="product">
+                <template #explain>
+                  <i18n-t :keypath="product.explain" tag="p" style="margin: 0;">
+                    <template #kawaiiStickerCreator>
+                      <a href="https://x.com/icarusgkx" target="_blank">
+                        {{ $t('store.kawaii_sticker_creator') }}
+                      </a>
+                    </template>
+                  </i18n-t>
+                </template>
+              </VFProduct>
+            </div>
           </div>
           <p class="store-caution">{{ $t('store.caution') }}</p>
         </div>
@@ -263,6 +265,13 @@ section {
   @media (--mobile) {
     justify-content: center;
   }
+}
+
+.store-menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
 }
 
 .store-caution {
