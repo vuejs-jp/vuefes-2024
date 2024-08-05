@@ -31,6 +31,7 @@ const products: Product[] = [
     name: t('store.pin_badge'),
     price: '¥500',
     explain: 'store.pin_badge_detail',
+    type: t('store.pin_badge_type'),
     size: t('store.pin_badge_size'),
   },
   {
@@ -38,7 +39,7 @@ const products: Product[] = [
     alt: '',
     name: t('store.sticker'),
     price: '¥300',
-    explain: `${t('store.sticker_type')}\n${t('store.sticker_detail')}`,
+    explain: t('store.sticker_detail'),
     size: t('store.sticker_size'),
   },
   {

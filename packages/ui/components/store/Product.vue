@@ -22,6 +22,7 @@ const props = defineProps<StoreItemProps>()
     </div>
     <div class="supplement">
       <p v-if="color">{{ color }}</p>
+      <p v-if="type">{{ type }}</p>
       <p>{{ size }}</p>
       <p v-if="weight">{{ weight }}</p>
     </div>
