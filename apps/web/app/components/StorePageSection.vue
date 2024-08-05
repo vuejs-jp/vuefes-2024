@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useI18n } from '#imports'
+import { useTranslation } from '~/composables/useTranslation'
 import type { Product } from '@vuejs-jp/model'
 import MarkDownText from '~/components/MarkDownText.vue'
 import { storeUrl } from '~/utils/constants'
 
-const { t } = useI18n()
+const { translate: t } = useTranslation()
 
 const products: Product[] = [
   {
@@ -13,8 +13,8 @@ const products: Product[] = [
     name: t('store.tshirt'),
     price: '¥3,000',
     explain: 'store.tshirt_detail',
-    color: t('color.white'),
-    size: 'S / M / L / XL',
+    color: t('store.color.white'),
+    size: t('store.tshirt_size'),
   },
   {
     src: 'store/vue-parka.png',
@@ -22,8 +22,8 @@ const products: Product[] = [
     name: t('store.parka'),
     price: '¥6,000',
     explain: 'store.parka_detail',
-    color: t('color.white'),
-    size: 'S / M / L / XL',
+    color: t('store.color.white'),
+    size: t('store.parka_size'),
   },
   {
     src: 'store/pin-badge.png',
@@ -31,15 +31,16 @@ const products: Product[] = [
     name: t('store.pin_badge'),
     price: '¥500',
     explain: 'store.pin_badge_detail',
-    size: 'W28～35×H25～28mm',
+    type: t('store.pin_badge_type'),
+    size: t('store.pin_badge_size'),
   },
   {
     src: 'store/sticker.png',
     alt: '',
     name: t('store.sticker'),
     price: '¥300',
-    explain: `${t('store.sticker_type')}: Vue Fes Japan / Vue.js / Nuxt / Vite\n${t('store.sticker_detail')}`,
-    size: 'W206×H118mm',
+    explain: t('store.sticker_detail'),
+    size: t('store.sticker_size'),
   },
   {
     src: 'store/kawaii-sticker.png',
@@ -47,7 +48,7 @@ const products: Product[] = [
     name: t('store.kawaii_sticker'),
     price: '¥300',
     explain: 'store.kawaii_sticker_detail',
-    size: 'W206×H118mm',
+    size: t('store.kawaii_sticker_size'),
   },
   {
     src: 'store/towel.png',
@@ -55,7 +56,7 @@ const products: Product[] = [
     name: t('store.towel'),
     price: '¥800',
     explain: 'store.towel_detail',
-    size: 'W360×H360mm',
+    size: t('store.towel_size'),
   },
   {
     src: 'store/2way-bag.png',
@@ -63,8 +64,8 @@ const products: Product[] = [
     name: t('store.2way_bag'),
     price: '¥2,800',
     explain: 'store.2way_bag_detail',
-    color: t('color.black'),
-    size: 'W150～350×H190～330mm',
+    color: t('store.color.black'),
+    size: t('store.2way_bag_size'),
   },
   {
     src: 'store/bag-hangar.png',
@@ -72,8 +73,8 @@ const products: Product[] = [
     name: t('store.bag_hanger'),
     price: '¥1,800',
     explain: 'store.bag_hanger_detail',
-    size: 'W44×H44mm',
-    weight: t('store.approximately_2_5kg'),
+    size: t('store.bag_hanger_size'),
+    weight: t('store.weight.approximately_2_5kg'),
   },
   {
     src: 'store/strap-holder.png',
@@ -81,9 +82,8 @@ const products: Product[] = [
     name: t('store.strap_holder'),
     price: '¥1,600',
     explain: 'store.strap_holder_detail',
-    color: t('color.black'),
-    size: 'W53xH31×D0.5mm',
-    weight: t('store.approximately_5kg'),
+    size: t('store.strap_holder_size'),
+    weight: t('store.weight.approximately_5kg'),
   },
 ]
 </script>
@@ -119,7 +119,9 @@ const products: Product[] = [
               <template #explain>
                 <i18n-t :keypath="product.explain" tag="p" style="margin: 0;">
                   <template #kawaiiStickerCreator>
-                    <a href="https://x.com/icarusgkx" target="_blank">Icarusさん</a>
+                    <a href="https://x.com/icarusgkx" target="_blank">
+                      {{ $t('store.kawaii_sticker_creator') }}
+                    </a>
                   </template>
                 </i18n-t>
               </template>
@@ -212,6 +214,7 @@ section {
   justify-content: center;
   margin: 0 auto;
   max-width: calc(960px + 6%);
+  color: var(--color-vue-blue);
 
   @media (--mobile) {
     gap: calc(var(--unit) * 2.5);
@@ -223,6 +226,7 @@ section {
   gap: calc(8px * 3);
   margin: calc(-8px * 8) auto 0;
   max-width: 760px;
+  color: var(--color-vue-blue);
 }
 
 .store-title h3 {
@@ -233,6 +237,7 @@ section {
 
 .explain {
   max-width: 760px;
+  color: var(--color-vue-blue);
 }
 
 .explain p {
@@ -254,6 +259,7 @@ section {
 .store-caution {
   font-size: 16px;
   font-weight: 400;
+  color: var(--color-vue-blue);
 }
 
 .store-info {
@@ -272,17 +278,20 @@ section {
   font-size: 22px;
   font-weight: bold;
   line-height: 1;
+  color: var(--color-vue-blue);
 }
 
 .sub-title {
   display: grid;
   gap: calc(8px * 1);
+  color: var(--color-vue-blue);
 }
 
 .pre-order,
 .same-day-sales {
   display: grid;
   gap: calc(8px * 1);
+  color: var(--color-vue-blue);
 }
 
 .pre-order p,

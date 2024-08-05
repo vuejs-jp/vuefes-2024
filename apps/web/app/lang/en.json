@@ -10,10 +10,6 @@
   "share_namecard": "Let's share this name card on social media!",
   "copied": "Copied",
   "official_site": "Vue Fes Japan Official Website",
-  "color": {
-    "white": "White",
-    "black": "Black"
-  },
   "top_page": {
     "latest_information": "Get the latest information on our official social media",
     "date": "October 19th, 2024",
@@ -49,28 +45,44 @@
     "preorder": "Pre-Order",
     "caution": "The product image is for illustrative purposes. Actual product colors and details may differ.",
     "tshirt": "T-sgirt",
+    "tshirt_size": "Size: S / M / L / XL",
     "tshirt_detail": "This is an original T-shirt for Vue Fes Japan 2024, inspired by Mount Fuji and the sun. It features a print only on the front.",
     "parka": "Hooded sweatshirt",
+    "parka_size": "Size: S / M / L / XL",
     "parka_detail": "This is an original hoodie for Vue Fes Japan 2024, featuring the main visual and the Vue.js ecosystem logo on the back. There is no print on the front.",
-    "pin_badge": "Acrylic pin badge (Vue.js)",
+    "pin_badge": "Acrylic pin badge",
+    "pin_badge_size": "Size: W28～35×H25～28mm",
     "pin_badge_detail": "This is a mini-sized transparent acrylic pin badge featuring the official logos of Vue Fes Japan, Vue.js, Nuxt, and Vite. It is sold individually, not as a set.",
-    "sticker": "Sticker",
+    "sticker": "Official Logo Sticker",
+    "sticker_size": "Size: W206×H118mm",
     "sticker_type": "Type",
     "sticker_detail": "This is a special sticker featuring the official logos of Vue Fes Japan, Vue.js, Nuxt, Vite, Rolldown, UnJS, and Oxc.",
     "kawaii_sticker": "kawaiiロゴステッカー",
+    "kawaii_sticker_size": "Size: W206×H118mm",
+    "kawaii_sticker_creator": "Icarus",
     "kawaii_sticker_detail": "This is a special sticker featuring kawaii logos of Vue.js, Nuxt, Vite, Rolldown, and Oxc, created by {kawaiiStickerCreator}.",
     "towel": "Towel Handkerchief",
+    "towel_size": "Size: W200×H200mm",
     "towel_detail": "This is a mini-sized towel handkerchief inspired by Mount Fuji and the sun. It is made from highly absorbent cotton material.",
     "2way_bag": "2WAY Bag",
+    "2way_bag_size": "Size: W150～350×H190～330mm",
     "2way_bag_detail": "This is a 2-way type bag that combines a sacoche and an eco bag. When used as a sacoche, you can also use the mesh pocket.",
     "bag_hanger": "Bag Hanger",
+    "bag_hanger_size": "Size: W44×H44mm",
     "bag_hanger_detail": "This is a bag hanger adorned with various official logos. You can hang your bag on a table. It comes with a drawstring pouch.",
     "strap_holder": "Strap Holder",
+    "strap_holder_size": "Size: W53xH31×D0.5mm",
     "strap_holder_detail": "This is a strap holder for smartphones featuring the Vue Fes Japan logo. By inserting it into your phone case and attaching a strap to the metal fixture, you can hang your smartphone from your wrist or neck. It comes with a detachable hand strap.",
     "store_item_color": "Color: {0}",
+    "color": {
+      "white": "Color: White",
+      "black": "Color: Black"
+    },
     "store_item_size": "Size: {0}",
-    "approximately_2_5kg": "Approximately 2.5kg",
-    "approximately_5kg": "Approximately 5kg"
+    "weight": {
+      "approximately_2_5kg": "Weight: Approximately 2.5kg",
+      "approximately_5kg": "Weight: Approximately 5kg"
+    }
   },
   "sponsor": {
     "title": "Sponsors",
