@@ -37,7 +37,7 @@ export default async function handler(req: Request) {
           container: 'inline-size',
           overflow: 'hidden',
           // backgroundColor: 'color-mix(in srgb, #35495e, #000 20%)',
-          backgroundColor: 'rgb(42, 58, 75)',
+          background: 'rgb(42, 58, 75) linear-gradient(#000 100% 0)',
           fontFamily: '"noto-sans-cjk-jp"',
         }}
       >
@@ -46,17 +46,20 @@ export default async function handler(req: Request) {
             position: 'absolute',
             top: '30px',
             left: '30px',
-            height: '34.88px',
+            height: '48.88px',
             color: '#fff',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'column',
             gap: '14px',
-            fontSize: '20px',
           }}
         >
-          <img src="https://i.imgur.com/KErY9Pi.png" alt="Vue Fes Japan 2024" />
+          <img
+            style={{ height: '100%' }}
+            src="https://i.imgur.com/KErY9Pi.png"
+            alt="Vue Fes Japan 2024"
+          />
         </div>
         <div
           style={{
@@ -71,8 +74,8 @@ export default async function handler(req: Request) {
               background: 'linear-gradient(to right, #42b883, #41b8aa)',
               border: '4px solid #fff',
               borderRadius: '50%',
-              width: '120px',
-              height: '120px',
+              width: '180px',
+              height: '180px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -85,11 +88,11 @@ export default async function handler(req: Request) {
               <img
                 alt={displayName ?? ''}
                 src={avatarUrl}
-                width={120}
-                height={120}
+                width={180}
+                height={180}
                 style={{
-                  width: '120px',
-                  height: '120px',
+                  width: '180px',
+                  height: '180px',
                   borderRadius: '50%',
                   boxShadow: '0px 0px 0px 2px rgba(255, 255, 255, 1)',          
                 }}
@@ -99,11 +102,11 @@ export default async function handler(req: Request) {
               <img
                 src="https://i.imgur.com/wHa3m7V.png"
                 alt=""
-                width={120}
-                height={120}
+                width={180}
+                height={180}
                 style={{
-                  width: '120px',
-                  height: '120px',
+                  width: '180px',
+                  height: '180px',
                   borderRadius: '50%',
                   boxShadow: '0px 0px 0px 2px rgba(255, 255, 255, 1)',
                 }}
@@ -113,9 +116,9 @@ export default async function handler(req: Request) {
           </div>
           <div
             style={{
-              fontSize: '50px',
+              fontSize: '54px',
               fontWeight: 900,
-              lineHeight: '74px',
+              lineHeight: '150%',
               marginTop: '20px',
               color: '#fff',
               overflowWrap: 'anywhere',
@@ -127,7 +130,7 @@ export default async function handler(req: Request) {
           </div>
           <div
             style={{
-              fontSize: '40px',
+              fontSize: '42px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -150,8 +153,8 @@ export default async function handler(req: Request) {
             zIndex: 1,
             right: 0,
             bottom: '20px',
-            width: '220px',
-            height: '38px',
+            width: '340px',
+            height: '54px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -161,7 +164,11 @@ export default async function handler(req: Request) {
             boxShadow: 'inset -1px 0 0 0 #fff',
           }}
         >
-          <img src="https://i.imgur.com/D8Cp7tB.png" alt="Supported by Stockmark" />
+          <img
+            style={{ width: '320px' }}
+            src="https://i.imgur.com/D8Cp7tB.png"
+            alt="Supported by Stockmark"
+          />
         </div>
         <img
           style={{
