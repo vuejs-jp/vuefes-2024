@@ -29,17 +29,15 @@ const { locale } = useI18n()
             class="link-button"
             background-color="vue-green/200"
             color="white"
-            icon-name="x"
-            href="https://twitter.com/vuefes"
-            >@vuefes</VFLinkButton
+            href="/#ticket"
+            >{{ $t('ticket.title') }}</VFLinkButton
           >
           <VFLinkButton
             class="link-button"
             background-color="white"
             color="vue-blue"
-            icon-name="note"
-            href="https://note.com/vuejs_jp/m/mb35849fee631"
-            >{{ $t('top_page.note') }}
+            href="/#speakers"
+            >{{ $t('speaker.title') }}
           </VFLinkButton>
         </div>
       </div>
