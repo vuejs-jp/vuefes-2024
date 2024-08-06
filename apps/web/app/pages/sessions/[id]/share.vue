@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import {
   createError,
+  // defineOgImageComponent,
   useAsyncData,
   useHead,
-  useLocaleCurrent,
   useRoute,
-  useSupabase,
-  defineOgImageComponent,
+  useRuntimeConfig,
 } from '#imports'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
+import { useSupabase } from '~/composables/useSupabase'
 import { conferenceTitle, linkUrl, ogSpeakerDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import type { Speaker } from '@vuejs-jp/model'
 
+const config = useRuntimeConfig()
 const route = useRoute()
 const id = route.params.id as string
 
@@ -39,13 +41,13 @@ function copyUrl() {
   document.body.removeChild(element)
 }
 
-defineOgImageComponent('VFOgCard24', {
-  user: {
-    display_name: speakerData[0].name_ja,
-    avatar_url: speakerData[0].image_url,
-    role: 'speaker',
-  },
-})
+// defineOgImageComponent('VFOgCard24', {
+//   user: {
+//     display_name: speakerData[0].name_ja,
+//     avatar_url: speakerData[0].image_url,
+//     role: 'speaker',
+//   },
+// })
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
@@ -53,11 +55,13 @@ useHead({
       title: `${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}sessions/${id}/share`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?display_name=${speakerData[0].name_ja}&avatar_url=${speakerData[0].image_url}&role=speaker`,
     }),
     ...twitterOg({
       title: `${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}sessions/${id}/share`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?display_name=${speakerData[0].name_ja}&avatar_url=${speakerData[0].image_url}&role=speaker`,
     }),
   ],
 })
