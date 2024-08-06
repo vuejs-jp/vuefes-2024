@@ -18,7 +18,7 @@ export default async function handler(req: Request) {
     if (role === 'speaker') return '#6e8f2e'
     if (role === 'sponsor') return '#e5af00'
     if (role === 'attendee') return '#cc4f39'
-    if (role === 'attendee + party') return '#1a8191'
+    if (role === 'party') return '#1a8191'
     return ''
   }
 
@@ -141,7 +141,7 @@ export default async function handler(req: Request) {
               borderRadius: '10px',
             }}
           >
-            {role}
+            {role === 'party' ? 'attendee + party' : role}
           </div>
         </div>
         <div
