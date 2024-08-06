@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
+import { computed } from 'vue'
 
 const { locale } = useI18n()
+
+const getAnchorPath = computed(
+  () => (anchor: string) => (locale.value === 'ja' ? `/${anchor}` : `/en/${anchor}`),
+)
 </script>
 
 <template>
@@ -29,7 +34,7 @@ const { locale } = useI18n()
             class="link-button"
             background-color="vue-green/200"
             color="white"
-            href="/#ticket"
+            :href="getAnchorPath('#ticket')"
             target="_top"
             >{{ $t('ticket.title') }}</VFLinkButton
           >
@@ -37,7 +42,7 @@ const { locale } = useI18n()
             class="link-button"
             background-color="white"
             color="vue-blue"
-            href="/#speakers"
+            :href="getAnchorPath('#speakers')"
             target="_top"
             >{{ $t('speaker.title') }}
           </VFLinkButton>
