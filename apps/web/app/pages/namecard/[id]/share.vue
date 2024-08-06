@@ -48,13 +48,13 @@ useHead({
       title: `${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}namecard/${id}/share`,
-      image: `${config.public.supabaseUrl}/functions/v1/og-image?display_name=${attendeeDataByUserId.value?.display_name}&avatar_url=${attendeeDataByUserId.value?.avatar_url}&role=${attendeeDataByUserId.value?.role}`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${attendeeDataByUserId.value?.id}&page=namecard`,
     }),
     ...twitterOg({
       title: `${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}namecard/${id}/share`,
-      image: `${config.public.supabaseUrl}/functions/v1/og-image?display_name=${attendeeDataByUserId.value?.display_name}&avatar_url=${attendeeDataByUserId.value?.avatar_url}&role=${attendeeDataByUserId.value?.role}`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${attendeeDataByUserId.value?.id}&page=namecard`,
     }),
   ],
 })

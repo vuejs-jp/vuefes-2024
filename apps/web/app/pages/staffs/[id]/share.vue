@@ -51,13 +51,13 @@ useHead({
       title: `${conferenceTitle}`,
       description: ogStaffDescription,
       url: `${linkUrl}staffs/${id}/share`,
-      image: `${config.public.supabaseUrl}/functions/v1/og-image?display_name=${staffData[0].name}&avatar_url=${staffData[0].image_url}&role=staff`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${staffData[0].id}&page=staff`,
     }),
     ...twitterOg({
       title: `${conferenceTitle}`,
       description: ogStaffDescription,
       url: `${linkUrl}staffs/${id}/share`,
-      image: `${config.public.supabaseUrl}/functions/v1/og-image?display_name=${staffData[0].name}&avatar_url=${staffData[0].image_url}&role=staff`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${staffData[0].id}&page=staff`,
     }),
   ],
 })
