@@ -1,8 +1,13 @@
 import React from 'https://esm.sh/react@18.2.0'
 import { ImageResponse } from 'https://deno.land/x/og_edge@0.0.6/mod.ts'
 
-export default function handler(req: Request) {
+const FONT_URL = 'https://jjdlwtezpdclgxxagxpj.supabase.co/storage/v1/object/public/common_asset/fonts/NotoSansCJKjp-Bold.otf'
+const font = fetch(new URL(FONT_URL, import.meta.url)).then((res) => res.arrayBuffer())
+
+export default async function handler(req: Request) {
   const params = new URLSearchParams(req.url.split('?')[1])
+
+  const fontData = await font
 
   const displayName = params.get('display_name') ?? ''
   const avatarUrl = params.get('avatar_url') ?? ''
@@ -33,6 +38,7 @@ export default function handler(req: Request) {
           overflow: 'hidden',
           // backgroundColor: 'color-mix(in srgb, #35495e, #000 20%)',
           backgroundColor: 'rgb(42, 58, 75)',
+          fontFamily: '"noto-sans-cjk-jp"',
         }}
       >
         <div
@@ -174,6 +180,13 @@ export default function handler(req: Request) {
     {
       width: 1200,
       height: 630,
+      fonts: [
+        {
+          name: 'noto-sans-cjk-jp',
+          data: fontData,
+          style: 'normal',
+        },
+      ],
     },
   )
 }
