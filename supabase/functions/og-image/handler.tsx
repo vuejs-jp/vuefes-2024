@@ -1,5 +1,6 @@
 import React from 'https://esm.sh/react@18.2.0'
 import { ImageResponse } from 'https://deno.land/x/og_edge@0.0.6/mod.ts'
+import { createClient } from 'jsr:@supabase/supabase-js@2'
 
 const FONT_URL = 'https://jjdlwtezpdclgxxagxpj.supabase.co/storage/v1/object/public/common_asset/fonts/NotoSansCJKjp-Bold.otf'
 const font = fetch(new URL(FONT_URL, import.meta.url)).then((res) => res.arrayBuffer())
@@ -9,16 +10,48 @@ export default async function handler(req: Request) {
 
   const fontData = await font
 
-  const displayName = params.get('display_name') ?? ''
-  const avatarUrl = params.get('avatar_url') ?? ''
-  const role = params.get('role') ?? ''
+  const id = params.get('id') ?? ''
+  const page = params.get('page') ?? ''
+
+  let displayName = ''
+  let avatarUrl = ''
+  let role = ''
+
+  const supabaseClient = createClient(
+    Deno.env.get('SUPABASE_URL') ?? '',
+    Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+  )
+
+  const { data, error } = await supabaseClient.from(page === 'namecard' ? 'attendees' : `${page}s`).select().eq('id', id)
+  if (error) throw error
+
+  if (page === 'staff') {
+    displayName = data[0].name
+    avatarUrl = data[0].image_url
+    role = 'staff'
+  }
+  if (page === 'speaker') {
+    displayName = data[0].name_ja
+    avatarUrl = data[0].image_url
+    role = 'speaker'
+  }
+  if (page === 'sponsor') {
+    displayName = data[0].name
+    avatarUrl = data[0].share_image_url
+    role = 'sponsor'
+  }
+  if (page === 'namecard') {
+    displayName = data[0].display_name
+    avatarUrl = data[0].avatar_url
+    role = data[0].role
+  }
 
   function backgroundColor(role: string) {
     if (role === 'staff') return 'rgb(42, 58, 75)' // 'color-mix(in srgb, #35495e, #000 20%)'
     if (role === 'speaker') return '#6e8f2e'
     if (role === 'sponsor') return '#e5af00'
     if (role === 'attendee') return '#cc4f39'
-    if (role === 'party') return '#1a8191'
+    if (role === 'attendee + party') return '#1a8191'
     return ''
   }
 
@@ -38,6 +71,10 @@ export default async function handler(req: Request) {
           overflow: 'hidden',
           // backgroundColor: 'color-mix(in srgb, #35495e, #000 20%)',
           background: 'rgb(42, 58, 75) linear-gradient(#000 100% 0)',
+          backgroundImage: 'url(https://i.imgur.com/Klrh2iW.png)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           fontFamily: '"noto-sans-cjk-jp"',
         }}
       >
@@ -144,13 +181,13 @@ export default async function handler(req: Request) {
               borderRadius: '10px',
             }}
           >
-            {role === 'party' ? 'attendee + party' : role}
+            {role}
           </div>
         </div>
         <div
           style={{
             position: 'absolute',
-            zIndex: 1,
+            // zIndex: 1,
             right: 0,
             bottom: '20px',
             width: '340px',
@@ -170,7 +207,7 @@ export default async function handler(req: Request) {
             alt="Supported by Stockmark"
           />
         </div>
-        <img
+        {/* <img
           style={{
             position: 'absolute',
             zIndex: -1,
@@ -181,7 +218,7 @@ export default async function handler(req: Request) {
           }}
           src="https://i.imgur.com/Klrh2iW.png"
           alt=""
-        />
+        /> */}
       </div>
     ),
     {

@@ -55,13 +55,13 @@ useHead({
       title: `${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}sessions/${id}/share`,
-      image: `${config.public.supabaseUrl}/functions/v1/og-image?display_name=${speakerData[0].name_ja}&avatar_url=${speakerData[0].image_url}&role=speaker`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${speakerData[0].id}&page=speaker`,
     }),
     ...twitterOg({
       title: `${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}sessions/${id}/share`,
-      image: `${config.public.supabaseUrl}/functions/v1/og-image?display_name=${speakerData[0].name_ja}&avatar_url=${speakerData[0].image_url}&role=speaker`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${speakerData[0].id}&page=speaker`,
     }),
   ],
 })
