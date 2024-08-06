@@ -30,6 +30,7 @@ const { locale } = useI18n()
             background-color="vue-green/200"
             color="white"
             href="/#ticket"
+            target="_top"
             >{{ $t('ticket.title') }}</VFLinkButton
           >
           <VFLinkButton
@@ -37,6 +38,7 @@ const { locale } = useI18n()
             background-color="white"
             color="vue-blue"
             href="/#speakers"
+            target="_top"
             >{{ $t('speaker.title') }}
           </VFLinkButton>
         </div>
