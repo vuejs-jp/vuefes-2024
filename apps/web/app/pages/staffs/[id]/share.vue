@@ -48,13 +48,13 @@ useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
     ...generalOg({
-      title: `${conferenceTitle}`,
+      title: `${staffData[0].name} | ${conferenceTitle}`,
       description: ogStaffDescription,
       url: `${linkUrl}staffs/${id}/share`,
       image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${staffData[0].id}&page=staff`,
     }),
     ...twitterOg({
-      title: `${conferenceTitle}`,
+      title: `${staffData[0].name} | ${conferenceTitle}`,
       description: ogStaffDescription,
       url: `${linkUrl}staffs/${id}/share`,
       image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${staffData[0].id}&page=staff`,

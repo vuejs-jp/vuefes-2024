@@ -52,13 +52,13 @@ useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
     ...generalOg({
-      title: `${conferenceTitle}`,
+      title: `${sponsorData[0].name} | ${conferenceTitle}`,
       description: ogSponsorDescription,
       url: `${linkUrl}sponsors/${id}/share`,
       image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${sponsorData[0].id}&page=sponsor`,
     }),
     ...twitterOg({
-      title: `${conferenceTitle}`,
+      title: `${sponsorData[0].name} | ${conferenceTitle}`,
       description: ogSponsorDescription,
       url: `${linkUrl}sponsors/${id}/share`,
       image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${sponsorData[0].id}&page=sponsor`,

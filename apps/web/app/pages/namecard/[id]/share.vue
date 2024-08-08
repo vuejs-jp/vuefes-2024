@@ -45,13 +45,13 @@ useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
     ...generalOg({
-      title: `${conferenceTitle}`,
+      title: `${attendeeDataByUserId.value?.display_name} | ${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}namecard/${id}/share`,
       image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${attendeeDataByUserId.value?.id}&page=namecard`,
     }),
     ...twitterOg({
-      title: `${conferenceTitle}`,
+      title: `${attendeeDataByUserId.value?.display_name} | ${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}namecard/${id}/share`,
       image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${attendeeDataByUserId.value?.id}&page=namecard`,
