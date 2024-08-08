@@ -46,6 +46,15 @@ const getAnchorPath = computed(
             target="_top"
             >{{ $t('speaker.title') }}
           </VFLinkButton>
+          <VFLinkButton
+            class="link-button"
+            background-color="vue-green/200"
+            color="white"
+            :href="getAnchorPath('#store')"
+            target="_top"
+          >
+            {{ $t('store.title') }}
+          </VFLinkButton>
         </div>
       </div>
     </div>
