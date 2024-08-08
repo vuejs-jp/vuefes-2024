@@ -50,3 +50,8 @@ status = 301
 
 [functions.server]
 external_node_modules = ["chrome-aws-lambda"]
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
