@@ -57,6 +57,7 @@
     "sponsor_booth_fotolary": "スポンサーブースフォトラリー"
   },
   "store": {
+    "title": "グッズ一覧",
     "do_again_this_year": "今年もやります",
     "payment_method": "購入方法",
     "payment_method_explain": "購入方法は以下の2種類があります。",

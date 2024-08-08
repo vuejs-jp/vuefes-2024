@@ -335,8 +335,9 @@ const onSubmit = () => {
               label="トラック"
               :items="[
                 { value: 'medpeer', text: 'メドピアトラック' },
-                { value: 'mntsq', text: 'MNTSQ全ての合意をフェアにするトラック' },
+                { value: 'mntsq', text: 'MNTSQ全ての合意をフェアにするぞトラック' },
                 { value: 'kickflow', text: 'kickflowトラック' },
+                { value: 'vue', text: 'vueトラック' },
               ]"
             />
             <VFInputField
