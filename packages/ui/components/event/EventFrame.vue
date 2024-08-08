@@ -44,7 +44,7 @@ const props = withDefaults(defineProps<EventFrameProps>(), {
 }
 
 .content-1 {
-  padding: calc(var(--unit) * 5) calc(var(--unit) * 12);
+  padding: calc(var(--unit) * 5) calc(var(--unit) * 12) 0;
 
   /*
   メディアクエリの読み込みができなかったため、一旦コメントアウト
@@ -58,7 +58,7 @@ const props = withDefaults(defineProps<EventFrameProps>(), {
 }
 
 .content-2 {
-  padding: calc(var(--unit) * 5) calc(var(--unit) * 5);
+  padding: calc(var(--unit) * 5) calc(var(--unit) * 5) 0;
 
   /*
   メディアクエリの読み込みができなかったため、一旦コメントアウト
