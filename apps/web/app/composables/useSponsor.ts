@@ -16,11 +16,14 @@ export function useSponsor() {
         'naming-rights',
         'after-party',
         'simultaneous-interpretation',
+        'childcare',
         'special-lunch',
+        'lunch',
         'media',
         'tool',
         () => '#35495E',
       )
+      .with('personal', () => '')
       .exhaustive()
   }
 
@@ -32,5 +35,11 @@ export function useSponsor() {
     return '#35495E'
   }
 
-  return { color, borderColor }
+  function isMoreSilver(tags: Array<SponsorType | OptionSponsorType>) {
+    return tags.some(
+      (tag) => tag === 'platinum' || tag === 'gold' || tag === 'silver',
+    )
+  }
+
+  return { color, borderColor, isMoreSilver }
 }

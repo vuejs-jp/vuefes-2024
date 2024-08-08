@@ -243,6 +243,6 @@ export default defineEventHandler(async (event) => {
     simultaneousInterpretationSponsors,
     childcareSponsors,
     mediaSponsors,
-    toolSponsors
+    toolSponsors,
   }
 })

@@ -37,10 +37,11 @@ const currentLocale = useLocaleCurrent().locale
   display: flex;
   flex-wrap: wrap;
   gap: calc(var(--unit) * 2);
-  padding: 0 calc(var(--unit) * 2) calc(var(--unit) * 5);
+  padding: calc(var(--unit) * 5) calc(var(--unit) * 12) calc(var(--unit) * 5);
 
   @media (--mobile) {
     gap: calc(var(--unit) * 1);
+    padding: calc(var(--unit) * 2);
   }
 }
 

@@ -41,6 +41,8 @@ export const peatixReferenceUrl = 'https://help-attendee.peatix.com/ja-JP/suppor
 
 export const displayNameMaxLength = 24
 
+export const personalSponsors = []
+
 export const team = [
   {
     name: 'kazu_pon',
