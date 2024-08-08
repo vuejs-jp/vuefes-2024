@@ -35,7 +35,7 @@ const { data: jobs } = await useAsyncData('jobs', async () => {
 const jobData = jobs.value?.data as Job[]
 
 const currentLocale = useLocaleCurrent().locale
-const { color, borderColor } = useSponsor()
+const { color, borderColor, isMoreSilver } = useSponsor()
 
 useHead({
   titleTemplate: (titleChunk) => `${sponsorData[0].name} | ${conferenceTitle}`,
@@ -64,7 +64,13 @@ useHead({
         </li>
       </ul>
 
-      <div class="detailhead-body">
+      <div
+        class="detailhead-body"
+        :style="
+          isMoreSilver(sponsorData[0].tag)
+            ? { gridTemplateColumns: 'auto 1fr' }
+            : { gridTemplateColumns: '1fr', justifyContent: 'center' }"
+      >
         <div class="detailhead-left">
           <p class="detailhead-img" :style="{ border: `1px solid ${borderColor(sponsorData[0].tag)}` }">
             <img
@@ -84,7 +90,7 @@ useHead({
             {{ $t(sponsorData[0].name) }}
           </a>
         </div>
-        <div class="detailhead-right">
+        <div v-if="isMoreSilver(sponsorData[0].tag)" class="detailhead-right">
           {{ currentLocale === 'ja' ? sponsorData[0].description_ja : sponsorData[0].description_en }}
         </div>
       </div>

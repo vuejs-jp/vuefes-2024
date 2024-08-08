@@ -1,4 +1,6 @@
-export type SponsorType = 'platinum' | 'gold' | 'silver' | 'bronze' | 'option' | 'option-separate'
+export type SponsorType = 'platinum' | 'gold' | 'silver' | 'bronze' | 'option' | 'option-separate' | PersonalSponsorType
+
+export type PersonalSponsorType = 'personal'
 
 export type SponsorCategory =
   | 'platinumSponsors'
@@ -15,6 +17,7 @@ export type SponsorCategory =
   | 'childcareSponsors'
   | 'mediaSponsors'
   | 'toolSponsors'
+  | 'personalSponsors'
 
 
 export type OptionSponsorType =
@@ -50,4 +53,10 @@ export type SponsorInfo = {
   type: SponsorType
   title: string
   list: Sponsor[]
+}
+
+export type PersonalSponsorInfo = {
+  type: PersonalSponsorType
+  title: string
+  list: string[]
 }

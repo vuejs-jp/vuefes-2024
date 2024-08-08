@@ -113,7 +113,8 @@
     "simultaneous_interpretation": "Simultaneous Interpretation",
     "childcare": "Childcare Support",
     "media": "Media",
-    "tool": "Tool"
+    "tool": "Tool",
+    "personal": "Personal Sponsor"
   },
   "ticket": {
     "title": "Ticket",
