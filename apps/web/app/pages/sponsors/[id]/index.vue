@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { createError, useAsyncData, useHead, useRoute, useSponsor } from '#imports'
+import { createError, useAsyncData, useHead, useRoute, useRuntimeConfig } from '#imports'
 import type { Job, Speaker, Sponsor } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useSupabase } from '~/composables/useSupabase'
+import { useSponsor } from '~/composables/useSponsor'
 import { conferenceTitle, linkUrl, ogSponsorDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
+const config = useRuntimeConfig()
 const route = useRoute()
 const id = route.params.id as string
 
@@ -44,11 +46,13 @@ useHead({
       title: `${sponsorData[0].name} | ${conferenceTitle}`,
       description: ogSponsorDescription,
       url: `${linkUrl}sponsors/${id}`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${sponsorData[0].id}&page=sponsor`,
     }),
     ...twitterOg({
       title: `${sponsorData[0].name} | ${conferenceTitle}`,
       description: ogSponsorDescription,
       url: `${linkUrl}sponsors/${id}`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${sponsorData[0].id}&page=sponsor`,
     }),
   ],
 })
