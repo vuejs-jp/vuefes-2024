@@ -73,7 +73,7 @@ export default async function handler(req: Request) {
           background: 'rgb(42, 58, 75) linear-gradient(#000 100% 0)',
           backgroundImage: 'url(https://i.imgur.com/Klrh2iW.png)',
           backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
+          backgroundSize: '1200px 630px',
           backgroundPosition: 'center',
           fontFamily: '"noto-sans-cjk-jp"',
         }}
