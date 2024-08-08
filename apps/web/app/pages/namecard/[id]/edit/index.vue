@@ -2,6 +2,7 @@
 import { ref, computed, watchEffect } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
 import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useI18n } from '#i18n'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import { navigateTo } from '#imports'
@@ -16,6 +17,7 @@ import type { Role } from '@vuejs-jp/model'
 }) */
 
 const { t } = useI18n()
+const { path: localePath } = useLocaleCurrent()
 const { nameError, orderNumberError, validateNameWithMaxLength, validateOrderNumber } =
   useFormError()
 const { authUser, attendeeDataByUserId, statusKey, namecardUser } = await useNamecard()
@@ -163,7 +165,7 @@ function onSubmit(e: Event) {
       </div>
       <div class="form-buttons">
         <VFLinkButton
-          :href="`/namecard/${authUser?.id}/`"
+          :href="`${localePath}/namecard/${authUser?.id}/`"
           target="_self"
           background-color="white"
           color="vue-blue"
