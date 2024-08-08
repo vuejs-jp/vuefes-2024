@@ -74,7 +74,7 @@ export default async function handler(req: Request) {
           backgroundImage: 'url(https://i.imgur.com/Klrh2iW.png)',
           backgroundRepeat: 'no-repeat',
           backgroundSize: '100% auto',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center center',
           fontFamily: '"noto-sans-cjk-jp"',
         }}
       >
