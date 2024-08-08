@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { createError, useAsyncData, useHead, useRoute } from '#imports'
+import { createError, useAsyncData, useHead, useRoute, useRuntimeConfig } from '#imports'
 import type { Speaker } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useSupabase } from '~/composables/useSupabase'
 import { conferenceTitle, linkUrl, ogSpeakerDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
+const config = useRuntimeConfig()
 const route = useRoute()
 const id = route.params.id as string
 
@@ -31,11 +32,13 @@ useHead({
       title: `${speakerData[0].session_title_ja} | ${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}sessions/${id}`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${speakerData[0].id}&page=speaker`,
     }),
     ...twitterOg({
       title: `${speakerData[0].session_title_ja} | ${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}sessions/${id}`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${speakerData[0].id}&page=speaker`,
     }),
   ],
 })

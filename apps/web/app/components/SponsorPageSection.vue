@@ -4,7 +4,8 @@ import { useFetch, useLocaleCurrent, useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
 import SponsorList from './sponsor/SponsorList.vue'
-import type { SponsorInfo, SponsorCategory } from '@vuejs-jp/model'
+import type { SponsorInfo, SponsorCategory, PersonalSponsorInfo } from '@vuejs-jp/model'
+import { personalSponsors } from '~/utils/constants'
 
 type Sponsors = Record<SponsorCategory, SponsorInfo>
 
@@ -69,6 +70,12 @@ const {
   mediaSponsors,
   toolSponsors,
 } = data.value as Sponsors
+
+const personalSponsorInfo: PersonalSponsorInfo = {
+  type: 'personal',
+  title: 'personal',
+  list: personalSponsors,
+}
 </script>
 
 <template>
@@ -166,6 +173,7 @@ const {
       </div>
       <SponsorList v-bind="mediaSponsors" />
       <SponsorList v-bind="toolSponsors" />
+      <SponsorList v-if="personalSponsorInfo.list.length !== 0" v-bind="personalSponsorInfo" />
     </article>
   </div>
 </template>
