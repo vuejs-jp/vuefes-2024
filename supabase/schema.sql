@@ -35,6 +35,8 @@ ALTER TABLE public.sponsors ADD COLUMN detail_page_id varchar(40);
 
 ALTER TABLE public.sponsors ADD COLUMN share_image_url varchar(500);
 
+ALTER TABLE public.sponsors ALTER COLUMN speaker_id TYPE varchar(100)[] USING string_to_array(speaker_id, '');
+
 alter table
   public.sponsors enable row level security;
 

@@ -65,8 +65,14 @@ const handleDialog = (id?: string) => {
         <p>{{ sponsor.description_ja }}</p>
         <p>{{ sponsor.description_en }}</p>
       </td>
-      <td>{{ sponsor.link_url }}</td>
-      <td>{{ sponsor.speaker_id }}</td>
+      <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+        {{ sponsor.link_url }}
+      </td>
+      <td>
+        <p v-for="s in sponsor.speaker_id" :key="s">
+          {{ speakers.filter((speaker) => speaker.id === s)[0].name_ja }}
+        </p>
+      </td>
       <td>
         <p v-for="tag in sponsor.tag" :key="tag">
           {{ tag }}
