@@ -272,7 +272,7 @@ export type Database = {
           link_url: string | null
           name: string
           share_image_url: string | null
-          speaker_id: string | null
+          speaker_id: string[] | null
           tag: string[] | null
           updated_at: string
         }
@@ -288,7 +288,7 @@ export type Database = {
           link_url?: string | null
           name: string
           share_image_url?: string | null
-          speaker_id?: string | null
+          speaker_id?: string[] | null
           tag?: string[] | null
           updated_at?: string
         }
@@ -304,7 +304,7 @@ export type Database = {
           link_url?: string | null
           name?: string
           share_image_url?: string | null
-          speaker_id?: string | null
+          speaker_id?: string[] | null
           tag?: string[] | null
           updated_at?: string
         }

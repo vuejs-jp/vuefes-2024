@@ -38,7 +38,7 @@ export type Sponsor = {
   detail_page_id?: string
   description_ja: string
   description_en: string
-  speaker_id?: string
+  speaker_id?: string[]
   image_url: string
   share_image_url: string
   tag: Array<SponsorType | OptionSponsorType>
