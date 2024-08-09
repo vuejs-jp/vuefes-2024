@@ -2,6 +2,7 @@
 import {
   definePageMeta,
   onMounted,
+  reloadNuxtApp,
   useFetch,
   useHead,
   // useI18n,
@@ -23,8 +24,9 @@ if (error.value) {
 }
 
 onMounted(function () {
-  window.addEventListener('popstate', function(event) {
-    refresh()
+  window.addEventListener('popstate', async function(event) {
+    await refresh()
+    await reloadNuxtApp()
   })
 })
 
