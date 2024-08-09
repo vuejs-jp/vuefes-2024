@@ -147,6 +147,9 @@ export default defineNuxtConfig({
     //   }
     // },
   },
+  experimental: {
+    restoreState: true,
+  },
   build: {
     transpile: ['vue-toastification'],
   },

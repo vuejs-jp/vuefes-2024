@@ -1,10 +1,29 @@
 <script setup lang="ts">
-import { useHead, useI18n, useRuntimeConfig } from '#imports'
+import {
+  onMounted,
+  reloadNuxtApp,
+  useFetch,
+  useHead,
+  // useI18n,
+  useRuntimeConfig,
+} from '#imports'
 import { conferenceTitle } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
-const { locale } = useI18n({ useScope: 'global' })
+// const { locale } = useI18n({ useScope: 'global' })
 const config = useRuntimeConfig()
+
+const { data: sponsors, error, refresh } = await useFetch('/api/sponsors')
+if (error.value) {
+  console.error(error.value)
+}
+
+onMounted(function () {
+  window.addEventListener('popstate', async function(event) {
+    await refresh()
+    await reloadNuxtApp()
+  })
+})
 
 useHead({
   // eslint-disable-next-line no-unused-vars
@@ -24,7 +43,7 @@ useHead({
   <EventPageSection v-if="config.public.showEvent" />
   <StorePageSection v-if="config.public.showStore" />
   <AccessPageSection />
-  <SponsorPageSection />
+  <SponsorPageSection :data="sponsors" />
   <CooperationPartnerSection />
   <FormPageSection />
   <TeamPageSection />
