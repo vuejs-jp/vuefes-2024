@@ -25,7 +25,7 @@ if (!sponsorData[0].detail_page_id) {
 }
 
 const { data: speakers } = await useAsyncData('speakers', async () => {
-  return await fetchData('speakers', { id: sponsorData[0].speaker_id })
+  return await fetchData('speakers', { speakerId: sponsorData[0].speaker_id })
 })
 
 const speakerData = speakers.value?.data as Speaker[]
@@ -99,20 +99,31 @@ useHead({
         </div>
       </div>
 
-      <div v-if="sponsorData[0].speaker_id" class="detailbody-persons">
+      <div v-if="sponsorData[0].speaker_id?.length !== 0" class="detailbody-persons">
         <h3 class="sponsor-subtitle">
           {{ `${sponsorData[0].name}のスポンサーセッション` }}
         </h3>
-        <VFSpeaker
-          :image="speakerData[0].image_url"
-          :company="currentLocale === 'en' ? speakerData[0].caption_en : speakerData[0].caption_ja"
-          :division="currentLocale === 'en' ? speakerData[0].description_en : speakerData[0].description_ja"
-          :name="currentLocale === 'en' ? speakerData[0].name_en : speakerData[0].name_ja"
-          :github-id="speakerData[0].github_id"
-          :x-id="speakerData[0].x_id"
-        />
-        <div class="person-info">
-          {{ currentLocale === 'ja' ? speakerData[0].description_ja : speakerData[0].description_en }}
+        <div class="sponsor-session-info">
+          <div class="avatar-info">
+            <VFSpeaker
+              v-for="(speaker, index) in speakerData"
+              :key="index"
+              :image="speaker.image_url"
+              :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
+              :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
+              :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
+              :github-id="speaker.github_id"
+              :x-id="speaker.x_id"
+            />
+          </div>
+          <div class="person-info">
+            <h4>
+              {{ currentLocale === 'ja' ? speakerData[0].session_title_ja : speakerData[0].session_title_en }}
+            </h4>
+            <p>
+              {{ currentLocale === 'ja' ? speakerData[0].session_description_ja : speakerData[0].session_description_en }}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -176,6 +187,7 @@ useHead({
 
 .sponsor-detail-body {
   --head-img-width: 475px;
+  --head-avatar-img-width: 308px;
 
   margin: 0 auto;
   padding: calc(var(--unit) * 10) calc(var(--unit) * 4);
@@ -288,21 +300,42 @@ useHead({
 
   .detailbody-persons {
     font-size: 18px;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: calc(var(--unit) * 4);
     padding: calc(var(--unit) * 5) 0;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .detailbody-persons ::v-deep(img) {
-    width: var(--head-img-width);
+    width: var(--head-avatar-img-width);
+  }
+
+  .sponsor-session-info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: calc(var(--unit) * 4);
+    padding: calc(var(--unit) * 5) 0;
+  }
+
+  .avatar-info {
+    display: grid;
+    gap: calc(var(--unit) * 4);
+  }
+
+  .person-info {
+    white-space: pre-wrap;
   }
 
   .person-info ::v-deep(ul) {
     list-style-type: square;
     margin-left: calc(var(--unit) * 4);
     margin-bottom: calc(var(--unit) * 2);
+  }
+
+  .person-info ::v-deep(h4) {
+    color: var(--color-vue-blue);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.8;
+    padding-bottom: calc(var(--unit) * 1.25);
   }
 
   .person-info ::v-deep(p) {
@@ -367,6 +400,23 @@ useHead({
 
     .detailhead-right {
       margin-top: calc(var(--unit) * 4);
+    }
+
+    .detailbody-persons ::v-deep(img) {
+      width: var(--head-avatar-img-width);
+    }
+
+    .sponsor-session-info {
+      grid-template-columns: 1fr;
+      place-items: center;
+    }
+
+    .sponsor-session-info ::v-deep(h4) {
+      font-size: 20px;
+    }
+
+    .sponsor-session-info ::v-deep(p) {
+      font-size: 16px;
     }
 
     .back {
