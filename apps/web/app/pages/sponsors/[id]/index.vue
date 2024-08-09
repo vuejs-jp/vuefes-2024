@@ -320,6 +320,10 @@ useHead({
     gap: calc(var(--unit) * 4);
   }
 
+  .person-info {
+    white-space: pre-wrap;
+  }
+
   .person-info ::v-deep(ul) {
     list-style-type: square;
     margin-left: calc(var(--unit) * 4);
