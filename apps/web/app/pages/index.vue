@@ -13,14 +13,19 @@ import { generalOg, twitterOg } from '~/utils/og.constants'
 // const { locale } = useI18n({ useScope: 'global' })
 const config = useRuntimeConfig()
 
-const { data: sponsors, error, refresh } = await useFetch('/api/sponsors')
-if (error.value) {
-  console.error(error.value)
+const { data: speakers, error: error1, refresh: refreshSpeaker } = await useFetch('/api/speakers')
+if (error1.value) {
+  console.error(error1.value)
+}
+const { data: sponsors, error: error2, refresh: refreshSponsor } = await useFetch('/api/sponsors')
+if (error2.value) {
+  console.error(error2.value)
 }
 
 onMounted(function () {
   window.addEventListener('popstate', async function(event) {
-    await refresh()
+    await refreshSpeaker()
+    await refreshSponsor()
     await reloadNuxtApp()
   })
 })
@@ -36,7 +41,7 @@ useHead({
   <TopPageSection />
   <MessagePageSection />
   <TicketPageSection v-if="config.public.enableRegisterTicket" />
-  <SpeakerPageSection />
+  <SpeakerPageSection :data="speakers" />
   <!--
   <VolunteerPageSection v-if="!config.public.enableRegisterTicket && locale === 'ja'" />
   -->

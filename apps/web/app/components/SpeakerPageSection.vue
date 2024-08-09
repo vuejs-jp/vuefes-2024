@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useFetch } from '#imports'
 import SpeakerCfp from '~/components/speaker/SpeakerCfp.vue'
 import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
 import type { SpeakerCategory, SpeakerInfo } from '@vuejs-jp/model'
@@ -7,13 +6,13 @@ import type { SpeakerCategory, SpeakerInfo } from '@vuejs-jp/model'
 type _SpeakerCategory = Extract<SpeakerCategory, 'sessionSpeakers' | 'lightningTalkSpeakers' | 'sponsorSessionSpeakers'>
 type Speakers = Record<_SpeakerCategory, SpeakerInfo>
 
+const props = defineProps<{
+  data: Speakers
+}>()
+
 const currentLocale = useLocaleCurrent().locale
 
-const { data, error } = await useFetch('/api/speakers')
-if (error.value) {
-  console.error(error.value)
-}
-const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.value as Speakers
+const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props.data as Speakers
 </script>
 
 <template>
