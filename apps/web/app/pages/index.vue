@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import { useHead, useI18n, useRuntimeConfig } from '#imports'
+import { definePageMeta, useHead, useI18n, useRuntimeConfig } from '#imports'
 import { conferenceTitle } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
+
+definePageMeta({
+  middleware: 'browser-back',
+})
 
 const { locale } = useI18n({ useScope: 'global' })
 const config = useRuntimeConfig()
