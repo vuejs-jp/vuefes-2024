@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
-import { useFetch, useLocaleCurrent, useRuntimeConfig } from '#imports'
+import { useLocaleCurrent, useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
 import SponsorList from './sponsor/SponsorList.vue'
@@ -54,10 +54,6 @@ const endPeriodTime = {
   ampm: currentLocale.value === 'en' ? t('speaker.end_ampm') : '',
 }
 
-// const { data, error } = await useFetch('/api/sponsors')
-// if (error.value) {
-//   console.error(error.value)
-// }
 const {
   platinumSponsors,
   goldSponsors,
