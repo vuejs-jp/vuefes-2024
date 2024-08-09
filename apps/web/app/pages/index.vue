@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { definePageMeta, useHead, useI18n, useRuntimeConfig } from '#imports'
+import {
+  definePageMeta,
+  onMounted,
+  useFetch,
+  useHead,
+  // useI18n,
+  useRuntimeConfig,
+} from '#imports'
 import { conferenceTitle } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
@@ -7,8 +14,19 @@ definePageMeta({
   middleware: 'browser-back',
 })
 
-const { locale } = useI18n({ useScope: 'global' })
+// const { locale } = useI18n({ useScope: 'global' })
 const config = useRuntimeConfig()
+
+const { data: sponsors, error, refresh } = await useFetch('/api/sponsors')
+if (error.value) {
+  console.error(error.value)
+}
+
+onMounted(function () {
+  window.addEventListener('popstate', function(event) {
+    refresh()
+  })
+})
 
 useHead({
   // eslint-disable-next-line no-unused-vars
@@ -28,7 +46,7 @@ useHead({
   <EventPageSection v-if="config.public.showEvent" />
   <StorePageSection v-if="config.public.showStore" />
   <AccessPageSection />
-  <SponsorPageSection />
+  <SponsorPageSection :data="sponsors" />
   <CooperationPartnerSection />
   <FormPageSection />
   <TeamPageSection />

@@ -9,6 +9,10 @@ import { personalSponsors } from '~/utils/constants'
 
 type Sponsors = Record<SponsorCategory, SponsorInfo>
 
+const props = defineProps<{
+  data: Sponsors
+}>()
+
 const config = useRuntimeConfig()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
@@ -50,10 +54,10 @@ const endPeriodTime = {
   ampm: currentLocale.value === 'en' ? t('speaker.end_ampm') : '',
 }
 
-const { data, error } = await useFetch('/api/sponsors')
-if (error.value) {
-  console.error(error.value)
-}
+// const { data, error } = await useFetch('/api/sponsors')
+// if (error.value) {
+//   console.error(error.value)
+// }
 const {
   platinumSponsors,
   goldSponsors,
@@ -69,7 +73,7 @@ const {
   childcareSponsors,
   mediaSponsors,
   toolSponsors,
-} = data.value as Sponsors
+} = props.data as Sponsors
 
 const personalSponsorInfo: PersonalSponsorInfo = {
   type: 'personal',
