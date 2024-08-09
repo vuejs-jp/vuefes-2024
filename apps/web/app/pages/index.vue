@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {
-  definePageMeta,
   onMounted,
   reloadNuxtApp,
   useFetch,
@@ -10,10 +9,6 @@ import {
 } from '#imports'
 import { conferenceTitle } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
-
-definePageMeta({
-  middleware: 'browser-back',
-})
 
 // const { locale } = useI18n({ useScope: 'global' })
 const config = useRuntimeConfig()
