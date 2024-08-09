@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDecode } from '@vuejs-jp/composable'
+
 interface EventFrameProps {
   title: string
   fontClass?: string
@@ -9,12 +11,14 @@ const props = withDefaults(defineProps<EventFrameProps>(), {
   fontClass: 'title-1',
   paddingClass: 'content-1',
 })
+
+const { decodeHtml } = useDecode()
 </script>
 
 <template>
   <div class="event-frame-root">
     <div class="event-frame-content" :class="paddingClass">
-      <h3 :class="fontClass">{{ title }}</h3>
+      <h3 :class="fontClass" v-html="decodeHtml(title, 'textarea') ?? title" />
       <slot name="content" />
     </div>
     <slot />
@@ -74,6 +78,12 @@ const props = withDefaults(defineProps<EventFrameProps>(), {
 h3 {
   font-weight: 700;
   text-align: center;
+
+  @media (width > 480px) {
+    &:deep(br) {
+      display: none;
+    }
+  }
 }
 
 .title-1 {
