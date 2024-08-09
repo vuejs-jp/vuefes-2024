@@ -45,7 +45,7 @@ useHead({
   <!--
   <VolunteerPageSection v-if="!config.public.enableRegisterTicket && locale === 'ja'" />
   -->
-  <EventPageSection v-if="config.public.showEvent" />
+  <EventPageSection v-if="config.public.showEvent" :data="speakers" />
   <StorePageSection v-if="config.public.showStore" />
   <AccessPageSection />
   <SponsorPageSection :data="sponsors" />
