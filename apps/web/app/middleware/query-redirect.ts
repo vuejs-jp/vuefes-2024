@@ -1,11 +1,12 @@
-import { defineNuxtRouteMiddleware, navigateTo, useNamecard, useAuthSession } from '#imports'
+import { defineNuxtRouteMiddleware, navigateTo } from '#imports'
+import { useNamecard } from '~/composables/useNamecard'
 
 export default defineNuxtRouteMiddleware(async (to) => {
-const { authUser } = await useNamecard()
-const { signedUserId } = useAuthSession()
+  const { authUser } = await useNamecard()
 
   if (to.query.code) {
     if (authUser) return navigateTo(`/namecard/${authUser.value?.id}/`)
-    if (signedUserId) return navigateTo(`/namecard/${signedUserId.value}/`)
   }
+
+  return true
 })
