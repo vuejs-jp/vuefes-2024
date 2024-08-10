@@ -39,6 +39,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/supabase',
     '@nuxt/content',
+    '@pinia/nuxt',
     'nuxt-gtag',
     'nuxt-og-image',
   ],

@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { AuthProvider } from '@vuejs-jp/model'
-import { useAuth } from '~/composables/useAuth'
-import { createError, useRuntimeConfig, definePageMeta } from '#imports'
+import { createError, useRuntimeConfig, definePageMeta, navigateTo } from '#imports'
 import { useI18n } from '#i18n'
+import { ref } from 'vue'
+import type { AuthProvider, DialogStatus } from '@vuejs-jp/model'
+import { useAuthStore } from '~/store/auth'
+import { useAuth } from '~/composables/useAuth'
+import { useAuthSession } from '~/composables/useAuthSession'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import MarkDownText from '~/components/MarkDownText.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
 
@@ -17,11 +20,16 @@ if (!config.public.enableRegisterNamecard) {
   throw createError({ statusCode: 404, statusMessage: 'You cannot register the namecard.' })
 }
 
-const { t } = useI18n()
-const showDialog = ref(false)
+const { hasAuth } = useAuthSession()
+const auth = useAuthStore()
+
 const { signIn } = useAuth()
 
-function handleClickButton(type: 'open' | 'close') {
+const { t } = useI18n()
+const { locale } = useLocaleCurrent()
+const showDialog = ref(false)
+
+function handleClickButton(type: DialogStatus) {
   if (type === 'open') {
     showDialog.value = true
   } else {
@@ -30,7 +38,7 @@ function handleClickButton(type: 'open' | 'close') {
 }
 
 function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
-  /** サインイン処理
+  /**
    * 認証後のフロー
    * 1. 認証処理後、第二引数のパスにリダイレクトする（クエリパラメータ付き
    * 2. ミドルウェア(query-redirect)でクエリパラメータを元に、リダイレクト先を上書きする
@@ -46,10 +54,11 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
       :title="t('namecard.login_title')"
       @on-close="handleClickButton('close')"
       @sign-in="handleSignIn"
-      ><p>
-        {{ t('namecard.dialog_message') }}
-      </p></VFIntegrationDialog
     >
+      <p>
+        {{ t('namecard.dialog_message') }}
+      </p>
+    </VFIntegrationDialog>
     <div class="namecard-root">
       <img
         class="namecard-samples"
@@ -64,9 +73,14 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
         background-color="vue-green/200"
         color="white"
         class="login-button"
-        @click="handleClickButton('open')"
-        >{{ t('namecard.login') }}</VFLinkButton
+        @click="
+          () => !hasAuth
+            ? handleClickButton('open')
+            : navigateTo(`${locale === 'ja' ? '/' : `/${locale}/`}namecard/${auth.signedUserId}`)
+        "
       >
+        {{ t('namecard.login') }}
+      </VFLinkButton>
       <CreationProcess />
       <div class="edit-sentence">
         <VFStatusCard

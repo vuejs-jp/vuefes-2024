@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
-import { navigateTo } from '#imports'
+import { definePageMeta, navigateTo } from '#imports'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
 import { useNamecard } from '~/composables/useNamecard'
 
-/* definePageMeta({
+definePageMeta({
   middleware: 'auth',
-}) */
+})
 
 const { t } = useI18n()
 const { authUser, statusKey, namecardUser } = await useNamecard()

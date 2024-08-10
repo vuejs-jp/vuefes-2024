@@ -4,6 +4,7 @@
   "compilerOptions": {
     "types": [
       "@types/node",
+      "@pinia/nuxt",
       "@nuxt/types",
       "@nuxtjs/i18n"
     ],
