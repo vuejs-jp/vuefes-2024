@@ -173,7 +173,15 @@ const personalSponsorInfo: PersonalSponsorInfo = {
       </div>
       <SponsorList v-bind="mediaSponsors" />
       <SponsorList v-bind="toolSponsors" />
-      <SponsorList v-if="personalSponsorInfo.list.length !== 0" v-bind="personalSponsorInfo" />
+      <SponsorList
+        v-if="personalSponsorInfo.list.length !== 0"
+        v-bind="{
+          type: personalSponsorInfo.type,
+          title: personalSponsorInfo.title,
+          list: [],
+          personal: personalSponsorInfo,
+        }"
+      />
     </article>
   </div>
 </template>
