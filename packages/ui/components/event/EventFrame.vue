@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useDecode } from '@vuejs-jp/composable'
+import { onMounted, ref } from 'vue'
 
 interface EventFrameProps {
   title: string
@@ -13,12 +14,17 @@ const props = withDefaults(defineProps<EventFrameProps>(), {
 })
 
 const { decodeHtml } = useDecode()
+const titleText = ref('')
+
+onMounted(function () {
+  titleText.value = decodeHtml(props.title, 'textarea') ?? props.title
+})
 </script>
 
 <template>
   <div class="event-frame-root">
     <div class="event-frame-content" :class="paddingClass">
-      <h3 :class="fontClass" v-html="decodeHtml(title, 'textarea') ?? title" />
+      <h3 :class="fontClass" v-html="titleText" />
       <slot name="content" />
     </div>
     <slot />
