@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
   let staffs: Staff[] = []
 
   const client = await serverSupabaseClient<Database>(event)
-  const { data: _staffs } = await client.from('staffs').select() as { data: Staff[] }
+  const { data: _staffs } = await client.from('staffs').select().order('display_order') as { data: Staff[] }
   staffs = _staffs
 
   const allStaffs: StaffInfo = {
