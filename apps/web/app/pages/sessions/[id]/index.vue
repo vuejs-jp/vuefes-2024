@@ -3,8 +3,10 @@ import { createError, useAsyncData, useHead, useRoute, useRuntimeConfig } from '
 import type { Speaker } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useSupabase } from '~/composables/useSupabase'
+import { useSession } from '~/composables/useSession'
 import { conferenceTitle, linkUrl, ogSpeakerDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
+import { useRange } from '@vuejs-jp/composable'
 
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -23,6 +25,8 @@ if (!speakerData[0].detail_page_id) {
   throw createError({ statusCode: 404, statusMessage: 'Speaker not found' })
 }
 
+const { range } = useRange()
+const { color, trackName } = useSession()
 const currentLocale = useLocaleCurrent().locale
 
 useHead({
@@ -48,6 +52,11 @@ useHead({
   <VFPageHeading>{{ $t('speaker.title') }}</VFPageHeading>
   <div class="session-detail">
     <div class="session-detail-body">
+      <div class="detailbody-tags">
+        <VFTag :label="trackName(speakerData[0].session_place)" :background="color(speakerData[0].session_place)" />
+        <VFTag :label="range(speakerData[0].session_time_from, speakerData[0].session_time_duration)" background="vue-green/200" />
+      </div>
+
       <VFTitle id="session-detail" class="detailbody-title">
         {{ currentLocale === 'ja' ? (speakerData[0].session_title_ja ?? 'TBD') : (speakerData[0].session_title_en ?? 'TBD') }}
       </VFTitle>
@@ -139,6 +148,11 @@ useHead({
     font-size: 32px;
     font-weight: 700;
     margin-bottom: calc(var(--unit) * 3);
+  }
+
+  .detailbody-tags {
+    display: flex;
+    gap: calc(var(--unit) * 2);
   }
 
   .detailbody-explain {

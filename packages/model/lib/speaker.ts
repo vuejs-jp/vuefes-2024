@@ -1,4 +1,5 @@
 import type { Event } from './event'
+import type { Track } from './track'
 
 export type SpeakerType = 'session' | 'lightning-talk' | 'sponsor-session' | 'panel-event'
 
@@ -32,7 +33,7 @@ export type Speaker = {
   session_description_en?: string
   session_comment_ja?: string
   session_comment_en?: string
-  session_place?: string
+  session_place?: Track
   session_time_from?: string
   session_time_duration?: number
   session_doc_title_ja?: string
