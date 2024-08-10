@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
   let jobs: Job[] = []
 
   const client = await serverSupabaseClient<Database>(event)
-  const { data: _jobs } = await client.from('jobs').select() as { data: Job[] }
+  const { data: _jobs } = await client.from('jobs').select().order('display_order') as { data: Job[] }
   jobs = _jobs
 
   const allJobs: JobInfo = {
@@ -19,9 +19,8 @@ export default defineEventHandler(async (event) => {
         return j
       })
       .sort((a: Job, b: Job) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
