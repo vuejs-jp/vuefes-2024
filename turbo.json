@@ -46,6 +46,9 @@
       "dotEnv": [".env"],
       "cache": false,
       "persistent": true
+    },
+    "vitest": {
+      "cache": false
     }
   }
 }
