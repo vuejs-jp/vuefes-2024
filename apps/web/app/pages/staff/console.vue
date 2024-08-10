@@ -3,6 +3,7 @@ import { createError, useRuntimeConfig } from '#imports'
 import { adminPageList } from '@vuejs-jp/model'
 import { useAuth } from '~/composables/useAuth'
 import { useAuthSession } from '~/composables/useAuthSession'
+import { useAuthStore } from '~/store/auth'
 
 const config = useRuntimeConfig()
 
@@ -10,8 +11,10 @@ if (!config.public.enableOperateAdmin) {
   throw createError({ statusCode: 404, statusMessage: 'You cannot operate the admin.' })
 }
 
-const { signIn, signOut } = useAuth()
 const { hasAuth } = useAuthSession()
+useAuthStore()
+
+const { signIn, signOut } = useAuth()
 </script>
 
 <template>
@@ -30,7 +33,7 @@ const { hasAuth } = useAuthSession()
             color="white"
             @click="() => signIn('github', '/')"
           >
-            Login
+            Login (GitHub)
           </VFLinkButton>
         </div>
         <div v-if="hasAuth" class="logout-wrapper">

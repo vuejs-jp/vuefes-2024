@@ -2,13 +2,14 @@
 import { computed } from 'vue'
 import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import type { NamecardStatus } from '@vuejs-jp/model'
 
 const { t } = useI18n()
 const { fontWeight } = useTypography()
 const { color } = useColor()
-export type Status = 'not_created' | 'inquiry_in_progress' | 'inquiry_failed' | 'inquiry_completed'
+
 type Props = {
-  statusKey: Status
+  statusKey: NamecardStatus
   size?: 'small' | 'medium'
 }
 const props = withDefaults(defineProps<Props>(), {

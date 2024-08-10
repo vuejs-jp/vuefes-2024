@@ -5,16 +5,16 @@ import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useI18n } from '#i18n'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
-import { navigateTo } from '#imports'
+import { definePageMeta, navigateTo } from '#imports'
 import { useNamecard } from '~/composables/useNamecard'
 import { useFormError } from '~/composables/useFormError'
 import ImageUploader from '~/components/namecard/ImageUploader.vue'
 import { peatixReferenceUrl } from '~/utils/constants'
 import type { Role } from '@vuejs-jp/model'
 
-/* definePageMeta({
+definePageMeta({
   middleware: 'auth',
-}) */
+})
 
 const { t } = useI18n()
 const { path: localePath } = useLocaleCurrent()
