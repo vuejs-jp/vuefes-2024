@@ -6,6 +6,7 @@ import { useSupabase } from '~/composables/useSupabase'
 import { useSponsor } from '~/composables/useSponsor'
 import { conferenceTitle, linkUrl, ogSponsorDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
+import { useColor } from '@vuejs-jp/composable'
 
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -37,6 +38,7 @@ const { data: jobs } = await useAsyncData('jobs', async () => {
 const jobData = jobs.value?.data as Job[]
 
 const currentLocale = useLocaleCurrent().locale
+const { color: updateColor } = useColor()
 const { color, borderColor, isMoreSilver } = useSponsor()
 
 useHead({
@@ -76,7 +78,7 @@ useHead({
             : { gridTemplateColumns: '1fr', justifyContent: 'center' }"
       >
         <div class="detailhead-left">
-          <p class="detailhead-img" :style="{ border: `1px solid ${borderColor(sponsorData[0].tag)}` }">
+          <p class="detailhead-img" :style="{ border: `1px solid ${updateColor(borderColor(sponsorData[0].tag))}` }">
             <img
               :src="`${sponsorData[0].image_url}`"
               :alt="sponsorData[0].name"
