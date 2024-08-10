@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import type { SponsorInfo } from '@vuejs-jp/model'
+import type { PersonalSponsorInfo, SponsorInfo } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 
-type Props = SponsorInfo
+type Props = SponsorInfo & {
+  personal?: PersonalSponsorInfo
+}
 
 defineProps<Props>()
 
@@ -24,7 +26,7 @@ const currentLocale = useLocaleCurrent().locale
         </NuxtLink>
       </li>
     </ul>
-    <VFCreditList v-else :list="personalSponsors" size="large" />
+    <VFCreditList v-else :list="personal?.list" size="large" />
   </section>
 </template>
 
