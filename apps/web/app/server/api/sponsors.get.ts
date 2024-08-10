@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
 
   if (config.public.sponsorDatasource === 'supabase') {
     const client = await serverSupabaseClient<Database>(event)
-    const { data: _sponsors } = await client.from('sponsors').select().eq('is_open', true) as { data: Sponsor[] }
+    const { data: _sponsors } = await client.from('sponsors').select().eq('is_open', true).order('display_order') as { data: Sponsor[] }
     sponsors = _sponsors
   }
 
@@ -28,9 +28,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('platinum')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -43,9 +42,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('gold')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -58,9 +56,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('silver')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -73,9 +70,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('bronze')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -88,9 +84,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('special-naming-rights')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -103,9 +98,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('naming-rights')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -118,9 +112,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('special-lunch')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -133,9 +126,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('lunch')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -148,9 +140,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('after-party')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -163,9 +154,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('name-card')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -178,9 +168,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('simultaneous-interpretation')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -193,9 +182,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('childcare')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -208,9 +196,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('media')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
@@ -223,9 +210,8 @@ export default defineEventHandler(async (event) => {
         return s['tag'].includes('tool')
       })
       .sort((a: Sponsor, b: Sponsor) => {
-        if (!a.display_order) return a.created_at < b.created_at ? -1 : 1
-        if (!b.display_order) return a.created_at < b.created_at ? -1 : 1
-        return a.display_order - b.display_order
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
       }),
   }
 
