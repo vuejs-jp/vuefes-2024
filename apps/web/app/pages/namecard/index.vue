@@ -10,9 +10,9 @@ import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import MarkDownText from '~/components/MarkDownText.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
 
-definePageMeta({
+/* definePageMeta({
   middleware: 'query-redirect',
-})
+}) */
 
 const config = useRuntimeConfig()
 
@@ -38,12 +38,7 @@ function handleClickButton(type: DialogStatus) {
 }
 
 function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
-  /**
-   * 認証後のフロー
-   * 1. 認証処理後、第二引数のパスにリダイレクトする（クエリパラメータ付き
-   * 2. ミドルウェア(query-redirect)でクエリパラメータを元に、リダイレクト先を上書きする
-   */
-  signIn(provider, '/namecard/')
+  signIn(provider, '/namecard/********')
 }
 </script>
 
@@ -74,9 +69,10 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
         color="white"
         class="login-button"
         @click="
-          () => !hasAuth
-            ? handleClickButton('open')
-            : navigateTo(`${locale === 'ja' ? '/' : `/${locale}/`}namecard/${auth.signedUserId}`)
+          () =>
+            !hasAuth
+              ? handleClickButton('open')
+              : navigateTo(`${locale === 'ja' ? '/' : `/${locale}/`}namecard/${auth.signedUserId}`)
         "
       >
         {{ t('namecard.login') }}
