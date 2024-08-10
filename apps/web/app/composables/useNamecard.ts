@@ -1,9 +1,9 @@
 import { computed } from 'vue'
-import { useSupabaseUser, useAsyncData } from '#imports'
-import { useSupabase } from '~/composables/useSupabase' 
-import type { NamecardStatus, NamecardUser, Role } from '@vuejs-jp/model'
+import { useSupabase,useSupabaseUser, useAsyncData } from '#imports'
+import type { Status } from '~/components/namecard/CreationStatus.vue'
+import type { NamecardUser, Role } from '@vuejs-jp/model'
 
-export async function useNamecard(userId?: string) {
+export async function useNamecard(userId?:string) {
   const { fetchAttendeeDataByUserId } = useSupabase()
 
   const authUser = useSupabaseUser()
@@ -16,7 +16,7 @@ export async function useNamecard(userId?: string) {
     return attendeeByUserId.value?.data?.[0]
   })
 
-  const statusKey = computed<NamecardStatus>(() => {
+  const statusKey = computed<Status>(() => {
     if (attendeeDataByUserId.value?.activated_at) {
       return 'inquiry_completed'
     } else if (!attendeeDataByUserId.value?.role){
