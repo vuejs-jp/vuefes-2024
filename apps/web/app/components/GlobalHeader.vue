@@ -2,11 +2,11 @@
 import { useI18n, useRuntimeConfig } from '#imports'
 import { useScreenOrientation, useWindowSize } from '@vueuse/core'
 import { ref, watch, onMounted, computed } from 'vue'
-const { locale } = useI18n({ useScope: 'global' })
+const { locale, setLocale } = useI18n({ useScope: 'global' })
 const config = useRuntimeConfig()
 
 const onSwitchLocale = () => {
-  locale.value = locale.value === 'ja' ? 'en' : 'ja'
+  setLocale(locale.value === 'ja' ? 'en' : 'ja')
 }
 
 const { width } = useWindowSize()
