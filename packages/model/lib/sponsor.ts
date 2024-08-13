@@ -15,6 +15,7 @@ export type SponsorCategory =
   | 'nameCardSponsors'
   | 'simultaneousInterpretationSponsors'
   | 'childcareSponsors'
+  | 'handsonSponsors'
   | 'mediaSponsors'
   | 'toolSponsors'
   | 'personalSponsors'
@@ -29,6 +30,7 @@ export type OptionSponsorType =
   | 'childcare'
   | 'special-lunch'
   | 'lunch'
+  | 'handson'
   | 'media'
   | 'tool'
 
