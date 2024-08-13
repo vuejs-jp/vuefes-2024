@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
+import { watch } from 'vue'
 import { useI18n } from '#i18n'
-import { definePageMeta, navigateTo, useSupabaseUser, useRoute } from '#imports'
+import { navigateTo, useRoute } from '#imports'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
 import { useNamecard } from '~/composables/useNamecard'
 
-/* definePageMeta({
-  middleware: 'auth',
-})
- */
 const { t } = useI18n()
 const route = useRoute()
 const { authUser, statusKey, namecardUser } = await useNamecard()

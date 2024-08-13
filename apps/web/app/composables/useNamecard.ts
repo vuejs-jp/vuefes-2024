@@ -1,14 +1,16 @@
 import { watch,ref,onMounted } from 'vue'
 import { useSupabaseUser, useAsyncData } from '#imports'
 import { useSupabase } from '~/composables/useSupabase'
+import { useAuthStore } from '~/store/auth'
 import type { NamecardStatus, NamecardUser, Role } from '@vuejs-jp/model'
 
 export async function useNamecard(userId?: string) {
   const { fetchAttendeeDataByUserId } = useSupabase()
+  const { signedUserId,setSignedUserId } = useAuthStore()
 
   async function getNamecardData() {
     const { data: attendeeByUserId } = await useAsyncData('attendeeByUserId', async () => {
-      return await fetchAttendeeDataByUserId('attendees', userId ?? authUser.value?.id ?? '')
+      return await fetchAttendeeDataByUserId('attendees', userId ?? authUser.value?.id ?? signedUserId ??'')
     })
     attendeeDataByUserId.value = attendeeByUserId?.value?.data?.[0]
     statusKey.value = getStatus()
@@ -42,7 +44,10 @@ export async function useNamecard(userId?: string) {
   })
 
   watch(authUser, async (newUser) => {
-    if (newUser?.id) await getNamecardData()
+    if (newUser?.id) {
+      await getNamecardData()
+      setSignedUserId(newUser.id)
+    }
   }, { immediate: true })
 
   return { authUser, attendeeDataByUserId, statusKey, namecardUser }
