@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { createError, useRuntimeConfig, definePageMeta, navigateTo } from '#imports'
+import { createError, useRuntimeConfig, navigateTo } from '#imports'
 import { useI18n } from '#i18n'
 import { ref } from 'vue'
 import type { AuthProvider, DialogStatus } from '@vuejs-jp/model'
@@ -9,10 +9,6 @@ import { useAuthSession } from '~/composables/useAuthSession'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import MarkDownText from '~/components/MarkDownText.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
-
-/* definePageMeta({
-  middleware: 'query-redirect',
-}) */
 
 const config = useRuntimeConfig()
 

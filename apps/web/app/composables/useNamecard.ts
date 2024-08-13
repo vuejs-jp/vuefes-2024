@@ -1,6 +1,6 @@
-import { watch,computed,ref,onMounted } from 'vue'
+import { watch,ref,onMounted } from 'vue'
 import { useSupabaseUser, useAsyncData } from '#imports'
-import { useSupabase } from '~/composables/useSupabase' 
+import { useSupabase } from '~/composables/useSupabase'
 import type { NamecardStatus, NamecardUser, Role } from '@vuejs-jp/model'
 
 export async function useNamecard(userId?: string) {
@@ -38,7 +38,7 @@ export async function useNamecard(userId?: string) {
   const namecardUser = ref<NamecardUser>()
 
   onMounted(async () => {
-await getNamecardData()
+    await getNamecardData()
   })
 
   watch(authUser, async (newUser) => {
