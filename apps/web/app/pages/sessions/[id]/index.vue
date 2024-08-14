@@ -152,7 +152,9 @@ useHead({
 
   .detailbody-tags {
     display: flex;
-    gap: calc(var(--unit) * 2);
+    flex-wrap: wrap;
+    gap: calc(var(--unit) * 1.5);
+    column-gap: calc(var(--unit) * 4);
   }
 
   .detailbody-explain {
