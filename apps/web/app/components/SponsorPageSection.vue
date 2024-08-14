@@ -172,7 +172,10 @@ const personalSponsorInfo: PersonalSponsorInfo = {
         <SponsorList v-bind="simultaneousInterpretationSponsors" />
         <SponsorList v-bind="childcareSponsors" />
       </div>
-      <SponsorList v-bind="handsonSponsors" />
+      <SponsorList
+        v-if="handsonSponsors.list.length !== 0"
+        v-bind="handsonSponsors"
+      />
       <SponsorList v-bind="mediaSponsors" />
       <SponsorList v-bind="toolSponsors" />
       <SponsorList
