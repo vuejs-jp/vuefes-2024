@@ -2,7 +2,7 @@
 import { useAsyncData } from '#imports'
 import { type AdminPage, type Role, selectableRoleList } from '@vuejs-jp/model'
 import { match } from 'ts-pattern'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useCsv } from '@vuejs-jp/composable'
 import { useSupabase } from '~/composables/useSupabase'
 import { useSupabaseCsv } from '~/composables/useSupabaseCsv'
@@ -25,7 +25,7 @@ const { data: sponsors } = await useAsyncData('sponsors', async () => {
 const { data: jobs } = await useAsyncData('jobs', async () => {
   return await fetchData('jobs')
 })
-const { data: attendees } = await useAsyncData('attendees', async () => {
+const { data: attendees, refresh: refreshAttendee } = await useAsyncData('attendees', async () => {
   return await fetchAttendeeData('attendees', selectedRole.value)
 })
 const { data: staffs } = await useAsyncData('staffs', async () => {
@@ -39,6 +39,11 @@ const props = defineProps<ListProps>()
 
 const showDialog = ref(false)
 const handleDialog = () => showDialog.value = !showDialog.value
+
+watch(
+  () => selectedRole.value,
+  () => refreshAttendee(),
+)
 
 const handleCsv = async () => {
   const res = await match(props.page)
