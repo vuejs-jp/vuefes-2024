@@ -32,5 +32,11 @@ const { color } = useColor()
   background: var(--tag-background-color);
   line-height: 1;
   white-space: nowrap;
+
+  @media (width <= 480px) {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap : break-word;
+  }
 }
 </style>
