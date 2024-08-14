@@ -38,8 +38,8 @@ export function useSupabaseCsv() {
 
   async function exportAttendee(table: Extract<Table, 'attendees'>) {
     const { data, error } = await client.from(table)
-      .select('display_name, image_url, image_file_name')
-      .neq('activated_at', null)
+      .select('display_name, avatar_url, image_file_name')
+      .not('activated_at', 'is', null)
       .csv()
     if (error) return
 
