@@ -37,7 +37,7 @@ watch(
 </script>
 <template>
   <NuxtLayout name="namecard-base">
-    <div v-if="authUser" class="namecard-user-root">
+    <div class="namecard-user-root">
       <CreationStatus :status-key="statusKey" class="creation-status" />
       <VFNamecard24 :user="namecardUser" class="namecard" />
       <VFLinkButton
@@ -50,7 +50,6 @@ watch(
       >
       <CreationProcess />
     </div>
-    <NuxtLink to="/namecard/">namecard top</NuxtLink>
   </NuxtLayout>
 </template>
 
