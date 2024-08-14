@@ -9,7 +9,7 @@ const { fontWeight } = useTypography()
 const { color } = useColor()
 
 type Props = {
-  statusKey: NamecardStatus
+  statusKey: NamecardStatus | undefined
   size?: 'small' | 'medium'
 }
 const props = withDefaults(defineProps<Props>(), {
@@ -52,7 +52,7 @@ const style = computed(() => {
 </script>
 
 <template>
-  <div class="creation-status-root" :style="style" :class="size">
+  <div v-if="statusKey" class="creation-status-root" :style="style" :class="size">
     {{ t(`namecard.creation_status.${statusKey}`) }}
   </div>
 </template>
