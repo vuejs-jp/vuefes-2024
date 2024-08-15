@@ -16,8 +16,10 @@ const { color } = useColor()
 
 <style scoped>
 .page-heading {
+  display: flex;
+  align-items: center;
+  height: 372px;
   margin-top: 80px;
-  padding: 150px 0;
   background: url(/common/bg_pageheading_pc.jpg) no-repeat right center/cover;
   font-size: 3.75rem;
 
@@ -28,16 +30,16 @@ const { color } = useColor()
   @custom-media --mobile (width <= 480px);
   */
   @media (width <= 768px) {
-    padding: 60px 0;
+    height: 162px;
     font-size: 2.1875rem;
     background-image: url(/common/bg_pageheading_sp.jpg);
   }
 
   .page-heading-body {
     width: 100%;
-    max-width: calc(960px + 3%);
+    max-width: 960px;
     margin: 0 auto;
-    padding: 0 1.5%;
+    padding: 0;
     display: block;
 
     /*

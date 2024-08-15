@@ -205,14 +205,12 @@ useHead({
     display: flex;
     flex-wrap: wrap;
     padding: 0;
-    margin-top: calc(var(--unit) * 8);
     column-gap: calc(var(--unit) * 1.5);
     gap: calc(var(--unit) * 0.5);
   }
 
   .detailhead-body {
     display: flex;
-    margin-top: calc(var(--unit) * 4);
     color: #292C33;
     gap: calc(var(--unit) * 5);
     padding: calc(var(--unit) * 2.5) 0 calc(var(--unit) * 5);
@@ -235,10 +233,10 @@ useHead({
 
   .detailhead-right {
     --body-font-size: 1.125rem;
-    --body-font-weight: 500;
 
+    color: var(--color-vue-blue);
     font-size: var(--body-font-size);
-    font-weight: var(--body-font-weight);
+    line-height: 1.8;
     white-space: pre-wrap;
 
     ::v-deep(p) {
