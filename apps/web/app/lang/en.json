@@ -2,7 +2,7 @@
   "welcome": "welcome",
   "home": "home",
   "about": "about",
-  "back_to_top": "Back o Top",
+  "back_to_top": "Back to Top",
   "not_found": "The page you are looking for cannot be found.",
   "prefix_year": "",
   "suffix_year": "2024",
@@ -217,8 +217,7 @@
     "title": "Code of Conduct"
   },
   "privacy": {
-    "title": "Privacy Policy",
-    "button": "Back to Top"
+    "title": "Privacy Policy"
   },
   "tokusho": {
     "title": "Notation based on the Specified Commercial Transactions Law"
