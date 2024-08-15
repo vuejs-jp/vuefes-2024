@@ -20,7 +20,7 @@ export function useSession() {
       .with('medpeer', () => 'メドピアトラック')
       .with('mntsq', () => 'MNTSQ全ての合意をフェアにするぞトラック')
       .with('kickflow', () => 'kickflowトラック')
-      .with('vue', () => 'vueトラック')
+      .with('vue', () => 'Vueトラック')
       .exhaustive()
   }
 
