@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watchEffect } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
 import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
@@ -52,9 +52,10 @@ const updateReceiptId = (e: any) => {
 }
 
 const namecard = ref({ ...namecardUser.value })
-watchEffect(() => {
-  namecard.value = { ...namecardUser.value }
-})
+watch(
+  () => namecardUser.value,
+  () => { namecard.value = { ...namecardUser.value } },
+)
 
 const newAttendee = ref({
   ...namecardUser.value,
