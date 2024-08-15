@@ -105,7 +105,11 @@ const team = teamData
 .volunteer-section-body {
   max-width: 988px;
   margin: 0 auto;
-  padding-top: calc(var(--unit) * 5);
+  padding-top: calc(var(--unit) * 10);
+
+  @media (--mobile) {
+    padding-top: calc(var(--unit) * 5);
+  }
 }
 
 .team-section-body,
