@@ -38,6 +38,28 @@ watch(
 <template>
   <NuxtLayout name="namecard-base">
     <div class="namecard-user-root">
+      <template v-if="statusKey !== 'not_created'">
+        <VFComment :title="t('namecard.lets_share')" class="share-comment" />
+        <div class="sns-buttons">
+          <VFIconButton
+            name="x40"
+            color="vue-blue"
+            :href="`https://x.com/share?url=${encodeURIComponent(
+              `https://vuefes.jp/2024/namecard/${authUser?.id}/share`,
+            )}`"
+            can-hover
+            class="sns-button"
+          />
+          <VFIconButton
+            name="Facebook"
+            color="vue-blue"
+            :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+              `https://vuefes.jp/2024/namecard/${authUser?.id}/share`,
+            )}`"
+            class="sns-button"
+          />
+        </div>
+      </template>
       <CreationStatus :status-key="statusKey" class="creation-status" />
       <VFNamecard24 :user="namecardUser" class="namecard" />
       <VFLinkButton
@@ -58,8 +80,23 @@ watch(
 .namecard-user-root {
   text-align: center;
 }
+.share-comment,
 .creation-status {
   margin: 0 auto calc(var(--unit) * 2.5);
+}
+.sns-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--unit) * 2.5);
+  margin-bottom: calc(var(--unit) * 2.5);
+}
+.sns-button {
+  &:deep(svg, a) {
+    display: block;
+    width: 40px;
+    height: auto;
+  }
 }
 .namecard {
   margin: 0 auto calc(var(--unit) * 5);
