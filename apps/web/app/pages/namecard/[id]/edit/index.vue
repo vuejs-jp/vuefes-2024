@@ -145,7 +145,6 @@ function onSubmit(e: Event) {
           :label="t('namecard.form.label_name')"
           :placeholder="`${t('form.form_placeholder_example')}${t('form.form_name_placeholder')}`"
           required
-          :disabled="notEditable"
           :error="nameError"
           @input="updateName"
           @blur="validateNameWithMaxLength"
