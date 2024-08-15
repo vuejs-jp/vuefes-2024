@@ -226,7 +226,8 @@
     "title": "ジョブボード"
   },
   "team": {
-    "title": "チーム"
+    "title": "チーム",
+    "volunteer_title": "ボランティアスタッフ"
   },
   "message": {
     "title": "メッセージ"

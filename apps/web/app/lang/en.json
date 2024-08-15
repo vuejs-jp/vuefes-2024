@@ -208,7 +208,8 @@
     "title": "JOB BOARD"
   },
   "team": {
-    "title": "Team"
+    "title": "Team",
+    "volunteer_title": "Volunteer Staff"
   },
   "message": {
     "title": "Message"

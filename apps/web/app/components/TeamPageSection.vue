@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { team as teamData } from '~/utils/constants'
+import { team as teamData, volunteers } from '~/utils/constants'
 // import type { StaffInfo } from '@vuejs-jp/model'
 // import { useFetch, useRuntimeConfig } from '#imports'
 
@@ -52,6 +52,16 @@ const team = teamData
         </div>
       </div>
     </article>
+
+    <article class="volunteer-section-body">
+      <VFTitle id="volunteer" class="volunteer-title">
+        {{ $t('team.volunteer_title') }}
+      </VFTitle>
+
+      <div class="volunteer-members-container">
+        <VFCreditList :list="volunteers" />
+      </div>
+    </article>
   </section>
 </template>
 
@@ -86,12 +96,20 @@ const team = teamData
   }
 }
 
-.title {
+.title,
+.volunteer-title {
   text-align: center;
   line-height: 1.2;
 }
 
-.team-section-body {
+.volunteer-section-body {
+  max-width: 988px;
+  margin: 0 auto;
+  padding-top: calc(var(--unit) * 5);
+}
+
+.team-section-body,
+.volunteer-section-body {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -135,6 +153,12 @@ const team = teamData
   text-decoration: none;
 }
 
+.volunteer-members-container {
+  --team-section-text-padding: 0 calc(var(--unit) * 10 + 6%);
+
+  padding: var(--team-section-text-padding);
+}
+
 @media (--tablet) {
   .team-section-body {
     --team-section-body-padding: calc(var(--unit) * 4) 4.5% calc(var(--unit) * 6);
@@ -158,6 +182,10 @@ const team = teamData
 
   .team-member-name {
     --team-member-name-font-size: 0.75rem;
+  }
+
+  .volunteer-members-container {
+    --team-section-text-padding: 0 4.5%;
   }
 }
 </style>
