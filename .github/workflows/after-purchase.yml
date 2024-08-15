@@ -1,15 +1,15 @@
 name: After Purchase CI
 
 on:
-  # 2 時間おきに実行
-  # schedule:
-  #   - cron: 0 1/2 * * * # https://crontab.guru/#0_1/2_*_*_*
+  # 6 時間おきに実行
+  schedule:
+    - cron: 0 1/2 * * * # https://crontab.guru/#0_1/6_*_*_*
   # push:
   #   branches:
   #     - main
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
 
 jobs:
   after-purchase:
