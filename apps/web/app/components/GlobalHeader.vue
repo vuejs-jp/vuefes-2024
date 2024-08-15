@@ -1,12 +1,22 @@
 <script setup lang="ts">
-import { useI18n, useRuntimeConfig } from '#imports'
+import { useI18n, useRuntimeConfig, useNuxtApp } from '#imports'
 import { useScreenOrientation, useWindowSize } from '@vueuse/core'
 import { ref, watch, onMounted, computed } from 'vue'
-const { locale, setLocale } = useI18n({ useScope: 'global' })
+
+// setLocaleの型定義
+// https://i18n.nuxtjs.org/docs/v9/api/vue-i18n#setlocale
+interface NuxtI18nInstance {
+  setLocale: (locale: string) => Promise<void>
+}
+
+const { locale } = useI18n({ useScope: 'global' })
+const { $i18n } = useNuxtApp()
+const i18n = $i18n as unknown as NuxtI18nInstance
+
 const config = useRuntimeConfig()
 
 const onSwitchLocale = () => {
-  setLocale(locale.value === 'ja' ? 'en' : 'ja')
+  i18n.setLocale(locale.value === 'ja' ? 'en' : 'ja')
 }
 
 const { width } = useWindowSize()
