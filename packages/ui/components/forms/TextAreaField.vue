@@ -13,6 +13,8 @@ type Props = {
   placeholder?: string
   /** TextareaHTMLAttribute required(default: false) */
   required?: boolean
+  /** TextareaHTMLAttribute disabled(default: false) */
+  disabled?: boolean
   /** TextareaHTMLAttribute rows */
   rows?: number
   /** Error message */
@@ -63,6 +65,7 @@ const { fontWeight, fontSize } = useTypography()
       :rows="rows"
       :placeholder="placeholder"
       :required="required"
+      :disabled="disabled"
       @blur="handleBlur"
     />
     <Typography v-if="errorMessage" variant="body/200" color="sangosyo/200">{{ errorMessage }}</Typography>
@@ -102,5 +105,9 @@ const { fontWeight, fontSize } = useTypography()
 .form-textarea::placeholder {
   color: var(--color-placeholder);
   font-weight: normal;
+}
+
+.form-textarea:disabled {
+  background: #c6cacf40;
 }
 </style>

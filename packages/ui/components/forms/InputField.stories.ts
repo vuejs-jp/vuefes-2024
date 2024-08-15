@@ -34,6 +34,17 @@ export const Default: Story = {
   },
 }
 
+export const Disabled: Story = {
+  name: 'Disabled',
+  args: {
+    id: 'default',
+    name: 'default',
+    label: 'お名前',
+    placeholder: '山田太郎',
+    disabled: true,
+  },
+}
+
 export const Error: Story = {
   name: 'Error',
   args: {

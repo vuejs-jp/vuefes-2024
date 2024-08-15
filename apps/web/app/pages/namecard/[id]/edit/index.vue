@@ -26,9 +26,22 @@ const { getFullAvatarUrl } = useSupabaseStorage()
 
 const name = ref('')
 const receiptId = ref('')
+const filePathRef = ref<string | null>(null)
+const fileRef = ref<File | null>(null)
+
 const isSubmitting = computed(() => {
   if (!name.value || !receiptId.value) return false
+  if (
+    name.value === attendeeDataByUserId.value.display_name &&
+    filePathRef.value === attendeeDataByUserId.value.avatar_url &&
+    receiptId.value === attendeeDataByUserId.value.receipt_id
+  ) {
+    return false
+  }
   return nameError.value === '' && orderNumberError.value === ''
+})
+const notEditable = computed(() => {
+  return statusKey.value === 'inquiry_completed'
 })
 
 const updateName = (e: any) => {
@@ -56,9 +69,6 @@ watchEffect(() => {
   namecard.value.display_name = name.value
   namecard.value.receipt_id = receiptId.value
 })
-
-const filePathRef = ref<string | null>(null)
-const fileRef = ref<File | null>(null)
 
 const checkFiles = (e: Event, files: File[]) => {
   e.preventDefault()
@@ -134,6 +144,7 @@ function onSubmit(e: Event) {
           :label="t('namecard.form.label_name')"
           :placeholder="`${t('form.form_placeholder_example')}${t('form.form_name_placeholder')}`"
           required
+          :disabled="notEditable"
           :error="nameError"
           @input="updateName"
           @blur="validateNameWithMaxLength"
@@ -153,6 +164,7 @@ function onSubmit(e: Event) {
           :label="t('namecard.form.label_order_number')"
           :placeholder="t('namecard.form.placeholder_order_number')"
           required
+          :disabled="notEditable"
           :error="orderNumberError"
           @input="updateReceiptId"
           @blur="validateOrderNumber"
