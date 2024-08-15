@@ -31,13 +31,13 @@ const fileRef = ref<File | null>(null)
 
 const isSubmitting = computed(() => {
   if (!name.value || !receiptId.value) return false
-  if (
-    name.value === attendeeDataByUserId.value.display_name &&
-    filePathRef.value === attendeeDataByUserId.value.avatar_url &&
-    receiptId.value === attendeeDataByUserId.value.receipt_id
-  ) {
-    return false
-  }
+  // if (
+  //   name.value === attendeeDataByUserId.value.display_name &&
+  //   filePathRef.value === attendeeDataByUserId.value.avatar_url &&
+  //   receiptId.value === attendeeDataByUserId.value.receipt_id
+  // ) {
+  //   return false
+  // }
   return nameError.value === '' && orderNumberError.value === ''
 })
 const notEditable = computed(() => {
