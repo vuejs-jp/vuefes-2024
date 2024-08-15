@@ -39,6 +39,9 @@ const updateReceiptId = (e: any) => {
 }
 
 const namecard = ref({ ...namecardUser.value })
+watchEffect(() => {
+  namecard.value = { ...namecardUser.value }
+})
 
 const newAttendee = ref({
   ...namecardUser.value,

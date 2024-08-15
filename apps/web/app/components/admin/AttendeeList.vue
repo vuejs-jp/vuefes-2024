@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Attendee } from '@vuejs-jp/model'
 import { ref } from 'vue'
+import { useSupabase } from '~/composables/useSupabase'
 
 interface AttendeeListProps {
   attendees: Attendee[]
@@ -10,11 +11,24 @@ const emit = defineEmits<{ edit: [id: string] }>()
 
 const props = defineProps<AttendeeListProps>()
 
+const { upsertAttendee } = useSupabase()
+
 const showDialog = ref(false)
 const attendeeId = ref('')
 const handleDialog = (id?: string) => {
   showDialog.value = !showDialog.value
   attendeeId.value = id ?? ''
+}
+const handleConfirm = (attendee?: Attendee) => {
+  if (confirm(attendee?.activated_at ? 'Deactivate?' : 'Activate?')) {
+    upsertAttendee(
+      'attendees',
+      {
+        ...attendee,
+        activated_at: attendee?.activated_at ? null : new Date().toISOString(),
+      },
+    )
+  }
 }
 </script>
 
@@ -61,6 +75,15 @@ const handleDialog = (id?: string) => {
           @click="() => handleDialog(attendee?.id)"
         >
           Edit
+        </VFLinkButton>
+        <VFLinkButton
+          is="button"
+          class="action"
+          background-color="white"
+          color="vue-blue"
+          @click="() => handleConfirm(attendee)"
+        >
+          {{ attendee.activated_at ? 'Deactivate' : 'Activate' }}
         </VFLinkButton>
       </td>
     </tr>

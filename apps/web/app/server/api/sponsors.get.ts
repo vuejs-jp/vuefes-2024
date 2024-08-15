@@ -187,6 +187,20 @@ export default defineEventHandler(async (event) => {
       }),
   }
 
+  const handsonSponsors: SponsorInfo = {
+    type: 'option',
+    title: 'handson',
+    list: sponsors
+      .filter((s: Sponsor) => {
+        if (process.env.NODE_ENV === 'production') return s['tag'].includes('handson') && s.is_open === true
+        return s['tag'].includes('handson')
+      })
+      .sort((a: Sponsor, b: Sponsor) => {
+        if (b.display_order && a.display_order) return a.display_order - b.display_order
+        return a.created_at < b.created_at ? -1 : 1
+      }),
+  }
+
   const mediaSponsors: SponsorInfo = {
     type: 'option',
     title: 'media',
@@ -228,6 +242,7 @@ export default defineEventHandler(async (event) => {
     nameCardSponsors,
     simultaneousInterpretationSponsors,
     childcareSponsors,
+    handsonSponsors,
     mediaSponsors,
     toolSponsors,
   }

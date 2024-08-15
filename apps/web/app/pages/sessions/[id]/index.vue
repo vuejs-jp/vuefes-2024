@@ -134,9 +134,7 @@ useHead({
   margin: 0 auto;
   padding: 60px 0 120px;
   width: 100%;
-  max-width: 1280px;
-  display: grid;
-  gap: calc(var(--unit) * 8);
+  max-width: 960px;
 
   @media (--tablet) {
     padding: 20px 0 60px;
@@ -147,20 +145,22 @@ useHead({
     text-align: left;
     font-size: 32px;
     font-weight: 700;
-    margin-bottom: calc(var(--unit) * 3);
+    margin: calc(var(--unit) * 2) 0;
   }
 
   .detailbody-tags {
     display: flex;
-    gap: calc(var(--unit) * 2);
+    flex-wrap: wrap;
+    gap: calc(var(--unit) * 1.5);
+    column-gap: calc(var(--unit) * 4);
   }
 
   .detailbody-explain {
     --body-font-size: 1.125rem;
-    --body-font-weight: 500;
 
+    color: var(--color-vue-blue);
     font-size: var(--body-font-size);
-    font-weight: var(--body-font-weight);
+    line-height: 1.8;
     white-space: pre-wrap;
 
     ::v-deep(p) {
@@ -203,10 +203,16 @@ useHead({
     display: grid;
     grid-template-columns: auto 1fr;
     gap: calc(var(--unit) * 4);
+    margin-top: calc(var(--unit) * 10);
   }
 
   .detailbody-persons ::v-deep(img) {
     width: var(--head-img-width);
+  }
+
+  .person-info {
+    color: var(--color-vue-blue);
+    line-height: 1.8;
   }
 
   .person-info ::v-deep(ul) {
@@ -217,7 +223,6 @@ useHead({
 
   .person-info ::v-deep(p) {
     color: var(--color-vue-blue);
-    font-weight: 500;
     font-size: 18px;
     line-height: 1.8;
   }
