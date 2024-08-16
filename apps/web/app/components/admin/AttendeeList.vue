@@ -48,11 +48,17 @@ const handleConfirm = (attendee?: Attendee) => {
     <tr v-for="attendee in attendees" :key="attendee.id">
       <td>{{ attendee.user_id }}</td>
       <td>{{ attendee.email }}</td>
-      <td>
+      <td :style="{ position: 'relative' }">
         <img
           v-if="attendee.avatar_url"
           alt=""
           :src="attendee.avatar_url"
+          :style="{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            objectFit: 'cover',
+          }"
           width="60"
           height="60"
           decoding="async"

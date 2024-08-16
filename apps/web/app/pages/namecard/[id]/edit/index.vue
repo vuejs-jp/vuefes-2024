@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch, watchEffect } from 'vue'
+import { computed, onMounted, ref, watchEffect } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
 import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
@@ -20,7 +20,7 @@ const { t } = useI18n()
 const { path: localePath } = useLocaleCurrent()
 const { nameError, orderNumberError, validateNameWithMaxLength, validateOrderNumber } =
   useFormError()
-const { authUser, attendeeDataByUserId, statusKey, namecardUser } = await useNamecard()
+const { authUser, attendeeDataByUserId, statusKey, namecardUser, getNamecardData } = useNamecard()
 const { upsertAttendee, uploadAvatar } = useSupabase()
 const { getFullAvatarUrl } = useSupabaseStorage()
 
@@ -52,17 +52,19 @@ const updateReceiptId = (e: any) => {
 }
 
 const namecard = ref({ ...namecardUser.value })
-watch(
-  () => namecardUser.value,
-  () => { namecard.value = { ...namecardUser.value } },
-)
+watchEffect(() => {
+  namecard.value = { ...namecardUser.value }
+})
 
 const newAttendee = ref({
   ...namecardUser.value,
 })
 
-name.value = newAttendee.value?.display_name ?? ''
-receiptId.value = newAttendee.value?.receipt_id ?? ''
+onMounted(async () => {
+  await getNamecardData()
+  name.value = namecardUser.value?.display_name ?? newAttendee.value?.display_name ?? ''
+  receiptId.value = namecardUser.value?.receipt_id ?? newAttendee.value?.receipt_id ?? ''
+})
 
 watchEffect(() => {
   newAttendee.value.display_name = name.value

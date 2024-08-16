@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import {
   createError,
   // defineOgImageComponent,
@@ -18,12 +18,16 @@ const { t } = useI18n()
 const config = useRuntimeConfig()
 const route = useRoute()
 const id = route.params.id as string
-const { attendeeDataByUserId } = await useNamecard(id)
+const { attendeeDataByUserId, getNamecardData } = useNamecard(id)
 if (!attendeeDataByUserId) {
   throw createError({ statusCode: 404, statusMessage: 'Attendee not found' })
 }
 
 const currentLocale = useLocaleCurrent().locale
+
+onMounted(async () => {
+  await getNamecardData()
+})
 
 function copyUrl() {
   const element = document.createElement('input')
@@ -48,13 +52,13 @@ useHead({
       title: `${attendeeDataByUserId.value?.display_name} | ${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}namecard/${id}/share`,
-      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${attendeeDataByUserId.value?.id}&page=namecard`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${id}&page=namecard`,
     }),
     ...twitterOg({
       title: `${attendeeDataByUserId.value?.display_name} | ${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}namecard/${id}/share`,
-      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${attendeeDataByUserId.value?.id}&page=namecard`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${id}&page=namecard`,
     }),
   ],
 })

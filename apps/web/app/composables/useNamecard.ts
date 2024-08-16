@@ -4,7 +4,7 @@ import { useSupabase } from '~/composables/useSupabase'
 import { useAuthStore } from '~/store/auth'
 import type { NamecardStatus, NamecardUser, Role } from '@vuejs-jp/model'
 
-export async function useNamecard(userId?: string) {
+export function useNamecard(userId?: string) {
   const { fetchAttendeeDataByUserId } = useSupabase()
   const { signedUserId, setSignedUserId } = useAuthStore()
 
@@ -50,5 +50,5 @@ export async function useNamecard(userId?: string) {
     }
   }, { immediate: true })
 
-  return { authUser, attendeeDataByUserId, statusKey, namecardUser }
+  return { authUser, attendeeDataByUserId, statusKey, namecardUser, getNamecardData }
 }
