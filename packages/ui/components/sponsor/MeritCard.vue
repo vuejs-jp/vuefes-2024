@@ -27,8 +27,7 @@ const props = defineProps<MeritProps>()
 .merit {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: calc(var(--unit) * 2);
-  min-height: 150px;
+  gap: calc(var(--unit) * 3);
 }
 
 .merit-card {
