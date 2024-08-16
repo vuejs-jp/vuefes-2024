@@ -89,6 +89,7 @@ onMounted(() => {
   background: var(--color-vue-green-gradation);
   display: grid;
   place-items: center;
+  position: relative;
   border: 4px solid var(--color-white);
   container: avatar-logo / inline-size;
   @media (width <= 480px) {
