@@ -16,7 +16,7 @@ const props = defineProps<MeritProps>()
       </div>
     </div>
     <div class="merit-item">
-      <h4>{{ title }}</h4>
+      <h4 class="merit-title">{{ title }}</h4>
       <p class="detail">{{ detail }}</p>
       <p class="caution">{{ caution }}</p>
     </div>
@@ -48,7 +48,7 @@ const props = defineProps<MeritProps>()
 .merit-item {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .merit-item ::v-deep(h4) {
@@ -56,15 +56,17 @@ const props = defineProps<MeritProps>()
   font-weight: 800;
 }
 
+.merit-title {
+  margin-bottom: 8px;
+}
+
 .detail {
   font-size: 16px;
-  font-weight: 500;
   white-space: pre-wrap;
 }
 
 .caution {
   font-size: 12px;
-  font-weight: 500;
   white-space: pre-wrap;
 }
 
