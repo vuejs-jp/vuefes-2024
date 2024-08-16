@@ -24,6 +24,8 @@ const { authUser, attendeeDataByUserId, statusKey, namecardUser, getNamecardData
 const { upsertAttendee, uploadAvatar } = useSupabase()
 const { getFullAvatarUrl } = useSupabaseStorage()
 
+await getNamecardData()
+
 const name = ref('')
 const receiptId = ref('')
 const filePathRef = ref<string | null>(null)
@@ -61,7 +63,6 @@ const newAttendee = ref({
 })
 
 onMounted(async () => {
-  await getNamecardData()
   name.value = namecardUser.value?.display_name ?? newAttendee.value?.display_name ?? ''
   receiptId.value = namecardUser.value?.receipt_id ?? newAttendee.value?.receipt_id ?? ''
 })
