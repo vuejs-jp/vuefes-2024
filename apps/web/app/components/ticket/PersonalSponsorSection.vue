@@ -16,7 +16,7 @@ import { ticketUrl } from '~/utils/constants'
         :detail="$t(`personal_sponsor.merit${i}.detail`)"
         :caution="(i === 2 || i === 4) ? $t(`personal_sponsor.merit${i}.caution`) : ''"
       >
-        <img alt="" :src="`/sponsor/merit-${i}.png`" />
+        <img alt="" :src="`/sponsor/merit-${i}.jpg`" />
       </VFMeritCard>
     </div>
     <div class="personal-sponsor-text">
@@ -39,7 +39,7 @@ import { ticketUrl } from '~/utils/constants'
 @import url('~/assets/media.css');
 
 .personal-sponsor-body {
-  --personal-sponsor-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
+  --personal-sponsor-body-padding: calc(var(--unit) * 10) calc(var(--unit) * 12);
 
   margin: 0 auto;
   padding: var(--personal-sponsor-body-padding);
@@ -60,6 +60,7 @@ import { ticketUrl } from '~/utils/constants'
 
 .personal-sponsor-text {
   margin-top: calc(var(--unit) * 4);
+  font-size: 18px;
   line-height: 1.8;
   color: white;
 
@@ -77,6 +78,7 @@ import { ticketUrl } from '~/utils/constants'
     --body-p-margin-bottom: calc(var(--unit) * 4);
 
     margin-bottom: var(--body-p-margin-bottom);
+    font-size: 18px;
   }
 }
 

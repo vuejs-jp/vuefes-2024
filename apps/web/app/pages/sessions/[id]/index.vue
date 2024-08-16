@@ -152,7 +152,7 @@ useHead({
     display: flex;
     flex-wrap: wrap;
     gap: calc(var(--unit) * 1.5);
-    column-gap: calc(var(--unit) * 4);
+    column-gap: calc(var(--unit));
   }
 
   .detailbody-explain {
@@ -253,6 +253,10 @@ useHead({
   @media (--tablet) {
     --head-img-width: 368px;
 
+    .detailbody-persons {
+      grid-template-columns: 1fr 1fr;
+    }
+
     .back-action {
       --height-button: 58px;
     }
@@ -274,8 +278,9 @@ useHead({
     }
 
     .detailbody-persons {
-      grid-template-columns: 1fr;
+      grid-template-columns: auto;
       place-items: center;
+      margin-top: calc(var(--unit) * 5);
     }
 
     .person-info ::v-deep(p) {

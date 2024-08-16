@@ -13,7 +13,7 @@
 @import url('~/assets/media.css');
 
 .faq-body {
-  --faq-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
+  --faq-body-padding: calc(var(--unit) * 10) calc(var(--unit) * 12);
 
   margin: 0 auto;
   padding: var(--faq-body-padding);

@@ -19,8 +19,9 @@ const config = useRuntimeConfig()
     <VolunteerSection v-if="config.public.enableRegisterTicket && locale === 'ja'" />
     -->
     <ChildCareSection />
-    <PersonalSponsorSection />
     <HandsonSection />
+    <HandsonSection />
+    <PersonalSponsorSection />
     <FaqSection />
   </section>
 </template>
@@ -37,7 +38,7 @@ const config = useRuntimeConfig()
     linear-gradient(to bottom, #35495e, #353b5e);
   background-position: top -1px left -1px;
   background-size: 30px;
-  background-blend-mode: overlay;
+  background-blend-mode: color-dodge;
   padding: var(--ticket-padding);
   color: var(--color-vue-blue);
 }

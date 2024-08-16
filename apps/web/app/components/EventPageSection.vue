@@ -60,7 +60,7 @@ const { panelEventPanelers } = props.data as Panelers
     linear-gradient(to bottom, #35495e, #353b5e);
   background-position: top -1px left -1px;
   background-size: 30px;
-  background-blend-mode: overlay;
+  background-blend-mode: color-dodge;
   padding: var(--event-padding);
   margin: 0 auto;
   color: var(--color-vue-blue);

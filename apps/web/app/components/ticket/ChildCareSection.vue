@@ -25,7 +25,7 @@ import { childCareUrl } from '~/utils/constants'
 @import url('~/assets/media.css');
 
 .childcare-body {
-  --childcare-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
+  --childcare-body-padding: calc(var(--unit) * 10) calc(var(--unit) * 12);
 
   margin: 0 auto;
   padding: var(--childcare-body-padding);
@@ -44,6 +44,7 @@ import { childCareUrl } from '~/utils/constants'
 
 .childcare-body-text {
   margin-top: calc(var(--unit) * 4);
+  font-size: 18px;
   line-height: 1.8;
   color: white;
 

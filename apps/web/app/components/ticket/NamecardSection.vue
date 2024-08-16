@@ -11,9 +11,9 @@ import { ticketUrl } from '~/utils/constants'
   <article class="namecard-body">
     <div class="title-wrapper">
       <VFComment color="white" :title="$t('namecard.sectionTitle1')" />
-      <VFTitle id="namecard" color="white" class="title-2">
+      <h3 id="namecard" class="namecard-title">
         {{ $t('namecard.sectionTitle2') }}
-      </VFTitle>
+      </h3>
     </div>
 
     <div class="namecard-text">
@@ -56,14 +56,14 @@ import { ticketUrl } from '~/utils/constants'
   gap: 8px;
 }
 
-.title-1 {
+.namecard-title {
   color: white;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 36px;
+  font-weight: bold;
 }
 
 .namecard-body {
-  --namecard-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
+  --namecard-body-padding: calc(var(--unit) * 10) calc(var(--unit) * 12);
 
   margin: 0 auto;
   padding: var(--namecard-body-padding);
@@ -71,10 +71,12 @@ import { ticketUrl } from '~/utils/constants'
   margin: 0 1.5%;
   max-width: 960px;
   width: 100%;
+  border-bottom: 1px solid var(--color-white);
 }
 
 .namecard-text {
   margin-top: calc(var(--unit) * 4);
+  font-size: 18px;
   line-height: 1.8;
   color: white;
 
@@ -118,7 +120,7 @@ import { ticketUrl } from '~/utils/constants'
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  margin: -20px 0 -40px;
 }
 
 .separator {
