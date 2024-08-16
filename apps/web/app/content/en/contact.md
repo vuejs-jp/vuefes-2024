@@ -1,1 +1,1 @@
-Thank you for your interest in Vue Fes Japan. If you do not receive a reply within 3 business days, please contact us again. We will announce the speakers, tickets, timetable, etc. on the official website as soon as they are confirmed.
+Thank you for your interest in Vue Fes Japan. If you do not receive a reply within 3 business days, please contact us again.

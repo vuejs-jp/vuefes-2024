@@ -57,7 +57,7 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
 
       <section v-if="lightningTalkSpeakers.list.length !== 0" id="lightning-talks" class="speaker-section">
         <h3 class="speaker-subtitle">Lightning Talks</h3>
-        <p>
+        <p class="speaker-lt-description">
           {{ $t('speaker.lt_description') }}
         </p>
         <ul class="speaker-cards">
@@ -210,9 +210,17 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
 }
 
 .speaker-hr {
-  padding: 50px 0;
+  margin: 50px 0;
+  padding: 0;
   border: 0;
   border-bottom: 1px solid var(--color-vue-blue);
+  opacity: 0.4;
+}
+
+.speaker-lt-description {
+  margin: calc(var(--unit) * 2) 0 0;
+  font-size: 18px;
+  line-height: 1.8;
 }
 
 @media (--tablet) {

@@ -15,7 +15,7 @@ const { color } = useColor()
       <h3
         :style="{
           fontWeight: fontWeight('heading/800'),
-          fontSize: fontSize('body/400'),
+          fontSize: fontSize('heading/300'),
           color: color('vue-blue')
         }"
         class="place-name"
@@ -32,7 +32,7 @@ const { color } = useColor()
         <p
           :style="{
             fontWeight: fontWeight('body/300'),
-            fontSize: fontSize('body/300'),
+            fontSize: fontSize('body/400'),
           }"
         >
           {{ $t('access.address') }}
@@ -40,7 +40,7 @@ const { color } = useColor()
         <NuxtLink
           :to="$t('access.hp')" target="_blank" :style="{
           fontWeight: fontWeight('body/300'),
-          fontSize: fontSize('body/300'),
+          fontSize: fontSize('body/400'),
           color: color('vue-blue')
         }">
           {{ $t('access.hp') }}
