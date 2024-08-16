@@ -24,7 +24,8 @@
     "end_date": "July 21",
     "end_hour": "12",
     "end_minute": "00",
-    "end_ampm": "pm"
+    "end_ampm": "pm",
+    "lt_description": "A 5-minute lightning talk! As a special feature of this event, we will be distributing glow sticks to all participants. When you feel a \"thumbs up!\" moment, resonate with the content, or gain new insights during the LT, please wave your glow stick in response! Let's all create an exciting atmosphere for the LT together!"
   },
   "event": {
     "title": "Event",

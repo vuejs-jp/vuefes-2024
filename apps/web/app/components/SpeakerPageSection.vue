@@ -53,8 +53,13 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
         </ul>
       </section>
 
+      <hr class="speaker-hr" />
+
       <section v-if="lightningTalkSpeakers.list.length !== 0" id="lightning-talks" class="speaker-section">
         <h3 class="speaker-subtitle">Lightning Talks</h3>
+        <p>
+          {{ $t('speaker.lightningTalksDescription') }}
+        </p>
         <ul class="speaker-cards">
           <li v-for="speaker in lightningTalkSpeakers.list" :key="speaker.id" class="speaker-card">
             <NuxtLink
@@ -202,6 +207,12 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
 
 .speaker-card-link {
   text-decoration: none;
+}
+
+.speaker-hr {
+  padding: 50px 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-vue-blue);
 }
 
 @media (--tablet) {
