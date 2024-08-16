@@ -1,15 +1,15 @@
 name: After Purchase CI
 
 on:
-  # チケット購入が始まって購入情報と照合可能になった際に開放
-  # schedule:
-  #   - cron: 0 * * * * # https://crontab.guru/every-hour
+  # 6 時間おきに実行
+  schedule:
+    - cron: 0 1/2 * * * # https://crontab.guru/#0_1/6_*_*_*
   # push:
   #   branches:
   #     - main
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
 
 jobs:
   after-purchase:

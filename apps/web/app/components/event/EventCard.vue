@@ -35,6 +35,12 @@ const props = defineProps<EventCardProps>()
   color: var(--color-vue-blue);
 }
 
+.eventcard-content ::v-deep(p) {
+  --body-p-margin-bottom: calc(var(--unit) * 4);
+  margin-bottom: var(--body-p-margin-bottom);
+  line-height: 1.8;
+}
+
 .eventcard-content ::v-deep(a) {
   color: var(--color-vue-green200);
   text-decoration: underline;

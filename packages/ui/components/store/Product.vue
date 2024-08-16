@@ -8,19 +8,24 @@ const props = defineProps<StoreItemProps>()
 
 <template>
   <div class="store-item">
-    <img
-      width="308"
-      height="308"
-      :alt
-      :src
-      decoding="async"
-    />
+    <a :href="url" target="_blank">
+      <img
+        width="308"
+        height="308"
+        :alt
+        :src
+        decoding="async"
+      />
+    </a>
     <div class="name">{{ name }}</div>
     <div class="price">{{ price }}</div>
-    <div class="explain">{{ explain }}</div>
+    <div class="explain">
+      <slot name="explain" />
+    </div>
     <div class="supplement">
-      <p>{{ size }}</p>
       <p v-if="color">{{ color }}</p>
+      <p v-if="type">{{ type }}</p>
+      <p>{{ size }}</p>
       <p v-if="weight">{{ weight }}</p>
     </div>
   </div>
@@ -32,6 +37,11 @@ const props = defineProps<StoreItemProps>()
   display: flex;
   flex-direction: column;
   gap: 1em;
+  color: var(--color-vue-blue);
+}
+
+.store-item img {
+  border: 1px solid #DCE1E5;
 }
 
 .name {
@@ -42,6 +52,16 @@ const props = defineProps<StoreItemProps>()
 .explain {
   width: 308px;
   white-space: pre-wrap;
+
+  &::v-deep(a) {
+    color: var(--color-vue-green200);
+    text-decoration: none;
+  }
+
+  &::v-deep(a:hover) {
+    opacity: 0.4;
+    transition: .2s;
+  }
 }
 
 .price {
@@ -67,7 +87,6 @@ const props = defineProps<StoreItemProps>()
   }
   .store-item img {
     display: block;
-    max-width: 80%;
     margin: 0 auto;
   }
   .explain {

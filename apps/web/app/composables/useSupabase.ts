@@ -6,9 +6,12 @@ import type { FormSpeaker, FormSponsor, FormAttendeeOverride, FormStaff, FormJob
 export function useSupabase() {
   const client = useSupabaseClient<Database>()
 
-  async function fetchData(table: Table, options?: { id?: string; detailPageId?: string; sponsorId?: string }) {
+  async function fetchData(table: Table, options?: { id?: string; speakerId?: string[]; detailPageId?: string; sponsorId?: string }) {
     if (options?.id) {
       return await client.from(table).select().eq('id', options.id)
+    }
+    if (options?.speakerId) {
+      return await client.from(table).select().in('id', options.speakerId)
     }
     if (options?.detailPageId) {
       return await client.from(table).select().eq('detail_page_id', options.detailPageId)

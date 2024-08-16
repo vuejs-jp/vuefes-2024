@@ -7,6 +7,9 @@ const LANGUAGES = {
 } as const
 
 const props = defineProps<{ locale: string }>()
+const emit = defineEmits<{
+  switchLocale: []
+}>()
 
 const isLoaded = ref(false)
 const isChecked = computed(() => props.locale === LANGUAGES.ENGLISH)
@@ -14,6 +17,9 @@ const isChecked = computed(() => props.locale === LANGUAGES.ENGLISH)
 onMounted(() => {
   isLoaded.value = true
 })
+const onSwitchLocale = () => {
+  emit('switchLocale')
+}
 </script>
 
 <template>
@@ -24,7 +30,7 @@ onMounted(() => {
     class="locale-switch-button"
     aria-label="translate english"
     :aria-checked="isChecked"
-    @click="() => {}"
+    @click="onSwitchLocale"
   >
     <span
       class="locale-switch-button-switch"

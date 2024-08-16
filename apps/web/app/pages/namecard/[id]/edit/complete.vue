@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
+import { definePageMeta } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import { useNamecard } from '~/composables/useNamecard'
+
+definePageMeta({
+  middleware: 'auth',
+})
 
 const { t } = useI18n()
 const { fontWeight, fontSize } = useTypography()

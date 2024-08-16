@@ -39,6 +39,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/supabase',
     '@nuxt/content',
+    '@pinia/nuxt',
     'nuxt-gtag',
     'nuxt-og-image',
   ],
@@ -116,18 +117,27 @@ export default defineNuxtConfig({
       const { data: speakers, error: error1 } = await client.from('speakers').select().eq('is_open', true).neq('session_type', 'panel-event')
       const { data: sponsors, error: error2 } = await client.from('sponsors').select().eq('is_open', true)
       const { data: staffs, error: error3 } = await client.from('staffs').select().eq('is_open', true)
-      if (error1 || error2 || error3) return
+      const { data: attendees, error: error4 } = await client.from('attendees').select('user_id')
+      if (error1 || error2 || error3 || error4) return
 
       const speakerRoutes = speakers?.map((d) => `/sessions/${d.detail_page_id}`)
       const speakerShareRoutes = speakers?.map((d) => `/sessions/${d.detail_page_id}/share`)
       const sponsorRoutes = sponsors?.map((d) => `/sponsors/${d.detail_page_id}`)
       const sponsorShareRoutes = sponsors?.map((d) => `/sponsors/${d.detail_page_id}/share`)
       const staffShareRoutes = staffs?.map((d) => `/staffs/${d.detail_page_id}/share`)
+      const namecardRoutes = attendees?.map((d) => `/namecard/${d.user_id}`)
+      const namecardEditRoutes = attendees?.map((d) => `/namecard/${d.user_id}/edit`)
+      const namecardCompleteRoutes = attendees?.map((d) => `/namecard/${d.user_id}/complete`)
+      const namecardShareRoutes = attendees?.map((d) => `/namecard/${d.user_id}/share`)
       nitroConfig.prerender?.routes?.push(...(speakerRoutes || []))
       nitroConfig.prerender?.routes?.push(...(speakerShareRoutes || []))
       nitroConfig.prerender?.routes?.push(...(sponsorRoutes || []))
       nitroConfig.prerender?.routes?.push(...(sponsorShareRoutes || []))
       nitroConfig.prerender?.routes?.push(...(staffShareRoutes || []))
+      nitroConfig.prerender?.routes?.push(...(namecardRoutes || []))
+      nitroConfig.prerender?.routes?.push(...(namecardEditRoutes || []))
+      nitroConfig.prerender?.routes?.push(...(namecardCompleteRoutes || []))
+      nitroConfig.prerender?.routes?.push(...(namecardShareRoutes || []))
     },
     // 'prerender:routes': (context) => {
     //   for (const path of [...context.routes]) {
@@ -137,6 +147,9 @@ export default defineNuxtConfig({
     //     }
     //   }
     // },
+  },
+  experimental: {
+    restoreState: true,
   },
   build: {
     transpile: ['vue-toastification'],
@@ -179,15 +192,16 @@ export default defineNuxtConfig({
       enableSwitchLocale: process.env.ENABLE_SWITCH_LOCALE,
       enableRegisterTicket: process.env.ENABLE_REGISTER_TICKET,
       enableRegisterNamecard: process.env.ENABLE_REGISTER_NAMECARD,
+      showSpeakerDetail: process.env.SHOW_SPEAKER_DETAIL,
       showEvent: process.env.SHOW_EVENT,
       showStore: process.env.SHOW_STORE,
     },
   },
   // for https on localhost
-  // devServer: {
-  //   https: {
-  //     key: './certificates/localhost-key.pem',
-  //     cert: './certificates/localhost.pem',
-  //   },
-  // },
+/*   devServer: {
+    https: {
+      key: './certificates/localhost-key.pem',
+      cert: './certificates/localhost.pem',
+    },
+  }, */
 })

@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
-import { useFetch, useLocaleCurrent, useRuntimeConfig } from '#imports'
+import { useLocaleCurrent, useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
 import SponsorList from './sponsor/SponsorList.vue'
-import type { SponsorInfo, SponsorCategory } from '@vuejs-jp/model'
+import type { SponsorInfo, SponsorCategory, PersonalSponsorInfo } from '@vuejs-jp/model'
+import { personalSponsors } from '~/utils/constants'
 
 type Sponsors = Record<SponsorCategory, SponsorInfo>
+
+const props = defineProps<{
+  data: Sponsors
+}>()
 
 const config = useRuntimeConfig()
 const { fontWeight, fontSize } = useTypography()
@@ -49,10 +54,6 @@ const endPeriodTime = {
   ampm: currentLocale.value === 'en' ? t('speaker.end_ampm') : '',
 }
 
-const { data, error } = await useFetch('/api/sponsors')
-if (error.value) {
-  console.error(error.value)
-}
 const {
   platinumSponsors,
   goldSponsors,
@@ -66,9 +67,16 @@ const {
   nameCardSponsors,
   simultaneousInterpretationSponsors,
   childcareSponsors,
+  handsonSponsors,
   mediaSponsors,
   toolSponsors,
-} = data.value as Sponsors
+} = props.data as Sponsors
+
+const personalSponsorInfo: PersonalSponsorInfo = {
+  type: 'personal',
+  title: 'personal',
+  list: personalSponsors,
+}
 </script>
 
 <template>
@@ -164,8 +172,21 @@ const {
         <SponsorList v-bind="simultaneousInterpretationSponsors" />
         <SponsorList v-bind="childcareSponsors" />
       </div>
+      <SponsorList
+        v-if="handsonSponsors.list.length !== 0"
+        v-bind="handsonSponsors"
+      />
       <SponsorList v-bind="mediaSponsors" />
       <SponsorList v-bind="toolSponsors" />
+      <SponsorList
+        v-if="personalSponsorInfo.list.length !== 0"
+        v-bind="{
+          type: personalSponsorInfo.type,
+          title: personalSponsorInfo.title,
+          list: [],
+          personal: personalSponsorInfo,
+        }"
+      />
     </article>
   </div>
 </template>
@@ -206,12 +227,12 @@ const {
   margin-top: calc(var(--unit) * 4);
   line-height: 1.8;
 
-  &::v-deep a {
+  &::v-deep(a) {
     color: var(--color-vue-green200);
     text-decoration: underline;
   }
 
-  &::v-deep a:hover {
+  &::v-deep(a:hover) {
     opacity: 0.4;
     transition: 0.2s;
   }

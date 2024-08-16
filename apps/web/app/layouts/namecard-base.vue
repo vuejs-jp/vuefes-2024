@@ -3,7 +3,7 @@ import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 
 const { t } = useI18n()
-const { fontWeight, fontSize } = useTypography()
+const { fontWeight } = useTypography()
 const { color } = useColor()
 </script>
 

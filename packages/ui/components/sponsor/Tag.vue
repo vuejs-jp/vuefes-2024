@@ -1,18 +1,24 @@
 <script setup lang="ts">
-const props = defineProps({
-  label: {
-    type: String,
-    required: true,
-  },
-  background: {
-    type: String,
-    required: true,
-  },
-})
+import { useColor } from '@vuejs-jp/composable'
+import { Color } from '@vuejs-jp/model'
+
+interface TagProps {
+  label: string
+  background: Color
+}
+
+const props = defineProps<TagProps>()
+
+const { color } = useColor()
 </script>
 
 <template>
-  <span class="tag-root" :style="{ background }"> {{ label }} </span>
+  <span
+    class="tag-root"
+    :style="{ '--tag-background-color': color(background) }"
+  >
+    {{ label }}
+  </span>
 </template>
 
 <style scoped>
@@ -23,7 +29,14 @@ const props = defineProps({
   font-size: 18px;
   font-weight: 700;
   color: var(--color-white);
+  background: var(--tag-background-color);
   line-height: 1;
   white-space: nowrap;
+
+  @media (width <= 480px) {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap : break-word;
+  }
 }
 </style>

@@ -24,12 +24,15 @@ const newSponsor = ref({
   description_ja: props.sponsor?.description_ja ?? '',
   description_en: props.sponsor?.description_en ?? '',
   link_url: props.sponsor?.link_url ?? '',
-  speaker_id: props.sponsor?.speaker_id ?? '',
+  speaker_id: props.sponsor?.speaker_id ?? [],
   tag: props.sponsor?.tag ?? [],
   is_open: props.sponsor?.is_open ?? true,
   display_order: props.sponsor?.display_order ?? null,
 })
 const tagText = ref(props.sponsor?.tag?.map((t) => t).join(',') ?? '')
+const speakerIdText = ref(props.sponsor?.speaker_id?.map((s) => s).join(',') ?? '')
+
+const newSpeakerId = ref('')
 
 const updateName = (e: any) => {
   newSponsor.value.name = e.target.value
@@ -69,6 +72,15 @@ const updateDescriptionEn = (e: any) => {
 }
 const updateLinkUrl = (e: any) => {
   newSponsor.value.link_url = e.target.value
+}
+const selectSpeakerId = (e: any) => {
+  newSpeakerId.value = e.target.value
+  speakerIdText.value = `${speakerIdText.value ? `${speakerIdText.value},` : ''}${newSpeakerId.value}`
+  newSponsor.value.speaker_id = speakerIdText.value.split(',')
+}
+const updateSpeakerId = (e: any) => {
+  speakerIdText.value = e.target.value
+  newSponsor.value.speaker_id = speakerIdText.value.split(',')
 }
 const updateTag = (e: any) => {
   tagText.value = e.target.value
@@ -132,34 +144,42 @@ const onSubmit = () => {
           </div>
         </VFDragDropArea>
         <VFTextAreaField
-          id="descriptionJa"
+          id="description_ja"
           v-model="newSponsor.description_ja"
-          name="descriptionJa"
+          name="description_ja"
           label="Description [JA]"
           :rows="3"
           @input="updateDescriptionJa"
         />
         <VFTextAreaField
-          id="descriptionEn"
+          id="description_en"
           v-model="newSponsor.description_en"
-          name="descriptionEn"
+          name="description_en"
           label="Description [EN]"
           :rows="3"
           @input="updateDescriptionEn"
         />
         <VFInputField
-          id="linkUrl"
+          id="link_url"
           v-model="newSponsor.link_url"
-          name="linkUrl"
+          name="link_url"
           label="Link URL"
           @input="updateLinkUrl"
         />
         <VFDropdownField
-          id="speaker_id"
-          v-model="newSponsor.speaker_id"
-          name="speaker_id"
-          label="スピーカー"
+          id="newSpeakerId"
+          v-model="newSpeakerId"
+          name="newSpeakerId"
+          label="スピーカーを選択する"
           :items="speakers.map((s: Speaker) => ({ value: s.id, text: s.name_ja }))"
+          @input="selectSpeakerId"
+        />
+        <VFInputField
+          id="speakerIdText"
+          v-model="speakerIdText"
+          name="speakerIdText"
+          label="スピーカーを編集する"
+          @input="updateSpeakerId"
         />
         <VFInputField
           id="tagText"

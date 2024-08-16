@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import { useFetch } from '#imports'
 import SpeakerCfp from '~/components/speaker/SpeakerCfp.vue'
 import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
 import type { SpeakerCategory, SpeakerInfo } from '@vuejs-jp/model'
+import { useRuntimeConfig } from '#imports'
 
 type _SpeakerCategory = Extract<SpeakerCategory, 'sessionSpeakers' | 'lightningTalkSpeakers' | 'sponsorSessionSpeakers'>
 type Speakers = Record<_SpeakerCategory, SpeakerInfo>
 
+const props = defineProps<{
+  data: Speakers
+}>()
+
+const config = useRuntimeConfig()
 const currentLocale = useLocaleCurrent().locale
 
-const { data, error } = await useFetch('/api/speakers')
-if (error.value) {
-  console.error(error.value)
-}
-const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.value as Speakers
+const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props.data as Speakers
 </script>
 
 <template>
@@ -29,7 +30,22 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.
         <h3 class="speaker-subtitle">Sessions</h3>
         <ul class="speaker-cards">
           <li v-for="speaker in sessionSpeakers.list" :key="speaker.id" class="speaker-card">
+            <NuxtLink
+              v-if="config.public.showSpeakerDetail"
+              class="speaker-card-link"
+              :to="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}sessions/${speaker.detail_page_id}`"
+            >
+              <VFSpeaker
+                :image="speaker.image_url"
+                :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
+                :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
+                :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
+                :github-id="speaker.github_id"
+                :x-id="speaker.x_id"
+              />
+            </NuxtLink>
             <VFSpeaker
+              v-else
               :image="speaker.image_url"
               :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
               :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
@@ -45,7 +61,22 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.
         <h3 class="speaker-subtitle">Lightning Talks</h3>
         <ul class="speaker-cards">
           <li v-for="speaker in lightningTalkSpeakers.list" :key="speaker.id" class="speaker-card">
+            <NuxtLink
+              v-if="config.public.showSpeakerDetail"
+              class="speaker-card-link"
+              :to="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}sessions/${speaker.detail_page_id}`"
+            >
+              <VFSpeaker
+                :image="speaker.image_url"
+                :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
+                :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
+                :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
+                :github-id="speaker.github_id"
+                :x-id="speaker.x_id"
+              />
+            </NuxtLink>
             <VFSpeaker
+              v-else
               :image="speaker.image_url"
               :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
               :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
@@ -61,7 +92,22 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.
         <h3 class="speaker-subtitle">Sponsor Sessions</h3>
         <ul class="speaker-cards">
           <li v-for="speaker in sponsorSessionSpeakers.list" :key="speaker.id" class="speaker-card">
+            <NuxtLink
+              v-if="config.public.showSpeakerDetail"
+              class="speaker-card-link"
+              :to="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}sessions/${speaker.detail_page_id}`"
+            >
+              <VFSpeaker
+                :image="speaker.image_url"
+                :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
+                :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
+                :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
+                :github-id="speaker.github_id"
+                :x-id="speaker.x_id"
+              />
+            </NuxtLink>
             <VFSpeaker
+              v-else
               :image="speaker.image_url"
               :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
               :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
@@ -156,6 +202,10 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = data.
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--speaker-cards-gap);
+}
+
+.speaker-card-link {
+  text-decoration: none;
 }
 
 @media (--tablet) {

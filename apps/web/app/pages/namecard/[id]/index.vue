@@ -1,20 +1,65 @@
 <script setup lang="ts">
+import { watch } from 'vue'
 import { useI18n } from '#i18n'
-import { navigateTo } from '#imports'
+import { navigateTo, useRoute } from '#imports'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
 import { useNamecard } from '~/composables/useNamecard'
 
 const { t } = useI18n()
+const route = useRoute()
 const { authUser, statusKey, namecardUser } = await useNamecard()
 
-function handleLinkButton() {
-  navigateTo(`/namecard/${authUser.value?.id}/edit/`)
+async function handleLinkButton() {
+  navigateTo(`/namecard/${authUser.value?.id}/edit`)
 }
+
+watch(
+  () => authUser.value?.id,
+  (newId) => {
+    if (newId) {
+      navigateTo(`/namecard/${newId}`)
+    }
+  },
+)
+
+watch(
+  () => route.query.code,
+  (newCode) => {
+    if (newCode && authUser.value?.id) {
+      navigateTo(`/namecard/${authUser.value?.id}/`)
+    }
+  },
+  {
+    immediate: true,
+  },
+)
 </script>
 <template>
   <NuxtLayout name="namecard-base">
     <div class="namecard-user-root">
+      <template v-if="statusKey !== 'not_created'">
+        <VFComment :title="t('namecard.lets_share')" class="share-comment" />
+        <div class="sns-buttons">
+          <VFIconButton
+            name="x40"
+            color="vue-blue"
+            :href="`https://x.com/share?url=${encodeURIComponent(
+              `https://vuefes.jp/2024/namecard/${authUser?.id}/share`,
+            )}`"
+            can-hover
+            class="sns-button"
+          />
+          <VFIconButton
+            name="Facebook"
+            color="vue-blue"
+            :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+              `https://vuefes.jp/2024/namecard/${authUser?.id}/share`,
+            )}`"
+            class="sns-button"
+          />
+        </div>
+      </template>
       <CreationStatus :status-key="statusKey" class="creation-status" />
       <VFNamecard24 :user="namecardUser" class="namecard" />
       <VFLinkButton
@@ -35,8 +80,23 @@ function handleLinkButton() {
 .namecard-user-root {
   text-align: center;
 }
+.share-comment,
 .creation-status {
   margin: 0 auto calc(var(--unit) * 2.5);
+}
+.sns-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--unit) * 2.5);
+  margin-bottom: calc(var(--unit) * 2.5);
+}
+.sns-button {
+  &:deep(svg, a) {
+    display: block;
+    width: 40px;
+    height: auto;
+  }
 }
 .namecard {
   margin: 0 auto calc(var(--unit) * 5);

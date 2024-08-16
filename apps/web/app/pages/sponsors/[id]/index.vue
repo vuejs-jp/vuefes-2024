@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { createError, useAsyncData, useHead, useRoute, useSponsor } from '#imports'
+import { createError, useAsyncData, useHead, useRoute, useRuntimeConfig } from '#imports'
 import type { Job, Speaker, Sponsor } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useSupabase } from '~/composables/useSupabase'
+import { useSponsor } from '~/composables/useSponsor'
 import { conferenceTitle, linkUrl, ogSponsorDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
+import { useColor } from '@vuejs-jp/composable'
 
+const config = useRuntimeConfig()
 const route = useRoute()
 const id = route.params.id as string
 
@@ -23,7 +26,7 @@ if (!sponsorData[0].detail_page_id) {
 }
 
 const { data: speakers } = await useAsyncData('speakers', async () => {
-  return await fetchData('speakers', { id: sponsorData[0].speaker_id })
+  return await fetchData('speakers', { speakerId: sponsorData[0].speaker_id })
 })
 
 const speakerData = speakers.value?.data as Speaker[]
@@ -35,7 +38,8 @@ const { data: jobs } = await useAsyncData('jobs', async () => {
 const jobData = jobs.value?.data as Job[]
 
 const currentLocale = useLocaleCurrent().locale
-const { color, borderColor } = useSponsor()
+const { color: updateColor } = useColor()
+const { color, borderColor, isMoreSilver } = useSponsor()
 
 useHead({
   titleTemplate: (titleChunk) => `${sponsorData[0].name} | ${conferenceTitle}`,
@@ -44,11 +48,13 @@ useHead({
       title: `${sponsorData[0].name} | ${conferenceTitle}`,
       description: ogSponsorDescription,
       url: `${linkUrl}sponsors/${id}`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${sponsorData[0].id}&page=sponsor`,
     }),
     ...twitterOg({
       title: `${sponsorData[0].name} | ${conferenceTitle}`,
       description: ogSponsorDescription,
       url: `${linkUrl}sponsors/${id}`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${sponsorData[0].id}&page=sponsor`,
     }),
   ],
 })
@@ -64,9 +70,15 @@ useHead({
         </li>
       </ul>
 
-      <div class="detailhead-body">
+      <div
+        class="detailhead-body"
+        :style="
+          isMoreSilver(sponsorData[0].tag)
+            ? { gridTemplateColumns: 'auto 1fr' }
+            : { gridTemplateColumns: '1fr', justifyContent: 'center' }"
+      >
         <div class="detailhead-left">
-          <p class="detailhead-img" :style="{ border: `1px solid ${borderColor(sponsorData[0].tag)}` }">
+          <p class="detailhead-img" :style="{ border: `1px solid ${updateColor(borderColor(sponsorData[0].tag))}` }">
             <img
               :src="`${sponsorData[0].image_url}`"
               :alt="sponsorData[0].name"
@@ -84,25 +96,36 @@ useHead({
             {{ $t(sponsorData[0].name) }}
           </a>
         </div>
-        <div class="detailhead-right">
+        <div v-if="isMoreSilver(sponsorData[0].tag)" class="detailhead-right">
           {{ currentLocale === 'ja' ? sponsorData[0].description_ja : sponsorData[0].description_en }}
         </div>
       </div>
 
-      <div v-if="sponsorData[0].speaker_id" class="detailbody-persons">
+      <div v-if="sponsorData[0].speaker_id?.length !== 0" class="detailbody-persons">
         <h3 class="sponsor-subtitle">
           {{ `${sponsorData[0].name}のスポンサーセッション` }}
         </h3>
-        <VFSpeaker
-          :image="speakerData[0].image_url"
-          :company="currentLocale === 'en' ? speakerData[0].caption_en : speakerData[0].caption_ja"
-          :division="currentLocale === 'en' ? speakerData[0].description_en : speakerData[0].description_ja"
-          :name="currentLocale === 'en' ? speakerData[0].name_en : speakerData[0].name_ja"
-          :github-id="speakerData[0].github_id"
-          :x-id="speakerData[0].x_id"
-        />
-        <div class="person-info">
-          {{ currentLocale === 'ja' ? speakerData[0].description_ja : speakerData[0].description_en }}
+        <div class="sponsor-session-info">
+          <div class="avatar-info">
+            <VFSpeaker
+              v-for="(speaker, index) in speakerData"
+              :key="index"
+              :image="speaker.image_url"
+              :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
+              :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
+              :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
+              :github-id="speaker.github_id"
+              :x-id="speaker.x_id"
+            />
+          </div>
+          <div class="person-info">
+            <h4>
+              {{ currentLocale === 'ja' ? speakerData[0].session_title_ja : speakerData[0].session_title_en }}
+            </h4>
+            <p>
+              {{ currentLocale === 'ja' ? speakerData[0].session_description_ja : speakerData[0].session_description_en }}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -166,6 +189,7 @@ useHead({
 
 .sponsor-detail-body {
   --head-img-width: 475px;
+  --head-avatar-img-width: 308px;
 
   margin: 0 auto;
   padding: calc(var(--unit) * 10) calc(var(--unit) * 4);
@@ -181,14 +205,12 @@ useHead({
     display: flex;
     flex-wrap: wrap;
     padding: 0;
-    margin-top: calc(var(--unit) * 8);
     column-gap: calc(var(--unit) * 1.5);
     gap: calc(var(--unit) * 0.5);
   }
 
   .detailhead-body {
     display: flex;
-    margin-top: calc(var(--unit) * 4);
     color: #292C33;
     gap: calc(var(--unit) * 5);
     padding: calc(var(--unit) * 2.5) 0 calc(var(--unit) * 5);
@@ -211,10 +233,10 @@ useHead({
 
   .detailhead-right {
     --body-font-size: 1.125rem;
-    --body-font-weight: 500;
 
+    color: var(--color-vue-blue);
     font-size: var(--body-font-size);
-    font-weight: var(--body-font-weight);
+    line-height: 1.8;
     white-space: pre-wrap;
 
     ::v-deep(p) {
@@ -278,21 +300,42 @@ useHead({
 
   .detailbody-persons {
     font-size: 18px;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: calc(var(--unit) * 4);
     padding: calc(var(--unit) * 5) 0;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .detailbody-persons ::v-deep(img) {
-    width: var(--head-img-width);
+    width: var(--head-avatar-img-width);
+  }
+
+  .sponsor-session-info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: calc(var(--unit) * 4);
+    padding: calc(var(--unit) * 5) 0;
+  }
+
+  .avatar-info {
+    display: grid;
+    gap: calc(var(--unit) * 4);
+  }
+
+  .person-info {
+    white-space: pre-wrap;
   }
 
   .person-info ::v-deep(ul) {
     list-style-type: square;
     margin-left: calc(var(--unit) * 4);
     margin-bottom: calc(var(--unit) * 2);
+  }
+
+  .person-info ::v-deep(h4) {
+    color: var(--color-vue-blue);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.8;
+    padding-bottom: calc(var(--unit) * 1.25);
   }
 
   .person-info ::v-deep(p) {
@@ -357,6 +400,23 @@ useHead({
 
     .detailhead-right {
       margin-top: calc(var(--unit) * 4);
+    }
+
+    .detailbody-persons ::v-deep(img) {
+      width: var(--head-avatar-img-width);
+    }
+
+    .sponsor-session-info {
+      grid-template-columns: 1fr;
+      place-items: center;
+    }
+
+    .sponsor-session-info ::v-deep(h4) {
+      font-size: 20px;
+    }
+
+    .sponsor-session-info ::v-deep(p) {
+      font-size: 16px;
     }
 
     .back {

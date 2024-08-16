@@ -5,13 +5,15 @@
   "main": "index.ts",
   "scripts": {
     "lint": "eslint . --ext js,jsx,ts,tsx --ignore-path .eslintignore",
-    "lint-fix": "eslint . --ext js,jsx,ts,tsx --ignore-path .eslintignore --fix"
+    "lint-fix": "eslint . --ext js,jsx,ts,tsx --ignore-path .eslintignore --fix",
+    "vitest": "vitest"
   },
   "devDependencies": {
     "@vuejs-jp/eslint-config": "workspace:*",
     "@vuejs-jp/typescript-config": "workspace:*",
     "ts-pattern": "5.0.8",
     "typescript": "5.3.3",
+    "vitest": "1.4.0",
     "vue-toastification": "2.0.0-rc.5"
   },
   "type": "module"

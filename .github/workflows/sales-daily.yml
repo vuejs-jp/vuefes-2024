@@ -1,0 +1,36 @@
+name: Sales Daily CI
+
+on:
+  # 月〜金の 10:00 に実行
+  schedule:
+    - cron: 0 10 * * 1-5 # https://crontab.guru/#0_10_*_*_*
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
+  #   branches:
+  #     - main
+
+jobs:
+  sales-daily:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.19.0]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install packages
+        uses: ./.github/actions/install-packages
+
+      - name: Build sales daily
+        run: bun build-sales-daily
+        working-directory: apps/peatix-adapter
+        env:
+          PEATIX_EVENT_ID: ${{ secrets.PEATIX_EVENT_ID }}
+          PEATIX_BASIC_EMAIL: ${{ secrets.PEATIX_BASIC_EMAIL }}
+          PEATIX_BASIC_PASSWORD: ${{ secrets.PEATIX_BASIC_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}

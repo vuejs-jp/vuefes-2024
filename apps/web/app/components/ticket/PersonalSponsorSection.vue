@@ -16,7 +16,7 @@ import { ticketUrl } from '~/utils/constants'
         :detail="$t(`personal_sponsor.merit${i}.detail`)"
         :caution="(i === 2 || i === 4) ? $t(`personal_sponsor.merit${i}.caution`) : ''"
       >
-        <img alt="" :src="`/sponsor/merit-${i}.jpg`" />
+        <img alt="" :src="`/sponsor/merit-${i}.png`" />
       </VFMeritCard>
     </div>
     <div class="personal-sponsor-text">
@@ -63,12 +63,12 @@ import { ticketUrl } from '~/utils/constants'
   line-height: 1.8;
   color: white;
 
-  &::v-deep a {
+  &::v-deep(a) {
     color: var(--color-white);
     text-decoration: underline;
   }
 
-  &::v-deep a:hover {
+  &::v-deep(a:hover) {
     opacity: 0.4;
     transition: 0.2s;
   }

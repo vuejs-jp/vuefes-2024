@@ -37,12 +37,7 @@ export function useLocale(path: Path) {
       .with('team', () => `/${locale.value}/team`)
       .with('ticket', () => `/${locale.value}/ticket`)
       .with('namecard_lead', () => `/${locale.value}/namecard_lead`)
-      .with('namecard_process_1', () => `/${locale.value}/namecard_process_1`)
-      .with('namecard_process_2', () => `/${locale.value}/namecard_process_2`)
-      .with('namecard_process_3', () => `/${locale.value}/namecard_process_3`)
-      .with('namecard_process_4', () => `/${locale.value}/namecard_process_4`)
       .with('namecard_process_alert', () => `/${locale.value}/namecard_process_alert`)
-      .with('namecard_annotation_order_number', () => `/${locale.value}/namecard_annotation_order_number`)
       .exhaustive(),
   )
 

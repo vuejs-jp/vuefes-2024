@@ -4,10 +4,10 @@ import { match } from 'ts-pattern'
 export function useSponsor() {
   function color(tag: SponsorType | OptionSponsorType) {
     return match(tag)
-      .with('platinum', () => '#6E8F2E')
-      .with('gold', () => '#E5AF00')
-      .with('silver', () => '#1A8191')
-      .with('bronze', () => '#CC4F39')
+      .with('platinum', () => 'hiwamoegi/200')
+      .with('gold', () => 'tohoh/200')
+      .with('silver', () => 'asagi/200')
+      .with('bronze', () => 'sangosyo/200')
       .with(
         'option',
         'option-separate',
@@ -16,21 +16,30 @@ export function useSponsor() {
         'naming-rights',
         'after-party',
         'simultaneous-interpretation',
+        'childcare',
         'special-lunch',
+        'lunch',
         'media',
         'tool',
-        () => '#35495E',
+        () => 'vue-blue',
       )
+      .with('personal', () => '')
       .exhaustive()
   }
 
   function borderColor(tag: string[]) {
-    if (tag.includes('platinum')) return '#6E8F2E'
-    if (tag.includes('gold')) return '#E5AF00'
-    if (tag.includes('silver')) return '#1A8191'
-    if (tag.includes('bronze')) return '#CC4F39'
-    return '#35495E'
+    if (tag.includes('platinum')) return 'hiwamoegi/200'
+    if (tag.includes('gold')) return 'tohoh/200'
+    if (tag.includes('silver')) return 'asagi/200'
+    if (tag.includes('bronze')) return 'sangosyo/200'
+    return 'vue-blue'
   }
 
-  return { color, borderColor }
+  function isMoreSilver(tags: Array<SponsorType | OptionSponsorType>) {
+    return tags.some(
+      (tag) => tag === 'platinum' || tag === 'gold' || tag === 'silver',
+    )
+  }
+
+  return { color, borderColor, isMoreSilver }
 }

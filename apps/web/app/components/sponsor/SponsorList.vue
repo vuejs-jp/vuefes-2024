@@ -1,23 +1,32 @@
 <script setup lang="ts">
-import type { SponsorInfo } from '@vuejs-jp/model'
+import type { PersonalSponsorInfo, SponsorInfo } from '@vuejs-jp/model'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 
-type Props = SponsorInfo
+type Props = SponsorInfo & {
+  personal?: PersonalSponsorInfo
+}
 
 defineProps<Props>()
+
+const currentLocale = useLocaleCurrent().locale
 </script>
 
 <template>
-  <section :class="`sponsor-list-container sponsor-list-${type}`">
+  <section :class="`sponsor-list-container ${type !== 'personal' ? `sponsor-list-${type}` : ''}`">
     <h4 class="sponsor-list-title">
       {{ $t(`sponsor.${title}`) }}
     </h4>
-    <ul class="sponsor-list">
+    <ul v-if="type !== 'personal'" class="sponsor-list">
       <li v-for="item in list" :key="item.id" class="sponsor-list-item">
-        <a class="sponsor-list-item-link" :href="item['link_url']" target="_blank"
-          ><img class="sponsor-list-item-image" :src="item['image_url']" :alt="item.name"
-        /></a>
+        <NuxtLink
+          class="sponsor-list-item-link"
+          :to="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}sponsors/${item['detail_page_id']}`"
+        >
+          <img class="sponsor-list-item-image" :src="item['image_url']" :alt="item.name" />
+        </NuxtLink>
       </li>
     </ul>
+    <VFCreditList v-else :list="personal?.list" size="large" />
   </section>
 </template>
 

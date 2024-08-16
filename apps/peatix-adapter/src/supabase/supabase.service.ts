@@ -39,9 +39,20 @@ export class SupabaseService {
     const targetData = { ...targets }
 
     const { data, error } = await this.client.from('attendees')
-      .upsert({ role: targetData.role, activated_at: new Date().toISOString() })
+      .upsert({ role: targetData.role, activated_at: new Date().toISOString(), canceled_at: '' })
       .eq('receipt_id', targetData.receipt_id)
-      .eq('activated_at', null)
+      .eq('activated_at', '')
+    if (error) return { status: false, data: null }
+
+    return { status: true, data }
+  }
+
+  public async updateUnactivatedAttendees() {
+    this.getClient()
+
+    const { data, error } = await this.client.from('attendees')
+      .upsert({ canceled_at: new Date().toISOString() })
+      .eq('activated_at', '')
     if (error) return { status: false, data: null }
 
     return { status: true, data }

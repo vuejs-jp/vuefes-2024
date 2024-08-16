@@ -19,7 +19,7 @@
     "saturday": "土"
   },
   "top_page": {
-    "latest_information": "最新情報は公式SNSでご紹介しています",
+    "latest_information": "チケット好評発売中！　8/25（日）までのご購入で 1,000 円 OFF！",
     "date": "2024.10.19",
     "note": "公式 note"
   },
@@ -47,43 +47,62 @@
   "event": {
     "title": "イベント",
     "scheduled_speakers": "登壇予定者",
-    "welcome_vuejs_community": "Vue.jsコミュニティにようこそ！",
+    "welcome_vuejs_community": "Vue.jsコミュニティに&lt;br&gt;ようこそ！",
     "vuejs_handson": "Vue.js / Nuxt ハンズオン",
-    "nextgen_frontend_crosstalk": "次世代フロントエンドクロストーク",
+    "nextgen_frontend_crosstalk": "次世代フロントエンド&lt;br&gt;クロストーク",
     "creative_wall": "クリエイティブウォール",
     "free_drinks_and_snacks": "フリードリンク＆スナック",
     "tattoo_booth": "タトゥーブース",
     "cocktail_bash": "Vue Cocktail Bash",
-    "sponsor_booth_fotolary": "スポンサーブースフォトラリー"
+    "sponsor_booth_fotolary": "スポンサーブース&lt;br&gt;フォトラリー"
   },
   "store": {
+    "title": "グッズ一覧",
     "do_again_this_year": "今年もやります",
     "payment_method": "購入方法",
     "payment_method_explain": "購入方法は以下の2種類があります。",
-    "preorder": "事前注文する",
+    "preorder": "予約注文する",
+    "caution": "※商品画像はイメージです。実際の商品と色味や細部が異なる場合があります。",
     "tshirt": "Tシャツ",
+    "tshirt_size": "サイズ: S / M / L / XL",
     "tshirt_detail": "富士山と太陽をイメージしたVue Fes Japan 2024 のオリジナル T シャツです。前面のみのプリントです。",
     "parka": "パーカー",
+    "parka_size": "サイズ: S / M / L / XL",
     "parka_detail": "背面にメインビジュアルとVue.jsエコシステムのロゴをあしらった、Vue Fes Japan 2024のオリジナルパーカーです。前面のプリントはありません。",
-    "pin_badge": "アクリルピンバッジ（Vue.js）",
+    "pin_badge": "アクリルピンバッジ",
+    "pin_badge_size": "サイズ: W28～35×H25～28mm",
+    "pin_badge_type": "種類: Vue Fes Japan / Vue.js / Nuxt / Vite",
     "pin_badge_detail": "Vue Fes Japan、Vue.js、Nuxt、Viteの公式ロゴを使ったミニサイズの透明アクリルピンバッジです。セットではなく単品での販売になります。",
-    "sticker": "ステッカー",
+    "sticker": "公式ロゴステッカー",
+    "sticker_size": "サイズ: W206×H118mm",
     "sticker_type": "種類",
     "sticker_detail": "Vue Fes Japan、Vue.js、Nuxt、Vite、Rolldown、UnJS、Oxcの公式ロゴが集まった特製ステッカーです。",
     "kawaii_sticker": "kawaiiロゴステッカー",
-    "kawaii_sticker_detail": "Icarusさんが作成したkawaiiロゴのVue.js、Nuxt、Vite、Rolldown、Oxcが集まった特製ステッカーです。",
+    "kawaii_sticker_size": "サイズ: W206×H118mm",
+    "kawaii_sticker_creator": "Icarusさん",
+    "kawaii_sticker_detail": "{kawaiiStickerCreator}が作成したkawaiiロゴのVue.js、Nuxt、Vite、Rolldown、Oxcが集まった特製ステッカーです。",
     "towel": "タオルハンカチ",
+    "towel_size": "サイズ: W200×H200mm",
     "towel_detail": "富士山と太陽をイメージしたミニサイズのタオルハンカチです。素材は吸収性の良い綿素材を使用しています。",
     "2way_bag": "2WAYバッグ",
+    "2way_bag_size": "サイズ: W150～350×H190～330mm",
     "2way_bag_detail": "サコッシュとエコバッグが一体化した2WAYタイプのバッグです。サコッシュとしての利用時はメッシュポケットも使えます。",
     "bag_hanger": "バッグハンガー",
+    "bag_hanger_size": "サイズ: W44×H44mm",
     "bag_hanger_detail": "様々な公式ロゴをあしらったバッグハンガーです。手荷物をテーブルにぶら下げられます。きんちゃく袋付き。",
     "strap_holder": "ストラップホルダー",
+    "strap_holder_size": "サイズ: W53xH31×D0.5mm",
     "strap_holder_detail": "Vue Fes Japanのロゴをあしらったスマホ用のストラップホルダーです。スマホケースに挟んで金具にストラップをつけると、手首や首からスマホを掛けられます。取り外しできるハンドストラップ付き。",
     "store_item_color": "カラー： {0}",
+    "color": {
+      "white": "カラー: ホワイト",
+      "black": "カラー: ブラック"
+    },
     "store_item_size": "サイズ： {0}",
-    "approximately_2_5kg": "約2.5kg",
-    "approximately_5kg": "約5kg"
+    "weight": {
+      "approximately_2_5kg": "耐荷重: 約2.5kg",
+      "approximately_5kg": "耐荷重: 約5kg"
+    }
   },
   "sponsor": {
     "title": "スポンサー",
@@ -111,8 +130,10 @@
     "name_card": "ネームカード",
     "simultaneous_interpretation": "同時通訳",
     "childcare": "託児サポート",
+    "handson": "ハンズオン",
     "media": "メディア",
-    "tool": "ツール"
+    "tool": "ツール",
+    "personal": "個人スポンサー"
   },
   "ticket": {
     "title": "チケット",
@@ -214,8 +235,7 @@
     "title": "行動規範"
   },
   "privacy": {
-    "title": "プライバシーポリシー",
-    "button": "トップに戻る"
+    "title": "プライバシーポリシー"
   },
   "tokusho": {
     "title": "特定商取引法に基づく表記"
@@ -233,6 +253,13 @@
     "edit_deadline": "ネームカード編集期限：\n2024年9月16日（月祝）24:00",
     "dialog_message": "ネームカードを作成するには、あらかじめチケットの購入が必要です。チケット購入後、以下のいずれかのソーシャルアカウントからログインし、必要な情報をご登録ください。",
     "namecard_samples_alt": "ネームカードのサンプル",
+    "ticket_data": "Vue Fes Japan 2024 のチケット",
+    "process_1_message": "① 事前に{ticketUrl}をご購入ください。",
+    "process_2_message": "② 本ページの「ログインする」ボタンからソーシャルログインをします。",
+    "process_3_message": "③ ログイン後、ネームカード作成・編集ページでアバター、お名前、チケット購入時の注文番号を登録します。",
+    "process_4_message": "④ 開催前はネームカードを SNS やブログなどにシェアして、当日は印刷されたネームカードをお楽しみください！",
+    "annotation_order_number": "※注文番号は、チケット購入時に Peatix から送信されるメール内に含まれる{peatixReferenceUrl}から確認できます。",
+    "receipt_data": "領収データ",
     "complete_message": "これから注文番号の照合を行います。注文番号照合の状況はネームカードページのステータスで確認できます。編集期限前に照合が正常に完了したことを確認してください。",
     "lets_share": "作成したネームカードを&lt;br&gt;SNSでシェアしよう！",
     "creation_process": {
@@ -240,9 +267,9 @@
     },
     "creation_status": {
       "not_created": "未作成",
-      "inquiry_in_progress": "注文番号照会中",
-      "inquiry_failed": "注文番号照会失敗",
-      "inquiry_completed": "注文番号照会完了"
+      "inquiry_in_progress": "注文番号照合中",
+      "inquiry_failed": "注文番号照合失敗",
+      "inquiry_completed": "注文番号照合完了"
     },
     "form": {
       "label_name": "お名前／Name",

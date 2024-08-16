@@ -1,4 +1,6 @@
-export type SponsorType = 'platinum' | 'gold' | 'silver' | 'bronze' | 'option' | 'option-separate'
+export type SponsorType = 'platinum' | 'gold' | 'silver' | 'bronze' | 'option' | 'option-separate' | PersonalSponsorType
+
+export type PersonalSponsorType = 'personal'
 
 export type SponsorCategory =
   | 'platinumSponsors'
@@ -13,8 +15,10 @@ export type SponsorCategory =
   | 'nameCardSponsors'
   | 'simultaneousInterpretationSponsors'
   | 'childcareSponsors'
+  | 'handsonSponsors'
   | 'mediaSponsors'
   | 'toolSponsors'
+  | 'personalSponsors'
 
 
 export type OptionSponsorType =
@@ -26,6 +30,7 @@ export type OptionSponsorType =
   | 'childcare'
   | 'special-lunch'
   | 'lunch'
+  | 'handson'
   | 'media'
   | 'tool'
 
@@ -35,7 +40,7 @@ export type Sponsor = {
   detail_page_id?: string
   description_ja: string
   description_en: string
-  speaker_id?: string
+  speaker_id?: string[]
   image_url: string
   share_image_url: string
   tag: Array<SponsorType | OptionSponsorType>
@@ -50,4 +55,10 @@ export type SponsorInfo = {
   type: SponsorType
   title: string
   list: Sponsor[]
+}
+
+export type PersonalSponsorInfo = {
+  type: PersonalSponsorType
+  title: string
+  list: string[]
 }

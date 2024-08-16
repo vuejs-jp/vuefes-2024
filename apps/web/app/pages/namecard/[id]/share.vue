@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { createError, useHead, useRoute, defineOgImageComponent } from '#imports'
+import {
+  createError,
+  // defineOgImageComponent,
+  useHead,
+  useRoute,
+  useRuntimeConfig,
+} from '#imports'
 import { useI18n } from '#i18n'
 import { useNamecard } from '~/composables/useNamecard'
 import { conferenceTitle, linkUrl, ogSpeakerDescription } from '~/utils/constants'
@@ -8,10 +14,12 @@ import { generalOg, twitterOg } from '~/utils/og.constants'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 
 const { t } = useI18n()
+
+const config = useRuntimeConfig()
 const route = useRoute()
 const id = route.params.id as string
-const { attendee } = await useNamecard(id)
-if (!attendee) {
+const { attendeeDataByUserId } = await useNamecard(id)
+if (!attendeeDataByUserId) {
   throw createError({ statusCode: 404, statusMessage: 'Attendee not found' })
 }
 
@@ -30,28 +38,30 @@ const officialSiteUrl = computed(() => {
   return currentLocale.value === 'ja' ? linkUrl : `${linkUrl}/en`
 })
 
-defineOgImageComponent('VFOgCard24', {
-  user: attendee,
-})
+// defineOgImageComponent('VFOgCard24', {
+//   user: attendeeDataByUserId,
+// })
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
     ...generalOg({
-      title: `${conferenceTitle}`,
+      title: `${attendeeDataByUserId.value?.display_name} | ${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}namecard/${id}/share`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${attendeeDataByUserId.value?.id}&page=namecard`,
     }),
     ...twitterOg({
-      title: `${conferenceTitle}`,
+      title: `${attendeeDataByUserId.value?.display_name} | ${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}namecard/${id}/share`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${attendeeDataByUserId.value?.id}&page=namecard`,
     }),
   ],
 })
 </script>
 <template>
   <div class="namecard-share-root">
-    <VFOgCard24 class="namecard" :user="attendee" />
+    <VFOgCard24 class="namecard" :user="attendeeDataByUserId" />
     <VFComment class="invite-comment" :title="t('invite_vue_fes')" />
     <VFLinkButton
       class="link-button"

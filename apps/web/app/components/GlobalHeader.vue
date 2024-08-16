@@ -1,17 +1,24 @@
 <script setup lang="ts">
-import { useI18n, useRuntimeConfig, useSwitchLocalePath } from '#imports'
-import { useWindowSize } from '@vueuse/core'
-import { ref, watchEffect, onMounted } from 'vue'
-const { locale } = useI18n({ useScope: 'global' })
-const switchLocalePath = useSwitchLocalePath()
+import { useRuntimeConfig } from '#imports'
+import { useI18n } from '#i18n'
+import { useScreenOrientation, useWindowSize } from '@vueuse/core'
+import { ref, watch, onMounted, computed } from 'vue'
+
+const { locale, setLocale } = useI18n({ useScope: 'global' })
+
 const config = useRuntimeConfig()
 
+const onSwitchLocale = () => {
+  setLocale(locale.value === 'ja' ? 'en' : 'ja')
+}
+
 const { width } = useWindowSize()
+const { orientation } = useScreenOrientation()
 const shouldShowSpHeader = ref()
 onMounted(() => {
   shouldShowSpHeader.value = width.value <= 1080
 })
-watchEffect(() => {
+watch([width, orientation], () => {
   shouldShowSpHeader.value = width.value <= 1080
 })
 
@@ -35,18 +42,20 @@ const showMenu = ref(false)
 const toggleMenu = () => {
   showMenu.value = !showMenu.value
 }
+
+const getAnchorPath = computed(
+  () => (anchor: string) => (locale.value === 'ja' ? `/${anchor}` : `/en/${anchor}`),
+)
 </script>
 
 <template>
   <VFSpHeader v-if="shouldShowSpHeader">
     <div class="navigation-mobile">
-      <NuxtLink
+      <VFLocaleSwitch
         v-if="config.public.enableSwitchLocale"
-        :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
-        class="locale-switch-wrapper"
-      >
-        <VFLocaleSwitch :locale />
-      </NuxtLink>
+        :locale
+        @switch-locale="onSwitchLocale"
+      />
 
       <button
         class="navigation-mobile-toggle"
@@ -64,7 +73,7 @@ const toggleMenu = () => {
         <div>
           <ul>
             <li v-for="link in navLinks" :key="link.anchor">
-              <nuxt-link :to="`/${link.anchor}`" @click="toggleMenu">
+              <nuxt-link :to="getAnchorPath(link.anchor)" @click="toggleMenu">
                 <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
               </nuxt-link>
             </li>
@@ -76,17 +85,15 @@ const toggleMenu = () => {
   <VFHeader v-else>
     <div class="navigation-pc">
       <div class="navigation-links-pc">
-        <nuxt-link v-for="link in navLinks" :key="link.anchor" :to="`/${link.anchor}`">
+        <nuxt-link v-for="link in navLinks" :key="link.anchor" :to="getAnchorPath(link.anchor)">
           <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
         </nuxt-link>
       </div>
-      <NuxtLink
+      <VFLocaleSwitch
         v-if="config.public.enableSwitchLocale"
-        :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
-        class="locale-switch-wrapper"
-      >
-        <VFLocaleSwitch :locale />
-      </NuxtLink>
+        :locale
+        @switch-locale="onSwitchLocale"
+      />
     </div>
   </VFHeader>
 </template>

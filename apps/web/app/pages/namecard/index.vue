@@ -1,58 +1,32 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import type { AuthProvider } from '@vuejs-jp/model'
-import { useAuth } from '~/composables/useAuth'
-import { useAuthSession } from '#imports'
-import { createError, useRuntimeConfig, navigateTo, useAsyncData, useRoute } from '#imports'
+import { createError, useRuntimeConfig, navigateTo } from '#imports'
 import { useI18n } from '#i18n'
+import { ref } from 'vue'
+import type { AuthProvider, DialogStatus } from '@vuejs-jp/model'
+import { useAuthStore } from '~/store/auth'
+import { useAuth } from '~/composables/useAuth'
+import { useAuthSession } from '~/composables/useAuthSession'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import MarkDownText from '~/components/MarkDownText.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
-import { useDebounceFn } from '@vueuse/core'
 
 const config = useRuntimeConfig()
-const route = useRoute()
-/* リファクタリング検討
- * 力技でログイン処理後のリダイレクトを行なっている
- *
- * supabase.auth.signInWithOAuth を利用した認証処理を行った後、リダイレクト先のURLにクエリパラメータ code が付与される
- * この code と supabase.auth.getUser() で取得したユーザーIDは別物
- * そのため、code が変更された際に getUser() を実行し、少し待ってからユーザーIDを取得している
- * 取得したユーザーIDを元にリダイレクトを行なっている
- */
-watch(
-  () => route.query.code,
-  () => {
-    if (route.query.code) {
-      const debouncedFn = useDebounceFn(async () => {
-        const { data: authUserId } = await useAsyncData('authUserId', async () => {
-          return (await getUser()).id
-        })
-        return authUserId.value
-      }, 1000)
-      debouncedFn().then((id) => {
-        navigateTo(`/namecard/${id}/`)
-      })
-    }
-  },
-  { immediate: true },
-)
 
 if (!config.public.enableRegisterNamecard) {
   throw createError({ statusCode: 404, statusMessage: 'You cannot register the namecard.' })
 }
 
-const { t } = useI18n()
-const showDialog = ref(false)
-const { signIn, getUser } = useAuth()
 const { hasAuth } = useAuthSession()
+const auth = useAuthStore()
 
-const { data: authUserId } = await useAsyncData('authUserId', async () => {
-  return (await getUser()).id
-})
+const { signIn } = useAuth()
 
-function handleClickButton(type: 'open' | 'close') {
+const { t } = useI18n()
+const { locale } = useLocaleCurrent()
+const showDialog = ref(false)
+
+function handleClickButton(type: DialogStatus) {
   if (type === 'open') {
-    if (hasAuth?.value && authUserId.value) return navigateTo(`/namecard/${authUserId.value}/`)
     showDialog.value = true
   } else {
     showDialog.value = false
@@ -60,11 +34,10 @@ function handleClickButton(type: 'open' | 'close') {
 }
 
 function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
-  signIn(provider, '/namecard/')
+  signIn(provider, '/namecard/********')
 }
 </script>
 
-<!-- TODO モバイル対応 -->
 <template>
   <NuxtLayout name="namecard-base">
     <VFIntegrationDialog
@@ -72,10 +45,11 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
       :title="t('namecard.login_title')"
       @on-close="handleClickButton('close')"
       @sign-in="handleSignIn"
-      ><p>
-        {{ t('namecard.dialog_message') }}
-      </p></VFIntegrationDialog
     >
+      <p>
+        {{ t('namecard.dialog_message') }}
+      </p>
+    </VFIntegrationDialog>
     <div class="namecard-root">
       <img
         class="namecard-samples"
@@ -90,9 +64,15 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
         background-color="vue-green/200"
         color="white"
         class="login-button"
-        @click="handleClickButton('open')"
-        >{{ t('namecard.login') }}</VFLinkButton
+        @click="
+          () =>
+            !hasAuth
+              ? handleClickButton('open')
+              : navigateTo(`${locale === 'ja' ? '/' : `/${locale}/`}namecard/${auth.signedUserId}`)
+        "
       >
+        {{ t('namecard.login') }}
+      </VFLinkButton>
       <CreationProcess />
       <div class="edit-sentence">
         <VFStatusCard
@@ -111,6 +91,7 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
 .namecard-samples {
   margin: 0 auto;
   border-radius: 1px;
+  aspect-ratio: 596 / 401;
 
   @media (--mobile) {
     width: 100%;

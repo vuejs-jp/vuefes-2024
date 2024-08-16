@@ -6,8 +6,7 @@ import { useColor } from '@vuejs-jp/composable'
 type SpeakerProps = {
   image: string
   company?: string
-  division: string
-  divisionEn: string
+  division?: string
   name: string
   githubId?: string
   xId?: string

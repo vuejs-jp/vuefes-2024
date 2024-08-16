@@ -7,22 +7,22 @@ const { t } = useI18n()
 const ticketCards = {
   ippan: {
     title: t('ticket.card.ippan.title'),
-    imgSrc: 'ticket/ippan.jpg',
+    imgSrc: 'ticket/ippan.png',
     imgAlt: t('ticket.card.ippan.imgAlt'),
   },
   ippanParty: {
     title: t('ticket.card.ippanParty.title'),
-    imgSrc: 'ticket/ippan-party.jpg',
+    imgSrc: 'ticket/ippan-party.png',
     imgAlt: t('ticket.card.ippanParty.imgAlt'),
   },
   handsOn: {
     title: t('ticket.card.handsOn.title'),
-    imgSrc: 'ticket/hands-on.jpg',
+    imgSrc: 'ticket/hands-on.png',
     imgAlt: t('ticket.card.handsOn.imgAlt'),
   },
   individualSponsor: {
     title: t('ticket.card.individualSponsor.title'),
-    imgSrc: 'ticket/individual-sponsor.jpg',
+    imgSrc: 'ticket/individual-sponsor.png',
     imgAlt: t('ticket.card.individualSponsor.imgAlt'),
   },
 }
@@ -172,12 +172,12 @@ const ticketCards = {
   line-height: 1.8;
   color: white;
 
-  &::v-deep a {
+  &::v-deep(a) {
     color: var(--color-vue-green200);
     text-decoration: underline;
   }
 
-  &::v-deep a:hover {
+  &::v-deep(a:hover) {
     opacity: 0.4;
     transition: 0.2s;
   }

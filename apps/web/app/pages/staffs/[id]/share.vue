@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import {
   createError,
+  // defineOgImageComponent,
   useAsyncData,
   useHead,
-  useLocaleCurrent,
   useRoute,
-  useSupabase,
-  defineOgImageComponent,
+  useRuntimeConfig,
 } from '#imports'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
+import { useSupabase } from '~/composables/useSupabase'
 import { conferenceTitle, linkUrl, ogStaffDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import type { Staff } from '@vuejs-jp/model'
 
+const config = useRuntimeConfig()
 const route = useRoute()
 const id = route.params.id as string
 
@@ -35,25 +37,27 @@ function copyUrl() {
   document.body.removeChild(element)
 }
 
-defineOgImageComponent('VFOgCard24', {
-  user: {
-    display_name: staffData[0].name,
-    avatar_url: staffData[0].image_url,
-    role: 'staff',
-  },
-})
+// defineOgImageComponent('VFOgCard24', {
+//   user: {
+//     display_name: staffData[0].name,
+//     avatar_url: staffData[0].image_url,
+//     role: 'staff',
+//   },
+// })
 useHead({
   titleTemplate: (titleChunk) => `${conferenceTitle}`,
   meta: [
     ...generalOg({
-      title: `${conferenceTitle}`,
+      title: `${staffData[0].name} | ${conferenceTitle}`,
       description: ogStaffDescription,
       url: `${linkUrl}staffs/${id}/share`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${staffData[0].id}&page=staff`,
     }),
     ...twitterOg({
-      title: `${conferenceTitle}`,
+      title: `${staffData[0].name} | ${conferenceTitle}`,
       description: ogStaffDescription,
       url: `${linkUrl}staffs/${id}/share`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${staffData[0].id}&page=staff`,
     }),
   ],
 })

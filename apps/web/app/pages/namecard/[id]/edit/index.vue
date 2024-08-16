@@ -1,25 +1,47 @@
 <script setup lang="ts">
-import { ref, computed, watchEffect } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
 import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useI18n } from '#i18n'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
-import { navigateTo } from '#imports'
+import { definePageMeta, navigateTo } from '#imports'
 import { useNamecard } from '~/composables/useNamecard'
 import { useFormError } from '~/composables/useFormError'
 import ImageUploader from '~/components/namecard/ImageUploader.vue'
+import { peatixReferenceUrl } from '~/utils/constants'
 import type { Role } from '@vuejs-jp/model'
 
+definePageMeta({
+  middleware: 'auth',
+})
+
 const { t } = useI18n()
-const { nameError, orderNumberError, validateName, validateOrderNumber } = useFormError()
+const { path: localePath } = useLocaleCurrent()
+const { nameError, orderNumberError, validateNameWithMaxLength, validateOrderNumber } =
+  useFormError()
 const { authUser, attendeeDataByUserId, statusKey, namecardUser } = await useNamecard()
 const { upsertAttendee, uploadAvatar } = useSupabase()
 const { getFullAvatarUrl } = useSupabaseStorage()
 
 const name = ref('')
 const receiptId = ref('')
+const filePathRef = ref<string | null>(null)
+const fileRef = ref<File | null>(null)
+
 const isSubmitting = computed(() => {
-  return name.value && receiptId.value && filePathRef.value && fileRef.value
+  if (!name.value || !receiptId.value) return false
+  // if (
+  //   name.value === attendeeDataByUserId.value.display_name &&
+  //   filePathRef.value === attendeeDataByUserId.value.avatar_url &&
+  //   receiptId.value === attendeeDataByUserId.value.receipt_id
+  // ) {
+  //   return false
+  // }
+  return nameError.value === '' && orderNumberError.value === ''
+})
+const notEditable = computed(() => {
+  return statusKey.value === 'inquiry_completed'
 })
 
 const updateName = (e: any) => {
@@ -30,6 +52,10 @@ const updateReceiptId = (e: any) => {
 }
 
 const namecard = ref({ ...namecardUser.value })
+watch(
+  () => namecardUser.value,
+  () => { namecard.value = { ...namecardUser.value } },
+)
 
 const newAttendee = ref({
   ...namecardUser.value,
@@ -44,9 +70,6 @@ watchEffect(() => {
   namecard.value.display_name = name.value
   namecard.value.receipt_id = receiptId.value
 })
-
-const filePathRef = ref<string | null>(null)
-const fileRef = ref<File | null>(null)
 
 const checkFiles = (e: Event, files: File[]) => {
   e.preventDefault()
@@ -124,9 +147,10 @@ function onSubmit(e: Event) {
           required
           :error="nameError"
           @input="updateName"
-          @blur="validateName"
-          ><p class="annotation">{{ t('namecard.form.annotation_name') }}</p></VFInputField
+          @blur="validateNameWithMaxLength"
         >
+          <p class="annotation">{{ t('namecard.form.annotation_name') }}</p>
+        </VFInputField>
         <ImageUploader
           class="image-uploader"
           file-accept="image/*"
@@ -140,21 +164,30 @@ function onSubmit(e: Event) {
           :label="t('namecard.form.label_order_number')"
           :placeholder="t('namecard.form.placeholder_order_number')"
           required
+          :disabled="notEditable"
           :error="orderNumberError"
           @input="updateReceiptId"
           @blur="validateOrderNumber"
-          ><div class="annotation"><MarkDownText path="namecard_annotation_order_number" /></div
-        ></VFInputField>
+        >
+          <div class="annotation">
+            <i18n-t keypath="namecard.annotation_order_number" tag="p">
+              <template #peatixReferenceUrl>
+                <a :href="peatixReferenceUrl" target="_blank">{{ $t('namecard.receipt_data') }}</a>
+              </template>
+            </i18n-t>
+          </div>
+        </VFInputField>
       </div>
       <div class="form-buttons">
         <VFLinkButton
-          :href="`/namecard/${authUser?.id}/`"
+          :href="`${localePath}/namecard/${authUser?.id}/`"
           target="_self"
           background-color="white"
           color="vue-blue"
           class="button cancel-button"
-          >{{ t('namecard.cancel') }}</VFLinkButton
         >
+          {{ t('namecard.cancel') }}
+        </VFLinkButton>
         <VFSubmitButton id="submit-button" class="button submit-button" :disabled="!isSubmitting">
           {{ $t('namecard.form.submit') }}
         </VFSubmitButton>

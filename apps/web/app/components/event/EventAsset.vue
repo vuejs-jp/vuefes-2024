@@ -19,6 +19,7 @@ const props = defineProps<EventAssetProps>()
 
   width: 100%;
   height: var(--head-img-height);
+  min-height: 222px;
   object-fit: cover;
 }
 </style>

@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { createError, useAsyncData, useHead, useRoute } from '#imports'
+import { createError, useAsyncData, useHead, useRoute, useRuntimeConfig } from '#imports'
 import type { Speaker } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useSupabase } from '~/composables/useSupabase'
+import { useSession } from '~/composables/useSession'
 import { conferenceTitle, linkUrl, ogSpeakerDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
+import { useRange } from '@vuejs-jp/composable'
 
+const config = useRuntimeConfig()
 const route = useRoute()
 const id = route.params.id as string
 
@@ -22,6 +25,8 @@ if (!speakerData[0].detail_page_id) {
   throw createError({ statusCode: 404, statusMessage: 'Speaker not found' })
 }
 
+const { range } = useRange()
+const { color, trackName } = useSession()
 const currentLocale = useLocaleCurrent().locale
 
 useHead({
@@ -31,11 +36,13 @@ useHead({
       title: `${speakerData[0].session_title_ja} | ${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}sessions/${id}`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${speakerData[0].id}&page=speaker`,
     }),
     ...twitterOg({
       title: `${speakerData[0].session_title_ja} | ${conferenceTitle}`,
       description: ogSpeakerDescription,
       url: `${linkUrl}sessions/${id}`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${speakerData[0].id}&page=speaker`,
     }),
   ],
 })
@@ -45,6 +52,11 @@ useHead({
   <VFPageHeading>{{ $t('speaker.title') }}</VFPageHeading>
   <div class="session-detail">
     <div class="session-detail-body">
+      <div class="detailbody-tags">
+        <VFTag :label="trackName(speakerData[0].session_place)" :background="color(speakerData[0].session_place)" />
+        <VFTag :label="range(speakerData[0].session_time_from, speakerData[0].session_time_duration)" background="vue-green/200" />
+      </div>
+
       <VFTitle id="session-detail" class="detailbody-title">
         {{ currentLocale === 'ja' ? (speakerData[0].session_title_ja ?? 'TBD') : (speakerData[0].session_title_en ?? 'TBD') }}
       </VFTitle>
@@ -122,9 +134,7 @@ useHead({
   margin: 0 auto;
   padding: 60px 0 120px;
   width: 100%;
-  max-width: 1280px;
-  display: grid;
-  gap: calc(var(--unit) * 8);
+  max-width: 960px;
 
   @media (--tablet) {
     padding: 20px 0 60px;
@@ -135,15 +145,22 @@ useHead({
     text-align: left;
     font-size: 32px;
     font-weight: 700;
-    margin-bottom: calc(var(--unit) * 3);
+    margin: calc(var(--unit) * 2) 0;
+  }
+
+  .detailbody-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--unit) * 1.5);
+    column-gap: calc(var(--unit) * 4);
   }
 
   .detailbody-explain {
     --body-font-size: 1.125rem;
-    --body-font-weight: 500;
 
+    color: var(--color-vue-blue);
     font-size: var(--body-font-size);
-    font-weight: var(--body-font-weight);
+    line-height: 1.8;
     white-space: pre-wrap;
 
     ::v-deep(p) {
@@ -186,10 +203,16 @@ useHead({
     display: grid;
     grid-template-columns: auto 1fr;
     gap: calc(var(--unit) * 4);
+    margin-top: calc(var(--unit) * 10);
   }
 
   .detailbody-persons ::v-deep(img) {
     width: var(--head-img-width);
+  }
+
+  .person-info {
+    color: var(--color-vue-blue);
+    line-height: 1.8;
   }
 
   .person-info ::v-deep(ul) {
@@ -200,7 +223,6 @@ useHead({
 
   .person-info ::v-deep(p) {
     color: var(--color-vue-blue);
-    font-weight: 500;
     font-size: 18px;
     line-height: 1.8;
   }
