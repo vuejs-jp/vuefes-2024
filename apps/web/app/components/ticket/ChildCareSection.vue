@@ -44,6 +44,7 @@ import { childCareUrl } from '~/utils/constants'
 
 .childcare-body-text {
   margin-top: calc(var(--unit) * 4);
+  font-size: 18px;
   line-height: 1.8;
   color: white;
 
