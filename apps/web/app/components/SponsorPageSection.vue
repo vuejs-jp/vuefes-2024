@@ -205,7 +205,7 @@ const personalSponsorInfo: PersonalSponsorInfo = {
     linear-gradient(to bottom, #35495e, #353b5e);
   background-position: top -1px left -1px;
   background-size: 30px;
-  background-blend-mode: overlay;
+  background-blend-mode: color-dodge;
   padding: var(--sponsor-padding);
   color: var(--color-vue-blue);
 }
