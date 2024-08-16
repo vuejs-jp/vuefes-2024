@@ -1,10 +1,16 @@
 <script setup lang="ts">
-import { useI18n, useRuntimeConfig, useSwitchLocalePath } from '#imports'
+import { useRuntimeConfig } from '#imports'
+import { useI18n } from '#i18n'
 import { useScreenOrientation, useWindowSize } from '@vueuse/core'
 import { ref, watch, onMounted, computed } from 'vue'
-const { locale } = useI18n({ useScope: 'global' })
-const switchLocalePath = useSwitchLocalePath()
+
+const { locale, setLocale } = useI18n({ useScope: 'global' })
+
 const config = useRuntimeConfig()
+
+const onSwitchLocale = () => {
+  setLocale(locale.value === 'ja' ? 'en' : 'ja')
+}
 
 const { width } = useWindowSize()
 const { orientation } = useScreenOrientation()
@@ -45,13 +51,11 @@ const getAnchorPath = computed(
 <template>
   <VFSpHeader v-if="shouldShowSpHeader">
     <div class="navigation-mobile">
-      <NuxtLink
+      <VFLocaleSwitch
         v-if="config.public.enableSwitchLocale"
-        :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
-        class="locale-switch-wrapper"
-      >
-        <VFLocaleSwitch :locale />
-      </NuxtLink>
+        :locale
+        @switch-locale="onSwitchLocale"
+      />
 
       <button
         class="navigation-mobile-toggle"
@@ -85,13 +89,11 @@ const getAnchorPath = computed(
           <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
         </nuxt-link>
       </div>
-      <NuxtLink
+      <VFLocaleSwitch
         v-if="config.public.enableSwitchLocale"
-        :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
-        class="locale-switch-wrapper"
-      >
-        <VFLocaleSwitch :locale />
-      </NuxtLink>
+        :locale
+        @switch-locale="onSwitchLocale"
+      />
     </div>
   </VFHeader>
 </template>
