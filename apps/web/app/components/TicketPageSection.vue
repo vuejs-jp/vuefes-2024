@@ -19,8 +19,9 @@ const config = useRuntimeConfig()
     <VolunteerSection v-if="config.public.enableRegisterTicket && locale === 'ja'" />
     -->
     <ChildCareSection />
-    <PersonalSponsorSection />
     <HandsonSection />
+    <HandsonSection />
+    <PersonalSponsorSection />
     <FaqSection />
   </section>
 </template>
