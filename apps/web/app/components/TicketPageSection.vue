@@ -20,7 +20,6 @@ const config = useRuntimeConfig()
     -->
     <ChildCareSection />
     <HandsonSection />
-    <HandsonSection />
     <PersonalSponsorSection />
     <FaqSection />
   </section>
