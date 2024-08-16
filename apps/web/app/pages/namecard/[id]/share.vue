@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed } from 'vue'
 import {
   createError,
   // defineOgImageComponent,
@@ -19,15 +19,14 @@ const config = useRuntimeConfig()
 const route = useRoute()
 const id = route.params.id as string
 const { attendeeDataByUserId, getNamecardData } = useNamecard(id)
-if (!attendeeDataByUserId) {
+
+await getNamecardData()
+
+if (!attendeeDataByUserId.value) {
   throw createError({ statusCode: 404, statusMessage: 'Attendee not found' })
 }
 
 const currentLocale = useLocaleCurrent().locale
-
-onMounted(async () => {
-  await getNamecardData()
-})
 
 function copyUrl() {
   const element = document.createElement('input')
