@@ -78,6 +78,7 @@ import { ticketUrl } from '~/utils/constants'
     --body-p-margin-bottom: calc(var(--unit) * 4);
 
     margin-bottom: var(--body-p-margin-bottom);
+    font-size: 18px;
   }
 }
 
