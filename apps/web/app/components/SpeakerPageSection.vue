@@ -58,7 +58,7 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
       <section v-if="lightningTalkSpeakers.list.length !== 0" id="lightning-talks" class="speaker-section">
         <h3 class="speaker-subtitle">Lightning Talks</h3>
         <p>
-          {{ $t('speaker.lightningTalksDescription') }}
+          {{ $t('speaker.lt_description') }}
         </p>
         <ul class="speaker-cards">
           <li v-for="speaker in lightningTalkSpeakers.list" :key="speaker.id" class="speaker-card">
