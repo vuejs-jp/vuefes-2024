@@ -63,7 +63,7 @@ import { ticketUrl } from '~/utils/constants'
 }
 
 .namecard-body {
-  --namecard-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
+  --namecard-body-padding: calc(var(--unit) * 10) calc(var(--unit) * 12);
 
   margin: 0 auto;
   padding: var(--namecard-body-padding);
@@ -71,6 +71,7 @@ import { ticketUrl } from '~/utils/constants'
   margin: 0 1.5%;
   max-width: 960px;
   width: 100%;
+  border-bottom: 1px solid var(--color-white);
 }
 
 .namecard-text {
@@ -119,7 +120,7 @@ import { ticketUrl } from '~/utils/constants'
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  margin: -20px 0 -40px;
 }
 
 .separator {

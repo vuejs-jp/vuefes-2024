@@ -39,7 +39,7 @@ import { ticketUrl } from '~/utils/constants'
 @import url('~/assets/media.css');
 
 .personal-sponsor-body {
-  --personal-sponsor-body-padding: calc(var(--unit) * 6) calc(var(--unit) * 7.5);
+  --personal-sponsor-body-padding: calc(var(--unit) * 10) calc(var(--unit) * 12);
 
   margin: 0 auto;
   padding: var(--personal-sponsor-body-padding);
