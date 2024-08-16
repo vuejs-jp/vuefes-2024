@@ -33,24 +33,24 @@ const props = defineProps<StoreItemProps>()
 
 <style scoped>
 .store-item {
-  width: 308px;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
+  width: 288px;
   color: var(--color-vue-blue);
 }
 
 .store-item img {
   border: 1px solid #DCE1E5;
+  border-radius: 8px;
 }
 
 .name {
+  margin-top: 16px;
+  font-size: 18px;
   font-weight: bold;
   line-height: 1;
 }
 
 .explain {
-  width: 308px;
+  margin-top: 8px;
   white-space: pre-wrap;
 
   &::v-deep(a) {
@@ -62,12 +62,22 @@ const props = defineProps<StoreItemProps>()
     opacity: 0.4;
     transition: .2s;
   }
+
+  &::v-deep(p) {
+    font-size: 18px;
+    line-height: 1.8;
+  }
 }
 
 .price {
+  margin-top: 4px;
   font-size: 22px;
   font-weight: bold;
   line-height: 1;
+}
+
+.supplement {
+  margin-top: 16px;
 }
 
 @media (max-width: 768px) {
