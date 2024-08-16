@@ -22,10 +22,6 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
     <article class="speaker-body-wrapper">
       <SpeakerCfp />
 
-      <div class="speaker-text">
-        <MarkDownText path="speaker" />
-      </div>
-
       <section id="sessions" class="speaker-section">
         <h3 class="speaker-subtitle">Sessions</h3>
         <ul class="speaker-cards">
@@ -156,8 +152,8 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
 }
 
 .speaker-body-wrapper {
-  margin: 0 1.5%;
-  max-width: calc(960px + 6%);
+  margin: 0;
+  max-width: 960px;
   isolation: isolate;
 }
 
@@ -174,8 +170,8 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
 }
 
 .speaker-section {
-  --speaker-section-margin: calc(var(--unit) * 7.5) 0;
-  --speaker-section-padding: 0 3%;
+  --speaker-section-margin: 0 0 calc(var(--unit) * 7.5);
+  --speaker-section-padding: 0;
 
   margin: var(--speaker-section-margin);
   padding: var(--speaker-section-padding);
@@ -194,7 +190,7 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
 }
 
 .speaker-cards {
-  --speaker-cards-margin: calc(var(--unit) * 7.5) 0 0;
+  --speaker-cards-margin: calc(var(--unit) * 5) 0 0;
   --speaker-cards-gap: 58px 30px;
 
   margin: var(--speaker-cards-margin);
@@ -216,6 +212,8 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
 
   .speaker-body-wrapper {
     --speaker-body-padding: calc(var(--unit) * 4) 4.5% calc(var(--unit) * 6);
+
+    max-width: 100%;
   }
 
   .speaker-text {
@@ -225,6 +223,7 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
 
   .speaker-section {
     --speaker-section-margin: calc(var(--unit) * 6.25) 0;
+    --speaker-section-padding: 0 5%;
   }
 
   .speaker-cards {

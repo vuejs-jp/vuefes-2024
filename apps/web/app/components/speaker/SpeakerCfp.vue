@@ -76,7 +76,7 @@ const endPeriodTime = {
 }
 
 .cfp-body {
-  --speaker-cfp-padding: calc(var(--unit) * 7.5) calc(var(--unit) * 12);
+  --speaker-cfp-padding: calc(var(--unit) * 7.5) calc(var(--unit) * 12) calc(var(--unit) * 5);
 
   height: fit-content;
   margin: 0 1.5%;
