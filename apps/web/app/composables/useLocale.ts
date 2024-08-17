@@ -21,7 +21,7 @@ export function useLocale(path: Path) {
       .with('nextgen_frontend_crosstalk', () => `/${locale.value}/nextgen_frontend_crosstalk`)
       .with('creative_wall', () => `/${locale.value}/creative_wall`)
       .with('free_drinks_and_snacks', () => `/${locale.value}/free_drinks_and_snacks`)
-      .with('tattoo_booth', () => `/${locale.value}/tattoo_booth`)
+      .with('tattoo_space', () => `/${locale.value}/tattoo_space`)
       .with('cocktail_bash', () => `/${locale.value}/cocktail_bash`)
       .with('sponsor_booth_fotolary', () => `/${locale.value}/sponsor_booth_fotolary`)
       .with('store_preorder', () => `/${locale.value}/store_preorder`)
