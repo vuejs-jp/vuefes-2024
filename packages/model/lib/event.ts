@@ -4,7 +4,7 @@ export const EventMap = {
   'nextgen-frontend-crosstalk': 'nextgen-frontend-crosstalk',
   'creative-wall': 'creative-wall',
   'free-drinks-and-snacks': 'free-drinks-and-snacks',
-  'tattoo-booth': 'tattoo-booth',
+  'tattoo-space': 'tattoo-space',
   'cocktail-bash': 'cocktail-bash',
   'sponsor-booth-fotolary': 'sponsor-booth-fotolary',
 } as const
