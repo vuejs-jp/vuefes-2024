@@ -102,9 +102,11 @@ function onSubmit(e: Event) {
   const submitEvent = e as SubmitEvent
   const submitter = submitEvent.submitter as HTMLElement
 
-  if (submitter && submitter.id === 'submit-button' && filePathRef.value && fileRef.value) {
-    uploadAvatar(filePathRef.value, fileRef.value)
-    newAttendee.value.avatar_url = getFullAvatarUrl(filePathRef.value)
+  if (submitter && submitter.id === 'submit-button') {
+    if (filePathRef.value && fileRef.value) {
+      uploadAvatar(filePathRef.value, fileRef.value)
+      newAttendee.value.avatar_url = getFullAvatarUrl(filePathRef.value)
+    }
 
     const baseData = {
       email: attendeeDataByUserId.value?.email ?? authUser.value?.email ?? '',
