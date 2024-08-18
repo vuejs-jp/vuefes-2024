@@ -1,9 +1,9 @@
 import speaker from './speaker'
 import sponsor from './sponsor'
-import timeTable from './timeTable'
+import timetable from './timetable'
 
 export default {
   speaker,
   sponsor,
-  timeTable
+  timetable
 }

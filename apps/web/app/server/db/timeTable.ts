@@ -1,9 +1,8 @@
-class TimeTable {
+class Timetable {
   async getList() {
-    // TODO: supabaseからデータを取得する
-    const timeTable = await import('~/utils/data/timeTable.json')
-    return timeTable
+    const timetable = await import('~/utils/data/timetable.json')
+    return timetable
   }
 }
 
-export default new TimeTable()
+export default new Timetable()

@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  min-width: 80px;
+  height: 100%;
   padding: 21px 4px;
   background-color: var(--color-vue-green200);
   color: var(--color-white);

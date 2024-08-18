@@ -1,25 +1,23 @@
-export type TimeTable = {
+import type { Speaker } from './speaker'
+import type { Track } from './track'
+
+
+export type Timetable = {
   time: string
-  tracks: Track[]
+  rows: Row[]
 }[]
 
-type Track = {
-  colspan?: number
-  sessions: Session[]
-}
-
-type Session = {
-  id: string
-  category: string
-  title: string
-  titleKey: string
-  speaker: string
-  speakerKey: string
-  sponsorSession?: string
-  archives: Archive[]
-}
-
-type Archive = {
-  slide?: string
-  youtube?: string
+export type Row = {
+  title?: string
+  title_en?: string
+  subTitle?: string
+  subTitle_en?: string
+  colspan: number
+  rowspan: number
+  sessions?: Speaker[]
+  track?: Track
+  isClose?: boolean
+  isOpeningOrKeyNote?: boolean
+  isTranslation?: boolean
+  isSponsor?: boolean
 }

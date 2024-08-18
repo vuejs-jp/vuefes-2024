@@ -40,14 +40,14 @@ useHead({
 <template>
   <TopPageSection />
   <MessagePageSection />
-  <TimeTablePageSection />
   <TicketPageSection v-if="config.public.enableRegisterTicket" />
   <SpeakerPageSection :data="speakers" />
   <!--
-  <VolunteerPageSection v-if="!config.public.enableRegisterTicket && locale === 'ja'" />
-  -->
+    <VolunteerPageSection v-if="!config.public.enableRegisterTicket && locale === 'ja'" />
+    -->
   <EventPageSection v-if="config.public.showEvent" :data="speakers" />
   <StorePageSection v-if="config.public.showStore" />
+  <TimeTablePageSection />
   <AccessPageSection />
   <SponsorPageSection :data="sponsors" />
   <CooperationPartnerSection />

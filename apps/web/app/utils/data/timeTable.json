@@ -1,750 +1,571 @@
 [
   {
-    "time": "09:30 - 10:20",
-    "tracks": [
+    "time": "09:30",
+    "rows": [
       {
-        "colspan": 3,
-        "sessions": [
-          {
-            "title": "開場・受付",
-            "titleKey": "words.start_registration"
-          }
-        ]
-      },
-      {
-        "rowspan": 6,
-        "isClose": true,
-        "sessions": [
-          {
-            "title": ""
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "10:20 - 10:25",
-    "tracks": [
-      {
-        "colspan": 3,
-        "sessions": [
-          {
-            "title": "オープニング",
-            "titleKey": "words.opening",
-            "speaker": "川口 和也",
-            "speakerKey": "speakers.kazuya_kawaguchi"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "10:25 - 11:05",
-    "tracks": [
-      {
-        "colspan": 3,
-        "sessions": [
-          {
-            "isTranslation": true,
-            "id": "yyx990803",
-            "title": "キーノート",
-            "titleKey": "words.keynote",
-            "speaker": "Evan You",
-            "archives": {
-              "slide": "",
-              "youtube": "https://www.youtube.com/watch?v=QkhLzoEwvwM"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "11:05 - 11:25",
-    "tracks": [
-      {
-        "colspan": 3,
-        "sessions": [
-          {
-            "id": "cloudsign",
-            "category": "platinum",
-            "title": "走りながらエンジンを交換する ~ 大規模プロダクトを成長させつつVue3にするには ~",
-            "titleKey": "sessions.cloudsign",
-            "speaker": "クラウドサイン（弁護士ドットコム株式会社） 篠田 貴大",
-            "speakerKey": "speakers.takahiro_shinoda.name",
-            "sponsorSession": "cloudsign",
-            "archives": {
-              "slide": "https://speakerdeck.com/bengo4com/20231028",
-              "youtube": "https://www.youtube.com/watch?v=cqptdLnRAjA"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "11:25 - 11:45",
-    "tracks": [
-      {
-        "colspan": 3,
-        "sessions": [
-          {
-            "id": "unique-vision",
-            "category": "platinum",
-            "title": "社内UIコンポーネントライブラリがエンジニアチームにもたらした本当の価値",
-            "titleKey": "sessions.unique_vision",
-            "speaker": "ユニークビジョン株式会社 山本 一将",
-            "speakerKey": "speakers.kazumasa_yamamoto.name",
-            "sponsorSession": "cloudsign",
-            "archives": {
-              "slide": "",
-              "youtube": "https://www.youtube.com/watch?v=QxHMs-G3VFs"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "11:45 - 12:05",
-    "tracks": [
-      {
-        "colspan": 3,
-        "sessions": [
-          {
-            "id": "link-and-motivation-group",
-            "category": "platinum",
-            "title": "Vue.jsを活用して開発リードタイムが1/3になった話",
-            "titleKey": "sessions.link_and_motivation_group",
-            "speaker": "株式会社リンクアンドモチベーション 鵜木 義秀",
-            "speakerKey": "speakers.yoshihide_unoki.name",
-            "sponsorSession": "cloudsign",
-            "archives": {
-              "slide": "https://speakerdeck.com/lmi/vuefes2023-link-and-motivation",
-              "youtube": "https://www.youtube.com/watch?v=ZPJAFrQHAQY"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "12:05 - 13:30",
-    "tracks": [
-      {
-        "track": "cloudsign",
-        "sessions": [
-          {
-            "title": "ランチタイム",
-            "titleKey": "words.lunch_time"
-          },
-          {
-            "id": "stores",
-            "subTitle": "12:25 - 12:45",
-            "category": "special-lunch",
-            "title": "「Youはなぜコントリビュータに？」論より動くもの.fm 出張版",
-            "titleKey": "sessions.stores",
-            "speaker": "STORES株式会社 藤村大介、wattanx / ワッタン",
-            "speakerKey": "speakers.daisuke_fujimura.with_wattanx",
-            "sponsorSession": "cloudsign",
-            "archives": {
-              "slide": "",
-              "youtube": "https://www.youtube.com/watch?v=oWmaKKIq-ac"
-            }
-          },
-          {
-            "id": "mntsq",
-            "subTitle": "12:55 - 13:15",
-            "category": "special-lunch",
-            "title": "Vue.jsプロジェクト設計のベストプラクティスを求めて",
-            "titleKey": "sessions.mntsq",
-            "speaker": "MNTSQ株式会社 安積 洋",
-            "speakerKey": "speakers.hiroshi_azumi.name",
-            "sponsorSession": "cloudsign",
-            "archives": {
-              "slide": "https://speakerdeck.com/cyber_snufkin/28-vue-fes-tokyo-vue-dot-js-puroziekutoshe-ji-nobesutopurakuteisuwoqiu-mete",
-              "youtube": "https://www.youtube.com/watch?v=9rEHxtDQIAY"
-            }
-          }
-        ]
-      },
-      {
-        "track": "medpeer",
-        "sessions": [
-          {
-            "title": "ランチタイム",
-            "titleKey": "words.lunch_time"
-          },
-          {
-            "id": "medpeer",
-            "subTitle": "12:30 - 12:50",
-            "category": "special-lunch",
-            "title": "Vue2のEOLまで二ヶ月ですが進捗どうですか？",
-            "titleKey": "sessions.medpeer",
-            "speaker": "メドピア株式会社 小林 和弘",
-            "speakerKey": "speakers.kazuhiro_kobayashi.name",
-            "sponsorSession": "medpeer",
-            "archives": {
-              "slide": "https://speakerdeck.com/kzhrk/vue-2-no-eol-made-2-keyue-desugajin-bu-doudesuka",
-              "youtube": "https://www.youtube.com/watch?v=xU_btgAg-s8"
-            }
-          }
-        ]
-      },
-      {
-        "track": "m3",
-        "sessions": [
-          {
-            "title": "ランチタイム",
-            "titleKey": "words.lunch_time"
-          },
-          {
-            "id": "hacomono",
-            "subTitle": "12:20 - 12:40",
-            "category": "special-lunch",
-            "title": "Nuxt3ではじめるテスト導入戦略と初手",
-            "titleKey": "sessions.hacomono",
-            "speaker": "株式会社hacomono 野崎 才門",
-            "speakerKey": "speakers.saimon_nozaki.name",
-            "sponsorSession": "m3",
-            "archives": {
-              "slide": "https://speakerdeck.com/hacomono/nuxt-3dehazimerutesutodao-ru-zhan-lue-tochu-shou",
-              "youtube": "https://www.youtube.com/watch?v=QyiVQXiR61M"
-            }
-          },
-          {
-            "id": "mew-ton",
-            "subTitle": "12:45 - 13:15",
-            "title": "Nuxt2から3へマイグレーションする方法考えてたら、マイクロフロントエンドのフレームワークができた話",
-            "titleKey": "sessions.mew_ton",
-            "speaker": "みゅーとん / mew-ton",
-            "archives": {
-              "slide": "https://tome.app/mewton-8cb/vue-fes-2023-clnjmh8ez0044l77dwardvtga",
-              "youtube": "https://www.youtube.com/watch?v=_0dGI35KEwc"
-            }
-          }
-        ]
-      },
-      {
-        "track": "vue",
-        "rowspan": 6,
-        "sponsorSession": "cloudsign",
-        "sessions": [
-          {
-            "title": "ランチタイム",
-            "titleKey": "words.lunch_time"
-          },
-          {
-            "id": "coconala",
-            "subTitle": "12:30 - 12:40",
-            "category": "lunch",
-            "title": "OpenAI APIをNuxt.jsに入れてみた的な話",
-            "titleKey": "sessions.coconala",
-            "speaker": "株式会社ココナラ 市原 雄太",
-            "speakerKey": "speakers.yuta_ichihara.name",
-            "sponsorSession": "vue",
-            "archives": {
-              "slide": "",
-              "youtube": "https://www.youtube.com/watch?v=VOEMhfmVVrY"
-            }
-          },
-          {
-            "subTitle": "13:15 - 15:15",
-            "title": "ハンズオン",
-            "titleKey": "words.handson"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "13:30 - 14:00",
-    "tracks": [
-      {
-        "track": "cloudsign",
-        "sessions": [
-          {
-            "isTranslation": true,
-            "id": "atinux",
-            "title": "Nuxt to the Edge",
-            "speaker": "Sebastien Chopin",
-            "archives": {
-              "slide": "",
-              "youtube": "https://www.youtube.com/watch?v=7DVZsQDlLRQ"
-            }
-          }
-        ]
-      },
-      {
-        "track": "medpeer",
-        "sessions": [
-          {
-            "title": "ライトニングトーク",
-            "titleKey": "words.lightning_talks"
-          },
-          {
-            "id": "t0yohei",
-            "title": "Vueを使ってGrid Systemを実装した話",
-            "titleKey": "sessions.t0yohei",
-            "speaker": "t0yohei / トヨヘイ",
-            "archives": {
-              "slide": "https://speakerdeck.com/t0yohei/vue-woshi-tute-grid-system-woshi-zhuang-sitahua",
-              "youtube": "https://www.youtube.com/watch?v=fKdP6y9DtZQ"
-            }
-          },
-          {
-            "id": "northprint",
-            "title": "WebGISとVue.jsの親和性について",
-            "titleKey": "sessions.tetsuhiro_narayama",
-            "speaker": "楢山 哲弘",
-            "speakerKey": "speakers.tetsuhiro_narayama",
-            "archives": {
-              "slide": "https://docs.google.com/presentation/d/1KwLPyFLE0J3W9BwFmROHtgG0qQbGdYCnbEXjuJTYpJ4/edit?usp=sharing",
-              "youtube": "https://www.youtube.com/watch?v=RpUDNRdP7Y0"
-            }
-          },
-          {
-            "id": "kira-puka",
-            "title": "Nuxt3のモジュール開発は意外と簡単？ Module Author Guideをのぞいてみよう",
-            "titleKey": "sessions.kira_puka",
-            "speaker": "きらぷか / kira-puka",
-            "archives": {
-              "slide": "https://www.docswell.com/s/kira_puka/ZRXM6E-2023-10-25-064822",
-              "youtube": "https://www.youtube.com/watch?v=xaXvwYF9Wl0"
-            }
-          },
-          {
-            "id": "yud0uhu",
-            "title": "Vue3/Electronで自作したマークダウンエディタをVue3/Tauriにリプレイスした話",
-            "titleKey": "sessions.yud0uhu",
-            "speaker": "0yu / オユ",
-            "archives": {
-              "slide": "https://speakerdeck.com/yud0uhu/tauriniripureisusitahua",
-              "youtube": "https://www.youtube.com/watch?v=II_M6JQgh9Q"
-            }
-          }
-        ]
-      },
-      {
-        "track": "m3",
-        "sessions": [
-          {
-            "id": "yamanoku",
-            "title": "画面遷移から考えるNuxtアプリケーションをアクセシブルにする方法",
-            "titleKey": "sessions.yamanoku",
-            "speaker": "やまのく / yamanoku",
-            "archives": {
-              "slide": "https://yamanoku.net/vuefes-japan-2023/ja/",
-              "youtube": "https://www.youtube.com/watch?v=FmggsMDMqh0"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "14:00 - 14:15",
-    "tracks": [
-      {
-        "colspan": 3,
-        "sessions": [
-          {
-            "title": "休憩",
-            "titleKey": "words.break"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "14:15 - 14:45",
-    "tracks": [
-      {
-        "track": "cloudsign",
-        "sessions": [
-          {
-            "isTranslation": true,
-            "id": "daniel-roe",
-            "title": "A New Nuxt",
-            "speaker": "Daniel Roe",
-            "archives": {
-              "slide": "",
-              "youtube": "https://www.youtube.com/watch?v=M48iEFch-6s"
-            }
-          }
-        ]
-      },
-      {
-        "track": "medpeer",
-        "sessions": [
-          {
-            "id": "baseballyama",
-            "title": "18営業日で350コンポーネント規模のVueアプリにデザインシステムを導入する方法",
-            "titleKey": "sessions.baseballyama",
-            "speaker": "山下 裕一朗",
-            "speakerKey": "speakers.baseballyama.name",
-            "archives": {
-              "slide": "https://speakerdeck.com/baseballyama/vue-fes-2023-18ying-ye-ri-de350konponentogui-mo-novueapurinidezainsisutemuwodao-ru-surufang-fa",
-              "youtube": "https://www.youtube.com/watch?v=PuMzWv7gFYE"
-            }
-          }
-        ]
-      },
-      {
-        "track": "m3",
-        "sessions": [
-          {
-            "id": "chocodogmagic",
-            "title": "Nuxt 3でJamstackテンプレートを作るときの考え方",
-            "titleKey": "sessions.chocodogmagic",
-            "speaker": "まぁし（知念）",
-            "archives": {
-              "slide": "https://speakerdeck.com/chinen/vue-fes-japan-2023",
-              "youtube": "https://www.youtube.com/watch?v=b-nGPOF_YwY"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "14:45 - 15:00",
-    "tracks": [
-      {
-        "colspan": 3,
-        "sessions": [
-          {
-            "title": "休憩",
-            "titleKey": "words.break"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "15:00 - 15:30",
-    "tracks": [
-      {
-        "track": "cloudsign",
-        "sessions": [
-          {
-            "isTranslation": true,
-            "id": "antfu",
-            "title": "Anthony's Roads to Open Source - The Set Theory",
-            "speaker": "Anthony Fu",
-            "archives": {
-              "slide": "https://antfu.me/posts/roads-to-oss-set-theory-vuefesjapan-2023",
-              "youtube": "https://www.youtube.com/watch?v=8z2ZZFEsnQk"
-            }
-          }
-        ]
-      },
-      {
-        "track": "medpeer",
-        "sessions": [
-          {
-            "id": "wattanx",
-            "title": "Demystifying Nuxt Bridge 〜 あなたがまだ見ぬ可能性とその活用法 〜",
-            "titleKey": "sessions.wattanx",
-            "speaker": "wattanx / ワッタン",
-            "archives": {
-              "slide": "https://speakerdeck.com/wattanx/demystifying-nuxt-bridge",
-              "youtube": "https://www.youtube.com/watch?v=LzxmM358HHQ"
-            }
-          }
-        ]
-      },
-      {
-        "track": "m3",
-        "sessions": [
-          {
-            "id": "mizdra",
-            "title": "Vue Language Serverから生まれたVolar.jsと、それが秘める可能性",
-            "titleKey": "sessions.mizdra",
-            "speaker": "mizdra / ミズドラ",
-            "archives": {
-              "slide": "https://speakerdeck.com/mizdra/vue-language-server-karasheng-mareta-volar-dot-js-to-soregami-meruke-neng-xing",
-              "youtube": "https://www.youtube.com/watch?v=hHNne1xIDeM"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "15:30 - 15:45",
-    "tracks": [
-      {
+        "title": "開場・受付",
+        "title_en": "Opening and reception",
         "colspan": 4,
-        "sessions": [
-          {
-            "title": "休憩",
-            "titleKey": "words.break"
-          }
-        ]
+        "rowspan": 1
       }
     ]
   },
   {
-    "time": "15:45 - 16:15",
-    "tracks": [
+    "time": "10:30",
+    "rows": [
       {
-        "track": "cloudsign",
+        "colspan": 1,
+        "rowspan": 1,
         "sessions": [
           {
-            "isTranslation": true,
-            "id": "patak-dev",
-            "title": "Vite: Stories of collaboration",
-            "speaker": "Matias Capeletto",
-            "archives": {
-              "slide": "",
-              "youtube": "https://www.youtube.com/watch?v=nEmxYeQfHAU"
-            }
+            "name_ja": "川口 和也",
+            "name_en": "Kazuya Kawaguchi",
+            "session_title_ja": "オープニング",
+            "session_title_en": "Opening"
           }
-        ]
-      },
-      {
+        ],
         "track": "medpeer",
-        "sessions": [
-          {
-            "id": "nozomu-ikuta",
-            "title": "Deep Dive to UnJS and Nuxt 3",
-            "speaker": "Nozomu Iluta",
-            "archives": {
-              "slide": "https://speakerdeck.com/nozomuikuta/deep-dive-to-unjs-and-nuxt-3",
-              "youtube": "https://www.youtube.com/watch?v=mFFdy4t1ywU"
-            }
-          }
-        ]
+        "isOpeningOrKeyNote": true
       },
       {
-        "track": "m3",
-        "sessions": [
-          {
-            "title": "ライトニングトーク",
-            "titleKey": "words.lightning_talks"
-          },
-          {
-            "id": "53able",
-            "title": "SOLID原則に基づくSFC実装",
-            "titleKey": "sessions._53able",
-            "speaker": "53able / ゴー",
-            "archives": {
-              "slide": "https://slides-one.vercel.app/1?clicks=1",
-              "youtube": "https://www.youtube.com/watch?v=zVQYyIodG1M"
-            }
-          },
-          {
-            "id": "fuqda",
-            "title": "Composition API時代のPub/Subパターンでの状態管理",
-            "titleKey": "sessions.fuqda",
-            "speaker": "fuqda / フクダ",
-            "archives": {
-              "slide": "https://speakerdeck.com/fuqda/subpatandenozhuang-tai-guan-li",
-              "youtube": "https://www.youtube.com/watch?v=Hyymf4wgDzU"
-            }
-          },
-          {
-            "id": "hieu",
-            "title": "Exploring the Power of Error Handling in Vue JS",
-            "speaker": "Hieu / グエンゴックヒエウ",
-            "archives": {
-              "slide": "",
-              "youtube": "https://www.youtube.com/watch?v=gFxc6EDRW6k"
-            }
-          },
-          {
-            "id": "hitoki-wakugawa",
-            "title": "フルスクラッチECの基盤であるNuxt 2を3に移行し、開発の効率性とパフォーマンスを高める",
-            "titleKey": "sessions.hitoki_wakugawa",
-            "speaker": "湧川 仁貴 / Hitoki Wakugawa",
-            "speakerKey": "speakers.hitoki_wakugawa.name",
-            "archives": {
-              "slide": "https://speakerdeck.com/wakkn/hurusukuratutiecnoji-pan-dearunuxt-2wo3niyi-xing-si-kai-fa-noxiao-lu-xing-topahuomansuwogao-meru",
-              "youtube": "https://www.youtube.com/watch?v=nQe7GZZ0EDA"
-            }
-          }
-        ]
+        "title": "サテライト",
+        "title_en": "Satellite",
+        "colspan": 1,
+        "rowspan": 1,
+        "track": "mntsq"
       },
       {
-        "track": "vue",
-        "rowspan": 2,
-        "sessions": [
-          {
-            "subTitle": "15:45 - 16:30",
-            "title": "パネルディスカッション",
-            "titleKey": "words.panel_discussion"
-          }
-        ]
+        "colspan": 1,
+        "rowspan": 5,
+        "isClose": true
+      },
+      {
+        "colspan": 1,
+        "rowspan": 7,
+        "isClose": true
       }
     ]
   },
   {
-    "time": "16:15 - 16:30",
-    "tracks": [
+    "time": "10:40",
+    "rows": [
       {
+        "colspan": 1,
+        "rowspan": 1,
+        "sessions": [{ "id": "0b3642f5-7221-4bd8-a17a-fb087506e8dd" }],
+        "track": "medpeer",
+        "isOpeningOrKeyNote": true,
+        "isTranslation": true
+      },
+      {
+        "title": "サテライト",
+        "title_en": "Satellite",
+        "colspan": 1,
+        "rowspan": 1,
+        "track": "mntsq"
+      }
+    ]
+  },
+  {
+    "time": "11:20",
+    "rows": [
+      {
+        "subTitle": "プラチナスポンサー\nセッション",
+        "subTitle_en": "Platinum Sponsor Session",
+        "colspan": 1,
+        "rowspan": 1,
+        "sessions": [],
+        "track": "medpeer",
+        "isSponsor": true
+      },
+      {
+        "title": "サテライト",
+        "title_en": "Satellite",
+        "colspan": 1,
+        "rowspan": 1,
+        "track": "mntsq"
+      }
+    ]
+  },
+  {
+    "time": "11:35",
+    "rows": [
+      {
+        "subTitle": "プラチナスポンサー\nセッション",
+        "subTitle_en": "Platinum Sponsor Session",
+        "colspan": 1,
+        "rowspan": 1,
+        "sessions": [],
+        "track": "medpeer",
+        "isSponsor": true
+      },
+      {
+        "title": "サテライト",
+        "title_en": "Satellite",
+        "colspan": 1,
+        "rowspan": 1,
+        "track": "mntsq"
+      }
+    ]
+  },
+  {
+    "time": "11:50",
+    "rows": [
+      {
+        "subTitle": "プラチナスポンサー\nセッション",
+        "subTitle_en": "Platinum Sponsor Session",
+        "colspan": 1,
+        "rowspan": 1,
+        "sessions": [],
+        "track": "medpeer",
+        "isSponsor": true
+      },
+      {
+        "title": "サテライト",
+        "title_en": "Satellite",
+        "colspan": 1,
+        "rowspan": 1,
+        "track": "mntsq"
+      }
+    ]
+  },
+  {
+    "time": "12:05",
+    "rows": [
+      {
+        "title": "ランチタイム",
+        "title_en": "Lunch Time",
         "colspan": 3,
-        "sessions": [
-          {
-            "title": "休憩",
-            "titleKey": "words.break"
-          }
-        ]
+        "rowspan": 1
       }
     ]
   },
   {
-    "time": "16:30 - 17:00",
-    "tracks": [
+    "time": "12:20",
+    "rows": [
       {
-        "track": "cloudsign",
-        "sessions": [
-          {
-            "isTranslation": true,
-            "id": "harlan-zw",
-            "title": "Getting your head around your <head>",
-            "speaker": "Harlan Wilton",
-            "archives": {
-              "slide": "",
-              "youtube": "https://www.youtube.com/watch?v=gwYFwUcxia8"
-            }
-          }
-        ]
+        "subTitle": "スペシャル\nランチセッション",
+        "subTitle_en": "Special Lunch Session",
+        "colspan": 1,
+        "rowspan": 2,
+        "sessions": [],
+        "track": "medpeer"
       },
       {
+        "subTitle": "スペシャル\nランチセッション",
+        "subTitle_en": "Special Lunch Session",
+        "colspan": 1,
+        "rowspan": 2,
+        "sessions": [],
+        "track": "mntsq"
+      },
+      {
+        "subTitle": "スペシャル\nランチセッション",
+        "subTitle_en": "Special Lunch Session",
+        "colspan": 1,
+        "rowspan": 2,
+        "sessions": [],
+        "track": "kickflow"
+      }
+    ]
+  },
+  {
+    "time": "12:50",
+    "rows": [
+      {
+        "title": "ハンズオン",
+        "title_en": "Hands-on",
+        "colspan": 1,
+        "rowspan": 7,
+        "sessions": [],
+        "track": "vue"
+      }
+    ]
+  },
+  {
+    "time": "13:00",
+    "rows": [
+      {
+        "title": "ランチタイム",
+        "title_en": "Lunch Time",
+        "colspan": 3,
+        "rowspan": 1
+      }
+    ]
+  },
+  {
+    "time": "13:10",
+    "rows": [
+      {
+        "colspan": 1,
+        "rowspan": 1,
+        "sessions": [{ "id": "c1819aed-486c-494d-a1f1-bbf206ac11ed" }],
         "track": "medpeer",
-        "sessions": [
-          {
-            "id": "sapphi-red",
-            "title": "マルチスレッドフレンドリーなJavaScriptを求めて",
-            "titleKey": "sessions.sapphi_red",
-            "speaker": "翠 / sapphi-red",
-            "archives": {
-              "slide": "https://vue-fes-japan-2023-multithread-slide.sapphi.red/1",
-              "youtube": "https://www.youtube.com/watch?v=ojraqqNtVWk"
-            }
-          }
-        ]
+        "isTranslation": true
       },
       {
-        "track": "m3",
-        "sessions": [
-          {
-            "id": "sorami",
-            "title": "Vue.jsと3D可視化 - 産総研のOSS「AIST 3DDB Client」を例に",
-            "titleKey": "sessions.sorami",
-            "speaker": "sorami / ソラミ",
-            "archives": {
-              "slide": "https://speakerdeck.com/sorami/vue-fes-japan-2023",
-              "youtube": "https://www.youtube.com/watch?v=J2caM7RdiXs"
-            }
-          }
-        ]
+        "colspan": 1,
+        "rowspan": 1,
+        "sessions": [{ "id": "235c43b2-df60-4727-b242-b951188d63ac" }],
+        "track": "mntsq"
       },
       {
-        "track": "vue",
+        "colspan": 1,
+        "rowspan": 1,
+        "sessions": [{ "id": "15c17f29-4b6a-48db-bee0-eb5ec83cfb8e" }],
+        "track": "kickflow"
+      }
+    ]
+  },
+  {
+    "time": "13:40",
+    "rows": [
+      {
+        "title": "休憩",
+        "title_en": "Break",
+        "colspan": 3,
+        "rowspan": 1
+      }
+    ]
+  },
+  {
+    "time": "13:55",
+    "rows": [
+      {
+        "colspan": 1,
+        "rowspan": 1,
+        "sessions": [{ "id": "d2bef395-f20d-4fe7-9343-ad856b1f153d" }],
+        "track": "medpeer",
+        "isTranslation": true
+      },
+      {
+        "colspan": 1,
+        "rowspan": 1,
+        "sessions": [{ "id": "38e23b24-279d-402b-9e60-1ae9ef29480b" }],
+        "track": "mntsq"
+      },
+      {
+        "colspan": 1,
+        "rowspan": 1,
+        "sessions": [{ "id": "d514cb94-42fe-4f3a-82db-71eb5f3d4abb" }],
+        "track": "kickflow"
+      }
+    ]
+  },
+  {
+    "time": "14:25",
+    "rows": [
+      {
+        "title": "休憩",
+        "title_en": "Break",
+        "colspan": 3,
+        "rowspan": 1
+      }
+    ]
+  },
+  {
+    "time": "14:40",
+    "rows": [
+      {
+        "colspan": 1,
+        "rowspan": 2,
+        "sessions": [{ "id": "b9fa6a8e-0617-4ef9-a65b-d69f480787b0" }],
+        "track": "medpeer",
+        "isTranslation": true
+      },
+      {
+        "subTitle": "次世代フロントエンドクロストーク",
+        "subTitle_en": "Next Generation Frontend Cross Talk",
+        "colspan": 1,
+        "rowspan": 5,
+        "sessions": [{ "name_ja": "Evan You\nBoshen Chen\nunvalley\n太田 洋介\nSosuke Suzuki" }],
+        "track": "mntsq"
+      },
+      {
+        "colspan": 1,
+        "rowspan": 2,
+        "sessions": [{ "id": "aee32aa1-8511-41a3-8a70-54ff3caa1ab8" }],
+        "track": "kickflow"
+      }
+    ]
+  },
+  {
+    "time": "14:50",
+    "rows": [
+      {
+        "title": "休憩",
+        "title_en": "Break",
+        "colspan": 1,
+        "rowspan": 2
+      }
+    ]
+  },
+  {
+    "time": "15:10",
+    "rows": [
+      {
+        "title": "休憩",
+        "title_en": "Break",
+        "colspan": 1,
+        "rowspan": 2
+      },
+      {
+        "title": "休憩",
+        "title_en": "Break",
+        "colspan": 1,
+        "rowspan": 2
+      }
+    ]
+  },
+  {
+    "time": "15:20",
+    "rows": [
+      {
+        "subTitle": "ライトニングトーク",
+        "subTitle_en": "Lightning Talk",
+        "colspan": 1,
         "rowspan": 3,
         "sessions": [
-          {
-            "subTitle": "16:30 - 16:45",
-            "title": "休憩",
-            "titleKey": "words.break"
-          },
-          {
-            "subTitle": "16:45 - 17:45",
-            "title": "Vue.js クリニック",
-            "titleKey": "words.vuejs_clinic"
-          }
-        ]
+          { "id": "e402cbdd-3e18-422f-9776-a3a82fad9e7d" },
+          { "id": "c8dc06a4-6058-4d73-8d50-fbaf635b7ee7" },
+          { "id": "67615710-84b8-4496-a297-288f5a86d174" },
+          { "id": "0e441ee6-44a3-4bca-9c3e-a68862830558" }
+        ],
+        "track": "vue"
       }
     ]
   },
   {
-    "time": "17:00 - 17:15",
-    "tracks": [
+    "time": "15:25",
+    "rows": [
       {
+        "colspan": 1,
         "rowspan": 3,
-        "isClose": true,
-        "sessions": [
-          {
-            "title": "転換",
-            "titleKey": "words.remodeling"
-          }
-        ]
-      },
-      {
-        "colspan": 2,
-        "sessions": [
-          {
-            "title": "休憩",
-            "titleKey": "words.break"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "17:15 - 17:45",
-    "tracks": [
-      {
+        "sessions": [{ "id": "d1b00326-81dd-45a1-83be-65bb638c46ec" }],
         "track": "medpeer",
-        "sessions": [
-          {
-            "id": "ota-meshi",
-            "title": "eslint-plugin-vueの現状と今後",
-            "titleKey": "sessions.ota_meshi",
-            "speaker": "太田 洋介 / ota-meshi",
-            "archives": {
-              "slide": "https://ota-meshi.github.io/vue-fes-japan-2023-slide/1",
-              "youtube": "https://www.youtube.com/watch?v=ubclxC2CvyA"
-            }
-          }
-        ]
+        "isTranslation": true
       },
       {
-        "track": "m3",
-        "sessions": [
-          {
-            "id": "keima",
-            "title": "STUDIOの作り方 2023 ver.",
-            "titleKey": "sessions.keima",
-            "speaker": "甲斐 啓真 / Keima",
-            "archives": {
-              "slide": "https://docs.google.com/presentation/d/1sVPisJofs18G8WUitn4l53s-mXFLRTs2Q4F0hqFqS5A/edit?usp=sharing",
-              "youtube": "https://www.youtube.com/watch?v=HNTjseUxpMA"
-            }
-          }
-        ]
+        "colspan": 1,
+        "rowspan": 3,
+        "sessions": [{ "id": "f2dd5bf4-058f-4d57-8eb3-d99641bbbdef" }],
+        "track": "kickflow"
       }
     ]
   },
   {
-    "time": "17:45 - 18:00",
-    "tracks": [
+    "time": "15:40",
+    "rows": [
       {
-        "colspan": 3,
+        "title": "休憩",
+        "title_en": "Break",
+        "colspan": 1,
+        "rowspan": 1
+      }
+    ]
+  },
+  {
+    "time": "15:50",
+    "rows": [
+      {
+        "colspan": 1,
+        "rowspan": 4,
+        "sessions": [{ "id": "129ac26d-2f66-4cbf-a6f7-96ea9d80a7ae" }],
+        "track": "mntsq"
+      },
+      {
+        "title": "休憩",
+        "title_en": "Break",
+        "colspan": 1,
+        "rowspan": 2
+      }
+    ]
+  },
+  {
+    "time": "15:55",
+    "rows": [
+      {
+        "title": "休憩",
+        "title_en": "Break",
+        "colspan": 1,
+        "rowspan": 2
+      },
+      {
+        "title": "休憩",
+        "title_en": "Break (10 min)",
+        "colspan": 1,
+        "rowspan": 2
+      }
+    ]
+  },
+  {
+    "time": "16:00",
+    "rows": [
+      {
+        "subTitle": "ライトニングトーク",
+        "subTitle_en": "Lightning Talk",
+        "colspan": 1,
+        "rowspan": 3,
+        "sessions": [
+          { "id": "026014eb-8a14-4dc8-b964-63906a8505cc" },
+          { "id": "0b4aeac2-27e4-4ec7-b5d9-277237048629" },
+          { "id": "9266ab6e-0c72-425e-85a6-08d8f8065ba9" },
+          { "id": "6e9421a8-b123-479b-a541-c939699eecdc" }
+        ],
+        "track": "vue"
+      }
+    ]
+  },
+  {
+    "time": "16:10",
+    "rows": [
+      {
+        "colspan": 1,
+        "rowspan": 3,
+        "sessions": [{ "id": "3877dec0-ec02-43f1-9afd-d788414b8aeb" }],
+        "track": "medpeer",
+        "isTranslation": true
+      },
+      {
+        "colspan": 1,
+        "rowspan": 3,
+        "sessions": [{ "id": "fb205261-b6d2-4871-a2de-3a5cba8ad6fd" }],
+        "track": "kickflow"
+      }
+    ]
+  },
+  {
+    "time": "16:20",
+    "rows": [
+      {
+        "title": "休憩",
+        "title_en": "Break (10 min)",
+        "colspan": 1,
+        "rowspan": 1
+      }
+    ]
+  },
+  {
+    "time": "16:30",
+    "rows": [
+      {
+        "colspan": 1,
+        "rowspan": 3,
+        "sessions": [{ "id": "5bcdf441-95fa-43d3-b1e2-8149157215ae" }],
+        "track": "mntsq"
+      },
+      {
+        "title": "休憩",
+        "title_en": "Break",
+        "colspan": 1,
+        "rowspan": 1
+      }
+    ]
+  },
+  {
+    "time": "16:40",
+    "rows": [
+      {
+        "title": "休憩",
+        "title_en": "Break",
+        "colspan": 1,
+        "rowspan": 1
+      },
+      {
+        "title": "休憩",
+        "title_en": "Break",
+        "colspan": 1,
+        "rowspan": 1
+      },
+      {
+        "subTitle": "Vue.jsコミュニティにようこそ！",
+        "subTitle_en": "Welcome to Vue.js Community!",
+        "colspan": 1,
+        "rowspan": 4,
+        "sessions": [{ "name_ja": "kazupon\njay-es\nubugeeei\nからころ（ファシリテーター）" }],
+        "track": "vue"
+      }
+    ]
+  },
+  {
+    "time": "16:55",
+    "rows": [
+      {
+        "colspan": 1,
         "rowspan": 2,
-        "isClose": true,
-        "sessions": [
-          {
-            "title": "クローズ",
-            "titleKey": "words.close"
-          }
-        ]
+        "sessions": [{ "id": "dcc64136-a832-4b03-ade1-93c7469217e8" }],
+        "track": "medpeer",
+        "isTranslation": true
+      },
+      {
+        "colspan": 1,
+        "rowspan": 2,
+        "sessions": [{ "id": "39d3b623-a1bd-4e35-8912-e08e3dd834bc" }],
+        "track": "kickflow"
       }
     ]
   },
   {
-    "time": "18:00 - 19:30",
-    "tracks": [
+    "time": "16:55",
+    "rows": [
       {
+        "title": "転換",
+        "title_en": "Transition",
+        "colspan": 1,
+        "rowspan": 3
+      }
+    ]
+  },
+  {
+    "time": "17:25",
+    "rows": [
+      {
+        "title": "転換",
+        "title_en": "Transition",
+        "colspan": 1,
+        "rowspan": 2
+      },
+      {
+        "title": "クローズ",
+        "title_en": "Close",
+        "colspan": 1,
+        "rowspan": 3,
+        "isClose": true
+      }
+    ]
+  },
+  {
+    "time": "17:40",
+    "rows": [
+      {
+        "title": "クローズ",
+        "title_en": "Close",
+        "colspan": 1,
+        "rowspan": 2,
+        "isClose": true
+      }
+    ]
+  },
+  {
+    "time": "18:00",
+    "rows": [
+      {
+        "title": "アフターパーティー\nsupported by GMOインターネットグループ",
+        "title_en": "After Party\nsupported by GMO Internet Group",
         "colspan": 2,
-        "sessions": [
-          {
-            "title": "アフターパーティー",
-            "titleKey": "words.after_party"
-          }
-        ]
+        "rowspan": 1
+      }
+    ]
+  },
+  {
+    "time": "19:30",
+    "rows": [
+      {
+        "title": "閉場",
+        "title_en": "Close",
+        "colspan": 4,
+        "rowspan": 1,
+        "isClose": true
       }
     ]
   }

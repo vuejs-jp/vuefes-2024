@@ -1,18 +1,7 @@
 <script setup lang="ts">
-import { useI18n } from '#i18n'
-import { useFetch, useLocaleCurrent, useRuntimeConfig } from '#imports'
-import { useColor, useTypography } from '@vuejs-jp/composable'
-import { useTranslation } from '@/composables/useTranslation'
-import TimeTableRow from '@/components/time-table/TimeTableRow.vue'
+import { useFetch, useLocaleCurrent } from '#imports'
 
-import type { TimeTable } from '@vuejs-jp/model'
-
-const config = useRuntimeConfig()
-const { fontWeight, fontSize } = useTypography()
-const { color } = useColor()
-
-const { t } = useI18n()
-const { translate } = useTranslation()
+import type { Timetable } from '@vuejs-jp/model'
 
 const currentLocale = useLocaleCurrent().locale
 
@@ -21,7 +10,7 @@ if (error.value) {
   console.error(error.value)
 }
 
-const timeTables = data.value.timeTable as TimeTable
+const timetable = data.value as Timetable
 </script>
 
 <template>
@@ -34,22 +23,36 @@ const timeTables = data.value.timeTable as TimeTable
       <table class="time-table-table">
         <thead>
           <tr>
-            <th aria-label="cell" />
-            <VFTrack color="hiwamoegi">メドピアトラック</VFTrack>
-            <VFTrack color="tohoh">MNTSQ 全ての合意をフェアにするトラック</VFTrack>
-            <VFTrack color="asagi">kickflowトラック</VFTrack>
-            <VFTrack color="sangosyo">Vueトラック</VFTrack>
+            <th aria-label="cell" class="time-table-time-cell" />
+            <VFTrack color="hiwamoegi">{{
+              currentLocale === 'en' ? 'MedPeer Track' : 'メドピアトラック'
+            }}</VFTrack>
+            <VFTrack color="tohoh">
+              {{
+                currentLocale === 'en' ? 'MNTSQ Track' : 'MNTSQが全ての合意をフェアにするぞトラック'
+              }}
+            </VFTrack>
+            <VFTrack color="asagi">
+              {{ currentLocale === 'en' ? 'kickflow Track' : 'kickflowトラック' }}
+            </VFTrack>
+            <VFTrack color="sangosyo">
+              {{ currentLocale === 'en' ? 'Vue Track' : 'Vueトラック' }}
+            </VFTrack>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="timeTable in timeTables" :key="timeTable.time">
-            <VFSessionTime>{{ timeTable.time }}</VFSessionTime>
-            <TimeTableRow :tracks="timeTable.tracks" />
+          <tr v-for="rows in timetable" :key="rows.time">
+            <VFSessionTime>{{ rows.time }}</VFSessionTime>
+            <TimeTableRow :rows="rows.rows" />
           </tr>
         </tbody>
       </table>
-      <p>
-        ※各セッションの開始・終了時間は多少前後する可能性がありますので、あらかじめご了承ください。
+      <p class="notice">
+        {{
+          currentLocale === 'en'
+            ? '※ Please note that the start and finish times of each session may vary slightly.'
+            : '※ 各セッションの開始・終了時間は多少前後する可能性がありますので、あらかじめご了承ください。'
+        }}
       </p>
     </article>
   </div>
@@ -59,7 +62,7 @@ const timeTables = data.value.timeTable as TimeTable
 @import url('~/assets/media.css');
 
 .time-table {
-  --time-table-padding: calc(var(--unit) * 5.25) 1.5%;
+  --time-table-padding: calc(var(--unit) * 15) 1.5%;
 
   background-image: url('/sponsor/sponsor-bg-grid.png'), linear-gradient(to top, #35495e, #353b5e);
   background-position: top -1px left -1px;
@@ -81,8 +84,22 @@ const timeTables = data.value.timeTable as TimeTable
 }
 
 .time-table-table {
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
   margin: 40px 0 0;
   border-spacing: 4px;
+}
+
+.time-table-time-cell {
+  width: 80px;
+}
+.notice {
+  margin-top: 10px;
+  color: var(--color-white);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 @media (--tablet) {
