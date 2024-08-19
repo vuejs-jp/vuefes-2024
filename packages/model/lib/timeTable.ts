@@ -22,4 +22,5 @@ export type Row = {
   isSponsor?: boolean
   noDisplayTime?: boolean
   time?: string
+  isEvent?: boolean
 }

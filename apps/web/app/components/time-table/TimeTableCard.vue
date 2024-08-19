@@ -6,6 +6,7 @@ import { useColor } from '@vuejs-jp/composable'
 
 import type { Row } from '@vuejs-jp/model'
 import type { Color } from '@vuejs-jp/model'
+import type { Session } from 'inspector'
 
 defineProps<{
   rows: Row[]
@@ -58,7 +59,12 @@ function formatTime(timeFrom: string, duration: number): string {
           {{ currentLocale === 'en' ? row.subTitle_en : row.subTitle }}
         </p>
       </div>
-      <div v-for="session in row.sessions" :key="session.id" class="session">
+      <div
+        v-for="session in row.sessions"
+        :key="session.id"
+        class="session"
+        :class="{ _event: row.isEvent }"
+      >
         <p v-if="!row.noDisplayTime" class="time">
           {{ formatTime(session.session_time_from!, session.session_time_duration!) }}
         </p>
@@ -115,7 +121,7 @@ function formatTime(timeFrom: string, duration: number): string {
 .detail {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   padding: 10px 20px 20px;
   color: var(--color-vue-blue);
   white-space: pre-wrap;
@@ -140,6 +146,9 @@ function formatTime(timeFrom: string, duration: number): string {
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+._event {
+  margin-top: -20px;
 }
 .time {
   font-size: 12px;
