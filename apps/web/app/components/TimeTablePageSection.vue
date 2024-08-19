@@ -26,20 +26,10 @@ const timetableSp = (data.value as { spData: Timetable })?.spData
         <thead>
           <tr>
             <th aria-label="cell" class="time-table-time-cell" />
-            <VFTrack color="hiwamoegi">{{
-              currentLocale === 'en' ? 'MedPeer Track' : 'メドピアトラック'
-            }}</VFTrack>
-            <VFTrack color="tohoh">
-              {{
-                currentLocale === 'en' ? 'MNTSQ Track' : 'MNTSQが全ての合意をフェアにするぞトラック'
-              }}
-            </VFTrack>
-            <VFTrack color="asagi">
-              {{ currentLocale === 'en' ? 'kickflow Track' : 'kickflowトラック' }}
-            </VFTrack>
-            <VFTrack color="sangosyo">
-              {{ currentLocale === 'en' ? 'Vue Track' : 'Vueトラック' }}
-            </VFTrack>
+            <VFTrack color="hiwamoegi">メドピアトラック</VFTrack>
+            <VFTrack color="tohoh"> MNTSQが全ての合意をフェアにするぞトラック </VFTrack>
+            <VFTrack color="asagi"> kickflowトラック </VFTrack>
+            <VFTrack color="sangosyo"> Vueトラック </VFTrack>
           </tr>
         </thead>
         <tbody>
