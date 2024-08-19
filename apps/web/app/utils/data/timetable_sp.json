@@ -204,7 +204,7 @@
         "time": "14:40 - 15:40",
         "subTitle": "次世代フロントエンドクロストーク",
         "subTitle_en": "Next Generation Frontend Cross Talk",
-        "sessions": [{ "name_ja": "Evan You\nBoshen Chen\n太田 洋介\nSosuke Suzuki\nunvalley" }],
+        "sessions": [{ "name_ja": "Evan You\nBoshen Chen\n太田 洋介\nSosuke Suzuki\nunvalley\nKia King Ishii（通訳兼ファシリテーター）" }],
         "track": "mntsq",
         "noDisplayTime": true,
         "isEvent": true
