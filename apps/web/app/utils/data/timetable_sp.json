@@ -208,8 +208,9 @@
         "time": "14:40 - 15:40",
         "subTitle": "次世代フロントエンドクロストーク",
         "subTitle_en": "Next Generation Frontend Cross Talk",
-        "sessions": [{ "name_ja": "Evan You\nBoshen Chen\nunvalley\n太田 洋介\nSosuke Suzuki" }],
-        "track": "mntsq"
+        "sessions": [{ "name_ja": "Evan You\nBoshen Chen\n太田 洋介\nSosuke Suzuki\nunvalley" }],
+        "track": "mntsq",
+        "noDisplayTime": true
       },
       {
         "sessions": [
@@ -376,8 +377,9 @@
         "time": "16:40 - 17:40",
         "subTitle": "Vue.jsコミュニティにようこそ！",
         "subTitle_en": "Welcome to Vue.js Community!",
-        "sessions": [{ "name_ja": "kazupon\njay-es\nubugeeei\nからころ（ファシリテーター）" }],
-        "track": "vue"
+        "sessions": [{ "name_ja": "kazupon\nNozomu Ikuta\nubugeeei\njay-es\nからころ（ファシリテーター）" }],
+        "track": "vue",
+        "noDisplayTime": true
       }
     ]
   },

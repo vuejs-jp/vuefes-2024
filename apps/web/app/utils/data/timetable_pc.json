@@ -278,7 +278,7 @@
         "subTitle_en": "Next Generation Frontend Cross Talk",
         "colspan": 1,
         "rowspan": 5,
-        "sessions": [{ "name_ja": "Evan You\nBoshen Chen\nunvalley\n太田 洋介\nSosuke Suzuki" }],
+        "sessions": [{ "name_ja": "Evan You\nBoshen Chen\n太田 洋介\nSosuke Suzuki\nunvalley" }],
         "track": "mntsq"
       },
       {
@@ -482,7 +482,7 @@
         "subTitle_en": "Welcome to Vue.js Community!",
         "colspan": 1,
         "rowspan": 4,
-        "sessions": [{ "name_ja": "kazupon\njay-es\nubugeeei\nからころ（ファシリテーター）" }],
+        "sessions": [{ "name_ja": "kazupon\nNozomu Ikuta\nubugeeei\njay-es\nからころ（ファシリテーター）" }],
         "track": "vue"
       }
     ]
