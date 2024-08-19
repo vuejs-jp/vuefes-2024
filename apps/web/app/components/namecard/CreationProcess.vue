@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import MarkDownText from '~/components/MarkDownText.vue'
 import SvgProcessDown from '~/public/namecard/process-down.svg?component'
 
 const { t } = useI18n()
+const { locale: currentLocale } = useLocaleCurrent()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 </script>
+
 <template>
   <div class="creation-process-root">
     <h2
@@ -31,7 +34,12 @@ const { color } = useColor()
       <li>
         <i18n-t keypath="namecard.process_1_message" tag="p">
           <template #ticketUrl>
-            <a href="/#ticket" target="_blank">{{ $t('namecard.ticket_data') }}</a>
+            <a
+              :href="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}#ticket`"
+              target="_blank"
+            >
+              {{ $t('namecard.ticket_data') }}
+            </a>
           </template>
         </i18n-t>
         <SvgProcessDown class="down-icon" />
@@ -58,6 +66,7 @@ const { color } = useColor()
     </div>
   </div>
 </template>
+
 <style scoped>
 @import url('~/assets/media.css');
 

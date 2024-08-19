@@ -4,21 +4,23 @@ import { useI18n } from '#i18n'
 import { navigateTo, useRoute } from '#imports'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useNamecard } from '~/composables/useNamecard'
 
 const { t } = useI18n()
+const { locale: currentLocale } = useLocaleCurrent()
 const route = useRoute()
 const { authUser, statusKey, namecardUser } = await useNamecard()
 
 async function handleLinkButton() {
-  navigateTo(`/namecard/${authUser.value?.id}/edit`)
+  navigateTo(`${currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`}namecard/${authUser.value?.id}/edit`)
 }
 
 watch(
   () => authUser.value?.id,
   (newId) => {
     if (newId) {
-      navigateTo(`/namecard/${newId}`)
+      navigateTo(`${currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`}namecard/${newId}/`)
     }
   },
 )
@@ -27,7 +29,7 @@ watch(
   () => route.query.code,
   (newCode) => {
     if (newCode && authUser.value?.id) {
-      navigateTo(`/namecard/${authUser.value?.id}/`)
+      navigateTo(`${currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`}namecard/${authUser.value?.id}/`)
     }
   },
   {
@@ -35,6 +37,7 @@ watch(
   },
 )
 </script>
+
 <template>
   <NuxtLayout name="namecard-base">
     <div class="namecard-user-root">

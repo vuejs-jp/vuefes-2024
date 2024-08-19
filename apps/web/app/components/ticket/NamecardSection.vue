@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { ticketUrl } from '~/utils/constants'
+
+const { locale: currentLocale } = useLocaleCurrent()
 </script>
 
 <template>
@@ -25,7 +28,7 @@ import { ticketUrl } from '~/utils/constants'
       <div class="buttons-wrapper">
         <VFLinkButton
           class="action-button"
-          href="/namecard"
+          :href="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}namecard/`"
           background-color="vue-green/200"
           color="white"
         >
