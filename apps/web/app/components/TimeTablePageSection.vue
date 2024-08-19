@@ -17,7 +17,7 @@ const timetableSp = (data.value as { spData: Timetable })?.spData
 <template>
   <div class="time-table">
     <article class="time-table-body">
-      <VFTitle id="time-table" class="title" color="white">
+      <VFTitle id="timetable" class="title" color="white">
         {{ $t('time-table.title') }}
       </VFTitle>
 
