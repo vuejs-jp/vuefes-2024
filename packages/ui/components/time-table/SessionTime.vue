@@ -14,11 +14,15 @@
   flex-shrink: 0;
   height: 100%;
   padding: 21px 4px;
-  background-color: var(--color-vue-green200);
+  background: var(--color-vue-green-gradation200);
   color: var(--color-white);
   text-align: center;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
+
+  @media (width <= 768px) {
+    padding: 5px 4px;
+  }
 }
 </style>

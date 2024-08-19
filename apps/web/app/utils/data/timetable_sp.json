@@ -4,9 +4,7 @@
     "rows": [
       {
         "title": "開場・受付",
-        "title_en": "Opening and reception",
-        "colspan": 4,
-        "rowspan": 1
+        "title_en": "Opening and reception"
       }
     ]
   },
@@ -14,8 +12,6 @@
     "time": "10:30",
     "rows": [
       {
-        "colspan": 1,
-        "rowspan": 1,
         "sessions": [
           {
             "name_ja": "川口 和也",
@@ -30,19 +26,7 @@
       {
         "title": "サテライト",
         "title_en": "Satellite",
-        "colspan": 1,
-        "rowspan": 1,
         "track": "mntsq"
-      },
-      {
-        "colspan": 1,
-        "rowspan": 5,
-        "isClose": true
-      },
-      {
-        "colspan": 1,
-        "rowspan": 7,
-        "isClose": true
       }
     ]
   },
@@ -50,8 +34,6 @@
     "time": "10:40",
     "rows": [
       {
-        "colspan": 1,
-        "rowspan": 1,
         "sessions": [{ "id": "0b3642f5-7221-4bd8-a17a-fb087506e8dd" }],
         "track": "medpeer",
         "isOpeningOrKeyNote": true,
@@ -60,8 +42,6 @@
       {
         "title": "サテライト",
         "title_en": "Satellite",
-        "colspan": 1,
-        "rowspan": 1,
         "track": "mntsq"
       }
     ]
@@ -72,8 +52,6 @@
       {
         "subTitle": "プラチナスポンサー\nセッション",
         "subTitle_en": "Platinum Sponsor Session",
-        "colspan": 1,
-        "rowspan": 1,
         "sessions": [],
         "track": "medpeer",
         "isSponsor": true
@@ -81,8 +59,6 @@
       {
         "title": "サテライト",
         "title_en": "Satellite",
-        "colspan": 1,
-        "rowspan": 1,
         "track": "mntsq"
       }
     ]
@@ -93,8 +69,6 @@
       {
         "subTitle": "プラチナスポンサー\nセッション",
         "subTitle_en": "Platinum Sponsor Session",
-        "colspan": 1,
-        "rowspan": 1,
         "sessions": [],
         "track": "medpeer",
         "isSponsor": true
@@ -102,8 +76,6 @@
       {
         "title": "サテライト",
         "title_en": "Satellite",
-        "colspan": 1,
-        "rowspan": 1,
         "track": "mntsq"
       }
     ]
@@ -114,8 +86,6 @@
       {
         "subTitle": "プラチナスポンサー\nセッション",
         "subTitle_en": "Platinum Sponsor Session",
-        "colspan": 1,
-        "rowspan": 1,
         "sessions": [],
         "track": "medpeer",
         "isSponsor": true
@@ -123,8 +93,6 @@
       {
         "title": "サテライト",
         "title_en": "Satellite",
-        "colspan": 1,
-        "rowspan": 1,
         "track": "mntsq"
       }
     ]
@@ -134,9 +102,7 @@
     "rows": [
       {
         "title": "ランチタイム",
-        "title_en": "Lunch Time",
-        "colspan": 3,
-        "rowspan": 1
+        "title_en": "Lunch Time"
       }
     ]
   },
@@ -146,24 +112,18 @@
       {
         "subTitle": "スペシャル\nランチセッション",
         "subTitle_en": "Special Lunch Session",
-        "colspan": 1,
-        "rowspan": 2,
         "sessions": [],
         "track": "medpeer"
       },
       {
         "subTitle": "スペシャル\nランチセッション",
         "subTitle_en": "Special Lunch Session",
-        "colspan": 1,
-        "rowspan": 2,
         "sessions": [],
         "track": "mntsq"
       },
       {
         "subTitle": "スペシャル\nランチセッション",
         "subTitle_en": "Special Lunch Session",
-        "colspan": 1,
-        "rowspan": 2,
         "sessions": [],
         "track": "kickflow"
       }
@@ -175,8 +135,6 @@
       {
         "title": "ハンズオン",
         "title_en": "Hands-on",
-        "colspan": 1,
-        "rowspan": 7,
         "sessions": [],
         "track": "vue"
       }
@@ -187,9 +145,7 @@
     "rows": [
       {
         "title": "ランチタイム",
-        "title_en": "Lunch Time",
-        "colspan": 3,
-        "rowspan": 1
+        "title_en": "Lunch Time"
       }
     ]
   },
@@ -197,21 +153,15 @@
     "time": "13:10",
     "rows": [
       {
-        "colspan": 1,
-        "rowspan": 1,
         "sessions": [{ "id": "c1819aed-486c-494d-a1f1-bbf206ac11ed" }],
         "track": "medpeer",
         "isTranslation": true
       },
       {
-        "colspan": 1,
-        "rowspan": 1,
         "sessions": [{ "id": "235c43b2-df60-4727-b242-b951188d63ac" }],
         "track": "mntsq"
       },
       {
-        "colspan": 1,
-        "rowspan": 1,
         "sessions": [{ "id": "15c17f29-4b6a-48db-bee0-eb5ec83cfb8e" }],
         "track": "kickflow"
       }
@@ -222,9 +172,7 @@
     "rows": [
       {
         "title": "休憩",
-        "title_en": "Break",
-        "colspan": 3,
-        "rowspan": 1
+        "title_en": "Break"
       }
     ]
   },
@@ -232,21 +180,15 @@
     "time": "13:55",
     "rows": [
       {
-        "colspan": 1,
-        "rowspan": 1,
         "sessions": [{ "id": "d2bef395-f20d-4fe7-9343-ad856b1f153d" }],
         "track": "medpeer",
         "isTranslation": true
       },
       {
-        "colspan": 1,
-        "rowspan": 1,
         "sessions": [{ "id": "38e23b24-279d-402b-9e60-1ae9ef29480b" }],
         "track": "mntsq"
       },
       {
-        "colspan": 1,
-        "rowspan": 1,
         "sessions": [{ "id": "d514cb94-42fe-4f3a-82db-71eb5f3d4abb" }],
         "track": "kickflow"
       }
@@ -257,9 +199,7 @@
     "rows": [
       {
         "title": "休憩",
-        "title_en": "Break",
-        "colspan": 3,
-        "rowspan": 1
+        "title_en": "Break"
       }
     ]
   },
@@ -267,8 +207,6 @@
     "time": "14:40",
     "rows": [
       {
-        "colspan": 1,
-        "rowspan": 2,
         "sessions": [{ "id": "b9fa6a8e-0617-4ef9-a65b-d69f480787b0" }],
         "track": "medpeer",
         "isTranslation": true
@@ -276,14 +214,10 @@
       {
         "subTitle": "次世代フロントエンドクロストーク",
         "subTitle_en": "Next Generation Frontend Cross Talk",
-        "colspan": 1,
-        "rowspan": 5,
         "sessions": [{ "name_ja": "Evan You\nBoshen Chen\nunvalley\n太田 洋介\nSosuke Suzuki" }],
         "track": "mntsq"
       },
       {
-        "colspan": 1,
-        "rowspan": 2,
         "sessions": [{ "id": "aee32aa1-8511-41a3-8a70-54ff3caa1ab8" }],
         "track": "kickflow"
       }
@@ -294,9 +228,7 @@
     "rows": [
       {
         "title": "休憩",
-        "title_en": "Break",
-        "colspan": 1,
-        "rowspan": 2
+        "title_en": "Break"
       }
     ]
   },
@@ -305,15 +237,11 @@
     "rows": [
       {
         "title": "休憩",
-        "title_en": "Break",
-        "colspan": 1,
-        "rowspan": 2
+        "title_en": "Break"
       },
       {
         "title": "休憩",
-        "title_en": "Break",
-        "colspan": 1,
-        "rowspan": 2
+        "title_en": "Break"
       }
     ]
   },
@@ -323,8 +251,6 @@
       {
         "subTitle": "ライトニングトーク",
         "subTitle_en": "Lightning Talk",
-        "colspan": 1,
-        "rowspan": 3,
         "sessions": [
           { "id": "e402cbdd-3e18-422f-9776-a3a82fad9e7d" },
           { "id": "c8dc06a4-6058-4d73-8d50-fbaf635b7ee7" },
@@ -339,15 +265,11 @@
     "time": "15:25",
     "rows": [
       {
-        "colspan": 1,
-        "rowspan": 3,
         "sessions": [{ "id": "d1b00326-81dd-45a1-83be-65bb638c46ec" }],
         "track": "medpeer",
         "isTranslation": true
       },
       {
-        "colspan": 1,
-        "rowspan": 3,
         "sessions": [{ "id": "f2dd5bf4-058f-4d57-8eb3-d99641bbbdef" }],
         "track": "kickflow"
       }
@@ -358,9 +280,7 @@
     "rows": [
       {
         "title": "休憩",
-        "title_en": "Break",
-        "colspan": 1,
-        "rowspan": 1
+        "title_en": "Break"
       }
     ]
   },
@@ -368,16 +288,12 @@
     "time": "15:50",
     "rows": [
       {
-        "colspan": 1,
-        "rowspan": 4,
         "sessions": [{ "id": "129ac26d-2f66-4cbf-a6f7-96ea9d80a7ae" }],
         "track": "mntsq"
       },
       {
         "title": "休憩",
-        "title_en": "Break",
-        "colspan": 1,
-        "rowspan": 2
+        "title_en": "Break"
       }
     ]
   },
@@ -386,15 +302,11 @@
     "rows": [
       {
         "title": "休憩",
-        "title_en": "Break",
-        "colspan": 1,
-        "rowspan": 2
+        "title_en": "Break"
       },
       {
         "title": "休憩",
-        "title_en": "Break (10 min)",
-        "colspan": 1,
-        "rowspan": 2
+        "title_en": "Break (10 min)"
       }
     ]
   },
@@ -404,8 +316,6 @@
       {
         "subTitle": "ライトニングトーク",
         "subTitle_en": "Lightning Talk",
-        "colspan": 1,
-        "rowspan": 3,
         "sessions": [
           { "id": "026014eb-8a14-4dc8-b964-63906a8505cc" },
           { "id": "0b4aeac2-27e4-4ec7-b5d9-277237048629" },
@@ -420,15 +330,11 @@
     "time": "16:10",
     "rows": [
       {
-        "colspan": 1,
-        "rowspan": 3,
         "sessions": [{ "id": "3877dec0-ec02-43f1-9afd-d788414b8aeb" }],
         "track": "medpeer",
         "isTranslation": true
       },
       {
-        "colspan": 1,
-        "rowspan": 3,
         "sessions": [{ "id": "fb205261-b6d2-4871-a2de-3a5cba8ad6fd" }],
         "track": "kickflow"
       }
@@ -439,9 +345,7 @@
     "rows": [
       {
         "title": "休憩",
-        "title_en": "Break (10 min)",
-        "colspan": 1,
-        "rowspan": 1
+        "title_en": "Break"
       }
     ]
   },
@@ -449,16 +353,12 @@
     "time": "16:30",
     "rows": [
       {
-        "colspan": 1,
-        "rowspan": 3,
         "sessions": [{ "id": "5bcdf441-95fa-43d3-b1e2-8149157215ae" }],
         "track": "mntsq"
       },
       {
         "title": "休憩",
-        "title_en": "Break",
-        "colspan": 1,
-        "rowspan": 1
+        "title_en": "Break"
       }
     ]
   },
@@ -467,21 +367,15 @@
     "rows": [
       {
         "title": "休憩",
-        "title_en": "Break",
-        "colspan": 1,
-        "rowspan": 1
+        "title_en": "Break"
       },
       {
         "title": "休憩",
-        "title_en": "Break",
-        "colspan": 1,
-        "rowspan": 1
+        "title_en": "Break"
       },
       {
         "subTitle": "Vue.jsコミュニティにようこそ！",
         "subTitle_en": "Welcome to Vue.js Community!",
-        "colspan": 1,
-        "rowspan": 4,
         "sessions": [{ "name_ja": "kazupon\njay-es\nubugeeei\nからころ（ファシリテーター）" }],
         "track": "vue"
       }
@@ -491,15 +385,11 @@
     "time": "16:55",
     "rows": [
       {
-        "colspan": 1,
-        "rowspan": 2,
         "sessions": [{ "id": "dcc64136-a832-4b03-ade1-93c7469217e8" }],
         "track": "medpeer",
         "isTranslation": true
       },
       {
-        "colspan": 1,
-        "rowspan": 2,
         "sessions": [{ "id": "39d3b623-a1bd-4e35-8912-e08e3dd834bc" }],
         "track": "kickflow"
       }
@@ -510,9 +400,7 @@
     "rows": [
       {
         "title": "転換",
-        "title_en": "Transition",
-        "colspan": 1,
-        "rowspan": 3
+        "title_en": "Transition"
       }
     ]
   },
@@ -521,15 +409,11 @@
     "rows": [
       {
         "title": "転換",
-        "title_en": "Transition",
-        "colspan": 1,
-        "rowspan": 2
+        "title_en": "Transition"
       },
       {
         "title": "クローズ",
         "title_en": "Close",
-        "colspan": 1,
-        "rowspan": 3,
         "isClose": true
       }
     ]
@@ -540,8 +424,6 @@
       {
         "title": "クローズ",
         "title_en": "Close",
-        "colspan": 1,
-        "rowspan": 2,
         "isClose": true
       }
     ]
@@ -551,9 +433,7 @@
     "rows": [
       {
         "title": "アフターパーティー\nsupported by GMOインターネットグループ",
-        "title_en": "After Party\nsupported by GMO Internet Group",
-        "colspan": 2,
-        "rowspan": 1
+        "title_en": "After Party\nsupported by GMO Internet Group"
       }
     ]
   },
@@ -563,8 +443,6 @@
       {
         "title": "閉場",
         "title_en": "Close",
-        "colspan": 4,
-        "rowspan": 1,
         "isClose": true
       }
     ]

@@ -1,7 +1,8 @@
 class Timetable {
   async getList() {
-    const timetable = await import('~/utils/data/timetable.json')
-    return timetable
+    const pcData = await import('~/utils/data/timetable_pc.json')
+    const spData = await import('~/utils/data/timetable_sp.json')
+    return { pcData, spData }
   }
 }
 

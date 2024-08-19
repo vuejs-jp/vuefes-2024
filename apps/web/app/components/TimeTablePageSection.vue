@@ -10,7 +10,8 @@ if (error.value) {
   console.error(error.value)
 }
 
-const timetable = data.value as Timetable
+const timetablePc = (data.value as { pcData: Timetable })?.pcData
+const timetableSp = (data.value as { spData: Timetable })?.spData
 </script>
 
 <template>
@@ -20,7 +21,8 @@ const timetable = data.value as Timetable
         {{ $t('time-table.title') }}
       </VFTitle>
 
-      <table class="time-table-table">
+      <!-- PC用 -->
+      <table class="time-table-content">
         <thead>
           <tr>
             <th aria-label="cell" class="time-table-time-cell" />
@@ -41,12 +43,21 @@ const timetable = data.value as Timetable
           </tr>
         </thead>
         <tbody>
-          <tr v-for="rows in timetable" :key="rows.time">
+          <tr v-for="rows in timetablePc" :key="rows.time">
             <VFSessionTime>{{ rows.time }}</VFSessionTime>
             <TimeTableRow :rows="rows.rows" />
           </tr>
         </tbody>
       </table>
+
+      <!-- SP用 -->
+      <div v-for="rows in timetableSp" :key="rows.time" class="time-table-content-sp">
+        <div class="time-table-content-sp-inner">
+          <VFSessionTime>{{ rows.time }}</VFSessionTime>
+          <TimeTableCard :rows="rows.rows" />
+        </div>
+      </div>
+
       <p class="notice">
         {{
           currentLocale === 'en'
@@ -59,7 +70,7 @@ const timetable = data.value as Timetable
 </template>
 
 <style scoped>
-@import url('~/assets/media.css');
+@import url('../assets/media.css');
 
 .time-table {
   --time-table-padding: calc(var(--unit) * 15) 1.5%;
@@ -71,6 +82,10 @@ const timetable = data.value as Timetable
   width: 100%;
   padding: var(--time-table-padding);
   color: var(--color-vue-blue);
+
+  @media (--tablet) {
+    --time-table-padding: calc(var(--unit) * 7.5) 6%;
+  }
 }
 
 .title {
@@ -83,17 +98,22 @@ const timetable = data.value as Timetable
   max-width: 960px;
 }
 
-.time-table-table {
+.time-table-content {
   width: 100%;
   height: 100%;
   table-layout: fixed;
   margin: 40px 0 0;
   border-spacing: 4px;
+
+  @media (--tablet) {
+    display: none;
+  }
 }
 
 .time-table-time-cell {
   width: 80px;
 }
+
 .notice {
   margin-top: 10px;
   color: var(--color-white);
@@ -102,13 +122,31 @@ const timetable = data.value as Timetable
   line-height: 1.5;
 }
 
-@media (--tablet) {
-  .time-table {
-    --time-table-padding: calc(var(--unit) * 2) 1.5%;
-    --time-table-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 6);
+.time-table-content-sp {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+  margin: 30px 0 0;
+  border-spacing: 4px;
+
+  @media (--tablet) {
+    display: flex;
   }
 }
 
-@media (--mobile) {
+.time-table-content-sp-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (--tablet) {
+  /* .time-table {
+    --time-table-padding: calc(var(--unit) * 2) 1.5%;
+    --time-table-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 6);
+  } */
 }
 </style>
