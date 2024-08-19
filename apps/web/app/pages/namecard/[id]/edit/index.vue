@@ -130,7 +130,7 @@ function onSubmit(e: Event) {
       })
     }
 
-    navigateTo(`/namecard/${authUser.value?.id}/edit/complete/`)
+    navigateTo(`${currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`}namecard/${authUser.value?.id}/edit/complete/`)
   }
 }
 </script>
