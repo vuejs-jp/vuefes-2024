@@ -17,7 +17,7 @@ definePageMeta({
 })
 
 const { t } = useI18n()
-const { path: localePath } = useLocaleCurrent()
+const { locale: currentLocale } = useLocaleCurrent()
 const { nameError, orderNumberError, validateNameWithMaxLength, validateOrderNumber } =
   useFormError()
 const { authUser, attendeeDataByUserId, statusKey, namecardUser, getNamecardData } = useNamecard()
@@ -185,7 +185,7 @@ function onSubmit(e: Event) {
       </div>
       <div class="form-buttons">
         <VFLinkButton
-          :href="`${localePath}/namecard/${authUser?.id}/`"
+          :href="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}namecard/${authUser?.id}/`"
           target="_self"
           background-color="white"
           color="vue-blue"
