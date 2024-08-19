@@ -1,6 +1,6 @@
 [
   {
-    "time": "09:30",
+    "time": "09:30 - 10:30",
     "rows": [
       {
         "title": "開場・受付",
@@ -9,7 +9,7 @@
     ]
   },
   {
-    "time": "10:30",
+    "time": "10:30 - 10:40",
     "rows": [
       {
         "sessions": [
@@ -21,7 +21,8 @@
           }
         ],
         "track": "medpeer",
-        "isOpeningOrKeyNote": true
+        "isOpeningOrKeyNote": true,
+        "noDisplayTime": true
       },
       {
         "title": "サテライト",
@@ -31,13 +32,14 @@
     ]
   },
   {
-    "time": "10:40",
+    "time": "10:40 - 11:20",
     "rows": [
       {
         "sessions": [{ "id": "0b3642f5-7221-4bd8-a17a-fb087506e8dd" }],
         "track": "medpeer",
         "isOpeningOrKeyNote": true,
-        "isTranslation": true
+        "isTranslation": true,
+        "noDisplayTime": true
       },
       {
         "title": "サテライト",
@@ -47,7 +49,7 @@
     ]
   },
   {
-    "time": "11:20",
+    "time": "11:20 - 12:05",
     "rows": [
       {
         "subTitle": "プラチナスポンサー\nセッション",
@@ -64,51 +66,13 @@
     ]
   },
   {
-    "time": "11:35",
+    "time": "12:05 - 13:10",
     "rows": [
       {
-        "subTitle": "プラチナスポンサー\nセッション",
-        "subTitle_en": "Platinum Sponsor Session",
-        "sessions": [],
-        "track": "medpeer",
-        "isSponsor": true
-      },
-      {
-        "title": "サテライト",
-        "title_en": "Satellite",
-        "track": "mntsq"
-      }
-    ]
-  },
-  {
-    "time": "11:50",
-    "rows": [
-      {
-        "subTitle": "プラチナスポンサー\nセッション",
-        "subTitle_en": "Platinum Sponsor Session",
-        "sessions": [],
-        "track": "medpeer",
-        "isSponsor": true
-      },
-      {
-        "title": "サテライト",
-        "title_en": "Satellite",
-        "track": "mntsq"
-      }
-    ]
-  },
-  {
-    "time": "12:05",
-    "rows": [
-      {
+        "time": "12:05 - 13:10",
         "title": "ランチタイム",
         "title_en": "Lunch Time"
-      }
-    ]
-  },
-  {
-    "time": "12:20",
-    "rows": [
+      },
       {
         "subTitle": "スペシャル\nランチセッション",
         "subTitle_en": "Special Lunch Session",
@@ -130,7 +94,7 @@
     ]
   },
   {
-    "time": "12:50",
+    "time": "12:50 - 14:50",
     "rows": [
       {
         "title": "ハンズオン",
@@ -141,128 +105,134 @@
     ]
   },
   {
-    "time": "13:00",
+    "time": "13:10 - 13:55",
     "rows": [
       {
-        "title": "ランチタイム",
-        "title_en": "Lunch Time"
-      }
-    ]
-  },
-  {
-    "time": "13:10",
-    "rows": [
-      {
-        "sessions": [{ "id": "c1819aed-486c-494d-a1f1-bbf206ac11ed" }],
+        "sessions": [
+          { "id": "c1819aed-486c-494d-a1f1-bbf206ac11ed" },
+          {
+            "session_time_from": "2024-10-19 04:40:00+00",
+            "session_time_duration": 15,
+            "session_title_ja": "休憩",
+            "session_title_en": "Break"
+          }
+        ],
         "track": "medpeer",
         "isTranslation": true
       },
       {
-        "sessions": [{ "id": "235c43b2-df60-4727-b242-b951188d63ac" }],
+        "sessions": [
+          { "id": "235c43b2-df60-4727-b242-b951188d63ac" },
+          {
+            "session_time_from": "2024-10-19 04:40:00+00",
+            "session_time_duration": 15,
+            "session_title_ja": "休憩",
+            "session_title_en": "Break"
+          }
+        ],
         "track": "mntsq"
       },
       {
-        "sessions": [{ "id": "15c17f29-4b6a-48db-bee0-eb5ec83cfb8e" }],
+        "sessions": [
+          { "id": "15c17f29-4b6a-48db-bee0-eb5ec83cfb8e" },
+          {
+            "session_time_from": "2024-10-19 04:40:00+00",
+            "session_time_duration": 15,
+            "session_title_ja": "休憩",
+            "session_title_en": "Break"
+          }
+        ],
         "track": "kickflow"
       }
     ]
   },
   {
-    "time": "13:40",
+    "time": "13:55 - 14:40",
     "rows": [
       {
-        "title": "休憩",
-        "title_en": "Break"
-      }
-    ]
-  },
-  {
-    "time": "13:55",
-    "rows": [
-      {
-        "sessions": [{ "id": "d2bef395-f20d-4fe7-9343-ad856b1f153d" }],
+        "sessions": [
+          { "id": "d2bef395-f20d-4fe7-9343-ad856b1f153d" },
+          {
+            "session_time_from": "2024-10-19 05:25:00+00",
+            "session_time_duration": 15,
+            "session_title_ja": "休憩",
+            "session_title_en": "Break"
+          }
+        ],
         "track": "medpeer",
         "isTranslation": true
       },
       {
-        "sessions": [{ "id": "38e23b24-279d-402b-9e60-1ae9ef29480b" }],
+        "sessions": [
+          { "id": "38e23b24-279d-402b-9e60-1ae9ef29480b" },
+          {
+            "session_time_from": "2024-10-19 05:25:00+00",
+            "session_time_duration": 15,
+            "session_title_ja": "休憩",
+            "session_title_en": "Break"
+          }
+        ],
         "track": "mntsq"
       },
       {
-        "sessions": [{ "id": "d514cb94-42fe-4f3a-82db-71eb5f3d4abb" }],
+        "sessions": [
+          { "id": "d514cb94-42fe-4f3a-82db-71eb5f3d4abb" },
+          {
+            "session_time_from": "2024-10-19 05:25:00+00",
+            "session_time_duration": 15,
+            "session_title_ja": "休憩",
+            "session_title_en": "Break"
+          }
+        ],
         "track": "kickflow"
       }
     ]
   },
   {
-    "time": "14:25",
+    "time": "14:40 -",
     "rows": [
       {
-        "title": "休憩",
-        "title_en": "Break"
-      }
-    ]
-  },
-  {
-    "time": "14:40",
-    "rows": [
-      {
-        "sessions": [{ "id": "b9fa6a8e-0617-4ef9-a65b-d69f480787b0" }],
+        "sessions": [
+          { "id": "b9fa6a8e-0617-4ef9-a65b-d69f480787b0" },
+          {
+            "session_time_from": "2024-10-19 06:10:00+00",
+            "session_time_duration": 15,
+            "session_title_ja": "休憩",
+            "session_title_en": "Break"
+          }
+        ],
         "track": "medpeer",
         "isTranslation": true
       },
       {
+        "time": "14:40 - 15:40",
         "subTitle": "次世代フロントエンドクロストーク",
         "subTitle_en": "Next Generation Frontend Cross Talk",
         "sessions": [{ "name_ja": "Evan You\nBoshen Chen\nunvalley\n太田 洋介\nSosuke Suzuki" }],
         "track": "mntsq"
       },
       {
-        "sessions": [{ "id": "aee32aa1-8511-41a3-8a70-54ff3caa1ab8" }],
+        "sessions": [
+          { "id": "aee32aa1-8511-41a3-8a70-54ff3caa1ab8" },
+          {
+            "session_time_from": "2024-10-19 06:10:00+00",
+            "session_time_duration": 15,
+            "session_title_ja": "休憩",
+            "session_title_en": "Break"
+          }
+        ],
         "track": "kickflow"
-      }
-    ]
-  },
-  {
-    "time": "14:50",
-    "rows": [
-      {
-        "title": "休憩",
-        "title_en": "Break"
-      }
-    ]
-  },
-  {
-    "time": "15:10",
-    "rows": [
-      {
-        "title": "休憩",
-        "title_en": "Break"
       },
       {
+        "time": "14:50 - 15:20",
         "title": "休憩",
-        "title_en": "Break"
-      }
-    ]
-  },
-  {
-    "time": "15:20",
-    "rows": [
-      {
-        "subTitle": "ライトニングトーク",
-        "subTitle_en": "Lightning Talk",
-        "sessions": [
-          { "id": "e402cbdd-3e18-422f-9776-a3a82fad9e7d" },
-          { "id": "c8dc06a4-6058-4d73-8d50-fbaf635b7ee7" },
-          { "id": "67615710-84b8-4496-a297-288f5a86d174" },
-          { "id": "0e441ee6-44a3-4bca-9c3e-a68862830558" }
-        ],
+        "title_en": "Break",
         "track": "vue"
       }
     ]
   },
   {
-    "time": "15:25",
+    "time": "15:20 -",
     "rows": [
       {
         "sessions": [{ "id": "d1b00326-81dd-45a1-83be-65bb638c46ec" }],
@@ -270,49 +240,53 @@
         "isTranslation": true
       },
       {
+        "time": "15:40 - 15:50",
+        "title": "休憩",
+        "title_en": "Break",
+        "track": "mntsq"
+      },
+      {
         "sessions": [{ "id": "f2dd5bf4-058f-4d57-8eb3-d99641bbbdef" }],
         "track": "kickflow"
+      },
+      {
+        "subTitle": "ライトニングトーク",
+        "subTitle_en": "Lightning Talk",
+        "sessions": [
+          { "id": "e402cbdd-3e18-422f-9776-a3a82fad9e7d" },
+          { "id": "c8dc06a4-6058-4d73-8d50-fbaf635b7ee7" },
+          { "id": "67615710-84b8-4496-a297-288f5a86d174" },
+          { "id": "0e441ee6-44a3-4bca-9c3e-a68862830558" },
+          {
+            "session_time_from": "2024-10-19 06:50:00+00",
+            "session_time_duration": 10,
+            "session_title_ja": "休憩",
+            "session_title_en": "Break"
+          }
+        ],
+        "track": "vue"
       }
     ]
   },
   {
-    "time": "15:40",
+    "time": "15:50 -",
     "rows": [
       {
+        "time": "15:55 - 16:10",
         "title": "休憩",
-        "title_en": "Break"
-      }
-    ]
-  },
-  {
-    "time": "15:50",
-    "rows": [
+        "title_en": "Break",
+        "track": "medpeer"
+      },
       {
         "sessions": [{ "id": "129ac26d-2f66-4cbf-a6f7-96ea9d80a7ae" }],
         "track": "mntsq"
       },
       {
+        "time": "15:55 - 16:10",
         "title": "休憩",
-        "title_en": "Break"
-      }
-    ]
-  },
-  {
-    "time": "15:55",
-    "rows": [
-      {
-        "title": "休憩",
-        "title_en": "Break"
+        "title_en": "Break",
+        "track": "kickflow"
       },
-      {
-        "title": "休憩",
-        "title_en": "Break (10 min)"
-      }
-    ]
-  },
-  {
-    "time": "16:00",
-    "rows": [
       {
         "subTitle": "ライトニングトーク",
         "subTitle_en": "Lightning Talk",
@@ -327,7 +301,7 @@
     ]
   },
   {
-    "time": "16:10",
+    "time": "16:10 -",
     "rows": [
       {
         "sessions": [{ "id": "3877dec0-ec02-43f1-9afd-d788414b8aeb" }],
@@ -335,45 +309,71 @@
         "isTranslation": true
       },
       {
-        "sessions": [{ "id": "fb205261-b6d2-4871-a2de-3a5cba8ad6fd" }],
-        "track": "kickflow"
-      }
-    ]
-  },
-  {
-    "time": "16:20",
-    "rows": [
-      {
-        "title": "休憩",
-        "title_en": "Break"
-      }
-    ]
-  },
-  {
-    "time": "16:30",
-    "rows": [
-      {
-        "sessions": [{ "id": "5bcdf441-95fa-43d3-b1e2-8149157215ae" }],
+        "sessions": [
+          {
+            "session_time_from": "2024-10-19 07:20:00+00",
+            "session_time_duration": 10,
+            "session_title_ja": "休憩",
+            "session_title_en": "Break"
+          },
+          { "id": "5bcdf441-95fa-43d3-b1e2-8149157215ae" }
+        ],
         "track": "mntsq"
       },
       {
+        "sessions": [{ "id": "fb205261-b6d2-4871-a2de-3a5cba8ad6fd" }],
+        "track": "kickflow"
+      },
+      {
+        "time": "16:30 - 16:40",
         "title": "休憩",
-        "title_en": "Break"
+        "title_en": "Break",
+        "track": "vue"
       }
     ]
   },
   {
-    "time": "16:40",
+    "time": "16:40 -",
     "rows": [
       {
-        "title": "休憩",
-        "title_en": "Break"
+        "sessions": [
+          {
+            "session_time_from": "2024-10-19 07:40:00+00",
+            "session_time_duration": 15,
+            "session_title_ja": "休憩",
+            "session_title_en": "Break"
+          },
+          { "id": "dcc64136-a832-4b03-ade1-93c7469217e8" },
+          {
+            "session_time_from": "2024-10-19 08:25:00+00",
+            "session_time_duration": 35,
+            "session_title_ja": "転換",
+            "session_title_en": "Break"
+          }
+        ],
+        "track": "medpeer",
+        "isTranslation": true
       },
       {
-        "title": "休憩",
-        "title_en": "Break"
+        "time": "17:00 - 18:00",
+        "title": "転換",
+        "title_en": "Transition",
+        "track": "mntsq"
       },
       {
+        "sessions": [
+          {
+            "session_time_from": "2024-10-19 07:40:00+00",
+            "session_time_duration": 15,
+            "session_title_ja": "休憩",
+            "session_title_en": "Break"
+          },
+          { "id": "39d3b623-a1bd-4e35-8912-e08e3dd834bc" }
+        ],
+        "track": "kickflow"
+      },
+      {
+        "time": "16:40 - 17:40",
         "subTitle": "Vue.jsコミュニティにようこそ！",
         "subTitle_en": "Welcome to Vue.js Community!",
         "sessions": [{ "name_ja": "kazupon\njay-es\nubugeeei\nからころ（ファシリテーター）" }],
@@ -382,68 +382,11 @@
     ]
   },
   {
-    "time": "16:55",
-    "rows": [
-      {
-        "sessions": [{ "id": "dcc64136-a832-4b03-ade1-93c7469217e8" }],
-        "track": "medpeer",
-        "isTranslation": true
-      },
-      {
-        "sessions": [{ "id": "39d3b623-a1bd-4e35-8912-e08e3dd834bc" }],
-        "track": "kickflow"
-      }
-    ]
-  },
-  {
-    "time": "16:55",
-    "rows": [
-      {
-        "title": "転換",
-        "title_en": "Transition"
-      }
-    ]
-  },
-  {
-    "time": "17:25",
-    "rows": [
-      {
-        "title": "転換",
-        "title_en": "Transition"
-      },
-      {
-        "title": "クローズ",
-        "title_en": "Close",
-        "isClose": true
-      }
-    ]
-  },
-  {
-    "time": "17:40",
-    "rows": [
-      {
-        "title": "クローズ",
-        "title_en": "Close",
-        "isClose": true
-      }
-    ]
-  },
-  {
-    "time": "18:00",
+    "time": "18:00 - 19:30",
     "rows": [
       {
         "title": "アフターパーティー\nsupported by GMOインターネットグループ",
         "title_en": "After Party\nsupported by GMO Internet Group"
-      }
-    ]
-  },
-  {
-    "time": "19:30",
-    "rows": [
-      {
-        "title": "閉場",
-        "title_en": "Close",
-        "isClose": true
       }
     ]
   }

@@ -120,6 +120,11 @@ const timetableSp = (data.value as { spData: Timetable })?.spData
   font-size: 11px;
   font-weight: 700;
   line-height: 1.5;
+
+  @media (--tablet) {
+    margin-top: 13px;
+    font-size: 10px;
+  }
 }
 
 .time-table-content-sp {

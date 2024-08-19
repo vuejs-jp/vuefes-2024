@@ -20,4 +20,6 @@ export type Row = {
   isOpeningOrKeyNote?: boolean
   isTranslation?: boolean
   isSponsor?: boolean
+  noDisplayTime?: boolean
+  time?: string
 }

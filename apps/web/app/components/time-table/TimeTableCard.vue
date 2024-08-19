@@ -17,6 +17,20 @@ const currentLocale = useLocaleCurrent().locale
 
 const { color: trackColor, trackName } = useSession()
 const { color } = useColor()
+
+function formatTime(timeFrom: string, duration: number): string {
+  const formattedTimeFrom = new Date(timeFrom).toLocaleTimeString('ja-JP', {
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+  const formattedTimeTo = new Date(
+    new Date(timeFrom).getTime() + duration * 60 * 1000,
+  ).toLocaleTimeString('ja-JP', {
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+  return `${formattedTimeFrom} - ${formattedTimeTo}`
+}
 </script>
 
 <template>
@@ -36,6 +50,7 @@ const { color } = useColor()
     </div>
     <div class="detail" :class="{ _noTrackName: !row.track }">
       <div v-if="row.title || row.subTitle" class="tittle-wrapper">
+        <p v-if="row.time" class="time">{{ row.time }}</p>
         <p v-if="row.title" class="title">
           {{ currentLocale === 'en' ? row.title_en : row.title }}
         </p>
@@ -44,6 +59,9 @@ const { color } = useColor()
         </p>
       </div>
       <div v-for="session in row.sessions" :key="session.id" class="session">
+        <p v-if="!row.noDisplayTime" class="time">
+          {{ formatTime(session.session_time_from!, session.session_time_duration!) }}
+        </p>
         <component
           :is="session.detail_page_id ? _nuxtLink : 'div'"
           :to="session.detail_page_id ? `/sessions/${session.detail_page_id}` : ''"
@@ -97,7 +115,7 @@ const { color } = useColor()
 .detail {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   padding: 10px 20px 20px;
   color: var(--color-vue-blue);
   white-space: pre-wrap;
@@ -122,6 +140,10 @@ const { color } = useColor()
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+.time {
+  font-size: 12px;
+  font-weight: 400;
 }
 .session-title {
   font-size: 16px;
