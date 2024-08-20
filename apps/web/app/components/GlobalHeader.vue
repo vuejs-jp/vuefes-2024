@@ -31,8 +31,8 @@ const navLinks: NavLink[] = [
   { text: 'Message', anchor: '#message' },
   { text: 'Ticket', anchor: '#ticket' },
   { text: 'Speakers', anchor: '#speakers' },
-  ...config.public.showEvent && { text: 'Event', anchor: '#event' },
-  ...config.public.showTimetable && { text: 'Time table', anchor: '#timetable' },
+  // ...config.public.showEvent && { text: 'Event', anchor: '#event' },
+  // ...config.public.showTimetable && { text: 'Time table', anchor: '#timetable' },
   { text: 'Sponsors', anchor: '#sponsors' },
   // Uncomment out after job board implementation
   // { text: 'Job board', anchor: '#jobboard' },
