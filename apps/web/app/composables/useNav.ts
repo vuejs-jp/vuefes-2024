@@ -1,10 +1,10 @@
 import { useRuntimeConfig } from '#imports'
 
 type NavLink = {
-    text: string
-    anchor: string
-  }
-  
+  text: string
+  anchor: string
+}
+
 export function useNav() {
   const config = useRuntimeConfig()
 
