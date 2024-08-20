@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import type { Track } from '@vuejs-jp/model'
 
 const props = defineProps<{
-  isClose: boolean
+  isClose?: boolean
   track: Track
 }>()
 
