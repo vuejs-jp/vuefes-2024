@@ -16,6 +16,8 @@ export const ogSponsorDescription = 'Vue Fes Japan 2024 のスポンサー情報
 
 export const ogStaffDescription = 'Vue Fes Japan 2024 のスタッフ情報です。'
 
+export const ogNamecardDescription = 'さんのネームカードです。'
+
 export const ogJobboardDescription = 'Vue Fes Japan 2024 のジョブボードです。'
 
 export const linkUrl = 'https://vuefes.jp/2024/'
