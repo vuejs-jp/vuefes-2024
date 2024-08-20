@@ -27,17 +27,21 @@ type NavLink = {
   anchor: string
 }
 
-const navLinks: NavLink[] = [
+let navLinks: NavLink[] = [
   { text: 'Message', anchor: '#message' },
   { text: 'Ticket', anchor: '#ticket' },
   { text: 'Speakers', anchor: '#speakers' },
-  // ...config.public.showEvent && { text: 'Event', anchor: '#event' },
-  // ...config.public.showTimetable && { text: 'Time table', anchor: '#timetable' },
-  { text: 'Sponsors', anchor: '#sponsors' },
-  // Uncomment out after job board implementation
-  // { text: 'Job board', anchor: '#jobboard' },
-  { text: 'Inquiry', anchor: '#form' },
 ]
+if (config.public.showEvent) {
+  navLinks.push({ text: 'Event', anchor: '#event' })
+}
+if (config.public.showTimetable) {
+  navLinks.push({ text: 'Time table', anchor: '#timetable' })
+}
+navLinks.push(
+  { text: 'Sponsors', anchor: '#sponsors' },
+  { text: 'Inquiry', anchor: '#form' },
+)
 
 const showMenu = ref(false)
 
