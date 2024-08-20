@@ -23,7 +23,7 @@ if (error2.value) {
 }
 
 onMounted(function () {
-  window.addEventListener('popstate', async function(event) {
+  window.addEventListener('popstate', async function (event) {
     await refreshSpeaker()
     await refreshSponsor()
     await reloadNuxtApp()
@@ -43,10 +43,11 @@ useHead({
   <TicketPageSection v-if="config.public.enableRegisterTicket" />
   <SpeakerPageSection :data="speakers" />
   <!--
-  <VolunteerPageSection v-if="!config.public.enableRegisterTicket && locale === 'ja'" />
-  -->
+    <VolunteerPageSection v-if="!config.public.enableRegisterTicket && locale === 'ja'" />
+    -->
   <EventPageSection v-if="config.public.showEvent" :data="speakers" />
   <StorePageSection v-if="config.public.showStore" />
+  <TimeTablePageSection v-if="config.public.showTimetable" />
   <AccessPageSection />
   <SponsorPageSection :data="sponsors" />
   <CooperationPartnerSection />

@@ -15,9 +15,7 @@ const props = withDefaults(defineProps<IconProps>(), {
 })
 
 const svgComponent = match<IconName>(props.name)
-  .with('x', () =>
-    defineAsyncComponent(() => import('../../assets/icon/x_icon.svg?component')),
-  )
+  .with('x', () => defineAsyncComponent(() => import('../../assets/icon/x_icon.svg?component')))
   .with('x24', () =>
     defineAsyncComponent(() => import('../../assets/icon/x_24_icon.svg?component')),
   )
@@ -59,6 +57,9 @@ const svgComponent = match<IconName>(props.name)
   )
   .with('alert', () =>
     defineAsyncComponent(() => import('../../assets/icon/alert_32_icon.svg?component')),
+  )
+  .with('translation', () =>
+    defineAsyncComponent(() => import('../../assets/icon/translation.svg?component')),
   )
   .exhaustive()
 

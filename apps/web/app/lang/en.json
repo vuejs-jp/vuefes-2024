@@ -268,5 +268,8 @@
       "or": "or",
       "select_file": "Select a file"
     }
+  },
+  "time-table": {
+    "title": "Time table"
   }
 }

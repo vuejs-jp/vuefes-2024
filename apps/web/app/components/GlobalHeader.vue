@@ -16,10 +16,10 @@ const { width } = useWindowSize()
 const { orientation } = useScreenOrientation()
 const shouldShowSpHeader = ref()
 onMounted(() => {
-  shouldShowSpHeader.value = width.value <= 1080
+  shouldShowSpHeader.value = width.value <= 1200
 })
 watch([width, orientation], () => {
-  shouldShowSpHeader.value = width.value <= 1080
+  shouldShowSpHeader.value = width.value <= 1200
 })
 
 type NavLink = {
@@ -31,6 +31,7 @@ const navLinks: NavLink[] = [
   { text: 'Message', anchor: '#message' },
   { text: 'Ticket', anchor: '#ticket' },
   { text: 'Speakers', anchor: '#speakers' },
+  ...config.public.showTimetable && { text: 'Time table', anchor: '#timetable' },
   { text: 'Sponsors', anchor: '#sponsors' },
   // Uncomment out after job board implementation
   // { text: 'Job board', anchor: '#jobboard' },
@@ -142,7 +143,7 @@ const getAnchorPath = computed(
 
 .navigation-links-pc {
   display: flex;
-  gap: calc(var(--unit) * 8);
+  gap: calc(var(--unit) * 5);
 
   a {
     text-decoration: none;
