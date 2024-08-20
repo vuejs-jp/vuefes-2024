@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, resolveComponent } from 'vue'
 import { useLocaleCurrent } from '#imports'
+import { formatStartEndTime } from '~/utils/formatStartEndTime'
+
 import type { Row } from '@vuejs-jp/model'
 
 defineProps<{
@@ -10,20 +12,6 @@ defineProps<{
 const _nuxtLink = computed(() => resolveComponent('NuxtLink'))
 
 const currentLocale = useLocaleCurrent().locale
-
-function formatTime(timeFrom: string, duration: number): string {
-  const formattedTimeFrom = new Date(timeFrom).toLocaleTimeString('ja-JP', {
-    hour: '2-digit',
-    minute: '2-digit',
-  })
-  const formattedTimeTo = new Date(
-    new Date(timeFrom).getTime() + duration * 60 * 1000,
-  ).toLocaleTimeString('ja-JP', {
-    hour: '2-digit',
-    minute: '2-digit',
-  })
-  return `${formattedTimeFrom} - ${formattedTimeTo}`
-}
 </script>
 
 <template>
@@ -56,7 +44,7 @@ function formatTime(timeFrom: string, duration: number): string {
           {{ currentLocale === 'en' ? 'Simultaneous interpretation' : '同時通訳あり' }}
         </div>
         <p v-if="!row.noDisplayTime" class="time">
-          {{ formatTime(session.session_time_from!, session.session_time_duration!) }}
+          {{ formatStartEndTime(session.session_time_from!, session.session_time_duration!) }}
         </p>
         <component
           :is="session.detail_page_id ? _nuxtLink : 'div'"

@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <td class="session-time">
     <slot />

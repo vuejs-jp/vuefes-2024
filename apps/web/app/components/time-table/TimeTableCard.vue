@@ -3,10 +3,10 @@ import { computed, resolveComponent } from 'vue'
 import { useLocaleCurrent } from '#imports'
 import { useSession } from '~/composables/useSession'
 import { useColor } from '@vuejs-jp/composable'
+import { formatStartEndTime } from '~/utils/formatStartEndTime'
 
 import type { Row } from '@vuejs-jp/model'
 import type { Color } from '@vuejs-jp/model'
-import type { Session } from 'inspector'
 
 defineProps<{
   rows: Row[]
@@ -18,20 +18,6 @@ const currentLocale = useLocaleCurrent().locale
 
 const { color: trackColor, trackName } = useSession()
 const { color } = useColor()
-
-function formatTime(timeFrom: string, duration: number): string {
-  const formattedTimeFrom = new Date(timeFrom).toLocaleTimeString('ja-JP', {
-    hour: '2-digit',
-    minute: '2-digit',
-  })
-  const formattedTimeTo = new Date(
-    new Date(timeFrom).getTime() + duration * 60 * 1000,
-  ).toLocaleTimeString('ja-JP', {
-    hour: '2-digit',
-    minute: '2-digit',
-  })
-  return `${formattedTimeFrom} - ${formattedTimeTo}`
-}
 </script>
 
 <template>
@@ -66,7 +52,7 @@ function formatTime(timeFrom: string, duration: number): string {
         :class="{ _event: row.isEvent }"
       >
         <p v-if="!row.noDisplayTime" class="time">
-          {{ formatTime(session.session_time_from!, session.session_time_duration!) }}
+          {{ formatStartEndTime(session.session_time_from!, session.session_time_duration!) }}
         </p>
         <component
           :is="session.detail_page_id ? _nuxtLink : 'div'"

@@ -27,9 +27,9 @@ const timetableSp = (data.value as { spData: Timetable })?.spData
           <tr>
             <th aria-label="cell" class="time-table-time-cell" />
             <VFTrack color="hiwamoegi">メドピアトラック</VFTrack>
-            <VFTrack color="tohoh"> MNTSQが全ての合意をフェアにするぞトラック </VFTrack>
-            <VFTrack color="asagi"> kickflowトラック </VFTrack>
-            <VFTrack color="sangosyo"> Vueトラック </VFTrack>
+            <VFTrack color="tohoh">MNTSQが全ての合意をフェアにするぞトラック</VFTrack>
+            <VFTrack color="asagi">kickflowトラック</VFTrack>
+            <VFTrack color="sangosyo">Vueトラック</VFTrack>
           </tr>
         </thead>
         <tbody>
@@ -136,12 +136,5 @@ const timetableSp = (data.value as { spData: Timetable })?.spData
   display: flex;
   flex-direction: column;
   gap: 4px;
-}
-
-@media (--tablet) {
-  /* .time-table {
-    --time-table-padding: calc(var(--unit) * 2) 1.5%;
-    --time-table-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 6);
-  } */
 }
 </style>
