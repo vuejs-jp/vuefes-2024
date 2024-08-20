@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { useRuntimeConfig } from '#imports'
 import { useI18n } from '#i18n'
+import { useNav } from '~/composables/useNav'
 import { useScreenOrientation, useWindowSize } from '@vueuse/core'
 import { ref, watch, onMounted, computed } from 'vue'
 
 const { locale, setLocale } = useI18n({ useScope: 'global' })
+const { navLinks } = useNav()
 
 const config = useRuntimeConfig()
 
@@ -21,27 +23,6 @@ onMounted(() => {
 watch([width, orientation], () => {
   shouldShowSpHeader.value = width.value <= 1200
 })
-
-type NavLink = {
-  text: string
-  anchor: string
-}
-
-let navLinks: NavLink[] = [
-  { text: 'Message', anchor: '#message' },
-  { text: 'Ticket', anchor: '#ticket' },
-  { text: 'Speakers', anchor: '#speakers' },
-]
-if (config.public.showEvent) {
-  navLinks.push({ text: 'Event', anchor: '#event' })
-}
-if (config.public.showTimetable) {
-  navLinks.push({ text: 'Time table', anchor: '#timetable' })
-}
-navLinks.push(
-  { text: 'Sponsors', anchor: '#sponsors' },
-  { text: 'Inquiry', anchor: '#form' },
-)
 
 const showMenu = ref(false)
 
