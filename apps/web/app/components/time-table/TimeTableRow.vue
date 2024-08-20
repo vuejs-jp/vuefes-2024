@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, resolveComponent } from 'vue'
 import { useLocaleCurrent } from '#imports'
+import { useSession } from '~/composables/useSession'
 import { formatStartEndTime } from '~/utils/formatStartEndTime'
 
 import type { Row } from '@vuejs-jp/model'
@@ -10,8 +11,8 @@ defineProps<{
 }>()
 
 const _nuxtLink = computed(() => resolveComponent('NuxtLink'))
-
 const currentLocale = useLocaleCurrent().locale
+const { getSessionPath } = useSession()
 </script>
 
 <template>
@@ -48,7 +49,7 @@ const currentLocale = useLocaleCurrent().locale
         </p>
         <component
           :is="session.detail_page_id ? _nuxtLink : 'div'"
-          :to="session.detail_page_id ? `/sessions/${session.detail_page_id}` : ''"
+          :to="session.detail_page_id ? getSessionPath(session.detail_page_id) : ''"
           class="session-title"
           :class="{ _keynote_title: row.isOpeningOrKeyNote }"
         >

@@ -13,10 +13,8 @@ defineProps<{
 }>()
 
 const _nuxtLink = computed(() => resolveComponent('NuxtLink'))
-
 const currentLocale = useLocaleCurrent().locale
-
-const { color: trackColor, trackName } = useSession()
+const { color: trackColor, trackName, getSessionPath } = useSession()
 const { color } = useColor()
 </script>
 
@@ -56,7 +54,7 @@ const { color } = useColor()
         </p>
         <component
           :is="session.detail_page_id ? _nuxtLink : 'div'"
-          :to="session.detail_page_id ? `/sessions/${session.detail_page_id}` : ''"
+          :to="session.detail_page_id ? getSessionPath(session.detail_page_id) : ''"
           class="session-title"
           :class="{ _keynote_title: row.isOpeningOrKeyNote }"
         >
