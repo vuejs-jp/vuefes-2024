@@ -47,7 +47,7 @@ useHead({
     -->
   <EventPageSection v-if="config.public.showEvent" :data="speakers" />
   <StorePageSection v-if="config.public.showStore" />
-  <TimeTablePageSection />
+  <TimeTablePageSection v-if="config.public.showTimetable" />
   <AccessPageSection />
   <SponsorPageSection :data="sponsors" />
   <CooperationPartnerSection />
