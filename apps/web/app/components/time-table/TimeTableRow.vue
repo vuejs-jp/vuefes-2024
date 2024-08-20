@@ -2,7 +2,7 @@
 import { computed, resolveComponent } from 'vue'
 import { useLocaleCurrent } from '#imports'
 import { useSession } from '~/composables/useSession'
-import { formatStartEndTime } from '~/utils/formatStartEndTime'
+import { useRange } from '@vuejs-jp/composable'
 
 import type { Row } from '@vuejs-jp/model'
 
@@ -13,6 +13,7 @@ defineProps<{
 const _nuxtLink = computed(() => resolveComponent('NuxtLink'))
 const currentLocale = useLocaleCurrent().locale
 const { getSessionPath } = useSession()
+const { range } = useRange()
 </script>
 
 <template>
@@ -45,7 +46,7 @@ const { getSessionPath } = useSession()
           {{ currentLocale === 'en' ? 'Simultaneous interpretation' : '同時通訳あり' }}
         </div>
         <p v-if="!row.noDisplayTime" class="time">
-          {{ formatStartEndTime(session.session_time_from!, session.session_time_duration!) }}
+          {{ range(session.session_time_from!, session.session_time_duration!, 'hyphen') }}
         </p>
         <component
           :is="session.detail_page_id ? _nuxtLink : 'div'"

@@ -3,7 +3,7 @@ import { computed, resolveComponent } from 'vue'
 import { useLocaleCurrent } from '#imports'
 import { useSession } from '~/composables/useSession'
 import { useColor } from '@vuejs-jp/composable'
-import { formatStartEndTime } from '~/utils/formatStartEndTime'
+import { useRange } from '@vuejs-jp/composable'
 
 import type { Row } from '@vuejs-jp/model'
 import type { Color } from '@vuejs-jp/model'
@@ -16,6 +16,7 @@ const _nuxtLink = computed(() => resolveComponent('NuxtLink'))
 const currentLocale = useLocaleCurrent().locale
 const { color: trackColor, trackName, getSessionPath } = useSession()
 const { color } = useColor()
+const { range } = useRange()
 </script>
 
 <template>
@@ -50,7 +51,7 @@ const { color } = useColor()
         :class="{ _event: row.isEvent }"
       >
         <p v-if="!row.noDisplayTime" class="time">
-          {{ formatStartEndTime(session.session_time_from!, session.session_time_duration!) }}
+          {{ range(session.session_time_from!, session.session_time_duration!, 'hyphen') }}
         </p>
         <component
           :is="session.detail_page_id ? _nuxtLink : 'div'"
