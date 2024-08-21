@@ -117,7 +117,7 @@ function onSubmit(e: Event) {
     const id = {
       id: attendeeDataByUserId.value?.id ?? '',
     }
-    if (attendeeDataByUserId.value?.created_at) {
+    if (id.id) {
       upsertAttendee('attendees', {
         ...id,
         ...newAttendee.value,
@@ -130,7 +130,9 @@ function onSubmit(e: Event) {
       })
     }
 
-    navigateTo(`${currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`}namecard/${authUser.value?.id}/edit/complete/`)
+    navigateTo(
+      `${currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`}namecard/${authUser.value?.id}/edit/complete/`,
+    )
   }
 }
 </script>
