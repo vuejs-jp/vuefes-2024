@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
-import { definePageMeta } from '#imports'
+import { definePageMeta, navigateTo } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useNamecard } from '~/composables/useNamecard'
 
 definePageMeta({
@@ -10,11 +11,17 @@ definePageMeta({
 })
 
 const { t } = useI18n()
+const { locale: currentLocale } = useLocaleCurrent()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
 
 const { authUser, statusKey, namecardUser } = await useNamecard()
+
+async function handleLinkButton() {
+  navigateTo(`${currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`}namecard/${authUser.value?.id}/edit`)
+}
 </script>
+
 <template>
   <NuxtLayout name="namecard-base">
     <div class="namecard-complete-root">
@@ -62,9 +69,19 @@ const { authUser, statusKey, namecardUser } = await useNamecard()
       </div>
       <CreationStatus :status-key="statusKey" size="small" class="creation-status" />
       <VFNamecard24 :user="namecardUser" class="namecard-preview" />
+      <VFLinkButton
+        is="button"
+        background-color="vue-green/200"
+        color="white"
+        class="edit-button"
+        @click="handleLinkButton"
+      >
+        {{ t('namecard.edit') }}
+      </VFLinkButton>
     </div>
   </NuxtLayout>
 </template>
+
 <style scoped>
 @import url('~/assets/media.css');
 
@@ -103,5 +120,25 @@ const { authUser, statusKey, namecardUser } = await useNamecard()
 
 .namecard-preview {
   margin: 0 auto;
+}
+
+.edit-button {
+  --height-button: 66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 198px;
+  height: var(--height-button);
+  margin: calc(var(--unit) * 2.5) auto calc(var(--unit) * 7.5);
+}
+
+@media (--mobile) {
+  .edit-button {
+    --height-button: 58px;
+
+    &:deep(.text) {
+      font-size: var(--font-size-body400);
+    }
+  }
 }
 </style>

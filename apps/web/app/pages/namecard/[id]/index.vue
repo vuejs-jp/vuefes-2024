@@ -71,8 +71,9 @@ watch(
         color="white"
         class="edit-button"
         @click="handleLinkButton"
-        >{{ t('namecard.edit') }}</VFLinkButton
       >
+        {{ t('namecard.edit') }}
+      </VFLinkButton>
       <CreationProcess />
     </div>
   </NuxtLayout>
