@@ -50,6 +50,7 @@ watch(
             :href="`https://x.com/share?url=${encodeURIComponent(
               `https://vuefes.jp/2024/namecard/${authUser?.id}/share`,
             )}`"
+            target-blank
             can-hover
             class="sns-button"
           />
@@ -59,6 +60,7 @@ watch(
             :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
               `https://vuefes.jp/2024/namecard/${authUser?.id}/share`,
             )}`"
+            target-blank
             class="sns-button"
           />
         </div>
