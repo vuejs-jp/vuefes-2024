@@ -27,6 +27,7 @@ export class PeatixOrderService extends ScraperPage {
 
   private async login(page: Page) {
     await page.goto(Constants.PEATIX_LOGIN_URL)
+    console.log('🚀 ~ PeatixOrderService ~ login ~ page.content:', page.content)
     await page.type(
       Selectors.ORDERS.PEATIX.SEARCH_INPUT_EMAIL,
       this.envService.PEATIX_BASIC_EMAIL,
