@@ -26,6 +26,7 @@ const handleConfirm = (attendee?: Attendee) => {
       {
         ...attendee,
         activated_at: attendee?.activated_at ? null : new Date().toISOString(),
+        canceled_at: attendee?.activated_at ? new Date().toISOString() : null,
       },
     )
   }
@@ -43,6 +44,7 @@ const handleConfirm = (attendee?: Attendee) => {
       <th>role</th>
       <th>receipt_id</th>
       <th>activated_at</th>
+      <th>canceled_at</th>
       <th style="min-width: 80px">action</th>
     </tr>
     <tr v-for="attendee in attendees" :key="attendee.id">
@@ -72,6 +74,7 @@ const handleConfirm = (attendee?: Attendee) => {
       <td>{{ attendee.role }}</td>
       <td>{{ attendee.receipt_id }}</td>
       <td>{{ attendee.activated_at }}</td>
+      <td>{{ attendee.canceled_at }}</td>
       <td>
         <VFLinkButton
           is="button"

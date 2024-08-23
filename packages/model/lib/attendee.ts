@@ -27,6 +27,7 @@ export type Attendee = {
   role?: Role
   updated_at: string
   user_id: string
+  canceled_at?: string
 }
 
 export type NamecardUser = Pick<Attendee, 'display_name' | 'avatar_url' | 'role' | 'receipt_id'>

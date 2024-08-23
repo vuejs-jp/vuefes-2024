@@ -39,9 +39,9 @@ export class SupabaseService {
     const targetData = { ...targets }
 
     const { data, error } = await this.client.from('attendees')
-      .upsert({ role: targetData.role, activated_at: new Date().toISOString(), canceled_at: '' })
+      .upsert({ role: targetData.role, activated_at: new Date().toISOString(), canceled_at: null })
       .eq('receipt_id', targetData.receipt_id)
-      .eq('activated_at', '')
+      .is('activated_at', null)
     if (error) return { status: false, data: null }
 
     return { status: true, data }
@@ -52,7 +52,7 @@ export class SupabaseService {
 
     const { data, error } = await this.client.from('attendees')
       .update({ canceled_at: new Date().toISOString() }) // update で一括更新
-      .eq('activated_at', '')
+      .is('activated_at', null)
     if (error) return { status: false, data: null }
 
     return { status: true, data }
