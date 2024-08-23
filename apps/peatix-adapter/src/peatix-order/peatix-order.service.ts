@@ -27,7 +27,7 @@ export class PeatixOrderService extends ScraperPage {
 
   private async login(page: Page) {
     await Promise.all([
-      page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+      page.waitForNavigation({ waitUntil: 'networkidle0' }),
       page.goto(Constants.PEATIX_LOGIN_URL),
     ])
     await page.type(
@@ -53,7 +53,7 @@ export class PeatixOrderService extends ScraperPage {
     await page.goto(
       `${Constants.PEATIX_DASHBOARD_URL}${this.envService.PEATIX_EVENT_ID}/list_sales`,
       {
-        waitUntil: 'domcontentloaded',
+        waitUntil: 'networkidle0',
       },
     )
   
