@@ -31,19 +31,13 @@ export class PeatixOrderService extends ScraperPage {
       Selectors.ORDERS.PEATIX.SEARCH_INPUT_EMAIL,
       this.envService.PEATIX_BASIC_EMAIL,
     )
-    await Promise.all([
-      page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
-      page.click(Selectors.ORDERS.PEATIX.NEXT_EXECUTE),
-    ])
+    await page.click(Selectors.ORDERS.PEATIX.NEXT_EXECUTE),
 
     await page.type(
       Selectors.ORDERS.PEATIX.SEARCH_INPUT_PASSWORD,
       this.envService.PEATIX_BASIC_PASSWORD,
     )
-    await Promise.all([
-      page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
-      page.click(Selectors.ORDERS.PEATIX.SEARCH_EXECUTE),
-    ])
+    await page.click(Selectors.ORDERS.PEATIX.SEARCH_EXECUTE)
   }
 
   private async download(page: Page) {
