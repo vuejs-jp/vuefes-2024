@@ -26,9 +26,7 @@ export class PeatixOrderService extends ScraperPage {
   }
 
   private async login(page: Page) {
-    await page.goto(Constants.PEATIX_LOGIN_URL, {
-      waitUntil: 'domcontentloaded',
-    })
+    await page.goto(Constants.PEATIX_LOGIN_URL)
     await page.waitForSelector(
       Selectors.ORDERS.PEATIX.SEARCH_INPUT_EMAIL,
     )
@@ -57,9 +55,6 @@ export class PeatixOrderService extends ScraperPage {
   private async download(page: Page) {
     await page.goto(
       `${Constants.PEATIX_DASHBOARD_URL}${this.envService.PEATIX_EVENT_ID}/list_sales`,
-      {
-        waitUntil: 'domcontentloaded',
-      },
     )
   
     // const downloadPath = await mkdtemp(join(tmpdir(), 'attendee'));
