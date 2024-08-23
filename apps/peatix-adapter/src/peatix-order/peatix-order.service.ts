@@ -27,7 +27,7 @@ export class PeatixOrderService extends ScraperPage {
 
   private async login(page: Page) {
     await page.goto(Constants.PEATIX_LOGIN_URL, {
-      waitUntil: 'domcontentloaded',
+      waitUntil: 'networkidle0',
     })
     await page.type(
       Selectors.ORDERS.PEATIX.SEARCH_INPUT_EMAIL,
@@ -52,7 +52,7 @@ export class PeatixOrderService extends ScraperPage {
     await page.goto(
       `${Constants.PEATIX_DASHBOARD_URL}${this.envService.PEATIX_EVENT_ID}/list_sales`,
       {
-        waitUntil: 'domcontentloaded',
+        waitUntil: 'networkidle0',
       },
     )
   
