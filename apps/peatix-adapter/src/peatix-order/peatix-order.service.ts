@@ -26,10 +26,12 @@ export class PeatixOrderService extends ScraperPage {
   }
 
   private async login(page: Page) {
-    await Promise.all([
-      page.waitForNavigation({ waitUntil: 'networkidle0' }),
-      page.goto(Constants.PEATIX_LOGIN_URL),
-    ])
+    await page.goto(Constants.PEATIX_LOGIN_URL, {
+      waitUntil: 'domcontentloaded',
+    })
+    await page.waitForSelector(
+      Selectors.ORDERS.PEATIX.SEARCH_INPUT_EMAIL,
+    )
     await page.type(
       Selectors.ORDERS.PEATIX.SEARCH_INPUT_EMAIL,
       this.envService.PEATIX_BASIC_EMAIL,
@@ -39,6 +41,9 @@ export class PeatixOrderService extends ScraperPage {
       page.click(Selectors.ORDERS.PEATIX.NEXT_EXECUTE),
     ])
 
+    await page.waitForSelector(
+      Selectors.ORDERS.PEATIX.SEARCH_INPUT_PASSWORD,
+    )
     await page.type(
       Selectors.ORDERS.PEATIX.SEARCH_INPUT_PASSWORD,
       this.envService.PEATIX_BASIC_PASSWORD,
@@ -53,7 +58,7 @@ export class PeatixOrderService extends ScraperPage {
     await page.goto(
       `${Constants.PEATIX_DASHBOARD_URL}${this.envService.PEATIX_EVENT_ID}/list_sales`,
       {
-        waitUntil: 'networkidle0',
+        waitUntil: 'domcontentloaded',
       },
     )
   
