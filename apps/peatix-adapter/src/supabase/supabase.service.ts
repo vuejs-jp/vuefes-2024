@@ -51,7 +51,7 @@ export class SupabaseService {
     this.getClient()
 
     const { data, error } = await this.client.from('attendees')
-      .upsert({ canceled_at: new Date().toISOString() })
+      .update({ canceled_at: new Date().toISOString() }) // update で一括更新
       .eq('activated_at', '')
     if (error) return { status: false, data: null }
 
