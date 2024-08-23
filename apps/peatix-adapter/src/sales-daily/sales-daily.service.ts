@@ -50,7 +50,7 @@ export class SalesDailyService {
     }
     for (const archive of archives) {
       this.logger.log(`${archive.join(', ')} `)
-      this.discordService.send('After Purchase Bot', `${archive.join(', ')} `)
+      // this.discordService.send('After Purchase Bot', `${archive.join(', ')} `)
     }
   }
 }
