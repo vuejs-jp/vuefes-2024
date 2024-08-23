@@ -135,6 +135,11 @@ export class PeatixOrderService extends ScraperPage {
         this.handleRequest(request)
       },
     )
+    page.setViewport({
+      width: 1280,
+      height: 800,
+      isMobile: false,
+    })
 
     try {
       if (PUPPETEER_USAGE) {
