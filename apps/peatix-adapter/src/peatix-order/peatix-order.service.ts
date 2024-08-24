@@ -26,24 +26,35 @@ export class PeatixOrderService extends ScraperPage {
   }
 
   private async login(page: Page) {
-    await page.goto(Constants.PEATIX_LOGIN_URL)
-    console.log('🚀 ~ PeatixOrderService ~ login ~ page.content:', page.content)
+    await page.goto(Constants.PEATIX_LOGIN_URL, {
+      waitUntil: 'domcontentloaded',
+    })
+    new Promise((resolve) => setTimeout(resolve, 3000))
     await page.type(
       Selectors.ORDERS.PEATIX.SEARCH_INPUT_EMAIL,
       this.envService.PEATIX_BASIC_EMAIL,
     )
-    await page.click(Selectors.ORDERS.PEATIX.NEXT_EXECUTE),
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+      page.click(Selectors.ORDERS.PEATIX.NEXT_EXECUTE),
+    ])
 
     await page.type(
       Selectors.ORDERS.PEATIX.SEARCH_INPUT_PASSWORD,
       this.envService.PEATIX_BASIC_PASSWORD,
     )
-    await page.click(Selectors.ORDERS.PEATIX.SEARCH_EXECUTE)
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+      page.click(Selectors.ORDERS.PEATIX.SEARCH_EXECUTE),
+    ])
   }
 
   private async download(page: Page) {
     await page.goto(
       `${Constants.PEATIX_DASHBOARD_URL}${this.envService.PEATIX_EVENT_ID}/list_sales`,
+      {
+        waitUntil: 'domcontentloaded',
+      },
     )
   
     // const downloadPath = await mkdtemp(join(tmpdir(), 'attendee'));
