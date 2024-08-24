@@ -19,7 +19,7 @@
     "saturday": "土"
   },
   "top_page": {
-    "latest_information": "チケット好評発売中！　8/25（日）までのご購入で 1,000 円 OFF！",
+    "latest_information": "チケット好評発売中！　9/8（日）までのご購入で 1,000 円 OFF！",
     "date": "2024.10.19",
     "note": "公式 note"
   },
@@ -144,14 +144,14 @@
       "ippan": {
         "title": "一般チケット",
         "early": "早割：7,000円",
-        "earlySub": "※8/25（日）24:00まで",
+        "earlySub": "※9/8（日）24:00まで",
         "regular": "通常：8,000円 ",
         "imgAlt": "プレゼンしている人"
       },
       "ippanParty": {
         "title": "一般 + アフターパーティーチケット",
         "early": "早割：10,000円",
-        "earlySub": "※8/25（日）24:00まで",
+        "earlySub": "※9/8（日）24:00まで",
         "regular": "通常：11,000円 ",
         "imgAlt": "アフターパーティの例"
       },
