@@ -47,29 +47,21 @@ export class AfterPurchaseService {
     const personalSponsors = [...new Set(_personalSponsors)] // 重複を削除
     // this.logger.log(receipts)
     const today = new Date()
-    this.logger.log(
+
+    this.discordService.send(
+      'After Purchase Bot', 
       `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}時点の${Constants.PEATIX_GENERAL_TICKET}売上状況: ${receipts.filter(v => v.role === Constants.PEATIX_GENERAL_ROLE).length}枚 (+${receipts.filter(v => v.role === Constants.PEATIX_GENERAL_ROLE).filter(v => v.date.includes(`${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`)).length}枚)`,
     )
-    this.logger.log(
+    this.discordService.send(
+      'After Purchase Bot', 
       `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}時点の${Constants.PEATIX_WITH_PARTY_TICKET}売上状況: ${receipts.filter(v => v.role === Constants.PEATIX_WITH_PARTY_ROLE).length}枚 (+${receipts.filter(v => v.role === Constants.PEATIX_WITH_PARTY_ROLE).filter(v => v.date.includes(`${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`)).length}枚)`,
     )
-    this.logger.log(
+    this.discordService.send(
+      'After Purchase Bot', 
       `${Constants.PEATIX_PERSONAL_SPONSOR_TICKET}売上状況: ${personalSponsors.length}枚 ('${personalSponsors.join('\', \'')}')`,
     )
-    // this.discordService.send(
-    //   'After Purchase Bot', 
-    //   `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}時点の${Constants.PEATIX_GENERAL_TICKET}売上状況: ${receipts.filter(v => v.role === Constants.PEATIX_GENERAL_ROLE).length}枚 (+${receipts.filter(v => v.role === Constants.PEATIX_GENERAL_ROLE).filter(v => v.date.includes(`${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`)).length}枚)`,
-    // )
-    // this.discordService.send(
-    //   'After Purchase Bot', 
-    //   `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}時点の${Constants.PEATIX_WITH_PARTY_TICKET}売上状況: ${receipts.filter(v => v.role === Constants.PEATIX_WITH_PARTY_ROLE).length}枚 (+${receipts.filter(v => v.role === Constants.PEATIX_WITH_PARTY_ROLE).filter(v => v.date.includes(`${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`)).length}枚)`,
-    // )
-    // this.discordService.send(
-    //   'After Purchase Bot', 
-    //   `${Constants.PEATIX_PERSONAL_SPONSOR_TICKET}売上状況: ${personalSponsors.length}枚 ('${personalSponsors.join('\', \'')}')`,
-    // )
 
-    // this.discordService.send('After Purchase Bot', `${receipts.length}件 購入済`)
+    this.discordService.send('After Purchase Bot', `${receipts.length}件 購入済`)
 
     let i = 0
 
@@ -85,6 +77,6 @@ export class AfterPurchaseService {
       }
     }
 
-    // this.discordService.send('After Purchase Bot', `${receipts.length}件 購入済 / ${i}件 反映済`)
+    this.discordService.send('After Purchase Bot', `${receipts.length}件 購入済 / ${i}件 反映済`)
   }
 }

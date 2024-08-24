@@ -15,18 +15,22 @@ export class DiscordService {
   }
 
   public async send(user: string, content: string) {
-    await axios.post(
-      this.envService.DISCORD_WEBHOOK_URL,
-      {
-        username: user,
-        content: content,
-      },
-      {
-        headers: {
-          'Accept': 'application/json',
-          'Content-type': 'application/json',
+    await axios
+      .post(
+        this.envService.DISCORD_WEBHOOK_URL,
+        {
+          username: user,
+          content: content,
         },
-      },
-    )
+        {
+          headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json',
+          },
+        },
+      )
+      .catch((error) => {
+        this.logger.error(error)
+      })
   }
 }
