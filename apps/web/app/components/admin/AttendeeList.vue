@@ -41,7 +41,6 @@ const handleConfirm = (attendee?: Attendee) => {
       <th>avatar_url</th>
       <th>provider</th>
       <th>display_name</th>
-      <th>role</th>
       <th>receipt_id</th>
       <th>activated_at</th>
       <th>canceled_at</th>
@@ -71,7 +70,6 @@ const handleConfirm = (attendee?: Attendee) => {
       </td>
       <td>{{ attendee.provider }}</td>
       <td>{{ attendee.display_name }}</td>
-      <td>{{ attendee.role }}</td>
       <td>{{ attendee.receipt_id }}</td>
       <td>{{ attendee.activated_at }}</td>
       <td>{{ attendee.canceled_at }}</td>
