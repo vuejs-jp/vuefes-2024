@@ -34,3 +34,5 @@ jobs:
           PEATIX_BASIC_PASSWORD: ${{ secrets.PEATIX_BASIC_PASSWORD }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
