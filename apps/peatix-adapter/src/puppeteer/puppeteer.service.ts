@@ -36,6 +36,7 @@ export class PuppeteerService implements IPuppeteerService {
         '--disable-features=IsolateOrigins',
         '--disable-site-isolation-trials',
         '--disable-gpu',
+        '--incognito',
         '--no-first-run',
         '--no-zygote',
         '--single-process',
