@@ -13,7 +13,9 @@ export const roleList = Object.values(RoleMap).map((value) => {
 })
 export type Role = typeof RoleMap[keyof typeof RoleMap]
 
-export const selectableRoleList = roleList.map((role) => ({ value: role.toLowerCase(), text: role }))
+export const selectableRoleList = roleList
+  .filter(role => role.indexOf('Attendee') !== -1)
+  .map((role) => ({ value: role.toLowerCase(), text: role }))
 
 export type Attendee = {
   activated_at?: string
