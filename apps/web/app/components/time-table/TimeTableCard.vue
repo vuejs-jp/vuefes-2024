@@ -68,7 +68,7 @@ const { range } = useRange()
         class="session"
         :class="{ _event: row.isEvent }"
       >
-        <p v-if="!row.noDisplayTime" class="time">
+        <p v-if="!row.noDisplayTime && session.session_type !== 'lightning-talk'" class="time">
           {{ range(session.session_time_from!, session.session_time_duration!, 'hyphen') }}
         </p>
         <component
