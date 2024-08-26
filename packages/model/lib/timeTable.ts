@@ -23,4 +23,5 @@ export type Row = {
   noDisplayTime?: boolean
   time?: string
   isEvent?: boolean
+  type?: 'handson'| 'crosstalk' | 'welcome-vuejs-community'
 }

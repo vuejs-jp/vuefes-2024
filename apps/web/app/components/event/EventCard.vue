@@ -5,13 +5,19 @@ interface EventCardProps {
   title: Event
   fontClass?: string
   paddingClass?: string
+  id?: string
 }
 
 const props = defineProps<EventCardProps>()
 </script>
 
 <template>
-  <VFEventFrame :title="$t(`event.${title.replaceAll('-', '_')}`)" :font-class :padding-class>
+  <VFEventFrame
+    :id="id"
+    :title="$t(`event.${title.replaceAll('-', '_')}`)"
+    :font-class
+    :padding-class
+  >
     <template #content>
       <div class="eventcard-content">
         <MarkDownText :path="title.replaceAll('-', '_')" />
@@ -48,7 +54,7 @@ const props = defineProps<EventCardProps>()
 
 .eventcard-content ::v-deep(a:hover) {
   opacity: 0.4;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .eventcard-default {
