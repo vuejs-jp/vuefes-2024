@@ -21,10 +21,10 @@ const { panelEventPanelers } = props.data as Panelers
       <VFTitle id="event" color="white" class="title">
         {{ $t('event.title') }}
       </VFTitle>
-      <EventCard title="nextgen-frontend-crosstalk">
+      <EventCard id="crosstalk" title="nextgen-frontend-crosstalk">
         <PanelerList :panelers="panelEventPanelers.list['nextgen-frontend-crosstalk']" />
       </EventCard>
-      <EventCard title="welcome-vuejs-community">
+      <EventCard id="welcome-vuejs-community" title="welcome-vuejs-community">
         <PanelerList :panelers="panelEventPanelers.list['welcome-vuejs-community']" />
       </EventCard>
       <EventCard title="vuejs-handson">

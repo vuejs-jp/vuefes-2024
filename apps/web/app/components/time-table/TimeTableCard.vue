@@ -40,9 +40,27 @@ const { range } = useRange()
         <p v-if="row.title" class="title">
           {{ currentLocale === 'en' ? row.title_en : row.title }}
         </p>
-        <p v-if="row.subTitle" class="sub-title" :class="{ _sponsor_session: row.isSponsor }">
+        <component
+          :is="
+            row.type && ['handson', 'crosstalk', 'welcome-vuejs-community'].includes(row.type)
+              ? _nuxtLink
+              : 'p'
+          "
+          v-if="row.subTitle"
+          :to="
+            row.type && ['handson', 'crosstalk', 'welcome-vuejs-community'].includes(row.type)
+              ? `#${row.type}`
+              : ''
+          "
+          class="sub-title"
+          :class="{
+            _sponsor_session: row.isSponsor,
+            _link:
+              row.type && ['handson', 'crosstalk', 'welcome-vuejs-community'].includes(row.type),
+          }"
+        >
           {{ currentLocale === 'en' ? row.subTitle_en : row.subTitle }}
-        </p>
+        </component>
       </div>
       <div
         v-for="session in row.sessions"
@@ -50,14 +68,14 @@ const { range } = useRange()
         class="session"
         :class="{ _event: row.isEvent }"
       >
-        <p v-if="!row.noDisplayTime" class="time">
+        <p v-if="!row.noDisplayTime && session.session_type !== 'lightning-talk'" class="time">
           {{ range(session.session_time_from!, session.session_time_duration!, 'hyphen') }}
         </p>
         <component
           :is="session.detail_page_id ? _nuxtLink : 'div'"
           :to="session.detail_page_id ? getSessionPath(session.detail_page_id) : ''"
           class="session-title"
-          :class="{ _keynote_title: row.isOpeningOrKeyNote }"
+          :class="{ _keynote_title: row.isOpeningOrKeyNote, _hover: session.detail_page_id }"
         >
           {{ currentLocale === 'en' ? session.session_title_en : session.session_title_ja }}
         </component>
@@ -123,6 +141,12 @@ const { range } = useRange()
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
+  color: var(--color-vue-blue);
+  text-decoration: none;
+}
+._link:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
 }
 ._sponsor_session {
   color: var(--color-hiwamoegi200);
@@ -145,6 +169,10 @@ const { range } = useRange()
   line-height: 1.2;
   text-decoration: none;
   color: var(--color-vue-blue);
+}
+._hover:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
 }
 .session-speaker {
   font-size: 12px;
