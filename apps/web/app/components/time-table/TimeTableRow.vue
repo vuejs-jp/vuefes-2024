@@ -52,7 +52,7 @@ const { range } = useRange()
           :is="session.detail_page_id ? _nuxtLink : 'div'"
           :to="session.detail_page_id ? getSessionPath(session.detail_page_id) : ''"
           class="session-title"
-          :class="{ _keynote_title: row.isOpeningOrKeyNote }"
+          :class="{ _keynote_title: row.isOpeningOrKeyNote, _hover: session.detail_page_id }"
         >
           {{ currentLocale === 'en' ? session.session_title_en : session.session_title_ja }}
         </component>
@@ -126,6 +126,10 @@ const { range } = useRange()
   line-height: 1.2;
   text-decoration: none;
   color: var(--color-vue-blue);
+}
+._hover:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
 }
 .session-name {
   font-size: 12px;
