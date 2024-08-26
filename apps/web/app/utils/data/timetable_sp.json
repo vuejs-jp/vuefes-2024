@@ -86,8 +86,8 @@
         "track": "mntsq"
       },
       {
-        "subTitle": "スペシャル\nランチセッション",
-        "subTitle_en": "Special Lunch Session",
+        "subTitle": "ランチセッション",
+        "subTitle_en": "Lunch Session",
         "sessions": [],
         "track": "kickflow"
       }
@@ -135,8 +135,8 @@
       },
       {
         "time": "12:50 - 14:50",
-        "subTitle": "ハンズオン",
-        "subTitle_en": "Hands-on",
+        "subTitle": "Vue.js / Nuxt ハンズオン",
+        "subTitle_en": "Vue.js / Nuxt Hands-on",
         "sessions": [],
         "track": "vue"
       }
@@ -204,7 +204,11 @@
         "time": "14:40 - 15:40",
         "subTitle": "次世代フロントエンドクロストーク",
         "subTitle_en": "Next Generation Frontend Cross Talk",
-        "sessions": [{ "name_ja": "Evan You\nBoshen Chen\n太田 洋介\nSosuke Suzuki\nunvalley\nKia King Ishii（通訳兼ファシリテーター）" }],
+        "sessions": [
+          {
+            "name_ja": "Evan You\nBoshen Chen\n太田 洋介\nSosuke Suzuki\nunvalley\nKia King Ishii（通訳兼ファシリテーター）"
+          }
+        ],
         "track": "mntsq",
         "noDisplayTime": true,
         "isEvent": true
