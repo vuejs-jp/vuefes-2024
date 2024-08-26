@@ -10,22 +10,13 @@ import { useNamecard } from '~/composables/useNamecard'
 const { t } = useI18n()
 const { locale: currentLocale } = useLocaleCurrent()
 const route = useRoute()
-const { authUser, statusKey, namecardUser } = await useNamecard()
+const { authUser, statusKey, namecardUser } = useNamecard()
 
 const langPath = computed(() => (currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`))
 
 async function handleLinkButton() {
   navigateTo(`${langPath.value}namecard/${authUser.value?.id}/edit`)
 }
-
-watch(
-  () => authUser.value?.id,
-  (newId) => {
-    if (newId) {
-      navigateTo(`${langPath.value}namecard/${newId}`)
-    }
-  },
-)
 
 watch(
   () => route.query.code,
@@ -36,6 +27,15 @@ watch(
   },
   {
     immediate: true,
+  },
+)
+
+watch(
+  () => authUser.value?.id,
+  (newId) => {
+    if (newId) {
+      navigateTo(`${langPath.value}namecard/${newId}`)
+    }
   },
 )
 </script>
