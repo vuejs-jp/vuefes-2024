@@ -181,7 +181,8 @@
         "colspan": 1,
         "rowspan": 7,
         "sessions": [],
-        "track": "vue"
+        "track": "vue",
+        "type": "handson"
       }
     ]
   },
@@ -289,7 +290,8 @@
         ],
         "track": "mntsq",
         "noDisplayTime": true,
-        "isEvent": true
+        "isEvent": true,
+        "type": "crosstalk"
       },
       {
         "colspan": 1,
@@ -498,7 +500,8 @@
         ],
         "track": "vue",
         "noDisplayTime": true,
-        "isEvent": true
+        "isEvent": true,
+        "type": "welcome-vuejs-community"
       }
     ]
   },

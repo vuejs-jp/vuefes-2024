@@ -138,7 +138,8 @@
         "subTitle": "Vue.js / Nuxt ハンズオン",
         "subTitle_en": "Vue.js / Nuxt Hands-on",
         "sessions": [],
-        "track": "vue"
+        "track": "vue",
+        "type": "handson"
       }
     ]
   },
@@ -211,7 +212,8 @@
         ],
         "track": "mntsq",
         "noDisplayTime": true,
-        "isEvent": true
+        "isEvent": true,
+        "type": "crosstalk"
       },
       {
         "sessions": [
@@ -383,7 +385,8 @@
         ],
         "track": "vue",
         "noDisplayTime": true,
-        "isEvent": true
+        "isEvent": true,
+        "type": "welcome-vuejs-community"
       }
     ]
   },
