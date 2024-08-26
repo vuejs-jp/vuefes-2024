@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watch } from 'vue'
+import { computed, watch } from 'vue'
 import { useI18n } from '#i18n'
 import { navigateTo, useRoute } from '#imports'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
@@ -12,15 +12,17 @@ const { locale: currentLocale } = useLocaleCurrent()
 const route = useRoute()
 const { authUser, statusKey, namecardUser } = await useNamecard()
 
+const langPath = computed(() => (currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`))
+
 async function handleLinkButton() {
-  navigateTo(`${currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`}namecard/${authUser.value?.id}/edit`)
+  navigateTo(`${langPath.value}namecard/${authUser.value?.id}/edit`)
 }
 
 watch(
   () => authUser.value?.id,
   (newId) => {
     if (newId) {
-      navigateTo(`${currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`}namecard/${newId}/`)
+      navigateTo(`${langPath.value}namecard/${newId}`)
     }
   },
 )
@@ -29,7 +31,7 @@ watch(
   () => route.query.code,
   (newCode) => {
     if (newCode && authUser.value?.id) {
-      navigateTo(`${currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`}namecard/${authUser.value?.id}/`)
+      navigateTo(`${langPath.value}namecard/${authUser.value?.id}`)
     }
   },
   {
