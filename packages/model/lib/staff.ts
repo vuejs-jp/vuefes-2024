@@ -7,6 +7,7 @@ export type Staff = {
   github_id?: string
   is_open: boolean
   display_order?: number
+  is_volunteer: boolean
   created_at: string
   updated_at: string
 }
