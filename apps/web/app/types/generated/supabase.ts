@@ -319,6 +319,7 @@ export type Database = {
           id: string
           image_url: string | null
           is_open: boolean
+          is_volunteer: boolean
           name: string
           updated_at: string
           x_id: string | null
@@ -331,6 +332,7 @@ export type Database = {
           id?: string
           image_url?: string | null
           is_open: boolean
+          is_volunteer?: boolean
           name: string
           updated_at?: string
           x_id?: string | null
@@ -343,6 +345,7 @@ export type Database = {
           id?: string
           image_url?: string | null
           is_open?: boolean
+          is_volunteer?: boolean
           name?: string
           updated_at?: string
           x_id?: string | null
@@ -437,6 +440,7 @@ export type Database = {
           owner_id: string | null
           path_tokens: string[] | null
           updated_at: string | null
+          user_metadata: Json | null
           version: string | null
         }
         Insert: {
@@ -450,6 +454,7 @@ export type Database = {
           owner_id?: string | null
           path_tokens?: string[] | null
           updated_at?: string | null
+          user_metadata?: Json | null
           version?: string | null
         }
         Update: {
@@ -463,6 +468,7 @@ export type Database = {
           owner_id?: string | null
           path_tokens?: string[] | null
           updated_at?: string | null
+          user_metadata?: Json | null
           version?: string | null
         }
         Relationships: [
@@ -484,6 +490,7 @@ export type Database = {
           key: string
           owner_id: string | null
           upload_signature: string
+          user_metadata: Json | null
           version: string
         }
         Insert: {
@@ -494,6 +501,7 @@ export type Database = {
           key: string
           owner_id?: string | null
           upload_signature: string
+          user_metadata?: Json | null
           version: string
         }
         Update: {
@@ -504,6 +512,7 @@ export type Database = {
           key?: string
           owner_id?: string | null
           upload_signature?: string
+          user_metadata?: Json | null
           version?: string
         }
         Relationships: [
