@@ -157,6 +157,8 @@ create table if not exists public.staffs (
 
 ALTER TABLE public.staffs ADD COLUMN detail_page_id varchar(40);
 
+ALTER TABLE public.staffs ADD COLUMN is_volunteer bool not null default false;
+
 alter table
   public.staffs enable row level security;
 
