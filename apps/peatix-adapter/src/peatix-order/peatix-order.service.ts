@@ -29,20 +29,25 @@ export class PeatixOrderService extends ScraperPage {
     await page.goto(Constants.PEATIX_LOGIN_URL, {
       waitUntil: 'domcontentloaded',
     })
-    new Promise((resolve) => setTimeout(resolve, 3000))
-    await page.type(
-      Selectors.ORDERS.PEATIX.SEARCH_INPUT_EMAIL,
-      this.envService.PEATIX_BASIC_EMAIL,
-    )
+    await Promise.all([
+      page.waitForSelector(Selectors.ORDERS.PEATIX.SEARCH_INPUT_EMAIL),
+      page.type(
+        Selectors.ORDERS.PEATIX.SEARCH_INPUT_EMAIL,
+        this.envService.PEATIX_BASIC_EMAIL,
+      )
+    ])
     await Promise.all([
       page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
       page.click(Selectors.ORDERS.PEATIX.NEXT_EXECUTE),
     ])
 
-    await page.type(
-      Selectors.ORDERS.PEATIX.SEARCH_INPUT_PASSWORD,
-      this.envService.PEATIX_BASIC_PASSWORD,
-    )
+    await Promise.all([
+      page.waitForSelector(Selectors.ORDERS.PEATIX.SEARCH_INPUT_PASSWORD),
+      page.type(
+        Selectors.ORDERS.PEATIX.SEARCH_INPUT_PASSWORD,
+        this.envService.PEATIX_BASIC_PASSWORD,
+      )
+    ])
     await Promise.all([
       page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
       page.click(Selectors.ORDERS.PEATIX.SEARCH_EXECUTE),
