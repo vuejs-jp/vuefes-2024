@@ -23,11 +23,10 @@ export class PuppeteerService implements IPuppeteerService {
 
   async generateBrowser(): Promise<Browser> {
     const browser = await puppeteer.launch({
-      headless: process.env.DEBUG === 'true' ? false : 'new',
+      headless: process.env.DEBUG === 'true' ? false : 'shell',
       devtools: process.env.DEBUG === 'true',
       handleSIGTERM: process.env.PROD !== 'true',
       handleSIGINT: process.env.PROD !== 'true',
-      ignoreHTTPSErrors: true,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -51,11 +50,19 @@ export class PuppeteerService implements IPuppeteerService {
   ): Promise<BrowserAndPage> {
     const browser = await this.generateBrowser()
 
-    const page = await browser.newPage()
+    const pages = await browser.pages()
+    const [page] = pages
     if (!page) throw new Error('Tab is not created.')
 
     if (!requestHandler) return { browser, page }
   
+    await Promise.all(
+      pages.map(async (page) => {
+        await page.setRequestInterception(true)
+        page.on('request', requestHandler)
+      }),
+    )
+
     browser.on('targetcreated', async (target: Target) => {
       const page = await target.page()
       if (!page) {
