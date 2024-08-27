@@ -27,6 +27,7 @@ const handleDialog = (id?: string) => {
       <th>x_id</th>
       <th>github_id</th>
       <th>is_open</th>
+      <th>is_volunteer</th>
       <th style="min-width: 80px">action</th>
     </tr>
     <tr v-for="staff in staffs" :key="staff.id">
@@ -49,6 +50,9 @@ const handleDialog = (id?: string) => {
       <td>
         <p>{{ staff.is_open ? '表示' : '非表示' }}</p>
         <p v-if="staff.display_order">{{ `(${staff.display_order})` }}</p>
+      </td>
+      <td>
+        <p>{{ staff.is_volunteer ? 'ボランティアスタッフ' : 'コアスタッフ' }}</p>
       </td>
       <td>
         <VFLinkButton
