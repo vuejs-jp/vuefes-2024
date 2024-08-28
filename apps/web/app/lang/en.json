@@ -212,6 +212,9 @@
     "title": "Team",
     "volunteer_title": "Volunteer Staff"
   },
+  "staff": {
+    "title": "Staff"
+  },
   "message": {
     "title": "Message"
   },
@@ -271,5 +274,8 @@
   },
   "time-table": {
     "title": "Time table"
+  },
+  "sharemap": {
+    "title": "Share URL"
   }
 }
