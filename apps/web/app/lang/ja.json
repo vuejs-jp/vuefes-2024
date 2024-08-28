@@ -230,6 +230,9 @@
     "title": "チーム",
     "volunteer_title": "ボランティアスタッフ"
   },
+  "staff": {
+    "title": "スタッフ"
+  },
   "message": {
     "title": "メッセージ"
   },
@@ -289,5 +292,8 @@
   },
   "time-table": {
     "title": "タイムテーブル"
+  },
+  "sharemap": {
+    "title": "シェアURL"
   }
 }
