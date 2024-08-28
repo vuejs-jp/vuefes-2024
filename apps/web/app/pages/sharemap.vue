@@ -69,7 +69,7 @@ useHead({
   <div class="sharemap">
     <div class="sharemap-body">
       <div>
-        <h2>{{ $t('speaker.title') }}</h2>
+        <VFTitle id="speaker">{{ $t('speaker.title') }}</VFTitle>
         <VFTextLink
           v-for="speaker in [...sessionSpeakers.list, ...lightningTalkSpeakers.list, ...sponsorSessionSpeakers.list]"
           :key="speaker.id"
@@ -81,7 +81,7 @@ useHead({
         </VFTextLink>
       </div>
       <div>
-        <h2>{{ $t('sponsor.title') }}</h2>
+        <VFTitle id="sponsor">{{ $t('sponsor.title') }}</VFTitle>
         <VFTextLink
           v-for="sponsor in Array.from(
             new Map(
@@ -115,7 +115,7 @@ useHead({
         </VFTextLink>
       </div>
       <div>
-        <h2>{{ $t('staff.title') }}</h2>
+        <VFTitle id="staff">{{ $t('staff.title') }}</VFTitle>
         <VFTextLink
           v-for="staff in allStaffs.list"
           :key="staff.id"
