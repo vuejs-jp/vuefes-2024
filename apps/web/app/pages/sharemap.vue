@@ -191,9 +191,17 @@ useHead({
     }
   }
 
+  h2 {
+    font-size: 24px;
+  }
+
   @media (--tablet) {
     padding: 20px 0 60px;
     max-width: 100%;
+
+    h2 {
+      font-size: 20px;
+    }
   }
 
   a {
