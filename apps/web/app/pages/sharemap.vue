@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useFetch, useHead } from '#imports'
-import type { SpeakerCategory, SpeakerInfo, SponsorCategory, SponsorInfo, StaffInfo } from '@vuejs-jp/model'
+import type { SpeakerCategory, SpeakerInfo, SponsorCategory, SponsorInfo, StaffCategory, StaffInfo } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { conferenceTitle, linkUrl, ogSharemapDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
@@ -10,7 +10,7 @@ type Speakers = Record<_SpeakerCategory, SpeakerInfo>
 
 type Sponsors = Record<SponsorCategory, SponsorInfo>
 
-type Staffs = Record<'allStaffs', StaffInfo>
+type Staffs = Record<StaffCategory, StaffInfo>
 
 const { data: speakers, error: error1 } = await useFetch('/api/speakers')
 const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = speakers.value as Speakers
@@ -39,7 +39,7 @@ if (error2.value) {
   console.error(error2.value)
 }
 const { data: staffs, error: error3 } = await useFetch('/api/staffs')
-const { allStaffs } = staffs.value as Staffs
+const { coreStaffs, volunteerStaffs } = staffs.value as Staffs
 if (error3.value) {
   console.error(error3.value)
 }
@@ -117,7 +117,7 @@ useHead({
       <div>
         <VFTitle id="staff">{{ $t('staff.title') }}</VFTitle>
         <VFTextLink
-          v-for="staff in allStaffs.list"
+          v-for="staff in [...coreStaffs.list, ...volunteerStaffs.list]"
           :key="staff.id"
           :href="`/staffs/${staff.detail_page_id}/share`"
           color="vue-blue"

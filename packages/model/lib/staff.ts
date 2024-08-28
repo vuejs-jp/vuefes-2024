@@ -1,3 +1,7 @@
+export type StaffCategory =
+  | 'coreStaffs'
+  | 'volunteerStaffs'
+
 export type Staff = {
   id?: string
   name: string
@@ -13,7 +17,7 @@ export type Staff = {
 }
 
 export type StaffInfo = {
-  type: 'staff'
+  type: 'core-staff' | 'volunteer-staff'
   title: string
   list: Staff[]
 }
