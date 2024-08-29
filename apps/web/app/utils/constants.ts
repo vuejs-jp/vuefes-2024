@@ -338,6 +338,11 @@ export const team = [
     image_url: 'team/yamageji.jpg',
     x_id: 'yamageji',
   },
+  {
+    name: 'Mussin',
+    image_url: 'team/mussin.jpg',
+    x_id: '',
+  },
 ]
 
 export const volunteers = [
