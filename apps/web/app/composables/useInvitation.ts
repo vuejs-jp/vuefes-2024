@@ -17,6 +17,7 @@ export function useInvitation() {
   })
 
   async function publish(type: 'invite' | 'delete', target: string) {
+    // eslint-disable-next-line no-undef
     await $fetch(`/api/${type}-user`, {
       method: 'post',
       headers: {
