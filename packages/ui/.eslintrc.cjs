@@ -29,5 +29,14 @@ module.exports = {
         ],
       },
     ],
-  }
+    'vuejs-accessibility/label-has-for': [
+      'error',
+      {
+        'required': {
+          'some': ['nesting', 'id'],
+        },
+        'allowChildren': false,
+      },
+    ],
+  },
 }
