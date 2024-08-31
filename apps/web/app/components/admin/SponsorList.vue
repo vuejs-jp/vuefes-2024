@@ -53,6 +53,12 @@ const handleDialog = (id?: string) => {
           v-if="sponsor.share_image_url"
           alt=""
           :src="sponsor.share_image_url"
+          :style="{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            objectFit: 'cover',
+          }"
           width="60"
           height="60"
           decoding="async"

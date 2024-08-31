@@ -38,6 +38,13 @@ const handleDialog = (id?: string) => {
           v-if="staff.image_url"
           alt=""
           :src="staff.image_url"
+          :style="{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            objectFit: 'cover',
+          }"
+          width="60"
           height="60"
           decoding="async"
         />
