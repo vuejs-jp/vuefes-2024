@@ -26,6 +26,7 @@ onMounted(function () {
 <template>
   <div class="event-frame-root">
     <div class="event-frame-content" :class="paddingClass">
+      <!-- eslint-disable-next-line vue/no-v-html -->
       <h3 :id="id" :class="fontClass" v-html="titleText" />
       <slot name="content" />
     </div>
