@@ -74,7 +74,7 @@ const handleDialog = (id?: string) => {
       </td>
     </tr>
   </table>
-  <VFDialog v-if="showDialog">
+  <VFDialog v-if="showDialog" open>
     <AdminStaffItem
       :staff="staffs.filter((s) => s.id === staffId)[0]"
       @close="handleDialog"

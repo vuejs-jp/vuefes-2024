@@ -1,25 +1,32 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 type Props = {
-  arialabel?: string
-  ariaModal?: boolean
+  open: boolean
 }
-withDefaults(defineProps<Props>(), {
-  arialabel: '',
-  ariaModal: false,
+const props = defineProps<Props>()
+
+const dialog = ref<HTMLDialogElement>()
+const visible = ref(props.open)
+
+const showModal = () => {
+  dialog.value?.showModal()
+  visible.value = true
+}
+
+defineExpose({
+  show: showModal,
+  close: (returnVal?: string): void => dialog.value?.close(returnVal),
+  visible,
 })
 </script>
+
 <template>
-  <div class="mask" @click="$emit('on-close')">
-    <div
-      role="dialog"
-      class="root"
-      :aria-label="arialabel"
-      :aria-modal="ariaModal"
-      @click="(e) => e.stopPropagation()"
-    >
+  <dialog ref="dialog" :open class="mask">
+    <form v-if="visible" method="dialog" class="root">
       <slot />
-    </div>
-  </div>
+    </form>
+  </dialog>
 </template>
 
 <style scoped>
