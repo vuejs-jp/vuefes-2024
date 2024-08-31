@@ -11,6 +11,9 @@ export type DateProps = {
 }
 
 withDefaults(defineProps<DateProps>(), {
+  prefixYear: '',
+  suffixYear: '',
+  dayOfWeek: '',
   color: 'vue-blue',
 })
 
