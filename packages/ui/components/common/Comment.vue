@@ -33,13 +33,8 @@ onMounted(() => {
 
 <template>
   <p class="comment">
-    <span
-      class="comment-main"
-      :style="{
-        '--main-color': textColor(color),
-      }"
-      v-html="titleText"
-    />
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <span class="comment-main" :style="{ '--main-color': textColor(color) }" v-html="titleText" />
   </p>
 </template>
 

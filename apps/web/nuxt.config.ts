@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
+import { defineNuxtConfig } from 'nuxt/config'
 import svgLoader from 'vite-svg-loader'
 import { conferenceTitle } from './app/utils/constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'

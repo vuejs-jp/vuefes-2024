@@ -23,6 +23,8 @@ module.exports = {
           'privacy',
           'register',
           'share',
+          'sharemap',
+          'tokusho',
           'users',
           '[id]',
         ],

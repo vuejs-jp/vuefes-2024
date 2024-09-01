@@ -6,6 +6,7 @@ export default {
   component: Dialog,
   args: {
     default: '<strong>Go!</strong>',
+    open: true,
   },
   argTypes: {
     default: {

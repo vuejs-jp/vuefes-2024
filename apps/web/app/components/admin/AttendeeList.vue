@@ -95,7 +95,7 @@ const handleConfirm = (attendee?: Attendee) => {
       </td>
     </tr>
   </table>
-  <VFDialog v-if="showDialog">
+  <VFDialog v-if="showDialog" open>
     <AdminAttendeeItem :attendee="attendees.filter((s) => s.id === attendeeId)[0]" @close="handleDialog" />
   </VFDialog>
 </template>

@@ -1,4 +1,5 @@
 import db from '../db'
+import { useRuntimeConfig } from '#imports'
 import { defineEventHandler } from 'h3'
 import type { Sponsor, SponsorInfo } from '@vuejs-jp/model'
 import { serverSupabaseClient } from '#supabase/server'

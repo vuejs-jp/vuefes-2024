@@ -95,7 +95,7 @@ const handleDialog = (id?: string) => {
       </td>
     </tr>
   </table>
-  <VFDialog v-if="showDialog">
+  <VFDialog v-if="showDialog" open>
     <AdminSpeakerItem :speaker="speakers.filter((s) => s.id === speakerId)[0]" @close="handleDialog" />
   </VFDialog>
 </template>

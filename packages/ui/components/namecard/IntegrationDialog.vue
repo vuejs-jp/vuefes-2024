@@ -17,7 +17,7 @@ function handleLinkButton(provider: Extract<AuthProvider, 'github' | 'google'>) 
 </script>
 
 <template>
-  <Dialog :aria-label="title" :aria-modal="true" @on-close="$emit('on-close')">
+  <Dialog open>
     <div class="dialog-container">
       <h3 class="dialog-title">{{ title }}</h3>
       <slot />

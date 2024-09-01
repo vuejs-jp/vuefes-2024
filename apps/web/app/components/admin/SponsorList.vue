@@ -101,7 +101,7 @@ const handleDialog = (id?: string) => {
       </td>
     </tr>
   </table>
-  <VFDialog v-if="showDialog">
+  <VFDialog v-if="showDialog" open>
     <AdminSponsorItem
       :sponsor="sponsors.filter((s) => s.id === sponsorId)[0]"
       :speakers="speakers"
