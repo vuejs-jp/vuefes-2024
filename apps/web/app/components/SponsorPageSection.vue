@@ -133,10 +133,9 @@ const personalSponsorInfo: PersonalSponsorInfo = {
         <VFDateTime :date="secondPeriodEnd" :time="endPeriodTime" />
       </template>
 
-      <div class="sponsor-buttons">
+      <div v-if="config.public.availableApplySponsor" class="sponsor-buttons">
         <!-- 申し込む -->
         <VFLinkButton
-          v-if="config.public.availableApplySponsor"
           class="sponsor-button"
           href="https://forms.gle/paxZqz55oXLE4Njn9"
           background-color="vue-green/200"
