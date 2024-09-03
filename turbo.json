@@ -6,22 +6,84 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".nuxt/**", "!.nuxt/cache/**"],
-      "dotEnv": [".env"]
+      "dotEnv": [".env"],
+      "env": [
+        "NODE_ENV",
+        "NUXT_GTAG_ID",
+        "NUXT_NEWT_SPACE_UID",
+        "NUXT_NEWT_FORM_UID",
+        "NUXT_RECAPTCHA_WEBSITE_KEY",
+        "SUPABASE_URL",
+        "SUPABASE_KEY",
+        "SERVICE_KEY",
+        "SPEAKER_DATASOURCE",
+        "SPONSOR_DATASOURCE",
+        "STAFF_DATASOURCE",
+        "AVAILABLE_APPLY_SPEAKER",
+        "AVAILABLE_APPLY_SPONSOR",
+        "ENABLE_SWITCH_LOCALE",
+        "ENABLE_INVITE_STAFF",
+        "ENABLE_OPERATE_ADMIN",
+        "ENABLE_REGISTER_TICKET",
+        "ENABLE_REGISTER_NAMECARD",
+        "SHOW_SPEAKER_DETAIL",
+        "SHOW_TIMETABLE",
+        "SHOW_EVENT",
+        "SHOW_STORE"
+      ]
     },
     "build-api": {
       "dependsOn": ["^build-api"],
       "outputs": ["dist/**"],
-      "dotEnv": [".env"]
+      "dotEnv": [".env"],
+      "env": [
+        "NODE_ENV",
+        "DEBUG",
+        "PROD",
+        "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD",
+        "PUPPETEER_EXECUTABLE_PATH",
+        "PEATIX_EVENT_ID",
+        "PEATIX_BASIC_EMAIL",
+        "PEATIX_BASIC_PASSWORD",
+        "SUPABASE_URL",
+        "SUPABASE_KEY",
+        "SENTRY_DSN",
+        "DISCORD_WEBHOOK_URL"
+      ]
     },
     "build-after-purchase": {
       "dependsOn": ["^build-after-purchase"],
       "outputs": ["dist/**"],
-      "dotEnv": [".env"]
+      "dotEnv": [".env"],
+      "env": [
+        "NODE_ENV",
+        "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD",
+        "PUPPETEER_EXECUTABLE_PATH",
+        "PEATIX_EVENT_ID",
+        "PEATIX_BASIC_EMAIL",
+        "PEATIX_BASIC_PASSWORD",
+        "SUPABASE_URL",
+        "SUPABASE_KEY",
+        "SENTRY_DSN",
+        "DISCORD_WEBHOOK_URL"
+      ]
     },
     "build-sales-daily": {
       "dependsOn": ["^build-after-purchase"],
       "outputs": ["dist/**"],
-      "dotEnv": [".env"]
+      "dotEnv": [".env"],
+      "env": [
+        "NODE_ENV",
+        "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD",
+        "PUPPETEER_EXECUTABLE_PATH",
+        "PEATIX_EVENT_ID",
+        "PEATIX_BASIC_EMAIL",
+        "PEATIX_BASIC_PASSWORD",
+        "SUPABASE_URL",
+        "SUPABASE_KEY",
+        "SENTRY_DSN",
+        "DISCORD_WEBHOOK_URL"
+      ]
     },
     "build-docs": {
       "dependsOn": ["^build-docs"],
