@@ -51,20 +51,18 @@ export class PuppeteerService implements IPuppeteerService {
   ): Promise<BrowserAndPage> {
     const browser = await this.generateBrowser()
 
-    const page = await browser.newPage()
-    // const [page] = pages
+    const pages = await browser.pages()
+    const [page] = pages
     if (!page) throw new Error('Tab is not created.')
 
     if (!requestHandler) return { browser, page }
   
-    await page.setRequestInterception(true)
-    page.on('request', requestHandler)
-    // await Promise.all(
-    //   pages.map(async (page) => {
-    //     await page.setRequestInterception(true)
-    //     page.on('request', requestHandler)
-    //   }),
-    // )
+    await Promise.all(
+      pages.map(async (page) => {
+        await page.setRequestInterception(true)
+        page.on('request', requestHandler)
+      }),
+    )
 
     browser.on('targetcreated', async (target: Target) => {
       const page = await target.page()
