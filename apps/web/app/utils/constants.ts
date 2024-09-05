@@ -45,7 +45,38 @@ export const peatixReferenceUrl = 'https://help-attendee.peatix.com/ja-JP/suppor
 
 export const displayNameMaxLength = 24
 
-export const personalSponsors = []
+export const personalSponsors = [
+  'Yuhei FUJITA',
+  'jiyuujin',
+  '田中弘治@Co-Edo',
+  'CODE HOUSE',
+  'kzhrk',
+  'Hiroki Osame',
+  'yug1224',
+  'あんど@ampersand_xyz',
+  'soch4n',
+  'yamanoku',
+  'STM',
+  'ゆきあつ',
+  'uiuifree',
+  'Jabelic',
+  '@umenokoDev',
+  'みっちー',
+  'R.Okuyama',
+  'Re:Vue',
+  '羽馬 直樹',
+  '池田 泰延',
+  'ubugeeei',
+  'オガワシンヤ',
+  '白石祐大',
+  'みなみ@hecateball',
+  'やま',
+  'みずの',
+  'にしはら　つばさ',
+  'keishuu@FW',
+  'serialine',
+  'Haruki Tetone',
+]
 
 export const team = [
   {
