@@ -151,7 +151,9 @@
         "details2": "*For more details, please refer to the Individual Sponsor section.",
         "imgAlt": "Event-branded t-shirts"
       }
-    }
+    },
+    "sold_out_explain": "※Due to high demand, all seats are sold out.",
+    "ended_explain": "※Sales have ended."
   },
   "access": {
     "title": "Access",

@@ -43,6 +43,10 @@ export const storeUrl = 'https://vuejs-jp.stores.jp'
 
 export const peatixReferenceUrl = 'https://help-attendee.peatix.com/ja-JP/support/solutions/articles/44001821741'
 
+export const endedApplyEarly = true
+
+export const endedApplyHandson = true
+
 export const displayNameMaxLength = 24
 
 export const personalSponsors = [
