@@ -3,14 +3,20 @@ interface TicketCardProps {
   title: string
   imgSrc: string
   imgAlt: string
+  isClose?: boolean
 }
-const props = defineProps<TicketCardProps>()
+const props = withDefaults(defineProps<TicketCardProps>(), {
+  isClose: false,
+})
 </script>
 
 <template>
   <div class="ticket-card">
     <img class="ticket-img" :src="props.imgSrc" :alt="props.imgAlt" />
-    <div class="ticket-title">{{ props.title }}</div>
+    <div class="ticket-title">
+      <template v-if="!isClose">{{ props.title }}</template>
+      <template v-else><s>{{ props.title }}</s></template>
+    </div>
     <div class="ticket-content">
       <slot />
     </div>
