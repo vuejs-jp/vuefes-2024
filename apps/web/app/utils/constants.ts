@@ -12,8 +12,6 @@ export const ogTokushoDescription = 'Vue Fes Japan 2024 の特定商取引法に
 
 export const ogSharemapDescription = 'Vue Fes Japan 2024 のシェア URL 集です。'
 
-export const ogNamecardGalleryDescription = 'Vue Fes Japan 2024 のネームカード集です。'
-
 export const ogSpeakerDescription = 'Vue Fes Japan 2024 のスピーカー、セッション情報です。'
 
 export const ogSponsorDescription = 'Vue Fes Japan 2024 のスポンサー情報です。'
