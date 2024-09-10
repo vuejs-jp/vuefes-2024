@@ -194,6 +194,7 @@ export default defineNuxtConfig({
       enableSwitchLocale: process.env.ENABLE_SWITCH_LOCALE,
       enableRegisterTicket: process.env.ENABLE_REGISTER_TICKET,
       enableRegisterNamecard: process.env.ENABLE_REGISTER_NAMECARD,
+      showNamecardGallery: process.env.SHOW_NAMECARD_GALLERY,
       showSpeakerDetail: process.env.SHOW_SPEAKER_DETAIL,
       showTimetable: process.env.SHOW_TIMETABLE,
       showEvent: process.env.SHOW_EVENT,

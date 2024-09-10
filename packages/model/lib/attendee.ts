@@ -33,3 +33,9 @@ export type Attendee = {
 }
 
 export type NamecardUser = Pick<Attendee, 'display_name' | 'avatar_url' | 'role' | 'receipt_id'>
+
+export type AttendeeInfo = {
+  type: 'activated-attendee'
+  title: string
+  list: Attendee[]
+}

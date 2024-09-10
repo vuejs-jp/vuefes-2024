@@ -20,6 +20,7 @@ const { color } = useColor()
     </h1>
     <slot />
   </div>
+  <slot name="large-container" />
 </template>
 
 <style scoped>
