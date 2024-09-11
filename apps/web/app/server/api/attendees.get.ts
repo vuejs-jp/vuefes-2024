@@ -13,10 +13,7 @@ export default defineEventHandler(async (event) => {
   const activatedAttendees: AttendeeInfo = {
     type: 'activated-attendee',
     title: 'activated-attendee',
-    list: attendees
-      .filter((attendee) => {
-        return attendee.user_id !== 'f5087332-0381-4fc7-8ffb-616475842842' && attendee.user_id !== 'c77d6932-7bd6-4421-a80a-06b99162ae6a' && attendee.user_id !== '44687b52-9c76-4665-8e11-e2255a4dfc93'
-      }),
+    list: attendees,
   }
 
   return { activatedAttendees }
