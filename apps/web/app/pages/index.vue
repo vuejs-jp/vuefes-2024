@@ -21,11 +21,16 @@ const { data: sponsors, error: error2, refresh: refreshSponsor } = await useFetc
 if (error2.value) {
   console.error(error2.value)
 }
+const { data: staffs, error: error3, refresh: refreshStaff } = await useFetch('/api/staffs')
+if (error3.value) {
+  console.error(error3.value)
+}
 
 onMounted(function () {
   window.addEventListener('popstate', async function (event) {
     await refreshSpeaker()
     await refreshSponsor()
+    await refreshStaff()
     await reloadNuxtApp()
   })
 })
@@ -52,5 +57,5 @@ useHead({
   <SponsorPageSection :data="sponsors" />
   <CooperationPartnerSection />
   <FormPageSection />
-  <TeamPageSection />
+  <TeamPageSection :data="staffs" />
 </template>

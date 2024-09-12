@@ -1,3 +1,5 @@
+import type { TeamData } from '@vuejs-jp/model'
+
 export const conferenceTitle = 'Vue Fes Japan 2024'
 
 export const ogDescription =
@@ -82,7 +84,7 @@ export const personalSponsors = [
   'Haruki Tetone',
 ]
 
-export const team = [
+export const team: TeamData[] = [
   {
     name: 'kazu_pon',
     image_url: 'team/kazu_pon.jpg',
