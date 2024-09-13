@@ -99,7 +99,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const specialLunchSponsors: SponsorInfo = {
-    type: 'option-separate',
+    type: 'option',
     title: 'special_lunch',
     list: sponsors
       .filter((s: Sponsor) => {
@@ -112,7 +112,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const lunchSponsors: SponsorInfo = {
-    type: 'option-separate',
+    type: 'option',
     title: 'lunch',
     list: sponsors
       .filter((s: Sponsor) => {
