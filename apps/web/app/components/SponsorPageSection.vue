@@ -159,10 +159,8 @@ const personalSponsorInfo: PersonalSponsorInfo = {
       <SponsorList v-bind="bronzeSponsors" />
       <SponsorList v-bind="specialNamingRightSponsors" />
       <SponsorList v-bind="namingRightSponsors" />
-      <div class="sponsor-list-layout-separate">
-        <SponsorList v-bind="specialLunchSponsors" />
-        <SponsorList v-bind="lunchSponsors" />
-      </div>
+      <SponsorList v-bind="specialLunchSponsors" />
+      <SponsorList v-bind="lunchSponsors" />
       <div class="sponsor-list-layout-separate">
         <SponsorList v-bind="afterPartySponsors" />
         <SponsorList v-bind="nameCardSponsors" />
