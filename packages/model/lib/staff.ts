@@ -2,18 +2,21 @@ export type StaffCategory =
   | 'coreStaffs'
   | 'volunteerStaffs'
 
-export type Staff = {
+export type Staff = TeamData & {
   id?: string
-  name: string
   detail_page_id: string
-  image_url: string
-  x_id?: string
-  github_id?: string
   is_open: boolean
   display_order?: number
   is_volunteer: boolean
   created_at: string
   updated_at: string
+}
+
+export type TeamData = {
+  name: string
+  image_url: string
+  x_id?: string
+  github_id?: string
 }
 
 export type StaffInfo = {

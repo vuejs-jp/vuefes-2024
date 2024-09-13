@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import { team as teamData, volunteers } from '~/utils/constants'
-// import type { StaffInfo } from '@vuejs-jp/model'
-// import { useFetch, useRuntimeConfig } from '#imports'
+import type { StaffCategory, StaffInfo } from '@vuejs-jp/model'
+import { useRuntimeConfig } from '#imports'
 
-// type Staffs = Record<'allStaffs', StaffInfo>
+type Staffs = Record<StaffCategory, StaffInfo>
 
-// const config = useRuntimeConfig()
+const props = defineProps<{
+  data: Staffs
+}>()
 
-// const { data, error } = await useFetch('/api/staffs')
-// if (error.value) {
-//   console.error(error.value)
-// }
-// const { allStaffs } = data.value as Staffs
-// const team = config.public.staffDatasource === 'supabase' ? allStaffs.list : teamData
-const team = teamData
+const config = useRuntimeConfig()
+
+const coreTeam = config.public.staffDatasource === 'supabase' ? props.data.coreStaffs.list : teamData
+const volunteerTeam = config.public.staffDatasource === 'supabase'
+  ? props.data.volunteerStaffs.list.map((staff) => staff.name)
+  : volunteers
+// const team = teamData
 </script>
 
 <template>
@@ -28,7 +30,7 @@ const team = teamData
       </div>
 
       <div class="team-members-container">
-        <div v-for="member in team" :key="member.name" class="team-member-wrapper">
+        <div v-for="member in coreTeam" :key="member.name" class="team-member-wrapper">
           <template v-if="member.x_id !== ''">
             <a :href="`https://x.com/${member.x_id}`" target="_blank" :aria-label="member.name">
               <VFAvatar :src="member.image_url" :alt="member.name" />
@@ -39,7 +41,8 @@ const team = teamData
                 target="_blank"
                 :href="`https://x.com/${member.x_id}`"
                 color="vue-blue"
-                >{{ member.name }}
+              >
+                {{ member.x_id ?? member.github_id }}
               </VFTextLink>
             </div>
           </template>
@@ -59,7 +62,7 @@ const team = teamData
       </VFTitle>
 
       <div class="volunteer-members-container">
-        <VFCreditList :list="volunteers" />
+        <VFCreditList :list="volunteerTeam" />
       </div>
     </article>
   </section>

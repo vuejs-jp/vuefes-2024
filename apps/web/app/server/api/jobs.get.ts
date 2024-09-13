@@ -14,14 +14,25 @@ export default defineEventHandler(async (event) => {
     type: 'job',
     title: 'job',
     list: jobs
-      .filter((j: Job) => {
-        if (process.env.NODE_ENV === 'production') return j.is_open === true
-        return j
+      .filter(job => {
+        if (process.env.NODE_ENV === 'production') return job.is_open === true
+        return job
       })
       .sort((a: Job, b: Job) => {
         if (b.display_order && a.display_order) return a.display_order - b.display_order
-        return a.created_at < b.created_at ? -1 : 1
-      }),
+        return 1
+      })
+      .concat(
+        jobs
+          .filter((job: Job) => {
+            if (process.env.NODE_ENV === 'production') return job.is_open === true
+            return job
+          })
+          .filter(s => s.display_order === null)
+          .sort((a: Job, b: Job) => {
+            return a.created_at < b.created_at ? -1 : 1
+          }),
+      ),
   }
 
   return { allJobs }
