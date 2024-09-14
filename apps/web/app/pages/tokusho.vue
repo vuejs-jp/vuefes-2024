@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { useHead } from '#imports'
+import { useHead, useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { conferenceTitle, linkUrl, ogTokushoDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
+
+const config = useRuntimeConfig()
 
 useHead({
   // eslint-disable-next-line no-unused-vars
@@ -13,11 +15,13 @@ useHead({
       title: `特定商取引法に基づく表記 | ${conferenceTitle}`,
       description: ogTokushoDescription,
       url: `${linkUrl}tokusho`,
+      image: `${config.public.supabaseUrl}/functions/v1/subpage-og-image?title=特定商取引法に基づく表記`,
     }),
     ...twitterOg({
       title: `特定商取引法に基づく表記 | ${conferenceTitle}`,
       description: ogTokushoDescription,
       url: `${linkUrl}tokusho`,
+      image: `${config.public.supabaseUrl}/functions/v1/subpage-og-image?title=特定商取引法に基づく表記`,
     }),
   ],
 })

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useFetch, useHead } from '#imports'
+import { useFetch, useHead, useRuntimeConfig } from '#imports'
 import type { PanelerInfo, SpeakerCategory, SpeakerInfo, SponsorCategory, SponsorInfo, StaffCategory, StaffInfo } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { conferenceTitle, linkUrl, ogSharemapDescription } from '~/utils/constants'
@@ -47,6 +47,7 @@ if (error3.value) {
   console.error(error3.value)
 }
 
+const config = useRuntimeConfig()
 const { path: localePath } = useLocaleCurrent()
 
 useHead({
@@ -57,11 +58,13 @@ useHead({
       title: `シェアURL | ${conferenceTitle}`,
       description: ogSharemapDescription,
       url: `${linkUrl}sharemap`,
+      image: `${config.public.supabaseUrl}/functions/v1/subpage-og-image?title=シェアURL`,
     }),
     ...twitterOg({
       title: `シェアURL | ${conferenceTitle}`,
       description: ogSharemapDescription,
       url: `${linkUrl}sharemap`,
+      image: `${config.public.supabaseUrl}/functions/v1/subpage-og-image?title=シェアURL`,
     }),
   ],
 })

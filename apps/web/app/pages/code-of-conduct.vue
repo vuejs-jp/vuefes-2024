@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { useHead } from '#imports'
+import { useHead, useRuntimeConfig } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { conferenceTitle, linkUrl, ogCoCDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
+
+const config = useRuntimeConfig()
 
 useHead({
   // eslint-disable-next-line no-unused-vars
@@ -13,11 +15,13 @@ useHead({
       title: `行動規範 | ${conferenceTitle}`,
       description: ogCoCDescription,
       url: `${linkUrl}code-of-conduct`,
+      image: `${config.public.supabaseUrl}/functions/v1/subpage-og-image?title=行動規範`,
     }),
     ...twitterOg({
       title: `行動規範 | ${conferenceTitle}`,
       description: ogCoCDescription,
       url: `${linkUrl}code-of-conduct`,
+      image: `${config.public.supabaseUrl}/functions/v1/subpage-og-image?title=行動規範`,
     }),
   ],
 })

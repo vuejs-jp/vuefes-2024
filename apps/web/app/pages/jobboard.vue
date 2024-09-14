@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useFetch, useHead } from '#imports'
+import { useFetch, useHead, useRuntimeConfig } from '#imports'
 import type { JobInfo } from '@vuejs-jp/model'
 import { conferenceTitle, linkUrl, ogJobboardDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
@@ -12,6 +12,8 @@ if (error.value) {
 }
 const { allJobs } = data.value as Jobs
 
+const config = useRuntimeConfig()
+
 useHead({
   titleTemplate: (titleChunk) => `ジョブボード | ${conferenceTitle}`,
   meta: [
@@ -19,11 +21,13 @@ useHead({
       title: `ジョブボード | ${conferenceTitle}`,
       description: ogJobboardDescription,
       url: `${linkUrl}jobboard`,
+      image: `${config.public.supabaseUrl}/functions/v1/subpage-og-image?title=ジョブボード`,
     }),
     ...twitterOg({
       title: `ジョブボード | ${conferenceTitle}`,
       description: ogJobboardDescription,
       url: `${linkUrl}jobboard`,
+      image: `${config.public.supabaseUrl}/functions/v1/subpage-og-image?title=ジョブボード`,
     }),
   ],
 })

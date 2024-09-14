@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useHead, useI18n } from '#imports'
-import FooterPageSection from '~/components/FooterPageSection.vue'
+import { useHead, useI18n, useRuntimeConfig } from '#imports'
 import MarkDownText from '~/components/MarkDownText.vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { conferenceTitle, linkUrl, ogPrivacyDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
+const config = useRuntimeConfig()
 const { t } = useI18n()
 const { path: localePath } = useLocaleCurrent()
 const { fontWeight, fontSize } = useTypography()
@@ -20,11 +20,13 @@ useHead({
       title: `プライバシーポリシー | ${conferenceTitle}`,
       description: ogPrivacyDescription,
       url: `${linkUrl}privacy`,
+      image: `${config.public.supabaseUrl}/functions/v1/subpage-og-image?title=プライバシーポリシー`,
     }),
     ...twitterOg({
       title: `プライバシーポリシー | ${conferenceTitle}`,
       description: ogPrivacyDescription,
       url: `${linkUrl}privacy`,
+      image: `${config.public.supabaseUrl}/functions/v1/subpage-og-image?title=プライバシーポリシー`,
     }),
   ],
 })
