@@ -42,7 +42,6 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@pinia/nuxt',
     'nuxt-gtag',
-    'nuxt-og-image',
   ],
   // .env の NUXT_PUBLIC_SITE_URL を設定したので、一旦コメントアウトする
   // site: {
