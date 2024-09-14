@@ -52,6 +52,3 @@
   from = "/2024/staff/invite"
   to = "/2024/200.html"
   status = 200
-
-[functions.server]
-  external_node_modules = ["chrome-aws-lambda"]
