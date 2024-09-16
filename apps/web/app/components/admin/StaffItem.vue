@@ -22,6 +22,7 @@ const newStaff = ref({
   github_id: props.staff?.github_id ?? '',
   is_open: props.staff?.is_open ?? true,
   display_order: props.staff?.display_order ?? null,
+  is_volunteer: props.staff?.is_volunteer ?? false,
 })
 
 const updateName = (e: any) => {
@@ -120,6 +121,16 @@ const onSubmit = () => {
           name="display_order"
           label="表示順"
           @input="updateDisplayOrder"
+        />
+        <VFDropdownField
+          id="is_volunteer"
+          v-model="newStaff.is_volunteer"
+          name="is_volunteer"
+          label="ボランティアスタッフか否か"
+          :items="[
+            { value: 'false', text: 'コアスタッフ' },
+            { value: 'true', text: 'ボランティアスタッフ' },
+          ]"
         />
         <div class="form-button">
           <VFSubmitButton>Save</VFSubmitButton>

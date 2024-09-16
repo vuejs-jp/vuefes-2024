@@ -1,5 +1,8 @@
-import type { Track } from '@vuejs-jp/model'
+import { computed } from 'vue'
+import { useI18n } from '#i18n'
 import { match } from 'ts-pattern'
+
+import type { Track } from '@vuejs-jp/model'
 
 export function useSession() {
   function color(track?: Track) {
@@ -23,6 +26,11 @@ export function useSession() {
       .with('vue', () => 'Vueトラック')
       .exhaustive()
   }
+  
+  const { locale } = useI18n({ useScope: 'global' })
+  const getSessionPath = computed(
+    () => (id: string) => (locale.value === 'ja' ? `/sessions/${id}` : `/en/sessions/${id}`),
+  )
 
-  return { color, trackName }
+  return { color, trackName, getSessionPath }
 }

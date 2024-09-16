@@ -1,3 +1,5 @@
+import type { TeamData } from '@vuejs-jp/model'
+
 export const conferenceTitle = 'Vue Fes Japan 2024'
 
 export const ogDescription =
@@ -10,11 +12,15 @@ export const ogPrivacyDescription = 'Vue Fes Japan 2024 のプライバシーポ
 
 export const ogTokushoDescription = 'Vue Fes Japan 2024 の特定商取引法に基づく表記です。'
 
+export const ogSharemapDescription = 'Vue Fes Japan 2024 のシェア URL 集です。'
+
 export const ogSpeakerDescription = 'Vue Fes Japan 2024 のスピーカー、セッション情報です。'
 
 export const ogSponsorDescription = 'Vue Fes Japan 2024 のスポンサー情報です。'
 
 export const ogStaffDescription = 'Vue Fes Japan 2024 のスタッフ情報です。'
+
+export const ogNamecardDescription = 'さんのネームカードです。'
 
 export const ogJobboardDescription = 'Vue Fes Japan 2024 のジョブボードです。'
 
@@ -39,11 +45,46 @@ export const storeUrl = 'https://vuejs-jp.stores.jp'
 
 export const peatixReferenceUrl = 'https://help-attendee.peatix.com/ja-JP/support/solutions/articles/44001821741'
 
+export const endedApplyEarly = true
+
+export const endedApplyHandson = true
+
 export const displayNameMaxLength = 24
 
-export const personalSponsors = []
+export const personalSponsors = [
+  'Yuhei FUJITA',
+  'jiyuujin',
+  '田中弘治@Co-Edo',
+  'CODE HOUSE',
+  'kzhrk',
+  'Hiroki Osame',
+  'yug1224',
+  'あんど@ampersand_xyz',
+  'soch4n',
+  'yamanoku',
+  'STM',
+  'ゆきあつ',
+  'uiuifree',
+  'Jabelic',
+  '@umenokoDev',
+  'みっちー',
+  'R.Okuyama',
+  'Re:Vue',
+  '羽馬 直樹',
+  '池田 泰延',
+  'ubugeeei',
+  'オガワシンヤ',
+  '白石祐大',
+  'みなみ@hecateball',
+  'やま',
+  'みずの',
+  'にしはら　つばさ',
+  'keishuu@FW',
+  'serialine',
+  'Haruki Tetone',
+]
 
-export const team = [
+export const team: TeamData[] = [
   {
     name: 'kazu_pon',
     image_url: 'team/kazu_pon.jpg',
@@ -334,4 +375,50 @@ export const team = [
     image_url: 'team/yamageji.jpg',
     x_id: 'yamageji',
   },
+  {
+    name: 'Mussin',
+    image_url: 'team/mussin.jpg',
+    x_id: '',
+  },
+]
+
+export const volunteers = [
+  '市村悠馬',
+  'ナイトウ',
+  'ponyoxa',
+  'Hikaru Kobayashi',
+  'kokoe',
+  'ねぎなす',
+  'Aose Yuu',
+  '南風原香奈',
+  '飯塚　正',
+  'n.morishita',
+  'yukimina',
+  'hiro',
+  'yoji',
+  '光永',
+  'Keichange',
+  'Natsuki',
+  'Ben',
+  '土屋良太',
+  'tatsugooon',
+  'Thiha Htun Naing',
+  'Uniboost CEO Nozomi.Okamoto',
+  'Shun Nakano',
+  '福田侑汰',
+  'kanno',
+  'とっきー（@tockii_）',
+  '長田崇史',
+  'magcho',
+  '古市勝寛',
+  '金山佳毅',
+  'Kento Urawa',
+  'iyuta1124',
+  '森田崇伸',
+  '厳旭YAN,Xu',
+  'たっしー',
+  '守屋 光晟',
+  '原 楓果',
+  'LuckyWind',
+  'まぁし',
 ]

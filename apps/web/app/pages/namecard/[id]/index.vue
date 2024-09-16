@@ -1,40 +1,45 @@
 <script setup lang="ts">
-import { watch } from 'vue'
+import { computed, watch } from 'vue'
 import { useI18n } from '#i18n'
 import { navigateTo, useRoute } from '#imports'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useNamecard } from '~/composables/useNamecard'
 
 const { t } = useI18n()
+const { locale: currentLocale } = useLocaleCurrent()
 const route = useRoute()
-const { authUser, statusKey, namecardUser } = await useNamecard()
+const { authUser, statusKey, namecardUser } = useNamecard()
+
+const langPath = computed(() => (currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`))
 
 async function handleLinkButton() {
-  navigateTo(`/namecard/${authUser.value?.id}/edit`)
+  navigateTo(`${langPath.value}namecard/${authUser.value?.id}/edit`)
 }
-
-watch(
-  () => authUser.value?.id,
-  (newId) => {
-    if (newId) {
-      navigateTo(`/namecard/${newId}`)
-    }
-  },
-)
 
 watch(
   () => route.query.code,
   (newCode) => {
     if (newCode && authUser.value?.id) {
-      navigateTo(`/namecard/${authUser.value?.id}/`)
+      navigateTo(`${langPath.value}namecard/${authUser.value?.id}`)
     }
   },
   {
     immediate: true,
   },
 )
+
+watch(
+  () => authUser.value?.id,
+  (newId) => {
+    if (newId) {
+      navigateTo(`${langPath.value}namecard/${newId}`)
+    }
+  },
+)
 </script>
+
 <template>
   <NuxtLayout name="namecard-base">
     <div class="namecard-user-root">
@@ -47,6 +52,7 @@ watch(
             :href="`https://x.com/share?url=${encodeURIComponent(
               `https://vuefes.jp/2024/namecard/${authUser?.id}/share`,
             )}`"
+            target-blank
             can-hover
             class="sns-button"
           />
@@ -56,6 +62,7 @@ watch(
             :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
               `https://vuefes.jp/2024/namecard/${authUser?.id}/share`,
             )}`"
+            target-blank
             class="sns-button"
           />
         </div>
@@ -68,8 +75,9 @@ watch(
         color="white"
         class="edit-button"
         @click="handleLinkButton"
-        >{{ t('namecard.edit') }}</VFLinkButton
       >
+        {{ t('namecard.edit') }}
+      </VFLinkButton>
       <CreationProcess />
     </div>
   </NuxtLayout>

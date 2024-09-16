@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import { team as teamData } from '~/utils/constants'
-// import type { StaffInfo } from '@vuejs-jp/model'
-// import { useFetch, useRuntimeConfig } from '#imports'
+import { team as teamData, volunteers } from '~/utils/constants'
+import type { StaffCategory, StaffInfo } from '@vuejs-jp/model'
+import { useRuntimeConfig } from '#imports'
 
-// type Staffs = Record<'allStaffs', StaffInfo>
+type Staffs = Record<StaffCategory, StaffInfo>
 
-// const config = useRuntimeConfig()
+const props = defineProps<{
+  data: Staffs
+}>()
 
-// const { data, error } = await useFetch('/api/staffs')
-// if (error.value) {
-//   console.error(error.value)
-// }
-// const { allStaffs } = data.value as Staffs
-// const team = config.public.staffDatasource === 'supabase' ? allStaffs.list : teamData
-const team = teamData
+const config = useRuntimeConfig()
+
+const coreTeam = config.public.staffDatasource === 'supabase' ? props.data.coreStaffs.list : teamData
+const volunteerTeam = config.public.staffDatasource === 'supabase'
+  ? props.data.volunteerStaffs.list.map((staff) => staff.name)
+  : volunteers
+// const team = teamData
 </script>
 
 <template>
@@ -28,7 +30,7 @@ const team = teamData
       </div>
 
       <div class="team-members-container">
-        <div v-for="member in team" :key="member.name" class="team-member-wrapper">
+        <div v-for="member in coreTeam" :key="member.name" class="team-member-wrapper">
           <template v-if="member.x_id !== ''">
             <a :href="`https://x.com/${member.x_id}`" target="_blank" :aria-label="member.name">
               <VFAvatar :src="member.image_url" :alt="member.name" />
@@ -39,7 +41,8 @@ const team = teamData
                 target="_blank"
                 :href="`https://x.com/${member.x_id}`"
                 color="vue-blue"
-                >{{ member.name }}
+              >
+                {{ member.x_id ?? member.github_id }}
               </VFTextLink>
             </div>
           </template>
@@ -50,6 +53,16 @@ const team = teamData
             </div>
           </template>
         </div>
+      </div>
+    </article>
+
+    <article class="volunteer-section-body">
+      <VFTitle id="volunteer" class="volunteer-title">
+        {{ $t('team.volunteer_title') }}
+      </VFTitle>
+
+      <div class="volunteer-members-container">
+        <VFCreditList :list="volunteerTeam" />
       </div>
     </article>
   </section>
@@ -86,12 +99,24 @@ const team = teamData
   }
 }
 
-.title {
+.title,
+.volunteer-title {
   text-align: center;
   line-height: 1.2;
 }
 
-.team-section-body {
+.volunteer-section-body {
+  max-width: 988px;
+  margin: 0 auto;
+  padding-top: calc(var(--unit) * 10);
+
+  @media (--mobile) {
+    padding-top: calc(var(--unit) * 5);
+  }
+}
+
+.team-section-body,
+.volunteer-section-body {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -135,6 +160,12 @@ const team = teamData
   text-decoration: none;
 }
 
+.volunteer-members-container {
+  --team-section-text-padding: 0 calc(var(--unit) * 10 + 6%);
+
+  padding: var(--team-section-text-padding);
+}
+
 @media (--tablet) {
   .team-section-body {
     --team-section-body-padding: calc(var(--unit) * 4) 4.5% calc(var(--unit) * 6);
@@ -158,6 +189,10 @@ const team = teamData
 
   .team-member-name {
     --team-member-name-font-size: 0.75rem;
+  }
+
+  .volunteer-members-container {
+    --team-section-text-padding: 0 4.5%;
   }
 }
 </style>

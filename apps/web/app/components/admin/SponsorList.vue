@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Speaker, Sponsor } from '@vuejs-jp/model'
+import { useSponsor } from '~/composables/useSponsor'
 import { ref } from 'vue'
 
 interface SponsorListProps {
@@ -10,6 +11,8 @@ interface SponsorListProps {
 const emit = defineEmits<{ edit: [id: string] }>()
 
 const props = defineProps<SponsorListProps>()
+
+const { isMoreSilver } = useSponsor()
 
 const showDialog = ref(false)
 const sponsorId = ref('')
@@ -53,6 +56,12 @@ const handleDialog = (id?: string) => {
           v-if="sponsor.share_image_url"
           alt=""
           :src="sponsor.share_image_url"
+          :style="{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            objectFit: 'cover',
+          }"
           width="60"
           height="60"
           decoding="async"
@@ -62,8 +71,8 @@ const handleDialog = (id?: string) => {
         </p>
       </td>
       <td>
-        <p>{{ sponsor.description_ja }}</p>
-        <p>{{ sponsor.description_en }}</p>
+        <p>{{ isMoreSilver(sponsor.tag) ? sponsor.description_ja : '設定不要' }}</p>
+        <p>{{ isMoreSilver(sponsor.tag) ? sponsor.description_en : '設定不要' }}</p>
       </td>
       <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
         {{ sponsor.link_url }}
@@ -95,7 +104,7 @@ const handleDialog = (id?: string) => {
       </td>
     </tr>
   </table>
-  <VFDialog v-if="showDialog">
+  <VFDialog v-if="showDialog" open>
     <AdminSponsorItem
       :sponsor="sponsors.filter((s) => s.id === sponsorId)[0]"
       :speakers="speakers"

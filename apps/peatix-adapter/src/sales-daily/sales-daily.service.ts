@@ -49,8 +49,8 @@ export class SalesDailyService {
       archives[2].push(`${receipts.filter(v => v.role === Constants.PEATIX_WITH_PARTY_ROLE).filter(v => v.date.includes(`${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`)).length}`)
     }
     for (const archive of archives) {
-      this.logger.log(`${archive.join(', ')} `)
-      this.discordService.send('After Purchase Bot', `${archive.join(', ')} `)
+      this.logger.log(`${archive.join(',')}`)
+      this.discordService.send('After Purchase Bot', `${archive.join(',')}`)
     }
   }
 }

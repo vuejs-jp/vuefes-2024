@@ -142,17 +142,23 @@ https://www.figma.com/file/mRTYOtFjg3L8ozmjEEhHLh/Vue-Fes-Japan-2024
 +
 ├─ src
 │ ├─ after-purchase
-|   ├- after-purchase.module.ts  # 購入後の処理で使用が予定されている依存関係を置く
+|   ├- after-purchase.module.ts      # 購入後に自動反映される予定のユーザーを対象として、使用が予定されている依存関係を置く
 |   └- after-purchase.service.ts
 │ ├─ env
-|   ├- env.module.ts             # 環境変数を読み込む基盤を置く
+|   ├- env.module.ts                 # 環境変数を読み込む基盤を置く
 |   └- env.service.ts
 │ ├─ peatix-order
-|   ├- peatix-order.module.ts    # Peatix へのログインを試み、購入情報を取得、Supabase へ整形したデータを挿入する基盤を置く
+|   ├- peatix-order.module.ts        # Peatix へのログインを試み、購入情報を取得、Supabase へ整形したデータを挿入する基盤を置く
 |   └- peatix-order.service.ts
 │ ├─ puppeteer
-|   └- puppeteer.service.ts      # スクレイピング処理の基盤を置く
-| └- cmd.ts                      # 処理の窓口を置く
+|   └- puppeteer.service.ts          # スクレイピング処理の基盤を置く
+│ ├─ sales-daily
+|   ├- sales-daily.module.ts         # 各日の購入処理で使用が予定されている依存関係を置く
+|   └- sales-daily.service.ts
+│ ├─ unactivated-check
+|   ├- unactivated-check.module.ts   # 自動反映されなかったユーザーを対象として、処理で使用が予定されている依存関係を置く
+|   └- unactivated-check.service.ts
+| └- cmd.ts                          # 処理の窓口を置く
 ├─ nest-cli.json
 └- package.json
 ```
@@ -176,13 +182,13 @@ async function bootstrap() {
 bootstrap()
 ```
 
-### NestJS とはなんぞや
+## NestJS とはなんぞや
 
 そもそも NestJS について、深く知りたいという方のためのセクションを設けました。
 
 ::: tip
 
-NestJS の構造からたいへん上手くまとまっているため、合わせてこちらをご一読いただくと良いように考えています。
+NestJS の構造からたいへん上手くまとまっており、合わせてこちらをご一読いただけますと。
 
 [NestJS の基礎概念の図解と要約](https://zenn.dev/morinokami/articles/nestjs-overview)
 

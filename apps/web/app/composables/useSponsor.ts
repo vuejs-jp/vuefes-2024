@@ -19,6 +19,7 @@ export function useSponsor() {
         'childcare',
         'special-lunch',
         'lunch',
+        'handson',
         'media',
         'tool',
         () => 'vue-blue',

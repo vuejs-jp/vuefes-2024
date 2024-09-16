@@ -2,7 +2,7 @@
 import type { Event } from '@vuejs-jp/model'
 
 interface EventAssetProps {
-  title: Extract<Event, 'creative-wall' | 'free-drinks-and-snacks' | 'tattoo-booth'>
+  title: Extract<Event, 'creative-wall' | 'free-drinks-and-snacks' | 'tattoo-space'>
   marginTop?: number
 }
 

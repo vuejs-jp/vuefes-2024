@@ -6,11 +6,13 @@ interface EventFrameProps {
   title: string
   fontClass?: string
   paddingClass?: string
+  id?: string
 }
 
 const props = withDefaults(defineProps<EventFrameProps>(), {
   fontClass: 'title-1',
   paddingClass: 'content-1',
+  id: '',
 })
 
 const { decodeHtml } = useDecode()
@@ -24,7 +26,8 @@ onMounted(function () {
 <template>
   <div class="event-frame-root">
     <div class="event-frame-content" :class="paddingClass">
-      <h3 :class="fontClass" v-html="titleText" />
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <h3 :id="id" :class="fontClass" v-html="titleText" />
       <slot name="content" />
     </div>
     <slot />
@@ -34,7 +37,7 @@ onMounted(function () {
 <style scoped>
 .event-frame-root {
   width: var(--head-width);
-  background-color: #E7EFF7;
+  background-color: #e7eff7;
   border-radius: calc(var(--unit) * 3);
 
   /*

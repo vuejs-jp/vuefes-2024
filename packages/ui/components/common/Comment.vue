@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useColor } from '@vuejs-jp/composable'
 import { Color } from '@vuejs-jp/model'
-import { PropType } from 'vue'
+import { onMounted, PropType, ref } from 'vue'
 
-defineProps({
+const props = defineProps({
   color: {
     type: String as PropType<Color>,
     default: 'vue-green',
@@ -23,17 +23,18 @@ const decodeHtml = (htmlStr: string) => {
 }
 
 const { color: textColor } = useColor()
+
+const titleText = ref('')
+
+onMounted(() => {
+  titleText.value = decodeHtml(props.title) ?? props.title
+})
 </script>
 
 <template>
   <p class="comment">
-    <span
-      class="comment-main"
-      :style="{
-        '--main-color': textColor(color),
-      }"
-      v-html="decodeHtml(title) ?? title"
-    />
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <span class="comment-main" :style="{ '--main-color': textColor(color) }" v-html="titleText" />
   </p>
 </template>
 

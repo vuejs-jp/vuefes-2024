@@ -16,6 +16,6 @@ export class UnactivatedCheckService {
   async apply() {
     this.supabaseService.updateUnactivatedAttendees()
 
-    this.discordService.send('After Purchase Bot', '未反映者 反映済')
+    // this.discordService.send('After Purchase Bot', '未反映者 反映済')
   }
 }

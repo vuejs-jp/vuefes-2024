@@ -26,7 +26,7 @@ export default defineNuxtConfig({
 })
 ```
 
-なお、ここで supabase.redirect に `false` を設定しないと、強制的にログイン画面へ遷移されるようなります。
+なお、ここで supabase.redirect に `false` を設定しないと、強制的にログイン画面へ遷移されてしまいます。
 
 ```ts
 export default defineNuxtConfig({
@@ -36,11 +36,39 @@ export default defineNuxtConfig({
 })
 ```
 
+### Supabase Studio 環境を構築
+
+以下のツールがインストールされていることを事前に確認してください
+
+- Git
+- Docker
+- Supabase CLI
+
+Supabase CLI をインストールしてください
+
+```bash
+brew install supabase/tap/supabase
+```
+
+Supabase CLI を使ってプロジェクトを初期化してください
+
+```bash
+supabase init
+```
+
+このコマンドは、Supabase Studio をローカルで実行するために必要なすべての設定を含む Supabase ディレクトリを作成します
+
+ローカル環境でプロジェクトを開始するには、Docker コンテナがローカルで実行されていることを確認してください
+
+```bash
+supabase start
+```
+
 ### メールアドレスを使ってユーザーを招待
 
 [`inviteUserByEmail`](https://supabase.com/docs/reference/javascript/auth-admin-inviteuserbyemail) のお世話になります。事前に Supabase の Auth Admin クライアントを作成する必要があり、直接 Web ブラウザからそれを操作することができません。
 
-Service Role Key も発行しつつ、合わせてこちらも `useRuntimeConfig` を利用してアクセスできることを確認してください。
+Service Role Key も発行しつつ、合わせてこちらも [`useRuntimeConfig`](https://nuxt.com/docs/api/composables/use-runtime-config) を利用してアクセスできることを確認してください。
 
 ```ts
 import { defineEventHandler, useRuntimeConfig } from '#imports'
@@ -73,7 +101,7 @@ const { error } = await supabase.auth.admin.inviteUserByEmail(
 )
 ```
 
-### API を利用してユーザーを削除
+#### API を利用してユーザーを削除
 
 Supabase 管理画面よりユーザーを削除する操作を行えないため、API ([`deleteUser`](https://supabase.com/docs/reference/javascript/auth-admin-deleteuser)) のお世話になります。
 

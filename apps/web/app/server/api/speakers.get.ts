@@ -1,4 +1,5 @@
 import db from '../db'
+import { useRuntimeConfig } from '#imports'
 import { defineEventHandler } from 'h3'
 import type { PanelerInfo, Speaker, SpeakerInfo } from '@vuejs-jp/model'
 import { serverSupabaseClient } from '#supabase/server'
@@ -26,42 +27,66 @@ export default defineEventHandler(async (event) => {
     type: 'session',
     title: 'Session',
     list: speakers
-      .filter((speaker: Speaker) => {
-        if (process.env.NODE_ENV === 'production') return speaker.session_type === 'session' && speaker.is_open === true
-        return speaker.session_type === 'session'
-      })
+      .filter(speaker => speaker.session_type === 'session' && speaker.display_order !== null)
       .sort((a: Speaker, b: Speaker) => {
         if (b.display_order && a.display_order) return a.display_order - b.display_order
-        return a.created_at < b.created_at ? -1 : 1
-      }),
+        return 1
+      })
+      .concat(
+        speakers
+          .filter((speaker: Speaker) => {
+            if (process.env.NODE_ENV === 'production') return speaker.session_type === 'session' && speaker.is_open === true
+            return speaker.session_type === 'session'
+          })
+          .filter(s => s.display_order === null)
+          .sort((a: Speaker, b: Speaker) => {
+            return a.created_at < b.created_at ? -1 : 1
+          }),
+      ),
   }
 
   const lightningTalkSpeakers: SpeakerInfo = {
     type: 'lightning-talk',
     title: 'Lightning talk',
     list: speakers
-      .filter((speaker: Speaker) => {
-        if (process.env.NODE_ENV === 'production') return speaker.session_type === 'lightning-talk' && speaker.is_open === true
-        return speaker.session_type === 'lightning-talk'
-      })
+      .filter(speaker => speaker.session_type === 'lightning-talk' && speaker.display_order !== null)
       .sort((a: Speaker, b: Speaker) => {
         if (b.display_order && a.display_order) return a.display_order - b.display_order
-        return a.created_at < b.created_at ? -1 : 1
-      }),
+        return 1
+      })
+      .concat(
+        speakers
+          .filter((speaker: Speaker) => {
+            if (process.env.NODE_ENV === 'production') return speaker.session_type === 'lightning-talk' && speaker.is_open === true
+            return speaker.session_type === 'lightning-talk'
+          })
+          .filter(s => s.display_order === null)
+          .sort((a: Speaker, b: Speaker) => {
+            return a.created_at < b.created_at ? -1 : 1
+          }),
+      ),
   }
 
   const sponsorSessionSpeakers: SpeakerInfo = {
     type: 'sponsor-session',
     title: 'Sponsor session',
     list: speakers
-      .filter((speaker: Speaker) => {
-        if (process.env.NODE_ENV === 'production') return speaker.session_type === 'sponsor-session' && speaker.is_open === true
-        return speaker.session_type === 'sponsor-session'
-      })
+      .filter(speaker => speaker.session_type === 'sponsor-session' && speaker.display_order !== null)
       .sort((a: Speaker, b: Speaker) => {
         if (b.display_order && a.display_order) return a.display_order - b.display_order
-        return a.created_at < b.created_at ? -1 : 1
-      }),
+        return 1
+      })
+      .concat(
+        speakers
+          .filter((speaker: Speaker) => {
+            if (process.env.NODE_ENV === 'production') return speaker.session_type === 'sponsor-session' && speaker.is_open === true
+            return speaker.session_type === 'sponsor-session'
+          })
+          .filter(s => s.display_order === null)
+          .sort((a: Speaker, b: Speaker) => {
+            return a.created_at < b.created_at ? -1 : 1
+          }),
+      ),
   }
 
   const panelEventPanelers: PanelerInfo = {

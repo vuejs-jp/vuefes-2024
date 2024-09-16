@@ -10,7 +10,7 @@ export type Path =
   | 'nextgen_frontend_crosstalk'
   | 'creative_wall'
   | 'free_drinks_and_snacks'
-  | 'tattoo_booth'
+  | 'tattoo_space'
   | 'cocktail_bash'
   | 'sponsor_booth_fotolary'
   | 'store'

@@ -22,7 +22,9 @@ export default async function handler(req: Request) {
     Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
   )
 
-  const { data, error } = await supabaseClient.from(page === 'namecard' ? 'attendees' : `${page}s`).select().eq('id', id)
+  const { data, error } = await supabaseClient.from(page === 'namecard' ? 'attendees' : `${page}s`)
+    .select()
+    .eq(page === 'namecard' ? 'user_id' : 'id', id)
   if (error) throw error
 
   if (page === 'staff') {
@@ -115,6 +117,7 @@ export default async function handler(req: Request) {
               height: '180px',
               display: 'flex',
               alignItems: 'center',
+              position: 'relative',
               justifyContent: 'center',
               flexDirection: 'column',
               boxSizing: 'border-box',
@@ -131,6 +134,10 @@ export default async function handler(req: Request) {
                   width: '180px',
                   height: '180px',
                   borderRadius: '50%',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  objectFit: 'cover',
                   boxShadow: '0px 0px 0px 2px rgba(255, 255, 255, 1)',          
                 }}
                 decoding="async"

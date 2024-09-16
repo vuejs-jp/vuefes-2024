@@ -27,6 +27,7 @@ const handleDialog = (id?: string) => {
       <th>x_id</th>
       <th>github_id</th>
       <th>is_open</th>
+      <th>is_volunteer</th>
       <th style="min-width: 80px">action</th>
     </tr>
     <tr v-for="staff in staffs" :key="staff.id">
@@ -37,6 +38,13 @@ const handleDialog = (id?: string) => {
           v-if="staff.image_url"
           alt=""
           :src="staff.image_url"
+          :style="{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            objectFit: 'cover',
+          }"
+          width="60"
           height="60"
           decoding="async"
         />
@@ -51,6 +59,9 @@ const handleDialog = (id?: string) => {
         <p v-if="staff.display_order">{{ `(${staff.display_order})` }}</p>
       </td>
       <td>
+        <p>{{ staff.is_volunteer ? 'ボランティアスタッフ' : 'コアスタッフ' }}</p>
+      </td>
+      <td>
         <VFLinkButton
           is="button"
           class="action"
@@ -63,7 +74,7 @@ const handleDialog = (id?: string) => {
       </td>
     </tr>
   </table>
-  <VFDialog v-if="showDialog">
+  <VFDialog v-if="showDialog" open>
     <AdminStaffItem
       :staff="staffs.filter((s) => s.id === staffId)[0]"
       @close="handleDialog"

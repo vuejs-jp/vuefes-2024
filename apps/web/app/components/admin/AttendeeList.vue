@@ -26,6 +26,7 @@ const handleConfirm = (attendee?: Attendee) => {
       {
         ...attendee,
         activated_at: attendee?.activated_at ? null : new Date().toISOString(),
+        canceled_at: attendee?.activated_at ? new Date().toISOString() : null,
       },
     )
   }
@@ -40,19 +41,25 @@ const handleConfirm = (attendee?: Attendee) => {
       <th>avatar_url</th>
       <th>provider</th>
       <th>display_name</th>
-      <th>role</th>
       <th>receipt_id</th>
       <th>activated_at</th>
+      <th>canceled_at</th>
       <th style="min-width: 80px">action</th>
     </tr>
     <tr v-for="attendee in attendees" :key="attendee.id">
       <td>{{ attendee.user_id }}</td>
       <td>{{ attendee.email }}</td>
-      <td>
+      <td :style="{ position: 'relative' }">
         <img
           v-if="attendee.avatar_url"
           alt=""
           :src="attendee.avatar_url"
+          :style="{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            objectFit: 'cover',
+          }"
           width="60"
           height="60"
           decoding="async"
@@ -63,9 +70,9 @@ const handleConfirm = (attendee?: Attendee) => {
       </td>
       <td>{{ attendee.provider }}</td>
       <td>{{ attendee.display_name }}</td>
-      <td>{{ attendee.role }}</td>
       <td>{{ attendee.receipt_id }}</td>
       <td>{{ attendee.activated_at }}</td>
+      <td>{{ attendee.canceled_at }}</td>
       <td>
         <VFLinkButton
           is="button"
@@ -88,7 +95,7 @@ const handleConfirm = (attendee?: Attendee) => {
       </td>
     </tr>
   </table>
-  <VFDialog v-if="showDialog">
+  <VFDialog v-if="showDialog" open>
     <AdminAttendeeItem :attendee="attendees.filter((s) => s.id === attendeeId)[0]" @close="handleDialog" />
   </VFDialog>
 </template>

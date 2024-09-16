@@ -115,7 +115,7 @@ const pageText = props.page.replace(/^[a-z]/g, function (val) {
       <AdminStaffList :staffs="staffs?.data" />
       <AdminAdminUserList :admin-users="adminUsers?.data" />
     </div>
-    <VFDialog v-if="showDialog">
+    <VFDialog v-if="showDialog" open>
       <AdminSpeakerItem v-if="page === 'speaker'" @close="handleDialog" />
       <AdminSponsorItem v-if="page === 'sponsor'" :speakers="speakers?.data" @close="handleDialog" />
       <AdminJobItem v-if="page === 'job'" :sponsors="sponsors?.data" @close="handleDialog" />

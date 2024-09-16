@@ -1,4 +1,5 @@
 <script setup lang="ts" generic="ButtonHTMLAttributes">
+// eslint-disable-next-line vue/valid-define-props
 const props = defineProps()
 </script>
 

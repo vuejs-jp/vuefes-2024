@@ -2,7 +2,7 @@
   "welcome": "welcome",
   "home": "home",
   "about": "about",
-  "back_to_top": "Back o Top",
+  "back_to_top": "Back to Top",
   "not_found": "The page you are looking for cannot be found.",
   "prefix_year": "",
   "suffix_year": "2024",
@@ -11,7 +11,7 @@
   "copied": "Copied",
   "official_site": "Vue Fes Japan Official Website",
   "top_page": {
-    "latest_information": "Tickets are now on sale! Purchase by 8/25, and get 1,000 yen OFF!",
+    "latest_information": "Tickets are now on sale! Purchase by 9/8, and get 1,000 yen OFF!",
     "date": "October 19th, 2024",
     "note": "note official"
   },
@@ -35,7 +35,7 @@
     "nextgen_frontend_crosstalk": "Next generation front-end crosstalk",
     "creative_wall": "Creative Wall",
     "free_drinks_and_snacks": "Free Drinks & Snacks",
-    "tattoo_booth": "Tattoo Booth",
+    "tattoo_space": "Tattoo Space",
     "cocktail_bash": "Vue Cocktail Bash",
     "sponsor_booth_fotolary": "Sponsor Booth Fotolary"
   },
@@ -127,14 +127,14 @@
       "ippan": {
         "title": "Regular",
         "early": "Early: ¥7,000",
-        "earlySub": "Purchase by Aug 25th, 24:00",
+        "earlySub": "Purchase by Sep 8th, 24:00",
         "regular": "Regular: ¥8,000",
         "imgAlt": "Speaker giving a presentation"
       },
       "ippanParty": {
         "title": "Regular + After Party",
         "early": "Early: ¥10,000",
-        "earlySub": "Purchase by Aug 25th, 24:00",
+        "earlySub": "Purchase by Sep 8th, 24:00",
         "regular": "Regular: ¥11,000",
         "imgAlt": "Example of an after party"
       },
@@ -152,7 +152,9 @@
         "details2": "*For more details, please refer to the Individual Sponsor section.",
         "imgAlt": "Event-branded t-shirts"
       }
-    }
+    },
+    "sold_out_explain": "※Due to high demand, all seats are sold out.",
+    "ended_explain": "※Sales have ended."
   },
   "access": {
     "title": "Access",
@@ -210,7 +212,11 @@
     "title": "JOB BOARD"
   },
   "team": {
-    "title": "Team"
+    "title": "Team",
+    "volunteer_title": "Volunteer Staff"
+  },
+  "staff": {
+    "title": "Staff"
   },
   "message": {
     "title": "Message"
@@ -219,8 +225,7 @@
     "title": "Code of Conduct"
   },
   "privacy": {
-    "title": "Privacy Policy",
-    "button": "Back to Top"
+    "title": "Privacy Policy"
   },
   "tokusho": {
     "title": "Notation based on the Specified Commercial Transactions Law"
@@ -269,5 +274,11 @@
       "or": "or",
       "select_file": "Select a file"
     }
+  },
+  "time-table": {
+    "title": "Time table"
+  },
+  "sharemap": {
+    "title": "Share URL"
   }
 }

@@ -108,4 +108,8 @@ const { fontWeight, fontSize } = useTypography()
   color: var(--color-placeholder);
   font-weight: normal;
 }
+
+.form-input:disabled {
+  background: #c6cacf40;
+}
 </style>

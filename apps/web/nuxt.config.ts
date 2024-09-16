@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
+import { defineNuxtConfig } from 'nuxt/config'
 import svgLoader from 'vite-svg-loader'
 import { conferenceTitle } from './app/utils/constants'
 import { generalOg, twitterOg } from './app/utils/og.constants'
@@ -41,7 +42,6 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@pinia/nuxt',
     'nuxt-gtag',
-    'nuxt-og-image',
   ],
   // .env の NUXT_PUBLIC_SITE_URL を設定したので、一旦コメントアウトする
   // site: {
@@ -164,6 +164,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/jobboard/': { prerender: true },
     '/namecard/': { prerender: true },
+    '/sharemap/': { prerender: true },
     '/sessions/': { prerender: true },
     '/sponsors/': { prerender: true },
     '/staff/console/': { prerender: true },
@@ -192,7 +193,9 @@ export default defineNuxtConfig({
       enableSwitchLocale: process.env.ENABLE_SWITCH_LOCALE,
       enableRegisterTicket: process.env.ENABLE_REGISTER_TICKET,
       enableRegisterNamecard: process.env.ENABLE_REGISTER_NAMECARD,
+      showNamecardGallery: process.env.SHOW_NAMECARD_GALLERY,
       showSpeakerDetail: process.env.SHOW_SPEAKER_DETAIL,
+      showTimetable: process.env.SHOW_TIMETABLE,
       showEvent: process.env.SHOW_EVENT,
       showStore: process.env.SHOW_STORE,
     },

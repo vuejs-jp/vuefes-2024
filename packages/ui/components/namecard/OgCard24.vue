@@ -107,6 +107,7 @@ onMounted(() => {
   aspect-ratio: 1;
   display: grid;
   place-items: center;
+  position: relative;
   box-sizing: border-box;
   container: avatar / inline-size;
   @media (width <= 480px) {

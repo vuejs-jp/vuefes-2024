@@ -41,6 +41,16 @@ export const Default: Story = {
   },
 }
 
+export const Disabled: Story = {
+  name: 'disabled',
+  args: {
+    id: 'detail',
+    name: 'detail',
+    label: 'お問い合わせ内容/Content',
+    disabled: true,
+  },
+}
+
 export const withPlaceholder: Story = {
   name: 'with placeholder',
   args: {

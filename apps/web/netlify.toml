@@ -1,12 +1,17 @@
 [[redirects]]
-from = "/2024/*"
-to = "/2024/index.html"
-status = 200
+  from = "/2024/*"
+  to = "/2024/index.html"
+  status = 200
 
 [[redirects]]
-from = "/*"
-to = "/2024/:splat"
-status = 301
+  from = "/*"
+  to = "/2024/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/2024/sharemap"
+  to = "/2024/sharemap/index.html"
+  status = 200
 
 [[redirects]]
   from = "/2024/jobboard"
@@ -47,6 +52,3 @@ status = 301
   from = "/2024/staff/invite"
   to = "/2024/200.html"
   status = 200
-
-[functions.server]
-external_node_modules = ["chrome-aws-lambda"]

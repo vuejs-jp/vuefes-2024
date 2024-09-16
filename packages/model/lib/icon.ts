@@ -14,3 +14,4 @@ export type IconName =
   | 'close'
   | 'external'
   | 'alert'
+  | 'translation'

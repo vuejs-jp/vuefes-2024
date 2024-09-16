@@ -133,10 +133,9 @@ const personalSponsorInfo: PersonalSponsorInfo = {
         <VFDateTime :date="secondPeriodEnd" :time="endPeriodTime" />
       </template>
 
-      <div class="sponsor-buttons">
+      <div v-if="config.public.availableApplySponsor" class="sponsor-buttons">
         <!-- 申し込む -->
         <VFLinkButton
-          v-if="config.public.availableApplySponsor"
           class="sponsor-button"
           href="https://forms.gle/paxZqz55oXLE4Njn9"
           background-color="vue-green/200"
@@ -160,10 +159,8 @@ const personalSponsorInfo: PersonalSponsorInfo = {
       <SponsorList v-bind="bronzeSponsors" />
       <SponsorList v-bind="specialNamingRightSponsors" />
       <SponsorList v-bind="namingRightSponsors" />
-      <div class="sponsor-list-layout-separate">
-        <SponsorList v-bind="specialLunchSponsors" />
-        <SponsorList v-bind="lunchSponsors" />
-      </div>
+      <SponsorList v-bind="specialLunchSponsors" />
+      <SponsorList v-bind="lunchSponsors" />
       <div class="sponsor-list-layout-separate">
         <SponsorList v-bind="afterPartySponsors" />
         <SponsorList v-bind="nameCardSponsors" />

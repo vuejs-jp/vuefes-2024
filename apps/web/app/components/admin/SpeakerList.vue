@@ -44,6 +44,12 @@ const handleDialog = (id?: string) => {
           v-if="speaker.image_url"
           alt=""
           :src="speaker.image_url"
+          :style="{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            objectFit: 'cover',
+          }"
           width="60"
           height="60"
           decoding="async"
@@ -89,7 +95,7 @@ const handleDialog = (id?: string) => {
       </td>
     </tr>
   </table>
-  <VFDialog v-if="showDialog">
+  <VFDialog v-if="showDialog" open>
     <AdminSpeakerItem :speaker="speakers.filter((s) => s.id === speakerId)[0]" @close="handleDialog" />
   </VFDialog>
 </template>

@@ -19,7 +19,7 @@
     "saturday": "土"
   },
   "top_page": {
-    "latest_information": "チケット好評発売中！　8/25（日）までのご購入で 1,000 円 OFF！",
+    "latest_information": "チケット好評発売中！　9/8（日）までのご購入で 1,000 円 OFF！",
     "date": "2024.10.19",
     "note": "公式 note"
   },
@@ -53,7 +53,7 @@
     "nextgen_frontend_crosstalk": "次世代フロントエンド&lt;br&gt;クロストーク",
     "creative_wall": "クリエイティブウォール",
     "free_drinks_and_snacks": "フリードリンク＆スナック",
-    "tattoo_booth": "タトゥーブース",
+    "tattoo_space": "タトゥースペース",
     "cocktail_bash": "Vue Cocktail Bash",
     "sponsor_booth_fotolary": "スポンサーブース&lt;br&gt;フォトラリー"
   },
@@ -145,14 +145,14 @@
       "ippan": {
         "title": "一般チケット",
         "early": "早割：7,000円",
-        "earlySub": "※8/25（日）24:00まで",
+        "earlySub": "※9/8（日）24:00まで",
         "regular": "通常：8,000円 ",
         "imgAlt": "プレゼンしている人"
       },
       "ippanParty": {
         "title": "一般 + アフターパーティーチケット",
         "early": "早割：10,000円",
-        "earlySub": "※8/25（日）24:00まで",
+        "earlySub": "※9/8（日）24:00まで",
         "regular": "通常：11,000円 ",
         "imgAlt": "アフターパーティの例"
       },
@@ -170,7 +170,9 @@
         "details2": "※詳しくは個人スポンサーについてをご覧ください。",
         "imgAlt": "イベントTシャツ"
       }
-    }
+    },
+    "sold_out_explain": "※好評により全席完売しました。",
+    "ended_explain": "※販売を終了しました。"
   },
   "access": {
     "title": "アクセス",
@@ -228,7 +230,11 @@
     "title": "ジョブボード"
   },
   "team": {
-    "title": "チーム"
+    "title": "チーム",
+    "volunteer_title": "ボランティアスタッフ"
+  },
+  "staff": {
+    "title": "スタッフ"
   },
   "message": {
     "title": "メッセージ"
@@ -237,8 +243,7 @@
     "title": "行動規範"
   },
   "privacy": {
-    "title": "プライバシーポリシー",
-    "button": "トップに戻る"
+    "title": "プライバシーポリシー"
   },
   "tokusho": {
     "title": "特定商取引法に基づく表記"
@@ -287,5 +292,11 @@
       "or": "または",
       "select_file": "ファイルを選択"
     }
+  },
+  "time-table": {
+    "title": "タイムテーブル"
+  },
+  "sharemap": {
+    "title": "シェアURL"
   }
 }

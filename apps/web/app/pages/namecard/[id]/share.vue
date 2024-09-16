@@ -9,7 +9,7 @@ import {
 } from '#imports'
 import { useI18n } from '#i18n'
 import { useNamecard } from '~/composables/useNamecard'
-import { conferenceTitle, linkUrl, ogSpeakerDescription } from '~/utils/constants'
+import { conferenceTitle, linkUrl, ogNamecardDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 
@@ -18,8 +18,11 @@ const { t } = useI18n()
 const config = useRuntimeConfig()
 const route = useRoute()
 const id = route.params.id as string
-const { attendeeDataByUserId } = await useNamecard(id)
-if (!attendeeDataByUserId) {
+const { attendeeDataByUserId, getNamecardData } = useNamecard(id)
+
+await getNamecardData()
+
+if (!attendeeDataByUserId.value) {
   throw createError({ statusCode: 404, statusMessage: 'Attendee not found' })
 }
 
@@ -46,15 +49,15 @@ useHead({
   meta: [
     ...generalOg({
       title: `${attendeeDataByUserId.value?.display_name} | ${conferenceTitle}`,
-      description: ogSpeakerDescription,
+      description: `${attendeeDataByUserId.value?.display_name}${ogNamecardDescription}`,
       url: `${linkUrl}namecard/${id}/share`,
-      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${attendeeDataByUserId.value?.id}&page=namecard`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${id}&page=namecard`,
     }),
     ...twitterOg({
       title: `${attendeeDataByUserId.value?.display_name} | ${conferenceTitle}`,
-      description: ogSpeakerDescription,
+      description: `${attendeeDataByUserId.value?.display_name}${ogNamecardDescription}`,
       url: `${linkUrl}namecard/${id}/share`,
-      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${attendeeDataByUserId.value?.id}&page=namecard`,
+      image: `${config.public.supabaseUrl}/functions/v1/og-image?id=${id}&page=namecard`,
     }),
   ],
 })

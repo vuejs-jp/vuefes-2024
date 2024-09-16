@@ -10,7 +10,7 @@ Meanwhile, a new trend is emerging in the ecosystem around Vue.js.
 
 Nitro, Nuxt's core server engine, is starting to be used by other metaframeworks such as SolidStart and Analog. UnJS, a collection of high-quality JavaScript utilities, has gained traction in the non-Vue.js community, and Vite, created by Vue.js author Evan You, has evolved into a next-generation tool that supports a wide variety of front-ends beyond Vue, with over 11 million weekly downloads.
 
-In addition, we are working with the Rspack team and the OXC project to develop Rolldown, a Rust implementation of the Vite core rollup, releasing an initial version in March 2024, and other open source software around Vue.js is far reaching.
+In addition, Evan started leading the Rolldown bundler project, which uses OXC under the hood as its JavaScript compiler, leading the development to replace Rollup in the Vite core with Rolldown, releasing an initial version in March 2024, and other open source software around Vue.js is far reaching.
 
 This year's Vue Fes Japan 2024 is the place to experience the latest trends. Please join us at the conference and enjoy the experience that only the real thing can offer!
 

@@ -5,7 +5,7 @@ export default {
   title: 'sponsor/Tag',
   component: Tag,
   args: {
-    background: '#93AF5E',
+    background: 'hiwamoegi/200',
     label: 'プラチナ',
   },
   argTypes: {
@@ -37,18 +37,18 @@ export const Platinum = Template.bind({})
 
 export const Gold = Template.bind({})
 Gold.args = {
-  background: '#E5AF00',
+  background: 'tohoh/200',
   label: 'ゴールド',
 }
 
 export const Silver = Template.bind({})
 Silver.args = {
-  background: '#1A8191',
+  background: 'asagi/200',
   label: 'シルバー',
 }
 
 export const Bronze = Template.bind({})
 Bronze.args = {
-  background: '#CC4F39',
+  background: 'sangosyo/200',
   label: 'ブロンズ',
 }

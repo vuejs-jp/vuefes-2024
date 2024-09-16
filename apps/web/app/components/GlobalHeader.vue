@@ -1,35 +1,28 @@
 <script setup lang="ts">
-import { useI18n, useRuntimeConfig, useSwitchLocalePath } from '#imports'
+import { useRuntimeConfig } from '#imports'
+import { useI18n } from '#i18n'
+import { useNav } from '~/composables/useNav'
 import { useScreenOrientation, useWindowSize } from '@vueuse/core'
 import { ref, watch, onMounted, computed } from 'vue'
-const { locale } = useI18n({ useScope: 'global' })
-const switchLocalePath = useSwitchLocalePath()
+
+const { locale, setLocale } = useI18n({ useScope: 'global' })
+const { navLinks } = useNav()
+
 const config = useRuntimeConfig()
+
+const onSwitchLocale = () => {
+  setLocale(locale.value === 'ja' ? 'en' : 'ja')
+}
 
 const { width } = useWindowSize()
 const { orientation } = useScreenOrientation()
 const shouldShowSpHeader = ref()
 onMounted(() => {
-  shouldShowSpHeader.value = width.value <= 1080
+  shouldShowSpHeader.value = width.value <= 1200
 })
 watch([width, orientation], () => {
-  shouldShowSpHeader.value = width.value <= 1080
+  shouldShowSpHeader.value = width.value <= 1200
 })
-
-type NavLink = {
-  text: string
-  anchor: string
-}
-
-const navLinks: NavLink[] = [
-  { text: 'Message', anchor: '#message' },
-  { text: 'Ticket', anchor: '#ticket' },
-  { text: 'Speakers', anchor: '#speakers' },
-  { text: 'Sponsors', anchor: '#sponsors' },
-  // Uncomment out after job board implementation
-  // { text: 'Job board', anchor: '#jobboard' },
-  { text: 'Inquiry', anchor: '#form' },
-]
 
 const showMenu = ref(false)
 
@@ -45,13 +38,11 @@ const getAnchorPath = computed(
 <template>
   <VFSpHeader v-if="shouldShowSpHeader">
     <div class="navigation-mobile">
-      <NuxtLink
+      <VFLocaleSwitch
         v-if="config.public.enableSwitchLocale"
-        :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
-        class="locale-switch-wrapper"
-      >
-        <VFLocaleSwitch :locale />
-      </NuxtLink>
+        :locale
+        @switch-locale="onSwitchLocale"
+      />
 
       <button
         class="navigation-mobile-toggle"
@@ -85,13 +76,11 @@ const getAnchorPath = computed(
           <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
         </nuxt-link>
       </div>
-      <NuxtLink
+      <VFLocaleSwitch
         v-if="config.public.enableSwitchLocale"
-        :to="switchLocalePath(locale === 'ja' ? 'en' : 'ja')"
-        class="locale-switch-wrapper"
-      >
-        <VFLocaleSwitch :locale />
-      </NuxtLink>
+        :locale
+        @switch-locale="onSwitchLocale"
+      />
     </div>
   </VFHeader>
 </template>
@@ -140,7 +129,7 @@ const getAnchorPath = computed(
 
 .navigation-links-pc {
   display: flex;
-  gap: calc(var(--unit) * 8);
+  gap: calc(var(--unit) * 5);
 
   a {
     text-decoration: none;

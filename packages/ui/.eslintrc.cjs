@@ -10,6 +10,7 @@ module.exports = {
           'Avatar',
           'Button',
           'Comment',
+          'Credit',
           'Date',
           'Dialog',
           'Header',
@@ -23,9 +24,19 @@ module.exports = {
           'Tag',
           'Time',
           'Title',
+          'Track',
           'Typography',
         ],
       },
     ],
-  }
+    'vuejs-accessibility/label-has-for': [
+      'error',
+      {
+        'required': {
+          'some': ['nesting', 'id'],
+        },
+        'allowChildren': false,
+      },
+    ],
+  },
 }

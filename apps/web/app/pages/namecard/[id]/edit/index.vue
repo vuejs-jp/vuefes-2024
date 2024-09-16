@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watchEffect } from 'vue'
+import { computed, onMounted, ref, watchEffect } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
 import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
@@ -17,18 +17,33 @@ definePageMeta({
 })
 
 const { t } = useI18n()
-const { path: localePath } = useLocaleCurrent()
+const { locale: currentLocale } = useLocaleCurrent()
 const { nameError, orderNumberError, validateNameWithMaxLength, validateOrderNumber } =
   useFormError()
-const { authUser, attendeeDataByUserId, statusKey, namecardUser } = await useNamecard()
+const { authUser, attendeeDataByUserId, statusKey, namecardUser, getNamecardData } = useNamecard()
 const { upsertAttendee, uploadAvatar } = useSupabase()
 const { getFullAvatarUrl } = useSupabaseStorage()
 
+await getNamecardData()
+
 const name = ref('')
 const receiptId = ref('')
+const filePathRef = ref<string | null>(null)
+const fileRef = ref<File | null>(null)
+
 const isSubmitting = computed(() => {
   if (!name.value || !receiptId.value) return false
+  // if (
+  //   name.value === attendeeDataByUserId.value.display_name &&
+  //   filePathRef.value === attendeeDataByUserId.value.avatar_url &&
+  //   receiptId.value === attendeeDataByUserId.value.receipt_id
+  // ) {
+  //   return false
+  // }
   return nameError.value === '' && orderNumberError.value === ''
+})
+const notEditable = computed(() => {
+  return statusKey.value === 'inquiry_completed'
 })
 
 const updateName = (e: any) => {
@@ -47,8 +62,10 @@ const newAttendee = ref({
   ...namecardUser.value,
 })
 
-name.value = newAttendee.value?.display_name ?? ''
-receiptId.value = newAttendee.value?.receipt_id ?? ''
+onMounted(async () => {
+  name.value = namecardUser.value?.display_name ?? newAttendee.value?.display_name ?? ''
+  receiptId.value = namecardUser.value?.receipt_id ?? newAttendee.value?.receipt_id ?? ''
+})
 
 watchEffect(() => {
   newAttendee.value.display_name = name.value
@@ -56,9 +73,6 @@ watchEffect(() => {
   namecard.value.display_name = name.value
   namecard.value.receipt_id = receiptId.value
 })
-
-const filePathRef = ref<string | null>(null)
-const fileRef = ref<File | null>(null)
 
 const checkFiles = (e: Event, files: File[]) => {
   e.preventDefault()
@@ -88,9 +102,11 @@ function onSubmit(e: Event) {
   const submitEvent = e as SubmitEvent
   const submitter = submitEvent.submitter as HTMLElement
 
-  if (submitter && submitter.id === 'submit-button' && filePathRef.value && fileRef.value) {
-    uploadAvatar(filePathRef.value, fileRef.value)
-    newAttendee.value.avatar_url = getFullAvatarUrl(filePathRef.value)
+  if (submitter && submitter.id === 'submit-button') {
+    if (filePathRef.value && fileRef.value) {
+      uploadAvatar(filePathRef.value, fileRef.value)
+      newAttendee.value.avatar_url = getFullAvatarUrl(filePathRef.value)
+    }
 
     const baseData = {
       email: attendeeDataByUserId.value?.email ?? authUser.value?.email ?? '',
@@ -101,7 +117,7 @@ function onSubmit(e: Event) {
     const id = {
       id: attendeeDataByUserId.value?.id ?? '',
     }
-    if (attendeeDataByUserId.value?.created_at) {
+    if (id.id) {
       upsertAttendee('attendees', {
         ...id,
         ...newAttendee.value,
@@ -114,7 +130,9 @@ function onSubmit(e: Event) {
       })
     }
 
-    navigateTo(`/namecard/${authUser.value?.id}/edit/complete/`)
+    navigateTo(
+      `${currentLocale.value === 'ja' ? '/' : `/${currentLocale.value}/`}namecard/${authUser.value?.id}/edit/complete/`,
+    )
   }
 }
 </script>
@@ -153,6 +171,7 @@ function onSubmit(e: Event) {
           :label="t('namecard.form.label_order_number')"
           :placeholder="t('namecard.form.placeholder_order_number')"
           required
+          :disabled="notEditable"
           :error="orderNumberError"
           @input="updateReceiptId"
           @blur="validateOrderNumber"
@@ -168,7 +187,7 @@ function onSubmit(e: Event) {
       </div>
       <div class="form-buttons">
         <VFLinkButton
-          :href="`${localePath}/namecard/${authUser?.id}/`"
+          :href="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}namecard/${authUser?.id}/`"
           target="_self"
           background-color="white"
           color="vue-blue"

@@ -21,6 +21,7 @@
 
   /* gradation */
   --color-vue-green-gradation: linear-gradient(to right, #42b883, #41b8aa);
+  --color-vue-green-gradation200: linear-gradient(90deg, #30855f 0%, #328c82 100%);
   --color-vue-blue-gradation: linear-gradient(to right, #35495e 0%, #353b5e 100%);
 
   /* box-shadow */

@@ -1,28 +1,28 @@
 <script setup lang="ts">
 import { useI18n } from '#imports'
-import { ticketUrl } from '~/utils/constants'
+import { endedApplyEarly, endedApplyHandson, ticketUrl } from '~/utils/constants'
 
 const { t } = useI18n()
 
 const ticketCards = {
   ippan: {
     title: t('ticket.card.ippan.title'),
-    imgSrc: 'ticket/ippan.png',
+    imgSrc: '/ticket/ippan.png',
     imgAlt: t('ticket.card.ippan.imgAlt'),
   },
   ippanParty: {
     title: t('ticket.card.ippanParty.title'),
-    imgSrc: 'ticket/ippan-party.png',
+    imgSrc: '/ticket/ippan-party.png',
     imgAlt: t('ticket.card.ippanParty.imgAlt'),
   },
   handsOn: {
     title: t('ticket.card.handsOn.title'),
-    imgSrc: 'ticket/hands-on.png',
+    imgSrc: '/ticket/hands-on.png',
     imgAlt: t('ticket.card.handsOn.imgAlt'),
   },
   individualSponsor: {
     title: t('ticket.card.individualSponsor.title'),
-    imgSrc: 'ticket/individual-sponsor.png',
+    imgSrc: '/ticket/individual-sponsor.png',
     imgAlt: t('ticket.card.individualSponsor.imgAlt'),
   },
 }
@@ -60,7 +60,7 @@ const ticketCards = {
           :img-alt="ticketCards.ippan.imgAlt"
         >
           <div class="ticket-details ippan-details">
-            <div class="early-purchase">
+            <div v-if="!endedApplyEarly" class="early-purchase">
               <span class="cost">
                 {{ $t('ticket.card.ippan.early') }}
               </span>
@@ -81,7 +81,7 @@ const ticketCards = {
           :img-alt="ticketCards.ippanParty.imgAlt"
         >
           <div class="ticket-details ippan-party-details">
-            <div class="early-purchase">
+            <div v-if="!endedApplyEarly" class="early-purchase">
               <span class="cost">
                 {{ $t('ticket.card.ippanParty.early') }}
               </span>
@@ -100,14 +100,19 @@ const ticketCards = {
           :title="ticketCards.handsOn.title"
           :img-src="ticketCards.handsOn.imgSrc"
           :img-alt="ticketCards.handsOn.imgAlt"
+          :is-close="endedApplyHandson"
         >
           <div class="ticket-details hands-on-details">
             <div class="cost">
-              {{ $t('ticket.card.handsOn.cost') }}
+              <template v-if="!endedApplyHandson">{{ $t('ticket.card.handsOn.cost') }}</template>
+              <s v-else>{{ $t('ticket.card.handsOn.cost') }}</s>
             </div>
             <div class="cost-details">
-              <span>
+              <span v-if="!endedApplyHandson">
                 {{ $t('ticket.card.handsOn.details1') }}
+              </span>
+              <span v-else>
+                {{ $t('ticket.sold_out_explain') }}
               </span>
               <span>
                 {{ $t('ticket.card.handsOn.details2') }}

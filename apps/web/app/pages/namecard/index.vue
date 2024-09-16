@@ -9,6 +9,13 @@ import { useAuthSession } from '~/composables/useAuthSession'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import MarkDownText from '~/components/MarkDownText.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
+import { useFetch } from '#imports'
+import type { AttendeeInfo } from '@vuejs-jp/model'
+
+type Attendees = Record<'activatedAttendees', AttendeeInfo>
+
+const { data: attendees } = await useFetch('/api/attendees')
+const { activatedAttendees } = attendees.value as Attendees
 
 const config = useRuntimeConfig()
 
@@ -50,6 +57,9 @@ function handleSignIn(provider: Extract<AuthProvider, 'github' | 'google'>) {
         {{ t('namecard.dialog_message') }}
       </p>
     </VFIntegrationDialog>
+    <template v-if="config.public.showNamecardGallery" #large-container>
+      <NamecardGalleryView :attendees="activatedAttendees" />
+    </template>
     <div class="namecard-root">
       <img
         class="namecard-samples"
