@@ -64,8 +64,8 @@ const props = defineProps<StoreItemProps>()
   }
 
   &::v-deep(p) {
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.6;
   }
 }
 

@@ -39,6 +39,17 @@ useHead({
         </nuxt-link>
       </li>
     </ul>
+    <div class="back">
+      <VFLinkButton
+        class="back-action"
+        background-color="white"
+        color="vue-blue"
+        target=""
+        :href="`${localePath}/`"
+      >
+        {{ t('back_to_top') }}
+      </VFLinkButton>
+    </div>
   </div>
 </template>
 
@@ -124,6 +135,36 @@ useHead({
     border-radius: 12px;
     overflow: hidden;
     display: block;
+  }
+}
+
+.back {
+  margin: 40px auto 120px;
+  width: 100%;
+  max-width: 260px;
+}
+.back-action {
+  --height-button: 66px;
+
+  height: var(--height-button);
+  border-radius: var(--height-button);
+}
+
+@media (--tablet) {
+  .back-action {
+    --height-button: 58px;
+  }
+}
+
+@media (--mobile) {
+  .back {
+    width: 100%;
+    padding: 0 23.5px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+  }
+  .back-action {
+    --height-button: 58px;
   }
 }
 </style>

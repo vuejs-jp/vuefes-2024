@@ -184,6 +184,16 @@ const personalSponsorInfo: PersonalSponsorInfo = {
           personal: personalSponsorInfo,
         }"
       />
+      <div class="sponsor-buttons">
+        <VFLinkButton
+          class="sponsor-button"
+          href="./jobboard"
+          background-color="vue-green/200"
+          color="white"
+        >
+          {{ $t('sponsor.seeJobboard') }}
+        </VFLinkButton>
+      </div>
     </article>
   </div>
 </template>
