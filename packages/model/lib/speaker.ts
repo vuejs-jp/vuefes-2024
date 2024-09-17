@@ -24,7 +24,7 @@ export type Speaker = {
   github_id?: string
   x_id?: string
   events?: string[]
-  session_type: 'session' | 'lightning-talk' | 'sponsor-session' | 'panel-event'
+  session_type: 'session' | 'lightning-talk' | 'sponsor-session' | 'sponsor-lt' | 'panel-event'
   is_open: boolean
   display_order?: number
   session_title_ja?: string

@@ -103,7 +103,7 @@ useHead({
 
       <div v-if="sponsorData[0].speaker_id?.length !== 0" class="detailbody-persons">
         <h3 class="sponsor-subtitle">
-          {{ `${sponsorData[0].name}のスポンサーセッション` }}
+          {{ `${sponsorData[0].name}の${speakerData[0].session_type === 'sponsor-session' ? 'スポンサーセッション' : 'スポンサーLT'}` }}
         </h3>
         <div class="sponsor-session-info">
           <div class="avatar-info">
