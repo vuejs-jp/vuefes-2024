@@ -187,7 +187,7 @@ const personalSponsorInfo: PersonalSponsorInfo = {
       <div class="sponsor-buttons">
         <VFLinkButton
           class="sponsor-button"
-          href="./jobboard"
+          :href="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}jobboard`"
           background-color="vue-green/200"
           color="white"
         >
