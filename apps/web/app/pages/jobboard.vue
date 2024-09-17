@@ -47,7 +47,7 @@ useHead({
         target=""
         :href="`${localePath}/`"
       >
-        {{ t('back_to_top') }}
+        {{ $t('back_to_top') }}
       </VFLinkButton>
     </div>
   </div>
