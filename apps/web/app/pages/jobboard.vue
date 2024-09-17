@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useFetch, useHead } from '#imports'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import type { JobInfo } from '@vuejs-jp/model'
 import { conferenceTitle, linkUrl, ogJobboardDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
@@ -11,6 +12,8 @@ if (error.value) {
   console.error(error.value)
 }
 const { allJobs } = data.value as Jobs
+
+const { path: localePath } = useLocaleCurrent()
 
 useHead({
   titleTemplate: (titleChunk) => `ジョブボード | ${conferenceTitle}`,
