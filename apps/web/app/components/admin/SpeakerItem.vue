@@ -255,6 +255,7 @@ const onSubmit = () => {
             { value: 'session', text: 'Session' },
             { value: 'lightning-talk', text: 'Lightning Talk' },
             { value: 'sponsor-session', text: 'Sponsor Session' },
+            { value: 'sponsor-lt', text: 'Sponsor LT' },
             { value: 'panel-event', text: 'Panel Event' },
           ]"
         />

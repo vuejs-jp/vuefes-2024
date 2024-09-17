@@ -71,7 +71,7 @@ export default defineEventHandler(async (event) => {
     type: 'sponsor-session',
     title: 'Sponsor session',
     list: speakers
-      .filter(speaker => speaker.session_type === 'sponsor-session' && speaker.display_order !== null)
+      .filter(speaker => (speaker.session_type === 'sponsor-session' || speaker.session_type === 'sponsor-lt') && speaker.display_order !== null)
       .sort((a: Speaker, b: Speaker) => {
         if (b.display_order && a.display_order) return a.display_order - b.display_order
         return 1
@@ -79,8 +79,8 @@ export default defineEventHandler(async (event) => {
       .concat(
         speakers
           .filter((speaker: Speaker) => {
-            if (process.env.NODE_ENV === 'production') return speaker.session_type === 'sponsor-session' && speaker.is_open === true
-            return speaker.session_type === 'sponsor-session'
+            if (process.env.NODE_ENV === 'production') return (speaker.session_type === 'sponsor-session' || speaker.session_type === 'sponsor-lt') && speaker.is_open === true
+            return speaker.session_type === 'sponsor-session' || speaker.session_type === 'sponsor-lt'
           })
           .filter(s => s.display_order === null)
           .sort((a: Speaker, b: Speaker) => {
