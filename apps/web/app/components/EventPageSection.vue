@@ -27,7 +27,7 @@ const { panelEventPanelers } = props.data as Panelers
       <EventCard id="welcome-vuejs-community" title="welcome-vuejs-community">
         <PanelerList :panelers="panelEventPanelers.list['welcome-vuejs-community']" />
       </EventCard>
-      <EventCard title="vuejs-handson">
+      <EventCard id="handson" title="vuejs-handson">
         <EventMultipleAssets :title-list="['vuejs-handson', 'vuejs-handson']" />
       </EventCard>
       <div class="event-body-column column-2">
@@ -42,7 +42,7 @@ const { panelEventPanelers } = props.data as Panelers
         </EventCard>
         <EventCard title="sponsor-booth-fotolary" font-class="title-2" padding-class="content-2" />
       </div>
-      <EventCard title="cocktail-bash">
+      <EventCard id="cocktail-bash" title="cocktail-bash">
         <EventMultipleAssets :title-list="['cocktail-bash']" />
       </EventCard>
     </div>
