@@ -2,18 +2,15 @@
 import type { Event } from '@vuejs-jp/model'
 
 interface EventMultipleAssetsProps {
-  title?: Extract<Event, 'vuejs-handson'>
+  titleList: Extract<Event, 'vuejs-handson' | 'cocktail-bash'>[]
 }
 
-const props = withDefaults(defineProps<EventMultipleAssetsProps>(), {
-  title: 'vuejs-handson',
-})
+const props = defineProps<EventMultipleAssetsProps>()
 </script>
 
 <template>
   <div class="eventcard-images">
-    <img :src="`/event/${title}-1.png`" alt="" />
-    <img :src="`/event/${title}-2.png`" alt="" />
+    <img v-for="(title, key) in titleList" :key :src="`/event/${title}-${key + 1}.png`" alt="" />
   </div>
 </template>
 
