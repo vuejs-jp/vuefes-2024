@@ -3,13 +3,19 @@ import type { Event } from '@vuejs-jp/model'
 
 interface EventMultipleAssetsProps {
   titleList: Extract<Event, 'vuejs-handson' | 'cocktail-bash'>[]
+  imgHeight?: number
 }
 
 const props = defineProps<EventMultipleAssetsProps>()
 </script>
 
 <template>
-  <div class="eventcard-images">
+  <div
+    class="eventcard-images"
+    :style="{
+      '--head-img-height': `${imgHeight}px`,
+    }"
+  >
     <img v-for="(title, key) in titleList" :key :src="`/event/${title}-${key + 1}.png`" alt="" />
   </div>
 </template>
@@ -29,8 +35,6 @@ const props = defineProps<EventMultipleAssetsProps>()
 }
 
 .eventcard-images ::v-deep(img) {
-  --head-img-height: 256px;
-
   padding: 0;
   margin: 0 auto;
   height: var(--head-img-height);

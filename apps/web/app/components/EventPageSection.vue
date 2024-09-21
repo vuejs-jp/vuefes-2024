@@ -28,7 +28,7 @@ const { panelEventPanelers } = props.data as Panelers
         <PanelerList :panelers="panelEventPanelers.list['welcome-vuejs-community']" />
       </EventCard>
       <EventCard id="handson" title="vuejs-handson">
-        <EventMultipleAssets :title-list="['vuejs-handson', 'vuejs-handson']" />
+        <EventMultipleAssets :title-list="['vuejs-handson', 'vuejs-handson']" :img-height="256" />
       </EventCard>
       <div class="event-body-column column-2">
         <EventCard title="creative-wall" font-class="title-2" padding-class="content-2">
