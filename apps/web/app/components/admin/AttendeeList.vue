@@ -2,6 +2,7 @@
 import type { Attendee } from '@vuejs-jp/model'
 import { ref } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
+import { endedCreateNamecard } from '~/utils/constants'
 
 interface AttendeeListProps {
   attendees: Attendee[]
@@ -79,6 +80,7 @@ const handleConfirm = (attendee?: Attendee) => {
           class="action"
           background-color="white"
           color="vue-blue"
+          :disabled="endedCreateNamecard"
           @click="() => handleDialog(attendee?.id)"
         >
           Edit
@@ -88,6 +90,7 @@ const handleConfirm = (attendee?: Attendee) => {
           class="action"
           background-color="white"
           color="vue-blue"
+          :disabled="endedCreateNamecard"
           @click="() => handleConfirm(attendee)"
         >
           {{ attendee.activated_at ? 'Deactivate' : 'Activate' }}

@@ -12,12 +12,14 @@ interface LinkButtonProps extends /* @vue-ignore */ _LinkButtonProps {
   href?: string
   target?: string
   iconName?: IconName
+  disabled?: boolean
 }
 const props = withDefaults(defineProps<LinkButtonProps>(), {
   is: 'a',
   href: '',
   target: '_blank',
   iconName: undefined,
+  disabled: false,
 })
 
 const { color: updateColor } = useColor()
@@ -65,6 +67,7 @@ const iconColor = computed(() => {
     :is="is ?? 'a'"
     :href
     :target
+    :disabled
     :style
     class="link-button"
     @mouseover="hoverIn"
@@ -102,6 +105,10 @@ const iconColor = computed(() => {
 }
 .link-button:hover {
   transition: 0.2s;
+}
+.link-button:disabled {
+  pointer-events: none;
+  opacity: 0.6;
 }
 .icon {
   margin-right: calc(var(--unit) * 1);

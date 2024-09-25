@@ -49,6 +49,8 @@ export const endedApplyEarly = true
 
 export const endedApplyHandson = true
 
+export const endedCreateNamecard = true
+
 export const displayNameMaxLength = 24
 
 export const personalSponsors = [
