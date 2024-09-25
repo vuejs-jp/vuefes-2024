@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
-import { ticketUrl } from '~/utils/constants'
+import { endedCreateNamecard, ticketUrl } from '~/utils/constants'
 
 const { locale: currentLocale } = useLocaleCurrent()
 </script>
@@ -32,7 +32,7 @@ const { locale: currentLocale } = useLocaleCurrent()
           background-color="vue-green/200"
           color="white"
         >
-          {{ $t('namecard.createNamecard') }}
+          {{ endedCreateNamecard ? $t('namecard.confirmNamecard') : $t('namecard.createNamecard') }}
         </VFLinkButton>
         <VFLinkButton
           class="action-button"
