@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { AdminUser } from '@vuejs-jp/model'
 
-interface SponsorListProps {
+interface AdminUserListProps {
   adminUsers: AdminUser[]
 }
 
-const props = defineProps<SponsorListProps>()
+const props = defineProps<AdminUserListProps>()
 </script>
 
 <template>
