@@ -21,7 +21,7 @@ export function useSession() {
 
     return match(track)
       .with('medpeer', () => 'メドピアトラック')
-      .with('mntsq', () => 'MNTSQ全ての合意をフェアにするぞトラック')
+      .with('mntsq', () => 'MNTSQが全ての合意をフェアにするぞトラック')
       .with('kickflow', () => 'kickflowトラック')
       .with('vue', () => 'Vueトラック')
       .exhaustive()
