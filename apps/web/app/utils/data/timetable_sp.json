@@ -25,8 +25,10 @@
         "noDisplayTime": true
       },
       {
-        "title": "サテライト",
-        "title_en": "Satellite",
+        "subTitle": "サテライト",
+        "subTitle_en": "Satellite",
+        "description": "メドピアトラックで行われるプログラムの映像と音声が同時中継されます。サテライトではキーノートは英語のみとなります。",
+        "description_en": "The video and audio of the program held at the MedPeer truck will be broadcast live. At the satellite venue, the keynote will be in English only.",
         "track": "mntsq"
       }
     ]
@@ -42,8 +44,10 @@
         "noDisplayTime": true
       },
       {
-        "title": "サテライト",
-        "title_en": "Satellite",
+        "subTitle": "サテライト",
+        "subTitle_en": "Satellite",
+        "description": "メドピアトラックで行われるプログラムの映像と音声が同時中継されます。サテライトではキーノートは英語のみとなります。",
+        "description_en": "The video and audio of the program held at the MedPeer truck will be broadcast live. At the satellite venue, the keynote will be in English only.",
         "track": "mntsq"
       }
     ]
@@ -54,13 +58,19 @@
       {
         "subTitle": "プラチナスポンサー\nセッション",
         "subTitle_en": "Platinum Sponsor Session",
-        "sessions": [],
+        "sessions": [
+          { "id": "74fa37c4-73ce-4657-96b9-6ea0c168f52f" },
+          { "id": "7c240d6f-046d-4227-9960-2a77f6b03d5a" },
+          { "id": "7ed3097b-a3fd-4dac-9126-903518c5cb0e" }
+        ],
         "track": "medpeer",
         "isSponsor": true
       },
       {
-        "title": "サテライト",
-        "title_en": "Satellite",
+        "subTitle": "サテライト",
+        "subTitle_en": "Satellite",
+        "description": "メドピアトラックで行われるプログラムの映像と音声が同時中継されます。サテライトではキーノートは英語のみとなります。",
+        "description_en": "The video and audio of the program held at the MedPeer truck will be broadcast live. At the satellite venue, the keynote will be in English only.",
         "track": "mntsq"
       }
     ]
@@ -76,7 +86,7 @@
       {
         "subTitle": "スペシャル\nランチセッション",
         "subTitle_en": "Special Lunch Session",
-        "sessions": [],
+        "sessions": [{ "id": "6b2f871f-e4ef-44c6-a409-9acb52843edf" }],
         "track": "medpeer"
       },
       {
@@ -88,7 +98,7 @@
       {
         "subTitle": "ランチセッション",
         "subTitle_en": "Lunch Session",
-        "sessions": [],
+        "sessions": [{ "id": "0546afde-7a50-4c5f-80ec-faec2eee7211" }],
         "track": "kickflow"
       }
     ]

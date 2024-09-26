@@ -61,6 +61,9 @@ const { range } = useRange()
         >
           {{ currentLocale === 'en' ? row.subTitle_en : row.subTitle }}
         </component>
+        <p v-if="row.description" class="description">
+          {{ currentLocale === 'en' ? row.description_en : row.description }}
+        </p>
       </div>
       <div
         v-for="session in row.sessions"
@@ -143,6 +146,12 @@ const { range } = useRange()
   line-height: 1.5;
   color: var(--color-vue-blue);
   text-decoration: none;
+}
+.description {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-vue-blue);
 }
 ._link:hover {
   opacity: 0.6;
