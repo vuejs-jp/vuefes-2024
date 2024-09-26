@@ -12,6 +12,8 @@ export type Row = {
   title_en?: string
   subTitle?: string
   subTitle_en?: string
+  description?: string
+  description_en?: string
   colspan: number
   rowspan: number
   sessions?: Speaker[]
