@@ -2,13 +2,15 @@
 type AvatarProps = {
   src: string
   alt: string
+  loading?: 'lazy' | 'eager'
 }
-
-defineProps<AvatarProps>()
+withDefaults(defineProps<AvatarProps>(), {
+  loading: 'lazy',
+})
 </script>
 
 <template>
-  <img :src="src" :alt="alt" />
+  <img :src="src" :alt="alt" :loading="loading" />
 </template>
 
 <style scoped>

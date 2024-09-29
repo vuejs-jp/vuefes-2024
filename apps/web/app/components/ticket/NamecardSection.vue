@@ -24,7 +24,7 @@ const { locale: currentLocale } = useLocaleCurrent()
     </div>
 
     <div class="content-wrapper">
-      <img :src="'/namecard/namecard-samples.png'" alt="test" />
+      <img :src="'/namecard/namecard-samples.png'" alt="test" loading="lazy" />
       <div class="buttons-wrapper">
         <VFLinkButton
           class="action-button"

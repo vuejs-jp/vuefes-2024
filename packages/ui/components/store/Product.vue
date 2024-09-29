@@ -15,6 +15,7 @@ const props = defineProps<StoreItemProps>()
         :alt
         :src
         decoding="async"
+        loading="lazy"
       />
     </a>
     <div class="name">{{ name }}</div>

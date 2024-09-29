@@ -11,16 +11,24 @@ type SpeakerProps = {
   githubId?: string
   xId?: string
   rowPosition?: boolean
+  loading?: 'lazy' | 'eager'
 }
 
-defineProps<SpeakerProps>()
+withDefaults(defineProps<SpeakerProps>(), {
+  company: '',
+  division: '',
+  githubId: '',
+  xId: '',
+  rowPosition: false,
+  loading: 'lazy',
+})
 
 const { color } = useColor()
 </script>
 
 <template>
   <div class="speaker-wrapper" :style="rowPosition ? '' : 'flex-direction: column;'">
-    <Avatar :src="image" :alt="name" />
+    <Avatar :src="image" :alt="name" :loading="loading" />
     <div class="speaker-info">
       <div class="speaker-affiliation">
         <p

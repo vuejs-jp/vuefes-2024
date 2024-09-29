@@ -16,7 +16,13 @@ const props = defineProps<EventMultipleAssetsProps>()
       '--head-img-height': `${imgHeight}px`,
     }"
   >
-    <img v-for="(title, key) in titleList" :key :src="`/event/${title}-${key + 1}.png`" alt="" />
+    <img
+      v-for="(title, key) in titleList"
+      :key
+      :src="`/event/${title}-${key + 1}.png`"
+      alt=""
+      loading="lazy"
+    />
   </div>
 </template>
 

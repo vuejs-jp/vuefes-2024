@@ -10,7 +10,13 @@ const props = defineProps<EventAssetProps>()
 </script>
 
 <template>
-  <img :src="`/event/${title}.png`" alt="" class="eventcard-image" :style="{ marginTop: `${marginTop}px` }" />
+  <img
+    :src="`/event/${title}.png`"
+    alt=""
+    class="eventcard-image"
+    :style="{ marginTop: `${marginTop}px` }"
+    loading="lazy"
+  />
 </template>
 
 <style scoped>
