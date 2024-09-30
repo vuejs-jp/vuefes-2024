@@ -54,7 +54,7 @@ const volunteerTeam =
             </div>
           </template>
           <template v-else>
-            <VFAvatar :src="member.image_url" :alt="member.name" />
+            <VFAvatar :src="member.image_url" :alt="member.name" size="medium" />
             <div class="team-member-info">
               <span class="team-member-name">{{ member.name }} </span>
             </div>

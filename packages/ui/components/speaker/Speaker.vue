@@ -28,7 +28,7 @@ const { color } = useColor()
 
 <template>
   <div class="speaker-wrapper" :style="rowPosition ? '' : 'flex-direction: column;'">
-    <Avatar :src="image" :alt="name" :loading="loading" />
+    <Avatar :src="image" :alt="name" :loading="loading" :size="rowPosition ? 'small' : 'large'" />
     <div class="speaker-info">
       <div class="speaker-affiliation">
         <p
