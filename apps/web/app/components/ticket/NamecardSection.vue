@@ -27,7 +27,9 @@ const { locale: currentLocale } = useLocaleCurrent()
       <NuxtImg
         :src="'/namecard/namecard-samples.png'"
         alt="test"
-        placeholder
+        width="auto"
+        height="auto"
+        fit="cover"
         preload
         loading="lazy"
       />

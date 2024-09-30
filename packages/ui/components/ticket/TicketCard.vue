@@ -19,9 +19,7 @@ const props = withDefaults(defineProps<TicketCardProps>(), {
       width="928"
       height="520"
       fit="cover"
-      placeholder
       preload
-      loading="lazy"
     />
     <div class="ticket-title">
       <template v-if="!isClose">{{ props.title }}</template>

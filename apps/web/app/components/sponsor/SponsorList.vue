@@ -22,7 +22,16 @@ const currentLocale = useLocaleCurrent().locale
           class="sponsor-list-item-link"
           :to="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}sponsors/${item['detail_page_id']}`"
         >
-          <img class="sponsor-list-item-image" :src="item['image_url']" :alt="item.name" loading="lazy" />
+          <NuxtImg
+            class="sponsor-list-item-image"
+            :src="item['image_url']"
+            :alt="item.name"
+            width="500"
+            height="300"
+            placeholder
+            preload
+            loading="lazy"
+          />
         </NuxtLink>
       </li>
     </ul>
