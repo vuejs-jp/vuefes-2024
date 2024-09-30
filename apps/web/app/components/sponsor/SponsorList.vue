@@ -26,9 +26,6 @@ const currentLocale = useLocaleCurrent().locale
             class="sponsor-list-item-image"
             :src="item['image_url']"
             :alt="item.name"
-            width="500"
-            height="300"
-            placeholder
             preload
             loading="lazy"
           />
