@@ -9,13 +9,15 @@ const props = defineProps<StoreItemProps>()
 <template>
   <div class="store-item">
     <a :href="url" target="_blank">
-      <img
-        width="308"
-        height="308"
+      <NuxtImg
         :alt
         :src
-        decoding="async"
+        width="616"
+        height="616"
+        fit="cover"
+        preload
         loading="lazy"
+        class="image"
       />
     </a>
     <div class="name">{{ name }}</div>
@@ -39,7 +41,7 @@ const props = defineProps<StoreItemProps>()
 }
 
 .store-item img {
-  border: 1px solid #DCE1E5;
+  border: 1px solid #dce1e5;
   border-radius: 8px;
 }
 
@@ -48,6 +50,11 @@ const props = defineProps<StoreItemProps>()
   font-size: 18px;
   font-weight: bold;
   line-height: 1;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
 }
 
 .explain {
@@ -61,7 +68,7 @@ const props = defineProps<StoreItemProps>()
 
   &::v-deep(a:hover) {
     opacity: 0.4;
-    transition: .2s;
+    transition: 0.2s;
   }
 
   &::v-deep(p) {
