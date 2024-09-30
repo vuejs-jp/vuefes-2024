@@ -45,14 +45,10 @@ const props = defineProps<EventMultipleAssetsProps>()
   }
 }
 
-.eventcard-images ::v-deep(img) {
+.image {
+  height: var(--head-img-height);
+  width: auto;
   padding: 0;
   margin: 0 auto;
-  height: var(--head-img-height);
-}
-
-.image {
-  width: auto;
-  height: 100%;
 }
 </style>
