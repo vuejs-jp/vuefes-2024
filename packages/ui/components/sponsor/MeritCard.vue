@@ -41,7 +41,8 @@ const props = defineProps<MeritProps>()
 }
 
 .image {
-  text-align: center;
+  width: 100%;
+  height: auto;
 }
 
 .merit-item {
@@ -80,11 +81,13 @@ const props = defineProps<MeritProps>()
   .merit-card {
     width: 343px;
     height: 228px;
+    padding-bottom: 0;
   }
 
   .image {
     margin: 0 auto;
-    width: 343px;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
   }
