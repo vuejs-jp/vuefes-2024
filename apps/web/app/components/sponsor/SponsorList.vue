@@ -26,7 +26,6 @@ const currentLocale = useLocaleCurrent().locale
             class="sponsor-list-item-image"
             :src="item['image_url']"
             :alt="item.name"
-            preload
             loading="lazy"
           />
         </NuxtLink>

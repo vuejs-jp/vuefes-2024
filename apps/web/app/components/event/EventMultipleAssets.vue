@@ -24,7 +24,6 @@ const props = defineProps<EventMultipleAssetsProps>()
       width="792"
       height="512"
       fit="cover"
-      preload
       loading="lazy"
       class="image"
     />

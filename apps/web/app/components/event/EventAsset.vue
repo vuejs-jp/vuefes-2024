@@ -21,7 +21,6 @@ const props = defineProps<EventAssetProps>()
     width="920"
     height="444"
     fit="cover"
-    preload
     loading="lazy"
   />
 </template>

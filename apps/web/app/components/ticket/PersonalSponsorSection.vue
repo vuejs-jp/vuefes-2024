@@ -16,7 +16,7 @@ import { ticketUrl } from '~/utils/constants'
         :detail="$t(`personal_sponsor.merit${i}.detail`)"
         :caution="i === 2 || i === 4 ? $t(`personal_sponsor.merit${i}.caution`) : ''"
       >
-        <NuxtImg alt="" :src="`/sponsor/merit-${i}.jpg`" preload loading="lazy" />
+        <NuxtImg alt="" :src="`/sponsor/merit-${i}.jpg`" loading="lazy" />
       </VFMeritCard>
     </div>
     <div class="personal-sponsor-text">

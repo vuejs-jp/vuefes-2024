@@ -30,7 +30,6 @@ const { locale: currentLocale } = useLocaleCurrent()
         width="auto"
         height="auto"
         fit="cover"
-        preload
         loading="lazy"
       />
       <div class="buttons-wrapper">

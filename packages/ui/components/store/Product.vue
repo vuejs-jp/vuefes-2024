@@ -9,16 +9,7 @@ const props = defineProps<StoreItemProps>()
 <template>
   <div class="store-item">
     <a :href="url" target="_blank">
-      <NuxtImg
-        :alt
-        :src
-        width="616"
-        height="616"
-        fit="cover"
-        preload
-        loading="lazy"
-        class="image"
-      />
+      <NuxtImg :alt :src width="616" height="616" fit="cover" loading="lazy" class="image" />
     </a>
     <div class="name">{{ name }}</div>
     <div class="price">{{ price }}</div>

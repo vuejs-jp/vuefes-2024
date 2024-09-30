@@ -24,7 +24,6 @@ const size = computed(() => {
     :alt="alt"
     :loading="loading"
     placeholder
-    preload
     :width="size"
     :height="size"
     fit="cover"
