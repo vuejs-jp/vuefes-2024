@@ -12,10 +12,22 @@ const props = withDefaults(defineProps<TicketCardProps>(), {
 
 <template>
   <div class="ticket-card">
-    <img class="ticket-img" :src="props.imgSrc" :alt="props.imgAlt" loading="lazy" />
+    <NuxtImg
+      class="ticket-img"
+      :src="props.imgSrc"
+      :alt="props.imgAlt"
+      width="928"
+      height="520"
+      fit="cover"
+      placeholder
+      preload
+      loading="lazy"
+    />
     <div class="ticket-title">
       <template v-if="!isClose">{{ props.title }}</template>
-      <template v-else><s>{{ props.title }}</s></template>
+      <template v-else
+        ><s>{{ props.title }}</s></template
+      >
     </div>
     <div class="ticket-content">
       <slot />

@@ -16,12 +16,17 @@ const props = defineProps<EventMultipleAssetsProps>()
       '--head-img-height': `${imgHeight}px`,
     }"
   >
-    <img
+    <NuxtImg
       v-for="(title, key) in titleList"
       :key
       :src="`/event/${title}-${key + 1}.png`"
       alt=""
+      width="792"
+      height="512"
+      fit="cover"
+      preload
       loading="lazy"
+      class="image"
     />
   </div>
 </template>
@@ -44,5 +49,10 @@ const props = defineProps<EventMultipleAssetsProps>()
   padding: 0;
   margin: 0 auto;
   height: var(--head-img-height);
+}
+
+.image {
+  width: auto;
+  height: 100%;
 }
 </style>

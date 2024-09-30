@@ -14,9 +14,9 @@ import { ticketUrl } from '~/utils/constants'
         :key="i"
         :title="$t(`personal_sponsor.merit${i}.title`)"
         :detail="$t(`personal_sponsor.merit${i}.detail`)"
-        :caution="(i === 2 || i === 4) ? $t(`personal_sponsor.merit${i}.caution`) : ''"
+        :caution="i === 2 || i === 4 ? $t(`personal_sponsor.merit${i}.caution`) : ''"
       >
-        <img alt="" :src="`/sponsor/merit-${i}.jpg`" loading="lazy" />
+        <NuxtImg alt="" :src="`/sponsor/merit-${i}.jpg`" preload loading="lazy" />
       </VFMeritCard>
     </div>
     <div class="personal-sponsor-text">
@@ -109,7 +109,8 @@ import { ticketUrl } from '~/utils/constants'
 
 @media (--tablet) {
   .personal-sponsor-body {
-    --personal-sponsor-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2) calc(var(--unit) * 4);
+    --personal-sponsor-body-padding: calc(var(--unit) * 4) calc(var(--unit) * 2)
+      calc(var(--unit) * 4);
   }
 
   .personal-sponsor-body h3 {

@@ -2,7 +2,10 @@
 import type { Event } from '@vuejs-jp/model'
 
 interface EventAssetProps {
-  title: Extract<Event, 'creative-wall' | 'free-drinks-and-snacks' | 'tattoo-space' | 'cocktail-bash'>
+  title: Extract<
+    Event,
+    'creative-wall' | 'free-drinks-and-snacks' | 'tattoo-space' | 'cocktail-bash'
+  >
   marginTop?: number
 }
 
@@ -10,11 +13,15 @@ const props = defineProps<EventAssetProps>()
 </script>
 
 <template>
-  <img
+  <NuxtImg
     :src="`/event/${title}.png`"
     alt=""
     class="eventcard-image"
     :style="{ marginTop: `${marginTop}px` }"
+    width="920"
+    height="444"
+    fit="cover"
+    preload
     loading="lazy"
   />
 </template>

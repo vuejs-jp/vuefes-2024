@@ -10,7 +10,7 @@ withDefaults(defineProps<AvatarProps>(), {
 </script>
 
 <template>
-  <img :src="src" :alt="alt" :loading="loading" />
+  <NuxtImg :src="src" :alt="alt" :loading="loading" placeholder preload />
 </template>
 
 <style scoped>
