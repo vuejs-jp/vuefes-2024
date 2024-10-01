@@ -92,13 +92,16 @@
       {
         "subTitle": "スペシャル\nランチセッション",
         "subTitle_en": "Special Lunch Session",
-        "sessions": [],
+        "sessions": [{ "id": "a046531e-59ca-4561-95dc-2b66d153c7a9" }],
         "track": "mntsq"
       },
       {
         "subTitle": "ランチセッション",
         "subTitle_en": "Lunch Session",
-        "sessions": [{ "id": "0546afde-7a50-4c5f-80ec-faec2eee7211" }],
+        "sessions": [
+          { "id": "ace6de56-d069-48a5-b362-c2d02937ffb5" },
+          { "id": "0546afde-7a50-4c5f-80ec-faec2eee7211" }
+        ],
         "track": "kickflow"
       }
     ]
