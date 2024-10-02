@@ -18,9 +18,6 @@ const props = defineProps<EventAssetProps>()
     alt=""
     class="eventcard-image"
     :style="{ marginTop: `${marginTop}px` }"
-    width="920"
-    height="444"
-    fit="cover"
     loading="lazy"
   />
 </template>

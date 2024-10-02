@@ -16,7 +16,7 @@ import { ticketUrl } from '~/utils/constants'
         :detail="$t(`personal_sponsor.merit${i}.detail`)"
         :caution="i === 2 || i === 4 ? $t(`personal_sponsor.merit${i}.caution`) : ''"
       >
-        <NuxtImg alt="" :src="`/sponsor/merit-${i}.jpg`" loading="lazy" />
+        <NuxtImg alt="" :src="`/sponsor/merit-${i}.jpg`" loading="lazy" class="image" />
       </VFMeritCard>
     </div>
     <div class="personal-sponsor-text">
@@ -87,6 +87,12 @@ import { ticketUrl } from '~/utils/constants'
   flex-direction: column;
   gap: calc(var(--unit) * 4);
   color: var(--color-white);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .apply {
