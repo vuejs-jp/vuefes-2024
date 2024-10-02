@@ -86,7 +86,7 @@ const getAnchorPath = computed(
   position: relative;
   width: 100%;
   height: var(--background-image-height);
-  background-image: url('/main-visual.png');
+  background-image: url('/main-visual.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -151,7 +151,7 @@ const getAnchorPath = computed(
   }
   .image-wrapper {
     background-size: auto 100%;
-    background-image: url('/main-visual-tablet.png');
+    background-image: url('/main-visual-mobile.jpg');
   }
   .section-title {
     font-size: var(--font-size-heading500);
@@ -181,9 +181,6 @@ const getAnchorPath = computed(
 }
 
 @media (--mobile) {
-  .image-wrapper {
-    background-image: url('/main-visual-mobile.png');
-  }
   .day-of-week {
     font-size: var(--font-size-body100);
   }
