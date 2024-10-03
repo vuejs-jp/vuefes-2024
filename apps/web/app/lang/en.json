@@ -281,5 +281,10 @@
   },
   "sharemap": {
     "title": "Share URL"
+  },
+  "related_events": {
+    "title": "Related Events",
+    "register": "Register for the event",
+    "close": "The event has ended"
   }
 }

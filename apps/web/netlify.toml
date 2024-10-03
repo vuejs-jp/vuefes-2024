@@ -14,6 +14,11 @@
   status = 200
 
 [[redirects]]
+  from = "/2024/events"
+  to = "/2024/events/index.html"
+  status = 200
+
+[[redirects]]
   from = "/2024/jobboard"
   to = "/2024/jobboard/index.html"
   status = 200

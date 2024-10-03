@@ -299,5 +299,10 @@
   },
   "sharemap": {
     "title": "シェアURL"
+  },
+  "related_events": {
+    "title": "関連イベント",
+    "register": "イベントに参加する",
+    "close": "イベントは終了しました"
   }
 }

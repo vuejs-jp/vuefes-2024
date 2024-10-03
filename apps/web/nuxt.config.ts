@@ -162,6 +162,7 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
+    '/events/': { prerender: true },
     '/jobboard/': { prerender: true },
     '/namecard/': { prerender: true },
     '/sharemap/': { prerender: true },

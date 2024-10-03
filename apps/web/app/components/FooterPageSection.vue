@@ -38,6 +38,10 @@ const snsLinkList: LinkList[] = [
 ]
 const internalLinkList: LinkList[] = [
   {
+    href: '/events',
+    text: 'related_events.title',
+  },
+  {
     href: '/privacy',
     text: 'privacy.title',
   },
