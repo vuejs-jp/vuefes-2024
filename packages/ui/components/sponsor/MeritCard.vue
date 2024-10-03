@@ -11,7 +11,9 @@ const props = defineProps<MeritProps>()
 <template>
   <div class="merit">
     <div class="merit-card">
-      <slot />
+      <div class="image">
+        <slot />
+      </div>
     </div>
     <div class="merit-item">
       <h4 class="merit-title">{{ title }}</h4>
@@ -29,9 +31,17 @@ const props = defineProps<MeritProps>()
 }
 
 .merit-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding-bottom: calc(var(--unit) * 1);
   width: 224px;
   height: 126px;
-  object-fit: cover;
+  background: var(--color-white);
+}
+
+.image {
+  text-align: center;
 }
 
 .merit-item {
@@ -68,9 +78,15 @@ const props = defineProps<MeritProps>()
   }
 
   .merit-card {
-    width: 100%;
-    height: auto;
-    max-width: 232px;
+    width: 343px;
+    height: 228px;
+  }
+
+  .image {
+    margin: 0 auto;
+    width: 343px;
+    display: flex;
+    justify-content: center;
   }
 
   .merit-item ::v-deep(h4) {

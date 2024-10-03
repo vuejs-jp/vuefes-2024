@@ -16,17 +16,7 @@ const props = defineProps<EventMultipleAssetsProps>()
       '--head-img-height': `${imgHeight}px`,
     }"
   >
-    <NuxtImg
-      v-for="(title, key) in titleList"
-      :key
-      :src="`/event/${title}-${key + 1}.png`"
-      alt=""
-      width="792"
-      height="512"
-      fit="cover"
-      loading="lazy"
-      class="image"
-    />
+    <img v-for="(title, key) in titleList" :key :src="`/event/${title}-${key + 1}.png`" alt="" />
   </div>
 </template>
 
@@ -44,10 +34,9 @@ const props = defineProps<EventMultipleAssetsProps>()
   }
 }
 
-.image {
-  height: var(--head-img-height);
-  width: auto;
+.eventcard-images ::v-deep(img) {
   padding: 0;
   margin: 0 auto;
+  height: var(--head-img-height);
 }
 </style>

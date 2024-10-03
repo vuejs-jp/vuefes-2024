@@ -63,8 +63,8 @@ const { color } = useColor()
       </div>
 
       <figure class="place_image">
-        <img src="/access/fig_access01.jpg" alt="" loading="lazy" />
-        <img src="/access/fig_access02.jpg" alt="" loading="lazy" />
+        <img src="/access/fig_access01.jpg" alt="" />
+        <img src="/access/fig_access02.jpg" alt="" />
       </figure>
 
     </div>

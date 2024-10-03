@@ -73,7 +73,6 @@ useHead({
           :name="currentLocale === 'en' ? speakerData[0].name_en : speakerData[0].name_ja"
           :github-id="speakerData[0].github_id"
           :x-id="speakerData[0].x_id"
-          loading="eager"
         />
         <div class="person-info">
           {{ currentLocale === 'ja' ? speakerData[0].description_ja : speakerData[0].description_en }}

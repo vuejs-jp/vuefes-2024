@@ -11,12 +11,10 @@ const props = defineProps<{
 
 const config = useRuntimeConfig()
 
-const coreTeam =
-  config.public.staffDatasource === 'supabase' ? props.data.coreStaffs.list : teamData
-const volunteerTeam =
-  config.public.staffDatasource === 'supabase'
-    ? props.data.volunteerStaffs.list.map((staff) => staff.name)
-    : volunteers
+const coreTeam = config.public.staffDatasource === 'supabase' ? props.data.coreStaffs.list : teamData
+const volunteerTeam = config.public.staffDatasource === 'supabase'
+  ? props.data.volunteerStaffs.list.map((staff) => staff.name)
+  : volunteers
 // const team = teamData
 </script>
 
@@ -34,13 +32,8 @@ const volunteerTeam =
       <div class="team-members-container">
         <div v-for="member in coreTeam" :key="member.name" class="team-member-wrapper">
           <template v-if="member.x_id !== ''">
-            <a
-              :href="`https://x.com/${member.x_id}`"
-              target="_blank"
-              :aria-label="member.name"
-              class="team-member-link"
-            >
-              <VFAvatar :src="member.image_url" :alt="member.name" size="medium" />
+            <a :href="`https://x.com/${member.x_id}`" target="_blank" :aria-label="member.name">
+              <VFAvatar :src="member.image_url" :alt="member.name" />
             </a>
             <div class="team-member-info">
               <VFTextLink
@@ -54,7 +47,7 @@ const volunteerTeam =
             </div>
           </template>
           <template v-else>
-            <VFAvatar :src="member.image_url" :alt="member.name" size="medium" />
+            <VFAvatar :src="member.image_url" :alt="member.name" />
             <div class="team-member-info">
               <span class="team-member-name">{{ member.name }} </span>
             </div>
@@ -158,10 +151,6 @@ const volunteerTeam =
   justify-content: center;
   align-items: center;
   gap: 8px;
-}
-
-.team-member-link {
-  width: 100%;
 }
 
 .team-member-name {
