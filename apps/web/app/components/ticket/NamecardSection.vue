@@ -24,7 +24,12 @@ const { locale: currentLocale } = useLocaleCurrent()
     </div>
 
     <div class="content-wrapper">
-      <img :src="'/namecard/namecard-samples.png'" alt="test" />
+      <NuxtImg
+        :src="'/namecard/namecard-samples.png'"
+        alt="test"
+        width="596"
+        loading="lazy"
+      />
       <div class="buttons-wrapper">
         <VFLinkButton
           class="action-button"

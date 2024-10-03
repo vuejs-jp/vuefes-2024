@@ -21,7 +21,8 @@ const getAnchorPath = computed(
         <p class="place">
           Otemachi PLACE HALL &amp; CONFERENCE
           <br /><time datetime="2024-10-19T00:00+09:00"
-            >{{ $t('top_page.date') }}<template v-if="locale === 'ja'"><span class="day-of-week">SAT</span></template></time
+            >{{ $t('top_page.date')
+            }}<template v-if="locale === 'ja'"><span class="day-of-week">SAT</span></template></time
           >
         </p>
       </div>
@@ -80,11 +81,12 @@ const getAnchorPath = computed(
   z-index: -1;
   width: 100%;
 }
+
 .image-wrapper {
   position: relative;
   width: 100%;
   height: var(--background-image-height);
-  background-image: url('/main-visual.png');
+  background-image: url('/main-visual.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -149,8 +151,8 @@ const getAnchorPath = computed(
   }
   .image-wrapper {
     background-size: auto 100%;
+    background-image: url('/main-visual-mobile.jpg');
   }
-
   .section-title {
     font-size: var(--font-size-heading500);
     font-weight: 700;

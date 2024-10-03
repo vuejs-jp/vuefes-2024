@@ -27,26 +27,23 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: [
-    '@vuejs-jp/vuefes-ui',
-    [
-      '@nuxtjs/device',
-      {
-        device: {
-          refreshOnResize: true,
-        },
+  modules: ['@vuejs-jp/vuefes-ui', [
+    '@nuxtjs/device',
+    {
+      device: {
+        refreshOnResize: true,
       },
-    ],
-    '@nuxtjs/i18n',
-    '@nuxtjs/supabase',
-    '@nuxt/content',
-    '@pinia/nuxt',
-    'nuxt-gtag',
-  ],
+    },
+  ], '@nuxtjs/i18n', '@nuxtjs/supabase', '@nuxt/content', '@pinia/nuxt', 'nuxt-gtag', '@nuxt/image'],
   // .env の NUXT_PUBLIC_SITE_URL を設定したので、一旦コメントアウトする
   // site: {
   //   url: 'https://vuefes.jp/2024/',
   // },
+  image: {
+    domains: ['jjdlwtezpdclgxxagxpj.supabase.co'],
+    quality: 80,
+    format: ['avif', 'webp']
+  },
   i18n: {
     legacy: false,
     strategy: 'prefix_except_default',

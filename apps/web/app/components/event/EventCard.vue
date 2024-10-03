@@ -17,6 +17,7 @@ const props = defineProps<EventCardProps>()
     :title="$t(`event.${title.replaceAll('-', '_')}`)"
     :font-class
     :padding-class
+    class="frame"
   >
     <template #content>
       <div class="eventcard-content">
@@ -33,6 +34,13 @@ const props = defineProps<EventCardProps>()
 
 <style scoped>
 @import url('~/assets/media.css');
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: space-between;
+}
 
 .eventcard-content {
   font-size: 16px;

@@ -10,9 +10,9 @@
           <source srcset="/logo/logo_vueconf-de.png" media="(min-width: 768px)" />
           <img
             src="/logo/logo_vueconf-de_sp.png"
-            loading="lazy"
             alt="vuejs.de"
             class="partner-image"
+            loading="lazy"
           />
         </picture>
       </NuxtLink>
