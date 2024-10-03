@@ -24,6 +24,8 @@ export const ogNamecardDescription = 'さんのネームカードです。'
 
 export const ogJobboardDescription = 'Vue Fes Japan 2024 のジョブボードです。'
 
+export const ogRelatedEventDescription = 'Vue Fes Japan 2024 の関連イベントです。'
+
 export const linkUrl = 'https://vuefes.jp/2024/'
 
 export const vuefesTwitterID = '@vuefes'

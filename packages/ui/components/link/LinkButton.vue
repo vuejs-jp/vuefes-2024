@@ -33,6 +33,15 @@ const hoverOut = () => {
   hover.value = false
 }
 const style = computed(() => {
+  if (props.is === 'a' && props.disabled) {
+    return {
+      color: '#35495e',
+      pointerEvents: 'none',
+      opacity: 0.6,
+      boxShadow: 'none',
+      backgroundColor: '#C9DAEA',
+    }
+  }
   if (hover.value) {
     return {
       fontWeight: fontWeight('heading/200'),
@@ -67,7 +76,7 @@ const iconColor = computed(() => {
     :is="is ?? 'a'"
     :href
     :target
-    :disabled
+    :disabled="is === 'button' ? props.disabled : undefined"
     :style
     class="link-button"
     @mouseover="hoverIn"

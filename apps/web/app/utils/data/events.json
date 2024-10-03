@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Vue Fes Japan × TSKaigi 合同イベント「次世代フロントエンドツールチェイン」",
+    "description": "Vue.js カンファレンス「Vue Fes Japan」と TypeScript カンファレンス「TSKaigi」が奇跡の合体！2024/10/19（土）開催予定の Vue Fes Japan 2024、2024/11/16（土）開催予定の TSKaigi Kansai 2024 に向けて、フロントエンド勢必見のイベントを緊急開催します！",
+    "startedAt": "2024/10/02",
+    "bannerUrl": "https://media.connpass.com/thumbs/f0/bb/f0bb7d40ab7393c91d6f3b9db5c0a1de.png",
+    "registerUrl": "https://vuejs-meetup.connpass.com/event/330325/"
+  },
+  {
+    "title": "Vue Fes Japan 2024 Pre LT Party",
+    "description": "まもなく開催される Vue Fes Japan 2024 に向け、Vue Fes Japan 2024 のゴールドスポンサーであるオプティムとeveryの共同開催で前夜祭（非公式）を開催します！Vue を中心に知識と交流の輪を広げましょう。",
+    "startedAt": "2024/10/17",
+    "bannerUrl": "https://media.connpass.com/thumbs/2b/28/2b280631579ea12bfb32af0237a54cbf.png",
+    "registerUrl": "https://optim.connpass.com/event/330716/"
+  },
+  {
+    "title": "Vue Fes Japan 2024 After Night",
+    "description": "Vue Fes Japan 2024 のアフターイベントを、スポンサー企業 4 社 (株式会社スタディスト、弁護士ドットコム株式会社、株式会社コドモン、株式会社エブリー) で共同開催します。",
+    "startedAt": "2024/10/30",
+    "bannerUrl": "https://media.connpass.com/thumbs/52/f1/52f1267c106785d9fda25602c966b02a.png",
+    "registerUrl": "https://studist.connpass.com/event/327702/"
+  }
+]
