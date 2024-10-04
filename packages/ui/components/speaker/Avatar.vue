@@ -19,10 +19,11 @@ const size = computed(() => {
 </script>
 
 <template>
-  <img
+  <NuxtImg
     :src="src"
     :alt="alt"
     :loading="loading"
+    placeholder
     :width="size"
     :height="size"
     fit="cover"
