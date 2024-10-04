@@ -86,6 +86,13 @@ export const personalSponsors = [
   'keishuu@FW',
   'serialine',
   'Haruki Tetone',
+  'かみくず',
+  'cilly',
+  'おかめ',
+  '江崎伸英',
+  '顧郷@skillnote',
+  'ryo@hare-systems.net',
+  'bab',
 ]
 
 export const team: TeamData[] = [
