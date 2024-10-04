@@ -41,10 +41,6 @@ export default defineNuxtConfig({
   // },
   image: {
     domains: [process.env.NUXT_IMAGE_DOMAINS],
-    alias: {
-      unsplash: `https://${process.env.NUXT_IMAGE_DOMAINS}`,
-    },
-    provider: 'ipx',
     quality: 80,
     format: ['avif', 'webp']
   },
