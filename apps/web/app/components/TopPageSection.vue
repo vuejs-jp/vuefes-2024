@@ -35,9 +35,9 @@ const getAnchorPath = computed(
             class="link-button"
             background-color="vue-green/200"
             color="white"
-            :href="getAnchorPath('#ticket')"
+            :href="getAnchorPath('#timetable')"
             target="_top"
-            >{{ $t('ticket.title') }}</VFLinkButton
+            >{{ $t('time-table.title') }}</VFLinkButton
           >
           <VFLinkButton
             class="link-button"
@@ -51,10 +51,10 @@ const getAnchorPath = computed(
             class="link-button"
             background-color="vue-green/200"
             color="white"
-            :href="getAnchorPath('#store')"
+            :href="getAnchorPath('#access')"
             target="_top"
           >
-            {{ $t('store.title') }}
+            {{ $t('access.title') }}
           </VFLinkButton>
         </div>
       </div>
