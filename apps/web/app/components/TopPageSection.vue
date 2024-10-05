@@ -27,9 +27,11 @@ const getAnchorPath = computed(
         </p>
       </div>
       <div class="sns-link-wrapper">
+        <!--
         <h2 class="official-announcement">
           {{ $t('top_page.latest_information') }}
         </h2>
+        -->
         <div class="link-buttons">
           <VFLinkButton
             class="link-button"
