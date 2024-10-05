@@ -2,7 +2,7 @@
 import { useAsyncData } from '#imports'
 import { type AdminPage, type Role, selectableRoleList } from '@vuejs-jp/model'
 import { match } from 'ts-pattern'
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useCsv } from '@vuejs-jp/composable'
 import { useSupabase } from '~/composables/useSupabase'
 import { useSupabaseCsv } from '~/composables/useSupabaseCsv'
@@ -40,6 +40,16 @@ const props = defineProps<ListProps>()
 const showDialog = ref(false)
 const handleDialog = () => showDialog.value = !showDialog.value
 
+const count = computed(() => {
+  return match(props.page)
+    .with('speaker', () => speakers.value?.data?.length)
+    .with('sponsor', () => sponsors.value?.data?.length)
+    .with('job', () => jobs.value?.data?.length)
+    .with('adminUser', () => staffs.value?.data?.length)
+    .with('namecard', () => attendees.value?.data?.filter(attendee => attendee.activated_at !== null).length)
+    .exhaustive()
+})
+
 watch(
   () => selectedRole.value,
   () => refreshAttendee(),
@@ -66,7 +76,7 @@ const pageText = props.page.replace(/^[a-z]/g, function (val) {
 <template>
   <div class="tab-content">
     <div class="tab-content-header">
-      <h2>{{ pageText }}</h2>
+      <h2>{{ `${pageText} (${page === 'namecard' ? '照合完了計: ' : '計: '}${count}件)` }}</h2>
       <div>
         <VFLinkButton
           is="button"
