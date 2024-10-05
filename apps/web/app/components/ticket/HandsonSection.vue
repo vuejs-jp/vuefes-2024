@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ticketUrl } from '~/utils/constants'
+import { endedApplyHandson, ticketUrl } from '~/utils/constants'
 </script>
 
 <template>
@@ -14,6 +14,7 @@ import { ticketUrl } from '~/utils/constants'
         :href="ticketUrl"
         background-color="vue-green/200"
         color="white"
+        :disabled="endedApplyHandson"
       >
       {{ $t('ticket.purchaseButton') }}
     </VFLinkButton>
