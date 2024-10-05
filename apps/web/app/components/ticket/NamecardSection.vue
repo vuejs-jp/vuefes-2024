@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
-import { endedCreateNamecard, ticketUrl } from '~/utils/constants'
+import { endedApplyNormal, endedCreateNamecard, ticketUrl } from '~/utils/constants'
 
 const { locale: currentLocale } = useLocaleCurrent()
 </script>
@@ -44,6 +44,7 @@ const { locale: currentLocale } = useLocaleCurrent()
           :href="ticketUrl"
           background-color="vue-green/200"
           color="white"
+          :disabled="endedApplyNormal"
         >
           {{ $t('ticket.purchaseButton') }}
         </VFLinkButton>
