@@ -14,6 +14,13 @@
     "registerUrl": "https://optim.connpass.com/event/330716/"
   },
   {
+    "title": "Vue Fes Japan 2024 After Talk",
+    "description": "Vue Fes Japan 2024 スポンサー 3 社によるアフターイベントをヤプリオフィスで開催します！共催企業からは、登壇で話した内容や印象に残ったトークなど、様々なテーマのLTを行う予定です。",
+    "startedAt": "2024/10/29",
+    "bannerUrl": "https://media.connpass.com/thumbs/86/d8/86d8afb3882322150e7eea7e02dc562e.png",
+    "registerUrl": "https://yappli.connpass.com/event/330660/"
+  },
+  {
     "title": "Vue Fes Japan 2024 After Night",
     "description": "Vue Fes Japan 2024 のアフターイベントを、スポンサー企業 4 社 (株式会社スタディスト、弁護士ドットコム株式会社、株式会社コドモン、株式会社エブリー) で共同開催します。",
     "startedAt": "2024/10/30",
