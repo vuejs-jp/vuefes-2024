@@ -97,6 +97,7 @@ onMounted(() => {
 .og-card-avatar {
   display: grid;
   place-items: center;
+  z-index: 2;
 }
 
 .og-card-avatar-logo-wrapper {
