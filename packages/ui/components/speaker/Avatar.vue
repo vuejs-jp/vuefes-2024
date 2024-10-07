@@ -19,7 +19,14 @@ const size = computed(() => {
 </script>
 
 <template>
-  <NuxtImg :src="src" :alt="alt" :loading="loading" :width="size" :height="size" fit="cover" />
+  <img
+    :src="src"
+    :alt="alt"
+    :loading="loading"
+    :width="size"
+    :height="size"
+    fit="cover"
+  />
 </template>
 
 <style scoped>
