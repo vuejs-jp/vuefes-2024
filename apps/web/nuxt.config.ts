@@ -41,7 +41,7 @@ export default defineNuxtConfig({
   // },
   image: {
     domains: [process.env.NUXT_IMAGE_DOMAINS],
-    provider: 'ipx',
+    provider: 'netlify',
     quality: 80,
     format: ['avif', 'webp']
   },
