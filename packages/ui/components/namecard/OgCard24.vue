@@ -82,6 +82,7 @@ onMounted(() => {
   align-items: center;
   gap: 0.875rem;
   font-size: 1.25rem;
+  z-index: 2;
   img {
     height: 100%;
   }
