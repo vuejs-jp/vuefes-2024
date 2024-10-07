@@ -57,6 +57,3 @@
   from = "/2024/staff/invite"
   to = "/2024/200.html"
   status = 200
-
-[images]
-  remote_images = ["https://jjdlwtezpdclgxxagxpj.supabase.co/.*"]

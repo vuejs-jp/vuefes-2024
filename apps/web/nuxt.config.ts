@@ -40,8 +40,7 @@ export default defineNuxtConfig({
   //   url: 'https://vuefes.jp/2024/',
   // },
   image: {
-    domains: [process.env.NUXT_IMAGE_DOMAINS],
-    provider: 'netlify',
+    domains: ['jjdlwtezpdclgxxagxpj.supabase.co'],
     quality: 80,
     format: ['avif', 'webp']
   },
