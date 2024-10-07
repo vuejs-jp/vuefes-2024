@@ -65,7 +65,7 @@ onMounted(() => {
 
 .og-card-background {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   left: 0;
   top: 0;
   vertical-align: top;
@@ -153,7 +153,7 @@ onMounted(() => {
 
 .og-card-sponsor {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   right: 0;
   bottom: 1.25rem;
   width: 13.75rem;
