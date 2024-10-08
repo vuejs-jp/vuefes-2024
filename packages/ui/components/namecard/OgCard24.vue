@@ -65,7 +65,7 @@ onMounted(() => {
 
 .og-card-background {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   left: 0;
   top: 0;
   vertical-align: top;
@@ -82,6 +82,7 @@ onMounted(() => {
   align-items: center;
   gap: 0.875rem;
   font-size: 1.25rem;
+  z-index: 2;
   img {
     height: 100%;
   }
@@ -97,6 +98,7 @@ onMounted(() => {
 .og-card-avatar {
   display: grid;
   place-items: center;
+  z-index: 2;
 }
 
 .og-card-avatar-logo-wrapper {
@@ -153,7 +155,7 @@ onMounted(() => {
 
 .og-card-sponsor {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   right: 0;
   bottom: 1.25rem;
   width: 13.75rem;
