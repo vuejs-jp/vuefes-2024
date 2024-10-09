@@ -25,7 +25,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'x', link: 'https://twitter.com/vuejsfes' },
+      { icon: 'x', link: 'https://x.com/vuefes' },
       { icon: 'github', link: 'https://github.com/vuejs-jp/vuefes-2024' },
     ],
   },
