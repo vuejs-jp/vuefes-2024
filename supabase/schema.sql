@@ -206,6 +206,60 @@ create policy "Allow update for all attendees." on public.attendees for
 update
   using (true);
 
+create table if not exists public.masters (
+  id uuid not null primary key default uuid_generate_v4(),
+  name varchar(100) not null,
+  owner_name varchar(100) not null,
+  image_url varchar(500),
+  memo varchar(1000),
+  is_same_day_disposal bool not null,
+  is_open bool not null,
+  created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
+  updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
+);
+
+alter table
+  public.masters enable row level security;
+
+create policy "Allow select for all masters." on public.masters for
+select
+  using (true);
+
+create policy "Allow insert for all masters." on public.masters for
+insert
+  with check (true);
+
+create policy "Allow update for all masters." on public.masters for
+update
+  using (true);
+
+create table if not exists public.logs_status_master_sync (
+  id uuid not null primary key default uuid_generate_v4(),
+  master_id uuid not null references public.masters on delete cascade,
+  assigned_team_name varchar(100),
+  assignee_name uuid references public.staffs on delete cascade,
+  count int,
+  delivered_at timestamp with time zone,
+  deleted_at timestamp with time zone,
+  created_at timestamp with time zone default timezone('utc' :: text, now()) not null,
+  updated_at timestamp with time zone default timezone('utc' :: text, now()) not null
+);
+
+alter table
+  public.logs_status_master_sync enable row level security;
+
+create policy "Allow select for all logs_status_master_sync." on public.logs_status_master_sync for
+select
+  using (true);
+
+create policy "Allow insert for all logs_status_master_sync." on public.logs_status_master_sync for
+insert
+  with check (true);
+
+create policy "Allow update for all logs_status_master_sync." on public.logs_status_master_sync for
+update
+  using (true);
+
 -- *** Function definitions ***
 create
 or replace function public.create_admin_user() returns trigger as $ $ begin -- If user_role is 'admin', insert data into admin_users table
