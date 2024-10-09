@@ -10,7 +10,25 @@ export default defineConfig({
       { text: 'Top', link: '/' },
       { text: 'CSS', link: '/css/getting-started' },
       { text: 'Peatix', link: '/peatix/csv-usage' },
-      { text: 'Supabase', link: '/supabase/getting-started' },
+      {
+        text: 'Supabase',
+        items: [
+          {
+            text: 'Getting Started',
+            link: '/supabase/getting-started',
+          },
+          {
+            text: 'Database',
+            items: [
+              { text: 'Speaker, Paneler', link: '/supabase/db/speaker' },
+              { text: 'Sponsor', link: '/supabase/db/sponsor' },
+              { text: 'Job for jobboard', link: '/supabase/db/job' },
+              { text: 'Attendee for namecard', link: '/supabase/db/attendee' },
+              { text: 'Staff (Core, Volunteer)', link: '/supabase/db/staff' },
+            ],
+          },
+        ],
+      },
     ],
 
     sidebar: [
@@ -19,7 +37,25 @@ export default defineConfig({
         items: [
           { text: 'CSS', link: '/css/getting-started' },
           { text: 'Peatix', link: '/peatix/csv-usage' },
-          { text: 'Supabase', link: '/supabase/getting-started' },
+          {
+            text: 'Supabase',
+            items: [
+              {
+                text: 'Getting Started',
+                link: '/supabase/getting-started',
+              },
+              {
+                text: 'Database',
+                items: [
+                  { text: 'Speaker, Paneler', link: '/supabase/db/speaker' },
+                  { text: 'Sponsor', link: '/supabase/db/sponsor' },
+                  { text: 'Job for jobboard', link: '/supabase/db/job' },
+                  { text: 'Attendee for namecard', link: '/supabase/db/attendee' },
+                  { text: 'Staff (Core, Volunteer)', link: '/supabase/db/staff' },
+                ],
+              },
+            ],
+          },
         ],
       },
     ],
