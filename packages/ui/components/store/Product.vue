@@ -8,9 +8,14 @@ const props = defineProps<StoreItemProps>()
 
 <template>
   <div class="store-item">
-    <a :href="url" target="_blank">
+    <template v-if="!disabled">
+      <a :href="url" target="_blank" :aria-label="name">
+        <NuxtImg :alt :src width="616" height="616" fit="cover" loading="lazy" class="image" />
+      </a>
+    </template>
+    <template v-else>
       <NuxtImg :alt :src width="616" height="616" fit="cover" loading="lazy" class="image" />
-    </a>
+    </template>
     <div class="name">{{ name }}</div>
     <div class="price">{{ price }}</div>
     <div class="explain">

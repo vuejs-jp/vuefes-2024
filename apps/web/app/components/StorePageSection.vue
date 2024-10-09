@@ -2,7 +2,7 @@
 import { useTranslation } from '~/composables/useTranslation'
 import type { Product } from '@vuejs-jp/model'
 import MarkDownText from '~/components/MarkDownText.vue'
-import { storeUrl } from '~/utils/constants'
+import { endedPurchaseStore, storeUrl } from '~/utils/constants'
 
 const { translate: t } = useTranslation()
 
@@ -117,6 +117,7 @@ const products: Product[] = [
             rel="noreferrer"
             background-color="vue-green/200"
             color="white"
+            :disabled="endedPurchaseStore"
           >
             {{ $t('store.preorder') }}
           </VFLinkButton>
@@ -125,7 +126,7 @@ const products: Product[] = [
         <div class="store-menu">
           <div class="store-menu-list">
             <div v-for="product in products" :key="product.name" class="store-card">
-              <VFProduct v-bind="product">
+              <VFProduct v-bind="{ ...product, disabled: endedPurchaseStore }">
                 <template #explain>
                   <i18n-t :keypath="product.explain" tag="p" style="margin: 0;">
                     <template #kawaiiStickerCreator>
@@ -150,6 +151,7 @@ const products: Product[] = [
                 rel="noreferrer"
                 background-color="vue-green/200"
                 color="white"
+                :disabled="endedPurchaseStore"
               >
                 {{ $t('store.preorder') }}
               </VFLinkButton>
@@ -168,6 +170,7 @@ const products: Product[] = [
                 rel="noreferrer"
                 background-color="vue-green/200"
                 color="white"
+                :disabled="endedPurchaseStore"
               >
                 {{ $t('store.preorder') }}
               </VFLinkButton>

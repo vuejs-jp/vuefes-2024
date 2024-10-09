@@ -9,4 +9,5 @@ export interface Product {
   weight?: string
   src: string
   alt: string
+  disabled?: boolean
 }
