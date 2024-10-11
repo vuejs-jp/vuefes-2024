@@ -7,23 +7,27 @@
 
 ## 詳細設計
 
-| # | type | initial | required |
-|:----|:----|:----|:----|
-| id | uuid |  |  |
-| detail_page_id | varchar(40) |  |  |
-| name | varchar(100) |  | ◯ |
-| description_ja | varchar(500) |  | ◯ |
-| description_en | varchar(500) |  | ◯ |
-| link_url | varchar(500) |  |  |
-| image_url | varchar(500) |  |  |
-| share_image_url | varchar(500) |  |  |
-| speaker_id | varchar(100) |  |  |
-| tag | text array |  |  |
-| display_order | int |  |  |
-| is_open | bool |  | ◯ |
-| created_at | timestamp | `now()` | (auto) |
-| updated_at | timestamp | `now()` | (auto) |
+`sponsors` スキーマのカラム表について。
 
-## 参照
+| # | type | initial | required | unique |
+|:----|:----|:----|:----|:----|
+| id | uuid |  |  |  |
+| detail_page_id | varchar(40) |  |  |  |
+| name | varchar(100) |  | ◯ |  |
+| description_ja | varchar(500) |  | ◯ |  |
+| description_en | varchar(500) |  | ◯ |  |
+| link_url | varchar(500) |  |  |  |
+| image_url | varchar(500) |  |  |  |
+| share_image_url | varchar(500) |  |  |  |
+| speaker_id | varchar(100) |  |  |  |
+| tag | text array |  |  |  |
+| display_order | int |  |  |  |
+| is_open | bool |  | ◯ |  |
+| created_at | timestamp | `now()` | (auto) |  |
+| updated_at | timestamp | `now()` | (auto) |  |
+
+## 参照リポジトリ
+
+`sponsors` スキーマをご確認ください。
 
 https://github.com/vuejs-jp/vuefes-2024/blob/main/supabase/schema.sql#L18
