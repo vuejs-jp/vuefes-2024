@@ -13,11 +13,13 @@ useHead({
       title: `特定商取引法に基づく表記 | ${conferenceTitle}`,
       description: ogTokushoDescription,
       url: `${linkUrl}tokusho`,
+      image: `${linkUrl}og/tokusho.png`,
     }),
     ...twitterOg({
       title: `特定商取引法に基づく表記 | ${conferenceTitle}`,
       description: ogTokushoDescription,
       url: `${linkUrl}tokusho`,
+      image: `${linkUrl}og/tokusho.png`,
     }),
   ],
 })

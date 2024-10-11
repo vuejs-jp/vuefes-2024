@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useHead, useI18n } from '#imports'
-import FooterPageSection from '~/components/FooterPageSection.vue'
 import MarkDownText from '~/components/MarkDownText.vue'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
@@ -20,11 +19,13 @@ useHead({
       title: `プライバシーポリシー | ${conferenceTitle}`,
       description: ogPrivacyDescription,
       url: `${linkUrl}privacy`,
+      image: `${linkUrl}og/privacy.png`,
     }),
     ...twitterOg({
       title: `プライバシーポリシー | ${conferenceTitle}`,
       description: ogPrivacyDescription,
       url: `${linkUrl}privacy`,
+      image: `${linkUrl}og/privacy.png`,
     }),
   ],
 })

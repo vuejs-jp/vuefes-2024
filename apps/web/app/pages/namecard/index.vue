@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { createError, useRuntimeConfig, navigateTo } from '#imports'
+import { createError, useFetch, useHead, useRuntimeConfig, navigateTo } from '#imports'
 import { useI18n } from '#i18n'
 import { ref } from 'vue'
 import type { AuthProvider, DialogStatus } from '@vuejs-jp/model'
@@ -9,7 +9,8 @@ import { useAuthSession } from '~/composables/useAuthSession'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import MarkDownText from '~/components/MarkDownText.vue'
 import CreationProcess from '~/components/namecard/CreationProcess.vue'
-import { useFetch } from '#imports'
+import { conferenceTitle, linkUrl, ogNamecardEntryDescription } from '~/utils/constants'
+import { generalOg, twitterOg } from '~/utils/og.constants'
 import type { AttendeeInfo } from '@vuejs-jp/model'
 
 type Attendees = Record<'activatedAttendees', AttendeeInfo>
@@ -31,6 +32,24 @@ const { signIn } = useAuth()
 const { t } = useI18n()
 const { locale } = useLocaleCurrent()
 const showDialog = ref(false)
+
+useHead({
+  titleTemplate: (titleChunk) => `関連イベント | ${conferenceTitle}`,
+  meta: [
+    ...generalOg({
+      title: `ネームカード | ${conferenceTitle}`,
+      description: ogNamecardEntryDescription,
+      url: `${linkUrl}namecard`,
+      image: `${linkUrl}og/namecard.png`,
+    }),
+    ...twitterOg({
+      title: `ネームカード | ${conferenceTitle}`,
+      description: ogNamecardEntryDescription,
+      url: `${linkUrl}namecard`,
+      image: `${linkUrl}og/namecard.png`,
+    }),
+  ],
+})
 
 function handleClickButton(type: DialogStatus) {
   if (type === 'open') {

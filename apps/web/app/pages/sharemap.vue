@@ -57,11 +57,13 @@ useHead({
       title: `シェアURL | ${conferenceTitle}`,
       description: ogSharemapDescription,
       url: `${linkUrl}sharemap`,
+      image: `${linkUrl}og/sharemap.png`,
     }),
     ...twitterOg({
       title: `シェアURL | ${conferenceTitle}`,
       description: ogSharemapDescription,
       url: `${linkUrl}sharemap`,
+      image: `${linkUrl}og/sharemap.png`,
     }),
   ],
 })

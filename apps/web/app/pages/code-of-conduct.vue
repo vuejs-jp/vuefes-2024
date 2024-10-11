@@ -13,11 +13,13 @@ useHead({
       title: `行動規範 | ${conferenceTitle}`,
       description: ogCoCDescription,
       url: `${linkUrl}code-of-conduct`,
+      image: `${linkUrl}og/code-of-conduct.png`,
     }),
     ...twitterOg({
       title: `行動規範 | ${conferenceTitle}`,
       description: ogCoCDescription,
       url: `${linkUrl}code-of-conduct`,
+      image: `${linkUrl}og/code-of-conduct.png`,
     }),
   ],
 })
