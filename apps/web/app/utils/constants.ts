@@ -10,6 +10,8 @@ export const ogCoCDescription =
 
 export const ogPrivacyDescription = 'Vue Fes Japan 2024 のプライバシーポリシーです。'
 
+export const ogNamecardEntryDescription = 'Vue Fes Japan 2024 のネームカードの確認はこちら。'
+
 export const ogTokushoDescription = 'Vue Fes Japan 2024 の特定商取引法に基づく表記です。'
 
 export const ogSharemapDescription = 'Vue Fes Japan 2024 のシェア URL 集です。'

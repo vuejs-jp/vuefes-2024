@@ -25,11 +25,13 @@ useHead({
       title: `関連イベント | ${conferenceTitle}`,
       description: ogRelatedEventDescription,
       url: `${linkUrl}events`,
+      image: `${linkUrl}og/events.png`,
     }),
     ...twitterOg({
       title: `関連イベント | ${conferenceTitle}`,
       description: ogRelatedEventDescription,
       url: `${linkUrl}events`,
+      image: `${linkUrl}og/events.png`,
     }),
   ],
 })

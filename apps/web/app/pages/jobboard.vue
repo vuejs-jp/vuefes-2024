@@ -22,11 +22,13 @@ useHead({
       title: `ジョブボード | ${conferenceTitle}`,
       description: ogJobboardDescription,
       url: `${linkUrl}jobboard`,
+      image: `${linkUrl}og/jobboard.png`,
     }),
     ...twitterOg({
       title: `ジョブボード | ${conferenceTitle}`,
       description: ogJobboardDescription,
       url: `${linkUrl}jobboard`,
+      image: `${linkUrl}og/jobboard.png`,
     }),
   ],
 })
