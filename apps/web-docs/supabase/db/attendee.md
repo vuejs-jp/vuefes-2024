@@ -20,7 +20,7 @@
 
 | # | type | initial | required | unique |
 |:----|:----|:----|:----|:----|
-| id | uuid |  |  | ◯ |
+| id | uuid |  | ◯ | ◯ |
 | user_id | uuid |  | ◯ | ◯ |
 | image_file_name | uuid |  | ◯ | ◯ |
 | email | varchar(100) |  | ◯ |  |

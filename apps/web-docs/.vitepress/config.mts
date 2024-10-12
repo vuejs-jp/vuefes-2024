@@ -9,7 +9,21 @@ export default defineConfig({
     nav: [
       { text: 'Top', link: '/' },
       { text: 'CSS', link: '/css/getting-started' },
-      { text: 'Peatix', link: '/peatix/csv-usage' },
+      {
+        text: 'RPA',
+        items: [
+          {
+            text: 'Getting Started',
+            link: '/rpa/getting-started',
+          },
+          {
+            text: 'Peatix',
+            items: [
+              { text: 'Download CSV', link: '/rpa/peatix/csv' },
+            ],
+          },
+        ],
+      },
       {
         text: 'Supabase',
         items: [
@@ -36,7 +50,22 @@ export default defineConfig({
         text: 'Examples',
         items: [
           { text: 'CSS', link: '/css/getting-started' },
-          { text: 'Peatix', link: '/peatix/csv-usage' },
+          {
+            text: 'RPA',
+            items: [
+              {
+                text: 'Getting Started',
+                link: '/rpa/getting-started',
+              },
+              {
+                text: 'Peatix',
+                items: [
+                  { text: 'Download CSV', link: '/rpa/peatix/csv' },
+                  { text: 'Fetch JSON data', link: '/rpa/peatix/json' },
+                ],
+              },
+            ],
+          },
           {
             text: 'Supabase',
             items: [

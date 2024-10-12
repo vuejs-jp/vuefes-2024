@@ -12,6 +12,7 @@
     "textlint-fix": "textlint ./** --fix"
   },
   "devDependencies": {
+    "@vuejs-jp/css": "workspace:*",
     "textlint": "14.0.4",
     "textlint-filter-rule-allowlist": "4.0.0",
     "textlint-rule-preset-vuejs-jp": "github:vuejs-jp/textlint-rule-preset-vuejs-jp",
