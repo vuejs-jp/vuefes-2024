@@ -11,7 +11,7 @@
 
 | # | type | initial | required | unique |
 |:----|:----|:----|:----|:----|
-| id | uuid |  |  |  |
+| id | uuid |  | ◯ | ◯ |
 | detail_page_id | varchar(40) |  |  |  |
 | name | varchar(100) |  | ◯ |  |
 | description_ja | varchar(500) |  | ◯ |  |

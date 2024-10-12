@@ -14,8 +14,8 @@
 
 | # | type | initial | required | unique |
 |:----|:----|:----|:----|:----|
-| id | uuid |  |  |  |
-| sponsor_id | uuid |  | ◯ |  |
+| id | uuid |  | ◯ | ◯ |
+| sponsor_id | uuid |  | ◯ | ◯ |
 | link_url | varchar(500) |  |  |  |
 | image_url | varchar(500) |  |  |  |
 | image_alt | varchar(100) |  |  |  |
