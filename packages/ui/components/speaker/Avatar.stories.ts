@@ -30,7 +30,7 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
   setup() {
     return { args }
   },
-  template: '<Avatar v-bind="args" />',
+  template: '<div style="width: 340px;"><Avatar v-bind="args" /></div>',
 })
 
 export const Default = Template.bind({})
