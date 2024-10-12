@@ -58,7 +58,7 @@ const Template: StoryFn<unknown> = (args, { argTypes }) => ({
   setup() {
     return { args }
   },
-  template: '<Speaker v-bind="args" />',
+  template: '<div style="width: 340px;"><Speaker v-bind="args" /></div>',
 })
 
 export const Default = Template.bind({})
