@@ -17,6 +17,7 @@ const onSwitchLocale = () => {
 const { width } = useWindowSize()
 const { orientation } = useScreenOrientation()
 const shouldShowSpHeader = ref()
+const dialogRef = ref<HTMLDialogElement>()
 onMounted(() => {
   shouldShowSpHeader.value = width.value <= 1200
 })
@@ -27,6 +28,11 @@ watch([width, orientation], () => {
 const showMenu = ref(false)
 
 const toggleMenu = () => {
+  if (showMenu.value) {
+    dialogRef.value!.close()
+  } else {
+    dialogRef.value!.show()
+  }
   showMenu.value = !showMenu.value
 }
 
@@ -48,6 +54,9 @@ const getAnchorPath = computed(
         class="navigation-mobile-toggle"
         name="menu"
         :class="{ 'isOpened': showMenu }"
+        :aria-expanded="showMenu"
+        aria-controls="navigation-mobile-menu-trigger"
+        :aria-label="showMenu ? 'メニューを閉じる' : 'メニューを開く'"
         @click="toggleMenu"
       >
         <span /><span /><span />
@@ -55,19 +64,23 @@ const getAnchorPath = computed(
       <!-- <VFIcon name="menu" color="vue-blue" can-hover @click="toggleMenu" /> -->
     </div>
     <!-- hamburger-menu -->
-    <Transition name="slide-down">
-      <div v-show="showMenu" class="navigation-mobile-menu">
-        <div>
-          <ul>
-            <li v-for="link in navLinks" :key="link.anchor">
-              <nuxt-link :to="getAnchorPath(link.anchor)" @click="toggleMenu">
-                <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
-              </nuxt-link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </Transition>
+    <!-- eslint-disable vuejs-accessibility/no-autofocus -->
+    <dialog
+      id="navigation-mobile-menu-trigger"
+      ref="dialogRef"
+      autofocus
+      aria-label="ハンバーガーメニュー"
+      class="navigation-mobile-menu"
+    >
+      <!-- eslint-enable vuejs-accessibility/no-autofocus -->
+      <ul>
+        <li v-for="link in navLinks" :key="link.anchor">
+          <nuxt-link :to="getAnchorPath(link.anchor)" @click="toggleMenu">
+            <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
+          </nuxt-link>
+        </li>
+      </ul>
+    </dialog>
   </VFSpHeader>
   <VFHeader v-else>
     <div class="navigation-pc">
@@ -95,6 +108,7 @@ const getAnchorPath = computed(
   align-items: center;
   gap: calc(var(--unit) * 2);
   margin-right: 27px;
+  z-index: 10;
 }
 
 .navigation-mobile-menu {
@@ -104,6 +118,22 @@ const getAnchorPath = computed(
   width: 100vw;
   text-align: center;
   background-color: var(--color-white);
+  z-index: 1;
+
+  width: 100%;
+  border: 0;
+  transition:
+    translate 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    display 0.6s cubic-bezier(0.4, 0, 0.2, 1) allow-discrete;
+  translate: 0 -100%;
+
+  &[open] {
+    translate: 0 0;
+
+    @starting-style {
+      translate: 0 -100%;
+    }
+  }
 
   & > div {
     padding: calc(var(--unit) * 5) 0;
