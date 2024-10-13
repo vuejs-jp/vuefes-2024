@@ -118,14 +118,13 @@ const getAnchorPath = computed(
   width: 100vw;
   text-align: center;
   background-color: var(--color-white);
-  z-index: 1;
-
-  width: 100%;
+  padding: calc(var(--unit) * 5) 0;
   border: 0;
   transition:
     translate 0.6s cubic-bezier(0.4, 0, 0.2, 1),
     display 0.6s cubic-bezier(0.4, 0, 0.2, 1) allow-discrete;
   translate: 0 -100%;
+  z-index: 1;
 
   &[open] {
     translate: 0 0;
@@ -133,10 +132,6 @@ const getAnchorPath = computed(
     @starting-style {
       translate: 0 -100%;
     }
-  }
-
-  & > div {
-    padding: calc(var(--unit) * 5) 0;
   }
 
   ul {
