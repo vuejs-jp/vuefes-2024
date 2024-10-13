@@ -36,17 +36,25 @@ export class SalesDailyService {
         if (ticketName.includes(Constants.PEATIX_WITH_PARTY_TICKET)) {
           return { date: appliedDate, role: Constants.PEATIX_WITH_PARTY_ROLE, receipt_id: receiptId }
         }
+        if (ticketName.includes(Constants.PEATIX_HANDSON_TICKET)) {
+          return { date: appliedDate, options: { handson: true }, receipt_id: receiptId }
+        }
+        if (ticketName.includes(Constants.PEATIX_PERSONAL_SPONSOR_TICKET)) {
+          return { date: appliedDate, options: { personalSponsor: true }, receipt_id: receiptId }
+        }
 
       // return { role: 'attendee', receipt_id: receiptId }
     })
     .filter(v => v) // null は除外
 
     const startedDate = new Date(2024, 7 - 1, 29)
-    let archives = [[], [], []]
+    let archives = [[], [], [], [], []]
     for (let date = startedDate; date <= new Date(); date.setDate(date.getDate() + 1)) {
       archives[0].push(`${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`)
-      archives[1].push(`${receipts.filter(v => v.role === Constants.PEATIX_GENERAL_ROLE).filter(v => v.date.includes(`${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`)).length}`)
-      archives[2].push(`${receipts.filter(v => v.role === Constants.PEATIX_WITH_PARTY_ROLE).filter(v => v.date.includes(`${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`)).length}`)
+      archives[1].push(`${receipts.filter(v => v?.role && v?.role === Constants.PEATIX_GENERAL_ROLE).filter(v => v.date === `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`).length}`)
+      archives[2].push(`${receipts.filter(v => v?.role && v?.role === Constants.PEATIX_WITH_PARTY_ROLE).filter(v => v.date === `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`).length}`)
+      archives[3].push(`${receipts.filter(v => v?.options && v?.options?.handson === true).filter(v => v.date === `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`).length}`)
+      archives[4].push(`${receipts.filter(v => v?.options && v?.options?.personalSponsor === true).filter(v => v.date === `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`).length}`)
     }
     for (const archive of archives) {
       this.logger.log(`${archive.join(',')}`)

@@ -9,6 +9,10 @@ export type FormAdminUser = Database['public']['Tables']['admin_users']['Insert'
 
 export type AttendeeReceipt = {
   date: string
-  role: Extract<Role, TicketRole>
+  role?: Extract<Role, TicketRole>
+  options?: {
+    handson?: boolean
+    personalSponsor?: boolean
+  }
   receipt_id: string
 }
