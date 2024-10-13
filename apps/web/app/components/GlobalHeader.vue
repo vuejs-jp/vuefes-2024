@@ -64,18 +64,21 @@ const getAnchorPath = computed(
       <!-- <VFIcon name="menu" color="vue-blue" can-hover @click="toggleMenu" /> -->
     </div>
     <!-- hamburger-menu -->
-    <!-- eslint-disable vuejs-accessibility/no-autofocus -->
     <dialog
       id="navigation-mobile-menu-trigger"
       ref="dialogRef"
-      autofocus
       aria-label="ハンバーガーメニュー"
       class="navigation-mobile-menu"
     >
-      <!-- eslint-enable vuejs-accessibility/no-autofocus -->
       <ul>
-        <li v-for="link in navLinks" :key="link.anchor">
-          <nuxt-link :to="getAnchorPath(link.anchor)" @click="toggleMenu">
+        <li v-for="(link, index) in navLinks" :key="link.anchor">
+          <!-- eslint-disable vuejs-accessibility/no-autofocus -->
+          <nuxt-link
+            :to="getAnchorPath(link.anchor)"
+            :autofocus="index === 0 && true"
+            @click="toggleMenu"
+          >
+            <!-- eslint-enable vuejs-accessibility/no-autofocus -->
             <VFTypography variant="heading/200" color="vue-blue">{{ link.text }}</VFTypography>
           </nuxt-link>
         </li>
