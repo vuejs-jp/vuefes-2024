@@ -126,14 +126,14 @@ const getAnchorPath = computed(
   transition:
     translate 0.6s cubic-bezier(0.4, 0, 0.2, 1),
     display 0.6s cubic-bezier(0.4, 0, 0.2, 1) allow-discrete;
-  translate: 0 -100%;
+  translate: 0 -100dvh;
   z-index: 1;
 
   &[open] {
     translate: 0 0;
 
     @starting-style {
-      translate: 0 -100%;
+      translate: 0 -100dvh;
     }
   }
 
