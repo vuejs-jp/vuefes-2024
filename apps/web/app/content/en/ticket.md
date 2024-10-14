@@ -1,7 +1,3 @@
-Tickets for Vue Fes Japan 2024 will go on sale starting from 12:00 PM on Monday, July 29, 2024. There are two types of general tickets available: with or without the after-party, and all seats include lunch.
+Ticket sales have ended as of October 14, 2024. Please note that there will be no tickets available for purchase on the day of the event.
 
-As options, we also offer hands-on and individual sponsor tickets.
-
-We will use Peatix as the ticket sales platform. At the time of the release, a link to purchase tickets will be posted on this website. After purchasing tickets, an email with application details will be automatically sent from Peatix. By installing the Peatix app through the link provided in the email, your ticket will be displayed, so please present it at the reception on the day of the event.
-
-If you purchase by September 8 24:00, you can take advantage of an early bird discount, so be sure to get your tickets early! (We have extended the early bird discount period.)
+To enter on the day, you will need the QR code printed on your ticket. For instructions on how to verify your ticket, please refer to the Peatix help page on [how to check your ticket](https://help-attendee.peatix.com/ja-JP/support/solutions/articles/44001821775).

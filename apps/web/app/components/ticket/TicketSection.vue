@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from '#imports'
-import { endedApplyEarly, endedApplyHandson, ticketUrl } from '~/utils/constants'
+import { endedApplyEarly, endedApplyHandson, endedApplyNormal, ticketUrl } from '~/utils/constants'
 
 const { t } = useI18n()
 
@@ -44,6 +44,7 @@ const ticketCards = {
         :href="ticketUrl"
         background-color="vue-green/200"
         color="white"
+        :disabled="endedApplyNormal"
       >
         {{ $t('ticket.purchaseButton') }}
       </VFLinkButton>
@@ -58,6 +59,7 @@ const ticketCards = {
           :title="ticketCards.ippan.title"
           :img-src="ticketCards.ippan.imgSrc"
           :img-alt="ticketCards.ippan.imgAlt"
+          :is-close="endedApplyNormal"
         >
           <div class="ticket-details ippan-details">
             <div v-if="!endedApplyEarly" class="early-purchase">
@@ -68,9 +70,15 @@ const ticketCards = {
                 {{ $t('ticket.card.ippan.earlySub') }}
               </span>
             </div>
-            <div class="standard-purchase">
+            <div v-else class="early-purchase">
               <span class="cost">
-                {{ $t('ticket.card.ippan.regular') }}
+                <template v-if="!endedApplyNormal">{{ $t('ticket.card.ippan.regular') }}</template>
+                <s v-else>{{ $t('ticket.card.ippan.regular') }}</s>
+              </span>
+              <span class="cost-details">
+                <span v-if="endedApplyNormal">
+                  {{ $t('ticket.ended_explain') }}
+                </span>
               </span>
             </div>
           </div>
@@ -79,6 +87,7 @@ const ticketCards = {
           :title="ticketCards.ippanParty.title"
           :img-src="ticketCards.ippanParty.imgSrc"
           :img-alt="ticketCards.ippanParty.imgAlt"
+          :is-close="endedApplyNormal"
         >
           <div class="ticket-details ippan-party-details">
             <div v-if="!endedApplyEarly" class="early-purchase">
@@ -89,9 +98,15 @@ const ticketCards = {
                 {{ $t('ticket.card.ippanParty.earlySub') }}
               </span>
             </div>
-            <div class="standard-purchase">
+            <div v-else class="early-purchase">
               <span class="cost">
-                {{ $t('ticket.card.ippanParty.regular') }}
+                <template v-if="!endedApplyNormal">{{ $t('ticket.card.ippanParty.regular') }}</template>
+                <s v-else>{{ $t('ticket.card.ippanParty.regular') }}</s>
+              </span>
+              <span class="cost-details">
+                <span v-if="endedApplyNormal">
+                  {{ $t('ticket.sold_out_explain') }}
+                </span>
               </span>
             </div>
           </div>
@@ -124,14 +139,19 @@ const ticketCards = {
           :title="ticketCards.individualSponsor.title"
           :img-src="ticketCards.individualSponsor.imgSrc"
           :img-alt="ticketCards.individualSponsor.imgAlt"
+          :is-close="endedApplyNormal"
         >
           <div class="ticket-details individual-sponsor-details">
             <div class="cost">
-              {{ $t('ticket.card.individualSponsor.cost') }}
+              <template v-if="!endedApplyNormal">{{ $t('ticket.card.individualSponsor.cost') }}</template>
+              <s v-else>{{ $t('ticket.card.individualSponsor.cost') }}</s>
             </div>
             <div class="cost-details">
-              <span>
+              <span v-if="!endedApplyNormal">
                 {{ $t('ticket.card.individualSponsor.details1') }}
+              </span>
+              <span v-else>
+                {{ $t('ticket.ended_explain') }}
               </span>
               <span>
                 {{ $t('ticket.card.individualSponsor.details2') }}
@@ -146,6 +166,7 @@ const ticketCards = {
           :href="ticketUrl"
           background-color="vue-green/200"
           color="white"
+          :disabled="endedApplyNormal"
         >
           {{ $t('ticket.purchaseButton') }}
         </VFLinkButton>

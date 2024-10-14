@@ -51,6 +51,8 @@ export const peatixReferenceUrl = 'https://help-attendee.peatix.com/ja-JP/suppor
 
 export const endedApplyEarly = true
 
+export const endedApplyNormal = true
+
 export const endedApplyHandson = true
 
 export const endedPurchaseStore = true
