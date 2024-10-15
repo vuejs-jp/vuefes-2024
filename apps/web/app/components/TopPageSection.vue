@@ -27,17 +27,19 @@ const getAnchorPath = computed(
         </p>
       </div>
       <div class="sns-link-wrapper">
+        <!--
         <h2 class="official-announcement">
           {{ $t('top_page.latest_information') }}
         </h2>
+        -->
         <div class="link-buttons">
           <VFLinkButton
             class="link-button"
             background-color="vue-green/200"
             color="white"
-            :href="getAnchorPath('#ticket')"
+            :href="getAnchorPath('#timetable')"
             target="_top"
-            >{{ $t('ticket.title') }}</VFLinkButton
+            >{{ $t('time-table.title') }}</VFLinkButton
           >
           <VFLinkButton
             class="link-button"
@@ -51,10 +53,10 @@ const getAnchorPath = computed(
             class="link-button"
             background-color="vue-green/200"
             color="white"
-            :href="getAnchorPath('#store')"
+            :href="getAnchorPath('#event')"
             target="_top"
           >
-            {{ $t('store.title') }}
+            {{ $t('event.title') }}
           </VFLinkButton>
         </div>
       </div>
