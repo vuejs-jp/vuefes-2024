@@ -64,12 +64,7 @@ const getAnchorPath = computed(
       <!-- <VFIcon name="menu" color="vue-blue" can-hover @click="toggleMenu" /> -->
     </div>
     <!-- hamburger-menu -->
-    <dialog
-      id="navigation-mobile-menu-trigger"
-      ref="dialogRef"
-      aria-label="ハンバーガーメニュー"
-      class="navigation-mobile-menu"
-    >
+    <dialog id="navigation-mobile-menu-trigger" ref="dialogRef" class="navigation-mobile-menu">
       <ul>
         <li v-for="(link, index) in navLinks" :key="link.anchor">
           <!-- eslint-disable vuejs-accessibility/no-autofocus -->
@@ -126,7 +121,6 @@ const getAnchorPath = computed(
   transition:
     translate 0.6s cubic-bezier(0.4, 0, 0.2, 1),
     display 0.6s cubic-bezier(0.4, 0, 0.2, 1) allow-discrete;
-  translate: 0 -100dvh;
   z-index: 1;
 
   &[open] {
@@ -135,6 +129,10 @@ const getAnchorPath = computed(
     @starting-style {
       translate: 0 -100dvh;
     }
+  }
+
+  &:not([open]) {
+    translate: 0 -100dvh;
   }
 
   ul {
