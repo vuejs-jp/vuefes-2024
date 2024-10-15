@@ -99,6 +99,7 @@ export const personalSponsors = [
   '顧郷@skillnote',
   'ryo@hare-systems.net',
   'bab',
+  'Aaron Costley',
 ]
 
 export const team: TeamData[] = [
