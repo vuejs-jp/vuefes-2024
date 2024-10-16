@@ -42,6 +42,15 @@ const currentLocale = useLocaleCurrent().locale
   @media (--tablet) {
     gap: calc(var(--unit) * 1);
     padding: calc(var(--unit) * 2);
+
+    ::v-deep(.speaker-name) {
+      font-size: 0.875rem;
+      letter-spacing: 0.4px;
+    }
+
+    ::v-deep(.speaker-affiliation) {
+      font-size: 0.6875rem;
+    }
   }
 }
 
@@ -60,13 +69,6 @@ const currentLocale = useLocaleCurrent().locale
 
   @media (--mobile) {
     --head-img-width: 103px;
-  }
-}
-
-@media (width <= 768px) {
-  ::v-deep(.speaker-name) {
-    font-size: 0.875rem;
-    letter-spacing: 0.4px;
   }
 }
 </style>
