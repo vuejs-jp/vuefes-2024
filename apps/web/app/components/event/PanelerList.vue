@@ -43,13 +43,24 @@ const currentLocale = useLocaleCurrent().locale
     gap: calc(var(--unit) * 1);
     padding: calc(var(--unit) * 2);
   }
+
+  @media (--tablet) {
+    ::v-deep(.speaker-name) {
+      font-size: 0.875rem;
+      letter-spacing: 0.4px;
+    }
+
+    ::v-deep(.speaker-affiliation) {
+      font-size: 0.6875rem;
+    }
+  }
 }
 
 .eventcard-persons div {
   width: calc(calc(100% - 16px) / 2);
   height: 120px;
 
-  @media (--mobile) {
+  @media (--tablet) {
     width: 100%;
   }
 }
