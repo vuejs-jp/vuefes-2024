@@ -39,9 +39,20 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-white);
+    z-index: 5;
+  }
 }
 .link {
   line-height: 0;
+  z-index: 10;
 }
 .logo {
   height: 32px;
