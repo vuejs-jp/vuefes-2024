@@ -65,6 +65,18 @@ useHead({
         {{ currentLocale === 'ja' ? (speakerData[0].session_description_ja ?? 'TBD') : (speakerData[0].session_description_en ?? 'TBD') }}
       </div>
 
+      <div v-if="speakerData[0].session_doc_url" class="detailbody-archives">
+        <span>{{ $t('speaker.archive_slide') }}</span>
+        <VFTextLink
+          :href="speakerData[0].session_doc_url"
+          target="_blank"
+          color="vue-blue"
+          class="detailbody-archive-slide"
+        >
+          {{ currentLocale === 'ja' ? speakerData[0].session_doc_title_ja : speakerData[0].session_doc_title_en }}
+        </VFTextLink>
+      </div>
+
       <div class="detailbody-persons">
         <VFSpeaker
           :image="speakerData[0].image_url"
@@ -197,6 +209,31 @@ useHead({
 
   .detailbody-explain p a:hover {
     transition: 0.2s;
+  }
+
+  .detailbody-archives {
+    margin-top: calc(var(--unit) * 5);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: calc(var(--unit) * 1.5);
+    @media (--tablet) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+  }
+
+  .detailbody-archives span {
+    color: var(--color-vue-blue);
+  }
+
+  .detailbody-archive-slide {
+    --body-font-size: 1.125rem;
+
+    font-size: var(--body-font-size);
+    line-height: 1.8;
+    white-space: pre-wrap;
   }
 
   .detailbody-persons {
