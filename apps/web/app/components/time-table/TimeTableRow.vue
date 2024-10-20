@@ -84,6 +84,16 @@ const { range } = useRange()
         >
           {{ currentLocale === 'en' ? session.name_en : session.name_ja }}
         </p>
+        <div class="session-archives">
+          <VFIconButton
+            v-if="session.session_doc_url"
+            :href="session.session_doc_url"
+            target-blank
+            color="vue-blue"
+            name="slide"
+            class="session-archive-slide"
+          />
+        </div>
       </div>
     </div>
   </VFSessionContent>
@@ -181,5 +191,16 @@ const { range } = useRange()
 ._keynote_speaker {
   font-size: 18px;
   font-weight: 700;
+}
+.session-archives {
+  display: flex;
+  gap: var(calc(var(--unit) * 1.5));
+}
+.session-archive-slide {
+  margin-top: 5px;
+}
+.session-archive-slide:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
 }
 </style>

@@ -15,3 +15,4 @@ export type IconName =
   | 'external'
   | 'alert'
   | 'translation'
+  | 'slide'
