@@ -61,6 +61,9 @@ const svgComponent = match<IconName>(props.name)
   .with('translation', () =>
     defineAsyncComponent(() => import('../../assets/icon/translation.svg?component')),
   )
+  .with('slide', () =>
+    defineAsyncComponent(() => import('../../assets/icon/slide_icon.svg?component')),
+  )
   .exhaustive()
 
 const { color: fillColor } = useColor()
