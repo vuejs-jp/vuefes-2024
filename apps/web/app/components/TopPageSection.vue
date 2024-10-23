@@ -35,9 +35,9 @@ const getAnchorPath = computed(
             class="link-button"
             background-color="vue-green/200"
             color="white"
-            :href="getAnchorPath('#speakers')"
+            :href="getAnchorPath('#timetable')"
             target="_top"
-            >{{ $t('speaker.title') }}</VFLinkButton
+            >{{ $t('time-table.title') }}</VFLinkButton
           >
           <VFLinkButton
             class="link-button"
