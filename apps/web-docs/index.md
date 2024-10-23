@@ -12,6 +12,9 @@ hero:
       text: RPA
       link: /rpa/getting-started
     - theme: brand
+      text: Admin
+      link: /admin/specification
+    - theme: brand
       text: Supabase
       link: /supabase/getting-started
 ---

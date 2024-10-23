@@ -101,6 +101,10 @@ const { error } = await supabase.auth.admin.inviteUserByEmail(
 )
 ```
 
+実際に裏側で行えるよう、ページを作成しました（なお、現在はページ表示のためのフラグを切らせていただいております）
+
+![](https://i.imgur.com/0UGwScP.png)
+
 #### API を利用してユーザーを削除
 
 Supabase 管理画面よりユーザーを削除する操作を行えないため、API ([`deleteUser`](https://supabase.com/docs/reference/javascript/auth-admin-deleteuser)) のお世話になります。

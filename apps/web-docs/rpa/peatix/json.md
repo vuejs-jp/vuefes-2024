@@ -1,5 +1,11 @@
 # Fetch JSON data
 
+::: warning
+
+Vue Fes Japan 2024 では、こちらの方法を取っていません。
+
+:::
+
 ## Peatix API
 
 公式に API 提供はアナウンスされていません。
