@@ -19,13 +19,13 @@ hero:
       link: /supabase/getting-started
 ---
 
-# 各年のウェブサイト
+# Vue Fes Japan 2024 document website
+
+## 各年のウェブサイトの特徴
 
 - [Vue Fes Japan Online 2022](https://vuefes.jp/2022)
 - [Vue Fes Japan 2023](https://vuefes.jp/2023)
 - [Vue Fes Japan 2024](https://vuefes.jp/2024)
-
-## 各年のウェブサイトの特徴
 
 3 年間のウェブサイトの比較表について。
 

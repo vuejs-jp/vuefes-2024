@@ -9,6 +9,7 @@ export default defineConfig({
     nav: [
       { text: 'Top', link: '/' },
       { text: 'CSS', link: '/css/getting-started' },
+      { text: 'Screen Design', link: '/screen-design' },
       { text: 'Path Design', link: '/path-design' },
       { text: 'Namecard Debug', link: '/namecard-debug' },
       {
@@ -71,6 +72,7 @@ export default defineConfig({
         text: 'Examples',
         items: [
           { text: 'CSS', link: '/css/getting-started' },
+          { text: 'Screen Design', link: '/screen-design' },
           { text: 'Path Design', link: '/path-design' },
           { text: 'Namecard Debug', link: '/namecard-debug' },
           {
