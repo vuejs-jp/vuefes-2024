@@ -44,6 +44,7 @@ useHead({
 
 <template>
   <TopPageSection />
+  <PhotoPageSection />
   <TimeTablePageSection v-if="config.public.showTimetable" />
   <SpeakerPageSection :data="speakers" />
   <EventPageSection v-if="config.public.showEvent" :data="speakers" />
