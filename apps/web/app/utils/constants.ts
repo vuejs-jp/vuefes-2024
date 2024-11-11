@@ -128,6 +128,9 @@ export const photos = [
   },
 ]
 
+export const cc0LicenseUrl =
+  'https://creativecommons.jp/sciencecommons/aboutcc0/#:~:text=CC0%20%E3%81%A8%E3%81%AF%E3%80%81%E7%A7%91%E5%AD%A6%E8%80%85,%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82'
+
 export const personalSponsors = [
   'Yuhei FUJITA',
   'jiyuujin',

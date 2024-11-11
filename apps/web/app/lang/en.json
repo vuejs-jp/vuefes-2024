@@ -290,7 +290,8 @@
   },
   "photo": {
     "title": "Photo",
+    "cc0_license": "CC0 License",
     "subtitle1": "Thank you to everyone who participated in Vue Fes Japan 2024.",
-    "subtitle2": "The photos taken on the day will be published under a CC0 license, so feel free to use them on blogs, social media, and other platforms."
+    "subtitle2": "The photos taken on the day will be published under a {license}, so feel free to use them on blogs, social media, and other platforms."
   }
 }

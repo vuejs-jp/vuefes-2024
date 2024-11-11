@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { photos } from '~/utils/constants'
+import { cc0LicenseUrl, photos } from '~/utils/constants'
 </script>
 
 <template>
@@ -10,7 +10,13 @@ import { photos } from '~/utils/constants'
       </VFTitle>
       <div>
         <p>{{ $t('photo.subtitle1') }}</p>
-        <p>{{ $t('photo.subtitle2') }}</p>
+        <i18n-t keypath="photo.subtitle2" tag="p">
+          <template #license>
+            <a :href="cc0LicenseUrl" target="_blank">
+              {{ $t('photo.cc0_license') }}
+            </a>
+          </template>
+        </i18n-t>
         <ul>
           <li v-for="(photo, key) in photos" :key>
             <NuxtLink :to="photo.url" target="_blank">
