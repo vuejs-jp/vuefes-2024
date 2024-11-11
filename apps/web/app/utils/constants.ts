@@ -61,6 +61,73 @@ export const endedCreateNamecard = true
 
 export const displayNameMaxLength = 24
 
+export const photos = [
+  {
+    title: '前日準備',
+    url: 'https://photos.app.goo.gl/Qq7LcRQfP8sUqXVg9',
+  },
+  {
+    title: '開場前',
+    url: 'https://photos.app.goo.gl/NxEiCqx2XvmvSwke9',
+  },
+  {
+    title: '受付',
+    url: 'https://photos.app.goo.gl/kYenfefma4eroTbv9',
+  },
+  {
+    title: 'メドピアトラック',
+    url: 'https://photos.app.goo.gl/J5evxzqJpP9mf3LX9',
+  },
+  {
+    title: 'MNTSQが全ての合意をフェアにするぞトラック',
+    url: 'https://photos.app.goo.gl/HboMLxQr1xgi2STf9',
+  },
+  {
+    title: 'kickflowトラック',
+    url: 'https://photos.app.goo.gl/PXj8vMvStuiXHEbz5',
+  },
+  {
+    title: 'Vueトラック',
+    url: 'https://photos.app.goo.gl/dCRgb7iLbhuE5E2Y7',
+  },
+  {
+    title: 'ランチタイム',
+    url: 'https://photos.app.goo.gl/B2XigeF4vvjqvb6k8',
+  },
+  {
+    title: 'スポンサーブース',
+    url: 'https://photos.app.goo.gl/KSM61FxLSVFaAAzC9',
+  },
+  {
+    title: 'Vue Fes Store',
+    url: 'https://photos.app.goo.gl/cy2ArVhND9q5UP9cA',
+  },
+  {
+    title: 'タトゥースペース',
+    url: 'https://photos.app.goo.gl/dKjcEKCxKZ6GcgmU7',
+  },
+  {
+    title: 'フリードリンク＆スナック',
+    url: 'https://photos.app.goo.gl/tJmuumFGhG7NwJTq8',
+  },
+  {
+    title: 'クリエイティブウォール',
+    url: 'https://photos.app.goo.gl/fyZimXfrTS8X57RR8',
+  },
+  {
+    title: '休憩・充電スペース',
+    url: 'https://photos.app.goo.gl/JWfmeEAv7nv5LnGB9',
+  },
+  {
+    title: 'アフターパーティー',
+    url: 'https://photos.app.goo.gl/jGcNhC8mVERtjh8Q9',
+  },
+  {
+    title: 'その他スナップ',
+    url: 'https://photos.app.goo.gl/41FTQDQivv4FuRTP7',
+  },
+]
+
 export const personalSponsors = [
   'Yuhei FUJITA',
   'jiyuujin',

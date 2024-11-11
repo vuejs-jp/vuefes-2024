@@ -51,10 +51,10 @@ const getAnchorPath = computed(
             class="link-button"
             background-color="vue-green/200"
             color="white"
-            :href="getAnchorPath('events')"
+            :href="getAnchorPath('#photo')"
             target="_top"
           >
-            {{ $t('related_events.title') }}
+            {{ $t('photo.title') }}
           </VFLinkButton>
         </div>
       </div>

@@ -287,5 +287,10 @@
     "title": "Related Events",
     "register": "Register for the event",
     "close": "The event has ended"
+  },
+  "photo": {
+    "title": "Photo",
+    "subtitle1": "Thank you to everyone who participated in Vue Fes Japan 2024.",
+    "subtitle2": "The photos taken on the day will be published under a CC0 license, so feel free to use them on blogs, social media, and other platforms."
   }
 }
