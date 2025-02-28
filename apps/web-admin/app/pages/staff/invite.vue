@@ -1,13 +1,6 @@
 <script setup lang="ts">
-import { createError, useRuntimeConfig } from '#imports'
 import { useInvitation } from '~/composables/useInvitation'
 import { useFormError } from '@vuejs-jp/composable'
-
-const config = useRuntimeConfig()
-
-if (!config.public.enableInviteStaff) {
-  throw createError({ statusCode: 404, statusMessage: 'You cannot invite a staff.' })
-}
 
 const { publish, isSubmittingEmail, isSubmittingId, email, id } = useInvitation()
 const { emailError, idError, validateAdminEmail, validateId } = useFormError()

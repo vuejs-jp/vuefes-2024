@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
+    "build-admin": "turbo build-admin",
     "build-after-purchase": "turbo build-after-purchase",
     "build-sales-daily": "turbo build-sales-daily",
     "build-docs": "turbo build-docs",

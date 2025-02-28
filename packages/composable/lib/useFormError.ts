@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import { useString } from '@vuejs-jp/composable'
-import { displayNameMaxLength } from '~/utils/constants'
+
+export const displayNameMaxLength = 24
 
 export function useFormError() {
   const { count } = useString()

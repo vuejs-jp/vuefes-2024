@@ -1,9 +1,8 @@
 import { useRuntimeConfig } from '#imports'
 import { computed, ref } from 'vue'
 import { useForm as useValidateForm } from 'vee-validate'
-import { useFormError } from './useFormError'
 import { useFormReCaptcha } from './useFormReCaptcha'
-import { useToast } from '@vuejs-jp/composable'
+import { useFormError, useToast } from '@vuejs-jp/composable'
 
 export function useForm() {
   const { defineField, handleSubmit } = useValidateForm()

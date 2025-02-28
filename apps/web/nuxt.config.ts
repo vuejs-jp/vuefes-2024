@@ -200,10 +200,11 @@ export default defineNuxtConfig({
     },
   },
   // for https on localhost
-/*   devServer: {
-    https: {
-      key: './certificates/localhost-key.pem',
-      cert: './certificates/localhost.pem',
-    },
-  }, */
+   devServer: {
+    // https: {
+    //   key: './certificates/localhost-key.pem',
+    //   cert: './certificates/localhost.pem',
+    // },
+    port: 3000,
+  },
 })

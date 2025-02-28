@@ -1,0 +1,38 @@
+{
+  "name": "@vuejs-jp/web-admin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build && ./scripts/postbuild.sh",
+    "preview": "nuxt preview",
+    "lint": "bun run eslint && bun run htmllint",
+    "lint-fix": "bun run eslint-fix && bun run htmllint-fix",
+    "eslint": "eslint . --ext js,jsx,ts,tsx,vue --ignore-path .eslintignore",
+    "eslint-fix": "eslint . --ext js,jsx,ts,tsx,vue --ignore-path .eslintignore --fix",
+    "htmllint": "markuplint \"./app/**/*.vue\" --config .markuplintrc",
+    "htmllint-fix": "markuplint \"./app/**/*.vue\" --config .markuplintrc --format",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.17.3",
+    "@nuxt/image": "1.8.0",
+    "@nuxtjs/supabase": "1.2.0",
+    "@pinia/nuxt": "0.5.3",
+    "@types/node": "~18.19.0",
+    "@vuejs-jp/composable": "workspace:*",
+    "@vuejs-jp/css": "workspace:*",
+    "@vuejs-jp/eslint-config": "workspace:*",
+    "@vuejs-jp/markuplint-config": "workspace:*",
+    "@vuejs-jp/model": "workspace:*",
+    "@vuejs-jp/typescript-config": "workspace:*",
+    "@vuejs-jp/vuefes-ui": "workspace:*",
+    "nuxt": "3.11.2",
+    "open-props": "^1.6.21",
+    "pinia": "2.2.1",
+    "postcss-custom-media": "^10.0.3",
+    "vite-svg-loader": "5.1.0",
+    "vue-tsc": "2.0.6"
+  }
+}

@@ -7,9 +7,9 @@ import { useI18n } from '#i18n'
 import CreationStatus from '~/components/namecard/CreationStatus.vue'
 import { definePageMeta, navigateTo } from '#imports'
 import { useNamecard } from '~/composables/useNamecard'
-import { useFormError } from '~/composables/useFormError'
 import ImageUploader from '~/components/namecard/ImageUploader.vue'
 import { peatixReferenceUrl } from '~/utils/constants'
+import { useFormError } from '@vuejs-jp/composable'
 import type { Role } from '@vuejs-jp/model'
 
 definePageMeta({

@@ -34,6 +34,18 @@
         "SHOW_STORE"
       ]
     },
+    "build-admin": {
+      "dependsOn": ["^build-admin"],
+      "outputs": [".nuxt/**", "!.nuxt/cache/**"],
+      "dotEnv": [".env"],
+      "env": [
+        "NODE_ENV",
+        "NUXT_IMAGE_DOMAINS",
+        "SUPABASE_URL",
+        "SUPABASE_KEY",
+        "SERVICE_KEY"
+      ]
+    },
     "build-api": {
       "dependsOn": ["^build-api"],
       "outputs": ["dist/**"],
