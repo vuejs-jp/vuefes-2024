@@ -29,7 +29,7 @@ function deleteUser() {
         id="email"
         v-model="email"
         name="email"
-        :label="$t('form.form_email_label')"
+        label="Email"
         placeholder="hello+supaadmin@vuefes.jp"
         required
         :error="emailError"
