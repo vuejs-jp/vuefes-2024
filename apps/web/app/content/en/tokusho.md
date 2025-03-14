@@ -9,7 +9,6 @@ Yoshiya Oki
 5-26-29 Nakano, Nakano-ku, Tokyo 164-0001, Japan
 
 ## Phone Number
-090-7942-2378
 *Please note that we do not accept inquiries by phone. Please contact us through the Vue Fes Japan 2024 inquiry form.
 
 ## Sales Price
