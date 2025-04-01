@@ -11,12 +11,13 @@ withDefaults(defineProps<HeaderProps>(), {
 })
 
 const { headerRef } = useHeader()
+const siteRoot = process.env.NODE_ENV === 'production' ? '/2024/' : '/'
 </script>
 
 <template>
   <header ref="headerRef" :style="{ top }">
     <div class="header-root">
-      <a class="link" href="/2024/" aria-label="Vue Fes Japan 2024">
+      <a class="link" :href="siteRoot" aria-label="Vue Fes Japan 2024">
         <Logo class="logo" color="vue-blue" />
       </a>
       <slot />
