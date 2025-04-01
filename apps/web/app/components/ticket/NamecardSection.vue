@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { endedApplyNormal, endedCreateNamecard, ticketUrl } from '~/utils/constants'
+import { useWithBase } from '#imports'
 
 const { locale: currentLocale } = useLocaleCurrent()
+const basePath = useWithBase()
 </script>
 
 <template>
@@ -25,7 +27,7 @@ const { locale: currentLocale } = useLocaleCurrent()
 
     <div class="content-wrapper">
       <NuxtImg
-        :src="'/namecard/namecard-samples.png'"
+        :src="basePath('/namecard/namecard-samples.png')"
         alt="test"
         width="596"
         loading="lazy"

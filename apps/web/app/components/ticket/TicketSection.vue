@@ -8,22 +8,22 @@ const withBase = useWithBase()
 const ticketCards = {
   ippan: {
     title: t('ticket.card.ippan.title'),
-    imgSrc: '/ticket/ippan.png',
+    imgSrc: withBase('/ticket/ippan.png'),
     imgAlt: t('ticket.card.ippan.imgAlt'),
   },
   ippanParty: {
     title: t('ticket.card.ippanParty.title'),
-    imgSrc: '/ticket/ippan-party.png',
+    imgSrc: withBase('/ticket/ippan-party.png'),
     imgAlt: t('ticket.card.ippanParty.imgAlt'),
   },
   handsOn: {
     title: t('ticket.card.handsOn.title'),
-    imgSrc: '/ticket/hands-on.png',
+    imgSrc: withBase('/ticket/hands-on.png'),
     imgAlt: t('ticket.card.handsOn.imgAlt'),
   },
   individualSponsor: {
     title: t('ticket.card.individualSponsor.title'),
-    imgSrc: '/ticket/individual-sponsor.png',
+    imgSrc: withBase('/ticket/individual-sponsor.png'),
     imgAlt: t('ticket.card.individualSponsor.imgAlt'),
   },
 }
@@ -58,7 +58,7 @@ const ticketCards = {
       <div class="ticket-cards-container">
         <VFTicketCard
           :title="ticketCards.ippan.title"
-          :img-src="withBase(ticketCards.ippan.imgSrc)"
+          :img-src="ticketCards.ippan.imgSrc"
           :img-alt="ticketCards.ippan.imgAlt"
           :is-close="endedApplyNormal"
         >
