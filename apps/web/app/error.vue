@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useHead } from '#imports'
+import { useHead, useWithBase } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { conferenceTitle } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
@@ -13,6 +13,7 @@ const props = defineProps<ErrorProps>()
 
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
+const withBase = useWithBase()
 
 useHead({
   // eslint-disable-next-line no-unused-vars
@@ -49,7 +50,7 @@ useHead({
         background-color="white"
         color="vue-blue"
         target=""
-        href="/"
+        :href="withBase('/')"
       >
         {{ $t('back_to_top') }}
       </VFLinkButton>
