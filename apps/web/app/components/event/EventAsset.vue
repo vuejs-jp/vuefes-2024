@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Event } from '@vuejs-jp/model'
+import { useWithBase } from '#imports'
 
 interface EventAssetProps {
   title: Extract<
@@ -10,11 +11,12 @@ interface EventAssetProps {
 }
 
 const props = defineProps<EventAssetProps>()
+const withBase = useWithBase()
 </script>
 
 <template>
   <NuxtImg
-    :src="`/event/${title}.png`"
+    :src="withBase(`/event/${title}.png`)"
     alt=""
     class="eventcard-image"
     :style="{ marginTop: `${marginTop}px` }"
