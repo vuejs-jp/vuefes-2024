@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { useFetch, useHead } from '#imports'
-import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
+import { useFetch, useHead, usePathWithLocale } from '#imports'
 import type { RelatedEventInfo } from '@vuejs-jp/model'
 import { conferenceTitle, linkUrl, ogRelatedEventDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
@@ -13,10 +12,15 @@ if (error.value) {
 }
 const { eventsInfo } = data.value as RelatedEvents
 
-const { path: localePath } = useLocaleCurrent()
+const pathWithLocale = usePathWithLocale()
 
 const isClose = (startedAt: string) =>
-  new Date() > new Date(new Date(startedAt).getFullYear(), new Date(startedAt).getMonth(), new Date(startedAt).getDate())
+  new Date() >
+  new Date(
+    new Date(startedAt).getFullYear(),
+    new Date(startedAt).getMonth(),
+    new Date(startedAt).getDate(),
+  )
 
 useHead({
   titleTemplate: (titleChunk) => `関連イベント | ${conferenceTitle}`,
@@ -46,7 +50,9 @@ useHead({
           :src="event.bannerUrl"
           :alt="event.title"
           :register-url="event.registerUrl"
-          :register-action-text="isClose(event.startedAt) ? $t('related_events.close') : $t('related_events.register')"
+          :register-action-text="
+            isClose(event.startedAt) ? $t('related_events.close') : $t('related_events.register')
+          "
           :disabled="isClose(event.startedAt)"
         >
           <template #title>
@@ -64,7 +70,7 @@ useHead({
         background-color="white"
         color="vue-blue"
         target=""
-        :href="`${localePath}/`"
+        :href="pathWithLocale('/')"
       >
         {{ $t('back_to_top') }}
       </VFLinkButton>
@@ -89,7 +95,7 @@ useHead({
   }
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     bottom: 0;
@@ -117,7 +123,7 @@ useHead({
 
   @media (--tablet) {
     padding: 20px 0 60px;
-    max-width: 100%
+    max-width: 100%;
   }
 
   li {

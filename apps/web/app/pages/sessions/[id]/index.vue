@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { createError, useAsyncData, useHead, useRoute, useRuntimeConfig } from '#imports'
+import {
+  createError,
+  useAsyncData,
+  useHead,
+  useRoute,
+  useRuntimeConfig,
+  usePathWithLocale,
+} from '#imports'
 import type { Speaker } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useSupabase } from '~/composables/useSupabase'
@@ -28,6 +35,7 @@ if (!speakerData[0].detail_page_id) {
 const { range } = useRange()
 const { color, trackName } = useSession()
 const currentLocale = useLocaleCurrent().locale
+const pathWithLocale = usePathWithLocale()
 
 useHead({
   titleTemplate: (titleChunk) => `${speakerData[0].session_title_ja} | ${conferenceTitle}`,
@@ -53,16 +61,30 @@ useHead({
   <div class="session-detail">
     <div class="session-detail-body">
       <div class="detailbody-tags">
-        <VFTag :label="trackName(speakerData[0].session_place)" :background="color(speakerData[0].session_place)" />
-        <VFTag :label="range(speakerData[0].session_time_from, speakerData[0].session_time_duration)" background="vue-green/200" />
+        <VFTag
+          :label="trackName(speakerData[0].session_place)"
+          :background="color(speakerData[0].session_place)"
+        />
+        <VFTag
+          :label="range(speakerData[0].session_time_from, speakerData[0].session_time_duration)"
+          background="vue-green/200"
+        />
       </div>
 
       <VFTitle id="session-detail" class="detailbody-title">
-        {{ currentLocale === 'ja' ? (speakerData[0].session_title_ja ?? 'TBD') : (speakerData[0].session_title_en ?? 'TBD') }}
+        {{
+          currentLocale === 'ja'
+            ? speakerData[0].session_title_ja ?? 'TBD'
+            : speakerData[0].session_title_en ?? 'TBD'
+        }}
       </VFTitle>
 
       <div class="detailbody-explain">
-        {{ currentLocale === 'ja' ? (speakerData[0].session_description_ja ?? 'TBD') : (speakerData[0].session_description_en ?? 'TBD') }}
+        {{
+          currentLocale === 'ja'
+            ? speakerData[0].session_description_ja ?? 'TBD'
+            : speakerData[0].session_description_en ?? 'TBD'
+        }}
       </div>
 
       <div v-if="speakerData[0].session_doc_url" class="detailbody-archives">
@@ -73,7 +95,11 @@ useHead({
           color="vue-blue"
           class="detailbody-archive-slide"
         >
-          {{ currentLocale === 'ja' ? speakerData[0].session_doc_title_ja : speakerData[0].session_doc_title_en }}
+          {{
+            currentLocale === 'ja'
+              ? speakerData[0].session_doc_title_ja
+              : speakerData[0].session_doc_title_en
+          }}
         </VFTextLink>
       </div>
 
@@ -81,14 +107,18 @@ useHead({
         <VFSpeaker
           :image="speakerData[0].image_url"
           :company="currentLocale === 'en' ? speakerData[0].company_en : speakerData[0].company_ja"
-          :division="currentLocale === 'en' ? speakerData[0].position_en : speakerData[0].position_ja"
+          :division="
+            currentLocale === 'en' ? speakerData[0].position_en : speakerData[0].position_ja
+          "
           :name="currentLocale === 'en' ? speakerData[0].name_en : speakerData[0].name_ja"
           :github-id="speakerData[0].github_id"
           :x-id="speakerData[0].x_id"
           loading="eager"
         />
         <div class="person-info">
-          {{ currentLocale === 'ja' ? speakerData[0].description_ja : speakerData[0].description_en }}
+          {{
+            currentLocale === 'ja' ? speakerData[0].description_ja : speakerData[0].description_en
+          }}
         </div>
       </div>
 
@@ -98,7 +128,7 @@ useHead({
           background-color="white"
           color="vue-blue"
           target=""
-          :href="currentLocale === 'ja' ? '/' : `${currentLocale}/`"
+          :href="pathWithLocale('/')"
         >
           {{ $t('back_to_top') }}
         </VFLinkButton>
@@ -124,7 +154,7 @@ useHead({
   }
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     bottom: 0;
@@ -151,7 +181,7 @@ useHead({
 
   @media (--tablet) {
     padding: 20px 0 60px;
-    max-width: 100%
+    max-width: 100%;
   }
 
   .detailbody-title {
