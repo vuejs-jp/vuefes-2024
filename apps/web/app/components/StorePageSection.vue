@@ -3,6 +3,7 @@ import { useTranslation } from '~/composables/useTranslation'
 import type { Product } from '@vuejs-jp/model'
 import MarkDownText from '~/components/MarkDownText.vue'
 import { endedPurchaseStore, storeUrl } from '~/utils/constants'
+import { useWithBase } from '#imports'
 
 const { translate: t } = useTranslation()
 
@@ -95,6 +96,11 @@ const products: Product[] = [
     weight: t('store.weight.approximately_5kg'),
   },
 ]
+
+const productsWithBase = products.map((product) => ({
+  ...product,
+  src: useWithBase(product.src),
+}))
 </script>
 
 <template>
@@ -103,9 +109,7 @@ const products: Product[] = [
       <div class="store-body">
         <div class="store-title">
           <VFComment :title="$t('store.do_again_this_year')" />
-          <VFTitle id="store" class="title">
-            Vue Fes Store
-          </VFTitle>
+          <VFTitle id="store" class="title"> Vue Fes Store </VFTitle>
           <div class="explain">
             <MarkDownText path="store" />
           </div>
@@ -125,10 +129,10 @@ const products: Product[] = [
 
         <div class="store-menu">
           <div class="store-menu-list">
-            <div v-for="product in products" :key="product.name" class="store-card">
+            <div v-for="product in productsWithBase" :key="product.name" class="store-card">
               <VFProduct v-bind="{ ...product, disabled: endedPurchaseStore }">
                 <template #explain>
-                  <i18n-t :keypath="product.explain" tag="p" style="margin: 0;">
+                  <i18n-t :keypath="product.explain" tag="p" style="margin: 0">
                     <template #kawaiiStickerCreator>
                       <a href="https://x.com/icarusgkx" target="_blank">
                         {{ $t('store.kawaii_sticker_creator') }}
@@ -196,7 +200,7 @@ section {
   background: rgba(255, 255, 255);
   backdrop-filter: blur(8px);
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     inset: 0;
