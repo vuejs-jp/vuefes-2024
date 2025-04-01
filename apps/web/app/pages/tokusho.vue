@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useHead } from '#imports'
+import { useHead, useWithBase } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { conferenceTitle, linkUrl, ogTokushoDescription } from '~/utils/constants'
@@ -27,6 +27,7 @@ useHead({
 const { path: localePath } = useLocaleCurrent()
 const { fontWeight, fontSize } = useTypography()
 const { color } = useColor()
+const withBase = useWithBase()
 </script>
 
 <template>
@@ -58,7 +59,7 @@ const { color } = useColor()
         background-color="white"
         color="vue-blue"
         target=""
-        :href="`${localePath}/`"
+        :href="withBase(`${localePath}/`)"
       >
         {{ $t('back_to_top') }}
       </VFLinkButton>
