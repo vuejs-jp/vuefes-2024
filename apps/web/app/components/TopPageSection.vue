@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
 import { computed } from 'vue'
+import { useWithBase } from '#imports'
 
 const { locale } = useI18n()
 
+const withBase = useWithBase()
+
 const getAnchorPath = computed(
-  () => (anchor: string) => (locale.value === 'ja' ? `/${anchor}` : `/en/${anchor}`),
+  () => (anchor: string) =>
+    locale.value === 'ja' ? withBase(`/${anchor}`) : withBase(`/en/${anchor}`),
 )
 </script>
 
