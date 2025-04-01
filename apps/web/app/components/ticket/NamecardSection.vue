@@ -35,7 +35,7 @@ const basePath = useWithBase()
       <div class="buttons-wrapper">
         <VFLinkButton
           class="action-button"
-          :href="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}namecard/`"
+          :href="basePath(`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}namecard/`)"
           background-color="vue-green/200"
           color="white"
         >

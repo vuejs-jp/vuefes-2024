@@ -19,7 +19,7 @@ export default defineNuxtConfig({
         ...twitterOg(),
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: '/2024/favicon.ico' },
         { rel: 'stylesheet', href: 'https://use.typekit.net/lff1jgr.css' },
       ],
       htmlAttrs: {
