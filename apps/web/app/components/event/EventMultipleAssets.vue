@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Event } from '@vuejs-jp/model'
+import { useWithBase } from '#imports'
 
 interface EventMultipleAssetsProps {
   titleList: Extract<Event, 'vuejs-handson' | 'cocktail-bash'>[]
@@ -7,6 +8,7 @@ interface EventMultipleAssetsProps {
 }
 
 const props = defineProps<EventMultipleAssetsProps>()
+const withBase = useWithBase()
 </script>
 
 <template>
@@ -19,7 +21,7 @@ const props = defineProps<EventMultipleAssetsProps>()
     <NuxtImg
       v-for="(title, key) in titleList"
       :key
-      :src="`/event/${title}-${key + 1}.png`"
+      :src="withBase(`/event/${title}-${key + 1}.png`)"
       alt=""
       width="792"
       height="512"
