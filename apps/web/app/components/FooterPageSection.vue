@@ -2,7 +2,7 @@
 import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
-
+import { useWithBase } from '#imports'
 //#region types
 type LinkList = {
   href: string
@@ -15,6 +15,7 @@ const { t } = useI18n()
 const { path: localePath } = useLocaleCurrent()
 const { color } = useColor()
 const { fontSize } = useTypography()
+const withBase = useWithBase()
 //#endregion
 
 //#region private variables
@@ -38,19 +39,19 @@ const snsLinkList: LinkList[] = [
 ]
 const internalLinkList: LinkList[] = [
   {
-    href: '/events',
+    href: withBase('/events'),
     text: 'related_events.title',
   },
   {
-    href: '/privacy',
+    href: withBase('/privacy'),
     text: 'privacy.title',
   },
   {
-    href: '/code-of-conduct',
+    href: withBase('/code-of-conduct'),
     text: 'code_of_conduct.title',
   },
   {
-    href: '/tokusho',
+    href: withBase('/tokusho'),
     text: 'tokusho.title',
   },
 ]
