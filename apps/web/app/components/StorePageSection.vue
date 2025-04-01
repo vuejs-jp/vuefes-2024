@@ -6,6 +6,7 @@ import { endedPurchaseStore, storeUrl } from '~/utils/constants'
 import { useWithBase } from '#imports'
 
 const { translate: t } = useTranslation()
+const withBase = useWithBase()
 
 const products: Product[] = [
   {
@@ -99,7 +100,7 @@ const products: Product[] = [
 
 const productsWithBase = products.map((product) => ({
   ...product,
-  src: useWithBase(product.src),
+  src: withBase(product.src),
 }))
 </script>
 

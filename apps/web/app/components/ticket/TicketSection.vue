@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { useI18n } from '#imports'
+import { useI18n, useWithBase } from '#imports'
 import { endedApplyEarly, endedApplyHandson, endedApplyNormal, ticketUrl } from '~/utils/constants'
 
 const { t } = useI18n()
+const withBase = useWithBase()
 
 const ticketCards = {
   ippan: {
@@ -57,7 +58,7 @@ const ticketCards = {
       <div class="ticket-cards-container">
         <VFTicketCard
           :title="ticketCards.ippan.title"
-          :img-src="ticketCards.ippan.imgSrc"
+          :img-src="withBase(ticketCards.ippan.imgSrc)"
           :img-alt="ticketCards.ippan.imgAlt"
           :is-close="endedApplyNormal"
         >
@@ -100,7 +101,9 @@ const ticketCards = {
             </div>
             <div v-else class="early-purchase">
               <span class="cost">
-                <template v-if="!endedApplyNormal">{{ $t('ticket.card.ippanParty.regular') }}</template>
+                <template v-if="!endedApplyNormal">{{
+                  $t('ticket.card.ippanParty.regular')
+                }}</template>
                 <s v-else>{{ $t('ticket.card.ippanParty.regular') }}</s>
               </span>
               <span class="cost-details">
@@ -143,7 +146,9 @@ const ticketCards = {
         >
           <div class="ticket-details individual-sponsor-details">
             <div class="cost">
-              <template v-if="!endedApplyNormal">{{ $t('ticket.card.individualSponsor.cost') }}</template>
+              <template v-if="!endedApplyNormal">{{
+                $t('ticket.card.individualSponsor.cost')
+              }}</template>
               <s v-else>{{ $t('ticket.card.individualSponsor.cost') }}</s>
             </div>
             <div class="cost-details">
