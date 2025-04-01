@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { useHead, useI18n } from '#imports'
+import { useHead, useI18n, usePathWithLocale } from '#imports'
 import MarkDownText from '~/components/MarkDownText.vue'
-import { useColor, useTypography } from '@vuejs-jp/composable'
-import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
+import { useColor } from '@vuejs-jp/composable'
 import { conferenceTitle, linkUrl, ogPrivacyDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
 const { t } = useI18n()
-const { path: localePath } = useLocaleCurrent()
-const { fontWeight, fontSize } = useTypography()
+const pathWithLocale = usePathWithLocale()
 const { color } = useColor()
 
 useHead({
@@ -51,7 +49,7 @@ useHead({
         background-color="white"
         color="vue-blue"
         target=""
-        :href="`${localePath}/`"
+        :href="pathWithLocale('/')"
       >
         {{ t('back_to_top') }}
       </VFLinkButton>

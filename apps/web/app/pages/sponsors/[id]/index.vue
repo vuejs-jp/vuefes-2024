@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { createError, useAsyncData, useHead, useRoute, useRuntimeConfig } from '#imports'
+import {
+  createError,
+  useAsyncData,
+  useHead,
+  useRoute,
+  useRuntimeConfig,
+  usePathWithLocale,
+} from '#imports'
 import type { Job, Speaker, Sponsor } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useSupabase } from '~/composables/useSupabase'
@@ -38,6 +45,7 @@ const { data: jobs } = await useAsyncData('jobs', async () => {
 const jobData = jobs.value?.data as Job[]
 
 const currentLocale = useLocaleCurrent().locale
+const pathWithLocale = usePathWithLocale()
 const { color: updateColor } = useColor()
 const { color, borderColor, isMoreSilver } = useSponsor()
 
@@ -75,10 +83,14 @@ useHead({
         :style="
           isMoreSilver(sponsorData[0].tag)
             ? { gridTemplateColumns: 'auto 1fr' }
-            : { gridTemplateColumns: '1fr', justifyContent: 'center' }"
+            : { gridTemplateColumns: '1fr', justifyContent: 'center' }
+        "
       >
         <div class="detailhead-left">
-          <p class="detailhead-img" :style="{ border: `1px solid ${updateColor(borderColor(sponsorData[0].tag))}` }">
+          <p
+            class="detailhead-img"
+            :style="{ border: `1px solid ${updateColor(borderColor(sponsorData[0].tag))}` }"
+          >
             <img
               :src="`${sponsorData[0].image_url}`"
               :alt="sponsorData[0].name"
@@ -97,13 +109,17 @@ useHead({
           </a>
         </div>
         <div v-if="isMoreSilver(sponsorData[0].tag)" class="detailhead-right">
-          {{ currentLocale === 'ja' ? sponsorData[0].description_ja : sponsorData[0].description_en }}
+          {{
+            currentLocale === 'ja' ? sponsorData[0].description_ja : sponsorData[0].description_en
+          }}
         </div>
       </div>
 
       <div v-if="sponsorData[0].speaker_id?.length !== 0" class="detailbody-persons">
         <h3 class="sponsor-subtitle">
-          {{ `${sponsorData[0].name}の${speakerData[0].session_type === 'sponsor-session' ? 'スポンサーセッション' : 'スポンサーLT'}` }}
+          {{
+            `${sponsorData[0].name}の${speakerData[0].session_type === 'sponsor-session' ? 'スポンサーセッション' : 'スポンサーLT'}`
+          }}
         </h3>
         <div class="sponsor-session-info">
           <div class="avatar-info">
@@ -120,10 +136,18 @@ useHead({
           </div>
           <div class="person-info">
             <h4>
-              {{ currentLocale === 'ja' ? speakerData[0].session_title_ja : speakerData[0].session_title_en }}
+              {{
+                currentLocale === 'ja'
+                  ? speakerData[0].session_title_ja
+                  : speakerData[0].session_title_en
+              }}
             </h4>
             <p>
-              {{ currentLocale === 'ja' ? speakerData[0].session_description_ja : speakerData[0].session_description_en }}
+              {{
+                currentLocale === 'ja'
+                  ? speakerData[0].session_description_ja
+                  : speakerData[0].session_description_en
+              }}
             </p>
           </div>
         </div>
@@ -144,7 +168,7 @@ useHead({
           background-color="white"
           color="vue-blue"
           target=""
-          :href="currentLocale === 'ja' ? '/' : `${currentLocale}/`"
+          :href="pathWithLocale('/')"
         >
           {{ $t('back_to_top') }}
         </VFLinkButton>
@@ -170,7 +194,7 @@ useHead({
   }
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     bottom: 0;
@@ -198,7 +222,7 @@ useHead({
 
   @media (--tablet) {
     padding: 20px 0 60px;
-    max-width: 100%
+    max-width: 100%;
   }
 
   .detailhead-tags {
@@ -211,7 +235,7 @@ useHead({
 
   .detailhead-body {
     display: flex;
-    color: #292C33;
+    color: #292c33;
     gap: calc(var(--unit) * 5);
     padding: calc(var(--unit) * 2.5) 0 calc(var(--unit) * 5);
   }
@@ -282,7 +306,7 @@ useHead({
     text-decoration: underline;
     margin-top: calc(var(--unit) * 2);
     &:hover {
-      transition: .2s;
+      transition: 0.2s;
     }
   }
 
@@ -364,7 +388,7 @@ useHead({
   .detailbody-jobboard ::v-deep(a) {
     width: 460px;
 
-    @media(--mobile) {
+    @media (--mobile) {
       width: 100%;
     }
   }

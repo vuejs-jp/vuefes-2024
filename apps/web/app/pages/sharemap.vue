@@ -1,11 +1,21 @@
 <script setup lang="ts">
-import { useFetch, useHead } from '#imports'
-import type { PanelerInfo, SpeakerCategory, SpeakerInfo, SponsorCategory, SponsorInfo, StaffCategory, StaffInfo } from '@vuejs-jp/model'
-import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
+import { useFetch, useHead, usePathWithLocale } from '#imports'
+import type {
+  PanelerInfo,
+  SpeakerCategory,
+  SpeakerInfo,
+  SponsorCategory,
+  SponsorInfo,
+  StaffCategory,
+  StaffInfo,
+} from '@vuejs-jp/model'
 import { conferenceTitle, linkUrl, ogSharemapDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 
-type _SpeakerCategory = Extract<SpeakerCategory, 'sessionSpeakers' | 'lightningTalkSpeakers' | 'sponsorSessionSpeakers'>
+type _SpeakerCategory = Extract<
+  SpeakerCategory,
+  'sessionSpeakers' | 'lightningTalkSpeakers' | 'sponsorSessionSpeakers'
+>
 type _PanelerCategory = Extract<SpeakerCategory, 'panelEventPanelers'>
 type Speakers = Record<_SpeakerCategory, SpeakerInfo>
 type Panelers = Record<_PanelerCategory, PanelerInfo>
@@ -15,7 +25,8 @@ type Sponsors = Record<SponsorCategory, SponsorInfo>
 type Staffs = Record<StaffCategory, StaffInfo>
 
 const { data: speakers, error: error1 } = await useFetch('/api/speakers')
-const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = speakers.value as Speakers
+const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } =
+  speakers.value as Speakers
 const { panelEventPanelers } = speakers.value as Panelers
 if (error1.value) {
   console.error(error1.value)
@@ -47,7 +58,7 @@ if (error3.value) {
   console.error(error3.value)
 }
 
-const { path: localePath } = useLocaleCurrent()
+const pathWithLocale = usePathWithLocale()
 
 useHead({
   // eslint-disable-next-line no-unused-vars
@@ -84,10 +95,8 @@ useHead({
                 ...sponsorSessionSpeakers.list,
                 ...panelEventPanelers.list['nextgen-frontend-crosstalk'],
                 ...panelEventPanelers.list['welcome-vuejs-community'],
-              ]
-              .map((item) => [JSON.stringify(item), item])
-            )
-            .values()
+              ].map((item) => [JSON.stringify(item), item]),
+            ).values(),
           )"
           :key="speaker.id"
           :href="`/sessions/${speaker.detail_page_id}/share`"
@@ -118,10 +127,8 @@ useHead({
                 ...handsonSponsors.list,
                 ...mediaSponsors.list,
                 ...toolSponsors.list,
-              ]
-              .map((item) => [JSON.stringify(item), item])
-            )
-            .values()
+              ].map((item) => [JSON.stringify(item), item]),
+            ).values(),
           )"
           :key="sponsor.id"
           :href="`/sponsors/${sponsor.detail_page_id}/share`"
@@ -150,7 +157,7 @@ useHead({
         background-color="white"
         color="vue-blue"
         target=""
-        :href="`${localePath}/`"
+        :href="pathWithLocale('/')"
       >
         {{ $t('back_to_top') }}
       </VFLinkButton>
@@ -175,7 +182,7 @@ useHead({
   }
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     bottom: 0;

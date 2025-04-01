@@ -2,7 +2,7 @@
 import { useI18n } from '#i18n'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
-import { useWithBase } from '#imports'
+import { usePathWithLocale } from '#imports'
 //#region types
 type LinkList = {
   href: string
@@ -15,7 +15,7 @@ const { t } = useI18n()
 const { path: localePath } = useLocaleCurrent()
 const { color } = useColor()
 const { fontSize } = useTypography()
-const withBase = useWithBase()
+const pathWithLocale = usePathWithLocale()
 //#endregion
 
 //#region private variables
@@ -39,19 +39,19 @@ const snsLinkList: LinkList[] = [
 ]
 const internalLinkList: LinkList[] = [
   {
-    href: withBase('/events'),
+    href: '/events',
     text: 'related_events.title',
   },
   {
-    href: withBase('/privacy'),
+    href: '/privacy',
     text: 'privacy.title',
   },
   {
-    href: withBase('/code-of-conduct'),
+    href: '/code-of-conduct',
     text: 'code_of_conduct.title',
   },
   {
-    href: withBase('/tokusho'),
+    href: '/tokusho',
     text: 'tokusho.title',
   },
 ]
@@ -94,7 +94,7 @@ const vueFesLinkList: LinkList[] = [
       <div class="footer-link">
         <ul class="footer-list">
           <li v-for="(link, index) in internalLinkList" :key="index">
-            <VFTextLink :href="`${localePath}${link.href}`" color="white">
+            <VFTextLink :href="pathWithLocale(`${link.href}`)" color="white">
               {{ t(link.text) }}
             </VFTextLink>
           </li>

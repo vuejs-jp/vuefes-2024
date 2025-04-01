@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { useFetch, useHead } from '#imports'
-import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
+import { useFetch, useHead, usePathWithLocale } from '#imports'
 import type { JobInfo } from '@vuejs-jp/model'
 import { conferenceTitle, linkUrl, ogJobboardDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
@@ -13,7 +12,7 @@ if (error.value) {
 }
 const { allJobs } = data.value as Jobs
 
-const { path: localePath } = useLocaleCurrent()
+const pathWithLocale = usePathWithLocale()
 
 useHead({
   titleTemplate: (titleChunk) => `ジョブボード | ${conferenceTitle}`,
@@ -50,7 +49,7 @@ useHead({
         background-color="white"
         color="vue-blue"
         target=""
-        :href="`${localePath}/`"
+        :href="pathWithLocale('/')"
       >
         {{ $t('back_to_top') }}
       </VFLinkButton>
@@ -75,7 +74,7 @@ useHead({
   }
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     bottom: 0;
@@ -103,7 +102,7 @@ useHead({
 
   @media (--tablet) {
     padding: 20px 0 60px;
-    max-width: 100%
+    max-width: 100%;
   }
 
   li {

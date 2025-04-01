@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
-import { useLocaleCurrent, useRuntimeConfig, useWithBase } from '#imports'
+import { useLocaleCurrent, useRuntimeConfig, usePathWithLocale } from '#imports'
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useTranslation } from '@/composables/useTranslation'
 import SponsorList from './sponsor/SponsorList.vue'
@@ -22,7 +22,7 @@ const { translate } = useTranslation()
 
 const currentLocale = useLocaleCurrent().locale
 
-const withBase = useWithBase()
+const pathWithLocale = usePathWithLocale()
 
 // const periodStart = {
 //   prefixYear: t('prefix_year'),
@@ -186,7 +186,7 @@ const personalSponsorInfo: PersonalSponsorInfo = {
       <div class="sponsor-buttons">
         <VFLinkButton
           class="sponsor-button"
-          :href="withBase(`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}jobboard`)"
+          :href="pathWithLocale('/jobboard')"
           background-color="vue-green/200"
           color="white"
         >
