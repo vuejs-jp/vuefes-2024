@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { endedApplyNormal, ticketUrl } from '~/utils/constants'
+import { useWithBase } from '#imports'
+const withBase = useWithBase()
 </script>
 
 <template>
@@ -16,7 +18,7 @@ import { endedApplyNormal, ticketUrl } from '~/utils/constants'
         :detail="$t(`personal_sponsor.merit${i}.detail`)"
         :caution="i === 2 || i === 4 ? $t(`personal_sponsor.merit${i}.caution`) : ''"
       >
-        <NuxtImg alt="" :src="`/sponsor/merit-${i}.jpg`" loading="lazy" class="image" />
+        <NuxtImg alt="" :src="withBase(`/sponsor/merit-${i}.jpg`)" loading="lazy" class="image" />
       </VFMeritCard>
     </div>
     <div class="personal-sponsor-text">
