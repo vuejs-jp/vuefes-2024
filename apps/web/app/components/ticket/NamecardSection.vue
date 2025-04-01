@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { endedApplyNormal, endedCreateNamecard, ticketUrl } from '~/utils/constants'
-import { useWithBase } from '#imports'
+import { useWithBase, usePathWithLocale } from '#imports'
 
 const { locale: currentLocale } = useLocaleCurrent()
 const basePath = useWithBase()
+const pathWithLocale = usePathWithLocale()
 </script>
 
 <template>
@@ -35,7 +36,7 @@ const basePath = useWithBase()
       <div class="buttons-wrapper">
         <VFLinkButton
           class="action-button"
-          :href="basePath(`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}namecard/`)"
+          :href="pathWithLocale('/namecard')"
           background-color="vue-green/200"
           color="white"
         >
