@@ -94,7 +94,7 @@ const vueFesLinkList: LinkList[] = [
       <div class="footer-link">
         <ul class="footer-list">
           <li v-for="(link, index) in internalLinkList" :key="index">
-            <VFTextLink :href="`${localePath}${link.href}`" color="white">
+            <VFTextLink :href="`${link.href}`" color="white">
               {{ t(link.text) }}
             </VFTextLink>
           </li>
