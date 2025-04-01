@@ -16,7 +16,7 @@ const { headerRef } = useHeader()
 <template>
   <header ref="headerRef" :style="{ top }">
     <div class="header-root">
-      <a class="link" href="/" aria-label="Vue Fes Japan 2024">
+      <a class="link" href="/2024/" aria-label="Vue Fes Japan 2024">
         <Logo class="logo" color="vue-blue" />
       </a>
       <slot />
