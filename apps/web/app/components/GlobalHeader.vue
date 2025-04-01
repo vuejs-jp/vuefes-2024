@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRuntimeConfig, useWithBase } from '#imports'
+import { useRuntimeConfig } from '#imports'
 import { useI18n } from '#i18n'
 import { useNav } from '~/composables/useNav'
 import { useScreenOrientation, useWindowSize } from '@vueuse/core'
@@ -36,10 +36,8 @@ const toggleMenu = () => {
   showMenu.value = !showMenu.value
 }
 
-const withBase = useWithBase()
 const getAnchorPath = computed(
-  () => (anchor: string) =>
-    locale.value === 'ja' ? withBase(`/${anchor}`) : withBase(`en/${anchor}`),
+  () => (anchor: string) => (locale.value === 'ja' ? `/${anchor}` : `/en/${anchor}`),
 )
 </script>
 
