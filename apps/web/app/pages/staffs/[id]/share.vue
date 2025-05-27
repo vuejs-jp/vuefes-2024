@@ -9,6 +9,7 @@ import {
 } from '#imports'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useSupabase } from '~/composables/useSupabase'
+import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 import { conferenceTitle, linkUrl, ogStaffDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import type { Staff } from '@vuejs-jp/model'
@@ -27,6 +28,8 @@ if (!staffData) {
 }
 
 const currentLocale = useLocaleCurrent().locale
+
+const { getStaticAvatarUrl } = useSupabaseStorage()
 
 function copyUrl() {
   const element = document.createElement('input')
@@ -69,7 +72,7 @@ useHead({
       class="staff"
       :user="{
         display_name: staffData[0].name,
-        avatar_url: staffData[0].image_url,
+        avatar_url: getStaticAvatarUrl(staffData[0].image_url),
         role: 'staff',
       }"
     />
