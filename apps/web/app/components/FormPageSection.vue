@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useColor, useTypography } from '@vuejs-jp/composable'
 import { useForm } from '~/composables/useForm'
+import { isNewtShutdown } from '~/utils/constants'
 
 const {
   name,
@@ -87,7 +88,7 @@ const updateDetail = (e: any) => {
               {{ $t('form.submit') }}
             </VFSubmitButton>
           </div>
-          <VFTypography v-if="isSent" variant="other/200" color="sangosyo/200">
+          <VFTypography v-if="!isNewtShutdown && isSent" variant="other/200" color="sangosyo/200">
             {{ $t('form.submit_done') }}
           </VFTypography>
         </form>

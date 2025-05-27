@@ -62,6 +62,9 @@ export const endedCreateNamecard = true
 // Whether the conference is over
 export const isDone = true
 
+// Whether the Newt is over
+export const isNewtShutdown = true
+
 export const displayNameMaxLength = 24
 
 export const photos = [
