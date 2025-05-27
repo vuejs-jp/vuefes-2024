@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import type { Speaker } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
-import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 
 interface PanelerListProps {
   panelers: Speaker[]
 }
 
 const props = defineProps<PanelerListProps>()
-
-const { getStaticAvatarUrl } = useSupabaseStorage()
 
 const currentLocale = useLocaleCurrent().locale
 </script>
@@ -19,7 +16,7 @@ const currentLocale = useLocaleCurrent().locale
     <VFSpeaker
       v-for="paneler in panelers"
       :key="paneler.id"
-      :image="getStaticAvatarUrl(paneler.image_url)"
+      :image="paneler.image_url"
       :company="currentLocale === 'en' ? paneler.company_en : paneler.company_ja"
       :division="currentLocale === 'en' ? paneler.position_en : paneler.position_en"
       :name="currentLocale === 'en' ? paneler.name_en : paneler.name_ja"
