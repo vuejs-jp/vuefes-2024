@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import type { PersonalSponsorInfo, SponsorInfo } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
-import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 
 type Props = SponsorInfo & {
   personal?: PersonalSponsorInfo
 }
 
 defineProps<Props>()
-
-const { getStaticAvatarUrl } = useSupabaseStorage()
 
 const currentLocale = useLocaleCurrent().locale
 </script>
@@ -27,7 +24,7 @@ const currentLocale = useLocaleCurrent().locale
         >
           <img
             class="sponsor-list-item-image"
-            :src="getStaticAvatarUrl(item.image_url)"
+            :src="item['image_url']"
             :alt="item.name"
             loading="lazy"
           />

@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { endedApplyNormal, endedCreateNamecard, isDone, ticketUrl } from '~/utils/constants'
+import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
+import { endedApplyNormal, endedCreateNamecard, ticketUrl } from '~/utils/constants'
 import { useWithBase, usePathWithLocale } from '#imports'
 
+const { locale: currentLocale } = useLocaleCurrent()
 const basePath = useWithBase()
 const pathWithLocale = usePathWithLocale()
 </script>
@@ -37,7 +39,6 @@ const pathWithLocale = usePathWithLocale()
           :href="pathWithLocale('/namecard')"
           background-color="vue-green/200"
           color="white"
-          :disabled="isDone"
         >
           {{ endedCreateNamecard ? $t('namecard.confirmNamecard') : $t('namecard.createNamecard') }}
         </VFLinkButton>
