@@ -59,6 +59,9 @@ export const endedPurchaseStore = true
 
 export const endedCreateNamecard = true
 
+// Whether the conference is over
+export const isDone = true
+
 export const displayNameMaxLength = 24
 
 export const photos = [

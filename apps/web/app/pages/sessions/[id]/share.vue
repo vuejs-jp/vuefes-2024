@@ -9,6 +9,7 @@ import {
 } from '#imports'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useSupabase } from '~/composables/useSupabase'
+import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 import { conferenceTitle, linkUrl, ogSpeakerDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import type { Speaker } from '@vuejs-jp/model'
@@ -31,6 +32,8 @@ if (!speakerData[0].detail_page_id) {
 }
 
 const currentLocale = useLocaleCurrent().locale
+
+const { getStaticAvatarUrl } = useSupabaseStorage()
 
 function copyUrl() {
   const element = document.createElement('input')
@@ -73,7 +76,7 @@ useHead({
       class="session"
       :user="{
         display_name: speakerData[0].name_ja,
-        avatar_url: speakerData[0].image_url,
+        avatar_url: getStaticAvatarUrl(speakerData[0].image_url),
         role: 'speaker',
       }"
     />

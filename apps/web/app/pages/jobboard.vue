@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useFetch, useHead, usePathWithLocale } from '#imports'
+import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 import type { JobInfo } from '@vuejs-jp/model'
 import { conferenceTitle, linkUrl, ogJobboardDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
@@ -11,6 +12,8 @@ if (error.value) {
   console.error(error.value)
 }
 const { allJobs } = data.value as Jobs
+
+const { getStaticAvatarUrl } = useSupabaseStorage()
 
 const pathWithLocale = usePathWithLocale()
 
@@ -39,7 +42,7 @@ useHead({
     <ul class="jobboard-body">
       <li v-for="(job, index) in allJobs.list" :key="index">
         <nuxt-link :to="job.link_url" target="_blank">
-          <img :src="job.image_url" :alt="job.image_alt" />
+          <img :src="getStaticAvatarUrl(job.image_url)" :alt="job.image_alt" />
         </nuxt-link>
       </li>
     </ul>

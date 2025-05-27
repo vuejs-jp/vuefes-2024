@@ -11,6 +11,7 @@ import type { Speaker } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useSupabase } from '~/composables/useSupabase'
 import { useSession } from '~/composables/useSession'
+import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 import { conferenceTitle, linkUrl, ogSpeakerDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import { useRange } from '@vuejs-jp/composable'
@@ -36,6 +37,7 @@ const { range } = useRange()
 const { color, trackName } = useSession()
 const currentLocale = useLocaleCurrent().locale
 const pathWithLocale = usePathWithLocale()
+const { getStaticAvatarUrl } = useSupabaseStorage()
 
 useHead({
   titleTemplate: (titleChunk) => `${speakerData[0].session_title_ja} | ${conferenceTitle}`,
@@ -105,7 +107,7 @@ useHead({
 
       <div class="detailbody-persons">
         <VFSpeaker
-          :image="speakerData[0].image_url"
+          :image="getStaticAvatarUrl(speakerData[0].image_url)"
           :company="currentLocale === 'en' ? speakerData[0].company_en : speakerData[0].company_ja"
           :division="
             currentLocale === 'en' ? speakerData[0].position_en : speakerData[0].position_ja
