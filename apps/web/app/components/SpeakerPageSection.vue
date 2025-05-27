@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import SpeakerCfp from '~/components/speaker/SpeakerCfp.vue'
 import { useLocaleCurrent } from '@/composables/useLocaleCurrent'
+import { useSupabaseStorage } from '@/composables/useSupabaseStorage'
 import type { SpeakerCategory, SpeakerInfo } from '@vuejs-jp/model'
 import { useRuntimeConfig } from '#imports'
+import { REDIRECT_URL } from '~/utils/environment.constants'
 
 type _SpeakerCategory = Extract<SpeakerCategory, 'sessionSpeakers' | 'lightningTalkSpeakers' | 'sponsorSessionSpeakers'>
 type Speakers = Record<_SpeakerCategory, SpeakerInfo>
@@ -13,6 +15,8 @@ const props = defineProps<{
 
 const config = useRuntimeConfig()
 const currentLocale = useLocaleCurrent().locale
+
+const { getStaticAvatarUrl } = useSupabaseStorage()
 
 const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props.data as Speakers
 </script>
@@ -32,7 +36,7 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
               :to="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}sessions/${speaker.detail_page_id}`"
             >
               <VFSpeaker
-                :image="speaker.image_url"
+                :image="getStaticAvatarUrl(speaker.image_url)"
                 :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
                 :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
                 :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
@@ -42,7 +46,7 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
             </NuxtLink>
             <VFSpeaker
               v-else
-              :image="speaker.image_url"
+              :image="getStaticAvatarUrl(speaker.image_url)"
               :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
               :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
               :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
@@ -68,7 +72,7 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
               :to="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}sessions/${speaker.detail_page_id}`"
             >
               <VFSpeaker
-                :image="speaker.image_url"
+                :image="getStaticAvatarUrl(speaker.image_url)"
                 :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
                 :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
                 :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
@@ -78,7 +82,7 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
             </NuxtLink>
             <VFSpeaker
               v-else
-              :image="speaker.image_url"
+              :image="getStaticAvatarUrl(speaker.image_url)"
               :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
               :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
               :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
@@ -99,7 +103,7 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
               :to="`${currentLocale === 'ja' ? '/' : `/${currentLocale}/`}sessions/${speaker.detail_page_id}`"
             >
               <VFSpeaker
-                :image="speaker.image_url"
+                :image="getStaticAvatarUrl(speaker.image_url)"
                 :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
                 :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
                 :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
@@ -109,7 +113,7 @@ const { sessionSpeakers, lightningTalkSpeakers, sponsorSessionSpeakers } = props
             </NuxtLink>
             <VFSpeaker
               v-else
-              :image="speaker.image_url"
+              :image="getStaticAvatarUrl(speaker.image_url)"
               :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
               :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
               :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"

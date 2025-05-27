@@ -11,6 +11,7 @@ import type { Job, Speaker, Sponsor } from '@vuejs-jp/model'
 import { useLocaleCurrent } from '~/composables/useLocaleCurrent'
 import { useSupabase } from '~/composables/useSupabase'
 import { useSponsor } from '~/composables/useSponsor'
+import { useSupabaseStorage } from '~/composables/useSupabaseStorage'
 import { conferenceTitle, linkUrl, ogSponsorDescription } from '~/utils/constants'
 import { generalOg, twitterOg } from '~/utils/og.constants'
 import { useColor } from '@vuejs-jp/composable'
@@ -48,6 +49,7 @@ const currentLocale = useLocaleCurrent().locale
 const pathWithLocale = usePathWithLocale()
 const { color: updateColor } = useColor()
 const { color, borderColor, isMoreSilver } = useSponsor()
+const { getStaticAvatarUrl } = useSupabaseStorage()
 
 useHead({
   titleTemplate: (titleChunk) => `${sponsorData[0].name} | ${conferenceTitle}`,
@@ -92,7 +94,7 @@ useHead({
             :style="{ border: `1px solid ${updateColor(borderColor(sponsorData[0].tag))}` }"
           >
             <img
-              :src="`${sponsorData[0].image_url}`"
+              :src="getStaticAvatarUrl(sponsorData[0].image_url)"
               :alt="sponsorData[0].name"
               width="570"
               height="322"
@@ -126,7 +128,7 @@ useHead({
             <VFSpeaker
               v-for="(speaker, index) in speakerData"
               :key="index"
-              :image="speaker.image_url"
+              :image="getStaticAvatarUrl(speaker.image_url)"
               :company="currentLocale === 'en' ? speaker.company_en : speaker.company_ja"
               :division="currentLocale === 'en' ? speaker.position_en : speaker.position_ja"
               :name="currentLocale === 'en' ? speaker.name_en : speaker.name_ja"
@@ -158,7 +160,7 @@ useHead({
           {{ `${sponsorData[0].name}のジョブボード` }}
         </h3>
         <nuxt-link :to="jobData[0].link_url" target="_blank">
-          <img :src="jobData[0].image_url" :alt="jobData[0].image_alt" />
+          <img :src="getStaticAvatarUrl(jobData[0].image_url)" :alt="jobData[0].image_alt" />
         </nuxt-link>
       </div>
 
