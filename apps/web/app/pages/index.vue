@@ -57,6 +57,5 @@ useHead({
   <!--
   <VolunteerPageSection v-if="!config.public.enableRegisterTicket && locale === 'ja'" />
   -->
-  <FormPageSection />
   <TeamPageSection :data="staffs" />
 </template>

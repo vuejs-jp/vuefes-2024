@@ -33,52 +33,6 @@ describe('web', () => {
         })
     })
   })
-  describe('form', () => {
-    it('[ja] contact', () => {
-      loadPage()
-      cy.contains('h2', 'お問い合わせ')
-        .closest('section')
-        .as('section')
-        .within(() => {
-          cy.contains('button', '送信する')
-
-          cy.contains('Vue Fes Japan にご興味をいただき、ありがとうございます')
-          cy.contains('label', 'お名前')
-            .find('input[placeholder="山田太郎"]')
-            .as('input-name')
-          cy.contains('label', 'メールアドレス')
-            .find('input[placeholder="hello@vuefes.jp"]')
-            .as('input-mail')
-          cy.contains('label', 'お問い合わせ内容').find('textarea').as('input-text')
-        })
-
-      cy.get('@input-name').type('やまだ', { force: true })
-      cy.get('@input-mail').type('mymail@vue.com', { force: true })
-      cy.get('@input-text').type('こめんと', { force: true }).blur()
-    })
-    it('[en] contact', () => {
-      loadPage('en')
-      cy.contains('h2', 'Inquiry')
-        .closest('section')
-        .as('section')
-        .within(() => {
-          cy.contains('button', 'Submit')
-
-          cy.contains('Thank you for your interest in Vue Fes Japan')
-          cy.contains('label', 'Name')
-            .find('input[placeholder="John Doe"]')
-            .as('input-name')
-          cy.contains('label', 'Email')
-            .find('input[placeholder="hello@vuefes.jp"]')
-            .as('input-mail')
-          cy.contains('label', 'Your Inquiry').find('textarea').as('input-text')
-        })
-
-      cy.get('@input-name').type('yamada', { force: true })
-      cy.get('@input-mail').type('mymail@vue.com', { force: true })
-      cy.get('@input-text').type('comment', { force: true }).blur()
-    })
-  })
   describe('footer', () => {
     it('[ja] footer', () => {
       loadPage()
