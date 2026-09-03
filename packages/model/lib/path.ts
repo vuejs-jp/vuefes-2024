@@ -1,5 +1,4 @@
 export type Path =
-  | 'form'
   | 'message'
   | 'speaker'
   | 'speaker_cfp'

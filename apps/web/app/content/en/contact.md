@@ -1,1 +1,0 @@
-Thank you for your interest in Vue Fes Japan. If you do not receive a reply within 3 business days, please contact us again.

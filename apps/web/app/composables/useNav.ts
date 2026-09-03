@@ -17,7 +17,6 @@ export function useNav() {
     { text: 'Sponsors', anchor: '#sponsors' },
     // Uncomment out after job board implementation
     // { text: 'Job board', anchor: '#jobboard' },
-    { text: 'Inquiry', anchor: '#form' },
   ].filter((l) => {
     return l !== undefined
   })

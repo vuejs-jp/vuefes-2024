@@ -172,9 +172,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       gtagId: process.env.NUXT_GTAG_ID,
-      newtSpaceUid: process.env.NUXT_NEWT_SPACE_UID,
-      newtFormUid: process.env.NUXT_NEWT_FORM_UID,
-      reCaptchaWebsiteKey: process.env.NUXT_RECAPTCHA_WEBSITE_KEY,
       imageDomains: process.env.NUXT_IMAGE_DOMAINS,
       // supabase
       supabaseUrl: process.env.SUPABASE_URL,
